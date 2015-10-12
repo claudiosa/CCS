@@ -1,0 +1,54 @@
+git config --global user.name "Claudio Cesar de Sá"
+
+FIRST OF ALL
+git config --global user.email claudio.sa@udesc.br
+git clone https://github.com/claudiosa/Aprendendo-GitHub.git
+
+
+EX1
+udesc@F:~/temp/Aprendendo-GitHub$ git status
+udesc@F:~/temp/Aprendendo-GitHub$ git add dicas-identidate.txt 
+udesc@F:~/temp/Aprendendo-GitHub$ git commit -m "uma mensagem aqui"
+[master 0cf5d9c] uma mensagem aqui
+ 1 file changed, 5 insertions(+)
+ create mode 100644 dicas-identidate.txt
+udesc@F:~/temp/Aprendendo-GitHub$ 
+udesc@F:~/temp/Aprendendo-GitHub$ git branch 
+* master
+udesc@F:~/temp/Aprendendo-GitHub$ git remote
+origin
+udesc@F:~/temp/Aprendendo-GitHub$ git push origin master 
+Username for 'https://github.com': claudiosa
+Password for 'https://claudiosa@github.com': 
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 421 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/claudiosa/Aprendendo-GitHub
+   fdcf8af..0cf5d9c  master -> master
+udesc@F:~/temp/Aprendendo-GitHub$ 
+udesc@F:~/temp/Aprendendo-GitHub$ git status
+e repete tudo de novo
+
+Ex2
+
+udesc@F:~/temp/Aprendendo-GitHub$ git status
+udesc@F:~/temp/Aprendendo-GitHub$ git add dicas-usando-git.txt 
+udesc@F:~/temp/Aprendendo-GitHub$ git commit -m "uma mensagem aqui"
+[master d79cc01] uma mensagem aqui
+ 1 file changed, 7 insertions(+)
+udesc@F:~/temp/Aprendendo-GitHub$ git push origin master 
+udesc@F:~/temp/Aprendendo-GitHub$ git status
+
+
+REMOVENDO FILE REMOTO
+
+udesc@F:~/temp/Aprendendo-GitHub$ git rm dicas-identidate.txt 
+udesc@F:~/temp/Aprendendo-GitHub$ git commit
+udesc@F:~/temp/Aprendendo-GitHub$  git push origin master
+udesc@F:~/temp/Aprendendo-GitHub$ git status
+
+
+COMO FAZER?
+ git   ls-remote https://github.com/claudiosa/Aprendendo-GitHub
