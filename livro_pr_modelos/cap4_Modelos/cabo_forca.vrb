@@ -1,0 +1,5 @@
+
+%\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=cabo_de_guerra.scala]
+{\small
+%\inputminted{scala}{cabo_de_guerra02.scala}
+}

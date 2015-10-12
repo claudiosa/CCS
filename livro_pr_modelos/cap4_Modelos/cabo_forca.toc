@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {portuges}
+\beamer@sectionintoc {1}{Um Exemplo de Problema Dificil: Cabo de Guerra}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Modelagem}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{Modelagem}{6}{0}{1}
+\beamer@subsectionintoc {1}{3}{Uma Estrat\IeC {\'e}gia de Implementa\IeC {\c c}\IeC {\~a}o}{7}{0}{1}
+\beamer@subsectionintoc {1}{4}{Implemeta\IeC {\c c}\IeC {\~a}o em Minizinc}{8}{0}{1}
+\beamer@subsectionintoc {1}{5}{Resultados e An\IeC {\'a}lise}{10}{0}{1}
+\beamer@subsectionintoc {1}{6}{Resumindo ... }{11}{0}{1}
