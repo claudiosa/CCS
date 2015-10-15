@@ -1,179 +1,32 @@
-\documentclass{beamer}
-  
-\usepackage[utf8]{inputenc}
-\usepackage[portuges]{babel}
-\usepackage{lmodern, comment}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{pifont}
- \usepackage{listings}
-%%%\usepackage[]{minted}  
- 
-\usetheme{default}
-\usefonttheme{default}
-\usecolortheme{default}
-\useinnertheme{default}
-\useoutertheme{default}
-
-\usetheme{Boadilla}
-
-\begin{comment} 
-\usetheme[width=15mm]{Berkeley}
-%%largura da pagina ao lado
-\makeatletter\beamer@headheight=0.06\textheight
-
-%\usecolortheme{sidebartab}
-%%\useoutertheme[width=58pt,height=25pt,right,hideothersubsections]{sidebar}
-\useinnertheme{rounded}
-\setbeamercolor{title}{bg=red!25!blue,fg=white}
-\setbeamercolor{fo} {bg=red!25!blue,fg=white}
-\setbeamercolor{sidebar}{bg=red!25!blue,fg=white}
-\setbeamercolor{author in sidebar}{fg=black!20!white}
-\setbeamercolor{title in sidebar}{fg=white}
-\setbeamercolor{normal text}{bg=white}
-\setbeamercolor{frametitle}{bg=blue!40!white , fg=yellow}
-\setbeamercolor{section in sidebar}{bg=black,fg=yellow}
-\setbeamercolor{subsection in sidebar}{bg=black,fg=white}
-\setbeamercolor{block title}{bg=red!25!blue,fg=white}
-\setbeamercolor{block body}{bg=blue!20!white,fg=black}
-\setbeamerfont{subsection in sidebar}{size=\tiny}
-\setbeamerfont{title in sidebar}{size=\scriptsize}
-\setbeamerfont{title in frametitle}{size=\normalsize}%% nao funciona
-\setbeamerfont{author in sidebar}{size=\tiny}
-\setbeamercovered{transparent}
-\setbeamertemplate{blocks}[rounded][shadow=true]
-\end{comment}
-
-
-%\setbeamertemplate{footline}
-%{
-%\begin{beamercolorbox}[wd=1\paperwidth,ht=0.05\textheight,dp=1ex,right]{fo}
-%\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
-%  \end{beamercolorbox}
-%}
-
-%%% FIGURAS
-\graphicspath{{../figuras/}{../../figuras/}}
-%%%%\graphicspath{ {/home/user} } {/home/ccs/Dropbox/main_ccs/livro_pr_modelos/}
-
-\title[Modelos em PR -- Estudo de Caso] % (optional, use only with long paper titlebg=blue!20!white,s)
-{Modelos em PR -- Estudo de Caso: \\ Uma Apresentação}
-
-%\subtitle
-%{About some things}
-
-\author[Claudio Cesar de Sá] % (optional, use only with lots of authors)
-{Claudio Cesar de Sá\inst{1}}
-% - Give the names in the same order as the appear in the paper.
-% - Use the \inst{?} command only if the authors have different
-%   affiliation.
-
-\institute[] % (optional, but mostly needed)
-{
-  \inst{1}%
-  Departamento de Ciência da Computação -- DCC\\
-  Centro de Ciências Tecnológicas -- CCT\\
- Universidade do Estado de Santa Catarina -- UDESC
-}
-% - Use the \inst command only if there are several affiliations.
-% - Keep it simple, no one is interested in your street address.
-
-\date[01 out 2015] % (optional, should be abbreviation of conference name)
-{Projeto de um Livro -- Modelos em PR\\
-CCT--UDESC\\ Outubro de 2015 -- SC}
-% - Either use conference name or its abbreviation.
-% - Not really informative to the audience, more for people (including
-%   yourself) who are reading the slides online
-
-\subject{Theoretical Computer Science}
-% This is only inserted into the PDF information catalog. Can be left
-% out. 
-
-
-% If you have a file called "university-logo-filename.xxx", where xxx
-% is a graphic format that can be processed by latex or pdflatex,
-% resp., then you can add a logo as follows:
-
-%\pgfdeclareimage[height=0.5cm]{cor_vertical_rgb.jpg}{cor_horizontal_rgb.jpg}
- %\logo{\pgfuseimage{cor_horizontal_rgb.jpg}}
-%\pgfdeclareimage[height=0.5cm]{institution-logo}{cor_horizontal_rgb.jpg}
-%\logo{\pgfuseimage{cor_horizontal_rgb.jpg}}
-
- 
-
-% If you wish to uncover everything in a step-wise fashion, uncomment
-% the following command: 
-
-%\beamerdefaultoverlayspecification{<+->}
-
-
-\begin{document}
-
-\begin{frame}
-  \titlepage
-\end{frame}
-
-
-
-% Structuring a talk is a difficult task and the following structure
-% may not be suitable. Here are some rules that apply for this
-% solution: 
-
-% - Exactly two or three sections (other than the summary).
-% - At *most* three subsections per section.
-% - Talk about 30s to 2min per frame. So there should be between about
-%   15 and 30 frames, all told.
-
-% - A conference audience is likely to know very little of what you
-%   are going to talk about. So *simplify*!
-% - In a 20min talk, getting the main ideas across is hard
-%   enough. Leave out details, even if it means being less precise than
-%   you think necessary.
-% - If you omit details that are vital to the proof/implementation,
-%   just say so once. Everybody will be happy with that.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Um Exemplo de Problema Dificil: Cabo de Guerra}
-
-
-\begin{frame}
-\frametitle{Um Problema Difícil (NP): Cabo de Guerra}
-
-\begin{figure}[ht!]
- \centering
- \includegraphics[width=0.8\textwidth , height=0.6\textheight]{cabo-de-guerra.jpg}
-% \caption{} 
-%\label{}
-\end{figure}
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Critério de escolha do times: por peso}
-
-\begin{figure}[ht!]
- \centering
- \includegraphics[width=0.7\textwidth , height=0.7\textheight]{separar_por_peso02.jpg}
-\caption{\textit{O mais pesado tem mais força!}} 
-%\label{}
-\end{figure}
-
-\end{frame}
+\section{Cabo de Guerra}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Descrição}
 
-\begin{frame}
-\frametitle{Especificando o problema do Cabo de Guerra}
+\textcolor{red}{Melhorar o enunciado ... mas o outros estão melhores}\\
 
-\begin{block}{Que seja feita a divisão:}
+Várias crianças se encontram para 
+ brincadeira do cabo-de-guerra no pátio da escola. Como será
+ feita a divisão entre as  duas equipes?   ``{\em Por peso}''\/ grita o mais eufórico. Que seja feita a divisão dos times  sobre uma sequência/lista de peso tal como:
+ 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$Joao_1$ & $Pedro_2$ & $Manoel_3$ & .... & $Zeca_n$ \\ \hline
+45 & 39 & 79 & .... & 42  \\ \hline
+\end{tabular}
+\end{center}
 
+\ding{224} Preencha a tabela acima com inteiros e valores de sua família.
+
+\ding{224}  Sim, por peso, todos concordaram,
+ ``{\em exceto que a divisão deveria respeitar o critério $|N_A - N_B| \le 1$}'', disse o 
+mais cauteloso. Sim, nenhum time poderia duas crianças a mais que ou outro time. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Especificação}
+
+Que seja feita a divisão:
 
  
 \begin{center}
@@ -193,19 +46,29 @@ $Joao_1$ & $Pedro_2$ & $Manoel_3$ & .... & $Zeca_n$ \\ \hline
  Um arranjo da ordem de  $\frac{n!}{(n/2)!}$.
  Casualmente, nada trivial  para grandes valores! }
  \end{itemize}
- 
-\end{block}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\ding{224} Dois detalhes:
+
+\begin{enumerate}
+\item Na tabela de pesos, use valores {\bf inteiros};
+
+\item Use os pesos de seus familiares para completar esta tabela
+com um quantidade significativa;
+
+\item No lugar de {\em array} como estrutura base, use {\em sets} para armazenar
+e manipular estes valores. Com certeza ficará mais  {\em elegante}, e 
+possivelmente mais ineficiente. Teste e comprove!
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Modelagem}
 
-\begin{frame}
-\frametitle{Estratégia de Modelagem}
-\begin{block}{}
-  \begin{itemize}
-  \item Variável de Decisão: análogo a árvore do SAT  
+ \begin{itemize}
+
+  \item Usando uma variável de decisão: análogo a árvore do SAT  
  
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|}
@@ -224,15 +87,9 @@ Binária ($x_i$): & 0/1 & 0/1 & 0/1 & .... & 0/1  \\ \hline
 $$\sum_{i=1}^n x_i p_i$$ é o peso total do time $B$ ($P_B$)
   
   \end{itemize}
-\end{block}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Modelagem}
 
-\begin{frame}
-\frametitle{Modelagem das Restrições}
-\begin{block}{}
   \begin{itemize}
   \item Falta encontrar peso total do time $A$ ($P_A$), dado por: 
 
@@ -245,64 +102,40 @@ $$\sum_{i=1}^n x_i p_i$$ é o peso total do time $B$ ($P_B$)
 %%  \item A seguir, tudo isto em código:
   
   \end{itemize}
-\end{block}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Uma Estratégia de Implementação}
+\subsection{Estratégia}%%% de Implementação}
 
-\begin{frame}[fragile]
-\frametitle{Uma Estratégia de Implementação}
-%\begin{block}{Código do Cabo de Guerra (um NP mesmo!)}
+Uma árvore de decisão binária ............ descreva como
+voce implementou ou a fundamentacao
 
 \begin{figure}[ht!]
  \centering
- \includegraphics[width=0.9\textwidth , height=0.7\textheight]{../figuras/binary_tree04.pdf}
+ \includegraphics[width=0.7\textwidth , height=0.3\textheight]{../figuras/binary_tree04.pdf}
 \caption{Se $x_i=0$, então $n_i$ segue para o time $A$, caso  $x_i=1$, então  $n_i$ vai para o time $B$} 
 %\label{}
 \end{figure}
 
-\vspace{-1cm}
-\begin{center}
-\textcolor{red}{Qual a técnica  usada?}
-\end{center}
-%\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Implementação}
 
-\end{frame}
+O código fonte se encontra em:
+
+\url{https://github.com/claudiosa/minizinc/blob/master/CEAVI_2015/cabo_de_guerra.mzn}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Implemetação em Minizinc}
-
-\begin{frame}[fragile]
-\frametitle{Implementação em Minizinc}
-
-%\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=cabo_de_guerra.scala]
-{\small
-%\inputminted{scala}{cabo_de_guerra01.scala}
-}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-%\frametitle{Implementação em Minizinc}
-
-%\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=cabo_de_guerra.scala]
-{\small
-%\inputminted{scala}{cabo_de_guerra02.scala}
-}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Resultados e Análise}
-\begin{frame}
-\frametitle{Resultados e Análise}
-\begin{block}{Números aleatórios de 1 a 150}
+
+
+Considerando pesos aleatórios de 1 a 150 para as pessoas
 
 Usando um \textit{solver} médio do Minizinc (\textit{G12 lazyfd}) padrão:
 
-\begin{center}
+\begin{table}
+  \caption{Resultados ...................}
+   \label{tab:}
+  
+  \begin{center}
   \begin{tabular}{ l | c |c | r }
     \hline  \hline 
     $n$ & tempo & $P_A$ & $P_B$\\ \hline     \hline 
@@ -317,48 +150,11 @@ Usando um \textit{solver} médio do Minizinc (\textit{G12 lazyfd}) padrão:
     175 & 642msec &   6777 &  6778 \\ \hline 
     200 & $>$ 10min & -- & -- \\ \hline \hline
   \end{tabular}
+  
 \end{center}
 
+\end{table}
 Referência: cpu 4-core, 4 G ram, SO: Linux-Debian
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{block}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Resumindo ... }
-
-\begin{frame}
-\frametitle{Reflexões}
-\begin{block}{}   %%%%Implemetação em Minizinc
-\begin{flushleft}
-
-\vspace{1cm}
-\ding{224} \textsf{Enfim, este problema é uma variação de clássicos
-NPs, mais especificamente o \textit{sub-set-sum}}
-
-\vspace{1cm}
-\ding{224} \textsf{Leia-se: Problema da Mochila}
-
-
-\vspace{1cm}
-\ding{224} \textsf{Implemente este problema usando Programação Dinâmica (PD)}
-
-      \end{flushleft}
-
-    \end{block}
-  \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\end{document}
