@@ -1,6 +1,13 @@
+
 git config --global user.name "Claudio Cesar de Sá"
 
-FIRST OF ALL
+Puxar e atualizar do MASTER incondicional
+
+git pull
+
+
+
+FIRST OF ALL :: se fora de sua maquina
 git config --global user.email claudio.sa@udesc.br
 git clone https://github.com/claudiosa/Aprendendo-GitHub.git
 
