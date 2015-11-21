@@ -1,0 +1,10 @@
+#! /bin/sh
+ECLIPSEDIR="${ECLIPSEDIR:-/usr/local/eclipse}"
+LD_LIBRARY_PATH="$ECLIPSEDIR/lib/x86_64_linux:$LD_LIBRARY_PATH:/usr/local/eclipse/tcltk/x86_64_linux/lib"
+TCL_LIBRARY="${TCL_LIBRARY:-/usr/local/eclipse/tcltk/x86_64_linux/lib/tcl8.5}" ## conferir LIBS e PERMISSOES
+TK_LIBRARY="${TK_LIBRARY:-/usr/local/eclipse/tcltk/x86_64_linux/lib/tk8.5}"
+DAVINCIHOME="${DAVINCIHOME:-$ECLIPSEDIR/daVinci/x86_64_linux}"
+#JRE_HOME="${JRE_HOME:-/usr/lib/jvm}"
+JRE_HOME="${JRE_HOME:-/usr}" ### ACERTAR PARA ONDE JAVA estah INSTALADO
+export ECLIPSEDIR TCL_LIBRARY TK_LIBRARY  LD_LIBRARY_PATH DAVINCIHOME JRE_HOME
+exec "/usr/local/eclipse/tcltk/x86_64_linux/bin/wish8.5" "/usr/local/eclipse/lib_tcl/tkeclipse.tcl" -- "$@"

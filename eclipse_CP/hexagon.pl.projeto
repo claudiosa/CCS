@@ -1,0 +1,293 @@
+:- use_module(library('bounds')).
+:- use_module(library('lists')).
+%:- use_module(library(clpfd)).
+
+%verifica se o movimento não é contrario a algum já executado
+movValido(Checker, Move, ListaMovs) :-
+       movsInvalidos(Checker, Move, Movs),
+       verificaMovs(Movs, ListaMovs), !.
+
+verificaMovs([], _) :- true, writeln('  Verifica  '), !.
+verificaMovs([Hm|[]], ListaMovs) :- \+member(Hm, ListaMovs), true, /*writeln('Verifica'),*/ !.
+verificaMovs([Hm|Tm], ListaMovs) :-
+       %write(Hm), write('           '), write(Tm), write('           '), write(ListaMovs), nl,
+       %writeln('dentroVerificaMovs'),
+       \+member(Hm, ListaMovs),
+       %writeln('depoisMember'),
+       verificaMovs(Tm, ListaMovs), !.
+
+
+%Lista de movimentos contrários ao mov. dado. (não devem ser executados)
+movsInvalidos(P, 1, Movs) :- Movs = [[P, 3],[P, 4],[P, 5]].
+movsInvalidos(P, 2, Movs) :- Movs = [[P, 4],[P, 5],[P, 6]].
+movsInvalidos(P, 3, Movs) :- Movs = [[P, 5],[P, 6],[P, 1]].
+movsInvalidos(P, 4, Movs) :- Movs = [[P, 6],[P, 1],[P, 2]].
+movsInvalidos(P, 5, Movs) :- Movs = [[P, 1],[P, 2],[P, 3]].
+movsInvalidos(P, 6, Movs) :- Movs = [[P, 2],[P, 3],[P, 4]].
+
+%gera lista com todas as movimentações possíveis
+%nota: ainda não restringe moimentações contrárias as realizadas anteriormente.
+geraListaMovs(0,L) :- L = [], !.
+
+geraListaMovs(NumMovs,[[Checker,Move]|T]) :-
+        Checker in 1..5,
+        Move in 1..6,
+        N #= NumMovs - 1,
+        labeling([ff],[Checker,Move]),
+        %write(Checker), write('   '), write(Move), write('   '), write(T), nl,
+        geraListaMovs(N,T).
+        %movValido(Checker, Move, T).
+
+
+
+%troca elemento na lista. Insere a nova posição da peça.
+%replace([],_,_,_) :-
+%        fail.
+
+replace([_|T],Elem,1,[HR|R]) :-
+        HR = Elem,
+        R = T,
+        !.
+replace([H|T],Elem,Index,[H|R]) :-
+        succ(II,Index),
+        replace(T,Elem,II,R).
+        
+
+%Pega informações da peça desejada na lista.
+%pegaElem(_,[],_) :-
+%        fail.
+
+pegaElem(1,[H|_],Elem) :-
+        Elem = H,
+        !.
+pegaElem(Index,[_|T],Elem) :-
+        succ(Ind,Index),
+        pegaElem(Ind,T,Elem).
+
+
+
+/*
+%verifica se as peças estão em alguma das 3 posições desejadas
+posicaoFinal1(Checkers) :-
+        Checkers = [[CX1, _], [CX2, _], [CX3, _], [CX4, _], [CX5, _]],
+        all_different(Checkers),
+        CX1 #= 3,
+        CX2 #= 3,
+        CX3 #= 3,
+        CX4 #= 3,
+        CX5 #= 3,
+        writeln(Checkers).
+
+posicaoFinal2(Checkers) :-
+        Checkers = [[CX1, CY1], [CX2, CY2], [CX3, CY3], [CX4, CY4], [CX5, CY5]],
+        all_different(Checkers),
+        CX1 + CY1 #= 6,
+        CX2 + CY2 #= 6,
+        CX3 + CY3 #= 6,
+        CX4 + CY4 #= 6,
+        CX5 + CY5 #= 6,
+        writeln(Checkers).
+
+posicaoFinal3(Checkers) :-
+        Checkers = [[_, CY1], [_, CY2], [_, CY3], [_, CY4], [_, CY5]],
+        all_different(Checkers),
+        CY1 #= 3,
+        CY2 #= 3,
+        CY3 #= 3,
+        CY4 #= 3,
+        CY5 #= 3,
+        writeln(Checkers).
+
+posicaoFinal(Checkers) :-
+        posicaoFinal1(Checkers);
+        posicaoFinal2(Checkers);
+        posicaoFinal3(Checkers). */
+
+posicaoFinal(Checkers) :-
+        permutation(Checkers, [[3,1],[3,2],[3,3],[3,4],[3,5]]);
+        permutation(Checkers, [[1,3],[2,3],[3,3],[4,3],[5,3]]);
+        permutation(Checkers, [[1,5],[2,4],[3,3],[4,2],[5,1]]).
+
+
+
+%Percorre uma lista de movimentações já existente, alterando as posições das peças.
+percorreListaMovs(Checkers, []) :- posicaoFinal(Checkers).
+percorreListaMovs(Checkers, [[Checker,Move]|[]]) :-
+        pegaElem(Checker, Checkers, C0),
+        move(Move,Checker, C0),
+        valid(C0),
+        replace(Checkers,C0,Checker,NewCheckers),
+        all_different(NewCheckers),
+        posicaoFinal(NewCheckers).
+        
+percorreListaMovs(Checkers, [[Checker,Move]|T]) :-
+        pegaElem(Checker, Checkers, C0),
+        move(Move,C0, C1),
+        valid(C1),
+        replace(Checkers,C1,Checker,NewCheckers),
+        all_different(NewCheckers),
+        percorreListaMovs(NewCheckers, T).
+
+
+%Imprime as linhas do tabuleiro, linha a linha
+imprimeLinha1(Checkers) :-
+        write('      '),
+        (member([1,3],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([1,4],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([1,5],Checkers) -> write('[X]'); write('[ ]')),
+        nl.
+        
+imprimeLinha2(Checkers) :-
+        write('   '),
+        (member([2,2],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([2,3],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([2,4],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([2,5],Checkers) -> write('[X]'); write('[ ]')),
+        nl.
+        
+imprimeLinha3(Checkers) :-
+        (member([3,1],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([3,2],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([3,3],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([3,4],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([3,5],Checkers) -> write('[X]'); write('[ ]')),
+        nl.
+        
+imprimeLinha4(Checkers) :-
+        write('   '),
+        (member([4,1],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([4,2],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([4,3],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([4,4],Checkers) -> write('[X]'); write('[ ]')),
+        nl.
+        
+imprimeLinha5(Checkers) :-
+        write('      '),
+        (member([5,1],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([5,2],Checkers) -> write('[X]'); write('[ ]')),
+        write('   '),
+        (member([5,3],Checkers) -> write('[X]'); write('[ ]')),
+        nl.
+        
+imprimeLinhas(Checkers) :-
+        writeln('   '),
+        imprimeLinha1(Checkers),
+        imprimeLinha2(Checkers),
+        imprimeLinha3(Checkers),
+        imprimeLinha4(Checkers),
+        imprimeLinha5(Checkers),
+        writeln('   ').
+
+
+
+
+%Imprime movimentações no tabuleiro, chamando a função imprimeLinhas a cada movimentação de peça        
+imprimeMovs(Checkers, []) :- imprimeLinhas(Checkers), writeln('Fim'), !.
+imprimeMovs(Checkers, [[Checker,Move]|[]]) :-
+        pegaElem(Checker, Checkers, C0),
+        move(Move,Checker, C0),
+        replace(Checkers,C0,Checker,NewCheckers),
+        imprimeLinhas(NewCheckers).
+
+imprimeMovs(Checkers, [[Checker,Move]|T]) :-
+        imprimeLinhas(Checkers),
+        pegaElem(Checker, Checkers, C0),
+        move(Move,C0, C1),
+        replace(Checkers,C1,Checker,NewCheckers),
+        imprimeMovs(NewCheckers, T).
+
+
+
+%"Traduz" as movimentações das peças.
+move(1,[X,Y], [X1,Y1]) :- X1 #=X,   Y1 #=Y-1.
+move(2,[X,Y], [X1,Y1]) :- X1 #=X+1, Y1 #=Y-1.
+move(3,[X,Y], [X1,Y1]) :- X1 #=X+1, Y1 #=Y.
+move(4,[X,Y], [X1,Y1]) :- X1 #=X,   Y1 #=Y+1.
+move(5,[X,Y], [X1,Y1]) :- X1 #=X-1, Y1 #=Y+1.
+move(6,[X,Y], [X1,Y1]) :- X1 #=X-1, Y1 #=Y.
+
+
+
+/*
+ 1 2
+6 # 3
+ 5 4
+
+[ ][ ][1][ ][ ]
+[ ][ ][2][ ][ ]
+[ ][ ][3][ ][ ]
+[ ][ ][4][ ][ ]
+[ ][ ][5][ ][ ]
+
+[ ][ ][ ][ ][1]
+[ ][ ][ ][2][ ]
+[ ][ ][3][ ][ ]
+[ ][ ][4][ ][ ]
+[5][ ][ ][ ][ ]
+
+[ ][ ][ ][ ][1]
+[ ][ ][ ][2][ ]
+[ ][ ][3][ ][ ]
+[ ][4][ ][ ][ ]
+[5][ ][ ][ ][ ]
+
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[1][2][3][4][5]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+
+[  ][  ][1][1][1]
+[  ][1][1][1][1]
+[1][1][1][1][1]
+[1][1][1][1][  ]
+[1][1][1][  ][  ]
+
+
+[  ][  ][  ][1][1][1][1]
+[  ][  ][1][1][1][1][1]
+[1][1][1][1][1][1][1]
+[1][1][1][1][1][1][  ]
+[1][1][1][1][1][  ][  ]
+[1][1][1][1][  ][  ][  ]
+
+
+   . . .
+  . . . .
+ . . . . .
+  . . . .
+   . . .
+*/
+
+
+%Verifica se a posição da peça é válida
+valid([1, Y]) :- Y #>= 3, Y #=< 5.
+valid([2, Y]) :- Y #>= 2, Y #=< 5.
+valid([3, Y]) :- Y #>= 1, Y #=< 5.
+valid([4, Y]) :- Y #>= 1, Y #=< 4.
+valid([5, Y]) :- Y #>= 1, Y #=< 3.
+
+
+
+%Função principal do programa. Gera lista de movimentações e as testa até encontrar uma válida.
+hexagon(Checkers,Resultado,Movs) :-
+        Resultado #>= 0,
+        labeling([ff],[Resultado]),
+        geraListaMovs(Resultado,Movs),
+        percorreListaMovs(Checkers, Movs),
+        !.
+

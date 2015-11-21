@@ -1,0 +1,111 @@
+Faça os downloads em 
+
+http://eclipseclp.org/download.html
+veja a ultima versao em:
+http://eclipseclp.org/Distribution/
+
+Siga os passos:
+.......
+
+mkdir clp_eclipse
+mv eclipse_misc.tgz  clp_eclipse/
+mv eclipse_basic.tgz clp_eclipse/
+mv eclipse_doc.tgz clp_eclipse/
+mv tcltk.tgz clp_eclipse/
+cd clp_eclipse/
+tar -xvf tcltk.tgz
+tar -xvf eclipse_basic.tgz
+tar -xvf eclipse_misc.tgz
+tar -xvf eclipse_doc.tgz
+coca@russel:~/Downloads/clp_eclipse$ cd ..
+
+Agora como root:
+su
+Senha:
+root@russel:/home/coca/Downloads# 
+mv clp_eclipse/ /usr/share/
+cd /usr/share/
+cd clp_eclipse/
+
+ou cd /usr/share/clp_eclipse/
+
+Confira, deve ter algo assim:
+root@goedel:/usr/share/clp_eclipse# ls /usr/share/clp_eclipse/
+ARCH               eclipse_doc.tgz    legal/             lib_tcl/           RUNME
+doc/               eclipse_misc.tgz   lib/               man/               tcltk/
+eclipse_basic.tgz  include/           lib_public/        README_UNIX        tcltk.tgz
+
+
+Saiba apenas onde está a interface TCL, por exemplo:
+/usr/share/clp_eclipse/tcltk/i386_linux/lib   ## se for i386
+
+No caso de X64  confirme dando um ls
+root@goedel:/usr/share/clp_eclipse# ls /usr/share/clp_eclipse/tcltk/x86_64_linux/lib/
+libtcl8.5.so     libtk8.5.so     tcl8    tclConfig.sh  tkConfig.sh
+libtclstub8.5.a  libtkstub8.5.a  tcl8.5  tk8.5
+root@goedel:/usr/share/clp_eclipse# 
+
+AGORA EXECUTE e siga os passos com atenção:
+./RUNME 
+se quiser java ... vj o caminho de onde está o seu Java
+tem que ter o HOME_JAVA e PLUGIN_JAVA definidos... mas é opcional
+
+caso de problemas, ^C e repita o ./RUNME
+
+
+Crie os links simbólicos em:
+cd /usr/bin/
+ln -s /usr/share/clp_eclipse/bin/i386_linux/tkeclipse tkeclipse
+ln -s /usr/share/clp_eclipse/bin/i386_linux/eclipse eclipse
+
+ou no caso X64:
+
+root@goedel:/usr/bin# ln -s /usr/share/clp_eclipse/bin/x86_64_linux/tkeclipse tkeclipse
+root@goedel:/usr/bin# ln -s /usr/share/clp_eclipse/bin/x86_64_linux/eclipse eclipse
+
+root@goedel:/home/ccs# cd /usr/bin/
+root@goedel:/usr/bin# ln -s /usr/share/eclipse/bin/x86_64_linux/tkeclipse tkeclipse
+root@goedel:/usr/bin# ln -s /usr/share/eclipse/bin/x86_64_linux/eclipse eclipse
+root@goedel:/usr/bin# ln -s /usr/share/eclipse/bin/x86_64_linux/tktools  tktool
+
+Teste:
+Execute de um xterm:
+tkeclipse ... e tem que vir o tkeclipse que é gráfico (tcl-tk)
+... depois crie um atalho no desktop para facilitar.
+
+ou 
+
+ECLiPSe installation done.
+You should now add /usr/share/eclipse/bin/x86_64_linux
+to your PATH environment variable.
+
+Outra instalação:
+
+Apos download ...
+
+
+
+root@goedel:/usr/share# mv   ~ccs/Downloads/temp/* eclipse/
+root@goedel:/usr/share/eclipse# ls
+ARCH  eclipse_basic.tgz  eclipse_misc.tgz  legal  lib_public  man	   RUNME  tcltk.tgz
+doc   eclipse_doc.tgz	 include	   lib	  lib_tcl     README_UNIX  tcltk  UNPACK
+root@goedel:/usr/share/eclipse# mv *.tgz  ~ccs/Downloads/temp/
+root@goedel:/usr/share/eclipse# ls
+ARCH  doc  include  legal  lib	lib_public  lib_tcl  man  README_UNIX  RUNME  tcltk  UNPACK
+root@goedel:/usr/share/eclipse# ./RUNME 
+.........................................
+Do you wish to regenerate it [n]? 
+Hit return to accept, or enter new value: y
+............................................
+ECLiPSe installation done.
+You should now add /usr/share/eclipse/bin/x86_64_linux
+to your PATH environment variable.
+root@goedel:/usr/share/eclipse#
+
+
+Problema
+
+ERRO de Permissao em tcl e wish
+SOLUCAO permissao de usuario comum a todos ....
+
+
