@@ -1,0 +1,5 @@
+        letras( [ a, b, c, d ] ).
+                  ^
+                  |
+                  |
+          cabeca da lista

@@ -1,0 +1,174 @@
+
+\documentclass[12pt, a4paper,final]{article}
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage[portuges]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{float}
+%\usepackage{graphicx}
+\topmargin       -1cm
+ \headheight      17pt
+ \headsep  1cm
+\textheight      24cm
+\textwidth       16.3cm
+\oddsidemargin   2mm
+\evensidemargin  2mm
+\pagestyle{empty}
+%%\restylefloat{figure}
+%\restylefloat{table,figure}  
+\begin{document}
+
+\begin{center}
+\fbox{\fbox{\parbox [c][2.5cm][c]{15cm} {
+\centering {\large Recursividade em Prolog \\
+Lista de Exercícios \\
+Laboratório (\today)\\
+%Mestrado do DEE - 2008.1
+Revisão -- Aquecimento
+}
+ }}}
+\end{center}
+
+%\framebox[\textwidth][c]{Lógica e Programação em
+%Lógica  (LPL) - 2a. Parte Prática}
+%\newline
+%%Alunos (até 02): \hrulefill
+%%%\noindent
+Usando o conceito de recursividade, faça os
+predicados/regras solicitados\footnote{Para tornar efetivo o aprendizado, 
+ative o {\em guitracer} e execute com o {\em trace}
+ativado em alguns casos.}:
+\begin{enumerate}
+%%\setlength{\itemsep}{-3pt}
+
+\item Antes de começar revise e execute os exemplos da apostila.
+Feito isto, parabéns, então siga enfrente.
+
+\item Traduza e ilustre com exemplos,  uma solução recursiva para os  textos
+abaixo:
+\begin{enumerate}
+\setlength{\itemsep}{-5pt}
+\item Seja o conceito de ancestral: "{\em If Y is a parent of X, then Y is an ancestor of X. 
+if Y is an ancestor of Z and Z is a parent of X,
+     then Y is an ancestor of X}''. Reuse esta solução,
+     para gerar um conceito de descendente.
+       
+
+\item Voce fala bem alguém, se voce  conhece este alguém. Ou ainda, voce fala bem
+sobre uma pessoa Y (alguém), se voce conhece uma pessoa Z e
+  Z a qual fala bem sobre a pessoa  Y.
+Inspirado em: {\em You talk about someone either if you know them or you know someone 
+who talks about them}.
+
+\item Seja o conceito de número natural dado pelo seguintes 
+regras recursivas: "{\em $0$   is represented as $0$
+$N+1$ is represented as $s(X)$, where $X$ is a representation of $N$}". Demonstre
+que $7$ é um número natural.
+
+\end{enumerate}
+
+\item Gerar e imprimir uma seqüência de números
+em ordem {\bf crescente}, do tipo: 1 2 3 4 \ldots 99.
+Protótipo da regra: gera\_cresc(N).
+
+\item Uma variante da anterior, é entre  dois
+números quaisquer $N1$ e $N2$, tal que $N2 > N1$. Logo um protótipo da
+regra é do tipo: gera\_cresc$(N1, N2)$.
+
+\item Gerar a soma dos múltiplos de {\bf 7} até um
+valor N (verificar se este também é múltiplo de
+7, ou maior até o último múltiplo) a partir de 0
+ou 7.
+
+\item A soma recursiva entre dois números $N1$ e
+$N2$, tal que $N2 > N1$.
+
+\item Construir um conjunto de regras tal que
+imprima uma certa quantidade $N$ de $\ast $
+(asteriscos) em uma linha corrente. Protótipo da
+regra: ast(N).
+
+\item Aproveitando as regras do item anterior,
+imprimir estes asteriscos de modo a saída forme
+um triângulo do tipo:{\small
+\begin{verbatim}
+*****
+****
+***
+**
+*
+\end{verbatim}}
+
+A idéia é que a cada linha, o número de $\ast $ a
+serem impressos diminua. Protótipo da regra:
+triang(N).
+
+\item Um conjunto de triângulos tipo fractal
+\begin{figure}[H]
+{\bf {\small
+\begin{verbatim}
+*** *** ***
+**  **  **
+*   *   *
+*** ***
+**  **
+*   *
+***
+**
+*
+\end{verbatim}}}
+\end{figure}
+Dificuldade razoável e apenas use a idéia
+do anterior.
+
+ \item Imprimir asteriscos, de modo que a
+saída sejam quadrados. Ex: ?- quad(3), gera uma
+saída do tipo: {\small
+\begin{verbatim}
+***
+***
+***
+\end{verbatim}
+} Isto é, um quadrado formado por $3$ linhas, tem $3$ asteriscos em cada uma.
+Protótipo da regra: quad(N). \\
+Dica inicial: quad(N):- quad\_aux(Linhas,Colunas).
+
+\item Predicados que calculem a função de
+Fibonacci onde $fib(x)=1$ se $x=<2$ e, caso
+contrário, $fib(x)=fib(x-1)+fib(x-2)$. Está no texto.
+
+\item Um conjunto de regras que encontre o Máximo
+Divisor Comum (MDC) entre dois números $X$ e $Y$.
+Protótipo da regra: mdc(X,Y,Max\_div).
+Pesquise pelo Algoritmo de Euclides.
+
+\item Um predicado que identifique se um
+número é primo ou não.
+
+\item Reusando o anterior, imprima uma
+sequência de números primos.
+
+\item Para um $n$ par, calcule a
+ soma de uma série matemática tipo:
+$$
+\frac{2}{3}+\frac{4}{5}+\frac{6}{7}+ ...+\frac{n}{n+2}
+$$
+
+\item Construa um conjunto de regras que
+faça um sistema de menu (ver apostila), mas
+que cada uma das ações, seja algum dos
+problemas acima. Ou seja, incorporar alguns
+problemas sob um sistema de menu.
+
+\item Pesquise e resolva o problema da torre de Hanoi.
+
+
+\end{enumerate}
+
+Como $17$ é um número primo, ficamos por aqui!
+%%$\ast $ Observação: Entrega {\bf em papel},
+%%rascunho, ou a mão, mas em {\bf papel} !
+
+\end{document}

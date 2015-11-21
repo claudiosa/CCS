@@ -1,0 +1,8 @@
+
+main :- 
+       monta_1([a,b,c], X1), write(X1) , nl,
+	   monta_1([a,b,c, 1,2,3,4,5], X2), write(X2), nl,
+	   monta_1([1,2,3,4,5, a,b,c, 1,2,3,4,5], X3), write(X3), nl,
+	   monta_1([a], X4) , write(X4), nl,
+	   monta_1([a,b], X5), write(X5), nl,
+	   monta_1([],  X6 ),  write(X6) , nl.

@@ -1,0 +1,21 @@
+findall, setof e bagof
+format
+var e nonvar
+atom e string
+atomic
+ground
+compound e functor
+integer e float
+callable e call
+
+statistics \*para estatasticas
+do sistema, tempo de cpu, etc.*\
+
+  statistics(cputime,T1),
+  statistics(cputime ,T2),
+  Temp is T2 - T1, 
+  format('\n T1: ~f \t T2: ~f  msec', [T1, T2]),
+  format('\n Tempo total: ~10f  msec', Temp).
+
+trace e notrace
+spy e nospy 

@@ -1,0 +1,8 @@
+if - then - else
+
+?- (23 > 45 -> write(23) ; write(45)).
+45
+true.
+
+for
+while

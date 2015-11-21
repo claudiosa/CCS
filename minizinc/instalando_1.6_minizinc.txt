@@ -1,0 +1,84 @@
+
+
+Baixe a ultima versao de:
+http://www.g12.csse.unimelb.edu.au/minizinc/
+
+1. Ler e seguir http://www.g12.csse.unimelb.edu.au/minizinc/downloads/doc-xxxx/README
+ponha em algo como /usr/share/
+2. Apos como ccs: $ sh SETUP
+vais obter algo como:
+ccs@pariou:/usr/share/minizinc-xxxxx# sh SETUP 
+-- G12 MiniZinc distribution setup complete.
+
+-- Don't forget to add /usr/share/minizinc-1.4.2/bin to your PATH
+-- and /usr/share/minizinc-1.4.2/doc/man to your MANPATH.
+
+3. Atualiza PATH e MANPATH em geral estah no /etc/bash.bashrc 
+PATH=$PATH:"/bin:/usr/share/eclipse/bin/x86_64_linux:/usr/share/minizinc-xxxx/bin"
+MANPATH=$MANPATH:/usr/share/minizinc-1.4.2/doc/man
+export PATH MANPATH
+echo  "............."
+
+4. Faça os testes de  http://www.g12.csse.unimelb.edu.au/minizinc/downloads/doc-xxxx/README
+
+
+
+Instalacao da versao 1.6
+Apos baixar a ultima versao 
+
+TUDO COMO USER NORMAL .... um user ....
+
+ccs@goedel:/home/ccs/Downloads# mv minizinc-1.6-x86_64-unknown-linux-gnu.tar.gz /usr/share/
+ccs@goedel:/home/ccs/Downloads# cd /usr/share/
+ccs@goedel:/usr/share# tar zxf minizinc-1.6-x86_64-unknown-linux-gnu.tar.gz
+ccs@goedel:/usr/share# rm minizinc-1.6-x86_64-unknown-linux-gnu.tar.gz
+ccs@goedel:/usr/share# cd minizinc-1.6/
+ccs@goedel:/usr/share/minizinc-1.6#
+
+ccs@goedel:/usr/share/minizinc-1.6# sh SETUP 
+-- G12 MiniZinc distribution setup complete.
+
+-- Don't forget to add /usr/share/minizinc-1.6/bin to your PATH
+-- and /usr/share/minizinc-1.6/doc/man to your MANPATH.
+
+ccs@goedel:/usr/share/minizinc-1.6# 
+
+
+tinha dado PROBLEMA de permissão
+ccs@goedel:/home/ccs/Downloads# chown ccs.profs -R /usr/share/minizinc-1.6/
+root@gerzat:/usr/local# chown ccs.casa -R /usr/local/minizinc-1.6/
+
+Agora falta por os caminho para isto ai.....
+
+Adicionei a seguinte linha
+MANDATORY_MANPATH	        /usr/share/minizinc-1.6/doc/man  
+em   /etc/manpath.config 
+
+root@goedel:/etc# manpath -C manpath.config 
+/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/share/minizinc-1.6/doc/man
+root@goedel:/etc# man minizinc
+root@goedel:/etc# terah que vir OK ....
+
+e 
+
+em algum lugar do seu sistema adicione o caminho
+PATH=$HOME/bin:$PATH:/usr/share/eclipse/bin/x86_64_linux:/usr/share/minizinc-1.6/bin
+    
+ou 
+ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/minizinc-1.6/bin"
+ em /etc/profile por root
+ 
+     
+export PATH
+
+meu .profile LOCAL de usuario:
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH:/usr/share/eclipse/bin/x86_64_linux:/usr/share/minizinc-1.6/bin"
+fi
+
+Ou INSTALE em algum lugar e crie um link simbolico em /usr/bin ....
+algo como (em  /usr/bin)
+ln -s /usr/share/minizinc-1.6/bin/minizinc minizinc
+e
+chmod +x minizinc  (em  /usr/bin)

@@ -1,0 +1,6 @@
+next_state(S,Nxt) :-  <fill in here>.
+safe_state(Nxt) :- <fill in here>.
+no_loop(Nxt,Visited) :- <fill in here>.     
+
+start(...).
+goal(...).
