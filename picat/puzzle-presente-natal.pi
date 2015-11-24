@@ -14,12 +14,31 @@ Para executar: $ picat puzzle-presente-natal.pi
 
 */
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%COR
+
 import cp.
+%%% '?=>' DEVEM ESTAR GRUDADOS ....
+main ?=> modelo_presente (L),
+	 imprime_lista ( L ),
+	 fail. %%% SE HOUVER OUTRAS COMBINACOES ....
+	 %%% EH MAIS LENTO MAS MOSTRA TODAS COMBINACOES
 
-main => go_modelo.
+main => nl, 
+        writeln('.........FIM........').      
 
-go_modelo =>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+modelo_presente(Lista_Vars_Modelo) =>
+      
+        Lista_Vars_Modelo = 
+	[
+        COR1, NOME1, IDADE1, PRESENTE1, SUCO1, PROFISSAO1,
+        COR2, NOME2, IDADE2, PRESENTE2, SUCO2, PROFISSAO2,
+        COR3, NOME3, IDADE3, PRESENTE3, SUCO3, PROFISSAO3,
+        COR4, NOME4, IDADE4, PRESENTE4, SUCO4, PROFISSAO4,
+        COR5, NOME5, IDADE5, PRESENTE5, SUCO5, PROFISSAO5
+	],
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%COR
 	cor(COR1), cor(COR2), cor(COR3), cor(COR4),
 	cor(COR5),
 	alldifferent([COR1, COR2, COR3, COR4, COR5]),
@@ -32,7 +51,7 @@ go_modelo =>
 	COR4 #= verde,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%nomes
+%NOMES
 	nome(NOME1), nome(NOME2), nome(NOME3), nome(NOME4),
 	nome(NOME5),
 	alldifferent([NOME1, NOME2, NOME3, NOME4, NOME5]),
@@ -203,17 +222,8 @@ go_modelo =>
 
 	(PROFISSAO1 #= bombeiro;PROFISSAO5 #= bombeiro),
 
- Lista_Vars = [
-        COR1, NOME1, IDADE1, PRESENTE1, SUCO1, PROFISSAO1,
-        COR2, NOME2, IDADE2, PRESENTE2, SUCO2, PROFISSAO2,
-        COR3, NOME3, IDADE3, PRESENTE3, SUCO3, PROFISSAO3,
-        COR4, NOME4, IDADE4, PRESENTE4, SUCO4, PROFISSAO4,
-        COR5, NOME5, IDADE5, PRESENTE5, SUCO5, PROFISSAO5],
-	solve([ff],  Lista_Vars),
-%% output
-	% writeln(Vars)
-	%writeln(L).
-	imprime_lista( Lista_Vars ).
+        %%% SEARCH_EXPLORE
+	solve([ff],  Lista_Vars_Modelo).
 
 
 
@@ -272,10 +282,10 @@ alldifferent([]) ?=> true.
 alldifferent([H|T]) => not(member(H,T)),
                        alldifferent(T).
 
-imprime_lista([]) ?=> nl, writeln('...FIM...').
+imprime_lista([]) ?=> true. % nl, writeln('...FIM...').
 
 imprime_lista([Cor,Nome,Idade,Presente, Suco, Profissao|T])=> 
            %write('.............'),     
            writeln([Cor,Nome,Idade,Presente, Suco, Profissao]),
 	   imprime_lista(T).
-		       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		       
