@@ -1,0 +1,16 @@
+normal_reverse([])    = [].
+normal_reverse([H|T]) = normal_reverse(T) ++ [H].
+
+tailend_reverse(List)           = tailend_reverse_aux(List, []).
+tailend_reverse_aux([], Acc)    = Acc.
+tailend_reverse_aux([H|T], Acc) = tailend_reverse_aux(T, ([H]++Acc)).
+
+dummy([])    = [].
+dummy([H|T]) = dummy(T).
+
+% to benchmark type the following into the interpreter:
+% _List=1..10000000, dummy(_List)=_RList
+% _List=1..9000, time(normal_reverse(_List)=_RList)
+% _List=1..100000, time(normal_reverse(_List)=_RList)
+% _List=1..1000000, time(tailend_reverse(_List)=_RList)
+% _List=1..10000000, time(tailend_reverse(_List)=_RList)
