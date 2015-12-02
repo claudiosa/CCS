@@ -65,3 +65,23 @@ udesc@F: $ git status
 
 COMO FAZER?
  git   ls-remote https://github.com/claudiosa/..............
+
+%%%% FUNCIONA ... vejam
+CCS$ git pull
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 6), reused 10 (delta 6), pack-reused 0
+Unpacking objects: 100% (10/10), done.
+From https://github.com/claudiosa/CCS
+   45c6406..6e9032b  master     -> origin/master
+Updating 45c6406..6e9032b
+Fast-forward
+ aprendendo-GitHub/dicas-usando-git.txt             |  48 +-
+ .../TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.aux |   9 +
+ .../TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.log | 563 +++++++++++++++++++++
+ .../TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.pdf | Bin 173058 -> 174165 bytes
+ .../TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.tex |  16 +-
+ 5 files changed, 614 insertions(+), 22 deletions(-)
+ create mode 100644 prolog/TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.aux
+ create mode 100644 prolog/TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.log
+
