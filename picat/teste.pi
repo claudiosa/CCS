@@ -1,6 +1,9 @@
 
 main =>
-    imprime_lista([a,b,c]).
+    nl,
+    imprime_lista([a,b,c]), 
+    nl, 
+    writeln('FIM main').
 
 	imprime_lista([]) ?=>  true. %write("\n FIM \n").
 	imprime_lista([H|T]) => 

@@ -12,3 +12,4 @@ queens(N) =>
     end,
     solve([ff],Qs),
     writeln(Qs).
+ /*****************************/

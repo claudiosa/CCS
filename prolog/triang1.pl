@@ -7,7 +7,7 @@ w_l(N) :- N > 0,
 		  Ant is (N-1),
 		  w_l(Ant).
 		  
-		  
+main :- t(6).		  
 t(0).		  
 /*t(1) :- w_l(1).		   	
 
