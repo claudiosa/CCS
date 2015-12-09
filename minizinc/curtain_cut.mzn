@@ -1,3 +1,4 @@
+
 /*
 
 Tem-se M varoes (paus que suportam a cortina) de medidas diversas
@@ -12,8 +13,8 @@ Solucao como saida MATRIX ((n+1) x m)
 
 Varoes  ---> 1    ............   m
 Uso dos 
-varoes  ---> 1/0 ............... 1/0 ... usado ou nao
-Jan 1   --->  0/corte .........  0/corte 
+varoes (1/0)  ---> 1/0 ............... 1/0 ... usado ou nao
+Jan 1   --->  0/1(houve corte) .........  0/1(houve corte)
 isto é 0 Nao foi selecionada ou nao precisou de corte num ponto do varao j
 ..................................................................
 ..................................................................
@@ -22,7 +23,8 @@ isto é 0 Nao foi selecionada ou nao precisou de corte no ponto  do varao j
 ..................................................................
 
 Logo, uma saida matricial indicando quais os varoes serao cortados
-e onde cada um serah cortado.
+e onde cada um serah cortado: 1 -> corte, onde?
+Janela i
 
 */
 
@@ -36,7 +38,8 @@ int: m = 3 ; %% fences availble
 array[1..m] of int : sticks; %% availble or allowed fences
 array[1..n] of int : windows; %% to be covered
 
-array[1..n , 1..m] of var 0..ub_array(sticks) : x_solution;
+array[0..n , 1..m] of var 0..ub_array(sticks) : x_solution;
+%% index line start in 0
 
 %%:array[1..n] of var 0..ub_array(qt_item) : x_decision;
 
@@ -48,21 +51,21 @@ var int: total_lenght;
 var int: perimeter;
 
 %% Different fences to choose
-constraint
-  alldifferent (  x_solution  );
+%constraint
+%  alldifferent (  x_solution  );
 
 constraint
-    perimeter = sum( j in 1..n ) (  polygon[ j ]  );
+    perimeter = sum( j in 1..n ) (  x_solution[i][j]   );
 
-constraint
-    total_lenght = sum( j in 1..n ) (  fences[x_solution[ j ] ]  );
+%constraint
+%    total_lenght = sum( j in 1..n ) (  fences[x_solution[ j ] ]  );
 
 
 /* %%% one of the most important ... but overestimated */
 constraint
        exists(j in 1 .. m) 
         ( forall(i in 1 .. n) 
-         ((fences[j] > polygon[i]) -> (x_solution [ i ] ==  j))  
+         ((sticks[j] > windows[i]) -> (x_solution[ i ][j] ==  ??? ))  
         );
 
        
