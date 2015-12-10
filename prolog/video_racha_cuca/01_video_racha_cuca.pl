@@ -7,7 +7,7 @@
 main :-
     %% Tempo inicial
     statistics(cputime,T1),
-   
+
     modelo(L), 
     imprime_lista(L),
  
@@ -18,11 +18,14 @@ main :-
     format('\n Tempo total: ~10f  msec', Tempo_BUSCA), 
     fail.
 
-main  :- nl, 
-         write('xxxx AQUI SOH PODE VIR UMA RESPOSTA ....'),
-         nl, write('........ UFA ....'). 
+main :- 
+        nl, 
+        write('xxxx AQUI SOH PODE VIR UMA RESPOSTA ....'),
+        nl, 
+        write('........ UFA apos o fail .......'). 
 
- 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 modelo([ (Mo1, N1, Mes1, J1, Mat1, S1),
          (Mo2, N2, Mes2, J2, Mat2, S2),
@@ -57,12 +60,6 @@ alldifferent([N1, N2, N3, N4, N5]),
 
 %%%%%%%%%% SOH REGRAS COM MOCHILA + NOMES ... e nada mais
 
- 
-%O garoto da mochila Branca está exatamente à esquerda de Will.
-
-
-  
-
    
 %%%%%%%%%%%%%%%%%%%%%%%% Mês
 mes(Mes1), 
@@ -73,6 +70,7 @@ mes(Mes5),
 alldifferent([Mes1, Mes2, Mes3, Mes4, Mes5]),
 
 %%%%write('CHEGAMOS lah '),
+
 %%%%%%%%%% SOH REGRAS COM MOCHILA + NOMES + MES ... e nada mais
  %%% USANDO A NEGACAO 
 Mes1 \== ago, 
@@ -85,6 +83,7 @@ jogo(J2),
 jogo(J3), 
 jogo(J4), 
 jogo(J5),
+
 %Na terceira posição está o menino que gosta do Jogo da Forca
 (J3 == forca),
 alldifferent([J1, J2, J3, J4, J5]),
@@ -97,7 +96,8 @@ alldifferent([J1, J2, J3, J4, J5]),
 materia(Mat1), materia(Mat2), materia(Mat3), materia(Mat4), materia(Mat5),
 alldifferent([Mat1, Mat2, Mat3, Mat4, Mat5]),
 
-
+%%% AQUI PODE VIR REGRAS COM TODOS OS FATOS RELACIONADOS acima
+%%% MENOS SUCO POIS eh O PROXIMO
 
 %%%%%%%%%%%%%%%%%%%%%%%% INSTANCIA ..... Suco
 
@@ -114,15 +114,15 @@ S1==limao,
 S3==morango,
 alldifferent([S1, S2, S3, S4, S5]),
 
-%%%%%%%%%%%%%%% OUTRAS REGRAS COMBINADAS .... pois esta é a ultima
+%%%%%%%%%%%%%%% OUTRAS REGRAS COMBINADAS  .... pois esta é a ultima
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 nl,
 
-write('CHEGAMOS AO FIM')
+write('CHEGAMOS AO FIM DO MODELO')
 
-. 
+. %%% <== NAO ESQUECA O PONTO FINAL
     
    
 %%%%BASE DE DADOS%%%%
