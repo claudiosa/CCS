@@ -16,6 +16,24 @@ M = { maria, lucia, patricia }
 P = { advogado (a), medico (m), engenheiro (e) }
 Moimport cp.delagem com FUNCTORES: (H,M,P) logo ((H1,M1,P1), (H2,M2,P2),
 (H3,M3,P3))
+
+
+cl(casais01).
+Compiling:: casais01.pi
+casais01.pi compiled in 4 milliseconds
+loading...
+
+yes
+
+
+ GERA O QI
+Picat> compile(casais01).
+Compiling::casais01.pi
+casais01.pi compiled in 12 milliseconds
+
+yes
+
+
 */
 
 /* aqui comeca o codigo */
