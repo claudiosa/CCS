@@ -1,0 +1,158 @@
+% Modelo LaTeX, de 2012, para confecção de TCC do BCC/DCC/CCT/UDESC 
+% (sem figuras)
+%   Agradecimentos aos autores André Körbes (2007) e Camilla Heleno (2012)
+%
+% Observação importante:
+%   Não é fiel às normas de 2013, mas é uma boa aproximação! Contribuições para
+%   seu aperfeiçoamento são muito bem-vindas.
+%   Favor enviá-las a:
+%     Alexandre Gonçalves Silva <alexandre@joinville.udesc.br>
+%
+% O PDF final gerado por este modelo pode ser obtido na base Pergamum da UDESC:
+%   http://www.pergamumweb.udesc.br/dados-bu/000000/000000000017/0000175B.pdf 
+
+
+
+\NeedsTeXFormat{LaTeX2e}
+%-----------------------------------------------------------
+\documentclass[a4paper,12pt]{monografia}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage[mathcal]{eucal}
+\usepackage{latexsym}
+\usepackage{isoaccent}
+\usepackage[portuges,brazil,brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+\usepackage[alf]{abntcite}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{textcase}
+\usepackage[portuguese,noend,ruled]{algorithm2e}
+\usepackage{listings}
+\usepackage{multirow}
+
+%%%%%%%% LISTINGS
+
+\lstset{
+	breaklines=true,
+	basicstyle=\footnotesize\ttfamily,
+	frame=single,
+	keywordstyle=\bf,
+	%language=C++,
+	numbers=left,
+	numbersep=5pt,
+	tabsize=4
+}
+
+%\usepackage{color}
+%\definecolor{colBack}{rgb}{1,1,.98}
+%\definecolor{colKeys}{rgb}{0,0,0}
+%\definecolor{colIdentifier}{rgb}{0,0,0.9}
+%\definecolor{colComments}{rgb}{.4,.4,.4}
+%\definecolor{colString}{rgb}{0,0,0.6}
+%\lstset{language={},basicstyle=\ttfamily\small,tabsize=8,%
+%frame=single,showtabs=false,showspaces=false,numbers=left,firstnumber=auto,%
+%numberstyle=\tiny,linewidth=0.98\linewidth,xleftmargin=21pt,%
+%float=tbph,extendedchars,breaklines,showstringspaces=false,%
+%backgroundcolor=\color{colBack},columns=flexible,captionpos=b,%
+%aboveskip=\bigskipamount}
+
+%\lstset{basicstyle=\tiny,language=C++}
+
+%-----------------------------------------------------------
+%-----------------------------------------------------------
+\begin{document}
+
+%
+%----------------- Título e Dados do Autor -----------------
+\titulo{Construção de uma Biblioteca de Grafos para a Linguagem MiniZinc}
+\autor{Marcos Creuz Filho}
+\nome{Marcos}
+\ultimonome{Creuz}
+
+%
+%---------- Informe o Curso e Grau -----
+\bacharelado \curso{Ciência da Computação} \mes{Dezembro} \ano{2015} 
+\data{\today} % data da aprovação
+\cidade{Joinville}
+%
+%----------Informações sobre a Institução -----------------
+\instituicao{Universidade do Estado de Santa Catarina}
+\sigla{UDESC} \unidadeacademica{Centro de Ciências Tecnológicas}
+%
+%-------- Informações obtidas na Biblioteca ----------------
+%\CDD{536.7}
+%\CDU{536.21}
+%\areas{1.Análise Matemática - Teoria das
+%        Funçõees 2. Funções Analíticas - Fórmula de Taylor.}
+%\npaginas{45}  % total de páginas do trabalho
+%------Nomes do Orientador, 1o. Examinador e 2o. Examinador-
+\orientador{Claudio Cesar de Sá}
+
+\examinadorum{Carlos Norberto Vetorazzi Junior}
+
+\examinadordois{Omir Alves Correa Junior}
+
+\examinadortres{Diego Buchinger}
+
+%--------- Títulos do Orientador 1o. e 2o. Examinadores ----
+\ttorientador{Doutor}
+
+\ttexaminadorum{Mestre}
+
+\ttexaminadordois{Doutor}
+
+\ttexaminadortres{Mestre}
+
+\maketitle
+%---------------------- AGRADECIMENTO --------------
+%\agradecimento{Dedicatória}
+%\newpage
+%---------------------- EPÍGRAFE --------------
+%\begin{epigrafe}
+
+%\end{epigrafe}
+%--------Digite aqui o seu resumo em Português--------------
+\resumo{Resumo}
+\input{chapter/0/resumo}
+%-----------Digite aqui o seu resumo em Inglês--------------
+\resumo{Abstract}
+\input{chapter/0/abstract}
+%-----------------------------------------------------------
+
+
+% lista de abreviações
+%\listofabbreviations{Lista de Abreviaturas}
+%\begin{table}[ht]
+%\begin{tabular}{ll}
+%	{\bf XML } & {\it eXtensible Markup Language} \\
+%\end{tabular}
+%\end{table}
+
+%\listoftables
+
+%----Sumário, lista de figura e de tabela ------------
+\tableofcontents 
+\thispagestyle{empty} 
+\thispagestyle{empty} \listoffigures
+%\listoftables \thispagestyle{empty}
+
+%---------------------
+%--------------Início do Conteúdo---------------------------
+\pagestyle{ruledheader}
+
+\input{chapter/1/mainfile}
+\input{chapter/2/mainfile}
+\input{chapter/3/mainfile}
+\input{chapter/4/mainfile}
+\input{chapter/5/mainfile}
+% \input{chapter/6/mainfile}
+
+\renewcommand{\bibname}{Referências}
+\bibliographystyle{abnt-alf}
+\bibliography{tcc}
+
+%\include{apendice}
+
+\end{document}

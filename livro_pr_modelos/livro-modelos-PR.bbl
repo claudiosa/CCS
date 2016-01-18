@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{apt}
+K.~Apt.
+\newblock {\em Principles of Constraint Programming}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem{thom}
+T.~Fr{\"u}hwirth and S.~Abdennadher.
+\newblock {\em Essentials of Constraint Programming}.
+\newblock Cognitive Technologies. Springer, 2003.
+
+\bibitem{kowalski}
+Robert Kowalski.
+\newblock Algorithm = logic + control.
+\newblock {\em Commun. ACM}, 22(7):424--436, July 1979.
+
+\bibitem{leler}
+W.~Leler.
+\newblock {\em Constraint programming languages: their specification and
+  generation}.
+\newblock Addison-Wesley series in computer science and information processing.
+  Addison-Wesley Longman, Incorporated, 1988.
+
+\bibitem{stuckey}
+K.~Marriott and P.J. Stuckey.
+\newblock {\em Programming with Constraints: An Introduction}.
+\newblock Adaptive Computation and Machine. MIT Press, 1998.
+
+\bibitem{mzntwds}
+Nicholas Nethercote, Peter~J. Stuckey, Ralph Becket, Sebastian Brand,
+  Gregory~J. Duck, and Guido Tack.
+\newblock Minizinc: Towards a standard cp modelling language.
+\newblock In {\em In: Proc. of 13th International Conference on Principles and
+  Practice of Constraint Programming}, pages 529--543. Springer, 2007.
+
+\bibitem{cphandbook}
+F.~Rossi, P.~van Beek, and T.~Walsh.
+\newblock {\em Handbook of Constraint Programming}.
+\newblock Foundations of Artificial Intelligence. Elsevier Science, 2006.
+
+\end{thebibliography}
