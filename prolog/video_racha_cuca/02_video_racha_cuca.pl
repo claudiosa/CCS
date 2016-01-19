@@ -35,12 +35,12 @@ modelo([
 
 
 %%%%%%%%%%%%%%%%%%%%%%%% Mochila
-mochila(Mochila_1), 
-mochila(Mochila_2), 
-mochila(Mochila_3), 
-mochila(Mochila_4), 
-mochila(Mochila_5),
-alldifferent([Mochila_1, Mochila_2, Mochila_3, Mochila_4, Mochila_5]),
+    mochila(Mochila_1), 
+    mochila(Mochila_2), 
+    mochila(Mochila_3), 
+    mochila(Mochila_4), 
+    mochila(Mochila_5),
+    alldifferent([Mochila_1, Mochila_2, Mochila_3, Mochila_4, Mochila_5]),
 
 %%%%%%%%%
 %%%%%%%%%%%%%%% Nome
@@ -55,12 +55,12 @@ alldifferent([Mochila_1, Mochila_2, Mochila_3, Mochila_4, Mochila_5]),
 %Lenin está na quinta posição.
 (Nome_5==lenin) ,
    
-%Otávio está em uma das pontas. <- pela afirmação anterior 
+% Otávio está em uma das pontas. <- pela afirmação anterior 
 (Nome_1==otavio) ,
 
 alldifferent([Nome_1, Nome_2, Nome_3, Nome_4, Nome_5]),
 
-%O garoto da mochila Branca está exatamente à esquerda de Will.
+% O garoto da mochila Branca está exatamente à esquerda de Will.
 
 (
 %%(Nome_5==will, Mochila_4==branca);
@@ -108,7 +108,11 @@ alldifferent([Nome_1, Nome_2, Nome_3, Nome_4, Nome_5]),
    
 
 %%%%%%%%%%%%%%%%%%%%%%%% Jogo
-jogo(Jogo_1), jogo(Jogo_2), jogo(Jogo_3), jogo(Jogo_4), jogo(Jogo_5),
+        jogo(Jogo_1), 
+        jogo(Jogo_2), 
+        jogo(Jogo_3), 
+        jogo(Jogo_4), 
+        jogo(Jogo_5),
 
 %%% REGRA ESPECIFICA
 %Na terceira posição está o menino que gosta do Jogo da Forca
@@ -167,7 +171,11 @@ alldifferent([Jogo_1, Jogo_2, Jogo_3, Jogo_4, Jogo_5]),
    
 
 %%%%%%%%%%%%%%%%%%%%%%%% Matéria
-materia(Materia_1), materia(Materia_2), materia(Materia_3), materia(Materia_4), materia(Materia_5),
+        materia(Materia_1), 
+        materia(Materia_2), 
+        materia(Materia_3),
+        materia(Materia_4), 
+        materia(Materia_5),
 alldifferent([Materia_1, Materia_2, Materia_3, Materia_4, Materia_5]),
 
 %João gosta de história.
@@ -191,7 +199,11 @@ alldifferent([Materia_1, Materia_2, Materia_3, Materia_4, Materia_5]),
 ),
  
 %%%%%%%%%%%%%%%%%%%%%%%% Suco
-suco(Suco_1), suco(Suco_2), suco(Suco_3), suco(Suco_4), suco(Suco_5),
+        suco(Suco_1), 
+        suco(Suco_2), 
+        suco(Suco_3), 
+        suco(Suco_4), 
+        suco(Suco_5),
 
 % REGRAS ESPECIFICAS
 %Na primeira posição está quem gosta de suco de Limão.
@@ -271,48 +283,48 @@ write('CHEGAMOS AO FIM DO MODELO')
    
 %%%%BASE DE DADOS%%%%
 
-%MOCHILAS
-mochila(amarela).
-mochila(azul).
-mochila(branca).
-mochila(verde).
-mochila(vermelha).
+        %MOCHILAS
+        mochila(amarela).
+        mochila(azul).
+        mochila(branca).
+        mochila(verde).
+        mochila(vermelha).
 
-%NOMES
-nome(denis).
-nome(joao).
-nome(lenin).
-nome(otavio).
-nome(will).
+        %NOMES
+        nome(denis).
+        nome(joao).
+        nome(lenin).
+        nome(otavio).
+        nome(will).
 
-%MÊS
-mes(ago).
-mes(dez).
-mes(jan).
-mes(maio).
-mes(set).
+        %MÊS
+        mes(ago).
+        mes(dez).
+        mes(jan).
+        mes(maio).
+        mes(set).
 
 
-%JOGOS
-jogo(tmais).
-jogo(cacap).
-jogo(cubo).
-jogo(forca).
-jogo(logica).
+        %JOGOS
+        jogo(tmais).
+        jogo(cacap).
+        jogo(cubo).
+        jogo(forca).
+        jogo(logica).
 
-%MATÉRIAS
-materia(bio).
-materia(geo).
-materia(hist).
-materia(mat).
-materia(port).
+        %MATÉRIAS
+        materia(bio).
+        materia(geo).
+        materia(hist).
+        materia(mat).
+        materia(port).
 
-%SUCOS
-suco(laranja).
-suco(limao).
-suco(maracuja).
-suco(morango).
-suco(uva).
+        %SUCOS
+        suco(laranja).
+        suco(limao).
+        suco(maracuja).
+        suco(morango).
+        suco(uva).
 
 % DEFINICAO DE ALLDIFERENT  
 	alldifferent([]).
@@ -326,9 +338,4 @@ suco(uva).
 	        imprime_lista(T).
 
 /**********************************************************/
-	
-
-
-
-    
-    
+	   

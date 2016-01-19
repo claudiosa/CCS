@@ -36,138 +36,146 @@ modelo([ (Mo1, N1, Mes1, J1, Mat1, S1),
           
          :-
 
-%%%%%%%%%%%%%%%%%%%%%%%% Mochila
-mochila(Mo1), mochila(Mo2), mochila(Mo3), mochila(Mo4), mochila(Mo5),
-alldifferent([Mo1, Mo2, Mo3, Mo4, Mo5]),
+    %%%%%%%%%%%%%%%%%%%%%%%% Mochila
+    mochila(Mo1), 
+    mochila(Mo2), 
+    mochila(Mo3), 
+    mochila(Mo4), 
+    mochila(Mo5),
+    alldifferent([Mo1, Mo2, Mo3, Mo4, Mo5]),
 
-%%%%%%%%%% SOH REGRAS COM MOCHILA ... e nada mais
+    %%%%%%%%%% SOH REGRAS COM MOCHILA ... e nada mais
 
-%%%%%%%%%%%%%%%%%%%%%%%% Nome
-nome(N1), 
-nome(N2), 
-nome(N3), 
-nome(N4), 
-nome(N5),
+    %%%%%%%%%%%%%%%%%%%%%%%% Nome
+    nome(N1), 
+    nome(N2), 
+    nome(N3), 
+    nome(N4), 
+    nome(N5),
 
-%Lenin está na quinta posição.
-(N5==lenin) ,
+    %Lenin está na quinta posição.
+    (N5==lenin) , %%% notacao INFIXA
+       
+    %Otávio está em uma das pontas. >>>> pois eh contraditorio com anterios...
+    (N1==otavio) ,
+
+    alldifferent([N1, N2, N3, N4, N5]),
+
+
+    %%%%%%%%%% SOH REGRAS COM MOCHILA + NOMES ... e nada mais
+       
+    %%%%%%%%%%%%%%%%%%%%%%%% Mês
+    mes(Mes1), 
+    mes(Mes2), 
+    mes(Mes3), 
+    mes(Mes4), 
+    mes(Mes5),
+    alldifferent([Mes1, Mes2, Mes3, Mes4, Mes5]),
+
+    %%%%write('CHEGAMOS lah '),
+
+    %%%%%%%%%% SOH REGRAS COM MOCHILA + NOMES + MES ... e nada mais
+    %%% USANDO A NEGACAO 
+    Mes1 \== ago, 
+    Mes1 \== set, 
+    Mes1 \== jan,
+    \==(Mes1 , dez),  %%% notacao PREFIXA
+    %%%%%%%%%%%%%%%%%%%%%%%% Jogo
+    jogo(J1), 
+    jogo(J2), 
+    jogo(J3), 
+    jogo(J4), 
+    jogo(J5),
+
+    %Na terceira posição está o menino que gosta do Jogo da Forca
+    (J3 == forca),
+    alldifferent([J1, J2, J3, J4, J5]),
+
+     write('TODAS regras com jogo e as demais acima ... menos da SUCO '),
+        
+    %Will está ao lado do menino que gosta de Problemas de Lógica.
+
+     %%%%%%%%%%%%%%%%%%%%%%%% Matéria
+    materia(Mat1), 
+    materia(Mat2), 
+    materia(Mat3), 
+    materia(Mat4), 
+    materia(Mat5),
+    alldifferent([Mat1, Mat2, Mat3, Mat4, Mat5]),
+
+    %%% AQUI PODE VIR REGRAS COM TODOS OS FATOS RELACIONADOS acima
+    %%% MENOS SUCO POIS eh O PROXIMO
+
+    %%%%%%%%%%%%%%%%%%%%%%%% INSTANCIA ..... Suco
+
+    suco(S1),
+    suco(S2), 
+    suco(S3), 
+    suco(S4), 
+    suco(S5),
+
+    %Na primeira posição está quem gosta de suco de Limão.
+    S1==limao,
+      
+    %Na terceira posição está quem gosta de suco de Morango.
+    S3==morango,
+    alldifferent([S1, S2, S3, S4, S5]),
+
+    %%%%%%%%%%%%%%% OUTRAS REGRAS COMBINADAS  .... pois esta é a ultima
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    nl,
+
+    write('CHEGAMOS AO FIM DO MODELO')
+
+    . %%% <== NAO ESQUECA O PONTO FINAL
    
-%Otávio está em uma das pontas. >>>> pois eh contraditorio com anterios...
-(N1==otavio) ,
-
-alldifferent([N1, N2, N3, N4, N5]),
-
-
-%%%%%%%%%% SOH REGRAS COM MOCHILA + NOMES ... e nada mais
-
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
-%%%%%%%%%%%%%%%%%%%%%%%% Mês
-mes(Mes1), 
-mes(Mes2), 
-mes(Mes3), 
-mes(Mes4), 
-mes(Mes5),
-alldifferent([Mes1, Mes2, Mes3, Mes4, Mes5]),
+    %%%%BASE DE DADOS%%%%
 
-%%%%write('CHEGAMOS lah '),
+    %MOCHILAS
+    mochila(amarela).
+    mochila(azul).
+    mochila(branca).
+    mochila(verde).
+    mochila(vermelha).
 
-%%%%%%%%%% SOH REGRAS COM MOCHILA + NOMES + MES ... e nada mais
- %%% USANDO A NEGACAO 
-Mes1 \== ago, 
-Mes1 \== set, 
-Mes1 \== jan,
-\==(Mes1 , dez),  %%% notacao PREFIXA
-%%%%%%%%%%%%%%%%%%%%%%%% Jogo
-jogo(J1), 
-jogo(J2), 
-jogo(J3), 
-jogo(J4), 
-jogo(J5),
+    %NOMES
+    nome(denis).
+    nome(joao).
+    nome(lenin).
+    nome(otavio).
+    nome(will).
 
-%Na terceira posição está o menino que gosta do Jogo da Forca
-(J3 == forca),
-alldifferent([J1, J2, J3, J4, J5]),
+    %MÊS
+    mes(ago).
+    mes(dez).
+    mes(jan).
+    mes(maio).
+    mes(set).
 
- write('TODAS regras com jogo e as demais acima ... menos da SUCO '),
-    
-%Will está ao lado do menino que gosta de Problemas de Lógica.
+    %JOGOS
+    jogo(tmais).
+    jogo(cacap).
+    jogo(cubo).
+    jogo(forca).
+    jogo(logica).
 
- %%%%%%%%%%%%%%%%%%%%%%%% Matéria
-materia(Mat1), materia(Mat2), materia(Mat3), materia(Mat4), materia(Mat5),
-alldifferent([Mat1, Mat2, Mat3, Mat4, Mat5]),
+    %MATÉRIAS
+    materia(bio).
+    materia(geo).
+    materia(hist).
+    materia(mat).
+    materia(port).
 
-%%% AQUI PODE VIR REGRAS COM TODOS OS FATOS RELACIONADOS acima
-%%% MENOS SUCO POIS eh O PROXIMO
-
-%%%%%%%%%%%%%%%%%%%%%%%% INSTANCIA ..... Suco
-
-suco(S1),
-suco(S2), 
-suco(S3), 
-suco(S4), 
-suco(S5),
-
-%Na primeira posição está quem gosta de suco de Limão.
-S1==limao,
-  
-%Na terceira posição está quem gosta de suco de Morango.
-S3==morango,
-alldifferent([S1, S2, S3, S4, S5]),
-
-%%%%%%%%%%%%%%% OUTRAS REGRAS COMBINADAS  .... pois esta é a ultima
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-nl,
-
-write('CHEGAMOS AO FIM DO MODELO')
-
-. %%% <== NAO ESQUECA O PONTO FINAL
-    
-   
-%%%%BASE DE DADOS%%%%
-
-%MOCHILAS
-mochila(amarela).
-mochila(azul).
-mochila(branca).
-mochila(verde).
-mochila(vermelha).
-
-%NOMES
-nome(denis).
-nome(joao).
-nome(lenin).
-nome(otavio).
-nome(will).
-
-%MÊS
-mes(ago).
-mes(dez).
-mes(jan).
-mes(maio).
-mes(set).
-
-%JOGOS
-jogo(tmais).
-jogo(cacap).
-jogo(cubo).
-jogo(forca).
-jogo(logica).
-
-%MATÉRIAS
-materia(bio).
-materia(geo).
-materia(hist).
-materia(mat).
-materia(port).
-
-%SUCOS
-suco(laranja).
-suco(limao).
-suco(maracuja).
-suco(morango).
-suco(uva).
+    %SUCOS
+    suco(laranja).
+    suco(limao).
+    suco(maracuja).
+    suco(morango).
+    suco(uva).
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % DEFINICAO DE ALLDIFERENT  
 	alldifferent([]).
@@ -179,6 +187,7 @@ suco(uva).
 	                       write(H), write(' : '),
 	                       imprime_lista(T).
 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	
 
