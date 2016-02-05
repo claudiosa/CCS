@@ -1,0 +1,24 @@
+label(('$damon_load',0)).
+label(('$damon_load',0,-1)).
+    allocate_det(0,4,([],0),4).
+label(('$damon_load',0,1)).
+    return_det.
+label(('$damon_load',0,2)).
+    fail.
+label(('$damon_load',0,3)).
+    fail0.
+label(('$damon_load',0,4)).
+    cut_fail.
+label(('e$$glb$$main',0)).
+label(('e$$glb$$main',0,-1)).
+    allocate_det(0,5,([],0),4).
+label(('e$$glb$$main',0,1)).
+    move_comp_list(-4,30,c(' '),c('W'),c(e),c(l),c(l),c(c),c(o),c(m),c(e),c(' '),c(t),c(o),c(' '),c('P'),c('I'),c('C'),c('A'),c('T'),c('\''),c(s),c(' '),c(w),c(o),c(r),c(l),c(d),c(!),c(' '),c('\n'),c(' ')).
+    last_call(1,(picat_printf,1),u(-4),5).
+    return_det.
+label(('e$$glb$$main',0,3)).
+    fail.
+label(('e$$glb$$main',0,4)).
+    fail0.
+label(('e$$glb$$main',0,5)).
+    cut_fail.

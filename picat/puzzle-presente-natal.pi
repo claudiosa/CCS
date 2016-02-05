@@ -46,10 +46,10 @@ main => nl,
 
 modelo_presente(Lista_Vars_Modelo) =>
 
-        Lista_Vars_Modelo = 
+     Lista_Vars_Modelo = 
 	[
-        COR1, NOME1, IDADE1, PRESENTE1, SUCO1, PROFISSAO1,
-        COR2, NOME2, IDADE2, PRESENTE2, SUCO2, PROFISSAO2,
+        COR1, NOME1, IDADE1, PRESENTE
+        2, SUCO2, PROFISSAO2,
         COR3, NOME3, IDADE3, PRESENTE3, SUCO3, PROFISSAO3,
         COR4, NOME4, IDADE4, PRESENTE4, SUCO4, PROFISSAO4,
         COR5, NOME5, IDADE5, PRESENTE5, SUCO5, PROFISSAO5
@@ -242,7 +242,7 @@ modelo_presente(Lista_Vars_Modelo) =>
 
 	%%%%%%%%%%%%%%%%%%%%%%% the end
 
-        %%% SEARCH_EXPLORE
+    %%% SEARCH_EXPLORE
 	solve([ff],  Lista_Vars_Modelo).
 
 
@@ -295,7 +295,6 @@ profissao(professor).
 
 
 
-% DEFINICAO DE ALLDIFERENT
 % DEFINICAO DE ALLDIFERENT  
 
 alldifferent([]) ?=> true.

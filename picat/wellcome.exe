@@ -1,0 +1,4 @@
+#!/bin/bash          
+picat wellcome.pi
+echo "Finished!!!"
+        
