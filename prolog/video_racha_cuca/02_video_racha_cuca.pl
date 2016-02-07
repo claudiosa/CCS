@@ -1,8 +1,17 @@
+%% Problema Referência
+% http://rachacuca.com.br/logica/problemas/laboratorio-de-informatica/
+
+% UDESC -- Joinville
+% Lógica Matematica -- LMA (parte prática)
+% Codigos em https://github.com/claudiosa
+% Claudio Cesar de Sá e demais estudantes
+
 % http://rachacuca.com.br/logica/problemas/laboratorio-de-informatica/
 
 % Autor: Gabriel Mazzoleni Pinto
 % Adaptado CCS
-%% Originalmente este programa executava em 9 segundos
+% Originalmente este programa executava em 9 segundos
+% Dá para melhorar e muito ....
 
 main :-  
    %% Tempo inicial

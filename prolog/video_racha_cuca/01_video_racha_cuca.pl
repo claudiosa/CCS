@@ -1,6 +1,12 @@
+
+%% Problema Referência
 % http://rachacuca.com.br/logica/problemas/laboratorio-de-informatica/
 
-% Autor: Gabriel Mazzoleni Pinto
+% UDESC -- Joinville
+% Lógica Matematica -- LMA (parte prática)
+% Codigos em https://github.com/claudiosa
+% Claudio Cesar de Sá e demais estudantes
+
 
 %%% menino(Mochila,Nome,Mes,Jogo,Materia,Suco).
 

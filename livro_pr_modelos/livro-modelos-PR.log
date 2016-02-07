@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.17)  18 JAN 2016 22:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.2.5)  7 FEB 2016 12:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **livro-modelos-PR.tex
 (./livro-modelos-PR.tex
 LaTeX2e <2015/10/01> patch level 2
-Babel <3.9m> and hyphenation patterns for 3 languages loaded.
+Babel <3.9n> and hyphenation patterns for 3 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/bk12.clo
@@ -269,13 +269,13 @@ Now handling font encoding U ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2015/08/03 3.9m The Babel package
+Package: babel 2016/01/08 3.9n The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2015/08/03 3.9m Babel common definitions
+File: babel.def 2016/01/08 3.9n Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
@@ -707,6 +707,8 @@ Package babel Info: Redefining portuges shorthand "|
  1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 2.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 13.
 ) (./capitulo-2_PR.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 1.
@@ -750,7 +752,7 @@ Package babel Info: Redefining portuges shorthand "|
  [7]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 67.
- <figuras/8_queens.png, id=181, 335.2525pt x 335.2525pt>
+ <figuras/8_queens.png, id=226, 335.2525pt x 335.2525pt>
 File: figuras/8_queens.png Graphic file (type png)
 
 <use figuras/8_queens.png>
@@ -786,43 +788,71 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 4.
-(./codigos/nqueens.mzn)
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 24.
+(babel)             in language append on input line 16.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 24.
- [11]
-Underfull \vbox (badness 4193) has occurred while \output is active []
-
+(babel)             in language append on input line 19.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 23.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 27.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 30.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 30.
+[11]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 30.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 30.
+(babel)             in language append on input line 33.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 36.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 40.
+ (./codigos/nqueens.mzn)
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 58.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 58.
  [12]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 45.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 45.
-
-[13] (./codigos/nqueens_fn.mzn)
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 69.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 69.
- [14]
-Underfull \vbox (badness 4193) has occurred while \output is active []
+Underfull \vbox (badness 1242) has occurred while \output is active []
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 73.
+(babel)             in language append on input line 66.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 73.
- [15])
+(babel)             in language append on input line 66.
+ [13]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 80.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 80.
+
+[14] (./codigos/nqueens_fn.mzn)
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 106.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 106.
+ [15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 108.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 108.
+ [16])
 (./capitulo-4_Modelos.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 2.
- [16]
+ [17]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 2.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 2.
+ [18
+
+]
  4.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 2.
@@ -842,9 +872,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 45.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 45.
-[17
-
-]
+[19]
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 47.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -854,7 +882,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 107.
 
-<figuras/binary_tree04.pdf, id=283, 618.31pt x 292.09125pt>
+<figuras/binary_tree04.pdf, id=336, 618.31pt x 292.09125pt>
 File: figuras/binary_tree04.pdf Graphic file (type pdf)
 
 <use figuras/binary_tree04.pdf>
@@ -864,7 +892,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 117.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 117.
- [18]
+ [20]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 120.
 
@@ -880,18 +908,18 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 1.
- [19 <./figuras/binary_tree04.pdf>]
+ [21 <./figuras/binary_tree04.pdf>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 1.
- [20])
+ [22])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 125.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 125.
- [21
+ [23
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
@@ -900,14 +928,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 125.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
 Package rerunfilecheck Info: File `livro-modelos-PR.out' has not changed.
-(rerunfilecheck)             Checksum: C1BFDB701569278383797E84AE374352;1026.
+(rerunfilecheck)             Checksum: 4ADAAA4DAA5771652EABB031107B3CF5;1688.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 125.
  ) 
 Here is how much of TeX's memory you used:
- 9451 strings out of 494941
- 129249 string characters out of 6180242
- 300207 words of memory out of 5000000
- 12451 multiletter control sequences out of 15000+600000
+ 9474 strings out of 494941
+ 129572 string characters out of 6180243
+ 300223 words of memory out of 5000000
+ 12463 multiletter control sequences out of 15000+600000
  21784 words of font info for 59 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  30i,9n,36p,862b,1788s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -928,10 +956,10 @@ re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on livro-modelos-PR.pdf (25 pages, 273867 bytes).
+Output written on livro-modelos-PR.pdf (27 pages, 284349 bytes).
 PDF statistics:
- 822 PDF objects out of 1000 (max. 8388607)
- 362 compressed objects within 4 object streams
- 111 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 900 PDF objects out of 1000 (max. 8388607)
+ 415 compressed objects within 5 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 
