@@ -1,8 +1,131 @@
-\chapter{Programação por Restrições}
-\label{cp:pr}
+\chapter{Programação por Restrições}\label{cp:pr}
 
 
-A programação por restrições (PR) é um paradigma de programação, tal como o paradigma imperativo, o orientado a objetos, o funcional, o lógico e outros. A idéia geral da PR, conforme \cite{thom}, é de resolver problemas simplesmente declarando restrições que devem ser satisfeitas pelas soluções destes.
+
+\section{Mapeando o Territ\'orio}
+
+
+Os problemas combinatoriais são ubíquos no cotidiano de pessoas, indústria, etc.
+Basicamente utiliza-se alguma estimativa entre combinar objetos,
+pessoas versus recursos para se atingir algum objetivo.
+Em termos matemáticos, tem-se variáveis tais como $x_1$, $x_2$, $x_3$, etc, a terem
+seus valores instanciados sobre algum domínio ou terem alguma relação
+com outras variáveis, segundo algum critério ou requisito.
+
+Exemplificando, voce quer organizar um calendário de jogos para os times da
+sétima divisão de sua cidade. Assim, os $n$ times devem fazer um rodízio
+nos $2$ campos disponíveis, tal que todo sábado  tenham $2$ jogos
+por campo. Logo, serão $8$ times jogando num final de semana. Basicamente
+voce deve distribuir estes encontros entre dois times respeitando critérios
+como:
+\begin{enumerate}
+\item Local do jogo: todos os times devem jogar igualmente nos dois campos.
+Afinal, um deles tem grama e a bola \textit{corre redonda};
+\item Espaçamento entre os encontros: os times devem jogar até o final
+da temporada;
+\item Devem alternar o horário de jogo: afinal, se seu time tiver o primeiro
+jogo da tarde, a feijoada está comprometida.
+\end{enumerate}
+
+Enfim, este simples ensaio mostra o cotidiano de situações combinatoriais
+em que tudo se apresenta. Estes problemas vem sendo atacados há séculos tendo 
+Euler como um dos matemáticos precursores, ao analisar o problema das 7 pontes 
+das  Königsberg. A representação por meio de grafos foi uma estratégia
+de analisar e solucionar o problema. O problema do caminho euleriano é
+ base de vários estudos, pois sua  tratabilidade o coloca na classe
+ de problemas NP \cite{sipser12}.
+
+Neste encaminhamento, várias áreas de pesquisa  estão focadas como: Pesquisa
+Operacional, Computação Evolutiva, Inteligência Artificial (IA), Programação por
+Restrições (PR), etc. O contexto desta pesquisa encontra-se dentro destas duas 
+últimas áreas, mais especificamente a \PR .
+
+
+\subsection{Problemas em Inteligência Artificial}
+
+Diversas áreas estão associadas à Inteligência Artificial como tradução de línguas, interpretação de regras, robótica em geral,  manipulação de dados em imagens,
+ planejamento, reconhecimento  e outras atividades. Uma das caraterísticas destes problemas 
+é a sua complexidade algoritmica e computacional, que em geral crescem exponencialmente.
+Dado este fato, há uma dificuldade inerente na tarefa do desenvolvimento de algoritmos
+ e solucoes aceitáveis. Estes aspectos se relacionam a área de tratabilidade de problemas,
+ os quais delineam as fronteiras dos limites dos problemas em aceitarem
+ soluções em um tempo razoáveis de processamento.
+
+
+Para encontrar uma solução  aos problemas abordados pela IA é necessário que o processo de análise seja detalhado e modelado de 
+acordo com técnicas específicas. Neste sentido duas áreas da IA são destacadas \cite{RusNorv2010}: \textit{representação do 
+conhecimento}  e aplicação de \textit{métodos de busca}. Estas duas áreas apresentam uma interseção a \PR  pois os problemas quando 
+atacados com PR necessitam apresentar um \textit{modelo} a ser computado e esquemas
+de buscas sobre os espaço de estados que o mesmo exibe. Um dos  resultados
+de uma solução com PR é a construção deste modelo, sob o qual as restrições serão
+postadas, e avaliadas segundo um mecanismo \textit{completo} de busca.
+ Em PR o tema da modelagem 
+é investigado em \cite{smith_2006} e buscas em \cite{beek_2006,hoos_2006}.
+
+%%% There are three main algorithmic techniques for solving constraint satisfaction problems:
+%%% backtracking search, local search, and dynamic programming. 
+
+%%% MR Jones, Patinoeire, clermont, 17:21, 24/out
+
+\subsection{Problemas de Satisfação de Restrições}
+\label{sec:ch_cp}
+
+Um problema combinatorial cl\'assico é apresentado por um conjunto de vari\'aveis de um sistema,  as quais  ser\~ao instanciadas por objetos de domínios, segundo um conjunto de relaç\~oes, as quais representam o relacionamento entre os objetos. A tarefa combinatorial
+é dada pela aç\~ao de instanciar estes objetos as variáveis, de tal modo que todas as 
+relaç\~oes sejam satisfeitas.
+
+A esta classe de problemas combinatoriais é conhecida como \textit{Problemas de Satisfação de Restrições} (PSRs). A resoluç\~ao dos PSR's constituem em encontrar valores as variáveis
+respeitando ou satisfazendo suas restrições. Para esta classe de problemas lança-se mão do uso da \textit{Programação por Restrições} (PPR ou PR), ou seja, uma técnica que utiliza uma teoria e  ferramentas pr\'oprias de  programação. A PPR é uma forma de aplicar os conceitos de variáveis, domínios e restrições, via esta teoria específica de programação. 
+
+Um PSR é tipicamente um problema \textit{NP-Completo} \cite{rossi_2006}. O desafio de todo o processamento por restrições está em gerar algoritmos que resolvam esta classe de problemas em um tempo
+computacional aceitável. Invariavelmente, alguns destes problemas NP, podem apresentar uma
+complexidade espacial consider\'avel, assim passam para classe P-SPACE \cite{sipser12}.
+Dado este aspecto combinatorial e de complexidade NP, esta passa ter interesse
+por outras àreas da pesquisa que lidam buscas \textit{heurísticas}, tais como a Computação Evolutiva (CE),
+ ou ainda buscas \textit{completas} com a IA clássica e a Pesquisa Operacional (PO), etc. Esta situaçao é ilustrada pela figura \ref{fig:eureka}.
+
+
+\begin{figure}[!ht]
+\begin{center}
+%%%  \includegraphics[scale=0.5]{figuras/psr_01.eps}
+  \caption{Família dos problemas do tipo satisfação de restrições}
+\label{fig:eureka}
+\end{center}
+\end{figure}
+
+
+A \PR por sua vez, a exemplo da IA, CE, PO, etc, apresenta várias outras
+subdivisões e sub-áreas de interesse.  Uma delas ela é a \textit{Programação em Lógica com Restrições} (PLR) um dos segmentos a serem atacados nesta pesquisa. A PLR tem na lógica de primeira-ordem 
+o seu modelo computacional, o qual é calculado a partir de buscas exaustivas sobre
+os seus \textit{modelos consistentes} (modelos de Herbrand).
+
+Uma das   partes mais instigantes sobre os PSRs é que os mesmo são onipresentes
+em problemas do mundo real. Alguns destes  problemas são discutidos em \cite{rossi_2006}.
+Destancam-se os problemas de escalonamento, planejamento, roteamento, contenção,
+alocação, etc.
+
+As restrições podem ser consideradas como informações e dados há um programa por restrições. 
+Estas  visam limitar o \textit{espaço de busca} e descrevem propriedades de 
+variáveis/objetos e o relacionamento entre eles. As restrições são formalizadas como uma relação entre os objetos e esses são modelados como variáveis \cite{fruewirth2003}.
+
+A relação existente entre os problemas de satisfação de restrições e a programação por restrições é expressa pela figura \ref{fig:eureka}. Portanto, pode-se considerar que a PR está contida em PSR. Ou seja, a PR é um método que pode ser aplicado para encontrar a solução de problemas do tipo PSR.
+
+Na PR, se a abordagem for feita via programação em lógica, então tem-se a PLR. A PLR é atrativa sob os seguintes requisitos metodológicos:
+
+\begin{itemize}
+\item Adequação a representação do conhecimento, caso este seja construído em lógica formal;
+\item Rápida prototipação e consequentemente baixo custo de desenvolvimento;
+\item Visão declarativa de suas restrições, possibilitando uma facilidade quanto aos testes e depuração;
+\item Flexibilidade na codificação dos algoritmos por abstrair características de programação em lógica.
+\end{itemize}
+
+Contudo, a Programação em Lógica com Restrições é resultado da utilização do paradigma da programação em lógica somado à programação por restrições. A PLR está contida no subconjunto de técnicas que fazem uso da PL para resolver problemas do tipo PSR. As vantagens de se utilizar a programação em lógica por restrições (PLR) estão em: modelar problemas de forma declarativa com uma sólida base matemática, propagação dos efeitos das decisões utilizando algoritmos eficientes e busca por soluções ótimas \cite{fruewirth2003}. Desde o início dos anos 90, a programação baseada em restrições tem tido sucesso comercial e industrial \cite{RusNorv2010}. Em 1996, o mundo gerou, utilizando tecnologia de restrições um valor estimado de 100 milhões de dólares \cite{fruewirth2003}.
+
+
+
+\section{Apresentando a PR}
+
+A Programação por Restrições (PR) é um paradigma de programação, tal como o paradigma imperativo, o orientado a objetos, o funcional, o lógico e outros. A idéia geral da PR, conforme \cite{thom}, é de resolver problemas simplesmente declarando restrições que devem ser satisfeitas pelas soluções destes.
 
 De acordo com \cite{apt}, a PR já foi aplicada com sucesso em diversas áreas, como biologia molecular, engenharia elétrica, pesquisa operacional e análise numérica. Entre as principais aplicações, pode-se citar sistemas de suporte à decisão para problemas de escalonamento e alocação de recursos \cite{thom}.
 
@@ -12,7 +135,7 @@ A Seção \ref{sc-conceitos-basicos-pr} apresenta alguns conceitos básicos dest
 
 
 
-\section{Conceitos Básicos}
+\section{Ilustrando os Conceitos}
 \label{sc-conceitos-basicos-pr}
 
 Algumas definições de termos comumente utilizados na área são apresentadas em \cite{leler}. Conforme este, uma restrição expressa uma relação desejada entre um ou mais objetos. Uma linguagem de PR é uma linguagem que possibilita descrever os objetos e as restrições. Um programa feito em uma linguagem de PR define um conjunto de objetos e um conjunto de restrições sobre estes objetos. Um sistema de satisfação de restrições encontra soluções para programas feitos em uma linguagem de PR, ou seja, atribui valores aos objetos de forma que todas as restrições sejam satisfeitas.
@@ -47,8 +170,152 @@ Os domínios finitos são amplamente utilizados na PR por permitirem ao programa
 
 
 
-\section{Modelagem}
-\label{sc-modelagem}
+ \section{Elementos ou Formalizando a  PR}
+
+Esta seção é   didaticamente apresentada por alguns fundamentos da PR, pois, estes elementos
+se descrevem as restrições  e declarações sob um problema. Os problemas devem ser modelados, categorizados, ou seja, representados de forma a fazer com que se possa aplicar um determinado método de busca para encontrar a(s) solução(ões). Diversas são as técnicas encontradas na IA para a modelagem e resolução de problemas \cite{RusNorv2010}.
+
+Uma delas é a aplicação de técnicas para a solução de Problemas de Satisfação de Restrições - PSR, ou, problemas que podem ser resolvidos pelo uso de restrições.
+
+Um problema de satisfação de restrições (PSR) é uma tupla $(V,D,R)$ onde \cite{apt_2003}:
+
+\begin{itemize}
+
+ \item $V$ é um conjunto de $n$ variáveis $\lbrace x_{1}, ..., x_{n} \rbrace$. Por convenção, variáveis  são representadas pelas letras $x$, $y$, $z$, etc, indexadas por $i$ se for caso de um número
+ significativo das mesmas; fato que é regra geral.
+ 
+
+ \item $D = \lbrace D_{1}, ..., D_{n} \rbrace$ é um conjunto de domínios. Onde cada componente $D_{i}$ é o domínio que contém todos os possíveis valores que se podem atribuir à variável $x_{i}$.
+
+
+ \item $R$ é um conjunto finito de restrições. Cada restrição $n$-ária $(R_{n})$ está definida sobre um conjunto de variáveis $\lbrace x_{1}, ..., x_{x} \rbrace$ restringindo os valores que as variáveis podem, simultaneamente possuir. Este conjunto é dado por: $R = \{ r_1, r_2, ..., r_m \}$
+
+\end{itemize}
+
+
+Em uma descrição, pode-se conceituar um PSR como um problema que pode ser composto por um conjunto de variáveis, cada qual associada à um domínio e um conjunto de restrições que se aplica aos valores que as variáveis podem, simultaneamente, serem atribu\'idas ou assumirem. A tarefa está em descobrir um valor no domínio para cada variável que satisfaça todas as restrições \cite{tsang93}. Um conjunto de variáveis $ V = {x_{1},...,x_{n}} $, em associação com o domínio $D_{1},...,D_{n}$, respectivamente, possui uma \textit{relação $R$} com um conjunto de variáveis que resulta em um subconjunto de um produto destes domínios. O conjunto de variáveis no qual a restrição está definida é chamado de \textit{escopo} da relação 
+ora da \textit{restriç\~ao}, denotado por  \textit{grau} ou  \textit{escopo} de vari\'avel $x_i$ no conjunto   $R$. Cada relação que um subconjunto de mesmo produto $D_{1} \quad  \times ... \times \quad D_{n}$ de $n$ domínios é dita: \textit{aridade n}. Se $n  = 1, 2 $ ou $3$, então a relação é chamada \textit{unária, binária} e \textit{ternária} respectivamente. Se $R = D_{1}\quad \times ... \times \quad D_{n}, $ ent\~ao $R$ é chamado de relação \textit{universal}. 
+
+
+A PR  relaciona restrições  e declarações sobre um problema. Os problemas devem ser modelados,  ou seja, representados de modo que se possa aplicar um determinado método de busca para encontrar a(s)  solução(ões). As diversas áreas da computação, matemática e PO, buscam  apresentar  técnicas   para
+ modelagem e resolução de problemas. Quanto
+a PR, esta metodologia é traduzida em construir um {\em modelo}, cuja a notação é 
+dada pela tupla $(V, D, R)$. Isto é: $Modelo = (V, D, R)$, onde:
+
+%%% Assim um  PSR segundo  a tupla   \textit{$(V, D, R)$}, onde:
+
+\begin{description}
+\item[$V$:] um conjunto de variáveis do modelo do problema, $\{ x_{1}, ... , x_{n} \}$;
+
+\item[$D$:] um conjunto domínio(s), $\{ D_{1},...,D_{n} \}$ em que as variáveis de $V$ podem assumir valores;
+
+\item[$R$:] tem-se no de $m$ conjunto de restrições  um mapeamento do tipo $(V \times D)^m \rightarrow V$.
+ 	     Assim, uma restriç\~ao é dada por: $r_j(x_1, ... , x_n)$ 
+\end{description}
+
+Logo, encontrar uma soluç\~ao em PSR é logicamente expresso por:
+
+\begin{equation}
+\exists x_1 \exists x_2 ... \exists x_n (r_1(x_1, ... , x_n) \wedge r_2(x_1, ... , x_n) \wedge ... \wedge r_m(x_1, ... , x_n) )  
+\label{equacao_existencial_PR}
+\end{equation}
+
+Onde a sua interpretação lógica consistente é uma resposta ao problema. A descrição
+de sua solubilidade é análoga ao mundo de Herbrand \cite{chang-lee73, nilsson00}.  Cada restrição é aplicada a um subconjunto de variáveis, visando a satisfatibilidade em de  seus valores. Uma atribuição é dita \textit{consistente} se esta não violar nenhuma restrição. Assim,  uma solução é encontrada quando todas as variáveis possuirem um valor consistente \cite{RusNorv2010}.
+
+
+
+Logo, encontrar uma solução para um problema ($p$) em termos de $(V, D, R)$, resume-se em encontrar uma construção
+de um {\em modelo} ($M_p$) para este problema. Logo, 
+um modelo deve ser especificado por esta tupla, tal que  
+$M_p = (V, D, R)$. Leia-se: {\em um modelo {\bf $M$} para o problema {\bf $p$}}.
+Em resumo, busca-se uma consistência da equação \ref{equacao_existencial_PR}, 
+computando-se sobre $M_p$ de modo
+recursivo,  aplicando suas  restrições, propagação e expansão, sistematicamente sobre um procedimento de busca. Mairores detalhes:  \cite{apt_2003}.
+
+
+\subsection{Definições} %%Conjuntos, Restrições, Domínios e Túplas}
+\label{subsec_def}
+
+
+Para compreender a aplicação da PLR é necessário expor algumas definições próprias da área. Esta seção está organizada de forma a apresentar estas definições  \cite{rina2003}.
+
+%\begin{description}
+
+\textbf{Conjunto}: Um \textit{conjunto} é uma coleção de objetos distintos e um objeto em uma coleção é chamado de um \textit{membro} ou \textit{elemento} de um conjunto.
+
+\textbf{Ordenação}: Um conjunto não pode conter o mesmo objeto mais de uma vez, e estes elementos não são ordenados.
+
+\textbf{Variável}: Uma variável possui uma coleção de valores, chamada domínio.
+
+\textbf{Domínio}: Um domínio de uma variável é um conjunto que lista todas os objetos possíveis que a variável pode conter.
+
+\textbf{Tupla}: Uma tupla é um a seqüência de objetos, não necessariamente distintos e um objeto em sequência é chamado de \textit{componente}.
+
+%\end{description}
+
+%Para esta aplicação é necessário compreender o uso de restrições (\ref{sec:restr}) e domínios aplicados à problemas da classe PSR.
+
+
+\subsubsection{Restrições}
+\label{sec:restr}
+
+As restrições são conduzem há um \textit{encolhimento}  no espaço de possibilidades (de estados) na busca por uma solução. A ordem pela qual as restrições são impostas não é relevante, mas sim, que ao final da conjunção dos termos seja atribuído o valor \textit{verdadeiro}. As restrições possuem propriedades importantes a serem citadas \cite{sucupira_03}:
+
+\begin{itemize}
+	\item Constitui uma \textit{informação parcial}, haja vista que esta não pode, por si só, determinar o valor das variáveis do problema;
+
+	\item As restrições são \textit{aditivas}. Por exemplo: uma restrição $r_{1}: X + Y \geq Z $ pode ser adicionada a uma outra restrição $r_{2}: X + Y \leq W $.
+
+	\item As restrições raramente são \textit{independentes}. Geralmente compartilham variáveis, pois tratam sob um mesmo modelo. A combinação das restrições $r_{1}$ e $r_{2}$ resulta na obtenção de uma expressão algébrica do tipo: $Z \geq X + Y \leq W$.
+
+	\item As restrições são ainda \textit{não-direcionais}. Considerando a restrição $X + Y = Z$, esta pode ser utilizada para determinar a sua forma equivalente em $X \quad (X = Z - Y)$ ou em $Y \quad (Y = Z - X)$;
+
+	\item As restrições são de natureza \textit{declarativa} pelo fato de apenas denotarem as relações que devem ser asseguradas entre variáveis sem especificar um procedimento computacional para  estabelecer esse relacionamento.
+\end{itemize}
+
+Estas  características são típicas no uso de restrições em problemas do tipo PSR. A aplicação da restrição em um PR deve levar em consideração as variáveis do problema, bem como o domínio ao qual elas pertencem. A subseção \ref{sec:dominios}, apresenta as definições de domínios.
+
+\subsubsection{Domínios}
+\label{sec:dominios}
+
+A maioria das linguagens orientadas a PSR possuem suporte a diversos tipos de domínios. Dentre elas destacam-se as restrições booleanas, domínios finitos, intervalos reais e termos lineares. Outros  exemplos incluem listas, conjuntos finitos e árvores. Contudo, os principais domínios são visualizados na figura \ref{fig:dominios} \cite{sucupira_03}.
+
+\begin{figure}[!ht]
+\begin{center}
+ % \includegraphics[scale=0.9]{figuras/dom_psr.eps}
+ % \caption{Domínios nos  PSR}
+{\bf \textcolor{red}{Fazer uma figura nova}}
+
+\label{fig:dominios}
+\end{center}
+\end{figure}
+
+
+
+
+Os domínios correspondem ao tipo de valores que podem ser atribuídos às variáveis no momento da busca. Apesar da maioria dos problemas PSR poderem ser resolvidos utilizando domínios finitos, é importante relacionar aqui, este e outros domínios, tais como:
+
+
+\begin{description}
+
+
+
+  \item [Domínios booleanos]: são tratados por meta-interpretadores de restrições especializadas, podendo, no entanto, ser utilizados como um caso particular de restrições associadas à domínios finitos. As variáveis podem obter dois valores inteiros: $0$ (falso) ou $1$ (verdadeiro).
+
+  \item [Domínios finitos]: são utilizadas em muitas áreas do conhecimento. Para satisfação destas restrições usa-se uma combinação de técnicas para a preservação de consistência, propagação de valores e pesquisa com retrocesso \cite{sucupira_03, apt_2003}. Cada variável possui associada a ela um conjunto finito de valores inteiros. Os valores do domínio inconsistentes são removidos do domínio das variáveis durante a propagação;
+
+  \item [Números reais]:, também conhecidas como intervalos reais, são equivalentes aos domínios finitos mas aqui são utilizados valores reais. Inclusive as técnicas de remoção de inconsistências são similares às técnicas usadas para com os domínios finitos. Outras técnicas matemáticas de diferenciação automática ou as séries de \textit{Taylor} podem ser utilizadas \cite{sucupira_03};
+
+  \item [Domínios lineares]: ou restrições lineares, compreendem domínios construídos por meio de variáveis cujos valores são dados pelo conjunto dos números reais. Para este tipo de restrições têm sido implementados meta-interpretadores de restrições bastante eficientes que utilizam o algoritmo \textit{simplex} como ponto de partida \cite{sucupira_03}.
+\end{description}
+
+
+O uso do domínio PSR está diretamente ligado à modelagem desenvolvida pelo analista ou programador. Por outro lado, provavelmente, hoje em dia, mais de 95\% de todas as aplicações que utilizam restrições são de domínios finitos \cite{tsang93, apt2003}. 
+
+
+
+\section{Modelagem} \label{sc-modelagem}
 
 \cite{kowalski} afirma que os algoritmos possuem dois componentes distintos, a lógica e o controle. A lógica está relacionada com o que o algoritmo faz, o conhecimento que se possui sobre o problema. O controle, por sua vez, representa como tal lógica será utilizada para resolver o problema.
 
@@ -98,4 +365,17 @@ Não se faz necessário restrições para verificar se duas ou mais rainhas est�
 
 {\bf \textcolor{red}{Faltando .... e melhorar a apresentacao acima}}
 
+\section{Buscas}
+{\bf \textcolor{red}{Faltando .... e melhorar a apresentacao acima}}
 
+Referência para esta seção: \cite{rina2003}
+UM RESUMO + Taxonomia
+
+\section{Acelerando as Buscas}
+{\bf \textcolor{red}{Faltando .... e melhorar a apresentacao acima}}
+
+
+
+
+\section{Conclusões Parciais}
+{\bf \textcolor{red}{Faltando .... e melhorar a apresentacao acima}}

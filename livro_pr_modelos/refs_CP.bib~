@@ -235,17 +235,16 @@
   Url                      = {http://portal.acm.org/citation.cfm?id=1237975\#}
 }
 
-
-@Book{apt2003,
+@Book{Apt2003,
   Title                    = {Principles of Constraint Programming},
   Author                   = {Krzysztof Apt},
   Publisher                = {Cambridge University Press},
   Year                     = {2003},
+
   Address                  = {New York, NY, USA},
+
   ISBN                     = {0521825830}
 }
-
-
 
 @Book{apteclipse,
   Title                    = {Constraint Logic Programming using Eclipse},
@@ -954,7 +953,7 @@ Fernando Deeke Sasse.},
   ISBN                     = {0136042597, 9780136042594}
 }
 
-@Book{RusNorv2010,
+@Book{RusNorv,
   Title                    = {Artificial Intelligence - A Modern Approach (3. internat. ed.)},
   Author                   = {Stuart J. Russell and Peter Norvig},
   Publisher                = {Pearson Education},
@@ -964,88 +963,6 @@ Fernando Deeke Sasse.},
   ISBN                     = {978-0-13-207148-2},
   Pages                    = {I-XVIII, 1-1132}
 }
-
-
-@BOOK{nilsson98,
-  author = {Nils J. Nilsson},
-  year = 1998,
-  title = {Artificial Intelligence A New Synthesis},
-  publisher = {Morgan Kaufamann Publishers, Inc},
-  address = {340 Pine Street, Sixth Floor, San Francisco, California,
-            94104-3205}
-}
-
-
-@INBOOK{smith_2006,
-	author = {Barbara M. Smith},
-	title = {Modelling},
-	 series = {Handbook of Constraint Programming (Foundations of Artificial Intelligence)},
-	 year = {2006},
-	 isbn = {0444527265},
-	 note =	{Edited by  Francesca Rossi, Peter van Beek  and  Toby Walsh},
-	 publisher = {Elsevier Science Inc.},
-	 address = {New York, NY, USA},
-	 chapter = {11},  
-	 pages = {377--406}
- }
- 
- 
-  
-@INBOOK{beek_2006,
-	author = {Peter van Beek},
-	title = {Backtracking Search Algorithms},
-	 series = {Handbook of Constraint Programming (Foundations of Artificial Intelligence)},
-	 year = {2006},
-	 isbn = {0444527265},
-	 note =	{Edited by  Francesca Rossi, Peter van Beek  and  Toby Walsh},
-	 publisher = {Elsevier Science Inc.},
-	 address = {New York, NY, USA},
-	 chapter = {4},  
-	 pages = {85--134}
- }
- 
-
-@INBOOK{hoos_2006,
-	author = {Holger H. Hoos and Edward Tsang},
-	title = {Local Search Methods},
-	 series = {Handbook of Constraint Programming (Foundations of Artificial Intelligence)},
-	 year = {2006},
-	 isbn = {0444527265},
-	 note =	{Edited by  Francesca Rossi, Peter van Beek  and  Toby Walsh},
-	 publisher = {Elsevier Science Inc.},
-	 address = {New York, NY, USA},
-	 chapter = {5},  
-	 pages = {135 -- 167}
- }
- 
-
- 
- 
-@Book{fruewirth2003,
- author = {Thom Fruewirth and Slim Abdennadher},
- title = {Essentials of Constraint Programming},
- year = {2003},
- isbn = {3540676236},
- publisher = {Springer-Verlag New York, Inc.},
- address = {Secaucus, NJ, USA},
- }
-
-
-@BOOK{nilsson00,
-  author = {Ulf Nilsson and  Jan Maluszyn},
-  year = 2000,
-  title = {Logic, Programming and Prolog},
-  publisher = {John Wiley \& Sons, 2nd. edition},
-  address = {Dispon\'{\'i}vel para download: http://www.ida.liu.se/~ulfni/lpp/}
-}
-
-
-
-@BOOK{chang-lee73,
-    AUTHOR = {C.K. Chang and R.C. Lee},
-    TITLE = {Symbolic Logic and Mechanical Theorem Proving},
-    PUBLISHER = {Academic Press - New York},
-YEAR = 1973}
 
 @Misc{site_curso_PR,
   Title                    = {Curso de Fundamentos de Programação por Restrções},
@@ -1116,7 +1033,7 @@ YEAR = 1973}
   Url                      = {\url{http://www.logic.at/prolog/queens/queens.html}}
 }
 
-@Book{tsang93,
+@Book{Tsang93,
   Title                    = {Foundations Of Constraint Satisfaction},
   Author                   = {Edward Tsang},
   Publisher                = {Academic Press Limited},
@@ -1141,14 +1058,4 @@ YEAR = 1973}
 
   Key                      = {Wikipedia}
 }
-
-
-@mastersthesis{sucupira_03,
-  author = 	 {Igor Ribeiro Sucupira},
-  title = 	 {Programação por Propagação de Restrições: Teoria e Aplicações},
-  school  =  {Dissertaç\~ao. Universidade do Estado de São Paulo. IME: USP},
-  note = {ver detalhes nesta refer\^encia},
-  year = {2003}
-}
-
 
