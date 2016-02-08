@@ -8,13 +8,15 @@
 \contentsline {chapter}{\numberline {3}A Linguagem de Programa\IeC {\c c}\IeC {\~a}o MiniZinc}{11}{chapter.3}
 \contentsline {section}{\numberline {3.1}Apresentando o MiniZinc}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}Elementos da Linguagem}{11}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Estrutura de um Programa em MiniZinc}{11}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Constantes}{11}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Vari\IeC {\'a}veis}{12}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Restri\IeC {\c c}\IeC {\~o}es ou Declara\IeC {\c c}\IeC {\~o}es L\IeC {\'o}gicas}{12}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Satisfatibilidade e Otimiza\IeC {\c c}\IeC {\~a}o}{12}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Sa\IeC {\'\i }das}{12}{subsection.3.2.6}
-\contentsline {section}{\numberline {3.3}Um Exemplo}{12}{section.3.3}
+\contentsline {subsection}{\numberline {3.2.1}Um Paradigma Computacional}{11}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Estrutura de um Programa em MiniZinc}{12}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Constantes ou Par\IeC {\^a}metros}{12}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Vari\IeC {\'a}veis}{12}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Restri\IeC {\c c}\IeC {\~o}es ou Declara\IeC {\c c}\IeC {\~o}es L\IeC {\'o}gicas}{12}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Satisfatibilidade e Otimiza\IeC {\c c}\IeC {\~a}o}{12}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Sa\IeC {\'\i }das}{13}{subsection.3.2.7}
+\contentsline {subsection}{\numberline {3.2.8}Instala\IeC {\c c}\IeC {\~a}o e Uso}{13}{subsection.3.2.8}
+\contentsline {section}{\numberline {3.3}Um Exemplo}{13}{section.3.3}
 \contentsline {chapter}{\numberline {4}Modelagem de Problemas}{19}{chapter.4}
 \contentsline {section}{\numberline {4.1}Cabo de Guerra}{19}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Descri\IeC {\c c}\IeC {\~a}o}{19}{subsection.4.1.1}

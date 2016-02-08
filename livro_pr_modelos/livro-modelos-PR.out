@@ -7,18 +7,20 @@
 \BOOKMARK [0][-]{chapter.3}{A Linguagem de Programa\347\343o MiniZinc}{}% 7
 \BOOKMARK [1][-]{section.3.1}{Apresentando o MiniZinc}{chapter.3}% 8
 \BOOKMARK [1][-]{section.3.2}{Elementos da Linguagem}{chapter.3}% 9
-\BOOKMARK [2][-]{subsection.3.2.1}{Estrutura de um Programa em MiniZinc}{section.3.2}% 10
-\BOOKMARK [2][-]{subsection.3.2.2}{Constantes}{section.3.2}% 11
-\BOOKMARK [2][-]{subsection.3.2.3}{Vari\341veis}{section.3.2}% 12
-\BOOKMARK [2][-]{subsection.3.2.4}{Restri\347\365es ou Declara\347\365es L\363gicas}{section.3.2}% 13
-\BOOKMARK [2][-]{subsection.3.2.5}{Satisfatibilidade e Otimiza\347\343o}{section.3.2}% 14
-\BOOKMARK [2][-]{subsection.3.2.6}{Sa\355das}{section.3.2}% 15
-\BOOKMARK [1][-]{section.3.3}{Um Exemplo}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Modelagem de Problemas}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Cabo de Guerra}{chapter.4}% 18
-\BOOKMARK [2][-]{subsection.4.1.1}{Descri\347\343o}{section.4.1}% 19
-\BOOKMARK [2][-]{subsection.4.1.2}{Especifica\347\343o}{section.4.1}% 20
-\BOOKMARK [2][-]{subsection.4.1.3}{Modelagem}{section.4.1}% 21
-\BOOKMARK [2][-]{subsection.4.1.4}{Estrat\351gia}{section.4.1}% 22
-\BOOKMARK [2][-]{subsection.4.1.5}{Implementa\347\343o}{section.4.1}% 23
-\BOOKMARK [2][-]{subsection.4.1.6}{Resultados e An\341lise}{section.4.1}% 24
+\BOOKMARK [2][-]{subsection.3.2.1}{Um Paradigma Computacional}{section.3.2}% 10
+\BOOKMARK [2][-]{subsection.3.2.2}{Estrutura de um Programa em MiniZinc}{section.3.2}% 11
+\BOOKMARK [2][-]{subsection.3.2.3}{Constantes ou Par\342metros}{section.3.2}% 12
+\BOOKMARK [2][-]{subsection.3.2.4}{Vari\341veis}{section.3.2}% 13
+\BOOKMARK [2][-]{subsection.3.2.5}{Restri\347\365es ou Declara\347\365es L\363gicas}{section.3.2}% 14
+\BOOKMARK [2][-]{subsection.3.2.6}{Satisfatibilidade e Otimiza\347\343o}{section.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.2.7}{Sa\355das}{section.3.2}% 16
+\BOOKMARK [2][-]{subsection.3.2.8}{Instala\347\343o e Uso}{section.3.2}% 17
+\BOOKMARK [1][-]{section.3.3}{Um Exemplo}{chapter.3}% 18
+\BOOKMARK [0][-]{chapter.4}{Modelagem de Problemas}{}% 19
+\BOOKMARK [1][-]{section.4.1}{Cabo de Guerra}{chapter.4}% 20
+\BOOKMARK [2][-]{subsection.4.1.1}{Descri\347\343o}{section.4.1}% 21
+\BOOKMARK [2][-]{subsection.4.1.2}{Especifica\347\343o}{section.4.1}% 22
+\BOOKMARK [2][-]{subsection.4.1.3}{Modelagem}{section.4.1}% 23
+\BOOKMARK [2][-]{subsection.4.1.4}{Estrat\351gia}{section.4.1}% 24
+\BOOKMARK [2][-]{subsection.4.1.5}{Implementa\347\343o}{section.4.1}% 25
+\BOOKMARK [2][-]{subsection.4.1.6}{Resultados e An\341lise}{section.4.1}% 26

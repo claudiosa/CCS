@@ -16,17 +16,66 @@ Além disto, outras de suas qualidades são a simplicidade, a expressividade e a
 \section{Elementos da Linguagem}
 
 
+\subsection{Um Paradigma Computacional}
+
+$$ Modelo + Dados = A_1 \wedge A_2 \wedge A_3 \wedge  ....  \wedge  A_n $$
+
+\begin{itemize}
+  \item 
+ $A_i: $ são assertivas declaradas (declarações de restrições) sobre o problema
+
+  \item  Logo, esta é uma linguagem  que visa construir rapidamente
+modelos sobre os problemas reais.
+
+  \item  Detalhe é que estes \textbf{modelos} são computáveis!
+
+
+\end{itemize}
+
+
+
+
 \subsection{Estrutura de um Programa em \minizinc}
 
-{\bf \textcolor{red}{Faltando ....}}
+{\bf \textcolor{red}{Faltando uma figura}}
 
-\subsection{Constantes}
+\subsection{Constantes ou Parâmetros}
+
+
+
+As constantes são similares às váriaveis de linguagens de programação comuns. Entretanto, só é permitido atribuir 
+um valor a um parâmetro uma vez.
 
 {\bf \textcolor{red}{Faltando ....}}
 
 \subsection{Variáveis}
 
+Variáveis e Variáveis de Decisão (discutidas ao longo do texto) são mais próximas ao conceito de incógnitas da Matemática. O valor de uma váriavel de decisão 
+é escolhido pelo Minizinc para atender todas as restrições estabelecidas.
+
+
 {\bf \textcolor{red}{Faltando ....}}
+
+
+\begin{description}
+
+  \item[Booleanas:] 
+    \item[Inteiras:]
+      \item[Reais:]
+        \item[Vetores ou Arrays:]
+                \item[Conjuntos:]
+                
+\end{description}
+
+Contudo, caso estas variáveis exibam um domínio
+específico, ou restrito, que é o caso de interesse,
+estas variáveis são conhecidas como
+\textit{variáveis de restrição}.
+Estas assumem valores que   são {\em descobertos} dentro de um domínio 
+de valores sob um conjunto de restrições que 
+é o  \textit{modelo  computado}.
+
+
 \subsection{Restrições ou Declarações Lógicas}
 
 {\bf \textcolor{red}{Faltando ....}}
@@ -37,6 +86,22 @@ Além disto, outras de suas qualidades são a simplicidade, a expressividade e a
 
 {\bf \textcolor{red}{Faltando ....}}
 
+
+\subsection{Instalação e Uso}
+
+{\bf \textcolor{red}{Revisao ....}}
+
+
+\begin{enumerate}   
+
+\item Baixar o arquivo .tar.gz \\\hspace*{0.3cm}(http://www.minizinc.org/g12distrib.html)
+\item Extrair a pasta.
+\item Executar o arquivo SETUP presente na pasta.
+\item Alterar a variável PATH, execute o comando:
+\\export PATH=\$PATH:/\textless diretório da pasta do 
+minizinc\textgreater/bin
+\end{enumerate}
+
 \section{Um Exemplo}
 
 Esta seção apresenta um exemplo completo, o qual  resume os conceitos apresentados anteriormente.
@@ -46,8 +111,7 @@ Este exemplo provê noções básicas para compreender e desenvolver programas n
   \centering
   \caption{Exemplo de modelo em MiniZinc}
   \label{code:exemple}
-  \lstinputlisting{codigos/nqueens.mzn}
-  Fonte: Autoria própria
+  \lstinputlisting{/home/ccs/Dropbox/CCS/minizinc/nqueens.mzn}
 \end{figure}
 
 Este é um modelo para o problema das $n$-rainhas, apresentado na Subseção \ref{ss:exemplo-de-modelagem}. A primeira linha contém o comando \textit{include}, que funciona de forma análoga às outras linguagens de programação, como C. Este comando serve para possibilitar a divisão de um mesmo modelo em diversos arquivos e utilizar bibliotecas externas. Neste caso, está sendo incluída a biblioteca de restrições globais por meio do arquivo \textit{globals.mzn}, com o intuito de utilizar a restrição \textit{alldifferent}, pertencente a tal biblioteca, no modelo.
@@ -92,8 +156,8 @@ Na biblioteca apresentada no capítulo 4, as funcionalidades são implementadas 
   \centering
   \caption{Exemplo de utilização de função}
   \label{code:nqueens}
-  \lstinputlisting{codigos/nqueens_fn.mzn}
-  Fonte: Autoria própria
+  \lstinputlisting{/home/ccs/Dropbox/CCS/minizinc/nqueens_fn.mzn}
+%%  Fonte: Autoria própria
 \end{figure}
 
 Na linha 6 deste exemplo, há a declaração da função. Esta é iniciada com a palavra chave \textit{function}, que é sucedida pela declaração do tipo de retorno da função. Em MiniZinc, toda função precisa obrigatoriamente de um retorno, visto que quando este não se faz necessário pode-se substituir o uso de uma função pelo uso de um predicado.
@@ -106,4 +170,4 @@ A estrutura \textit{let\{\} in} presente na função, permite o uso de variávei
 
 Após a conclusão de um modelo, se faz preciso utilizar um \textit{solver} para encontrar os valores das variáveis de decisão, de forma a satisfazer todas as restrições. Isto pode ser feito, por exemplo, pela própria IDE fornecida pelo MiniZinc, na qual pode-se editar os modelos e avaliá-los. Caso não haja uma solução possível, o MiniZinc apresenta uma mensagem informando que o modelo é insatisfatível, ou seja, não existe uma atribuição de valores às variáveis de decisão que satisfaça as restrições estabelecidas. Há ainda casos em que o modelo em questão pode ter muitas possibilidades de soluções para serem avaliadas, gerando uma explosão combinatorial, o que pode fazer com que o \textit{solver} não consiga encontrar uma solução em um tempo aceitável.
 
-Para a implementação da biblioteca, alguns outros recursos do MiniZinc que não são explicados nesta seção são utilizados. Porém, tais recursos são explicados à medida em que são utilizados nas implementãções.
+Para a implementação da biblioteca, alguns outros recursos do MiniZinc que não são explicados nesta seção são utilizados. Porém, tais recursos são explicados à medida em que são utilizados nas implementações.
