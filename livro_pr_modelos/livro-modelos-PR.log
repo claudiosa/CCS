@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.2.5)  7 FEB 2016 21:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.2.5)  7 FEB 2016 22:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -818,38 +818,39 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 90.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 105.
- (/home/ccs/Dropbox/CCS/minizinc/nqueens.mzn)
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 123.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 123.
- [13]
-Underfull \vbox (badness 1852) has occurred while \output is active []
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 118.
 
+(/home/ccs/Dropbox/CCS/minizinc/nqueens.mzn
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 131.
+(babel)             in language append on input line 18.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 131.
+(babel)             in language append on input line 18.
+ [13])
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 136.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 136.
  [14]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 145.
+(babel)             in language append on input line 148.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 145.
-
-[15] (/home/ccs/Dropbox/CCS/minizinc/nqueens_fn.mzn)
+(babel)             in language append on input line 148.
+ [15]
+(/home/ccs/Dropbox/CCS/minizinc/nqueens_fn.mzn
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 170.
+(babel)             in language append on input line 14.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 170.
- [16]
-Underfull \vbox (badness 3612) has occurred while \output is active []
-
+(babel)             in language append on input line 14.
+ [16])) (./capitulo-4_Modelos.tex
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 173.
+(babel)             in language append on input line 1.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 173.
- [17])
-(./capitulo-4_Modelos.tex
+(babel)             in language append on input line 1.
+[17]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 2.
 Package babel Info: Redefining portuges shorthand "|
@@ -886,7 +887,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 107.
 
-<figuras/binary_tree04.pdf, id=350, 618.31pt x 292.09125pt>
+<figuras/binary_tree04.pdf, id=349, 618.31pt x 292.09125pt>
 File: figuras/binary_tree04.pdf Graphic file (type pdf)
 
 <use figuras/binary_tree04.pdf>
@@ -936,34 +937,35 @@ Package rerunfilecheck Info: File `livro-modelos-PR.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 125.
  ) 
 Here is how much of TeX's memory you used:
- 9482 strings out of 494941
- 129779 string characters out of 6180243
- 300223 words of memory out of 5000000
- 12465 multiletter control sequences out of 15000+600000
- 21784 words of font info for 59 fonts, out of 8000000 for 9000
+ 8963 strings out of 494941
+ 123983 string characters out of 6180243
+ 298234 words of memory out of 5000000
+ 11945 multiletter control sequences out of 15000+600000
+ 22550 words of font info for 60 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 30i,9n,36p,862b,1788s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,9n,39p,862b,1976s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/ccs
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/ccs/.texmf-var/f
-onts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/ccs/.texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecti1200.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecbx1728.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600
-pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/cc
-s/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/ccs/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfo
-ur/jknappen/ec/eccc1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecbx2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on livro-modelos-PR.pdf (27 pages, 291436 bytes).
+/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/ccs/.texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ectt1200.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecti1200.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600
+pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/cc
+s/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/ccs/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/ccs/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecrm1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/eccc1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.60
+0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/zapfding/uzdr.pfb>
+Output written on livro-modelos-PR.pdf (27 pages, 295928 bytes).
 PDF statistics:
- 931 PDF objects out of 1000 (max. 8388607)
- 430 compressed objects within 5 object streams
- 128 named destinations out of 1000 (max. 500000)
+ 941 PDF objects out of 1000 (max. 8388607)
+ 431 compressed objects within 5 object streams
+ 126 named destinations out of 1000 (max. 500000)
  219 words of extra memory for PDF output out of 10000 (max. 10000000)
 

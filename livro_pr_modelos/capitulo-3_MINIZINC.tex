@@ -107,12 +107,16 @@ minizinc\textgreater/bin
 Esta seção apresenta um exemplo completo, o qual  resume os conceitos apresentados anteriormente.
 Este exemplo provê noções básicas para compreender e desenvolver programas na linguagem MiniZinc, sendo tais programas comumente chamados de modelos. Para isto, é tomado como exemplo um modelo feito em MiniZinc, apresentado na Figura \ref{code:exemple}.
 
-\begin{figure}[!ht]
-  \centering
-  \caption{Exemplo de modelo em MiniZinc}
-  \label{code:exemple}
-  \lstinputlisting{/home/ccs/Dropbox/CCS/minizinc/nqueens.mzn}
-\end{figure}
+\lstinputlisting[
+    label={code:exemple},
+    language=Pascal,
+    numbers=left, 
+    stepnumber=2, 
+    frame=single,
+    caption={Exemplo de um modelo em MiniZinc}
+    ]
+    {/home/ccs/Dropbox/CCS/minizinc/nqueens.mzn}
+
 
 Este é um modelo para o problema das $n$-rainhas, apresentado na Subseção \ref{ss:exemplo-de-modelagem}. A primeira linha contém o comando \textit{include}, que funciona de forma análoga às outras linguagens de programação, como C. Este comando serve para possibilitar a divisão de um mesmo modelo em diversos arquivos e utilizar bibliotecas externas. Neste caso, está sendo incluída a biblioteca de restrições globais por meio do arquivo \textit{globals.mzn}, com o intuito de utilizar a restrição \textit{alldifferent}, pertencente a tal biblioteca, no modelo.
 
@@ -152,13 +156,15 @@ Por fim, na linha 18 há o comando \textit{output}, pelo qual pode-se imprimir n
 
 Na biblioteca apresentada no capítulo 4, as funcionalidades são implementadas por meio de funções. Isto é feito para que seja possível utilizar esta biblioteca em qualquer modelo, bastando para isto incluir um arquivo, como foi feito neste exemplo para utilizar a biblioteca de restrições globais. Para exemplificar a definição de funções, a Figura \ref{code:nqueens} apresenta um modelo equivalente ao apresentado anteriormente, entretanto, utilizando uma função para a resolução do problema.
 
-\begin{figure}[!ht]
-  \centering
-  \caption{Exemplo de utilização de função}
-  \label{code:nqueens}
-  \lstinputlisting{/home/ccs/Dropbox/CCS/minizinc/nqueens_fn.mzn}
-%%  Fonte: Autoria própria
-\end{figure}
+\lstinputlisting[
+    label={code:nqueens},
+    language=Pascal,
+    numbers=left, 
+    stepnumber=1, 
+    frame=single,
+    caption={Exemplo de utilização de função}
+    ]{/home/ccs/Dropbox/CCS/minizinc/nqueens_fn.mzn}
+
 
 Na linha 6 deste exemplo, há a declaração da função. Esta é iniciada com a palavra chave \textit{function}, que é sucedida pela declaração do tipo de retorno da função. Em MiniZinc, toda função precisa obrigatoriamente de um retorno, visto que quando este não se faz necessário pode-se substituir o uso de uma função pelo uso de um predicado.
 
