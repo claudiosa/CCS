@@ -1,0 +1,14 @@
+
+\chapter{Fundamentos de Complexidade de Problemas}
+\label{cp:complexidade}
+
+
+Neste capítulo são apresentados os fundamentos sobre
+complexidade de problemas.  Avaliar o que são problemas
+exponenciais e o quanto são complexos.
+
+\textcolor{red}{Conteudo clássico sobre complexidade e problemas P e NP e com isto o que a PR resolve}
+
+
+\section{Proposta da PR}
+

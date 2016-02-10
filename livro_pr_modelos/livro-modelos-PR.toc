@@ -1,38 +1,41 @@
 \select@language {portuguese}
-\contentsline {chapter}{\numberline {1}Fundamentos de Complexidade de Problemas}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}Proposta da PR}{3}{section.1.1}
-\contentsline {chapter}{\numberline {2}Programa\IeC {\c c}\IeC {\~a}o por Restri\IeC {\c c}\IeC {\~o}es}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Mapeando o Territ\'orio}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Problemas em Intelig\IeC {\^e}ncia Artificial}{6}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Problemas de Satisfa\IeC {\c c}\IeC {\~a}o de Restri\IeC {\c c}\IeC {\~o}es}{6}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Apresentando a PR}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Ilustrando os Conceitos}{8}{section.2.3}
-\contentsline {section}{\numberline {2.4}Elementos ou Formalizando a PR}{9}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Defini\IeC {\c c}\IeC {\~o}es}{11}{subsection.2.4.1}
+\contentsline {chapter}{\numberline {1}Complexidade de Problemas}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Mapeando o Territ\'orio}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Problemas em Intelig\IeC {\^e}ncia Artificial}{4}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Problemas de Satisfa\IeC {\c c}\IeC {\~a}o de Restri\IeC {\c c}\IeC {\~o}es}{4}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Complexidade}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}\IeC {\'A}rvores de Buscas: Ilustrando a Complexidade}{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}Conclus\IeC {\~o}es Parciais}{6}{section.1.4}
+\contentsline {chapter}{\numberline {2}Programa\IeC {\c c}\IeC {\~a}o por Restri\IeC {\c c}\IeC {\~o}es}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Apresentando a PR}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Ilustrando os Conceitos}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}Elementos ou Formalizando a PR}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Defini\IeC {\c c}\IeC {\~o}es}{10}{subsection.2.3.1}
 \contentsline {subsubsection}{Restri\IeC {\c c}\IeC {\~o}es}{11}{section*.6}
-\contentsline {subsubsection}{Dom\IeC {\'\i }nios}{12}{section*.7}
-\contentsline {section}{\numberline {2.5}Modelagem}{13}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Exemplo de Modelagem}{13}{subsection.2.5.1}
-\contentsline {section}{\numberline {2.6}Buscas}{15}{section.2.6}
-\contentsline {section}{\numberline {2.7}Acelerando as Buscas}{15}{section.2.7}
-\contentsline {section}{\numberline {2.8}Conclus\IeC {\~o}es Parciais}{15}{section.2.8}
-\contentsline {chapter}{\numberline {3}A Linguagem de Programa\IeC {\c c}\IeC {\~a}o MiniZinc}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Apresentando o MiniZinc}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Elementos da Linguagem}{17}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Um Paradigma Computacional}{17}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Estrutura de um Programa em MiniZinc}{17}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Constantes ou Par\IeC {\^a}metros}{18}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Vari\IeC {\'a}veis}{18}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Restri\IeC {\c c}\IeC {\~o}es ou Declara\IeC {\c c}\IeC {\~o}es L\IeC {\'o}gicas}{18}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Satisfatibilidade e Otimiza\IeC {\c c}\IeC {\~a}o}{18}{subsection.3.2.6}
-\contentsline {subsection}{\numberline {3.2.7}Sa\IeC {\'\i }das}{18}{subsection.3.2.7}
-\contentsline {subsection}{\numberline {3.2.8}Instala\IeC {\c c}\IeC {\~a}o e Uso}{19}{subsection.3.2.8}
-\contentsline {section}{\numberline {3.3}Um Exemplo}{19}{section.3.3}
-\contentsline {chapter}{\numberline {4}Modelagem de Problemas}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Cabo de Guerra}{25}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Descri\IeC {\c c}\IeC {\~a}o}{25}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Especifica\IeC {\c c}\IeC {\~a}o}{25}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Modelagem}{26}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Estrat\IeC {\'e}gia}{27}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Implementa\IeC {\c c}\IeC {\~a}o}{27}{subsection.4.1.5}
-\contentsline {subsection}{\numberline {4.1.6}Resultados e An\IeC {\'a}lise}{27}{subsection.4.1.6}
+\contentsline {subsubsection}{Dom\IeC {\'\i }nios}{11}{section*.7}
+\contentsline {section}{\numberline {2.4}Modelagem}{12}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Exemplo de Modelagem}{13}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Buscas}{14}{section.2.5}
+\contentsline {section}{\numberline {2.6}Acelerando as Buscas}{14}{section.2.6}
+\contentsline {section}{\numberline {2.7}Conclus\IeC {\~o}es Parciais}{14}{section.2.7}
+\contentsline {chapter}{\numberline {3}A Linguagem MiniZinc}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Apresentando o MiniZinc}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Elementos da Linguagem}{15}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Um Paradigma Computacional}{15}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Estrutura de um Programa em MiniZinc}{15}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Constantes ou Par\IeC {\^a}metros}{16}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Vari\IeC {\'a}veis}{16}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Restri\IeC {\c c}\IeC {\~o}es ou Declara\IeC {\c c}\IeC {\~o}es L\IeC {\'o}gicas}{16}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Satisfatibilidade e Otimiza\IeC {\c c}\IeC {\~a}o}{16}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Sa\IeC {\'\i }das}{16}{subsection.3.2.7}
+\contentsline {subsection}{\numberline {3.2.8}Instala\IeC {\c c}\IeC {\~a}o e Uso}{17}{subsection.3.2.8}
+\contentsline {section}{\numberline {3.3}Um Exemplo}{17}{section.3.3}
+\contentsline {section}{\numberline {3.4}Conclus\IeC {\~o}es Parciais}{21}{section.3.4}
+\contentsline {chapter}{\numberline {4}Modelagem de Problemas}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Cabo de Guerra}{23}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Descri\IeC {\c c}\IeC {\~a}o}{23}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Especifica\IeC {\c c}\IeC {\~a}o}{23}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Modelagem}{24}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Estrat\IeC {\'e}gia}{25}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Implementa\IeC {\c c}\IeC {\~a}o}{25}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}Resultados e An\IeC {\'a}lise}{25}{subsection.4.1.6}

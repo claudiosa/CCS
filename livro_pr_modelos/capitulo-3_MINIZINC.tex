@@ -1,4 +1,4 @@
-\chapter{A Linguagem de Programação MiniZinc}
+\chapter{A Linguagem MiniZinc}
 
 
 \section{Apresentando o MiniZinc}
@@ -60,11 +60,14 @@ Variáveis e Variáveis de Decisão (discutidas ao longo do texto) são mais pr�
 \begin{description}
 
   \item[Booleanas:] 
+{\bf \textcolor{red}{Faltando ....define e exemplo}}
+  
     \item[Inteiras:]
       \item[Reais:]
         \item[Vetores ou Arrays:]
                 \item[Conjuntos:]
                 
+                \item[Enumeradores:]
 \end{description}
 
 Contudo, caso estas variáveis exibam um domínio
@@ -102,6 +105,10 @@ de valores sob um conjunto de restrições que
 minizinc\textgreater/bin
 \end{enumerate}
 
+
+
+
+
 \section{Um Exemplo}
 
 Esta seção apresenta um exemplo completo, o qual  resume os conceitos apresentados anteriormente.
@@ -109,9 +116,9 @@ Este exemplo provê noções básicas para compreender e desenvolver programas n
 
 \lstinputlisting[
     label={code:exemple},
-    language=Pascal,
+    language=erlang,
     numbers=left, 
-    stepnumber=2, 
+    stepnumber=1, 
     frame=single,
     caption={Exemplo de um modelo em MiniZinc}
     ]
@@ -158,7 +165,7 @@ Na biblioteca apresentada no capítulo 4, as funcionalidades são implementadas 
 
 \lstinputlisting[
     label={code:nqueens},
-    language=Pascal,
+    language=erlang,
     numbers=left, 
     stepnumber=1, 
     frame=single,
@@ -177,3 +184,9 @@ A estrutura \textit{let\{\} in} presente na função, permite o uso de variávei
 Após a conclusão de um modelo, se faz preciso utilizar um \textit{solver} para encontrar os valores das variáveis de decisão, de forma a satisfazer todas as restrições. Isto pode ser feito, por exemplo, pela própria IDE fornecida pelo MiniZinc, na qual pode-se editar os modelos e avaliá-los. Caso não haja uma solução possível, o MiniZinc apresenta uma mensagem informando que o modelo é insatisfatível, ou seja, não existe uma atribuição de valores às variáveis de decisão que satisfaça as restrições estabelecidas. Há ainda casos em que o modelo em questão pode ter muitas possibilidades de soluções para serem avaliadas, gerando uma explosão combinatorial, o que pode fazer com que o \textit{solver} não consiga encontrar uma solução em um tempo aceitável.
 
 Para a implementação da biblioteca, alguns outros recursos do MiniZinc que não são explicados nesta seção são utilizados. Porém, tais recursos são explicados à medida em que são utilizados nas implementações.
+
+
+
+
+\section{Conclusões Parciais}
+{\bf \textcolor{red}{Faltando .... e melhorar a apresentacao acima}}
