@@ -23,3 +23,14 @@ constraint forall( i in 2..l1 ) (
 solve minimize c1+c2;
 
 output["Path 1: " ++ show(p1) ++ "\nPath 2: " ++ show(p2) ++ "\nTotal cost: " ++ show(c1+c2)];
+
+from = 1;
+to = 6;
+N = 6;
+adj_mat = [|
+    0, 3, 4, 1, 5, 0, |
+    0, 0, 0, 0, 0, 2, |
+    0, 0, 0, 0, 0, 3, |
+    0, 0, 0, 0, 0, 2, |
+    0, 0, 0, 0, 0, 1, |
+    0, 0, 0, 0, 0, 0  |];

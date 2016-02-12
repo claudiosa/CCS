@@ -8,7 +8,7 @@
 %\usepackage{tikz}
 %\usepackage{thmtools}
 \usepackage{proof}
-\usepackage{listings, pifont}
+\usepackage{listings, pifont,comment}
 \usepackage{color}
 %\usepackage{algorithm}
 %\usepackage{multirow}
@@ -47,7 +47,19 @@
 
 \graphicspath{{figuras/}{../figuras/}{../../figuras/}}
 %\graphicspath{{subdir1/}{subdir2/}{subdir3/}...{subdirn/}}
+
 \newcommand{\minizinc}{MiniZinc}
+\newcommand{\PR}{Programação por Restrições}
+
+\textwidth=16.3cm 
+\textheight=22cm
+
+\headsep = 0.5cm
+\topmargin=-0.5cm 
+
+\oddsidemargin = -0.50cm 
+\evensidemargin= -0.50cm 
+
 
 \makeatother
 

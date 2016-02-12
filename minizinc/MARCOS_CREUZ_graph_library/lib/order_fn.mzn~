@@ -1,0 +1,7 @@
+include "vertex_set_fn.mzn";
+
+function int: order(array[int,int] of bool: graph) =
+  card(vertex_set(graph));
+
+function int: order(array[int,int] of int: graph) =
+  card(vertex_set(graph));

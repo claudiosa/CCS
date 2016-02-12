@@ -4,13 +4,39 @@ include "is_adj_matrix_square.mzn";
 
 /*
   Functions related to cycles in graphs.
-  All the functions returns a simple cycle.
+  All the functions (except exists_cycle) returns a simple cycle.
 
   Params:
   graph: an adjacency-matrix representing a graph
   cost: the value of the sum of all the edges in the cycle. Can be a decision-variable (optional param)
   length: the number of edges in the cycle. Can be a decision-variable (optional param)
+
+  Issues:
+  - The size of the cycle array should be exactly equals to the size of the cycle, instead of using -1s to denote the end of the cycle
 */
+
+
+/**
+  Returns true if there is any cycle in the graph from source to target. Otherwise, returns false.
+*/
+function var bool: exists_cycle(array[int,int] of int: graph) =
+let {
+  int: order = order(graph);
+  set of int: indexes = 1..order;
+  set of int: V = vertex_set(graph);
+  array[indexes] of var (V union {-1}): cycle_array;
+  var indexes: length;
+  var V: source;
+  var V: target;
+}
+in (
+  is_adj_matrix_square(graph) /\
+  cycle_array[1] == source /\
+  cycle_array[length] == target /\
+  graph[target,source] != 0 /\
+  forall(i in 2..length) ( graph[ cycle_array[i-1], cycle_array[i] ] != 0 ) /\
+  forall(i,j in indexes, where i<j /\ j<=length) ( cycle_array[i] != cycle_array[j] )
+);
 
 /**
   Returns a cycle of the graph.

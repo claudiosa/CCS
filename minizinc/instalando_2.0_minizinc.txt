@@ -88,4 +88,22 @@ ADICIONE "cd usr/local/share/MiniZincIDE-0.9.8-bundle-linux-x86_64" em
 ainda para console:
 ln -s /usr/local/share/MiniZincIDE-0.9.8-bundle-linux-x86_64/minizinc minizinc
 %%%%%%%%%%%%%%%%
-NA verdade nao li muito sobre esta instalacao ..... 
+
+FINALMENTE ADICIONAR o CAMINHO em seu sistema .profile ou /etc/profile
+
+................................................................................
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/share/minizinc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+else
+  PATH="/usr/local/share/minizinc:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+fi
+export PATH
+................................................................
+TESTE algo como:
+$mzn-g12fd clique_ex.mzn data_clique_30.dzn 
+Clique size:15
+{2,4,6,8,10,12,14,16,18,20,22,24,26,28,30}
+----------
+................................................................................
+
+
