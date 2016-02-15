@@ -9,4 +9,4 @@ constraint clique_vertexes = clique(adj_mat, clique_size);
 
 solve maximize clique_size;
 
-output["Clique size:" ++ show(clique_size) ++ "\n" ++ show(clique_vertexes)];
+output["Clique size MAX:" ++ show(clique_size) ++ "\n" ++ "Solution MAX: "++show(clique_vertexes)];
