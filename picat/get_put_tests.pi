@@ -1,0 +1,8 @@
+%%%%%%% ilustra functores / STRUCTs
+import util.
+
+main => 
+	L = [a,b,c,d],
+	printf("\n L: %w \n", L),
+	X= get(L,[1,2,3,4]),
+	printf("\n X: %w \n", X).
