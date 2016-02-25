@@ -62,6 +62,9 @@ udesc@F: $ git commit
 udesc@F: $  git push origin master
 udesc@F: $ git status
 
+git rm -r one-of-the-directories
+
+
 
 COMO FAZER?
  git   ls-remote https://github.com/claudiosa/..............
