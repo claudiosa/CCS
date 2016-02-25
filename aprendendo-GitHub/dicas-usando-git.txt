@@ -63,8 +63,13 @@ udesc@F: $  git push origin master
 udesc@F: $ git status
 
 git rm -r one-of-the-directories
+git rm -r /apresentacoes
+git rm -r LPG_C
 
+depois COMMIT
 
+git  commit -m "xxxxxxxxxxxxxxx"
+git push origin master
 
 COMO FAZER?
  git   ls-remote https://github.com/claudiosa/..............
