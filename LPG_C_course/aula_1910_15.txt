@@ -1,0 +1,10 @@
+
+19/10
+
+1. Repassar algumas funcoes com ponteiros - finais
+2. Estruturas
+3. Estruturas em Estruturas
+4. TYPEDEF
+5. PONTEIROS para Estruturas
+6. Exercicios
+7. QUIZZ
