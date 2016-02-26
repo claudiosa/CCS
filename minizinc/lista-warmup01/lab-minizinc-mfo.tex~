@@ -1,0 +1,254 @@
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{Exercícios de MiniZinc} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{2pt} % Remove header underlines
+\renewcommand{\footrulewidth}{2pt} % Remove footer underlines
+\setlength{\headheight}{1cm} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{UDESC} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Laboratório de Minizinc em MFO \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Lucas} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+
+\section{Objetivo da Lista}
+
+Utilizar a linguagem de modelagem Minizinc em resoluções
+de problemas da teoria dos conjuntos, funções, 
+lógica proposicional e primeira-ordem.
+
+\tableofcontents
+
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Operações sobre Conjuntos}
+%https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+%------------------------------------------------
+
+\subsection{União}
+
+Construa um código que realize a união dos conjuntos abaixo:
+\begin{enumerate}
+
+\item $A = \{ 1, 2, 4, 6\}$ e $B = \{ 4, 3, 7, 8, 9 \}$
+
+\item $A = \{ 0, -1, 1, 5\}$ e $B = \{ 0, -5, 10, 8, 3 \}$
+
+
+\end{enumerate}
+
+
+\subsection{Interseção}
+
+Construa um código que realize a interseção dos conjuntos abaixo:
+\begin{enumerate}
+
+\item $A = \{ 1, 2, 4, 6\}$ e $B = \{ 4, 3, 7, 8, 9 \}$
+
+\item $A = \{ 0, -1, 1, 5\}$ e $B = \{ 0, -5, 10, 8, 3 \}$
+
+
+\end{enumerate}
+
+
+
+\subsection{Diferenças}
+
+Construa um código que realize a diferença dos conjuntos abaixo:
+\begin{enumerate}
+
+\item $A = \{ 1, 2, 4, 6\}$ e $B = \{ 4, 3, 7, 8, 9 \}$
+
+\item $A = \{ -5, -3, 2, 5\}$ e $B = \{ 0, -5, 10, 8, 3 \}$
+
+
+\end{enumerate}
+
+
+
+
+%------------------------------------------------------------------------------------------------
+\newpage
+\section{Relações}
+
+\subsection{Funções}
+
+Construir funções que calculem:
+
+\begin{enumerate}
+
+\item  A sequência de fibonacci, até um número N (pode ser especificado no código).
+
+\item Os N primeiros números primos.
+
+
+\end{enumerate}
+
+
+\subsection{Tuplas}
+
+\begin{enumerate}
+
+\item  Calcule o Conjunto C, onde cada elemento de C é uma dupla (x,y), x é o primeiro elemento da n-ésima dupla de A e y é o segundo elemento da n-ésima dupla de B.  $A = \{(0,5),(1,7),(-3,5),(-5,8)\}$ e $B = \{(-1,0),(0,-1),(5,4),(,2,9),(-7,-6) \}$.
+
+\item O produto cartesiano inverso dos conjuntos: $A = \{ -5, -3, 2, 5\}$ e $B = \{ 0, -5, 10, 8, 3 \}$.
+
+
+\end{enumerate}
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------
+\newpage
+\section{Lógica Proposicional -- LP}
+%----------------------------------------------------------------------------------------
+
+Comprove os teoremas lógicas abaixo:
+
+\begin{enumerate}
+
+\item $(p \land (p \to q))\vdash q$ 
+
+\item $((p \to q )\land (p \to r))\vdash p \to r$
+
+\item $(p \to q )\vdash( p \to ( p \land q))$
+
+\item $(p \lor q)\vdash( p \to ( p \land q))$
+
+\item $((p \to q) \land (r \to g)) \vdash((p \lor r) \to ( q \lor g))$
+
+\item $((p \to q) \land (r \to g)) \vdash((\lnot q \lor \lnot g) \to(\lnot p \lor \lnot r))$
+
+\end{enumerate}
+
+
+%------------------------------------------------
+\newpage
+\section{Lógica Primeira Ordem -- LPO}
+%----------------------------------------------------------------------------------------
+
+Seja o exemplo de uma fórmula de LPO:\\
+
+$\exists x . \forall y .(x \ge y)$\\
+
+Leia-se: existe um $x$ para  todos $y$ tal que $x \ge y$\\
+
+seu código equivalente é dado por:
+\begin{verbatim}
+constraint %%% Existe um x para  todos y tal que x>=y 
+ exists(i in 1..n)(
+  forall  (j  in 1..m )( 
+   (x[i] >= y[j]) <-> (Phi03 == true) 
+%%% OU
+%%%%%     (y[j] > x[i]) <-> (Phi03 == true)
+   )
+   );
+\end{verbatim}
+
+Cujos domínios são:
+
+\begin{verbatim}
+x = [1, 3, 5];
+y = [2, 4, 6, 8];
+array[1..n] of int : x;
+array[1..m] of int : y;
+\end{verbatim}
+
+\subsection{Interpretação}
+%%%∃x.(Computer(x) ∧ ∀y.(Student(y) → ¬Uses(y, x)))
+\begin{enumerate}
+
+\item $\forall x . \exists y .(2x - y = 0)$
+
+\begin{verbatim}
+x = [0, 2, 4];
+y = [5,3,0,8,4,2,6];
+array[1..n] of int : x;
+array[1..m] of int : y;
+\end{verbatim}
+
+\item $\exists x .(computador(x) \wedge \forall y.(estudante(y) \rightarrow \sim usa(y, x)))$
+
+\begin{verbatim}
+x = [1, 2, 3, 4 , 5 , 6];
+y = [1,2,3,4,5,6];
+\end{verbatim}
+
+\item Nenhum estudante(x) reprovou em y, mas ao menos 3 estudantes reprovaram em z.
+%$\not \exists x . (reprovou(x,y)) \land \exists x .(reprovou(x,z) \land x \ge 3)$
+\begin{verbatim}
+x = [1,2,3,4,5,6];
+y = 2;
+z = 3;
+\end{verbatim}
+
+\end{enumerate}
+\end{document}
