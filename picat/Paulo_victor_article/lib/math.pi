@@ -1,0 +1,36 @@
+module math.  % imported by default
+
+abs(X) = abs(X).
+acos(X) = acos(X).
+asin(X) = asin(X).
+atan(X) = atan(X).
+atan2(X,Y) = atan2(X,Y).
+ceiling(X) = ceiling(X).
+cos(X) = cos(X).
+e = 2.71828182845904523536.
+even(X) => even(X).
+exp(X) = exp(X).
+factorial(N) = factorial(N).
+floor(X) = floor(X).
+frand() = frand().
+gcd(A,B) = gcd(A,B).
+log(B,X) = log(B,X).
+log(X) = log(X).
+log10(X) = log10(X).
+log2(X) = log2(X).
+modf(X) = modf(X).
+odd(X) => odd(X).
+pi = 3.14159265358979323846.
+pow(X,Y) = pow(X,Y).
+prime(X) => prime(X).
+primes(N)=primes(N).
+rand_max() = rand_max().
+random() = random().
+random(Seed) = random(Seed).
+random2() = random2().
+round(X) = round(X).
+sign(X) = sign(X).
+sin(X) = sin(X).
+sqrt(X) = sqrt(X).
+tan(X) = tan(X).
+truncate(X) = truncate(X).

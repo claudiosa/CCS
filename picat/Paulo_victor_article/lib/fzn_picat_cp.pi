@@ -1,0 +1,834 @@
+/*  A minimal FlatZinc interpreter in Picat that just meets the 
+    requirements for MiniZinc Challenge 2014. 
+
+    by Neng-Fa Zhou with help by Hakan Kjellerstrand, June 2014.
+
+    The following global constraints should not be decomposed by mzn2fzn:
+       
+       alldifferent/1,
+       alldifferent_except_0/1,
+       circuit/1,
+       count_eq/3 (and friends)
+       cumulative/4,
+       diffn/4,
+       element/3,
+	   inverse/2,
+       lex_.../2,
+       maximum/2
+       minimum/2
+       regular/6,
+       regular_nfa/6,
+       subcircuit/1,
+       table/2
+         
+    The following examples illustrate the two different ways to use
+    the interpreter to solve "zebra.fzn":
+
+    1. load and run
+
+       Picat> load(fzn_picat_cp).
+       Picat> main(["zebra"]).
+
+    2. run as a command-line
+
+       picat fzn_picat_cp zebra
+*/
+import fzn_parser.
+import cp.    
+
+main(Args) =>
+    get_global_map().put(fzn_num_solutions,0),
+    (process_args(Args,File),nonvar(File) ->
+        true
+    ;
+        printf("Usage: fzn_picat [-a][-f][-v][-s][-n N] FlatZincFile%n"),halt
+    ),
+    printf("%% solving(%w)%n",File),
+    get_global_map().put(count_solutions,0),
+    if get_heap_map().has_key(fzn_show_stats) then
+       statistics(runtime,_),
+       statistics(backtracks, Backtracks1),
+       fzn_interpret_file(File), 
+       statistics(backtracks, Backtracks2),
+       statistics(runtime, [_,End]),
+       T = End / 1000.0,
+       Backtracks = Backtracks2 - Backtracks1,
+       NSols = get_global_map().get(count_solutions),
+       printf("%% CPU time %f seconds Backtracks: %d Solutions: %d%n", T, Backtracks, NSols)
+    else
+       fzn_interpret_file(File)
+    end.
+
+process_args([],_File) => true.
+process_args(["-a"|As],File) =>
+    get_heap_map().put(fzn_all_solution,1),
+    process_args(As,File).
+process_args(["-f"|As],File) =>
+    get_heap_map().put(fzn_free_order,1),
+    process_args(As,File).
+process_args(["-s"|As],File) =>
+    get_heap_map().put(fzn_show_stats,1),
+    process_args(As,File).
+process_args(["-v"|As],File) =>
+    printf("Version 0.6b3\n"),
+    process_args(As,File).
+process_args(["-n",N|As],File) =>
+   % get N solutions
+   NInt = N.my_str_to_int(),
+   get_heap_map().put(fzn_all_solution,1),
+   if NInt > 0 then
+     get_global_map().put(fzn_num_solutions,NInt)
+   end,
+   process_args(As,File).
+process_args([File|As],File1) =>
+    File1=File,
+    process_args(As,File).
+
+%% the built-in to_integer(A) is not included in the fzn interpreter.
+my_str_to_int(Str) = Int =>
+    my_str_to_int(Str,0,Int).
+
+my_str_to_int([],Int0,Int) => Int=Int0.
+my_str_to_int([C|Cs],Int0,Int) => 
+    Int1 = (ord(C)-ord('0'))+Int0*10,
+    my_str_to_int(Cs,Int1,Int).
+
+fzn_interpret_file(File) =>
+    (append(_,".fzn",File) -> File1=File; File1 =File++".fzn"),
+    printf("%% loading %s%n",File1),
+    FD=open(File1),
+    catch(fzn_interpret(FD),Exception, printf("%% %w%n",Exception)),
+    close(FD).
+
+fzn_interpret(FD) ?=>
+    new_map()=SymTable,
+    read_flatzinc_item(FD) = Item,
+    fzn_interpret(FD,Item,SymTable,[],[],[]).
+fzn_interpret(_FD) =>  % comes here if failure occurs during constraint generation
+    println('=====UNSATISFIABLE=====').
+
+% fzn_interpret(FD,Item,SymTable,PVars,SVars,OutAnns)
+%     Item: the current item
+%     SymTable: the symbol table for arrays and variables
+%     PVars: principal FD variables
+%     SVars: secondary FD variables such as introduced and dependent variables
+%     OutAnns: output annotations
+
+fzn_interpret(_FD,satisfy(SolveAnns),SymTable,PVars,SVars,OutAnns) =>
+    (get_heap_map().has_key(fzn_all_solution) ->
+        proc_solve_annotations(all,SolveAnns,SymTable,PVars,SVars,OutAnns)
+    ;
+        proc_solve_annotations(one,SolveAnns,SymTable,PVars,SVars,OutAnns)
+    ).
+fzn_interpret(_FD,minimize(SolveAnns,Expr),SymTable,PVars,SVars,OutAnns) =>
+    fzn_eval_expr(Expr,SymTable,Obj),
+    proc_solve_annotations($min(Obj),SolveAnns,SymTable,PVars,SVars,OutAnns).
+fzn_interpret(_FD,maximize(SolveAnns,Expr),SymTable,PVars,SVars,OutAnns) =>
+    fzn_eval_expr(Expr,SymTable,Obj),
+    proc_solve_annotations($max(Obj),SolveAnns,SymTable,PVars,SVars,OutAnns).
+fzn_interpret(FD,':'(Type,IdentAnns)=Init,SymTable,PVars,SVars,OutAnns) =>
+    detach_annotations(IdentAnns,Ident,Anns),
+    ( Type = $array_of([range(1,Max)],ElmInstType) ->
+                        % initialised array-of-var,or partially initialised array-of-var
+        fzn_declare_array(Max,ElmInstType,Ident,Anns,Init,SymTable,PVars,PVars1,OutAnns,OutAnns1),
+        SVars=SVars1              
+    ; Type = $var(VarType) ->
+        fzn_eval_expr(Init,SymTable,InitVal),
+        (ground(InitVal)->
+            fzn_register_var(VarType,Ident,Anns,SymTable,PVars,PVars1,SVars,SVars1,OutAnns,OutAnns1,InitVal)
+         ;
+            fzn_declare_var(VarType,Ident,Anns,SymTable,PVars,PVars1,SVars,SVars1,OutAnns,OutAnns1),
+            SymTable.get(Ident)=BPVar,
+            BPVar=InitVal
+        )
+    ;
+                        % a simple parameter
+        fzn_eval_expr(Init,SymTable,BPVar),
+        SymTable.put(Ident,BPVar),
+        PVars=PVars1,SVars=SVars1,OutAnns=OutAnns1
+    ),
+    read_flatzinc_item(FD) = NItem,
+    fzn_interpret(FD,NItem,SymTable,PVars1,SVars1,OutAnns1).
+fzn_interpret(FD,':'(Type,IdentAnns),SymTable,PVars,SVars,OutAnns) =>
+    detach_annotations(IdentAnns,Ident,Anns),
+    ( Type = $array_of([range(1,Max)],ElmInstType) ->
+                        % an uninitialised array
+        fzn_declare_array(Max,ElmInstType,Ident,Anns,_Init,SymTable,PVars,PVars1,OutAnns,OutAnns1),
+        SVars=SVars1
+    ; Type = $var(VarType) ->
+        fzn_declare_var(VarType,Ident,Anns,SymTable,PVars,PVars1,SVars,SVars1,OutAnns,OutAnns1)
+    ;
+        fzn_error("Uninitialized parameter: %w%n",Ident)
+    ),
+    read_flatzinc_item(FD) = NItem,
+    fzn_interpret(FD,NItem,SymTable,PVars1,SVars1,OutAnns1).
+fzn_interpret(FD,constraint(ElmAnns),SymTable,PVars,SVars,OutAnns) =>
+    detach_annotations(ElmAnns,Constraint,_Anns),
+    fzn_eval_expr(Constraint,SymTable,BPConstraint),
+    post(BPConstraint),
+    read_flatzinc_item(FD) = NItem,
+    fzn_interpret(FD,NItem,SymTable,PVars,SVars,OutAnns).
+fzn_interpret(FD,predicate(_Elms),SymTable,PVars,SVars,OutAnns) =>  % predicate definition not supported
+    read_flatzinc_item(FD) = NItem,
+    fzn_interpret(FD,NItem,SymTable,PVars,SVars,OutAnns).
+
+fzn_declare_array(Max,ElmInstType,Ident,Anns,Init,SymTable,PVars0,PVars,OutAnns0,OutAnns) =>
+    (Max==0 -> BPArr=v; BPArr = new_array(Max)),
+    (ElmInstType = $var(ElmType) ->true; ElmType = ElmInstType),
+    SymTable.put(Ident,BPArr),
+    (member($output_array(Ranges),Anns)->
+        OutAnns=[$output_array(Ident,Ranges,ElmType,BPArr)|OutAnns0]
+    ;
+        OutAnns=OutAnns0
+    ),
+    (var(Init) ->
+        fzn_declare_array_vars(ElmType,BPArr,1,Max,PVars0,PVars)
+    ;
+        (
+        fzn_eval_expr(Init,SymTable,BPArr),
+        fzn_declare_array_vars(ElmType,BPArr,1,Max,PVars0,PVars)
+        ->
+            true
+        ;
+            fzn_error("Array initialization failed: %w%n",Ident)
+        )
+    ).
+
+fzn_declare_var(bool,Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns) =>
+    Var :: 0..1,
+    fzn_register_var(bool,Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns,Var).
+fzn_declare_var(int,Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns) =>
+    new_domain_var(Var),
+    fzn_register_var(int,Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns,Var).
+fzn_declare_var(range(Min,Max),Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns) =>
+    Var :: Min..Max,
+    fzn_register_var(int,Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns,Var).
+fzn_declare_var('{}'(Dom),Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns) =>
+    Var :: Dom,
+    fzn_register_var(int,Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns,Var).         
+
+fzn_register_var(Type,Ident,Anns,SymTable,PVars0,PVars,SVars0,SVars,OutAnns0,OutAnns,Var) =>
+    SymTable.put(Ident,Var),
+    (membchk(var_is_introduced,Anns)->
+        PVars=PVars0,SVars=[Var|SVars0]
+    ;
+        PVars=[Var|PVars0],SVars=SVars0
+    ),
+    (membchk(output_var,Anns)->
+        OutAnns=[$output_var(Ident,Type,Var)|OutAnns0]
+    ;
+        OutAnns=OutAnns0
+    ).
+
+fzn_declare_array_vars(_Type,_BPArr,I,N,PVars0,PVars),I>N => PVars=PVars0.
+fzn_declare_array_vars(Type,BPArr,I,N,PVars0,PVars) =>
+    Var = BPArr[I],
+    fzn_declare_array_var(Var,Type),
+    (var(Var)->PVars1=[Var|PVars0];PVars1=PVars0),
+    I1 is I+1,
+    fzn_declare_array_vars(Type,BPArr,I1,N,PVars1,PVars).
+
+fzn_declare_array_var(Var,_), nonvar(Var) => true.
+fzn_declare_array_var(Var,bool) => Var :: 0..1.
+fzn_declare_array_var(Var,int) => new_domain_var(Var).
+fzn_declare_array_var(Var,range(Min,Max)) => Var :: Min..Max.
+fzn_declare_array_var(Var,'{}'(Dom)) => Var :: Dom.
+
+%%%%
+fzn_eval_expr(true,_SymTable,Result) => Result=1.
+fzn_eval_expr(false,_SymTable,Result) => Result=0.
+fzn_eval_expr([],_SymTable,Result) => Result=v.   % an empty array
+fzn_eval_expr(Exp,_SymTable,Result),Exp='{}'(_) => Result=Exp.  % a set
+fzn_eval_expr(Exp,_SymTable,Result),Exp=$range(_,_) => Result=Exp.  % a set
+fzn_eval_expr(Ident,SymTable,Result),atom(Ident) => 
+    SymTable.get(Ident) = Result.
+fzn_eval_expr(X,_SymTable,Result),integer(X) =>
+    Result = X.
+fzn_eval_expr(FZElms,SymTable,Array),FZElms = [_|_] =>
+    length(FZElms) = N,
+    Array = new_array(N),
+    eval_fz_elms(FZElms,SymTable,1,Array).
+fzn_eval_expr(array_subscript(Ident,I0),SymTable,Elm) =>
+    fzn_eval_expr(I0,SymTable,I),
+    ( integer(I) -> true ; fzn_error("Non-integer subscript %w%n",I)),
+    SymTable.get(Ident)=Array,
+    Array[I] = Elm.
+fzn_eval_expr(Comp,SymTable,Result) =>
+    N = length(Comp),
+    BPComp = new_struct(Comp.name,N),
+    fzn_eval_expr_args(Comp,SymTable,BPComp,N),
+    Result=BPComp.
+
+fzn_eval_expr_args(_Comp,_SymTable,_BPComp,I),I==0 => true.
+fzn_eval_expr_args(Comp,SymTable,BPComp,I) =>
+    Comp[I] = A,
+    fzn_eval_expr(A,SymTable,B),
+    BPComp[I] = B,
+    I1 is I-1,
+    fzn_eval_expr_args(Comp,SymTable,BPComp,I1).
+
+eval_fz_elms([],_SymTable,_I,_Array) => true.
+eval_fz_elms([E|Es],SymTable,I,Array) =>
+    fzn_eval_expr(E,SymTable,Elm),
+    Array[I] = Elm,
+    I1 is I+1,
+    eval_fz_elms(Es,SymTable,I1,Array).
+
+%%%%
+% Split ident and annotations and make a proper annotation list
+detach_annotations('::'(Ident0,Anns),Ident,AnnList) =>
+    Ident = Ident0,
+    anns_to_list(Anns,AnnList).
+detach_annotations(IdentAnns,Ident,AnnList) =>
+    Ident = IdentAnns,AnnList = [].
+
+anns_to_list('::'(Ann,Anns),AnnList) =>
+    AnnList = [Ann|AnnList1],
+    anns_to_list(Anns,AnnList1).
+anns_to_list(Ann,AnnList) => AnnList=[Ann].
+
+proc_solve_annotations(SolveType,SolveAnns,SymTable,PVars,SVars,OutAnns) =>
+    detach_annotations(SolveAnns,_,Anns),
+    solve_annotations_to_label_args(Anns,SymTable,LabelCalls,[]),
+    proc_solve(SolveType,LabelCalls,PVars,SVars,OutAnns.reverse()).
+
+proc_solve(all,LabelCalls,PVars,SVars,ROutAnns) ?=>
+    label_vars(LabelCalls,PVars,SVars),
+    fzn_output(ROutAnns),
+    get_global_map().put(fzn_solution_found,1),
+    FznNumSolutions = get_global_map().get(fzn_num_solutions),
+    CountSolutions = get_global_map().get(count_solutions),
+    get_global_map().put(count_solutions, CountSolutions+1),
+    if FznNumSolutions == 0; CountSolutions < FznNumSolutions-1 then
+      fail
+    end.
+proc_solve(all,_LabelCalls,_PVars,_SVars,_ROutAnns) =>
+    (get_global_map().has_key(fzn_solution_found) ->
+        println('==========')
+    ;
+        println('=====UNSATISFIABLE=====')
+    ).
+proc_solve(one,LabelCalls,PVars,SVars,ROutAnns) =>    
+    (label_vars(LabelCalls,PVars,SVars) ->
+        get_global_map().put(count_solutions,get_global_map().get(count_solutions)+1),
+        fzn_output(ROutAnns)
+    ;
+        println('=====UNSATISFIABLE=====')
+    ).
+proc_solve(min(Obj),LabelCalls,PVars,SVars,ROutAnns) =>
+    (fzn_minof(LabelCalls,PVars,SVars, Obj, ROutAnns,Obj) ->
+        get_global_map().put(count_solutions,get_global_map().get(count_solutions)+1),
+        printf("%% obj = %w%n",Obj),
+        println('==========')
+    ;
+        println('=====UNSATISFIABLE=====')
+    ).
+proc_solve(max(Obj),LabelCalls,PVars,SVars,ROutAnns) =>
+    OpObj #= -Obj,
+    (fzn_minof(LabelCalls,PVars,SVars, OpObj, ROutAnns,Obj) ->
+        get_global_map().put(count_solutions,get_global_map().get(count_solutions)+1),
+        printf("%% obj = %w%n",Obj),
+        println('==========')
+    ;
+        println('=====UNSATISFIABLE=====')
+    ).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/*
+fzn_minof(LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj) =>
+    minof(label_by_default(LabelCalls,PVars,SVars), ObjVar, fzn_output_obj(OutAnns,OutputObj)).
+*/
+
+fzn_minof(LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj) =>
+    fd_max(ObjVar) = Up,
+    (Up == 268435455 -> InitBest is Up; InitBest is Up+1),
+    GMap = get_global_map(),
+    GMap.put(current_best_bound,InitBest),
+    GMap.put(current_best_sol,[]),
+    (get_heap_map().has_key(fzn_free_order) ->
+        fzn_minof_prob(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj)
+    ;        
+        fzn_minof_repeat_default(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj)
+    ).
+
+fzn_minof_prob(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj),
+    time_out(not not find_better_default(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj),100000,Res),  % try the default for 100s
+    Res == success
+=>
+    fzn_minof_repeat_default(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj).
+fzn_minof_prob(GMap,_LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj) =>
+    printf("%% using cp ffc %n"),
+    fzn_minof_repeat_ffc(GMap,PVars,SVars,ObjVar,OutAnns,OutputObj).
+
+fzn_minof_repeat_default(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj),
+    not not find_better_default(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj)
+=>
+    fzn_minof_repeat_default(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj).
+fzn_minof_repeat_default(GMap,_LabelCalls,PVars,SVars,ObjVar,_OutAnns,_OutputObj) =>
+    GMap.get(current_best_sol) = [PVars|SVars],
+    GMap.get(current_best_bound) = ObjVar.
+
+find_better_default(GMap,LabelCalls,PVars,SVars,ObjVar,OutAnns,OutputObj) =>
+    GMap.get(current_best_bound) = CurBest,
+    ObjVar #=< CurBest-1,
+    label_by_default(LabelCalls,PVars,SVars),
+    (var(ObjVar)->indomain(ObjVar);true),
+    fzn_output_obj(OutAnns,OutputObj),
+    GMap.put(current_best_bound,ObjVar),
+    GMap.put(current_best_sol,[PVars|SVars]).
+
+fzn_minof_repeat_ffc(GMap,PVars,SVars,ObjVar,OutAnns,OutputObj),
+    not not find_better_ffc(GMap,PVars,SVars,ObjVar,OutAnns,OutputObj)
+=>
+    fzn_minof_repeat_ffc(GMap,PVars,SVars,ObjVar,OutAnns,OutputObj).
+fzn_minof_repeat_ffc(GMap,PVars,SVars,ObjVar,_OutAnns,_OutputObj) =>
+    GMap.get(current_best_sol) = [PVars|SVars],
+    GMap.get(current_best_bound) = ObjVar.
+
+find_better_ffc(GMap,PVars,SVars,ObjVar,OutAnns,OutputObj) =>
+    GMap.get(current_best_bound) = CurBest,
+    ObjVar #=< CurBest-1,
+    solve([ffc],PVars),
+    solve([ffc],SVars),
+    (var(ObjVar)->indomain(ObjVar);true),
+    fzn_output_obj(OutAnns,OutputObj),
+    GMap.put(current_best_bound,ObjVar),
+    GMap.put(current_best_sol,[PVars|SVars]).
+
+label_vars(LabelCalls,PVars,SVars),
+    get_heap_map().has_key(fzn_free_order)
+=>
+    time_out(label_by_default(LabelCalls,PVars,SVars),100000,Res),  % try the default for 100s
+    (Res==success ->
+        true
+    ;
+        printf("%% using cp ffc %n"),
+        solve([ffc],PVars),
+        solve([ffc],SVars)
+    ).
+label_vars(LabelCalls,PVars,SVars) =>
+    label_by_default(LabelCalls,PVars,SVars).
+
+label_by_default(LabelCalls,PVars,SVars) =>
+    printf("%% using cp default %n"),
+    foreach((Options,Vars) in LabelCalls)
+        call_solve(Options,Vars)
+    end,
+    solve(PVars),
+    solve(SVars).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+solve_annotations_to_label_args([],_SymTable,Calls,CallsR) => Calls=CallsR.
+solve_annotations_to_label_args([SearchAnn|SearchAnns],SymTable,Calls,CallsR) =>
+    solve_annotation_to_label_args(SearchAnn,SymTable,Calls,Calls1),
+    solve_annotations_to_label_args(SearchAnns,SymTable,Calls1,CallsR).
+solve_annotation_to_label_args(bool_search(FZVars,VarChoiceAnn,AssignmentAnn,_),SymTable,Calls,CallsR) =>
+    solve_annotation_to_label_args($int_search(FZVars,VarChoiceAnn,AssignmentAnn,_),SymTable,Calls,CallsR).
+solve_annotation_to_label_args(int_search(FZVars,VarChoiceAnn,AssignmentAnn,_),SymTable,Calls,CallsR) =>
+    fzn_eval_expr(FZVars,SymTable,BPVec),
+    to_list(BPVec) = BPVars,
+    fzn_to_bp_option(VarChoiceAnn,Options,Options1),
+    fzn_to_bp_option(AssignmentAnn,Options1,[]),
+    Calls=[(Options,BPVars)|CallsR].
+solve_annotation_to_label_args(seq_search(SearchAnns),SymTable,Calls,CallsR) =>
+    solve_annotations_to_label_args(SearchAnns,SymTable,Calls,CallsR).
+    
+fzn_to_bp_option(input_order,Os,OsR) => Os=OsR.
+fzn_to_bp_option(first_fail,Os,OsR) => Os=[ff|OsR].
+fzn_to_bp_option(smallest,Os,OsR) => Os=[min|OsR].
+fzn_to_bp_option(largest,Os,OsR) => Os=[max|OsR].
+fzn_to_bp_option(occurrence,Os,OsR) => Os=[degree|OsR].
+fzn_to_bp_option(most_constrained,Os,OsR) => Os=[ffc|OsR].
+%
+fzn_to_bp_option(indomain,Os,OsR) => Os=OsR.
+fzn_to_bp_option(indomain_min,Os,OsR) => Os=OsR.
+fzn_to_bp_option(indomain_max,Os,OsR) => Os=[down|OsR].
+fzn_to_bp_option(indomain_middle,Os,OsR) => Os=[updown|OsR].
+fzn_to_bp_option(indomain_median,Os,OsR) => Os=[updown|OsR].
+fzn_to_bp_option(indomain_split,Os,OsR) => Os=[split|OsR].
+fzn_to_bp_option(indomain_reverse_split,Os,OsR) => Os=[reverse_split|OsR].
+%
+fzn_to_bp_option(indomain_random,Os,OsR) => Os=[rand_val|OsR].
+fzn_to_bp_option(Ann,Os,OsR) => 
+    Os=OsR,
+    fzn_warning("Unsupported solve annotation: %w%n",Ann).
+
+fzn_warning(Format,Arg) =>
+    print("%"),
+    printf(Format,Arg).
+
+fzn_error(Format,Arg) =>
+    print("%"),
+    printf(Format,Arg),
+    throw(fzn_interpretation_error).
+
+%%%%
+fzn_output_obj(OutAnns,Obj) => 
+    printf("%% obj = %w%n",Obj),
+    fzn_output(OutAnns),
+    flush.
+
+fzn_output([]) => println('----------').
+fzn_output([output_var(Ident,Type,Var)|L]) =>
+    printf("%w = ",Ident),
+    fzn_write(Type,Var),
+    writeln(';'),
+    fzn_output(L).
+fzn_output([output_array(Ident,Ranges,ElmType,BPArr)|L]) =>
+    length(Ranges) = Dim,
+    printf("%w = array%wd(",Ident,Dim),
+    foreach($range(Min,Max) in Ranges)
+        printf("%w..%w,",Min,Max)
+    end,
+    fzn_write(ElmType,BPArr),
+    println(");"),
+    fzn_output(L).    
+
+fzn_write(bool,Term), integer(Term) =>
+    (Term==1->write(true);write(false)).
+fzn_write(_,Term),integer(Term) =>
+    print(Term).
+fzn_write(Type,Term) =>
+    (ground(Term)->
+    length(Term) = N,
+    print('['),
+    fzn_write_array(Type,Term,1,N),
+    print(']')
+    ;
+        fzn_error("fzn_write requires ground data: %w%n",Term)
+    ).
+
+fzn_write_array(Type,Array,N,N) =>
+    fzn_write(Type,Array[N]).
+fzn_write_array(Type,Array,I,N) =>
+    fzn_write(Type,Array[I]),
+    print(','),
+    I1 is I+1,
+    fzn_write_array(Type,Array,I1,N).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+call_solve(Options,Vars) =>
+    solve(Options,Vars).
+
+new_domain_var(X) =>
+    X = new_fd_var().
+
+%%%
+post(set_in(X,DomExp)) =>
+    (DomExp='{}'(Dom)->
+        NDom=Dom
+    ;DomExp=$range(L,U) -> 
+        NDom=L..U
+    ;
+        NDom=DomExp
+    ),
+    X :: NDom.
+post(set_in_reif(X,DomExp,B)) =>
+    (DomExp='{}'(Dom)->
+        NDom=Dom
+    ;DomExp=$range(L,U) -> 
+        NDom=L..U
+    ;
+        NDom=DomExp
+    ),
+    B #<=> (X :: NDom).
+%
+post(array_bool_and(Array,B)) =>
+    to_list(Array) =L1,
+    (L1==[]->L11=[1];L11=L1),
+    B :: 0..1,
+    B #= min(L11).
+post(array_bool_or(Array,B)) =>
+    to_list(Array) = L1,
+    (L1==[]->L11=[0];L11=L1),
+    B :: 0..1,
+    B #= max(L11).
+post(array_bool_xor(Array)) =>
+    to_list(Array) =L1,
+    (L1==[]->L11=[0];L11=L1),
+    sum(L11) mod 2 #= 1.
+%
+post(array_bool_element(I,Array,E)) =>
+    to_list(Array) = List,
+    element(I,List,E).
+post(array_int_element(I,Array,E)) =>
+    to_list(Array) = List,
+    element(I,List,E).
+post(array_var_bool_element(I,Array,E)) =>
+    to_list(Array) = List,
+    element(I,List,E).
+post(array_var_int_element(I,Array,E)) =>
+    to_list(Array) = List,
+    element(I,List,E).
+%
+post(bool2int(X,Y)) =>
+    X=Y,
+    Y :: 0..1.
+post(bool_and(X,Y,Z)) =>
+    (Z #= (X #/\ Y)).
+post(bool_clause(Ps,Ns)) =>
+    to_list(Ps) = L1, 
+    to_list(Ns) = L2, 
+    (L1==[]->L11=[0];L11=L1),
+    (L2==[]->L22=[1];L22=L2),
+    B1 #= max(L11),
+    B2 #= min(L22),
+    B1 #>= B2.
+post(bool_eq(X,Y)) =>
+    X=Y.
+post(bool_eq_reif(X,Y,B)) =>
+    B #<=> (X #<=> Y).
+post(bool_le(X,Y)) =>
+    X #=> Y.
+post(bool_le_reif(X,Y,B)) =>
+    B #<=> (X #=> Y).
+post(bool_lt(X,Y)) =>
+    X #< Y.
+post(bool_lt_reif(X,Y,B)) =>
+    B #<=> (X #< Y).
+post(bool_not(X,Y)) =>
+    Y #<=> (#~ X).
+post(bool_or(X,Y,Z)) =>
+    Z #<=> (X #\/ Y).       
+post(bool_xor(X,Y,Z)) =>
+    Z #<=> (X #^ Y).   
+%
+post(int_negate(X,Z)) =>
+    Z #= -X.
+post(int_plus(X,Y,Z)) =>
+    Z #= X+Y.
+post(int_minus(X,Y,Z)) =>
+    Z #= X-Y.
+post(int_times(X,Y,Z)) =>
+    Z #= X*Y.
+post(int_abs(X,Z)) =>
+    Z #= abs(X).
+post(int_div(Dividend,Divisor,Quotient)) =>
+    Quotient #= Dividend//Divisor.
+post(int_mod(Dividend,Divisor,Remainder)) =>
+    Remainder #= Dividend mod Divisor.
+post(int_min(X,Y,Z)) =>
+    Z #= min(X,Y).
+post(int_max(X,Y,Z)) =>
+    Z #= max(X,Y).
+
+post(int_eq(X,Y)) =>
+    X = Y.
+post(int_ne(X,Y)) =>
+    X #!= Y.
+post(int_le(X,Y)) =>
+    X #=< Y.
+post(int_lt(X,Y)) =>
+    X #< Y.
+post(int_ge(X,Y)) =>
+    X #>= Y.
+post(int_gt(X,Y)) =>
+    X #> Y.
+
+post(int_eq_reif(X,Y,B)) =>
+    B #<=> (X #= Y).
+post(int_ne_reif(X,Y,B)) =>
+    B #<=> (X #!= Y).
+post(int_le_reif(X,Y,B)) =>
+    B #<=> (Y #>= X).
+post(int_lt_reif(X,Y,B)) =>
+    B #<=> (X #< Y).
+post(int_ge_reif(X,Y,B)) =>
+    B #<=> (X #>= Y).
+post(int_gt_reif(X,Y,B)) =>
+    B #<=> (X #> Y).
+
+post(int_lin_eq(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #= Rhs.
+post(int_lin_ne(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #!= Rhs.
+post(int_lin_le(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #=< Rhs.
+post(int_lin_ge(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #>= Rhs.
+post(int_lin_lt(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #< Rhs.
+post(int_lin_gt(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #> Rhs.
+
+post(bool_lin_eq(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #= Rhs.
+post(bool_lin_le(Cs,Xs,Rhs)) =>
+    vector_sum(Cs,Xs,CXs),
+    CXs #=< Rhs.
+
+post(int_lin_eq_reif(Cs,Xs,Rhs,B)) =>
+    vector_sum(Cs,Xs,CXs),
+    B #<=> (CXs #= Rhs).
+post(int_lin_ne_reif(Cs,Xs,Rhs,B)) =>
+    vector_sum(Cs,Xs,CXs),
+    B #<=> (CXs #!= Rhs).
+post(int_lin_le_reif(Cs,Xs,Rhs,B)) =>
+    vector_sum(Cs,Xs,CXs),
+    B #<=> (CXs #=< Rhs).
+post(int_lin_ge_reif(Cs,Xs,Rhs,B)) =>
+    vector_sum(Cs,Xs,CXs),
+    B #<=> (CXs #>= Rhs).
+post(int_lin_lt_reif(Cs,Xs,Rhs,B)) =>
+    vector_sum(Cs,Xs,CXs),
+    B #<=> (CXs #< Rhs).
+post(int_lin_gt_reif(Cs,Xs,Rhs,B)) =>
+    vector_sum(Cs,Xs,CXs),
+    B #<=> (CXs #> Rhs).
+
+% global constraints
+post(all_different(Vec)) =>
+    List = to_list(Vec),
+    all_distinct(List).
+post(alldifferent(Vec)) =>
+    List = to_list(Vec),
+    all_distinct(List).
+post(all_different_int(Vec)) =>
+    List = to_list(Vec),
+    all_distinct(List).
+post(alldifferent_except_0(Vec)) =>
+    List = to_list(Vec),
+    all_different_except_0(List).
+post(inverse(Vec1,Vec2)) =>
+	assignment(Vec1,Vec2).
+post(count_reif(Vec,V,N,B)) =>
+    List = to_list(Vec),
+    Ni :: 0..length(Vec),
+    count(V,List,#=,Ni) #/\ B #<=> (N #= Ni).
+% FIXME: swapped <, =< with >, =< respectively. (Roberto Amadini)
+post(count(Vec,V,N)) =>
+    List = to_list(Vec),
+    count(V,List,#=,N).
+post(count_eq(Vec,V,N)) =>
+    List = to_list(Vec),
+    count(V,List,#=,N).
+post(count_geq(Vec,V,N)) =>
+    List = to_list(Vec),
+    count(V,List,#=<,N).
+post(count_gt(Vec,V,N)) =>
+    List = to_list(Vec),
+    count(V,List,#<,N).
+post(count_leq(Vec,V,N)) =>
+    List = to_list(Vec),
+    count(V,List,#>=,N).
+post(count_lt(Vec,V,N)) =>
+    List = to_list(Vec),
+    count(V,List,#>,N).
+post(count_neq(Vec,V,N)) =>
+    List = to_list(Vec),
+    count(V,List,#!=,N).
+%
+post(cumulative(SVec,DVec,RVec,Cap)) =>
+    to_list(SVec) = SList,
+    to_list(DVec) = DList,
+    to_list(RVec) = RList,
+    cumulative(SList,DList,RList,Cap).
+post(circuit(Vec)) =>
+    List = to_list(Vec),
+    circuit(List).
+post(subcircuit(Vec)) =>
+    List = to_list(Vec),
+    subcircuit(List).
+post(element(I,Vec,Y)) =>
+    List = to_list(Vec),
+    element(I,List,Y).
+post(element_int(I,Vec,Y)) =>
+    List = to_list(Vec),
+    element(I,List,Y).
+post(element_bool(I,Vec,Y)) =>
+    List = to_list(Vec),
+    element(I,List,Y).
+post(diffn(VecX,VecY,VecDX,VecDY)) =>
+    Rects = [[VecX[I],VecY[I],VecDX[I],VecDY[I]] : I in 1 .. length(VecX)],
+    diffn(Rects).
+post(maximum_int(X,Vec)) =>
+    List = to_list(Vec),
+    X #= max(List).
+post(maximum(X,Vec)) =>
+    List = to_list(Vec),
+    X #= max(List).
+post(minimum(X,Vec)) =>
+    List = to_list(Vec),
+    X #= min(List).
+post(minimum_int(X,Vec)) =>
+    List = to_list(Vec),
+    X #= min(List).
+post(regular_nfa(X, Q, S, D, Q0, F)) =>
+    post($regular(X, Q, S, D, Q0, F)).
+post(regular(X, Q, S, D, Q0, F)) =>
+    M = new_array(Q,S),   % D:(1..Q)*(1..S) -> 0..Q
+    SizeD = length(D),
+    fzn_1d_to_2d(1,1,S,D,1,SizeD,M),
+    (F=$range(LB,UB) -> 
+        NF=LB..UB
+    ; F='{}'(Lst) ->
+	    NF = Lst
+	;		
+        NF=F
+    ),
+    regular(X,Q,S,M,Q0,NF).
+post(table(VecV,VecT)) =>
+    post($table_int(VecV,VecT)).
+post(table_int(VecV,VecT)) =>
+    N = length(VecV),
+    transform_table(VecT,N,1,length(VecT),TupleT),
+    table_in(VecV,TupleT).
+post(table_bool(VecV,VecT)) =>
+    post($table_int(VecV,VecT)).
+post(lex_less(Vec1,Vec2)) =>
+    lex_lt(Vec1.to_list(),Vec2.to_list()).
+post(lex_lesseq(Vec1,Vec2)) =>
+    lex_le(Vec1.to_list(),Vec2.to_list()).
+post(lex_lesseq_int(Vec1,Vec2)) =>
+    lex_le(Vec1.to_list(),Vec2.to_list()).
+post(lex_lesseq_bool(Vec1,Vec2)) =>
+    lex_le(Vec1.to_list(),Vec2.to_list()).
+post(lex_less_int(Vec1,Vec2)) =>
+    lex_lt(Vec1.to_list(),Vec2.to_list()).
+post(lex_less_bool(Vec1,Vec2)) =>
+    lex_lt(Vec1.to_list(),Vec2.to_list()).
+post(Constr) =>
+    throw $unsupported_constraint(Constr).
+
+%%
+%%
+transform_table(_VecT,_N,I,Max,TupleT),I>Max => TupleT=[].
+transform_table(VecT,N,I,Max,TupleT) =>
+    Tuple = new_array(N),
+	foreach (J in I..I+N-1)
+	    Tuple[J-I+1] = VecT[J]
+	end,
+    TupleT=[Tuple|TupleTR],
+    transform_table(VecT,N,I+N,Max,TupleTR).
+
+%%
+fzn_1d_to_2d(_I,_J,_NCols,_D,Id,SizeD,_M),Id>SizeD => true.
+fzn_1d_to_2d(I,J,NCols,D,Id,SizeD,M),J>NCols => 
+    fzn_1d_to_2d(I+1,1,NCols,D,Id,SizeD,M).
+fzn_1d_to_2d(I,J,NCols,D,Id,SizeD,M) => 
+    M[I,J] = D[Id],
+    fzn_1d_to_2d(I,J+1,NCols,D,Id+1,SizeD,M).
+
+%%
+vector_sum(Cs,Xs,CXs) =>
+    length(Cs) = N,
+    length(Xs) = N,
+    vector_sum(Cs,Xs,CXs,1,N).
+
+vector_sum(Cs,Xs,CXs,N,N) =>
+    Cs[N] = C,
+    Xs[N] = X,
+    CXs = $C*X.
+vector_sum(Cs,Xs,CXs,I,N) =>
+    Cs[I] = C,
+    Xs[I] = X,
+    CXs = $(C*X+CXsR),
+    vector_sum(Cs,Xs,CXsR,I+1,N).
+

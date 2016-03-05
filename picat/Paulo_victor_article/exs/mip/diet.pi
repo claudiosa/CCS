@@ -1,0 +1,35 @@
+import mip.
+
+main =>
+  data(Prices,Limits,{Calories,Chocolate,Sugar,Fat}),
+  Len = length(Prices),
+  Xs = new_array(Len),
+  Xs :: 0..10,
+
+  scalar_product(Calories,Xs, #>=,Limits[1]),
+  scalar_product(Chocolate,Xs,#>=,Limits[2]),
+  scalar_product(Sugar,Xs,    #>=,Limits[3]),
+  scalar_product(Fat,Xs,      #>=,Limits[4]),
+  scalar_product(Prices,Xs,XSum),
+  solve($[min(XSum)],Xs),
+  writeln(Xs).
+
+% plain scalar product
+scalar_product(A,Xs,Product) => 
+  Product #= sum([A[I]*Xs[I] : I in 1..A.length]).
+
+scalar_product(A,Xs,Rel,Product) => 
+  scalar_product(A,Xs,P),
+  call(Rel,P,Product).
+
+data(Prices,Limits,Nutrition) =>
+  Prices = {50,20,30,80},% prices in cents for each product
+  Limits = {500,6,10,8},% limits,requirements for each nutrition type
+
+  % nutrition for each product
+  Nutrition = 
+    {{400,200,150,500},% calories
+     {  3,  2,  0,  0},% chocolate
+     {  2,  2,  4,  4},% sugar
+     {  2,  4,  1,  5}}. % fat
+

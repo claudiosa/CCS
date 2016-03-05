@@ -1,0 +1,182 @@
+module mip.
+
+% '#!='(X,Y) =>  X #!= Y.
+% '#/\\'(X,Y) =>  X #/\ Y.
+% '#<'(X,Y) =>  X #< Y.
+% '#<='(X,Y) =>  X #=< Y.
+% '#<=>'(X,Y) =>  X #<=> Y.
+% '#='(X,Y) => X #= Y.
+% '#=<'(X,Y) =>  X #=< Y.
+% '#=>'(X,Y) =>  X #=> Y.
+% '#>'(X,Y) =>  X #> Y.
+% '#>='(X,Y) =>  X #>= Y.
+% '#\\/'(X,Y) =>  X #\/ Y.
+% '#^'(X,Y) =>  X #^ Y.
+% '#~'(X) =>  #~ X.
+%  '::'(Vars,Domain) => '::'(Vars,Domain).
+% fd_disjoint(DVar1,DVar2) => fd_disjoint(DVar1,DVar2).
+% fd_dom(FDVar) = fd_dom(FDVar).
+% fd_false(FDVar,Elm) => fd_false(FDVar,Elm).
+% fd_max(FDVar) = fd_max(FDVar).
+% fd_min(FDVar) = fd_min(FDVar).
+% fd_min_max(FDVar,Min,Max) => fd_min_max(FDVar,Min,Max).
+% fd_next(FDVar,Elm) = fd_next(FDVar,Elm).
+% fd_prev(FDVar,Elm) = fd_prev(FDVar,Elm).
+% fd_size(FDVar) = fd_size(FDVar).
+% fd_true(FDVar,Elm) => fd_true(FDVar,Elm).
+% fd_vector_min_max(Min,Max) => fd_vector_min_max(Min,Max).
+% new_dvar() = new_dvar().
+% new_fd_var() = new_fd_var().
+% notin(VarOrVars,D) => notin(VarOrVars,D).
+% solve(Options,Vars) => solve(Options,Vars)
+% solve(Vars) => solve(Vars).
+% solve_all(Options,Vars) = solve_all(Options,Vars).
+% solve_all(Vars) = solve_all(Vars).
+
+'::'(Vars,Domain) =>
+    bp.'_$_picat_mip_in'(Vars,Domain).
+
+% '#='(X,Y) => X #= Y.
+'#='(X,Y) => bp.'$='(X,Y).
+
+% '#>='(X,Y) =>  X #>= Y.
+'#>='(X,Y) => bp.'$>='(X,Y).
+
+% '#>'(X,Y) =>  X #> Y.
+'#>'(X,Y) => bp.'$>'(X,Y).
+
+% '#<'(X,Y) =>  X #< Y.
+'#<'(X,Y) => bp.'$<'(X,Y).
+
+% '#=<'(X,Y) =>  X #=< Y.
+'#=<'(X,Y) => bp.'$=<'(X,Y).
+
+% '#!='(X,Y) =>  X #!= Y.
+'#!='(X,Y) => bp.'$\\='(X,Y).
+
+'#\\='(X,Y) => bp.'$\\='(X,Y).
+
+% '#<=>'(X,Y) =>  X #<=> Y.
+'#<=>'(X,Y) => bp.'$<=>'(X,Y).
+
+% '#=>'(X,Y) =>  X #=> Y.
+'#=>'(X,Y) => bp.'$=>'(X,Y).
+
+% '#/\\'(X,Y) =>  X #/\ Y.
+'#/\\'(X,Y) => bp.'$/\\'(X,Y).
+
+% '#\\/'(X,Y) =>  X #\/ Y.
+'#\\/'(X,Y) => bp.'$\\/'(X,Y).
+
+% '#^'(X,Y) =>  X #^ Y.
+'#^'(X,Y) => bp.'$\\'(X,Y).
+
+% '#~'(X) =>  #~ X.
+'#~'(X) => bp.'$\\'(X).
+
+% fd_disjoint(DVar1,DVar2) => fd_disjoint(DVar1,DVar2).
+fd_disjoint(DVar1,DVar2),dvar_or_int(DVar1),dvar_or_int(DVar2) => bp.b_DM_DISJOINT_cc(DVar1,DVar2).
+fd_disjoint(DVar1,DVar2) =>
+    Source=fd_disjoint,
+    (dvar_or_int(DVar1) -> handle_exception($dvar_expected(DVar2),Source);handle_exception($dvar_expected(DVar1),Source)).
+
+% solve(Vars) => solve(Vars).
+solve(Vars) => solve([],Vars).
+
+% solve(Options,Vars) => solve(Options,Vars)
+solve(Options,Vars) =>
+    vars(Vars) = VList,
+    (select($report(Call),Options,Options1) ->
+        Options2 = [$report('$dyna_eval_pred'(['$picat_top_level'],Call))|Options1]
+    ;
+        Options2 = Options
+    ),
+    bp.lp_solve(Options2,VList).    
+
+% solve_all(Vars) = solve_all(Vars).
+solve_all(Vars) = AllSols =>
+%    bp.picat_check_solve_vars(Vars,solve_all,VList),
+    vars(Vars) = VList,
+    bp.ip_solve_all(VList,AllSols).
+
+solve_all(_Options,Vars) = solve_all(Vars).
+
+%%%%%%%%%%%%%%%%%%%%%%%% common to cp, mip, and sat modules %%%%%%%%%%%%%%%%%%%%%%
+% new_fd_var() = new_fd_var().
+new_fd_var() = FDVar =>
+    bp.fd_new_var(FDVar).
+
+new_dvar() = FDVar =>
+    bp.fd_new_var(FDVar).
+
+%%
+notin(Vars,Domain) =>
+    bp.'_$_picat_notin'(Vars,Domain).
+
+% fd_dom(FDVar) = fd_dom(FDVar).
+fd_dom(FDVar) = List,integer(FDVar) => List=[FDVar].
+fd_dom(FDVar) = List, dvar(FDVar) => bp.domain_min_max(FDVar,Min,Max),bp.fd_domain(FDVar,List,Min,Max).
+fd_dom(FDVar) = _List => 
+    handle_exception($dvar_expected(FDVar),fd_dom).
+
+% fd_false(FDVar,Elm) => fd_false(FDVar,Elm).
+fd_false(FDVar,Elm),
+    dvar_or_int(FDVar),
+    integer(Elm)
+=>
+    bp.b_DM_FALSE_cc(FDVar,Elm).
+fd_false(FDVar,Elm) =>
+    bp.expect_dvar_int(FDVar,Elm,fd_false).
+
+% fd_max(FDVar) = fd_max(FDVar).
+fd_max(FDVar) = Max => (dvar_or_int(FDVar)->bp.domain_min_max(FDVar,_,Max);handle_exception($dvar_expected(FDVar),fd_max)).
+
+% fd_min(FDVar) = fd_min(FDVar).
+fd_min(FDVar) = Min => (dvar_or_int(FDVar)->bp.domain_min_max(FDVar,Min,_);handle_exception($dvar_expected(FDVar),fd_min)).
+
+% fd_min_max(FDVar,Min,Max) => fd_min_max(FDVar,Min,Max).
+fd_min_max(FDVar,Min,Max) => 
+    (dvar_or_int(FDVar)->
+    bp.domain_min_max(FDVar,Min,Max)
+    ;
+        handle_exception($dvar_expected(FDVar),fd_min_max)
+    ).
+
+% fd_next(FDVar,Elm) = fd_next(FDVar,Elm).
+fd_next(FDVar,Elm) = NextElm, 
+    dvar(FDVar), integer(Elm) 
+=>
+    (bp.domain_next_inst(FDVar,Elm,NextElm) -> true; handle_exception(failed_function_call,fd_next)).
+fd_next(FDVar,Elm) = _NextElm =>
+    bp.expect_dvar_int(FDVar,Elm,fd_next).
+
+% fd_prev(FDVar,Elm) = fd_prev(FDVar,Elm).
+fd_prev(FDVar,Elm) = PrevElm,
+    dvar(FDVar), integer(Elm) 
+=>
+    (bp.b_DM_PREV_ccf(FDVar,Elm,PrevElm) -> true; handle_exception(failed_function_call,fd_prev)).
+fd_prev(FDVar,Elm) = _PrevElm =>
+    bp.expect_dvar_int(FDVar,Elm,fd_prev).
+
+% fd_size(FDVar) = fd_size(FDVar).
+fd_size(FDVar) = Size =>
+    (dvar(FDVar) -> 
+    bp.b_DM_COUNT_cf(FDVar,Size)
+    ;integer(FDVar) ->
+        Size=1
+    ;
+        handle_exception($dvar_expected(FDVar),fd_size)
+    ).
+    
+% fd_true(FDVar,Elm) => fd_true(FDVar,Elm).
+fd_true(FDVar,Elm),
+    dvar_or_int(FDVar),
+    integer(Elm)
+=>
+    bp.b_DM_TRUE_cc(FDVar,Elm).
+fd_true(FDVar,Elm) =>
+    bp.expect_dvar_int(FDVar,Elm,fd_true).
+
+fd_vector_min_max(Min,Max) =>
+    bp.fd_vector_min_max(Min,Max).
+

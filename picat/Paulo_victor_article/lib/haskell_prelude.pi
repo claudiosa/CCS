@@ -1,0 +1,59 @@
+module haskell_prelude.
+
+% drop(ListOrInt,IntOrList) = drop(ListOrInt,IntOrList).
+% take(ListOrInt,IntOrList) = take(ListOrInt,IntOrList).
+% drop_while(ListOrPred,PredOrList) = drop_while(ListOrPred,PredOrList).
+% take_while(ListOrPred,PredOrList) = take_while(ListOrPred,PredOrList).
+% filter(List, Goal) = filter(List, Goal).
+
+% higher-order filer
+filter([], _Goal) = [].
+filter([E|Es], Goal) = L, call(Goal,E) => 
+    L=[E|L1],
+    L1=filter(Es, Goal).
+filter([_E|Es], Goal) = filter(Es, Goal).
+
+drop(L,N) = Taken, list(L), integer(N), drop_aux(L,N,Taken) => true.
+drop(N,L) = Taken, list(L), integer(N), drop_aux(L,N,Taken) => true.
+
+private
+drop_aux([_|T],N,Taken),N>0 => drop_aux(T,N-1,Taken).
+drop_aux(L,_,Taken),list(L) => Taken=L.
+
+% drop_while(ListOrPred,PredOrList)
+% Note: P must be a defined predicate.
+drop_while(L,P) = Res, list(L), drop_while_aux(L,P,Res) => true.
+drop_while(P,L) = Res, list(L), drop_while_aux(L,P,Res) => true.
+
+private
+drop_while_aux([],_P,Res) => Res=[].
+drop_while_aux(List@[H|T],P,Res) => 
+    (call(P,H) -> 
+	drop_while_aux(T,P,Res)
+    ;
+        Res=List
+    ).
+
+take(L,N) = Taken, list(L), integer(N), take_aux(L,N,Taken) => true.
+take(N,L) = Taken, list(L), integer(N), take_aux(L,N,Taken) => true.
+
+private
+take_aux([H|T],N,Taken),N>0 => Taken=[H|TakenR], take_aux(T,N-1,TakenR).
+take_aux(List,_N,Taken),List=[_|_] => Taken=List.
+take_aux([],_N,Taken) => Taken=[].
+
+% take_while(ListOrPred,PredOrList)
+% Note: P must be a defined predicate.
+take_while(L,P) = Res, list(L),take_while_aux(L,P,Res) => true.
+take_while(P,L) = Res, list(L),take_while_aux(L,P,Res) => true.
+
+private
+take_while_aux([],_P,Res) => Res=[].
+take_while_aux([H|T],P,Res) => 
+    (call(P,H) -> 
+	Res=[H|ResR]; 
+	take_while_aux(T,P,ResR)
+    ;
+        Res=[]
+    ).
+

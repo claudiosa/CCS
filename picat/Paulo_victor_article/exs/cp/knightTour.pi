@@ -1,0 +1,81 @@
+% knightTour.pi
+% http://www.cs.kuleuven.be/~dtai/events/ASP-competition/Benchmarks/KnightTour.shtml
+% From B-Prolog's example suite, translated to Picat by Neng-Fa Zhou, Nov. 2013
+
+import cp.
+
+main =>
+    asp([$size(8)]).
+
+asp(As),
+    once(member($size(N),As)),
+    fillGivenMoves(As,Vars,N),
+    M is N*N,
+    Vars = new_list(M), 
+    computeDomain(Vars,1,N),
+    circuit(Vars),  % built-in in sat
+    solve([ff],Vars)
+=>
+    Vect = to_array(Vars),
+    output(Vect,1,0,N,M),
+    printf("%nANSWER SET FOUND%n").
+asp(_) =>
+    printf("INCONSISTENT%n").
+
+fillGivenMoves([],_,_) => true.
+fillGivenMoves([givenMove(X1,Y1,X2,Y2)|As],Vars,N) =>
+    I1 is (X1-1)*N+Y1,
+    I2 is (X2-1)*N+Y2,
+    nth(I1,Vars,I2),
+    fillGivenMoves(As,Vars,N).
+fillGivenMoves([_|As],Vars,N) =>
+    fillGivenMoves(As,Vars,N).    
+
+computeDomain([],_I,_N) => true.
+computeDomain([V|Vs],I,N) =>
+    encode(Row,Col,I,N),
+    feasiblePositions(Row,Col,D,N),
+    V :: D,
+    I1 is I+1,
+    computeDomain(Vs,I1,N).
+
+feasiblePositions(R,C,D,N) =>
+    R1 is R+1,  C1 is C+2,
+    R2 is R+1,  C2 is C-2,
+    R3 is R-1,  C3 is C+2,
+    R4 is R-1,  C4 is C-2,
+    R5 is R+2,  C5 is C+1,
+    R6 is R+2,  C6 is C-1,
+    R7 is R-2,  C7 is C+1,
+    R8 is R-2,  C8 is C-1,
+    addFeasiblePositions([(R1,C1),(R2,C2),(R3,C3),(R4,C4),(R5,C5),(R6,C6),(R7,C7),(R8,C8)],D,N).
+    
+addFeasiblePositions([],D,_N) => D=[].
+addFeasiblePositions([(R,C)|Ps],D,N),
+    (R>=1,R=<N,C>=1,C=<N) 
+=>
+    encode(R,C,P,N),
+    D=[P|D1],
+    addFeasiblePositions(Ps,D1,N).
+addFeasiblePositions([_|Ps],D,N) =>
+    addFeasiblePositions(Ps,D,N).
+
+encode(Row,Col,P,N),integer(P) =>
+    Row is (P-1)//N+1,
+    Col is (P-1) mod N+1.
+encode(Row,Col,P,N) =>
+    P is (Row-1)*N+Col.
+
+output(_Vect,_I,Count,_N,M),Count>=M => true.
+output(Vect,I,Count,N,M) =>
+    NI = Vect[I],
+    output_move(I,NI,N),
+    Count1 is Count+1,
+    output(Vect,NI,Count1,N,M).
+
+output_move(P1,P2,N) =>
+    encode(R1,C1,P1,N),
+    encode(R2,C2,P2,N),
+    print($move(R1,C1,R2,C2)),print('. ').
+
+    

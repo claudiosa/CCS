@@ -1,0 +1,25 @@
+import sat.
+
+main =>
+    queens(8).
+
+queens(N) =>
+    Qs = new_array(N,N),
+    Qs :: 0..1,
+    foreach(I in 1..N)     % 1 in each row
+       sum([Qs[I,J] : J in 1..N]) #= 1
+    end,
+    foreach(J in 1..N)     % 1 in each column
+       sum([Qs[I,J] : I in 1..N]) #= 1
+    end,
+    foreach(K in 1-N..N-1) % at most one 
+       sum([Qs[I,J] : I in 1..N, J in 1..N, I-J=:=K]) #=< 1
+    end,
+    foreach(K in 2..2*N)   % at most one 
+       sum([Qs[I,J] :  I in 1..N, J in 1..N, I+J=:=K]) #=< 1
+    end,
+    solve(Qs),
+    foreach(I in 1..N)
+        writeln(Qs[I])
+    end.
+

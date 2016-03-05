@@ -1,0 +1,81 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+
+\chapter{\label{chapter:format}Formats}
+
+\section{Formatted Printing}
+The following table shows the specifiers that can be used in formats for the \texttt{writef}\index{\texttt{writef}}, \texttt{printf}\index{\texttt{printf}}, and \texttt{to\_fstring}\index{\texttt{to\_fstring}}.
+
+\begin{table}[h]
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Specifier} & \textbf{Output} \\
+\hline 
+\hline 
+\texttt{\%\%} & Percent Sign \\
+\texttt{\%c} & Character \\
+\texttt{\%d} & Signed Decimal Integer \\
+\texttt{\%e} & Scientific Notation, with Lowercase \texttt{e} \\
+\texttt{\%E} & Scientific Notation, with Uppercase \texttt{E} \\
+\texttt{\%f}& Decimal Real Number \\
+\texttt{\%g} & Shorter of \texttt{\%e} and \texttt{\%f} \\
+\texttt{\%G} & Shorter of \texttt{\%E} and \texttt{\%f} \\
+\texttt{\%i} & Signed Decimal Integer \\
+\texttt{\%n} & Platform-independent Newline \\
+\texttt{\%o} &  Unsigned Octal Integer \\
+\texttt{\%s} & String \\
+\texttt{\%u} & Unsigned Decimal Integer \\
+\texttt{\%w} & Term \\
+\texttt{\%x} & Unsigned Lowercase Hexadecimal Integer \\
+\texttt{\%X} & Unsigned Uppercase Hexadecimal Integer \\
+\hline
+\end{tabular}
+\end{table}
+
+\ignore{
+\pagebreak
+
+\section{Formatted Date and Time}
+The following table shows that specifiers that can be used in formats for the \texttt{dt\_to\_fstring}\index{\texttt{dt\_to\_fstring/2}} function in the \texttt{datetime} module.
+
+\begin{table}[h]
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Specifier} & \textbf{Output} \\
+\hline 
+\hline 
+\texttt{\%\%} & Percent Sign \\
+\texttt{\%a} & Locale-dependent Weekday Name, Abbreviated \\
+\texttt{\%A} & Locale-dependent Weekday Name \\
+\texttt{\%b} & Locale-dependent Month Name, Abbreviated \\
+\texttt{\%B} & Locale-dependent Month Name \\
+\texttt{\%c} & Locale-dependent Date and Time \\
+\texttt{\%d} & Two-digit Day of the Month \\
+\texttt{\%H} & Two-digit Hour (24-hour Time) \\
+\texttt{\%I} & Two-digit Hour (12-hour Time) \\
+\texttt{\%j} & Three-digit Day of the Year \\
+\texttt{\%m} & Two-digit Month \\
+\texttt{\%M} & Two-digit Minute \\
+\texttt{\%p} & \texttt{AM} or \texttt{PM} \\
+\texttt{\%S} & Two-digit Second \\
+\texttt{\%w} & One-digit Day of the Week \\
+\texttt{\%x} & Locale-dependent Date \\
+\texttt{\%X} & Locale-dependent Time \\
+\texttt{\%y} & Two-digit Year \\
+\texttt{\%Y} & Four-digit Year \\
+\hline
+\end{tabular}
+\end{table}
+}
+\ignore{
+\end{document}
+}

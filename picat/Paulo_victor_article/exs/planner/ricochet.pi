@@ -1,0 +1,407 @@
+% ricochet.pl: for the Ricochet Robot puzzle in B Prolog
+% https://www.mat.unical.it/aspcomp2013/RicochetRobot 
+% Neng-Fa Zhou, Agostino Dovier,  and the BProlog team, 2013
+% ported to Picat by Neng-Fa Zhou
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import planner.
+
+main =>  % read facts from stdin
+    test44.    
+
+asp(As),
+    writeln(As),
+    As1 = [Fact1 : Fact in As, (Fact=$length(Len) -> Fact1=$steps(Len); Fact1=Fact)],  % change length/1 to steps/1 because length is predefined 
+    cl_facts(As1),
+    steps(Length),
+    pre_plan(From,To,RobotsLocs),
+    S0 = $s([From|To],RobotsLocs),
+    plan(S0,Length,Plan)
+=>
+    findall(pos(C,[X|Y]),pos(C,X,Y)) = ColoredRobotsLocs,
+    println('ANSWER'),
+    output_plan(ColoredRobotsLocs,Plan,1),nl.
+asp(_As) =>
+    printf("INCONSISTENT%n").
+
+pre_plan(From,To,RobotsLocs) =>
+    initialize_table,
+    target(TC,TX,TY),   % TC is the target color
+    findall([X|Y],(pos(C,X,Y),C !== TC)) = LRobotsLocs,
+    pos(TC,TX0,TY0),    % the initial location of TC
+    sort(LRobotsLocs) = RobotsLocs,
+    From=[TX0|TY0], To=[TX|TY].
+
+final(s([Loc|Loc],_RobotLocs)) => true.
+
+action(s([From|To],RobotLocs),NextState,Action,ActionCost) ?=> % move the target robot
+    NextState = $s([Stop|To],RobotLocs),
+    Action = [From|Stop],
+    ActionCost = 1,
+    choose_move_dest(From,RobotLocs,Stop).
+action(s(FromTo@[From|_],RobotLocs),NextState,Action,ActionCost) => % move another robot
+    NextState = $s(FromTo,RobotLocs2),
+    Action = [RFrom|RTo],
+    ActionCost = 1,
+    select(RFrom, RobotLocs,RobotLocs1),
+    choose_move_dest(RFrom,[From|RobotLocs1],RTo),
+    insert_ordered(RobotLocs1,RTo) = RobotLocs2.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+choose_move_dest(Loc,RobotLocs,EndLoc) =>
+    direction(Dir), %% <== ND choice of direction
+    walk_until_obstacle(Loc,Dir,RobotLocs,EndLoc),
+    Loc !== EndLoc.
+
+walk_until_obstacle(Loc,Dir,RobotLocs,EndLoc),
+    neib(Loc,Dir,Loc1), 
+    not member(Loc1,RobotLocs)
+=>
+    walk_until_obstacle(Loc1,Dir,RobotLocs,EndLoc).
+walk_until_obstacle(Loc,_Dir,_,EndLoc) =>
+    EndLoc=Loc.
+
+table 
+neib([X|Y],north,Neib) => Neib=[X|Y1],Y1 is Y - 1,dim(Y1), not barrier(X,Y,north), not barrier(X,Y1,south).
+neib([X|Y],south,Neib) => Neib=[X|Y1],Y1 is Y + 1,dim(Y1), not barrier(X,Y,south), not barrier(X,Y1,north).
+neib([X|Y],east ,Neib) => Neib=[X1|Y],X1 is X + 1,dim(X1), not barrier(X,Y,east), not barrier(X1,Y,west).
+neib([X|Y],west ,Neib) => Neib=[X1|Y],X1 is X - 1,dim(X1), not barrier(X,Y,west), not barrier(X1,Y,east).
+
+%%%%%
+index (-)
+direction(east).
+direction(west).
+direction(north).
+direction(south).
+
+%%%%%
+index (+,-)
+opposite_dir(east,west).
+opposite_dir(west,east).
+opposite_dir(north,south).
+opposite_dir(south,north).
+
+output_plan(_RobotsLocs,[],_) => true.
+output_plan(RobotsLocs,[[From|To]|Plan],I) =>
+     once(select($pos(Rob,From),RobotsLocs,RobotsLocs1)),
+     get_direction(From,To,Dir),
+     printf("go(%w,%w,%w). ",Rob,Dir,I),
+     output_plan([$pos(Rob,To)|RobotsLocs1],Plan,I+1).
+     
+get_direction([X|Y1],[X|Y2],Dir),Y1<Y2 => Dir=south.
+get_direction([X|_],[X|_],Dir) => Dir=north.
+get_direction([X1|Y],[X2|Y],Dir),X1<X2 => Dir=east.
+get_direction([_|Y],[_|Y],Dir) => Dir=west.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+test => asp($[
+%%%%%%% INSTANCE
+dim(1), 
+dim(2), 
+dim(3),
+dim(4), 
+dim(5),
+pos(red,   1,1), 
+pos(blue,  1,5),
+pos(green, 5,1), 
+pos(yellow,4,5),
+barrier(1,2,south), 
+barrier(4,3,east),
+barrier(2,5,east),
+target(red,4,4),
+length(5)
+]).
+
+
+test0 => asp($[
+%%%%%%% INSTANCE
+dim(1), 
+dim(2), 
+dim(3),
+dim(4), 
+dim(5),
+pos(red,   1,1), 
+pos(blue,  1,5),
+pos(green, 5,1), 
+pos(yellow,5,5),
+barrier(1,2,south), 
+barrier(4,3,east),
+barrier(2,5,east),
+target(red,4,4),
+length(5)
+]).
+
+
+test1 => asp($[
+%%%%%%% INSTANCE
+dim(1), 
+dim(2), 
+dim(3),
+dim(4), 
+dim(5),
+pos(red,   1,1), 
+pos(blue,  1,5),
+pos(green, 5,1), 
+pos(yellow,5,5),
+barrier(1,2,south), 
+barrier(4,3,east),
+barrier(2,5,east),
+target(red,3,3),
+length(8)
+]).
+
+
+test2 => asp($[
+%%%%%%% INSTANCE
+dim(1), 
+dim(2), 
+dim(3),
+dim(4), 
+dim(5),
+pos(red,   1,1), 
+pos(blue,  1,5),
+pos(green, 5,1), 
+pos(yellow,5,5),
+barrier(1,2,south), 
+barrier(4,3,east),
+barrier(2,5,east),
+target(red,2,2),
+length(10)
+]).
+
+% ###########
+% #R . . . G#
+% #         #
+% #. . . . .#
+% ##        #
+% #. . . .#.#
+% #         #
+% #. . . . .#
+% #         #
+% #B .#. . Y#
+% ###########
+
+test3 => asp($[
+%%%%%%% INSTANCE
+dim(1), 
+dim(2), 
+dim(3),
+dim(4), 
+dim(5),
+pos(red,   1,1), 
+pos(blue,  1,5),
+pos(green, 5,1), 
+pos(yellow,5,5),
+barrier(1,2,south), 
+barrier(2,5,east),
+target(red,4,3),
+length(7)
+]).
+
+% ###########
+% #R . . . G#
+% #         #
+% #. . . . .#
+% ##        #
+% #. . . T .#
+% #         #
+% #. . . . .#
+% #         #
+% #B .#. . Y#
+% ###########
+
+test4 => asp($[
+%%%%%%% INSTANCE
+dim(1), 
+dim(2), 
+dim(3),
+dim(4), 
+dim(5),
+pos(red,   1,1), 
+pos(blue,  1,5),
+pos(green, 5,1), 
+pos(yellow,5,5),
+barrier(1,2,south), 
+barrier(2,5,east),
+target(red,3,3),
+length(9)
+]).
+
+test5 => asp($[
+%%%%%%% INSTANCE
+dim(1), 
+dim(2), 
+dim(3),
+dim(4), 
+dim(5),
+pos(red,   1,1), 
+pos(blue,  1,5),
+pos(green, 5,1), 
+pos(yellow,5,5),
+barrier(1,2,south), 
+barrier(2,5,east),
+target(red,3,3),
+length(8)
+]).
+
+% ###########
+% #R . . . G#
+% #         #
+% #. . . . .#
+% #         #
+% #. . . T .#
+% #         #
+% #. . . . .#
+% #         #
+% #B .#. . Y#
+% ###########
+
+test16 =>
+asp($[barrier(1,12,south),
+barrier(1,6,south),
+barrier(10,1,east),
+barrier(10,14,south),
+barrier(10,15,east),
+barrier(10,8,west),
+barrier(10,9,west),
+barrier(11,12,east),
+barrier(11,12,south),
+barrier(11,3,east),
+barrier(11,7,south),
+barrier(11,8,east),
+barrier(12,16,east),
+barrier(12,3,south),
+barrier(13,11,east),
+barrier(14,10,south),
+barrier(14,13,east),
+barrier(14,2,east),
+barrier(14,7,east),
+barrier(14,7,south),
+barrier(15,1,south),
+barrier(15,13,south),
+barrier(16,4,south),
+barrier(16,9,south),
+barrier(2,1,east),
+barrier(2,10,south),
+barrier(2,11,east),
+barrier(2,2,south),
+barrier(2,3,east),
+barrier(3,15,east),
+barrier(3,15,south),
+barrier(3,7,east),
+barrier(4,10,east),
+barrier(4,16,east),
+barrier(4,2,east),
+barrier(4,7,south),
+barrier(5,1,south),
+barrier(5,10,south),
+barrier(6,14,east),
+barrier(7,13,south),
+barrier(7,4,east),
+barrier(7,4,south),
+barrier(7,8,east),
+barrier(7,9,east),
+barrier(8,10,north),
+barrier(8,11,east),
+barrier(8,7,south),
+barrier(9,10,north),
+barrier(9,10,south),
+barrier(9,7,south),
+dim(1),
+dim(10),
+dim(11),
+dim(12),
+dim(13),
+dim(14),
+dim(15),
+dim(16),
+dim(2),
+dim(3),
+dim(4),
+dim(5),
+dim(6),
+dim(7),
+dim(8),
+dim(9),
+length(15),
+pos(blue,1,16),
+pos(green,16,1),
+pos(red,1,1),
+pos(yellow,16,16),
+target(red,8,6)]).
+
+
+test44 =>
+asp($[barrier(1,12,south),
+barrier(1,6,south),
+barrier(10,1,east),
+barrier(10,14,south),
+barrier(10,15,east),
+barrier(10,8,west),
+barrier(10,9,west),
+barrier(11,12,east),
+barrier(11,12,south),
+barrier(11,3,east),
+barrier(11,7,south),
+barrier(11,8,east),
+barrier(12,16,east),
+barrier(12,3,south),
+barrier(13,11,east),
+barrier(14,10,south),
+barrier(14,13,east),
+barrier(14,2,east),
+barrier(14,7,east),
+barrier(14,7,south),
+barrier(15,1,south),
+barrier(15,13,south),
+barrier(16,4,south),
+barrier(16,9,south),
+barrier(2,1,east),
+barrier(2,10,south),
+barrier(2,11,east),
+barrier(2,2,south),
+barrier(2,3,east),
+barrier(3,15,east),
+barrier(3,15,south),
+barrier(3,7,east),
+barrier(4,10,east),
+barrier(4,16,east),
+barrier(4,2,east),
+barrier(4,7,south),
+barrier(5,1,south),
+barrier(5,10,south),
+barrier(6,14,east),
+barrier(7,13,south),
+barrier(7,4,east),
+barrier(7,4,south),
+barrier(7,8,east),
+barrier(7,9,east),
+barrier(8,10,north),
+barrier(8,11,east),
+barrier(8,7,south),
+barrier(9,10,north),
+barrier(9,10,south),
+barrier(9,7,south),
+dim(1),
+dim(10),
+dim(11),
+dim(12),
+dim(13),
+dim(14),
+dim(15),
+dim(16),
+dim(2),
+dim(3),
+dim(4),
+dim(5),
+dim(6),
+dim(7),
+dim(8),
+dim(9),
+length(13),
+pos(blue,1,16),
+pos(green,16,1),
+pos(red,1,1),
+pos(yellow,16,16),
+target(red,10,5)]).
+
+

@@ -1,0 +1,285 @@
+ module planner.
+
+% best_plan(S,Limit,Plan) => best_plan(S,Limit,Plan).
+% best_plan(S,Limit,Plan,PlanCost) => best_plan(S,Limit,Plan,PlanCost).
+% best_plan(S,Plan,PlanCost) => best_plan(S,Plan,PlanCost).
+% best_plan(S,Plan) => best_plan(S,Plan).
+% best_plan_bb(S,Limit,Plan) => best_plan_bb(S,Limit,Plan).
+% best_plan_bb(S,Plan,PlanCost) => best_plan_bb(S,Plan,PlanCost).
+% best_plan_bb(S,Limit,Plan,PlanCost) => best_plan_bb(S,Limit,Plan,PlanCost).
+% best_plan_bb(S,Plan) => best_plan_bb(S,Plan).
+% best_plan_nondet(S,Limit,Plan) => best_plan_nondet(S,Limit,Plan).
+% best_plan_nondet(S,Plan,PlanCost) => best_plan_nondet(S,Plan,PlanCost).
+% best_plan_nondet(S,Limit,Plan,PlanCost) => best_plan_nondet(S,Limit,Plan,PlanCost).
+% best_plan_nondet(S,Plan) => best_plan_nondet(S,Plan).
+% best_plan_unbounded(S,Limit,Plan) => best_plan_unbounded(S,Limit,Plan).
+% best_plan_unbounded(S,Plan,PlanCost) => best_plan_unbounded(S,Plan,PlanCost).
+% best_plan_unbounded(S,Limit,Plan,PlanCost) => best_plan_unbounded(S,Limit,Plan,PlanCost).
+% best_plan_unbounded(S,Plan) => best_plan_unbounded(S,Plan).
+% best_plan_upward(S,Limit,Plan) => best_plan_upward(S,Limit,Plan).
+% best_plan_upward(S,Plan,PlanCost) => best_plan_upward(S,Plan,PlanCost).
+% best_plan_upward(S,Limit,Plan,PlanCost) => best_plan_upward(S,Limit,Plan,PlanCost).
+% best_plan_upward(S,Plan) => best_plan_upward(S,Plan).
+% current_plan() = current_plan().
+% current_resource() = current_resource().
+% current_resource_plan(Amount,Plan) => current_resource_plan(Amount,Plan).
+% current_resource_plan_cost(Amount,Plan,Cost) => current_resource_plan_cost(Amount,Plan,Cost).
+% insert_state_list(StateL,Elm) = insert_state_list(StateL,Elm).
+% is_tabled_state(S) => is_tabled_state(S).
+% new_state_list(List) = new_state_list(List).
+% plan(S,Limit,Plan) => plan(S,Limit,Plan).
+% plan(S,Plan,PlanCost) => plan(S,Plan,PlanCost).
+% plan(S,Limit,Plan,PlanCost) => plan(S,Limit,Plan,PlanCost).
+% plan(S,Plan) => plan(S,Plan).
+% plan_unbounded(S,Limit,Plan) => plan_unbounded(S,Limit,Plan).
+% plan_unbounded(S,Plan,PlanCost) => plan_unbounded(S,Plan,PlanCost).
+% plan_unbounded(S,Limit,Plan,PlanCost) => plan_unbounded(S,Limit,Plan,PlanCost).
+% plan_unbounded(S,Plan) => plan_unbounded(S,Plan).
+
+% A state-list is an ordered list, where the ordering of symbols is determined 
+% by the addresses of the symbols in the symbol table, not by the characters that
+% constitute the symbols. This ordering allows for efficient ordering of symbols. 
+% Note that this ordering is different from lexicographical ordering, which is by sort(). 
+
+new_state_list(List) = SList => new_state_list_aux(List,[],SList).
+
+new_state_list_aux([],SList0,SList) => SList = SList0.
+new_state_list_aux([E|List],SList0,SList) => 
+    bp.b_INSERT_STATE_LIST_ccf(SList0,E,SList1),
+	new_state_list_aux(List,SList1,SList).
+
+insert_state_list(SList0,Elm) = SList => bp.b_INSERT_STATE_LIST_ccf(SList0,Elm,SList).
+
+%%%
+current_resource() = Amount =>
+    bp.b_PLANNER_CURR_RPC_fff(Amount,_Plan,_Cost).
+
+current_plan() = Plan =>
+    bp.b_PLANNER_CURR_RPC_fff(_Amount,Plan,_Cost).
+
+current_resource_plan(Amount,Plan) =>
+    bp.b_PLANNER_CURR_RPC_fff(Amount,Plan,_Cost).
+
+current_resource_plan_cost(Amount,Plan,Cost) =>
+    bp.b_PLANNER_CURR_RPC_fff(Amount,Plan,Cost).
+
+%%%
+plan(S,Plan),var(Plan) =>
+    bp.picat_plan(S,268435455,Plan,_).   % the limit is assumed to be 268435455
+plan(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,plan).
+
+plan(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    bp.picat_plan(S,Limit,Plan,_). 
+plan(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    bp.picat_plan(S,268435455,Plan,PlanCost). 
+plan(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,plan).
+
+plan(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    bp.picat_plan(S,Limit,Plan,PlanCost). 
+plan(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,plan).
+
+plan(S,Limit,Plan,PlanCost,FinS),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    bp.picat_plan(S,Limit,Plan,PlanCost,FinS). 
+plan(_S,Limit,Plan,PlanCost,_FinS) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,plan).
+
+%%%
+plan_unbounded(S,Plan),var(Plan) =>
+    bp.picat_plan_unbounded(S,268435455,Plan,_).   % the limit is assumed to be 268435455
+plan_unbounded(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,plan_unbounded).
+
+plan_unbounded(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    bp.picat_plan_unbounded(S,Limit,Plan,_). 
+plan_unbounded(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    bp.picat_plan_unbounded(S,268435455,Plan,PlanCost). 
+plan_unbounded(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,plan_unbounded).
+
+plan_unbounded(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    bp.picat_plan_unbounded(S,Limit,Plan,PlanCost). 
+plan_unbounded(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,plan_unbounded).
+
+%%%
+best_plan(S,Plan),var(Plan) =>
+    loop_best_plan_downward(S,0,268435455,Plan,_,_).
+best_plan(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,best_plan).
+
+best_plan(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    loop_best_plan_downward(S,0,Limit,Plan,_,_).
+best_plan(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    loop_best_plan_downward(S,0,268435455,Plan,PlanCost,_).
+best_plan(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,best_plan).
+
+best_plan(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    loop_best_plan_downward(S,0,Limit,Plan,PlanCost,_).
+best_plan(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,best_plan).
+
+best_plan(S,Limit,Plan,PlanCost,FinS),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    loop_best_plan_downward(S,0,Limit,Plan,PlanCost,FinS).
+best_plan(_S,Limit,Plan,PlanCost,_FinS) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,best_plan).
+
+%%%
+best_plan_nondet(S,Plan),var(Plan) =>
+    best_plan_nondet_aux(S,268435455,Plan,_).
+best_plan_nondet(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,best_plan_nondet).
+
+best_plan_nondet(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    best_plan_nondet_aux(S,Limit,Plan,_).
+best_plan_nondet(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    best_plan_nondet_aux(S,268435455,Plan,PlanCost).
+best_plan_nondet(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,best_plan_nondet).
+
+best_plan_nondet(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    best_plan_nondet_aux(S,Limit,Plan,PlanCost).
+best_plan_nondet(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,best_plan_nondet).
+
+best_plan_nondet_aux(S,Limit,Plan,PlanCost) =>
+    not not (M = get_global_map(),
+	         M.put('_first_best_plan',[]),
+	         loop_best_plan_downward(S,0,Limit,Plan0,PlanCost0,_),    % use tabled search to find the first best plan
+			 M.put('_first_best_plan',(Plan0,PlanCost0))),
+    get_global_map().get('_first_best_plan') = (Plan0,PlanCost),
+	(    Plan = Plan0
+	;
+	    bp.picat_best_plan_nondet_nontabled_search(S,Plan,PlanCost),
+		Plan0 != Plan
+	).
+
+%%% Branch-and-Bound
+best_plan_bb(S,Plan),var(Plan) =>
+    best_plan_bb(S,268435455,Plan,_).
+best_plan_bb(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,best_plan_bb).
+
+best_plan_bb(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    best_plan_bb(S,Limit,Plan,_PlanCost).
+best_plan_bb(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    best_plan_bb(S,268435455,Plan,PlanCost).
+best_plan_bb(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,best_plan_bb).
+
+best_plan_bb(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    loop_best_plan_bb(S,Limit,Plan,PlanCost).
+best_plan_bb(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,best_plan_bb).
+
+loop_best_plan_bb(S,Limit,Plan,PlanCost),
+    (bp.global_get('_$picat_log',0,1) -> printf("%% Searching with the bound %d\n",Limit); true),
+    call_picat_plan(S,Limit)        
+=>
+    get_table_map().get($current_best_plan_cost(S)) = PlanCost1,    
+    loop_best_plan_bb(S,PlanCost1-1,Plan,PlanCost).
+loop_best_plan_bb(S,_Limit,Plan,PlanCost) =>
+    Map = get_table_map(),
+    Map.has_key($current_best_plan(S)),
+    Map.get($current_best_plan(S)) = Plan,
+    Map.get($current_best_plan_cost(S)) = PlanCost.
+
+%%%
+best_plan_upward(S,Plan),var(Plan) =>
+    best_plan_upward(S,268435455,Plan,_).
+best_plan_upward(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,best_plan_upward).
+
+best_plan_upward(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    best_plan_upward(S,Limit,Plan,_PlanCost).
+best_plan_upward(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    best_plan_upward(S,268435455,Plan,PlanCost).
+best_plan_upward(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,best_plan_upward).
+
+best_plan_upward(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    loop_best_plan_bb(S,Limit,Plan,PlanCost).
+best_plan_upward(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,best_plan_upward).
+
+call_picat_plan(S,Limit) =>
+    not not call_picat_plan_aux(S,Limit).  % discard exception catchers created by picat_plan
+
+call_picat_plan_aux(S,Limit) =>
+    bp.picat_plan(S,Limit,Plan,PlanCost,FinS),
+    Map = get_table_map(),
+    Map.put($current_best_plan(S),Plan),
+    Map.put($current_best_plan_cost(S),PlanCost),
+    Map.put($current_best_plan_fin_state(S),FinS).
+
+%%%
+best_plan_downward(S,Plan),var(Plan) =>
+    loop_best_plan_downward(S,0,268435455,Plan,_,_).
+best_plan_downward(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,best_plan_downward).    
+
+best_plan_downward(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    loop_best_plan_downward(S,0,Limit,Plan,_,_).
+best_plan_downward(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    loop_best_plan_downward(S,0,268435455,Plan,PlanCost,_).
+best_plan_downward(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,best_plan_downward).    
+
+%%%
+best_plan_downward(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    loop_best_plan_downward(S,0,Limit,Plan,PlanCost,_).
+best_plan_downward(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,best_plan_downward).    
+
+loop_best_plan_downward(S,Level,_Limit,_Plan,_PlanCost,_FinS) ?=>
+    (bp.global_get('_$picat_log',0,1) -> printf("%% Searching with the bound %d\n",Level); true),
+    call_picat_plan(S,Level),
+    fail.
+loop_best_plan_downward(S,_Level,_Limit,Plan,PlanCost,FinS),
+    Map = get_table_map(),
+    Map.has_key($current_best_plan(S))
+=>
+    Map.get($current_best_plan(S)) = Plan,
+    Map.get($current_best_plan_cost(S)) = PlanCost,
+    Map.get($current_best_plan_fin_state(S)) = FinS.
+loop_best_plan_downward(S,Level,Limit,Plan,PlanCost,FinS) =>
+    Level1 = Level+1,
+    Level1 =< Limit,
+	loop_best_plan_downward(S,Level1,Limit,Plan,PlanCost,FinS).
+
+%%%
+best_plan_unbounded(S,Plan),var(Plan) =>
+    bp.picat_best_plan_unbounded(S,Plan,_).
+best_plan_unbounded(_S,Plan) =>
+    throw_plan_arg_error(1,Plan,_,best_plan_unbounded).
+
+best_plan_unbounded(S,Limit,Plan),var(Plan),integer(Limit),Limit>=0 =>
+    bp.picat_best_plan_unbounded(S,Plan,PlanCost),
+    PlanCost=<Limit.
+best_plan_unbounded(S,Plan,PlanCost),var(Plan),var(PlanCost) =>
+    bp.picat_best_plan_unbounded(S,Plan,PlanCost).
+best_plan_unbounded(_S,Limit,Plan) =>
+    throw_plan_arg_error(Limit,Plan,_,best_plan_unbounded).    
+
+best_plan_unbounded(S,Limit,Plan,PlanCost),var(Plan),var(PlanCost),integer(Limit),Limit>=0 =>
+    bp.picat_best_plan_unbounded(S,Plan,PlanCost),
+    PlanCost =< Limit.
+best_plan_unbounded(_S,Limit,Plan,PlanCost) =>
+    throw_plan_arg_error(Limit,Plan,PlanCost,best_plan_unbounded).    
+
+%%%
+is_tabled_state(S) =>
+    bp.b_IS_PLANNER_STATE_c(S).
+
+throw_plan_arg_error(_Limit,Plan,_PlanCost,Source),nonvar(Plan) =>
+    handle_exception($var_expected(Plan),Source).
+throw_plan_arg_error(_Limit,_Plan,PlanCost,Source),nonvar(PlanCost) =>
+    handle_exception($var_expected(PlanCost),Source).
+throw_plan_arg_error(Limit,_Plan,_PlanCost,Source),integer(Limit) =>
+    handle_exception($nonnegative_integer_expected(Limit),Source).
+throw_plan_arg_error(Limit,_Plan,_PlanCost,Source) =>
+    handle_exception($integer_expected(Limit),Source).
+

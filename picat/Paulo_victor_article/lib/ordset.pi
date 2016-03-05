@@ -1,0 +1,12 @@
+module ordset.
+
+delete(OSet,Elm) = OSet1 => bp.ord_del_element(OSet,Elm,OSet1).
+disjoint(OSet1,OSet2) => bp.ord_disjoint(OSet1,OSet2).
+insert(OSet,Elm) = OSet1 => bp.ord_insert(OSet,Elm,OSet1).
+intersection(OSet1,OSet2)=OSet3 => bp.ord_intersection(OSet1,OSet2,OSet3).
+membchk(E,OSet) => bp.ord_member(E,OSet).
+new_ordset(List) = sort_remove_dups(List).
+ordset(Term) => bp.is_ordset(Term).
+subset(OSet1,OSet2) => bp.ord_subset(OSet1,OSet2).
+subtract(OSet1,OSet2)=OSet3 => bp.ord_subtract(OSet1,OSet2,OSet3).
+union(OSet1,OSet2)=OSet3 => bp.ord_union(OSet1,OSet2,OSet3).

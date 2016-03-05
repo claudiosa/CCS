@@ -1,0 +1,12 @@
+import mip.
+
+main =>
+    Vars=[X1,X2],
+    0.25*X1 + 1.0*X2 #=< 65,
+    1.25*X1 + 0.5*X2 #=< 90,
+    1.0*X1 + 1.0*X2 #=< 85,
+    Cost = $(15*X1 + 10*X2),
+    solve([$max(Cost)],Vars),
+    Obj is Cost,
+	printf("sol(%w,%f)%n",Vars,Obj).
+

@@ -1,0 +1,133 @@
+module fzn_tokenizer.
+
+/*
+%----------------------------------------------------------------------
+% Tokenizer
+% Tokenize the input stream up until the next semicolon (or eof).
+% Return a list of tokens,not including the terminating semicolon.
+% On end-of-file,fail.
+%----------------------------------------------------------------------
+read_flatzinc_tokens(FD,Tokens,TokensR) =>
+    read_picat_token(FD,Type,Token), % Picat's tokenizer
+    Type!==end_of_file,   % fails on end-of-file
+    read_flatzinc_tokens(FD,Type,Token,Tokens,TokensR).
+
+read_flatzinc_tokens(_FD,punctuation,';',Tokens,TokensR) => Tokens=TokensR.   % semicolon
+read_flatzinc_tokens(FD,punctuation,Punc,Tokens,TokensR) =>                   % punctuation
+    Tokens=[Punc|Tokens1],
+    read_picat_token(FD,Type,PicatToken),
+    read_flatzinc_tokens(FD,Type,PicatToken,Tokens1,TokensR).
+read_flatzinc_tokens(FD,var,Atom,Tokens,TokensR) =>                           % Prolog var
+    Tokens=[$ident(Atom)|Tokens1],
+    read_picat_token(FD,Type,PicatToken),
+    read_flatzinc_tokens(FD,Type,PicatToken,Tokens1,TokensR).
+read_flatzinc_tokens(FD,integer,I,Tokens,TokensR) =>                          % integer
+    Tokens=[$i(I)|Tokens1],
+    read_picat_token(FD,Type,PicatToken),
+    read_flatzinc_tokens(FD,Type,PicatToken,Tokens1,TokensR).
+read_flatzinc_tokens(FD,atom,Atom,Tokens,TokensR) =>                          % atom
+    (keyword(Atom)->Tokens=[Atom|Tokens1];Tokens=[$ident(Atom)|Tokens1]),
+    read_picat_token(FD,Type,PicatToken),
+    read_flatzinc_tokens(FD,Type,PicatToken,Tokens1,TokensR).
+read_flatzinc_tokens(FD,end_of_rule,_,Tokens,TokensR) =>                      % end-of-rule '. '
+    Tokens=['.'|Tokens1],
+    read_picat_token(FD,Type,PicatToken),
+    read_flatzinc_tokens(FD,Type,PicatToken,Tokens1,TokensR).
+read_flatzinc_tokens(FD,string,Str,Tokens,TokensR) =>                         % string
+    Tokens=[$str(Str)|Tokens1],
+    read_picat_token(FD,Type,PicatToken),
+    read_flatzinc_tokens(FD,Type,PicatToken,Tokens1,TokensR).
+*/
+
+%----------------------------------------------------------------------
+% use the B-Prolog's tokenizer, which is faster than Picat's.
+%----------------------------------------------------------------------
+read_flatzinc_tokens(FD,Tokens,TokensR) =>
+    bp.set_input(FD),
+    bp.b_NEXT_TOKEN_ff(Type,BPToken), % B-Prolog's tokenizer
+    Type !== 8,
+    read_flatzinc_tokens(Type,BPToken,Tokens,TokensR).
+    
+% fails on end-of-file,when Type=8
+read_flatzinc_tokens(7,_,Tokens,TokensR) => Tokens=TokensR.   % semicolon
+read_flatzinc_tokens(0,Punc,Tokens,TokensR) =>                % punctuation
+    Tokens=[Punc|Tokens1],
+    bp.b_NEXT_TOKEN_ff(Type,BPToken),
+    read_flatzinc_tokens(Type,BPToken,Tokens1,TokensR).
+read_flatzinc_tokens(1,Atom,Tokens,TokensR) =>                % Prolog var
+    Tokens=[$ident(Atom)|Tokens1],
+    bp.b_NEXT_TOKEN_ff(Type,BPToken),
+    read_flatzinc_tokens(Type,BPToken,Tokens1,TokensR).
+read_flatzinc_tokens(3,I,Tokens,TokensR) =>                   % integer
+    Tokens=[$i(I)|Tokens1],
+    bp.b_NEXT_TOKEN_ff(Type,BPToken),
+    read_flatzinc_tokens(Type,BPToken,Tokens1,TokensR).
+read_flatzinc_tokens(4,Atom,Tokens,TokensR) =>                % atom
+    (keyword(Atom)->Tokens=[Atom|Tokens1];Tokens=[$ident(Atom)|Tokens1]),
+    bp.b_NEXT_TOKEN_ff(Type,BPToken),
+    read_flatzinc_tokens(Type,BPToken,Tokens1,TokensR).
+read_flatzinc_tokens(5,_,Tokens,TokensR) =>                   % end-of-clause '.'
+    Tokens=['.'|Tokens1],
+    bp.b_NEXT_TOKEN_ff(Type,BPToken),
+    read_flatzinc_tokens(Type,BPToken,Tokens1,TokensR).
+read_flatzinc_tokens(9,Str,Tokens,TokensR) =>                 % string
+    Tokens=[$str(Str)|Tokens1],
+    bp.b_NEXT_TOKEN_ff(Type,BPToken),
+    read_flatzinc_tokens(Type,BPToken,Tokens1,TokensR).
+read_flatzinc_tokens(10,Num,_Tokens,_TokensR) =>                 % real or big int
+    (integer(Num) ->
+        printf("%% bigint is not supported: %w%n",Num)
+    ;               
+        printf("%% real is not supported: %w%n",Num)
+    ),
+    halt.
+
+% This differs slightly from the keyword list provided in the Flatzinc spec.
+% We do not treat constraint names (like div,intersect) as keywords.
+% We treat relevant punctuation as keywords,everything else is an identifier.
+index (+)
+keyword('..').
+keyword(':').
+keyword('::').
+keyword(';').
+keyword('=').
+keyword('-').
+keyword('+').
+keyword(annotation).
+keyword(any).
+keyword(array).
+keyword(bool).
+keyword(case).
+keyword(constraint).
+keyword(else).
+keyword(elseif).
+keyword(endif).
+keyword(enum).
+keyword(false).
+keyword(float).
+keyword(function).
+keyword(if).
+keyword(include).
+keyword(int).
+keyword(let).
+keyword(list).
+keyword(maximize).
+keyword(minimize).
+keyword(of).
+keyword(output).    % obsolete
+keyword(par).
+keyword(predicate).
+keyword(record).
+keyword(satisfy).
+keyword(set).
+keyword(show).        % obsolete
+keyword(show_cond).    % obsolete
+keyword(solve).
+keyword(string).
+keyword(test).
+keyword(then).
+keyword(true).
+keyword(tuple).
+keyword(type).
+keyword(var).
+keyword(where).

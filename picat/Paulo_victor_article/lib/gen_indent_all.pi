@@ -1,0 +1,31 @@
+/* for each file with the extension name ".c", output a command line to indent the file */
+/* by Neng-Fa Zhou, Sep. 2015                                                           */
+ 
+import os.
+
+main =>
+    create_emacs_format_file,
+    Files = listdir("."),
+    foreach (File in Files, append(_,".c",File))
+        printf("echo %s\n",File),
+        printf("emacs -batch %s -l emacs_format_file -f emacs-format-function \n", File)
+    end.
+
+create_emacs_format_file =>
+    INS = open("emacs_format_file",write),
+    Content = 
+";;; File: emacs-format-file 
+;;; Stan Warford 
+;;; 17 May 2006 
+
+(defun emacs-format-function () 
+   \"Format the whole buffer.\" 
+   (c-set-style \"stroustrup\") 
+   (indent-region (point-min) (point-max) nil) 
+   (untabify (point-min) (point-max)) 
+   (save-buffer) 
+) 
+",
+    INS.print(Content),
+    INS.close().
+    

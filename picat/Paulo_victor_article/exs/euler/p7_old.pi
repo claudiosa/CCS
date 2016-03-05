@@ -1,0 +1,29 @@
+/*********************************************************
+        http://projecteuler.net/problem=7
+
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and
+13, we can see that the 6th prime is 13.
+
+What is the 10 001st prime number?
+*********************************************************/
+
+main =>
+    I = 2,
+    Count = 0,
+    while (Count !== 10001)
+        if ( isPrime(I) ) then
+            Count := Count+1,
+	    writef("%d %d\n",Count,I)
+	end,
+	I := I + 1
+    end,
+    writef("The 10001st prime number is %w%n",I-1).
+	
+isPrime(N),N mod 2 == 0 => fail.
+isPrime(N),N mod 3 == 0 => fail.
+isPrime(N),N mod 5 == 0 => fail.
+isPrime(N),N mod 7 == 0 => fail.
+isPrime(N) =>
+    foreach (I in 3..2..sqrt(N))
+       N mod I != 0
+    end.

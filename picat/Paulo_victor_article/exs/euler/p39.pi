@@ -1,0 +1,42 @@
+/*********************************************************
+        http://projecteuler.net/problem=39
+
+If p is the perimeter of a right angle triangle with
+integral length sides, {a,b,c}, there are exactly three
+solutions for p = 120.
+
+{20,48,52}, {24,45,51}, {30,40,50}
+
+For which value of p <= 1000, is the number of solutions
+maximised?
+*********************************************************/
+
+import cp.
+
+main ?=>
+    M = get_global_map(),
+    M.put(val,(0,0)),
+    between(1,1000,P),
+    Len = num_solutions(P),
+    if (Len>M.get(val).second_of_pair()) then
+        M.put(val,(P,Len))
+    end,
+    fail.
+main =>
+    M = get_global_map(),
+    println(M.get(val)),
+    M.clear().
+
+second_of_pair((_X,Y)) = Y.
+
+num_solutions(I) = N =>
+    Vars = [A, B, C],
+    Vars :: 1 .. I div 2 + 1,
+
+    A #<= B,
+    B #< C,
+    A + B #> C,
+    A + B + C #= I,
+    A * A + B * B #= C * C,
+      
+    N = solve_all([split],Vars).length.

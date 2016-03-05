@@ -1,0 +1,208 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+
+}
+\chapter{\label{chapter:predicates}Predicates and Functions}
+In Picat, predicates\index{predicate} and functions\index{function} are defined with pattern-matching rules. Picat has two types of rules: the \emph{non-backtrackable} rule\index{non-backtrackable rule} 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> $Head, Cond\ $\verb+=>+$\ Body$. 
+\end{tabbing}
+and the \emph{backtrackable} rule\index{backtrackable rule} 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> $Head, Cond\ $\verb+?=>+$\ Body$. 
+\end{tabbing}
+Each rule is terminated by a dot (\verb+.+) followed by a white space. 
+
+\section{Predicates}
+A \emph{predicate}\index{predicate} defines a relation, and can have zero, one, or multiple answers. Within a predicate\index{predicate}, the $Head$ is a \emph{pattern} in the form $p(t_1,\ldots,t_n)$, where $p$ is called the predicate\index{predicate} \emph{name}, and $n$ is called the \emph{arity}\index{arity}. When $n=0$, the parentheses can be omitted. The condition $Cond$, which is an optional goal\index{goal}, specifies a condition under which the rule is applicable. $Cond$ cannot succeed more than once. The compiler converts $Cond$ to \texttt{once $Cond$}\index{\texttt{once}} if would otherwise be possible for $Cond$ to succeed more than once.
+
+For a call $C$, if $C$ matches the pattern $p(t_1,\ldots,t_n)$ and $Cond$ is true, then the rule is said to be \emph{applicable} to $C$. When applying a rule to call $C$, Picat rewrites $C$ into $Body$. If the used rule is non-backtrackable\index{non-backtrackable rule}, then the rewriting is a commitment, and the program can never backtrack to $C$. However, if the used rule is backtrackable\index{backtrackable rule}, then the program will backtrack to $C$ once $Body$ fails, meaning that $Body$ will be rewritten back to $C$, and the next applicable rule will be tried on $C$. 
+
+A predicate\index{predicate} is said to be \emph{deterministic} if it is defined with non-backtrackable rules\index{non-backtrackable rule} only, \emph{non-deterministic} if at least one of its rules is backtrackable\index{backtrackable rule}, and \emph{globally deterministic} if it is deterministic and all of the predicates\index{predicate} in the bodies of the predicate's\index{predicate} rules are also globally deterministic. A deterministic predicate\index{predicate} that is not globally deterministic can still have more than one answer. 
+
+\subsection*{Example}
+\begin{verbatim}
+    append(Xs,Ys,Zs) ?=> Xs=[], Ys=Zs.
+    append(Xs,Ys,Zs) => Xs=[X|XsR], append(XsR,Ys,Zs).
+
+    min_max([H],Min,Max) => Min=H, Max=H.
+    min_max([H|T],Min,Max) => 
+        min_max(T,MinT,MaxT), 
+        Min=min(MinT,H),
+        Max=max(MaxT,H).
+\end{verbatim}
+The predicate \texttt{append(Xs,Ys,Zs)}\index{\texttt{append/3}} is true if the concatenation of \texttt{Xs} and \texttt{Ys} is \texttt{Zs}. It defines a relation among the three arguments, and does not assume directionality of any of the arguments. For example, this predicate can be used to concatenate two lists, as in the call 
+\begin{verbatim}
+    append([a,b],[c,d],L)
+\end{verbatim}
+this predicate can also be used to split a list nondeterministically into two sublists, as in the call \texttt{append(L1,L2,[a,b,c,d])}\index{\texttt{append/3}}; this predicate can even be called with three free variables, as in the call \texttt{append(L1,L2,L3)}\index{\texttt{append/3}}. 
+
+The predicate \texttt{min\_max(L,Min,Max)} returns two answers through its arguments.  It binds \texttt{Min} to the minimum of list \texttt{L}, and binds \texttt{Max} to the maximum of list \texttt{L}. This predicate does not backtrack. Note that a call fails if the first argument is not a list. Also note that this predicate consumes linear space. A tail-recursive\index{tail recursion} version of this predicate that consumes constant space will be given below.
+
+
+\section{Functions}
+A \emph{function}\index{function} is a special kind of a predicate\index{predicate} that always succeeds with \emph{one} answer. Within a function\index{function}, the $Head$ is an equation $p(t_1,\ldots, t_n)$\verb+=+$X$, where $p$ is called the function\index{function} \emph{name}, and $X$ is an \emph{expression} that gives the return value. Functions\index{function} are defined with non-backtrackable rules\index{non-backtrackable rule} only.  
+
+For a call $C$, if $C$ matches the pattern $p(t_1,\ldots,t_n)$ and $Cond$ is true, then the rule is said to be \emph{applicable} to $C$. When applying a rule to call $C$, Picat rewrites the equation $C$\verb+=+$X'$ into \texttt{($Body$, $X'$=$X$)}, where $X'$ is a newly introduced variable that holds the return value of $C$. 
+
+Picat allows inclusion of \emph{function facts}\index{function fact} in the form {\tt $p$($t_1$,$\ldots$,$t_n$)\verb+=+$Exp$} in function\index{function} definitions. The function fact\index{function fact} {\tt $p$($t_1$,$\ldots$,$t_n$)\verb+=+$Exp$} is shorthand for the rule:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> {\tt $p$($t_1$,$\ldots$,$t_n$)\verb+=+$X$ \verb+=>+ $X\verb+=+Exp$.}
+\end{tabbing}
+where $X$ is a new variable.
+ 
+Although all functions\index{function} can be defined as predicates\index{predicate}, it is preferable to define them as functions\index{function} for two reasons.  Firstly, functions\index{function} often lead to more compact expressions than predicates\index{predicate}, because arguments of function\index{function} calls can be other function\index{function} calls.  Secondly, functions\index{function} are easier to debug than predicates\index{predicate}, because functions\index{function} never fail and never return more than one answer. 
+
+\subsection*{Example}
+\begin{verbatim}
+    qequation(A,B,C) = (R1,R2), 
+        D = B*B-4*A*C, 
+        D >= 0 
+    => 
+        NTwoC = -2*C,
+        R1 = NTwoC/(B+sqrt(D)),
+        R2 = NTwoC/(B-sqrt(D)).
+
+    rev([]) = [].
+    rev([X|Xs]) = rev(Xs)++[X].
+\end{verbatim}
+The function \texttt{qequation(A,B,C)} returns the pair of roots of \texttt{A*X$^2$+B*X+C=0}. If the discriminant \texttt{B*B-4*A*C} is negative, then an exception will be thrown. 
+
+The function \texttt{rev(L)} returns the reversed list of \texttt{L}. Note that the function \texttt{rev(L)} takes quadratic time and space in the length of \texttt{L}. A tail-recursive\index{tail recursion} version that consumes linear time and space will be given below.
+
+\section{Patterns and Pattern-Matching}
+The pattern $p(t_1,\ldots,t_n)$ in the head of a rule takes the same form as a structure. Function\index{function} calls are not allowed in patterns. Also, patterns cannot contain index notations, dot notations, ranges, array comprehensions, or list comprehensions. Pattern matching is used to decide whether a rule is applicable to a call. For a pattern $P$ and a term $T$, term $T$ matches pattern $P$ if $P$ is identical to $T$, or if $P$ can be made identical to $T$ by instantiating $P$'s variables. Note that variables in the term do not get instantiated after the pattern matching. If term $T$ is more general than pattern $P$, then the pattern matching can never succeed.
+
+Unlike calls in many committed-choice languages, calls in Picat are never suspended if they are more general than the head patterns of the rules. A predicate\index{predicate} call fails if it does not match the head pattern of any of the rules in the predicate\index{predicate}. A function\index{function} call throws an exception if it does not match the head pattern of any of the rules in the function\index{function}. For example, for the function call \texttt{rev(L)}, where \texttt{L} is a variable, Picat will throw the following exception:
+
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> \texttt{unresolved\_function\_call(rev(L))}.
+\end{tabbing}
+
+A pattern can contain \emph{as-patterns}\index{as-pattern} in the form \texttt{$V$@$Pattern$}, where $V$ is a new variable in the rule, and $Pattern$ is a non-variable term. The as-pattern\index{as-pattern} \texttt{$V$@$Pattern$} is the same as \texttt{$Pattern$} in pattern matching, but after pattern matching succeeds, $V$ is made to reference the term that matched $Pattern$. As-patterns\index{as-pattern} can avoid re-constructing existing terms.
+
+\subsection*{Example}
+\begin{verbatim}
+    merge([],Ys) = Ys.
+    merge(Xs,[]) = Xs.
+    merge([X|Xs],Ys@[Y|_]) = [X|Zs], X<Y => Zs=merge(Xs,Ys). 
+    merge(Xs,[Y|Ys]) = [Y|merge(Xs,Ys)].
+\end{verbatim}
+In the third rule, the as-pattern\index{as-pattern} \texttt{Ys@[Y|\_]} binds two variables: \texttt{Ys} references the second argument, and \texttt{Y} references the car\index{car} of the argument. The rule can be rewritten as follows without using any as-pattern\index{as-pattern}:
+\begin{verbatim}
+    merge([X|Xs],[Y|Ys]) = [X|Zs], X<Y => Zs=merge(Xs,[Y|Ys]). 
+\end{verbatim}
+Nevertheless, this version is less efficient, because the cons\index{cons} \texttt{[Y|Ys]} needs to be re-constructed.
+
+\section{Goals}
+In a rule, both the condition and the body are \emph{goals}\index{goal}. Queries that the users give to the interpreter are also goals\index{goal}. A goal\index{goal} can take one of the following forms:
+\begin{itemize}
+\item \texttt{true}\index{\texttt{true}}: This goal\index{goal} is always true.
+\item \texttt{fail}\index{\texttt{fail}}: This goal\index{goal} is always false. When \texttt{fail}\index{\texttt{fail}} occurs in a condition, the condition is false, and the rule is never applicable. When \texttt{fail}\index{\texttt{fail}} occurs in a body, it causes execution to backtrack.
+\item \texttt{false}\index{\texttt{false}}: This goal is the same as \texttt{fail}.
+\item $p(t_1, \ldots, t_n)$: This goal\index{goal} is a predicate call. The arguments $t_1, \ldots, t_n$ are evaluated in the given order, and the resulting call is resolved using the rules in the predicate $p/n$. If the call succeeds, then variables in the call may get instantiated. Many built-in predicates\index{predicate} are written in infix notation. For example, \texttt{X=Y} is the same as \texttt{'='(X,Y)}.
+\item \texttt{$P$, $Q$}: This goal\index{goal} is a conjunction of goal\index{goal} $P$ and goal\index{goal} $Q$. It is resolved by first resolving $P$, and then resolving $Q$. The goal\index{goal} is true if both $P$ and $Q$ are true. Note that the order is important: ($P$, $Q$) is in general not the same as ($Q$, $P$).
+\item \texttt{$P$ $\&\&$ $Q$}: This is the same as \texttt{($P$, $Q$)}. 
+\item \texttt{$P$; $Q$}: This goal\index{goal} is a disjunction of goal\index{goal} $P$ and goal\index{goal} $Q$. It is resolved by first resolving $P$. If $P$ is true, then the disjunction is true. If $P$ is false, then $Q$ is resolved. The disjunction is true if $Q$ is true. The disjunction is false if both $P$ and $Q$ are false. Note that a disjunction can succeed more than once. Note also that the order is important: ($P$; $Q$) is generally not the same as ($Q$; $P$).
+\item \texttt{$P$ $|$$|$ $Q$}: This is the same as \texttt{($P$; $Q$)}.
+\item \texttt{not $P$}\index{\texttt{not}}: This goal\index{goal} is the negation of $P$. It is false if $P$ is true, and true if $P$ is false.  Note a negation goal\index{goal} can never succeed more than once.  Also note that no variables can get instantiated, no matter whether the goal\index{goal} is true or false.
+\item \texttt{once $P$}\index{\texttt{once}}: This goal\index{goal} is the same as $P$, but can never succeed more than once.
+\item \texttt{repeat}\index{\texttt{repeat/0}}: This predicate is defined as follows:
+\begin{verbatim}
+    repeat ?=> true.
+    repeat => repeat.
+\end{verbatim}
+The \texttt{repeat}\index{\texttt{repeat/0}} predicate is often used to describe failure-driven loops\index{failure-driven loop}. For example, the query 
+\begin{verbatim}
+      repeat,writeln(a),fail
+\end{verbatim} 
+repeatedly outputs \texttt{'a'} until \texttt{ctrl-c} is typed.
+\item \texttt{if-then}\index{if statement}: An if-then statement takes the form 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{if $Cond_1$ then} \\
+\> \> $Goal_1$ \\
+\> \texttt{elseif $Cond_2$ then} \\
+\> \> $Goal_2$ \\
+\> \> $\vdots$ \\
+\> \texttt{elseif $Cond_{n}$ then} \\
+\> \> $Goal_{n}$ \\
+\> \texttt{else} \\
+\> \> $Goal_{else}$ \\
+\> \texttt{end}
+\end{tabbing}
+where the \texttt{elseif} and \texttt{else} clauses are optional. If the \texttt{else} clause is missing, then the else goal\index{goal} is assumed to be \texttt{true}. For the if-then statement, Picat finds the first condition $Cond_i$ that is true. If such a condition is found, then the truth value of the if-then statement is the same as $Goal_i$. If none of the conditions is true, then the truth value of the if-then statement is the same as $Goal_{else}$. Note that no condition can succeed more than once. 
+\ignore{
+\item \texttt{try-catch}\index{\texttt{try}}: A \texttt{try-catch}\index{\texttt{try}} statement specifies a goal\index{goal} to try, the exceptions that need to be handled when they occur during the execution of the goal\index{goal}, and a clean-up goal\index{goal} that is executed no matter whether the goal\index{goal} succeeds, fails, or is terminated by an exception. The detailed syntax and semantics of the \texttt{try-catch}\index{\texttt{try}} statement will be given in Chapter \ref{chapter:exception} on Exceptions.
+}
+\item \texttt{throw $Exception$}\index{\texttt{throw}}: This predicate throws the term $Exception$. This predicate will be detailed in Chapter \ref{chapter:exception} on Exceptions.
+\item Loops: Picat has three types of loop statements: foreach, while, and do-while.  A loop statement is true if and only if every iteration of the loop is true. The details of loops are given in Chapter \ref{chapter:loops}.
+\end{itemize}
+
+\section{Predicate Facts}
+For an extensional relation that contains a large number of tuples, it is tedious to define such a relation as a predicate\index{predicate} with pattern-matching rules. It is worse if the relation has multiple keys. In order to facilitate the definition of extensional relations, Picat allows the inclusion of \emph{predicate facts}\index{predicate fact} in the form \texttt{$p$($t_1$,$\ldots$,$t_n$)} in predicate\index{predicate} definitions. Facts and rules cannot co-exist in predicate definitions and facts must be ground. A predicate\index{predicate} definition that consists of facts must be preceded by an \emph{index declaration}\index{index declaration} in the form 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{index ($M_{11},M_{12},\ldots,M_{1n}$) $\ldots$ ($M_{m1},M_{m2},\ldots,M_{mn}$)}\index{\texttt{index}} 
+\end{tabbing}
+where each $M_{ij}$ is either $+$ (meaning indexed) or $-$ (meaning not indexed). Facts are translated into pattern-matching rules before they are compiled. 
+
+\subsection*{Example}
+\begin{verbatim}
+    index (+,-) (-,+)
+    edge(a,b).
+    edge(a,c).
+    edge(b,c).
+    edge(c,b).
+\end{verbatim}
+The predicate \texttt{edge} is translated into the following rules:
+\begin{verbatim}
+    edge(a,Y) ?=> Y=b.
+    edge(a,Y) =>  Y=c.
+    edge(b,Y) =>  Y=c.
+    edge(c,Y) =>  Y=b.
+    edge(X,b) ?=> X=a.
+    edge(X,c) ?=> X=a.
+    edge(X,c) =>  X=b.
+    edge(X,b) =>  X=c.
+\end{verbatim}
+
+\section{Tail Recursion}
+A rule is said to be \emph{tail-recursive}\index{tail recursion} if the last call of the body is the same predicate\index{predicate} as the head. The \emph{last-call optimization}\index{last-call optimization} enables last calls to reuse the stack frame of the head predicate\index{predicate} if the frame is not protected by any choice points. This optimization is especially effective for tail recursion\index{tail recursion}, because it converts recursion into iteration. Tail recursion\index{tail recursion} runs faster and consumes less memory than non-tail recursion.
+
+The trick to convert a predicate\index{predicate} (or a function\index{function}) into tail recursion\index{tail recursion} is to define a helper that uses an \emph{accumulator}\index{accumulator} parameter to accumulate\index{accumulator} the result. When the base case is reached, the accumulator\index{accumulator} is returned. At each iteration, the accumulator\index{accumulator} is updated. Initially, the original predicate\index{predicate} (or function\index{function}) calls the helper with an initial value for the accumulator\index{accumulator} parameter.
+
+
+\subsection*{Example}
+\begin{verbatim}
+    min_max([H|T],Min,Max) => 
+        min_max_helper([H|T],H,Min,H,Max).
+
+    min_max_helper([],CMin,Min,CMax,Max) => Min=CMin, Max=CMax.
+    min_max_helper([H|T],CMin,Min,CMax,Max) => 
+        min_max_helper(T,min(CMin,H),Min,max(CMax,H),Max).
+
+    rev([]) = [].
+    rev([X|Xs]) = rev_helper(Xs,[X]).
+
+    rev_helper([],R) = R.
+    rev_helper([X|Xs],R) = rev_helper(Xs,[X|R]).
+\end{verbatim}
+In the helper predicate \texttt{min\_max\_helper(L,CMin,Min,CMax,Max)}, \texttt{CMin} and \texttt{CMax} are accumulators\index{accumulator}: \texttt{CMin} is the current minimum value, and \texttt{CMax} is the current maximum value. When \texttt{L} is empty, the accumulators\index{accumulator} are returned by the unification calls \texttt{Min=CMin} and \texttt{Max=CMax}. When \texttt{L} is a cons\index{cons} \texttt{[H|T]}, the accumulators\index{accumulator} are updated: \texttt{CMin} changes to \texttt{min(CMin,H)}\index{\texttt{min/2}}, and \texttt{CMax} changes to \texttt{max(CMax,H)}\index{\texttt{max/2}}. The helper function \texttt{rev\_helper(L,R)} follows the same idea: it uses an accumulator\index{accumulator} list to hold, in reverse order, the elements that have been scanned. When \texttt{L} is empty, the accumulator\index{accumulator} is returned. When \texttt{L} is the cons\index{cons} \texttt{[X|Xs]}, the accumulator\index{accumulator} \texttt{R} changes to \texttt{[X|R]}.
+\ignore{
+\end{document}
+}
+
+

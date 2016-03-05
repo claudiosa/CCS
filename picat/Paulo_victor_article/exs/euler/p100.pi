@@ -1,0 +1,11 @@
+/*********************************************************
+        http://projecteuler.net/problem=100
+Haskell: http://www.haskell.org/haskellwiki/Euler_problems
+*********************************************************/
+
+main =>
+    writeln(nextAB(14,20)).
+
+nextAB(A,B) = (A,B), A+B>1000000000000 => true.
+nextAB(A,B) = nextAB(3*A+2*B+2, 4*A+3*B+3).
+

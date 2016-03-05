@@ -1,0 +1,22 @@
+import sat.
+
+main =>
+    crossword(_Vars).
+
+crossword(Vars) =>
+    Vars=[X1,X2,X3,X4,X5,X6,X7], 
+    Words2=[{ord('I'),ord('N')},
+            {ord('I'),ord('F')},
+            {ord('A'),ord('S')},
+            {ord('G'),ord('O')},
+            {ord('T'),ord('O')}],
+    Words3=[{ord('F'),ord('U'),ord('N')},
+            {ord('T'),ord('A'),ord('D')},
+            {ord('N'),ord('A'),ord('G')},
+            {ord('S'),ord('A'),ord('G')}],
+    table_in([{X1,X2},{X1,X3},{X5,X7},{X6,X7}], Words2),
+    table_in([{X3,X4,X5},{X2,X4,X6}],Words3),
+    AllSols=solve_all(Vars),
+    foreach(Sol in AllSols.sort())
+        writeln([chr(Code) : Code in Sol])
+    end.

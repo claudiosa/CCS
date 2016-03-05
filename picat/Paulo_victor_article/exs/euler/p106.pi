@@ -1,0 +1,14 @@
+binomial(X,Y) = prodxy(Y+1,X) div prodxy(1,X-Y).
+
+prodxy(X,Y) = prod(X..Y).
+
+% -- http://mathworld.wolfram.com/DyckPath.html
+catalan(N) = binomial(2*N,N) div (N+1).
+
+calc(N) = sum([E*(C-D) :  A in 1..(N div 2),
+	                  Mu2 = A*2,
+			  C = binomial(Mu2,A) div 2,
+			  D = catalan(A),
+			  E = binomial(N,Mu2)]).
+
+main => writeln(calc(12)).

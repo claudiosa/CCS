@@ -1,0 +1,526 @@
+% sokoban.pi: for the Sokoban puzzle in Picat
+% https://www.mat.unical.it/aspcomp2013/Sokoban
+% by Neng-Fa Zhou & Agostino Dovier, March 25, 2011, updated February 6, 2013
+%  translated to Picat by Neng-Fa Zhou, July 2013
+%
+% NOTICE: Since there may be more stones than goal locations, the problem cannot be reversed easily.
+% This program uses the nt mode to do length-constrained search. Once a plan that is within the 
+% length limit is found, the plan is returned by using  throw(GoodPlan).
+
+import planner.
+
+main =>  % read facts from stdin
+    testtakaken.
+
+asp(As),
+    initialize_table,
+    cl_facts(As),
+    goal_stones_locs(GStoneLocs0),
+    nongoal_stones_locs(NGStoneLocs0),
+    sort(GStoneLocs0) = GStoneLocs,
+    sort(NGStoneLocs0) = NGStoneLocs,
+    sokoban_loc(SokobanLoc),
+    max_step(NSteps),
+%    plan($s(SokobanLoc,GStoneLocs,NGStoneLocs),NSteps,Plan)
+    plan_unbounded($s(SokobanLoc,GStoneLocs,NGStoneLocs),NSteps,Plan)
+%    best_plan_unbounded($s(SokobanLoc,GStoneLocs,NGStoneLocs),NSteps,Plan)
+%    best_plan_downward($s(SokobanLoc,GStoneLocs,NGStoneLocs),NSteps,Plan)
+=>
+    player(Player),
+    all_stones(Stones),
+    println('ANSWER'),
+    output_plan(Player,Stones,Plan,1).
+asp(_) =>
+    println('INCONSISTENT').
+
+
+goal_stones_locs(Locs) =>
+    Locs = findall(Loc,(goal(Stone),at(Stone,Loc))).
+
+nongoal_stones_locs(Locs) =>
+    Locs = findall(Loc,(stone(Stone),not goal(Stone),at(Stone,Loc))).
+
+all_stones(Stones) =>
+    Stones = findall(stone(Stone,Loc),(stone(Stone),at(Stone,Loc))).
+
+sokoban_loc(Loc) =>
+    player(Player),
+    at(Player,Loc).
+
+table
+max_step(N),
+    step(N), 
+    not ((step(N1),N1>N)) 
+=>
+    true.
+
+final(s(_SokobanLoc,GStoneLocs,_NGStoneLocs)) =>
+    push_goal_reached(GStoneLocs).
+
+action(s(SokobanLoc,GStoneLocs,NGStoneLocs),NewS,Action,Cost) ?=>  % select a goal stone to push
+    NewS = $s(NewSokobanLoc,NewGStoneLocs,NewNGStoneLocs),
+    Action = $move_push(SokobanLoc,PrevLoc,DestLoc,Dir),
+    Cost = 1,
+    NewNGStoneLocs=NGStoneLocs,
+    select(SLoc,GStoneLocs,TGStoneLocs),
+    neib(PrevLoc,SLoc,Dir),                % there must be an emply location behind and before the stone
+    not member(PrevLoc,TGStoneLocs),
+    not member(PrevLoc,NGStoneLocs),
+    reachable_in_dir(SokobanLoc,PrevLoc,Dir,TGStoneLocs,NGStoneLocs),
+    choose_push_gs_destination(SLoc,Dir,DestLoc,NewSokobanLoc,TGStoneLocs,NGStoneLocs),
+    insert_ordered(TGStoneLocs,DestLoc) = NewGStoneLocs.
+action(s(SokobanLoc,GStoneLocs,NGStoneLocs),NewS,Action,Cost) ?=>  % select a non-goal stone to push
+    NewS = $s(NewSokobanLoc,NewGStoneLocs,NewNGStoneLocs),
+    Action = $move_push(SokobanLoc,PrevLoc,DestLoc,Dir),
+    Cost=1,
+    NewGStoneLocs=GStoneLocs,
+    select(SLoc,NGStoneLocs,TNGStoneLocs),
+    neib(PrevLoc,SLoc,Dir),                % there must be an emply location behind and before the stone
+    not member(PrevLoc,GStoneLocs),
+    not member(PrevLoc,TNGStoneLocs),
+    reachable_in_dir(SokobanLoc,PrevLoc,Dir,GStoneLocs,TNGStoneLocs),
+    choose_push_ngs_destination(SLoc,Dir,DestLoc,NewSokobanLoc,GStoneLocs,TNGStoneLocs),
+    insert_ordered(TNGStoneLocs,DestLoc) = NewNGStoneLocs.
+action(s(SokobanLoc,GStoneLocs,NGStoneLocs),NewS,Action,Cost) =>  % Sokoban moves from one location to another
+    NewS = $s(NewSokobanLoc,NewGStoneLocs,NewNGStoneLocs),
+    Action = $move(SokobanLoc,NewSokobanLoc,Dir),
+    Cost=1,
+    NewGStoneLocs=GStoneLocs,
+    NewNGStoneLocs=NGStoneLocs,
+    neib(SokobanLoc,NeibLoc,Dir),
+    not member(NeibLoc,GStoneLocs), 
+    not member(NeibLoc,NGStoneLocs), 
+    choose_move_destination(NeibLoc,Dir,NewSokobanLoc,GStoneLocs,NGStoneLocs).
+
+    
+% It is in the final state if every goal has been pulled to a goal-stone location
+push_goal_reached([]) => true.
+push_goal_reached([Loc|Locs]) =>
+    isgoal(Loc),
+    push_goal_reached(Locs).
+
+% Sokoban can walk from Loc1 to Loc2 in direction Dir
+reachable_in_dir(From,From,_Dir,_GStoneLocs,_NGStoneLocs) => true.
+reachable_in_dir(From,To,Dir,GStoneLocs,NGStoneLocs) =>
+    neib(From,Mid,Dir),
+    not member(Mid,GStoneLocs), not member(Mid,NGStoneLocs), 
+    reachable_in_dir(Mid,To,Dir,GStoneLocs,NGStoneLocs).
+
+% choose a moving destination along direction Dir 
+choose_move_destination(Loc,_Dir,Dest,_GStoneLocs,_NGStoneLocs) ?=> Dest=Loc.
+choose_move_destination(Loc,Dir,Dest,GStoneLocs,NGStoneLocs) =>
+    neib(Loc,NextLoc,Dir), 
+    not member(NextLoc,GStoneLocs), not member(NextLoc,NGStoneLocs),
+    choose_move_destination(NextLoc,Dir,Dest,GStoneLocs,NGStoneLocs).
+
+% choose a pushing destination along direction Dir for a goal stone
+choose_push_gs_destination(SLoc,Dir,Dest,NewSokoban,GStoneLocs,NGStoneLocs) =>
+    neib(SLoc,NextLoc,Dir),
+    good_push_gs_destination(NextLoc,GStoneLocs,NGStoneLocs),
+    (    Dest=NextLoc, 
+         NewSokoban=SLoc
+     ;
+         choose_push_gs_destination(NextLoc,Dir,Dest,NewSokoban,GStoneLocs,NGStoneLocs)
+     ).
+
+% A location is good to push a goal stone to if it is not occupied by a stone and it's not stuck
+good_push_gs_destination(Loc,GStoneLocs,NGStoneLocs) =>
+    not member(Loc,GStoneLocs),  not member(Loc,NGStoneLocs).
+/*
+    (stuck(Loc)->isgoal(Loc);true), % never be stuck at a corner unless the corner is a goal
+    foreach(SLoc in GStoneLocs)
+        (stuck(SLoc,Loc)->isgoal(Loc),isgoal(SLoc);true)
+    end,
+    foreach(SLoc in NGStoneLocs)
+        (stuck(SLoc,Loc)->isgoal(Loc),not isgoal(SLoc);true)
+    end.
+*/
+% choose a pushing destination along direction Dir for a non-goal stone
+choose_push_ngs_destination(SLoc,Dir,Dest,NewSokoban,GStoneLocs,NGStoneLocs) =>
+    neib(SLoc,NextLoc,Dir),
+    good_push_ngs_destination(NextLoc,GStoneLocs,NGStoneLocs),
+    (    Dest=NextLoc, 
+         NewSokoban=SLoc
+     ;
+         choose_push_ngs_destination(NextLoc,Dir,Dest,NewSokoban,GStoneLocs,NGStoneLocs)
+     ).
+
+% A location is good to push a non-goal stone to if it is not occupied by a stone and it's not stuck
+good_push_ngs_destination(Loc,GStoneLocs,NGStoneLocs) =>
+    not member(Loc,GStoneLocs),  not member(Loc,NGStoneLocs).
+/*
+    (stuck(Loc) -> not isgoal(Loc);true), % never stuck in a goal corner
+    foreach(SLoc in GStoneLocs)
+        (stuck(SLoc,Loc) -> not isgoal(Loc),isgoal(SLoc);true)
+    end,
+    foreach(SLoc in NGStoneLocs)
+        (stuck(SLoc,Loc) -> not isgoal(Loc),not isgoal(SLoc);true)
+    end.
+*/
+
+/* A stone is stuck if it is at a corner */
+table
+stuck(Loc),
+    not neib(Loc,_,dir_up), (not neib(Loc,_,dir_left); not neib(Loc,_,dir_right))
+=>
+    true.
+stuck(Loc),
+    not neib(Loc,_,dir_down), (not neib(Loc,_,dir_left); not neib(Loc,_,dir_right))
+=>
+    true.
+
+/* Two stones are stuck if there are next to each other by a wall */
+table 
+stuck(Loc1,Loc2),
+    (neib(Loc1,Loc2,dir_left);neib(Loc1,Loc2,dir_right)),
+    (not neib(Loc1,_,dir_up), not neib(Loc2,_,dir_up);
+     not neib(Loc1,_,dir_down), not neib(Loc2,_,dir_down))
+=>
+    true.
+stuck(Loc1,Loc2),
+    (neib(Loc1,Loc2,dir_up);neib(Loc1,Loc2,dir_down)),
+    (not neib(Loc1,_,dir_right), not neib(Loc2,_,dir_right);
+     not neib(Loc1,_,dir_left), not neib(Loc2,_,dir_left))
+=>
+    true.
+     
+table
+neib(Loc1,Loc2,Dir) =>
+    movedir(Loc1,Loc2,Dir).
+
+output_plan(_Player,_Stones,[],_I) => true.
+output_plan(Player,Stones,[move(From,To,Dir)|Plan],I) =>
+     printf("move(%w,%w,%w,%w,%w). ",Player,From,To,Dir,I),     
+     output_plan(Player,Stones,Plan,I+1).
+output_plan(Player,Stones,[move_push(SokobanLoc,From,To,Dir)|Plan],I) =>
+     (isgoal(To)->
+	 Format="pushtogoal(%w,%w,%w,%w,%w,%w,%w). "
+     ;
+         Format="pushtonongoal(%w,%w,%w,%w,%w,%w,%w). "
+     ),
+     neib(From,SLoc,Dir),
+     select($stone(Stone,SLoc),Stones,Stones1),
+     printf(Format,Player,Stone,SokobanLoc,From,To,Dir,I),
+     output_plan(Player,[$stone(Stone,To)|Stones1],Plan,I+1).
+
+% #######
+% #. ...#
+% # $ # #
+% #$#$$@#
+% #    ##
+% #   ##
+% #####
+% 
+test =>
+    asp($[movedir(col5row3,col5row2,dir_up), movedir(col5row2,col5row3,dir_down), movedir(col5row2,col5row1,dir_up), movedir(col5row1,col5row2,dir_down), movedir(col4row1,col5row1,dir_right), movedir(col5row1,col4row1,dir_left), movedir(col3row2,col3row1,dir_up), movedir(col3row1,col3row2,dir_down), movedir(col3row3,col3row2,dir_up), movedir(col3row2,col3row3,dir_down), movedir(col3row4,col3row3,dir_up), movedir(col3row3,col3row4,dir_down), movedir(col3row5,col3row4,dir_up), movedir(col3row4,col3row5,dir_down), movedir(col2row5,col2row4,dir_up), movedir(col2row4,col2row5,dir_down), movedir(col2row4,col3row4,dir_right), movedir(col3row4,col2row4,dir_left), movedir(col1row4,col1row3,dir_up), movedir(col1row3,col1row4,dir_down), movedir(col1row3,col1row2,dir_up), movedir(col1row2,col1row3,dir_down), movedir(col1row2,col1row1,dir_up), movedir(col1row1,col1row2,dir_down), movedir(col1row1,col2row1,dir_right), movedir(col2row1,col1row1,dir_left), movedir(col2row2,col2row1,dir_up), movedir(col2row1,col2row2,dir_down), movedir(col2row2,col3row2,dir_right), movedir(col3row2,col2row2,dir_left), movedir(col2row1,col3row1,dir_right), movedir(col3row1,col2row1,dir_left), movedir(col1row2,col2row2,dir_right), movedir(col2row2,col1row2,dir_left), movedir(col1row5,col1row4,dir_up), movedir(col1row4,col1row5,dir_down), movedir(col1row5,col2row5,dir_right), movedir(col2row5,col1row5,dir_left), movedir(col1row4,col2row4,dir_right), movedir(col2row4,col1row4,dir_left), movedir(col2row5,col3row5,dir_right), movedir(col3row5,col2row5,dir_left), movedir(col3row4,col4row4,dir_right), movedir(col4row4,col3row4,dir_left), movedir(col4row4,col4row3,dir_up), movedir(col4row3,col4row4,dir_down), movedir(col4row3,col5row3,dir_right), movedir(col5row3,col4row3,dir_left), movedir(col3row3,col4row3,dir_right), movedir(col4row3,col3row3,dir_left), movedir(col3row1,col4row1,dir_right), movedir(col4row1,col3row1,dir_left), at(stonecol3row3,col3row3), stone(stonecol3row3), goal(stonecol3row3), at(stonecol1row3,col1row3), stone(stonecol1row3), goal(stonecol1row3), at(stonecol2row2,col2row2), stone(stonecol2row2), goal(stonecol2row2), at(stonecol4row3,col4row3), stone(stonecol4row3), goal(stonecol4row3), isgoal(col5row1), isgoal(col4row1), isgoal(col3row1), isgoal(col1row1), at(playercol5row3,col5row3), player(playercol5row3), step(1), step(2), step(3), step(4), step(5), step(6), step(7), step(8), step(9), step(10), step(11), step(12), step(13), step(15), step(16), step(17), step(18), step(19), step(20), step(21), step(22), step(23), step(24), step(25), step(26), step(27), step(28), step(29), step(30), step(31), step(32)]).
+
+test0 =>
+   asp($[player(player_01),stone(stone_01),isgoal(pos_4_2),isnongoal(pos_1_1),isnongoal(pos_1_2),isnongoal(pos_1_3),isnongoal(pos_2_1),isnongoal(pos_2_2),isnongoal(pos_2_3),isnongoal(pos_3_1),isnongoal(pos_3_2),isnongoal(pos_3_3),isnongoal(pos_4_1),isnongoal(pos_4_3),isnongoal(pos_5_1),isnongoal(pos_5_2),isnongoal(pos_5_3),movedir(pos_2_2,pos_3_2,dir_right),movedir(pos_3_2,pos_2_2,dir_left),movedir(pos_3_2,pos_4_2,dir_right),movedir(pos_4_2,pos_3_2,dir_left),at(player_01,pos_2_2),at(stone_01,pos_3_2),clear(pos_4_2),goal(stone_01),step(1),step(2),step(3)]).
+
+test1 =>
+    asp($[movedir(col4row4,col4row3,dir_up), movedir(col4row3,col4row4,dir_down), movedir(col4row3,col4row2,dir_up), movedir(col4row2,col4row3,dir_down), movedir(col4row2,col5row2,dir_right), movedir(col5row2,col4row2,dir_left), movedir(col5row2,col6row2,dir_right), movedir(col6row2,col5row2,dir_left), movedir(col6row2,col7row2,dir_right), movedir(col7row2,col6row2,dir_left), movedir(col7row2,col8row2,dir_right), movedir(col8row2,col7row2,dir_left), movedir(col8row2,col8row1,dir_up), movedir(col8row1,col8row2,dir_down), movedir(col8row1,col9row1,dir_right), movedir(col9row1,col8row1,dir_left), movedir(col9row2,col9row1,dir_up), movedir(col9row1,col9row2,dir_down), movedir(col9row3,col9row2,dir_up), movedir(col9row2,col9row3,dir_down), movedir(col9row4,col9row3,dir_up), movedir(col9row3,col9row4,dir_down), movedir(col9row5,col9row4,dir_up), movedir(col9row4,col9row5,dir_down), movedir(col9row5,col10row5,dir_right), movedir(col10row5,col9row5,dir_left), movedir(col10row5,col10row4,dir_up), movedir(col10row4,col10row5,dir_down), movedir(col10row4,col10row3,dir_up), movedir(col10row3,col10row4,dir_down), movedir(col10row3,col10row2,dir_up), movedir(col10row2,col10row3,dir_down), movedir(col10row2,col10row1,dir_up), movedir(col10row1,col10row2,dir_down), movedir(col8row5,col8row4,dir_up), movedir(col8row4,col8row5,dir_down), movedir(col8row4,col8row3,dir_up), movedir(col8row3,col8row4,dir_down), movedir(col8row3,col8row2,dir_up), movedir(col8row2,col8row3,dir_down), movedir(col8row3,col9row3,dir_right), movedir(col9row3,col8row3,dir_left), movedir(col8row4,col9row4,dir_right), movedir(col9row4,col8row4,dir_left), movedir(col8row5,col9row5,dir_right), movedir(col9row5,col8row5,dir_left), movedir(col9row4,col10row4,dir_right), movedir(col10row4,col9row4,dir_left), movedir(col9row3,col10row3,dir_right), movedir(col10row3,col9row3,dir_left), movedir(col9row2,col10row2,dir_right), movedir(col10row2,col9row2,dir_left), movedir(col9row1,col10row1,dir_right), movedir(col10row1,col9row1,dir_left), movedir(col8row2,col9row2,dir_right), movedir(col9row2,col8row2,dir_left), movedir(col3row2,col4row2,dir_right), movedir(col4row2,col3row2,dir_left), movedir(col2row3,col2row2,dir_up), movedir(col2row2,col2row3,dir_down), movedir(col2row4,col2row3,dir_up), movedir(col2row3,col2row4,dir_down), movedir(col2row5,col2row4,dir_up), movedir(col2row4,col2row5,dir_down), movedir(col2row6,col2row5,dir_up), movedir(col2row5,col2row6,dir_down), movedir(col2row6,col3row6,dir_right), movedir(col3row6,col2row6,dir_left), movedir(col3row6,col3row5,dir_up), movedir(col3row5,col3row6,dir_down), movedir(col3row5,col3row4,dir_up), movedir(col3row4,col3row5,dir_down), movedir(col3row4,col4row4,dir_right), movedir(col4row4,col3row4,dir_left), movedir(col3row5,col4row5,dir_right), movedir(col4row5,col3row5,dir_left), movedir(col4row5,col4row4,dir_up), movedir(col4row4,col4row5,dir_down), movedir(col4row6,col4row5,dir_up), movedir(col4row5,col4row6,dir_down), movedir(col4row6,col5row6,dir_right), movedir(col5row6,col4row6,dir_left), movedir(col5row6,col5row5,dir_up), movedir(col5row5,col5row6,dir_down), movedir(col5row5,col5row4,dir_up), movedir(col5row4,col5row5,dir_down), movedir(col5row4,col6row4,dir_right), movedir(col6row4,col5row4,dir_left), movedir(col6row5,col6row4,dir_up), movedir(col6row4,col6row5,dir_down), movedir(col6row6,col6row5,dir_up), movedir(col6row5,col6row6,dir_down), movedir(col5row5,col6row5,dir_right), movedir(col6row5,col5row5,dir_left), movedir(col5row6,col6row6,dir_right), movedir(col6row6,col5row6,dir_left), movedir(col4row5,col5row5,dir_right), movedir(col5row5,col4row5,dir_left), movedir(col3row6,col4row6,dir_right), movedir(col4row6,col3row6,dir_left), movedir(col2row5,col3row5,dir_right), movedir(col3row5,col2row5,dir_left), movedir(col2row4,col3row4,dir_right), movedir(col3row4,col2row4,dir_left), movedir(col1row3,col1row2,dir_up), movedir(col1row2,col1row3,dir_down), movedir(col1row2,col2row2,dir_right), movedir(col2row2,col1row2,dir_left), movedir(col1row3,col2row3,dir_right), movedir(col2row3,col1row3,dir_left), movedir(col2row2,col3row2,dir_right), movedir(col3row2,col2row2,dir_left), movedir(col4row4,col5row4,dir_right), movedir(col5row4,col4row4,dir_left), at(stonecol8row2,col8row2), stone(stonecol8row2), goal(stonecol8row2), at(stonecol3row4,col3row4), stone(stonecol3row4), goal(stonecol3row4), isgoal(col3row2), isgoal(col2row2), at(playercol4row4,col4row4), player(playercol4row4), step(1), step(2), step(3), step(4), step(5), step(6), step(7), step(8), step(9), step(10), step(11)]).
+
+
+test2 =>
+asp($[movedir(row1col3,row1col4,dir_right), movedir(row1col4,row1col3,dir_left), movedir(row2col2,row2col3,dir_right), movedir(row2col3,row2col2,dir_left), movedir(row2col3,row2col4,dir_right), movedir(row2col4,row2col3,dir_left), movedir(row3col3,row3col4,dir_right), movedir(row3col4,row3col3,dir_left), movedir(row4col3,row4col4,dir_right), movedir(row4col4,row4col3,dir_left), movedir(row4col4,row4col5,dir_right), movedir(row4col5,row4col4,dir_left), movedir(row5col2,row5col3,dir_right), movedir(row5col3,row5col2,dir_left), movedir(row5col3,row5col4,dir_right), movedir(row5col4,row5col3,dir_left), movedir(row5col4,row5col5,dir_right), movedir(row5col5,row5col4,dir_left), movedir(row6col2,row6col3,dir_right), movedir(row6col3,row6col2,dir_left), movedir(row6col3,row6col4,dir_right), movedir(row6col4,row6col3,dir_left), movedir(row6col4,row6col5,dir_right), movedir(row6col5,row6col4,dir_left), movedir(row6col2,row5col2,dir_up), movedir(row5col2,row6col2,dir_down), movedir(row2col3,row1col3,dir_up), movedir(row1col3,row2col3,dir_down), movedir(row3col3,row2col3,dir_up), movedir(row2col3,row3col3,dir_down), movedir(row4col3,row3col3,dir_up), movedir(row3col3,row4col3,dir_down), movedir(row5col3,row4col3,dir_up), movedir(row4col3,row5col3,dir_down), movedir(row6col3,row5col3,dir_up), movedir(row5col3,row6col3,dir_down), movedir(row2col4,row1col4,dir_up), movedir(row1col4,row2col4,dir_down), movedir(row3col4,row2col4,dir_up), movedir(row2col4,row3col4,dir_down), movedir(row4col4,row3col4,dir_up), movedir(row3col4,row4col4,dir_down), movedir(row5col4,row4col4,dir_up), movedir(row4col4,row5col4,dir_down), movedir(row6col4,row5col4,dir_up), movedir(row5col4,row6col4,dir_down), movedir(row5col5,row4col5,dir_up), movedir(row4col5,row5col5,dir_down), movedir(row6col5,row5col5,dir_up), movedir(row5col5,row6col5,dir_down), at(playerrow2col2,row2col2), player(playerrow2col2), at(stonerow2col3,row2col3), stone(stonerow2col3), goal(stonerow2col3), at(stonerow3col3,row3col3), stone(stonerow3col3), goal(stonerow3col3), at(stonerow4col4,row4col4), stone(stonerow4col4), goal(stonerow4col4), isgoal(row5col2), at(stonerow5col3,row5col3), stone(stonerow5col3), goal(stonerow5col3), isgoal(row6col2), isgoal(row6col3), at(stonerow6col4,row6col4), stone(stonerow6col4), goal(stonerow6col4), isgoal(row6col4), isgoal(row6col5), step(1), step(2), step(3), step(4), step(5), step(6), step(7), step(8), step(9), step(10), step(11), step(12), step(13), step(14), step(15), step(16), step(17), step(18), step(19), step(20), step(21), step(22), step(23), step(24), step(25), step(26), step(27), step(28), step(29), step(30)]).
+
+test3 =>
+asp($[movedir(row1col3,row1col4,dir_right), movedir(row1col4,row1col3,dir_left), movedir(row2col2,row2col3,dir_right), movedir(row2col3,row2col2,dir_left), movedir(row2col3,row2col4,dir_right), movedir(row2col4,row2col3,dir_left), movedir(row3col3,row3col4,dir_right), movedir(row3col4,row3col3,dir_left), movedir(row4col3,row4col4,dir_right), movedir(row4col4,row4col3,dir_left), movedir(row4col4,row4col5,dir_right), movedir(row4col5,row4col4,dir_left), movedir(row5col2,row5col3,dir_right), movedir(row5col3,row5col2,dir_left), movedir(row5col3,row5col4,dir_right), movedir(row5col4,row5col3,dir_left), movedir(row5col4,row5col5,dir_right), movedir(row5col5,row5col4,dir_left), movedir(row6col2,row6col3,dir_right), movedir(row6col3,row6col2,dir_left), movedir(row6col3,row6col4,dir_right), movedir(row6col4,row6col3,dir_left), movedir(row6col4,row6col5,dir_right), movedir(row6col5,row6col4,dir_left), movedir(row6col2,row5col2,dir_up), movedir(row5col2,row6col2,dir_down), movedir(row2col3,row1col3,dir_up), movedir(row1col3,row2col3,dir_down), movedir(row3col3,row2col3,dir_up), movedir(row2col3,row3col3,dir_down), movedir(row4col3,row3col3,dir_up), movedir(row3col3,row4col3,dir_down), movedir(row5col3,row4col3,dir_up), movedir(row4col3,row5col3,dir_down), movedir(row6col3,row5col3,dir_up), movedir(row5col3,row6col3,dir_down), movedir(row2col4,row1col4,dir_up), movedir(row1col4,row2col4,dir_down), movedir(row3col4,row2col4,dir_up), movedir(row2col4,row3col4,dir_down), movedir(row4col4,row3col4,dir_up), movedir(row3col4,row4col4,dir_down), movedir(row5col4,row4col4,dir_up), movedir(row4col4,row5col4,dir_down), movedir(row6col4,row5col4,dir_up), movedir(row5col4,row6col4,dir_down), movedir(row5col5,row4col5,dir_up), movedir(row4col5,row5col5,dir_down), movedir(row6col5,row5col5,dir_up), movedir(row5col5,row6col5,dir_down), at(playerrow2col2,row2col2), player(playerrow2col2), at(stonerow2col3,row2col3), stone(stonerow2col3), at(stonerow3col3,row3col3), stone(stonerow3col3), at(stonerow4col4,row4col4), stone(stonerow4col4), goal(stonerow4col4), isgoal(row5col2), at(stonerow5col3,row5col3), stone(stonerow5col3), goal(stonerow5col3), isgoal(row6col2), isgoal(row6col3), at(stonerow6col4,row6col4), stone(stonerow6col4), goal(stonerow6col4), isgoal(row6col4), isgoal(row6col5), step(1), step(2), step(3), step(4), step(5), step(6), step(7), step(8), step(9), step(10), step(11), step(12), step(13), step(14), step(15), step(16), step(17), step(18), step(19), step(20), step(21), step(22), step(23), step(24), step(25), step(26), step(27), step(28), step(29), step(30)]).
+
+test4 =>
+asp($[movedir(col6row6,col6row5,dir_up), movedir(col6row5,col6row6,dir_down), movedir(col6row5,col6row4,dir_up), movedir(col6row4,col6row5,dir_down), movedir(col6row4,col6row3,dir_up), movedir(col6row3,col6row4,dir_down), movedir(col6row3,col6row2,dir_up), movedir(col6row2,col6row3,dir_down), movedir(col6row2,col6row1,dir_up), movedir(col6row1,col6row2,dir_down), movedir(col6row1,col7row1,dir_right), movedir(col7row1,col6row1,dir_left), movedir(col7row2,col7row1,dir_up), movedir(col7row1,col7row2,dir_down), movedir(col7row3,col7row2,dir_up), movedir(col7row2,col7row3,dir_down), movedir(col7row4,col7row3,dir_up), movedir(col7row3,col7row4,dir_down), movedir(col7row5,col7row4,dir_up), movedir(col7row4,col7row5,dir_down), movedir(col7row6,col7row5,dir_up), movedir(col7row5,col7row6,dir_down), movedir(col7row6,col8row6,dir_right), movedir(col8row6,col7row6,dir_left), movedir(col8row6,col8row5,dir_up), movedir(col8row5,col8row6,dir_down), movedir(col7row5,col8row5,dir_right), movedir(col8row5,col7row5,dir_left), movedir(col5row2,col5row1,dir_up), movedir(col5row1,col5row2,dir_down), movedir(col5row3,col5row2,dir_up), movedir(col5row2,col5row3,dir_down), movedir(col5row4,col5row3,dir_up), movedir(col5row3,col5row4,dir_down), movedir(col5row5,col5row4,dir_up), movedir(col5row4,col5row5,dir_down), movedir(col5row6,col5row5,dir_up), movedir(col5row5,col5row6,dir_down), movedir(col5row6,col6row6,dir_right), movedir(col6row6,col5row6,dir_left), movedir(col5row5,col6row5,dir_right), movedir(col6row5,col5row5,dir_left), movedir(col5row4,col6row4,dir_right), movedir(col6row4,col5row4,dir_left), movedir(col4row4,col4row3,dir_up), movedir(col4row3,col4row4,dir_down), movedir(col4row3,col5row3,dir_right), movedir(col5row3,col4row3,dir_left), movedir(col4row4,col5row4,dir_right), movedir(col5row4,col4row4,dir_left), movedir(col3row5,col3row4,dir_up), movedir(col3row4,col3row5,dir_down), movedir(col2row5,col2row4,dir_up), movedir(col2row4,col2row5,dir_down), movedir(col2row4,col2row3,dir_up), movedir(col2row3,col2row4,dir_down), movedir(col2row3,col2row2,dir_up), movedir(col2row2,col2row3,dir_down), movedir(col2row4,col3row4,dir_right), movedir(col3row4,col2row4,dir_left), movedir(col1row5,col1row4,dir_up), movedir(col1row4,col1row5,dir_down), movedir(col1row5,col2row5,dir_right), movedir(col2row5,col1row5,dir_left), movedir(col1row4,col2row4,dir_right), movedir(col2row4,col1row4,dir_left), movedir(col2row5,col3row5,dir_right), movedir(col3row5,col2row5,dir_left), movedir(col3row4,col4row4,dir_right), movedir(col4row4,col3row4,dir_left), movedir(col5row3,col6row3,dir_right), movedir(col6row3,col5row3,dir_left), movedir(col5row2,col6row2,dir_right), movedir(col6row2,col5row2,dir_left), movedir(col5row1,col6row1,dir_right), movedir(col6row1,col5row1,dir_left), movedir(col6row2,col7row2,dir_right), movedir(col7row2,col6row2,dir_left), movedir(col6row3,col7row3,dir_right), movedir(col7row3,col6row3,dir_left), movedir(col6row4,col7row4,dir_right), movedir(col7row4,col6row4,dir_left), movedir(col6row5,col7row5,dir_right), movedir(col7row5,col6row5,dir_left), movedir(col6row6,col7row6,dir_right), movedir(col7row6,col6row6,dir_left), at(stonecol6row5,col6row5), stone(stonecol6row5), goal(stonecol6row5), at(stonecol6row3,col6row3), stone(stonecol6row3), goal(stonecol6row3), at(stonecol7row2,col7row2), stone(stonecol7row2), goal(stonecol7row2), at(stonecol7row5,col7row5), stone(stonecol7row5), goal(stonecol7row5), at(stonecol5row5,col5row5), stone(stonecol5row5), goal(stonecol5row5), at(stonecol2row4,col2row4), stone(stonecol2row4), goal(stonecol2row4), at(stonecol2row3,col2row3), stone(stonecol2row3), goal(stonecol2row3), isgoal(col6row5), isgoal(col6row4), isgoal(col5row2), isgoal(col5row4), isgoal(col5row5), isgoal(col2row4), isgoal(col2row2), at(playercol6row6,col6row6), player(playercol6row6), step(1), step(2), step(3), step(4), step(5), step(6), step(7), step(8), step(9), step(10), step(11), step(12), step(13), step(14), step(15), step(16), step(17), step(18), step(19), step(20), step(21), step(22), step(23), step(24), step(25), step(26), step(27), step(28), step(29), step(30),step(31), step(32), step(33), step(34), step(35), step(36), step(37), step(38), step(39), step(40),step(41), step(42), step(43), step(44), step(45), step(46), step(47), step(48), step(49)]).
+
+
+testtakaken =>
+   asp($ [
+movedir(r4c1,r3c1,dir_up), movedir(r3c1,r4c1,dir_down), movedir(r2c2,r1c2,dir_up), movedir(r1c2,r2c2,dir_down), movedir(r4c2,r3c2,dir_up), movedir(r3c2,r4c2,dir_down), movedir(r4c3,r3c3,dir_up), movedir(r3c3,r4c3,dir_down), movedir(r6c3,r5c3,dir_up), movedir(r5c3,r6c3,dir_down), movedir(r3c2,r2c2,dir_up), movedir(r2c2,r3c2,dir_down), movedir(r5c3,r4c3,dir_up), movedir(r4c3,r5c3,dir_down), movedir(r2c4,r1c4,dir_up), movedir(r1c4,r2c4,dir_down), movedir(r3c4,r2c4,dir_up), movedir(r2c4,r3c4,dir_down), movedir(r4c4,r3c4,dir_up), movedir(r3c4,r4c4,dir_down), movedir(r3c5,r2c5,dir_up), movedir(r2c5,r3c5,dir_down), movedir(r4c5,r3c5,dir_up), movedir(r3c5,r4c5,dir_down), movedir(r5c5,r4c5,dir_up), movedir(r4c5,r5c5,dir_down), movedir(r6c5,r5c5,dir_up), movedir(r5c5,r6c5,dir_down), movedir(r3c6,r2c6,dir_up), movedir(r2c6,r3c6,dir_down), movedir(r3c1,r3c2,dir_right), movedir(r3c2,r3c1,dir_left), movedir(r1c2,r1c3,dir_right), movedir(r1c3,r1c2,dir_left), movedir(r1c3,r1c4,dir_right), movedir(r1c4,r1c3,dir_left), movedir(r2c4,r2c5,dir_right), movedir(r2c5,r2c4,dir_left), movedir(r2c5,r2c6,dir_right), movedir(r2c6,r2c5,dir_left), movedir(r3c1,r3c2,dir_right), movedir(r3c2,r3c1,dir_left), movedir(r3c2,r3c3,dir_right), movedir(r3c3,r3c2,dir_left), movedir(r3c3,r3c4,dir_right), movedir(r3c4,r3c3,dir_left), movedir(r3c4,r3c5,dir_right), movedir(r3c5,r3c4,dir_left), movedir(r3c5,r3c6,dir_right), movedir(r3c6,r3c5,dir_left), movedir(r4c1,r4c2,dir_right), movedir(r4c2,r4c1,dir_left), movedir(r4c2,r4c3,dir_right), movedir(r4c3,r4c2,dir_left), movedir(r4c3,r4c4,dir_right), movedir(r4c4,r4c3,dir_left), movedir(r4c4,r4c5,dir_right), movedir(r4c5,r4c4,dir_left), movedir(r6c3,r6c4,dir_right), movedir(r6c4,r6c3,dir_left), movedir(r6c4,r6c5,dir_right), movedir(r6c5,r6c4,dir_left), 
+isgoal(r3c2),    isgoal(r3c3),    isgoal(r3c5),    isgoal(r5c5),    
+at(stoner3c2,r3c2),  stone(stoner3c2),  goal(stoner3c2), at(stoner2c4,r2c4),  stone(stoner2c4),  goal(stoner2c4), at(stoner4c3,r4c3),  stone(stoner4c3),  goal(stoner4c3), at(stoner4c4,r4c4),  stone(stoner4c4),  goal(stoner4c4), player(sokoban), at(sokoban,r1c3),
+step(150)
+]).
+
+/*
+;;  #######
+;; ##  .  ##
+;; # .$$$. #
+;; # $. .$ #
+;; #.$ @ $.#
+;; # $. .$ #
+;; # .$$$. #
+;; ##  .  ##
+;;  #######
+*/
+ipc20 =>
+asp($[
+isgoal(pos_2_5),
+isgoal(pos_3_3),
+isgoal(pos_3_7),
+isgoal(pos_4_4),
+isgoal(pos_4_6),
+isgoal(pos_5_2),
+isgoal(pos_5_8),
+isgoal(pos_6_4),
+isgoal(pos_6_6),
+isgoal(pos_7_3),
+isgoal(pos_7_7),
+isgoal(pos_8_5),
+isnongoal(pos_1_1),
+isnongoal(pos_1_2),
+isnongoal(pos_1_3),
+isnongoal(pos_1_4),
+isnongoal(pos_1_5),
+isnongoal(pos_1_6),
+isnongoal(pos_1_7),
+isnongoal(pos_1_8),
+isnongoal(pos_1_9),
+isnongoal(pos_2_1),
+isnongoal(pos_2_2),
+isnongoal(pos_2_3),
+isnongoal(pos_2_4),
+isnongoal(pos_2_6),
+isnongoal(pos_2_7),
+isnongoal(pos_2_8),
+isnongoal(pos_2_9),
+isnongoal(pos_3_1),
+isnongoal(pos_3_2),
+isnongoal(pos_3_4),
+isnongoal(pos_3_5),
+isnongoal(pos_3_6),
+isnongoal(pos_3_8),
+isnongoal(pos_3_9),
+isnongoal(pos_4_1),
+isnongoal(pos_4_2),
+isnongoal(pos_4_3),
+isnongoal(pos_4_5),
+isnongoal(pos_4_7),
+isnongoal(pos_4_8),
+isnongoal(pos_4_9),
+isnongoal(pos_5_1),
+isnongoal(pos_5_3),
+isnongoal(pos_5_4),
+isnongoal(pos_5_5),
+isnongoal(pos_5_6),
+isnongoal(pos_5_7),
+isnongoal(pos_5_9),
+isnongoal(pos_6_1),
+isnongoal(pos_6_2),
+isnongoal(pos_6_3),
+isnongoal(pos_6_5),
+isnongoal(pos_6_7),
+isnongoal(pos_6_8),
+isnongoal(pos_6_9),
+isnongoal(pos_7_1),
+isnongoal(pos_7_2),
+isnongoal(pos_7_4),
+isnongoal(pos_7_5),
+isnongoal(pos_7_6),
+isnongoal(pos_7_8),
+isnongoal(pos_7_9),
+isnongoal(pos_8_1),
+isnongoal(pos_8_2),
+isnongoal(pos_8_3),
+isnongoal(pos_8_4),
+isnongoal(pos_8_6),
+isnongoal(pos_8_7),
+isnongoal(pos_8_8),
+isnongoal(pos_8_9),
+isnongoal(pos_9_1),
+isnongoal(pos_9_2),
+isnongoal(pos_9_3),
+isnongoal(pos_9_4),
+isnongoal(pos_9_5),
+isnongoal(pos_9_6),
+isnongoal(pos_9_7),
+isnongoal(pos_9_8),
+isnongoal(pos_9_9),
+movedir(pos_2_3,pos_2_4,dir_down),
+movedir(pos_2_3,pos_3_3,dir_right),
+movedir(pos_2_4,pos_2_3,dir_up),
+movedir(pos_2_4,pos_2_5,dir_down),
+movedir(pos_2_4,pos_3_4,dir_right),
+movedir(pos_2_5,pos_2_4,dir_up),
+movedir(pos_2_5,pos_2_6,dir_down),
+movedir(pos_2_5,pos_3_5,dir_right),
+movedir(pos_2_6,pos_2_5,dir_up),
+movedir(pos_2_6,pos_2_7,dir_down),
+movedir(pos_2_6,pos_3_6,dir_right),
+movedir(pos_2_7,pos_2_6,dir_up),
+movedir(pos_2_7,pos_3_7,dir_right),
+movedir(pos_3_2,pos_3_3,dir_down),
+movedir(pos_3_2,pos_4_2,dir_right),
+movedir(pos_3_3,pos_2_3,dir_left),
+movedir(pos_3_3,pos_3_2,dir_up),
+movedir(pos_3_3,pos_3_4,dir_down),
+movedir(pos_3_3,pos_4_3,dir_right),
+movedir(pos_3_4,pos_2_4,dir_left),
+movedir(pos_3_4,pos_3_3,dir_up),
+movedir(pos_3_4,pos_3_5,dir_down),
+movedir(pos_3_4,pos_4_4,dir_right),
+movedir(pos_3_5,pos_2_5,dir_left),
+movedir(pos_3_5,pos_3_4,dir_up),
+movedir(pos_3_5,pos_3_6,dir_down),
+movedir(pos_3_5,pos_4_5,dir_right),
+movedir(pos_3_6,pos_2_6,dir_left),
+movedir(pos_3_6,pos_3_5,dir_up),
+movedir(pos_3_6,pos_3_7,dir_down),
+movedir(pos_3_6,pos_4_6,dir_right),
+movedir(pos_3_7,pos_2_7,dir_left),
+movedir(pos_3_7,pos_3_6,dir_up),
+movedir(pos_3_7,pos_3_8,dir_down),
+movedir(pos_3_7,pos_4_7,dir_right),
+movedir(pos_3_8,pos_3_7,dir_up),
+movedir(pos_3_8,pos_4_8,dir_right),
+movedir(pos_4_2,pos_3_2,dir_left),
+movedir(pos_4_2,pos_4_3,dir_down),
+movedir(pos_4_2,pos_5_2,dir_right),
+movedir(pos_4_3,pos_3_3,dir_left),
+movedir(pos_4_3,pos_4_2,dir_up),
+movedir(pos_4_3,pos_4_4,dir_down),
+movedir(pos_4_3,pos_5_3,dir_right),
+movedir(pos_4_4,pos_3_4,dir_left),
+movedir(pos_4_4,pos_4_3,dir_up),
+movedir(pos_4_4,pos_4_5,dir_down),
+movedir(pos_4_4,pos_5_4,dir_right),
+movedir(pos_4_5,pos_3_5,dir_left),
+movedir(pos_4_5,pos_4_4,dir_up),
+movedir(pos_4_5,pos_4_6,dir_down),
+movedir(pos_4_5,pos_5_5,dir_right),
+movedir(pos_4_6,pos_3_6,dir_left),
+movedir(pos_4_6,pos_4_5,dir_up),
+movedir(pos_4_6,pos_4_7,dir_down),
+movedir(pos_4_6,pos_5_6,dir_right),
+movedir(pos_4_7,pos_3_7,dir_left),
+movedir(pos_4_7,pos_4_6,dir_up),
+movedir(pos_4_7,pos_4_8,dir_down),
+movedir(pos_4_7,pos_5_7,dir_right),
+movedir(pos_4_8,pos_3_8,dir_left),
+movedir(pos_4_8,pos_4_7,dir_up),
+movedir(pos_4_8,pos_5_8,dir_right),
+movedir(pos_5_2,pos_4_2,dir_left),
+movedir(pos_5_2,pos_5_3,dir_down),
+movedir(pos_5_2,pos_6_2,dir_right),
+movedir(pos_5_3,pos_4_3,dir_left),
+movedir(pos_5_3,pos_5_2,dir_up),
+movedir(pos_5_3,pos_5_4,dir_down),
+movedir(pos_5_3,pos_6_3,dir_right),
+movedir(pos_5_4,pos_4_4,dir_left),
+movedir(pos_5_4,pos_5_3,dir_up),
+movedir(pos_5_4,pos_5_5,dir_down),
+movedir(pos_5_4,pos_6_4,dir_right),
+movedir(pos_5_5,pos_4_5,dir_left),
+movedir(pos_5_5,pos_5_4,dir_up),
+movedir(pos_5_5,pos_5_6,dir_down),
+movedir(pos_5_5,pos_6_5,dir_right),
+movedir(pos_5_6,pos_4_6,dir_left),
+movedir(pos_5_6,pos_5_5,dir_up),
+movedir(pos_5_6,pos_5_7,dir_down),
+movedir(pos_5_6,pos_6_6,dir_right),
+movedir(pos_5_7,pos_4_7,dir_left),
+movedir(pos_5_7,pos_5_6,dir_up),
+movedir(pos_5_7,pos_5_8,dir_down),
+movedir(pos_5_7,pos_6_7,dir_right),
+movedir(pos_5_8,pos_4_8,dir_left),
+movedir(pos_5_8,pos_5_7,dir_up),
+movedir(pos_5_8,pos_6_8,dir_right),
+movedir(pos_6_2,pos_5_2,dir_left),
+movedir(pos_6_2,pos_6_3,dir_down),
+movedir(pos_6_2,pos_7_2,dir_right),
+movedir(pos_6_3,pos_5_3,dir_left),
+movedir(pos_6_3,pos_6_2,dir_up),
+movedir(pos_6_3,pos_6_4,dir_down),
+movedir(pos_6_3,pos_7_3,dir_right),
+movedir(pos_6_4,pos_5_4,dir_left),
+movedir(pos_6_4,pos_6_3,dir_up),
+movedir(pos_6_4,pos_6_5,dir_down),
+movedir(pos_6_4,pos_7_4,dir_right),
+movedir(pos_6_5,pos_5_5,dir_left),
+movedir(pos_6_5,pos_6_4,dir_up),
+movedir(pos_6_5,pos_6_6,dir_down),
+movedir(pos_6_5,pos_7_5,dir_right),
+movedir(pos_6_6,pos_5_6,dir_left),
+movedir(pos_6_6,pos_6_5,dir_up),
+movedir(pos_6_6,pos_6_7,dir_down),
+movedir(pos_6_6,pos_7_6,dir_right),
+movedir(pos_6_7,pos_5_7,dir_left),
+movedir(pos_6_7,pos_6_6,dir_up),
+movedir(pos_6_7,pos_6_8,dir_down),
+movedir(pos_6_7,pos_7_7,dir_right),
+movedir(pos_6_8,pos_5_8,dir_left),
+movedir(pos_6_8,pos_6_7,dir_up),
+movedir(pos_6_8,pos_7_8,dir_right),
+movedir(pos_7_2,pos_6_2,dir_left),
+movedir(pos_7_2,pos_7_3,dir_down),
+movedir(pos_7_3,pos_6_3,dir_left),
+movedir(pos_7_3,pos_7_2,dir_up),
+movedir(pos_7_3,pos_7_4,dir_down),
+movedir(pos_7_3,pos_8_3,dir_right),
+movedir(pos_7_4,pos_6_4,dir_left),
+movedir(pos_7_4,pos_7_3,dir_up),
+movedir(pos_7_4,pos_7_5,dir_down),
+movedir(pos_7_4,pos_8_4,dir_right),
+movedir(pos_7_5,pos_6_5,dir_left),
+movedir(pos_7_5,pos_7_4,dir_up),
+movedir(pos_7_5,pos_7_6,dir_down),
+movedir(pos_7_5,pos_8_5,dir_right),
+movedir(pos_7_6,pos_6_6,dir_left),
+movedir(pos_7_6,pos_7_5,dir_up),
+movedir(pos_7_6,pos_7_7,dir_down),
+movedir(pos_7_6,pos_8_6,dir_right),
+movedir(pos_7_7,pos_6_7,dir_left),
+movedir(pos_7_7,pos_7_6,dir_up),
+movedir(pos_7_7,pos_7_8,dir_down),
+movedir(pos_7_7,pos_8_7,dir_right),
+movedir(pos_7_8,pos_6_8,dir_left),
+movedir(pos_7_8,pos_7_7,dir_up),
+movedir(pos_8_3,pos_7_3,dir_left),
+movedir(pos_8_3,pos_8_4,dir_down),
+movedir(pos_8_4,pos_7_4,dir_left),
+movedir(pos_8_4,pos_8_3,dir_up),
+movedir(pos_8_4,pos_8_5,dir_down),
+movedir(pos_8_5,pos_7_5,dir_left),
+movedir(pos_8_5,pos_8_4,dir_up),
+movedir(pos_8_5,pos_8_6,dir_down),
+movedir(pos_8_6,pos_7_6,dir_left),
+movedir(pos_8_6,pos_8_5,dir_up),
+movedir(pos_8_6,pos_8_7,dir_down),
+movedir(pos_8_7,pos_7_7,dir_left),
+movedir(pos_8_7,pos_8_6,dir_up),
+at(player_01,pos_5_5),
+at(stone_01,pos_4_3),
+at(stone_02,pos_5_3),
+at(stone_03,pos_6_3),
+at(stone_04,pos_3_4),
+at(stone_05,pos_7_4),
+at(stone_06,pos_3_5),
+at(stone_07,pos_7_5),
+at(stone_08,pos_3_6),
+at(stone_09,pos_7_6),
+at(stone_10,pos_4_7),
+at(stone_11,pos_5_7),
+at(stone_12,pos_6_7),
+player(player_01),
+goal(stone_01),
+goal(stone_02),
+goal(stone_03),
+goal(stone_04),
+goal(stone_05),
+goal(stone_06),
+goal(stone_07),
+goal(stone_08),
+goal(stone_09),
+goal(stone_10),
+goal(stone_11),
+goal(stone_12),
+stone(stone_01),
+stone(stone_02),
+stone(stone_03),
+stone(stone_04),
+stone(stone_05),
+stone(stone_06),
+stone(stone_07),
+stone(stone_08),
+stone(stone_09),
+stone(stone_10),
+stone(stone_11),
+stone(stone_12),
+step(2500)]).

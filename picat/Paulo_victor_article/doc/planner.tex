@@ -1,0 +1,149 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+\chapter{\label{chapter:planner}The \texttt{planner} Module}
+The \texttt{planner} module provides several predicates for solving planning problems. Given an initial state, a final state, and a set of possible actions, a planning problem is to find a plan that transforms the initial state to the final state. In order to use the \texttt{planner} module to solve a planning problem, users have to provide the condition for the final states and the state transition diagram through the following global predicates:
+\begin{itemize}
+\item \texttt{final($S$)}\index{\texttt{final/1}}: This predicate succeeds if $S$ is a final state.
+\item \texttt{final($S$,$Plan$,$Cost$)}\index{\texttt{final/3}}: A final state can be reached from $S$ by the action sequence in $Plan$ with $Cost$. If this predicate is not given, then the system assumes the following definition:
+\begin{verbatim}
+    final(S,Plan,Cost) => Plan=[], Cost=0, final(S).
+\end{verbatim}
+
+\item \texttt{action($S$,$NextS$,$Action$,$ActionCost$)}\index{\texttt{action/4}}: This predicate encodes the state transition diagram of the planning problem. The state $S$ can be transformed into $NextS$ by performing $Action$. The cost of $Action$ is $ActionCost$. If the plan's length is the only interest, then $ActionCost$ should be 1.
+\end{itemize}
+
+A state is normally a ground term. As all states are tabled during search, it is of paramount importance to find a good representation for states such that terms among states can be shared as much as possible.
+
+\section{Depth-Bounded Search}
+Depth-bounded search amounts to exploring the search space, taking into account the current available resource amount. A new state is only explored if the available resource amount is non-negative. When depth-bounded search is used, the function {\tt current\_resource()} can be used to retrieve the current resource amount. If the heuristic estimate of the cost to travel from the current state to the final state is greater than the available resource amount, then the current state fails.
+
+\begin{itemize}
+\item \texttt{plan($S$,$Limit$,$Plan$,$Cost$)}\index{\texttt{plan/4}}: This predicate, if it succeeds, binds $Plan$ to a plan that can transform state $S$ to a final state that satisfies the condition given by {\tt final/1} or {\tt final/3}. $Cost$ is the cost of $Plan$, which cannot exceed $Limit$, which is a given non-negative integer. 
+
+\item \texttt{plan($S$,$Limit$,$Plan$)}: If the second argument is an integer, then this predicate is the same as the \texttt{plan/4} predicate, except that the plan's cost is not returned. 
+
+\item \texttt{plan($S$,$Plan$,$PlanCost$)}:\index{\texttt{plan/3}} If the second argument is a variable, then this predicate is the same as the \texttt{plan/4} predicate, except that the limit is assumed to be 268435455.
+
+\item \texttt{plan($S$,$Plan$)}\index{\texttt{plan/2}}: This predicate is the same as the \texttt{plan/4} predicate, except that the limit is assumed to be 268435455, and that the plan's cost is not returned.
+
+\item \texttt{best\_plan($S$,$Limit$,$Plan$,$Cost$)}\index{\texttt{best\_plan/4}}: This predicate finds an optimal plan by using the {\it downward} algorithm.  It first calls {\tt plan/4} to find a plan of 0 cost. If no plan is found, then it increases the cost by 1. In this way, the first plan that is found is guaranteed to be optimal. 
+
+\item \texttt{best\_plan($S$,$Limit$,$Plan$)}: If the second argument is an integer, then this predicate is the same as the \texttt{best\_plan/4} predicate, except that the plan's cost is not returned. 
+
+\item \texttt{best\_plan($S$,$Plan$,$PlanCost$)}\index{\texttt{best\_plan/3}}: If the second argument is a variable, then this predicate is the same as the \texttt{best\_plan/4} predicate, except that the limit is assumed to be 268435455.
+
+\item \texttt{best\_plan($S$,$Plan$)}\index{\texttt{best\_plan/2}}: This predicate is the same as the \texttt{best\_plan/4} predicate, except that the limit is assumed to be 268435455, and that the plan's cost is not returned.
+
+\item \texttt{best\_plan\_nondet($S$,$Limit$,$Plan$,$Cost$)}\index{\texttt{best\_plan\_nondet/4}}: This predicate is the same as \\\texttt{best\_plan($S$,$Limit$,$Plan$,$Cost$)}, except that it allows multiple best plans to be returned through backtracking.
+
+\item \texttt{best\_plan\_nondet($S$,$Limit$,$Plan$)}: If the second argument is an integer, then this predicate is the same as the \texttt{best\_plan\_nondet/4} predicate, except that the plan's cost is not returned. 
+
+\item \texttt{best\_plan\_nondet($S$,$Plan$,$PlanCost$)}\index{\texttt{best\_plan\_nondet/3}}: If the second argument is a variable, then this predicate is the same as the \texttt{best\_plan\_nondet/4} predicate, except that the limit is assumed to be 268435455.
+
+\item \texttt{best\_plan\_nondet($S$,$Plan$)}\index{\texttt{best\_plan\_nondet/2}}: This predicate is the same as the \texttt{best\_plan\_nondet/4} predicate, except that the limit is assumed to be 268435455, and that the plan's cost is not returned.
+
+\item \texttt{best\_plan\_upward($S$,$Limit$,$Plan$,$Cost$)} (deprecated)\index{\texttt{best\_plan\_upward/4}}: 
+\item \texttt{best\_plan\_bb($S$,$Limit$,$Plan$,$Cost$)}\index{\texttt{best\_plan\_bb/4}}: 
+This predicate, if it succeeds, binds $Plan$ to an optimal plan that can transform state $S$ to a final state. $Cost$ is the cost of $Plan$, which cannot exceed $Limit$, which is a given non-negative integer. The following branch-and-bound algorithm is used to find an optimal plan: First, call \texttt{plan/4} to find a plan. Then, try to find a better plan by imposing a stricter limit. This step is repeated until no better plan can be found. Finally, return the last plan that was found.
+
+\item \texttt{best\_plan\_upward($S$,$Limit$,$Plan$)} (deprecated)
+\item \texttt{best\_plan\_bb($S$,$Limit$,$Plan$)}: If the second argument is an integer, then this predicate is the same as the \texttt{best\_plan\_bb/4} predicate, except that the plan's cost is not returned. 
+
+\item \texttt{best\_plan\_upward($S$,$Plan$,$PlanCost$)} (deprecated)\index{\texttt{best\_plan\_upward/3}}
+\item \texttt{best\_plan\_bb($S$,$Plan$,$PlanCost$)}\index{\texttt{best\_plan\_bb/3}}: If the second argument is a variable, then this predicate is the same as the \texttt{best\_plan\_bb/4} predicate, except that the limit is assumed to be 268435455.
+
+\item \texttt{best\_plan\_upward($S$,$Plan$)} (deprecated) \index{\texttt{best\_plan\_upward/2}}
+\item \texttt{best\_plan\_bb($S$,$Plan$)}\index{\texttt{best\_plan\_bb/2}}: 
+This predicate is the same as the \texttt{best\_plan\_bb/4} predicate, except that the limit is assumed to be 268435455, and that the plan's cost is not returned.
+
+\item \texttt{current\_resource()=$Amount$}\index{\texttt{current\_resource/0}}: This function returns the current available resource amount of the current node. If the current execution path was not initiated by one of the calls that performs resource-bounded search, then 268435455 is returned. This function can be used to check the heuristics. If the heuristic estimate of the cost to travel from the current state to a final state is greater than the available resource amount, then the current state can be failed.
+
+\item \texttt{current\_plan()=$Plan$}\index{\texttt{current\_plan/0}}: This function returns the current plan that has transformed the initial state to the current state. If the current execution path was not initiated by one of the calls that performs resource-bounded search, then [] is returned.
+
+\item \texttt{current\_resource\_plan\_cost($Amount$,$Plan$,$Cost$)}\index{\texttt{current\_resource\_plan\_cost/3}}: This predicate retrieves the attributes of the current node in the search tree, including the resource amount, the path to the node, and its cost.
+
+\item \texttt{is\_tabled\_state($S$)}\index{\texttt{is\_tabled\_state/1}}: This predicate succeeds if the state $S$ has been explored before and has been tabled.
+\end{itemize}
+
+\section{Depth-Unbounded Search}
+In contrast to depth-bounded search, depth-unbounded search does not take into account the available resource amount. A new state can be explored even if no resource is available for the exploration. The advantage of depth-unbounded search is that failed states are never re-explored.
+
+\begin{itemize}
+\item \texttt{plan\_unbounded($S$,$Limit$,$Plan$,$Cost$)}\index{\texttt{plan\_unbounded/4}}: This predicate, if it succeeds, binds $Plan$ to a plan that can transform state $S$ to a final state. $Cost$ is the cost of $Plan$, which cannot exceed $Limit$, which is a given non-negative integer.
+
+\item \texttt{plan\_unbounded($S$,$Limit$,$Plan$)} 
+\item \texttt{plan\_unbounded($S$,$Plan$,$PlanCost$)}\index{\texttt{plan\_unbounded/3}}: 
+If the second argument is an integer, then this predicate is the same as the above predicate, except that the plan's cost is not returned. Otherwise, if the second argument is a variable, then this predicate is the same as the above predicate, except that the limit is assumed to be 268435455.
+
+\item \texttt{plan\_unbounded($S$,$Plan$)}\index{\texttt{plan\_unbounded/2}}: This predicate is the same as the above predicate, except that the limit is assumed to be 268435455.
+
+\item \texttt{best\_plan\_unbounded($S$,$Limit$,$Plan$,$Cost$)}\index{\texttt{best\_plan\_unbounded/4}}: This predicate, if it succeeds, binds $Plan$ to an optimal plan that can transform state $S$ to a final state. $Cost$ is the cost of $Plan$, which cannot exceed $Limit$, which is a given non-negative integer.
+
+\item \texttt{best\_plan\_unbounded($S$,$Limit$,$Plan$)} 
+\item \texttt{best\_plan\_unbounded($S$,$Plan$,$PlanCost$)}\index{\texttt{best\_plan\_unbounded/3}}: 
+If the second argument is an integer, then this predicate is the same as the above predicate, except that the plan's cost is not returned. Otherwise, if the second argument is a variable, then this predicate is the same as the above predicate, except that the limit is assumed to be 268435455.
+
+\item \texttt{best\_plan\_unbounded($S$,$Plan$)}\index{\texttt{best\_plan\_unbounded/2}}: This predicate is the same as the above predicate, except that the limit is assumed to be 268435455.
+\end{itemize}
+
+\section{Example}
+The program shown in Figure \ref{fig:farmer2} solves the Farmer's problem by using the \texttt{planner} module. The {\tt best\_plan\_unbounded(S0,Plan)} searches for a shortest plan in exactly the same way as the program in Figure \ref{fig:farmer}.
+
+\begin{figure}
+\begin{center}
+\begin{verbatim}
+    import planner.
+
+    go =>
+        S0=[s,s,s,s],
+        best_plan_unbounded(S0,Plan),
+        writeln(Plan).
+
+    final([n,n,n,n]) => true.
+
+    action([F,F,G,C],S1,Action,ActionCost) ?=>
+        Action=farmer_wolf,
+        ActionCost = 1,        
+        opposite(F,F1),
+        S1=[F1,F1,G,C],
+        not unsafe(S1).
+    action([F,W,F,C],S1,Action,ActionCost) ?=>
+        Action=farmer_goat,
+        ActionCost = 1,        
+        opposite(F,F1),
+        S1=[F1,W,F1,C],
+        not unsafe(S1).
+    action([F,W,G,F],S1,Action,ActionCost) ?=>
+        Action=farmer_cabbage,
+        ActionCost = 1,        
+        opposite(F,F1),
+        S1=[F1,W,G,F1],
+        not unsafe(S1).
+    action([F,W,G,C],S1,Action,ActionCost) =>
+        Action=farmer_alone,
+        ActionCost = 1,        
+        opposite(F,F1),
+        S1=[F1,W,G,C],
+        not unsafe(S1).
+
+    index (+,-) (-,+)
+    opposite(n,s).
+    opposite(s,n).
+
+    unsafe([F,W,G,_C]),W==G,F!==W => true.
+    unsafe([F,_W,G,C]),G==C,F!==G => true.
+\end{verbatim}
+\end{center}
+\caption{\label{fig:farmer2}A program for the Farmer's problem using \texttt{planner}.}
+\end{figure}
+
+

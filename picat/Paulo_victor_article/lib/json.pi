@@ -1,0 +1,388 @@
+% file: json.pi
+% author: Mike Bionchik
+% version: 0.1
+% description: a JSON encoder/decoder module for Picat.
+% readme: 
+%         The module provides the following functions:
+%           * json_encode(Term)=String
+%               where Term is any Picat term and String is the JSON
+%               representation of the term.
+%           * json_encode(List, _)=String
+%               where List is a Picat list, _ is a dummy parameter, and String
+%               is the JSON representation of the list.  This function should
+%               be used when you're encoding an empty list or a list of
+%               characters, since an attempt to encode either an empty list or
+%               a list of characters with json_encode/1 will result in the list
+%               being represented as a String.
+%           * json_decode(String)=Term
+%               where String is a proper JSON string and Term is the Picat term
+%               that String represents.
+%
+%         The json_encode/1 function maps Picat terms to JSON as follows:
+%           * Picat String -> JSON String
+%           * Picat Number -> JSON Number
+%           * Picat Array -> JSON Array
+%           * Picat List -> JSON Array
+%           * Picat Map -> JSON Object
+%           * Note that json_encode/1 will map empty lists and lists of
+%             characters to JSON Strings.  To avoid that, use either
+%             json_encode/2 or first convert the list to an array.
+%
+%         The json_decode/1 function maps JSON to Picat terms as follows:
+%           * JSON Object -> Picat Map
+%           * JSON Array -> Picat List
+%           * JSON String -> Picat String
+%           * JSON Number with a decimal -> Picat Real Number
+%           * JSON Number without a decimal -> Picat Integer
+%
+% github link: https://github.com/mbionchi/json-picat
+%
+% The MIT License (MIT)
+% 
+% Copyright (c) 2015 Mike Bionchik
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+% 
+% The above copyright notice and this permission notice shall be included in
+% all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+% THE SOFTWARE.
+
+module json.
+
+%
+% decoder codes
+%
+
+json_decode(S)=T, string(S) =>
+    parse_json_term(S, T, _).
+
+
+private
+parse_json_term([C|Str], Term, Rem), whitespace(C) =>
+    parse_json_term(Str, Term, Rem).
+
+parse_json_term(['"'|Str], Term, Rem) =>
+    parse_json_string(Str, Term, Rem).
+
+parse_json_term(['-'|Str], Term, Rem) =>
+    parse_json_number(Str, Term, '-', Rem).
+
+parse_json_term([N|Str], Term, Rem), digit(N) =>
+    parse_json_number([N|Str], Term, '+', Rem).
+
+parse_json_term(['{'|Str], Term, Rem) =>
+    parse_json_object(Str, Term, Rem).
+
+parse_json_term(['['|Str], Term, Rem) =>
+    parse_json_array(Str, Term, Rem).
+
+parse_json_term([t,r,u,e|Str], Term, Rem) =>
+    Term=true, Rem=Str.
+
+parse_json_term([f,a,l,s,e|Str], Term, Rem) =>
+    Term=false, Rem=Str.
+
+parse_json_term([n,u,l,l|Str], Term, Rem) =>
+    Term=null, Rem=Str.
+
+
+private
+parse_json_string(Str, Term, Rem) =>
+    parse_json_string_help(Str,Term,[],Rem).
+
+private
+parse_json_string_help(['"'|Str], Term, Acc, Rem) =>
+    Term=Acc, Rem=Str.
+
+parse_json_string_help(['\\'|['"'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['"'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['\\'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['\\'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['/'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['/'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['b'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['\b'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['f'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['\f'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['n'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['\n'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['r'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['\r'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['t'|Str]], Term, Acc, Rem) =>
+    append(Acc, ['\t'], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|['u'|[A|[B|[C|[D|Str]]]]]], Term, Acc, Rem),
+        foreach(Ch in [A,B,C,D]) membchk(Ch, "0123456789ABCDEFabcdef") end =>
+    append(Acc, [chr(to_integer(['0','x',A,B,C,D]))], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help(['\\'|_], _, _, _) =>
+    throw {json_syntax_error, malformed_string, unexpected_escape_sequence}.
+
+parse_json_string_help([C|Str], Term, Acc, Rem), ord(C)<256 =>
+    append(Acc, [C], Acc1),
+    parse_json_string_help(Str, Term, Acc1, Rem).
+
+parse_json_string_help([C|_], _, _, _), ord(C)>255 =>
+    throw {json_syntax_error, malformed_string, unescaped_unicode_char}.
+
+
+private
+parse_json_number(['0','.'|Str], Term, Sign, Rem) =>
+    parse_json_number_digit(Str, Acc1, ['0','.'], Rem1),
+    (parse_json_number_exp(Rem1, Exp, Rem2) ->
+        Term = to_number([Sign|Acc1], Exp), Rem = Rem2;
+        Term = to_number([Sign|Acc1]), Rem = Rem1).
+
+parse_json_number(['0',E|Str], Term, _, Rem), membchk(E, "eE") =>
+    parse_json_number_exp([E|Str], _, Rem1),
+    Term = 0, Rem = Rem1.
+
+parse_json_number(['0'|Str], Term, Sign, Rem) =>
+    (Sign == '-' ->
+        Acc = [Sign, '0'];
+        Acc = ['0']),
+    Term = to_number(Acc), Rem = Str.
+
+parse_json_number([N|Str], Term, Sign, Rem), (digit(N),N!='0') =>
+    parse_json_number_digit(Str, Acc1, [N], Rem1),
+    (parse_json_number_dec(Rem1, Dec, Rem2) ->
+        append(Acc1, Dec, Acc2);
+        Rem2 = Rem1, Acc2 = Acc1),
+    (parse_json_number_exp(Rem2, Exp, Rem3) ->
+        Term = to_number([Sign|Acc2], Exp), Rem = Rem3;
+        Term = to_number([Sign|Acc2]), Rem = Rem2).
+
+private
+parse_json_number_dec(['.',N|Str], Dec, Rem), digit(N) =>
+    parse_json_number_digit(Str, Dec, ['.',N], Rem).
+
+private
+parse_json_number_exp([E|Str], Exp, Rem), membchk(E, "eE")  =>
+    [S|Digits1] = Str,
+    (membchk(S, "-+") ->
+        parse_json_number_digit(Digits1, Exp1, [S], Rem);   %remainder is here
+        parse_json_number_digit([S|Digits1], Exp1, [], Rem)),
+    Exp=to_number(Exp1).
+
+private
+parse_json_number_digit([N|Str], Dig, Acc, Rem), digit(N) =>
+    append(Acc, [N], Acc1),
+    parse_json_number_digit(Str, Dig, Acc1, Rem).
+parse_json_number_digit(Str, Dig, Acc, Rem) =>
+    Dig = Acc, Rem = Str.
+
+private
+to_number(Str, E)=N =>
+        C = to_number(Str),
+        E = to_number(E),
+        N = C*10**E.
+private
+to_number(['+'|Str])=N =>
+    N = to_number(Str).
+to_number(['-'|Str])=N =>
+    N = - to_number(Str).
+to_number(Str)=N =>
+    membchk('.',Str) -> N = to_real(Str); N = to_integer(Str).
+
+
+private
+parse_json_array(Str, Term, Rem) =>
+    once (parse_json_array_element(Str, Term, [], Rem);
+    throw {json_decoding_error, malformed_json_array}).
+
+private
+parse_json_array_help([']'|Str], Term, Acc, Rem) =>
+    Term=Acc, Rem=Str.
+
+parse_json_array_help([','|Str], Term, Acc, Rem) =>
+    parse_json_array_element(Str, Term, Acc, Rem).
+
+parse_json_array_help([C|Str], Term, Acc, Rem), whitespace(C) =>
+    parse_json_array_help(Str, Term, Acc, Rem).
+
+private
+parse_json_array_element([']'|Str], Term, [], Rem) =>
+    Term=[], Rem=Str.
+
+parse_json_array_element([C|Str], Term, Acc, Rem), whitespace(C) =>
+    parse_json_array_element(Str, Term, Acc, Rem).
+
+parse_json_array_element(Str, Term, Acc, Rem) =>
+    parse_json_term(Str, Term1, Rem1),
+    append(Acc, [Term1], Acc1),
+    parse_json_array_help(Rem1, Term, Acc1, Rem).
+    
+
+private
+parse_json_object(Str, Term, Rem) =>
+    once ((parse_json_object_kv_pair(Str, Pairs, [], Rem),
+    Term=new_map(Pairs));
+    throw {json_decoding_error, malformed_map}).
+
+private
+parse_json_object_help(['}'|Str], Pairs, Acc, Rem) =>
+    Pairs=Acc, Rem=Str.
+
+parse_json_object_help([','|Str], Pairs, Acc, Rem) =>
+    parse_json_object_kv_pair(Str, Pairs, Acc, Rem).
+
+parse_json_object_help([C|Str], Pairs, Acc, Rem), whitespace(C) =>
+    parse_json_object_help(Str, Pairs, Acc, Rem).
+
+private
+parse_json_object_kv_pair(['}'|Str], Pairs, [], Rem) =>
+    Pairs=[], Rem=Str.
+
+parse_json_object_kv_pair([C|Str], Pairs, Acc, Rem), whitespace(C) =>
+    parse_json_object_kv_pair(Str, Pairs, Acc, Rem).
+
+parse_json_object_kv_pair(['"'|Str], Pairs, Acc, Rem) =>
+    parse_json_string(Str, Key, Rem1),
+    parse_json_object_val(Rem1, Val, Rem2),
+    append(Acc, [Key=Val], Acc1),
+    parse_json_object_help(Rem2, Pairs, Acc1, Rem).
+
+private
+parse_json_object_val([C|Str], Val, Rem), whitespace(C) =>
+    parse_json_object_val(Str, Val, Rem).
+
+parse_json_object_val([':'|Str], Val, Rem) =>
+    parse_json_term(Str, Val, Rem).
+
+
+private
+whitespace(C) =>
+    membchk(C, [' ','\t','\n','\r']).
+
+%
+% encoder codes
+%
+
+json_encode(Term, _)=S, list(Term) =>
+    S = encode_list(Term, "[").
+
+json_encode(true)=S =>
+    S = "true".
+json_encode(false)=S =>
+    S = "false".
+json_encode(null)=S =>
+    S = "null".
+
+json_encode(Term)=S, string(Term) =>
+    append(['"'], escape_string(Term, []), Z),
+    append(Z, ['"'], S).
+
+json_encode(Term)=S, atom(Term) =>
+    S = json_encode(to_string(Term)).
+    
+json_encode(Term)=S, number(Term) =>
+    S = to_string(Term).
+
+json_encode(Term)=S, array(Term) =>
+    S = json_encode(Term.to_list()).
+
+json_encode(Term)=S, list(Term) =>
+    S = encode_list(Term, "[").
+
+json_encode(Term)=S, map(Term) =>
+    S = encode_map(map_to_list(Term), "{").
+
+
+private
+escape_string([], Acc)=S =>
+    S = Acc.
+escape_string(['"'|T], Acc)=S =>
+    append(Acc, ['\\','"'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string(['\\'|T], Acc)=S =>
+    append(Acc, ['\\','\\'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string(['/'|T], Acc)=S =>
+    append(Acc, ['\\','/'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string(['\b'|T], Acc)=S =>
+    append(Acc, ['\\','b'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string(['\f'|T], Acc)=S =>
+    append(Acc, ['\\','f'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string(['\n'|T], Acc)=S =>
+    append(Acc, ['\\','n'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string(['\r'|T], Acc)=S =>
+    append(Acc, ['\\','r'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string(['\t'|T], Acc)=S =>
+    append(Acc, ['\\','t'], Acc1),
+    S = escape_string(T, Acc1).
+escape_string([H|T], Acc)=S, ord(H)>255 =>
+    append(Acc, ['\\', 'u'], Acc1),
+    F = to_hex_string(ord(H)),
+    once ([A,B,C,D] = F;
+    [A,B,C,D] = ['0'|F];
+    [A,B,C,D] = ['0','0'|F];
+    [A,B,C,D] = ['0','0','0'|F]),
+    append(Acc1, [A,B,C,D], Acc2),
+    S=escape_string(T, Acc2).
+escape_string([H|T], Acc)=S =>
+    append(Acc, [H], Acc1),
+    S = escape_string(T, Acc1).
+
+
+private
+encode_list([], Acc)=S =>
+    append(Acc, "]", S).
+
+encode_list([H], Acc)=S =>
+    append(Acc, json_encode(H), Z),
+    S = encode_list([], Z).
+
+encode_list([H|T], Acc)=S =>
+    append(Acc, json_encode(H), Y),
+    append(Y, ",", Z),
+    S = encode_list(T, Z).
+
+private
+encode_map([], Acc)=S =>
+    append(Acc, "}", S).
+
+encode_map([K=V], Acc)=S, string(K) =>
+    append(Acc, json_encode(K), X),
+    append(X, ":", Y),
+    append(Y, json_encode(V), Z),
+    S = encode_map([], Z).
+
+encode_map([K=V|T], Acc)=S, string(K) =>
+    append(Acc, json_encode(K), W),
+    append(W, ":", X),
+    append(X, json_encode(V), Y),
+    append(Y, ",", Z),
+    S = encode_map(T, Z).

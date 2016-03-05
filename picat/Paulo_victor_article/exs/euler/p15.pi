@@ -1,0 +1,17 @@
+/*********************************************************
+        http://projecteuler.net/problem=15
+
+Starting in the top left corner of a 2×2 grid, and only
+being able to move to the right and down, there are exactly
+6 routes to the bottom right corner.
+
+How many such routes are there through a 20×20 grid?
+*********************************************************/
+
+main => % NOTE: the specifier %d is not good since the integer is too large. Therefore, use %w.
+    writef("Numer of routes is %w%n",nroutes(20,0,0)).
+
+table
+nroutes(N,N,_Col) = 1.
+nroutes(N,_Row,N) = 1.
+nroutes(N,Row,Col) = nroutes(N,Row+1,Col)+nroutes(N,Row,Col+1).

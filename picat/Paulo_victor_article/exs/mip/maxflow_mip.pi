@@ -1,0 +1,27 @@
+import mip.
+
+main =>
+    M={{0,3,2,3,0,0,0,0},
+       {0,0,0,0,0,0,5,0},
+       {0,1,0,0,0,1,0,0},
+       {0,0,2,0,2,0,0,0},
+       {0,0,0,0,0,0,0,5},
+       {0,4,0,0,2,0,0,1},
+       {0,0,0,0,0,2,0,3},
+       {0,0,0,0,0,0,0,0}},
+    maxflow(M,1,8).
+
+maxflow(CapM,Source,Sink) =>
+    N=CapM.length,
+    M=new_array(N,N),
+    foreach(I in 1..N, J in 1..N)
+        M[I,J] :: 0..CapM[I,J]
+    end,
+    foreach(I in 1..N, I!=Source, I!=Sink)
+        sum([M[J,I] : J in 1..N]) #= sum([M[I,J] : J in 1..N]) 
+    end,
+    Total #= sum([M[Source,I] : I in 1..N]),
+    Total #= sum([M[I,Sink] : I in 1..N]),
+    solve(M),
+    writeln(Total),
+    writeln(M).

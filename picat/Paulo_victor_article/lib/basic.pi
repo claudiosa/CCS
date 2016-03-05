@@ -1,0 +1,240 @@
+module basic.  % imported by default
+
+'!='(X,Y) => X != Y.
+'!=='(X,Y) => X !== Y.
+'*'(X,Y) = X * Y.
+'**'(X,Y) = X ** Y.
+'+'(X) = X.
+'+'(X,Y) = X + Y.
+'++'(X,Y) = X ++ Y.
+'-'(X) = -X.
+'-'(X,Y) = X - Y.
+'/'(X,Y) = X / Y.
+'//'(X,Y) = X // Y.
+'/<'(X,Y) = X /< Y.
+'/>'(X,Y) = X /> Y.
+'/\\'(X,Y) = X /\ Y.
+'<'(X,Y) => X < Y.
+'<<'(X,Y) = X << Y.
+'<='(X,Y) => X <= Y.
+'='(X,Y) => X = Y.
+'=:='(X,Y) => X =:= Y.
+'=<'(X,Y) => X <= Y.
+'=='(X,Y) => X == Y.
+'=\\='(X,Y) => X =\= Y.
+'>'(X,Y) => X > Y.
+'>='(X,Y) => X >= Y.
+'>>'(X,Y) = X >> Y.
+'@<'(X,Y) => X @< Y.
+'@<='(X,Y) => X @=< Y.
+'@=<'(X,Y) => X @=< Y.
+'@>'(X,Y) => X @> Y.
+'@>='(X,Y) => X @>= Y.
+'\\/'(X,Y) = X \/ Y.
+'^'(X,Y) = X ^ Y.
+'~'(X) = ~X.
+acyclic_term(Term) => acyclic_term(Term).
+and_to_list(Conjunction) = and_to_list(Conjunction).
+append(X,Y,Z) => append(X,Y,Z).
+append(X,Y,Z,T) => append(X,Y,Z,T).
+apply(S) = _ => throw($meta_meta_call_not_allowed(apply(S))).
+apply(S,A1) = _ => throw($meta_meta_call_not_allowed(apply(S,A1))).
+apply(S,A1,A2) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2))).
+apply(S,A1,A2,A3) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3))).
+apply(S,A1,A2,A3,A4) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3,A4))).
+apply(S,A1,A2,A3,A4,A5) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3,A4,A5))).
+apply(S,A1,A2,A3,A4,A5,A6) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3,A4,A5,A6))).
+apply(S,A1,A2,A3,A4,A5,A6,A7) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3,A4,A5,A6,A7))).
+apply(S,A1,A2,A3,A4,A5,A6,A7,A8) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3,A4,A5,A6,A7,A8))).
+apply(S,A1,A2,A3,A4,A5,A6,A7,A8,A9) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3,A4,A5,A6,A7,A8,A9))).
+apply(S,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10) = _ => throw($meta_meta_call_not_allowed(apply(S,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10))).
+arity(Term) = arity(Term).
+array(Term) => array(Term).
+atom(Term) => atom(Term).
+atom_chars(Atm) = atom_chars(Atm).
+atom_codes(Atm) = atom_codes(Atm).
+atomic(Term) => atomic(Term).
+attr_var(Term) => attr_var(Term).
+avg(ListOrArray) = avg(ListOrArray).
+between(From,To,X) => between(From,To,X).
+bind_vars(Term,Val) => bind_vars(Term,Val).
+call(S) => throw($meta_meta_call_not_allowed(call(S))).
+call(S,A1) => throw($meta_meta_call_not_allowed(call(S,A1))).
+call(S,A1,A2) => throw($meta_meta_call_not_allowed(call(S,A1,A2))).
+call(S,A1,A2,A3) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3))).
+call(S,A1,A2,A3,A4) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3,A4))).
+call(S,A1,A2,A3,A4,A5) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3,A4,A5))).
+call(S,A1,A2,A3,A4,A5,A6) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3,A4,A5,A6))).
+call(S,A1,A2,A3,A4,A5,A6,A7) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3,A4,A5,A6,A7))).
+call(S,A1,A2,A3,A4,A5,A6,A7,A8) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3,A4,A5,A6,A7,A8))).
+call(S,A1,A2,A3,A4,A5,A6,A7,A8,A9) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3,A4,A5,A6,A7,A8,A9))).
+call(S,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10) => throw($meta_meta_call_not_allowed(call(S,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10))).
+call_cleanup(S,Cleanup) => throw($meta_meta_call_not_allowed(call_cleanup(S,Cleanup))).
+catch(S,Exception,Handler) => throw($meta_meta_call_not_allowed(catch(S,Exception,Handler))).
+char(Term) => char(Term).
+chr(Code) = chr(Code).
+clear(Map) => clear(Map).
+compare_terms(Term1,Term2) = compare_terms(Term1,Term2).
+compound(Term) => compound(Term).
+copy_term(Term) = copy_term(Term).
+delete(List,X) = delete(List,X).
+delete_all(List,X) = delete_all(List,X).
+different_terms(Term1,Term2) => different_terms(Term1,Term2).
+digit(Char) => digit(Char).
+div(X,Y) = X  div Y.
+dvar(Term) => dvar(Term).
+bool_dvar(Term) => bool_dvar(Term).
+dvar_or_int(Term) => dvar_or_int(Term).
+fail => fail.
+false => false.
+find_all(Template,S) = _ => throw($meta_meta_call_not_allowed(find_all(Template,S))).
+findall(Template,S) = _ => throw($meta_meta_call_not_allowed(findall(Template,S))).
+count_all(S) = _ => throw($meta_meta_call_not_allowed(count_all(S))).
+first(Compound) = first(Compound).
+flatten(List) = flatten(List).
+float(Term) => float(Term).
+fold(F,Acc,List) = fold(F,Acc,List).
+freeze(X,Goal) => throw($meta_meta_call_not_allowed(freeze(X,Goal))).
+get(MapOrAttrVar,Key) = get(MapOrAttrVar,Key).
+get(MapOrAttrVar,Key,Default) = get(MapOrAttrVar,Key,Default).
+get_global_map = get_global_map().
+get_heap_map = get_heap_map().
+ground(Term) => ground(Term).
+handle_exception(Exception,Source) => handle_exception(Exception,Source).
+has_key(MapOrAttrVar,Key) => has_key(MapOrAttrVar,Key).
+hash_code(Term) = hash_code(Term).
+head(List) = head(List).
+insert(List,Index,Elm) = insert(List,Index,Elm).
+insert_all(List,Index,AList) = insert_all(List,Index,AList).
+insert_ordered(OrderedList,Elm) = insert_ordered(OrderedList,Elm).
+insert_ordered_down(OrderedList,Elm) = insert_ordered_down(OrderedList,Elm).
+int(Term) => int(Term).
+integer(Term) => integer(Term).
+is(X,Y) => is(X,Y).
+keys(MapOrAttrVar) = keys(MapOrAttrVar).
+last(Compound) = last(Compound).
+length(ArrayOrList) = length(ArrayOrList).
+len(ArrayOrList) = len(ArrayOrList).
+list(Term) => list(Term).
+list_to_and(List) = list_to_and(List).
+lowercase(Char) => lowercase(Char).
+map(Func,List1,List2) = map(Func,List1,List2).
+map(FuncOrList,ListOrFunc) = map(FuncOrList,ListOrFunc).
+map(Term) => map(Term).
+map_to_list(Map) = map_to_list(Map).
+max(ListOrArray) = max(ListOrArray).
+max(X,Y) = max(X,Y).
+maxof(Call,Exp) => throw($meta_meta_call_not_allowed(maxof(Call,Exp))).
+maxof(Call,Exp,ReportCall) => throw($meta_meta_call_not_allowed(maxof(Call,Exp,ReportCall))).
+maxof_inc(Call,Exp) => throw($meta_meta_call_not_allowed(maxof_inc(Call,Exp))).
+maxof_inc(Call,Exp,ReportCall) => throw($meta_meta_call_not_allowed(maxof_inc(Call,Exp,ReportCall))).
+membchk(Term,List) => membchk(Term,List).
+member(Term,List) => member(Term,List).
+min(ListOrArray) = min(ListOrArray).
+min(X,Y) = min(X,Y).
+minof(Call,Exp) => throw($meta_meta_call_not_allowed(minof(Call,Exp))).
+minof(Call,Exp,ReportCall) => throw($meta_meta_call_not_allowed(minof(Call,Exp,ReportCall))).
+minof_inc(Call,Exp) => throw($meta_meta_call_not_allowed(minof_inc(Call,Exp))).
+minof_inc(Call,Exp,ReportCall) => throw($meta_meta_call_not_allowed(minof_inc(Call,Exp,ReportCall))).
+mod(X,Y) = X mod Y.
+name(Struct) = name(Struct).
+new_array(D1) = new_array(D1).
+new_array(D1,D2) = new_array(D1,D2).
+new_array(D1,D2,D3) = new_array(D1,D2,D3).
+new_array(D1,D2,D3,D4) = new_array(D1,D2,D3,D4).
+new_array(D1,D2,D3,D4,D5) = new_array(D1,D2,D3,D4,D5).
+new_array(D1,D2,D3,D4,D5,D6) = new_array(D1,D2,D3,D4,D5,D6).
+new_array(D1,D2,D3,D4,D5,D6,D7) = new_array(D1,D2,D3,D4,D5,D6,D7).
+new_array(D1,D2,D3,D4,D5,D6,D7,D8) = new_array(D1,D2,D3,D4,D5,D6,D7,D8).
+new_array(D1,D2,D3,D4,D5,D6,D7,D8,D9) = new_array(D1,D2,D3,D4,D5,D6,D7,D8,D9).
+new_array(D1,D2,D3,D4,D5,D6,D7,D8,D9,D10) = new_array(D1,D2,D3,D4,D5,D6,D7,D8,D9,D10).
+new_list(N) = new_list(N).
+new_list(N,InitVal) = new_list(N,InitVal).
+new_map() = new_map().
+new_map(Int,PairsList) = new_map(Int,PairsList).
+new_map(IntOrPairsList) = new_map(IntOrPairsList).
+new_set() = new_set().
+new_set(Int,PairsList) = new_set(Int,PairsList).
+new_set(IntOrPairsList) = new_set(IntOrPairsList).
+new_struct(Name,IntOrList) = new_struct(Name,IntOrList).
+nonvar(Term) => nonvar(Term).
+not(Call) => throw($meta_meta_call_not_allowed(not(Call))).
+nth(I,L,V) => nth(I,L,V).
+number(Term) => number(Term).
+number_chars(Num) = number_chars(Num).
+number_codes(Num) = number_codes(Num).
+number_vars(Term,N0) = number_vars(Term,N0).
+once(Call) => throw($meta_meta_call_not_allowed(once(Call))).
+ord(Char) = ord(Char).
+parse_term(String) = parse_term(String).
+parse_term(String,Term,Vars) => parse_term(String,Term,Vars).
+post_event(X,Event) => post_event(X,Event).
+post_event_any(X,Event) => post_event_any(X,Event).
+post_event_bound(X) => post_event_bound(X).
+post_event_dom(X,Event) => post_event_dom(X,Event).
+post_event_ins(X) => post_event_ins(X).
+prod(ListOrArray) = prod(ListOrArray).
+put(MapOrAttrVar,Key,Val) => put(MapOrAttrVar,Key,Val).
+put(MapOrAttrVar,Key) => put(MapOrAttrVar,Key,not_a_value).
+real(Term) => real(Term).
+reduce(ListOrF,FOrList) = reduce(ListOrF,FOrList).
+reduce(ListOrF,FOrList,InitVal) = reduce(ListOrF,FOrList,InitVal).
+rem(X,Y) = X rem Y.
+remove_dups(List) = remove_dups(List).
+repeat => repeat.
+reverse(ListOrArray) = reverse(ListOrArray).
+second(Compound) = second(Compound).
+select(X,List,ResList) => select(X,List,ResList).
+size(Map) = size(Map).
+slice(ListOrArray,From) = slice(ListOrArray,From).
+slice(ListOrArray,From,To) = slice(ListOrArray,From,To).
+sort(ListOrArray) = sort(ListOrArray).
+sort(ListOrArray,KeyIndex) = sort(ListOrArray,KeyIndex).
+sort_down(ListOrArray) = sort_down(ListOrArray).
+sort_down(ListOrArray,KeyIndex) = sort_down(ListOrArray,KeyIndex).
+sort_down_remove_dups(ListOrArray) = sort_down_remove_dups(ListOrArray).
+sort_down_remove_dups(ListOrArray,KeyIndex) = sort_down_remove_dups(ListOrArray,KeyIndex).
+sort_remove_dups(ListOrArray) = sort_remove_dups(ListOrArray).
+sort_remove_dups(ListOrArray,KeyIndex) = sort_remove_dups(ListOrArray,KeyIndex).
+sorted(ListOrArray) => sorted(ListOrArray).
+sorted_down(ListOrArray) => sorted_down(ListOrArray).
+string(Term) => string(Term).
+struct(Term) => struct(Term).
+subsumes(Term1,Term2) => subsumes(Term1,Term2).
+sum(ListOrArray) = sum(ListOrArray).
+tail(List) = tail(List).
+throw(E) => throw(E).
+to_array(List) = to_array(List).
+to_atom(String) = to_atom(String).
+to_binary_string(Int) = to_binary_string(Int).
+to_codes(Term) = to_codes(Term).
+to_fstring(Term) = to_fstring(Term).
+to_fstring(Format,A1) = to_fstring(Format,A1).
+to_fstring(Format,A1,A2) = to_fstring(Format,A1,A2).
+to_fstring(Format,A1,A2,A3) = to_fstring(Format,A1,A2,A3).
+to_fstring(Format,A1,A2,A3,A4) = to_fstring(Format,A1,A2,A3,A4).
+to_fstring(Format,A1,A2,A3,A4,A5) = to_fstring(Format,A1,A2,A3,A4,A5).
+to_fstring(Format,A1,A2,A3,A4,A5,A6) = to_fstring(Format,A1,A2,A3,A4,A5,A6).
+to_fstring(Format,A1,A2,A3,A4,A5,A6,A7) = to_fstring(Format,A1,A2,A3,A4,A5,A6,A7).
+to_fstring(Format,A1,A2,A3,A4,A5,A6,A7,A8) = to_fstring(Format,A1,A2,A3,A4,A5,A6,A7,A8).
+to_fstring(Format,A1,A2,A3,A4,A5,A6,A7,A8,A9) = to_fstring(Format,A1,A2,A3,A4,A5,A6,A7,A8,A9).
+to_fstring(Format,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10) = to_fstring(Format,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10).
+to_hex_string(Int) = to_hex_string(Int).
+to_integer(NumOrCharOrString) = to_integer(NumOrCharOrString).
+to_int(NumOrCharOrString) = to_int(NumOrCharOrString).
+to_list(Struct) = to_list(Struct).
+to_lowercase(StringOrChar) = to_lowercase(StringOrChar).
+to_oct_string(Int) = to_oct_string(Int).
+to_real(NumOrString) = to_real(NumOrString).
+to_float(NumOrString) = to_float(NumOrString).
+to_string(Term) = to_string(Term).
+to_uppercase(StringOrChar) = to_uppercase(StringOrChar).
+true => true.
+uppercase(Char) => uppercase(Char).
+values(MapOrAttrVar) = values(MapOrAttrVar).
+var(Term) => var(Term).
+variant(Term1,Term2) => variant(Term1,Term2).
+vars(Term) = vars(Term).
+zip(List1,List2) = zip(List1,List2).
+zip(List1,List2,List3) = zip(List1,List2,List3).
+zip(List1,List2,List3,List4) = zip(List1,List2,List3,List4).

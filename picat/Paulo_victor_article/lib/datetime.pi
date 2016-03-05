@@ -1,0 +1,13 @@
+module datetime.
+
+current_datetime() = $date_time(Year,Month,Day,Hour,Min,Sec) =>
+    bp.c_TIME_ffffff(Year,Month,Day,Hour,Min,Sec).
+
+current_date() = $date(Year,Month,Day) =>
+    bp.c_TIME_ffffff(Year,Month,Day,_Hour,_Min,_Sec).
+
+current_time() = $time(Hour,Min,Sec) =>
+    bp.c_TIME_ffffff(_Year,_Month,_Day,Hour,Min,Sec).
+
+current_day() = WDay =>
+    bp.c_WDAY_f(WDay).

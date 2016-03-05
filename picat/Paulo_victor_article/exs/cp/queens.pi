@@ -1,0 +1,14 @@
+import cp.
+
+main =>
+    queens(100).
+
+queens(N) =>
+    Qs=new_array(N),
+    Qs :: 1..N,
+    foreach (I in 1..N-1, J in I+1..N)
+        Qs[I] #!= Qs[J],
+	abs(Qs[I]-Qs[J]) #!= J-I
+    end,
+    solve([ff],Qs),
+    writeln(Qs).

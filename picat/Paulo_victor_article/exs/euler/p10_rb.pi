@@ -1,0 +1,15 @@
+ 
+myprime(X) =>
+    foreach (I in 2..floor(sqrt(X)))
+        X mod I !== 0 
+    end.
+ 
+myprimes(Upto) =Primes =>
+    Primes = [I : I in 2..Upto, myprime(I)].
+ 
+main =>
+    X = 2000000,
+    Primes = myprimes(X),
+    writeln(hhhhhhhhh),
+    statistics,
+    writeln(sum(Primes)).

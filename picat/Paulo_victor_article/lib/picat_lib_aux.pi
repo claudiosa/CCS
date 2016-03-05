@@ -1,0 +1,171 @@
+/*
+  Some supporting utilities used by built-ins in basic, io, sys, and math modules
+  by Hakan Kjellerstrand and Neng-Fa Zhou.
+*/
+
+module picat_lib_aux.
+
+%
+% Flatten a list of nested lists.
+%
+flatten(L) = FlatL => bp.flatten(L,FlatL).
+
+/*
+flatten([]) = [].
+flatten([L|Ls]) = FlatL =>
+    NewL = flatten(L),
+    NewLs = flatten(Ls),
+    FlatL = NewL++NewLs.
+flatten(L) = [L] => true.
+*/
+
+%% higher-order fold
+fold(_F,Acc,[]) = Acc.
+fold(F,Acc,[H|T])=fold(F, apply(F,H,Acc),T).
+
+even(N) => N mod 2 == 0.
+
+%
+% Map.get() with a default value if Key don't exist in Map
+%
+get(M, Key, Default)=V =>
+   if M.has_key(Key) then V= M.get(Key) else V=Default end.
+
+% higher-order map/2
+map(F,List) = map_list(F,List), list(List) => true.
+map(List,F) = map_list(F,List), list(List) => true.
+
+map_list(_F,[]) = [].
+map_list(F,[X|Xs])=[apply(F,X)|map_list(F,Xs)].
+
+% higher-order map/3
+map(_F,[],[]) = [].
+map(F,[X|Xs],[Y|Ys])=[apply(F,X,Y)|map(F,Xs,Ys)].
+
+odd(N) => N mod 2 == 1.
+
+prime(2) => true.
+prime(3) => true.
+prime(5) => true.
+prime(7) => true.
+prime(N),N mod 2 == 0 => fail.
+prime(N),N mod 3 == 0 => fail.
+prime(N),N mod 5 == 0 => fail.
+prime(N),N mod 7 == 0 => fail.
+prime(N),N>=11 =>
+    foreach (I in 11..2..sqrt(N))
+       N mod I != 0
+    end.
+
+% Sieve of Eratosthenes
+primes(N)=L =>
+    A=new_array(N),
+    foreach(I in 2..floor(sqrt(N)))
+        if (var(A[I])) then
+            foreach(J in I**2..I..N)
+                A[J]=0
+            end
+         end
+     end,
+     L=[I : I in 2..N, var(A[I])].
+
+%
+% Generate a "real" random number.
+% random() repeat itself each time the program starts.
+%
+random2() = Rand =>
+   statistics(runtime,[A,B]), 
+   statistics(program,[C,D]), 
+   statistics(heap,[E,F]), 
+   Rand = random(10*A+B+10*C+13*D+11*E+101*F).
+
+rand_max() = Max =>
+   bp.b_RAND_MAX_f(Max).
+
+frand() = V => 
+   bp.b_RAND_MAX_f(Max),
+   (_I,V) = modf(random()/Max).
+
+picat_path() = Path =>
+    (bp.picat_getenv('PICATPATH',Path) -> true; handle_exception($no_environment_var('PICATPATH'),picat_path)).
+
+
+% Show all the statistics
+statistics_all() = L =>
+   L = findall([Name,Value], $statistics(Name,Value)).
+
+%%%%%%%% new built-ins proposed by Hakan K. %%%%%%%%%%%%%%%
+% MODULE basic
+% ===========
+head([H|_]) = H.
+
+tail([_|T]) = T.
+
+first([X|_]) = X.
+first(Struct) = Struct[1], struct(Struct) => true.
+
+second([_,X|_]) = X.
+second(Struct)=Struct[2],struct(Struct),Struct.length>=2 => true.
+
+last(List)=Last, List=[_|_] => last_list(List,Last).
+last(Struct)=Last, struct(Struct) => Last=Struct[Struct.length].
+
+private
+last_list([X],Last) => Last=X.
+last_list([_|T],Last) => last_list(T,Last).
+
+% python's reduce
+reduce(F,List)=Res,list(List),List!==[] =>
+    reduce_aux(F,List,Res).
+reduce(List,F)=Res,list(List),List!==[] =>
+    reduce_aux(F,List,Res).
+
+reduce(F,List,Res0)=Res,list(List) =>
+    reduce_aux(F,[Res0|List],Res).
+reduce(List,F,Res0)=Res,list(List) =>
+    reduce_aux(F,[Res0|List],Res).
+
+private
+reduce_aux(_F,[X],Res) => Res=X.
+reduce_aux(F,[X,Y|T],Res) => 
+    reduce_aux(F,[apply(F,X,Y)|T],Res).
+
+unzip([]) = [].
+unzip(L) = [L1,L2], L[1].length == 2, unzip2(L,L1,L2) => true.
+unzip(L) = [L1,L2,L3], L[1].length == 3, unzip3(L,L1,L2,L3) => true.
+unzip(L) = [L1,L2,L3,L4], L[1].length == 4, unzip4(L,L1,L2,L3,L4) => true.
+
+private
+unzip2([],L1,L2) => L1=[], L2=[].
+unzip2([{E1,E2}|L],L1,L2) => L1=[E1|L1R], L2=[E2|L2R], unzip2(L,L1R,L2R).
+
+private
+unzip3([],L1,L2,L3) => L1=[], L2=[], L3=[].
+unzip3([{E1,E2,E3}|L],L1,L2,L3) => L1=[E1|L1R], L2=[E2|L2R], L3=[E3|L3R], unzip3(L,L1R,L2R,L3R).
+
+private
+unzip4([],L1,L2,L3,L4) => L1=[], L2=[], L3=[], L4=[].
+unzip4([{E1,E2,E3,E4}|L],L1,L2,L3,L4) => L1=[E1|L1R], L2=[E2|L2R], L3=[E3|L3R], L4=[E4|L4R], unzip4(L,L1R,L2R,L3R,L4R).
+
+factorial(N) = F, integer(N), N>=0 => factorial_aux(N,1,F).
+
+private
+factorial_aux(N,F0,F),N>1 => factorial_aux(N-1,N*F0,F).
+factorial_aux(_N,F0,F) => F=F0.
+
+gcd(X,Y) = GCD => bp.b_GCD_ccf(X,Y,GCD).
+
+e = 2.71828182845904523536.
+
+pi = 3.14159265358979323846.
+
+command(String) = RetVal => bp.b_SYSTEM0_cf(String,RetVal).
+
+debug => bp.c_init_dg_flag(1).
+
+nodebug => bp.c_init_dg_flag(0).
+
+notrace => bp.c_init_dg_flag(0).
+
+trace => bp.c_init_dg_flag(1).
+

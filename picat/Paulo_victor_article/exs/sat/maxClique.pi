@@ -1,0 +1,72 @@
+% http://www.cs.kuleuven.be/~dtai/events/ASP-competition/Benchmarks/MaxClique.shtml
+% ported to Picat by Neng-Fa Zhou
+
+import sat.
+
+main => test.
+
+asp(As) =>
+    cl_facts(As,$[edge(+,+)]),
+    node(N),
+    Vars = new_list(N),
+    Vars :: 0..1,
+    foreach(I in 1..N-1, J in I+1..N)
+        if edge(I,J); edge(J,I) then
+            Vars[I] #!= 1 #\/ Vars[J] #!= 1
+        end
+    end,
+    Card #= sum(Vars),
+    solve([$max(Card)],Vars),
+    writeln(Card),
+    foreach(I in 1..N)
+        if Vars[I]==1 then
+            printf("clique(%w). ",[I])  
+        end
+    end,
+    nl.
+
+test =>
+    asp($[node(6),edge(1,2),edge(1,5),edge(2,3),edge(2,5),edge(3,4),edge(4,5),edge(4,6)]).
+
+test1 =>
+   asp($[node(17),
+edge(1,2),
+edge(1,12),
+edge(1,14),
+edge(1,15),
+edge(2,3),
+edge(2,15),
+edge(3,4),
+edge(3,15),
+edge(4,5),
+edge(4,15),
+edge(5,6),
+edge(5,15),
+edge(5,16),
+edge(6,7),
+edge(6,16),
+edge(7,8),
+edge(7,16),
+edge(7,17),
+edge(8,9),
+edge(8,17),
+edge(9,10),
+edge(9,13),
+edge(9,17),
+edge(10,11),
+edge(10,13),
+edge(11,12),
+edge(11,13),
+edge(12,13),
+edge(12,14),
+edge(13,14),
+edge(13,15),
+edge(13,16),
+edge(13,17),
+edge(14,15),
+edge(14,16),
+edge(14,17),
+edge(15,16),
+edge(15,17),
+edge(16,17)]).
+

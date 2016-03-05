@@ -1,0 +1,15 @@
+% Euclid's formula yields Pythagorean triples for integers m and n with m < n: 
+% a = m**2 - n**2 ; b = 2*m*n ; c = m**2 + n**2
+ 
+euclids(Upto) = Triples =>
+    Triples = [[M**2-N**2,2*M*N,M**2+N**2] : M in 2..Upto, N in 1..M].
+ 
+main =>
+    X = 1000,
+    foreach([A,B,C] in euclids(X div 2))
+        if A + B + C == X then
+            writeln(A * B * C),
+	    halt
+	end
+    end.
+

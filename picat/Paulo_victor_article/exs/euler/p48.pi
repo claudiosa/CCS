@@ -1,0 +1,18 @@
+/*********************************************************
+        http://projecteuler.net/problem=48
+
+The series, 1**1 + 2**2 + 3**3 + ... + 10**10 = 10405071317.
+
+Find the last ten digits of the series, 1**1 + 2**2 + 3**3 + ...
++ 1000**1000.
+
+See also http://www.hakank.org/picat/euler48.pi
+*********************************************************/
+
+main =>
+    Mod = 10 ** 10,
+    Sum = 0,
+    foreach (I in 1 .. 1000)
+        Sum := (Sum + (I ** I)) mod Mod
+    end,
+    println(Sum).

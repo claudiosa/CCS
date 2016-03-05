@@ -1,0 +1,27 @@
+/*********************************************************
+        http://projecteuler.net/problem=4
+
+A palindromic number reads the same both ways. The largest
+palindrome made from the product of two 2-digit numbers is
+9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two
+3-digit numbers.
+*********************************************************/
+
+main =>
+    M = -1,
+    F1 = 0,
+    F2 = 0,
+    foreach(I in 100..999, J in I..999)
+        Prod = I * J,
+	if (isPalindrome(Prod), Prod > M) then
+            M := Prod,
+	    F1 := I,
+	    F2 := J
+	end
+    end,
+    writef("The largest palindrome is %w (%w*%w)%n",M,F1,F2).
+	
+isPalindrome(P) =>
+    P.to_string()==P.to_string().reverse().

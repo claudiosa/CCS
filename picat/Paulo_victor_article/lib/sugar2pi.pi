@@ -1,0 +1,670 @@
+/****************************************************************************
+   sugar2pi.pi (in Picat version 0.8 or up), by Neng-Fa Zhou, Jan. 12, 2015
+
+   This program converts CSP instances from Sugar CSP format to Picat. 
+   The specification of the Sugar CSP format can be found at:
+
+   http://bach.istc.kobe-u.ac.jp/sugar/package/current/docs/syntax.html
+
+   Instances can be found in the Sugar package. This converter currently 
+   does not handle predicate definitions. This will not be a problem since
+   no instances in the Sugar package include predicate definitions.
+
+   This program can be loaded into the Picat system and run by a query 
+   
+   Picat> cl("sugar2pi")
+   Picat> main("nqueens_8")
+
+   Alternatively, this program can be run as a standalone command:
+
+       picat sugar2pi nqueens_8
+
+   or
+
+       picat sugar2pi nqueens_8.csp
+
+    You need to ensure that the path to the Picat executable is set properly 
+    and the file "sugar2pi.pi" and "nqueens_8.csp" are in the working directory.
+    Otherwise, the full paths to the executable and the files must be given.
+
+    NOTE: The operator '%' cannot be used. The mod operator should be used instead.
+*********************************************************************************/
+main(InFile),string(InFile) =>
+    sugar2picat(InFile).
+main([InFile]),string(InFile) =>
+    sugar2picat(InFile).
+main(Args) =>
+    println($invalid_args(Args)).           
+
+sugar2picat(InFile) =>
+    (append(MainFileStr,".csp",InFile) -> 
+        CSPFile = InFile
+    ; 
+        MainFileStr = InFile,
+        CSPFile = InFile++".csp"
+    ),        
+    OutFile = MainFileStr++".pi",
+    InStream = open(CSPFile,read),
+    read_sugar_tokens(InStream,Tokens),
+    Defs = new_map(),
+    catch(statements(Tokens,Defs,Constrs),Exception,(println(Exception),close(InStream),halt)),
+    sort(map_to_list(Defs)) = DefsList,
+    number_vars(DefsList,0) = _,
+    OutStream = open(OutFile,write),
+    printf(OutStream,"import sat.\n\n"),
+    printf(OutStream,"main =>\n"),
+    printf(OutStream,"    print(\"solving(%s)\\n\"),\n",MainFileStr),
+    output_var_defs(OutStream,DefsList,Defs,Vars,NameVarPairs),
+    output_constrs(OutStream,Constrs),
+    output_solve(OutStream,MainFileStr,Defs,Vars,NameVarPairs),
+    close(InStream),
+    close(OutStream).
+
+/*
+statements(Tokens,Defs,_) ?=>
+    println($statements(Tokens,Defs)),fail.
+*/
+statements([],_Defs,Constrs) => Constrs = [].
+
+%  Domain Definitions
+statements(['(',domain,DomainName,'('|Tokens],Defs,Constrs) =>
+    range_plus(Tokens,Tokens1,List),
+    Tokens1 = [')'|Tokens2],
+    Defs.put($domain(DomainName),List),
+    statements(Tokens2,Defs,Constrs).
+statements(['(',domain,DomainName|Tokens],Defs,Constrs),
+    parse_integer(Tokens,Tokens1,From),
+    parse_integer(Tokens1,Tokens2,To),
+    Tokens2 = [')'|Tokens3]
+=>
+    Defs.put($domain(DomainName),$min_max(From,To)),
+    statements(Tokens3,Defs,Constrs).
+statements(['(',domain,DomainName|Tokens],Defs,Constrs),
+    parse_integer(Tokens,Tokens1,Value),
+    Tokens1 = [')'|Tokens2]
+=>
+    Defs.put($domain(DomainName),[Value,Value]),
+    statements(Tokens2,Defs,Constrs).
+
+% Integer Variable Definitions
+statements(['(',int,IntegerVariableName|Tokens],Defs,Constrs),
+    parse_integer(Tokens,Tokens1,LowerBound),
+    parse_integer(Tokens1,Tokens2,UpperBound),
+    Tokens2 = [')'|Tokens3]
+ =>
+    Defs.put($var(IntegerVariableName),(_,$min_max(LowerBound,UpperBound))),  % _ an internal name
+    statements(Tokens3,Defs,Constrs).
+statements(['(',int,IntegerVariableName,'('|Tokens],Defs,Constrs) =>
+    range_plus(Tokens,Tokens1,List),
+    Tokens1 = [')'|Tokens2],
+    Defs.put($var(IntegerVariableName),(_,List)),   
+    statements(Tokens2,Defs,Constrs).
+statements(['(',int,IntegerVariableName,'-',Value,')'|Tokens],Defs,Constrs),integer(Value) =>
+    Defs.put($var(IntegerVariableName),(_,$min_max(-Value,-Value))),
+    statements(Tokens,Defs,Constrs).
+
+statements(['(',int,IntegerVariableName,DomainNameOrValue,')'|Tokens],Defs,Constrs) =>
+    Defs.put($var(IntegerVariableName),(_,DomainNameOrValue)),
+    statements(Tokens,Defs,Constrs).
+
+% Boolean Variable Definitions    
+statements(['(',bool,BooleanVariableName,')'|Tokens],Defs,Constrs) =>
+    Defs.put($var(BooleanVariableName),(_,$min_max(0,1))),
+    statements(Tokens,Defs,Constrs).
+
+% Relation Definitions    
+statements(['(',relation,RelationName,Arity|Tokens],Defs,Constrs) =>
+    relation_body(Tokens,Tokens1,RelationType,Table),
+    Tokens1 = [')'|Tokens2],
+    Defs.put($relation(RelationName),(Arity,RelationType,Table)),
+    statements(Tokens2,Defs,Constrs).
+
+% Predicate Definitions  -- not supported
+statements(['(',predicate|_Tokens],_Defs,_Constrs) =>
+    throw($not_supported(predicate)).
+
+statements(['(',objective,Goal,IntegerVariableName,')'|Tokens],Defs,Constrs) =>
+    Defs.get($var(IntegerVariableName)) = (T,_),
+     (Goal==minimize->Target=$min(T); Target=$max(T)),
+    Defs.put(objective,Target),
+    statements(Tokens,Defs,Constrs).
+
+% Constraints
+statements(Tokens,Defs,Constrs) =>
+    Constrs = [Constr|Constrs1],
+    logical_formula(Tokens,Tokens1,Constr,Defs),
+    statements(Tokens1,Defs,Constrs1).
+
+%%%
+logical_formula_star([')'|Tokens],TokensR,Constr,_Defs,Op) =>
+    Tokens = TokensR,
+    (Op == '#/\\' ->
+        Constr=1
+    ;
+        Constr=0
+    ).
+logical_formula_star(Tokens,TokensR,Constr,Defs,Op) =>    
+    logical_formula(Tokens,Tokens1,Constr1,Defs),
+    logical_formula_star(Tokens1,TokensR,Constr2,Defs,Op),
+    construct_disj_conj(Op,Constr1,Constr2,Constr).
+
+% AtomicFormula 
+logical_formula([false|Tokens],TokensR,Constr,_Defs) =>
+    Constr = 0,
+    Tokens = TokensR.
+logical_formula([true|Tokens],TokensR,Constr,_Defs) =>
+    Constr = 1,
+    Tokens = TokensR.
+logical_formula(['(',eq|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #= Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(','='|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #= Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',ne|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #!= Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(','!='|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #!= Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',le|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #=< Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',<=|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #=< Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',lt|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #< Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(','<'|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #< Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',ge|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #>= Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',>=|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #>= Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',gt|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #> Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(','>'|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Term1 #> Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+% (alldifferent Term*)
+logical_formula(['(',alldifferent|Tokens],TokensR,Constr,Defs) =>
+    Constr = $all_different(Terms),
+    term_star(Tokens,TokensR,Terms,Defs).
+                    %NOTE! (alldifferent (Term*)) not supported
+logical_formula(['(',weightedsum,'('|Tokens],TokensR,Constr,Defs) =>
+    weighted_pair_star(Tokens,Tokens1,Exp,Defs),
+    Tokens1 = [Op|Tokens2],
+    term(Tokens2,Tokens3,Term,Defs),
+    Tokens3 = [')'|TokensR],
+    construct_weighted_sum(Exp,Op,Term,Constr).
+logical_formula(['(',cumulative,'('|Tokens],TokensR,Constr,Defs) =>
+    Constr = $cumulative(Ss,Ds,Rs,Limit),
+    task_star(Tokens,Tokens1,Ss,Ds,Rs,Defs),
+    term(Tokens1,Tokens2,Limit,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',element|Tokens],TokensR,Constr,Defs) =>
+    Constr = $element(Index,Terms,Value),
+    term(Tokens,Tokens1,Index,Defs), 
+    Tokens1 = ['('|Tokens2],
+    term_star(Tokens2,Tokens3,Terms,Defs),
+    term(Tokens3,Tokens4,Value,Defs), 
+    Tokens4 = [')'|TokensR].
+logical_formula(['(',disjunctive,'('|Tokens],TokensR,Constr,Defs) =>
+    Constr = $cumulative(Ss,Ds,Rs,1),
+    task2_star(Tokens,Tokens1,Ss,Ds,Rs,Defs),
+    Tokens1 = [')'|TokensR].
+logical_formula(['(',lex_less,'('|Tokens],TokensR,Constr,Defs) =>    
+    Constr = $lex_lt(Terms1,Terms2),                                                             
+    term_star(Tokens,Tokens1,Terms1,Defs),
+    Tokens1 = ['('|Tokens2],
+    term_star(Tokens2,Tokens3,Terms2,Defs),
+    Tokens3 = [')'|TokensR].
+logical_formula(['(',lex_lesseq,'('|Tokens],TokensR,Constr,Defs) =>    
+    Constr = $lex_le(Terms1,Terms2),                                                             
+    term_star(Tokens,Tokens1,Terms1,Defs),
+    Tokens1 = ['('|Tokens2],
+    term_star(Tokens2,Tokens3,Terms2,Defs),
+    Tokens3 = [')'|TokensR].
+logical_formula(['(',nvalue|Tokens],TokensR,Constr,Defs) =>        
+    Constr = $nvalue(Term,Terms),
+    term(Tokens,Tokens1,Term,Defs),
+    Tokens1 = ['('|Tokens2],
+    term_star(Tokens2,Tokens3,Terms,Defs),    
+    Tokens3 = [')'|TokensR].
+logical_formula(['(',global_cardinality,'('|Tokens],TokensR,Constr,Defs) =>        
+    Constr = $global_cardinality(Terms,Pairs1),
+    term_star(Tokens,Tokens1,Terms,Defs),        
+    Tokens1 = ['('|Tokens2],
+    cardinality_star(Tokens2,Tokens3,Pairs,Defs),
+    Tokens3 = [')'|TokensR],
+    Pairs1 = [$Key-Val : (Key,Val) in Pairs].
+% Global_cardinality_with_costs Constraints not supported
+logical_formula(['(',count|Tokens],TokensR,Constr,Defs) =>        
+    term(Tokens,Tokens1,Value,Defs),
+    Tokens1 = ['('|Tokens2],
+    term_star(Tokens2,Tokens3,Terms,Defs),
+    Tokens3 = [Op|Tokens4],
+    term(Tokens4,Tokens5,Term,Defs),
+    Tokens5 = [')'|TokensR],
+    construct_count_constr(Value,Terms,Op,Term,Constr).
+%
+logical_formula(['(',not|Tokens],TokensR,Constr,Defs) =>
+    Constr = (#~ Constr1),
+    logical_formula(Tokens,Tokens1,Constr1,Defs),
+    Tokens1 = [')'|TokensR].
+logical_formula(['(','!'|Tokens],TokensR,Constr,Defs) =>
+    Constr = (#~ Constr1),
+    logical_formula(Tokens,Tokens1,Constr1,Defs),
+    Tokens1 = [')'|TokensR].
+logical_formula(['(',and|Tokens],TokensR,Constr,Defs) =>
+    logical_formula_star(Tokens,TokensR,Constr,Defs,'#/\\').
+logical_formula(['(','&&'|Tokens],TokensR,Constr,Defs) =>
+    logical_formula_star(Tokens,TokensR,Constr,Defs,'#/\\').
+logical_formula(['(',or|Tokens],TokensR,Constr,Defs) =>
+    logical_formula_star(Tokens,TokensR,Constr,Defs,'#\\/').
+logical_formula(['(','||'|Tokens],TokensR,Constr,Defs) =>
+    logical_formula_star(Tokens,TokensR,Constr,Defs,'#\\/').
+logical_formula(['(',imp|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Constr1 #=> Constr2),
+    logical_formula(Tokens,Tokens1,Constr1,Defs),
+    logical_formula(Tokens1,Tokens2,Constr2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(','=>'|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Constr1 #=> Constr2),
+    logical_formula(Tokens,Tokens1,Constr1,Defs),
+    logical_formula(Tokens1,Tokens2,Constr2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',xor|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Constr1 #^ Constr2),
+    logical_formula(Tokens,Tokens1,Constr1,Defs),
+    logical_formula(Tokens1,Tokens2,Constr2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',iff|Tokens],TokensR,Constr,Defs) =>
+    Constr = (Constr1 #<=> Constr2),
+    logical_formula(Tokens,Tokens1,Constr1,Defs),
+    logical_formula(Tokens1,Tokens2,Constr2,Defs),
+    Tokens2 = [')'|TokensR].
+logical_formula(['(',RelationName|Tokens],TokensR,Constr,Defs) =>    
+    term_star(Tokens,TokensR,Terms,Defs),
+    (Terms==[] -> TermsVect='()';TermsVect = to_array(Terms)),
+    (Defs.get($relation(RelationName),[]) = (_Arity,RelationType,Table) ->
+        ATable = [to_array(List) : List in Table],
+        (RelationType==supports ->
+            Constr = $table_in(TermsVect,ATable)
+        ;       
+            Constr = $table_notin(TermsVect,ATable)
+        )
+    ;
+        throw($relation_not_defined(RelationName))
+    ).
+logical_formula([BoolVarName|Tokens],TokensR,Constr,Defs),atom(BoolVarName),
+    Defs.get($var(BoolVarName),[]) = $(T,min_max(0,1))
+=>
+    Constr = T,
+    Tokens = TokensR.
+logical_formula(Tokens,_TokensR,_Constr,_Defs) =>
+    throw($cannot_start_logical_formula(Tokens)).
+
+%%%
+term_star([')'|Tokens],TokensR,Terms,_Defs) =>
+    Terms = [],
+    Tokens = TokensR.
+term_star(Tokens,TokensR,Terms,Defs) =>
+    Terms = [Term|TermsR],
+    term(Tokens,Tokens1,Term,Defs),
+    term_star(Tokens1,TokensR,TermsR,Defs).
+
+% term(Tokens,_TokensR,_Term,_Defs) ?=> println($term(Tokens)),fail.
+term(['(',abs|Tokens],TokensR,Term,Defs) =>
+    Term = $abs(Term1),
+    term(Tokens,Tokens1,Term1,Defs),
+    Tokens1 = [')'|TokensR].
+term(['(',neg|Tokens],TokensR,Term,Defs) =>
+    Term = $-Term1,
+    term(Tokens,Tokens2,Term1,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(',sub|Tokens],TokensR,Term,Defs) =>
+    term(['(','-'|Tokens],TokensR,Term,Defs).
+term(['(','-'|Tokens],TokensR,Term,Defs) =>
+    term_star(Tokens,TokensR,Terms,Defs),
+    Terms = [Term1|TermsR],
+    (TermsR = [] ->
+        Term = $-Term1
+    ; TermsR = [Term2] ->
+        Term = $Term1-Term2                
+    ;
+         Term = $Term1-sum(TermsR)
+    ).
+term(['(',add|Tokens],TokensR,Term,Defs) =>
+    term(['(','+'|Tokens],TokensR,Term,Defs).
+term(['(',+|Tokens],TokensR,Term,Defs) =>
+    term_star(Tokens,TokensR,Terms,Defs),
+    (Terms=[] ->
+        Term = 0
+    ;Terms=[Term1,Term2] ->
+        Term = $Term1+Term2
+    ;
+        Term = $sum(Terms)
+    ).
+term(['(',mul|Tokens],TokensR,Term,Defs) =>
+    Term = $Term1*Term2,
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(','*'|Tokens],TokensR,Term,Defs) =>
+    Term = $Term1*Term2,
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(',mul|Tokens],TokensR,Term,Defs) =>
+    Term = $Term1*Term2,
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(',div|Tokens],TokensR,Term,Defs) =>
+    Term = $div(Term1,Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(','/'|Tokens],TokensR,Term,Defs) =>
+    Term = $div(Term1,Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(',mod|Tokens],TokensR,Term,Defs) =>  % the operator % cannot be used
+    Term = $mod(Term1,Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(',min|Tokens],TokensR,Term,Defs) =>
+    Term = $min(Term1,Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(',max|Tokens],TokensR,Term,Defs) =>
+    Term = $max(Term1,Term2),
+    term(Tokens,Tokens1,Term1,Defs),
+    term(Tokens1,Tokens2,Term2,Defs),
+    Tokens2 = [')'|TokensR].
+term(['(',if|Tokens],TokensR,Term,Defs) =>
+    Term = $cond(Cond,Term1,Term2),
+    logical_formula(Tokens,Tokens1,Cond,Defs),
+    term(Tokens1,Tokens2,Term1,Defs),
+    term(Tokens2,Tokens3,Term2,Defs),
+    Tokens3 = [')'|TokensR].
+term(['-',Token|Tokens],TokensR,Term,_Defs),integer(Token) =>   
+    Term = -Token,
+    Tokens = TokensR.
+term([Token|Tokens],TokensR,Term,_Defs),integer(Token) =>   
+    Term = Token,
+    Tokens = TokensR.
+term([nil|Tokens],TokensR,Term,_Defs) =>
+    Term = nil,
+    Tokens = TokensR.    
+term([Token|Tokens],TokensR,Term,Defs),atom(Token) =>   
+    Tokens = TokensR,
+    Defs.get($var(Token)) = (Term,_).
+term(Tokens,_TokensR,_Term,_Defs) =>   
+    throw($cannot_start_term(Tokens)).
+
+%%%
+weighted_pair_star(['(','-',Weight|Tokens],TokensR,Exp,Defs) =>
+    weighted_pair_star(['(',-Weight|Tokens],TokensR,Exp,Defs).
+weighted_pair_star(['(',Weight|Tokens],TokensR,Exp,Defs) =>
+    term(Tokens,Tokens1,Term,Defs),
+    Tokens1 = [')'|Tokens2],
+    weighted_pair_star(Tokens2,TokensR,Exp1,Defs),
+    (Exp1==0 ->
+        Exp = $Weight*Term
+    ;
+        Exp = $Weight*Term+Exp1
+    ).       
+weighted_pair_star([')'|Tokens],TokensR,Exp,_Defs) =>    
+    Tokens = TokensR,
+    Exp = 0.
+
+construct_weighted_sum(Exp,eq,Term,Constr) =>
+    Constr = (Exp #= Term).
+construct_weighted_sum(Exp,ne,Term,Constr) =>
+    Constr = (Exp #!= Term).
+construct_weighted_sum(Exp,le,Term,Constr) =>
+    Constr = (Exp #=< Term).
+construct_weighted_sum(Exp,lt,Term,Constr) =>
+    Constr = (Exp #< Term).
+construct_weighted_sum(Exp,ge,Term,Constr) =>
+    Constr = (Exp #>= Term).
+construct_weighted_sum(Exp,gt,Term,Constr) =>
+    Constr = (Exp #> Term).
+
+%%%
+range_plus([')'|Tokens],TokensR,List) =>
+    List = [],
+    Tokens = TokensR.
+range_plus(Tokens,TokensR,List) =>
+    range(Tokens,Tokens1,List1),
+    range_plus(Tokens1,TokensR,List2),
+    List = List1++List2.
+    
+range(['('|Tokens],TokensR,List),
+    parse_integer(Tokens,Tokens1,From),
+    parse_integer(Tokens1,Tokens2,To)
+=>
+    Tokens2 = [')'|TokensR],
+    List = From..To.
+range(Tokens,TokensR,List),
+    parse_integer(Tokens,TokensR,Int)
+=>
+    List = [Int].
+range(Tokens,_TokensR,_List) =>
+    throw($invalid_range(Tokens)).
+
+parse_integer(['-',Token|Tokens],TokensR,Int),integer(Token) =>
+    Int = -Token,
+    Tokens = TokensR.
+parse_integer([Token|Tokens],TokensR,Int),integer(Token) =>
+    Int = Token,
+    Tokens = TokensR.    
+
+%%%
+relation_body(['(',RelationType|Tokens],TokensR,RelationTypeOut,Table) =>
+    RelationTypeOut=RelationType,
+    parse_table(Tokens,TokensR,Table).
+
+parse_table([')'|Tokens],TokensR,Table) =>
+    Tokens = TokensR,
+    Table = [].
+parse_table(['('|Tokens],TokensR,Table) =>
+    Table = [Tuple|TableR],
+    tuple(Tokens,Tokens1,Tuple),
+    parse_table(Tokens1,TokensR,TableR).
+    
+tuple([')'|Tokens],TokensR,Tuple) =>
+    Tokens = TokensR,
+    Tuple = [].
+tuple([Val|Tokens],TokensR,Tuple) =>
+    Tuple = [Val|TupleR],
+    tuple(Tokens,TokensR,TupleR).
+
+%%
+task_star(['('|Tokens],TokensR,Ss,Ds,Rs,Defs) =>
+    term(Tokens,Tokens1,Origin0,Defs),
+    term(Tokens1,Tokens2,Duration0,Defs),
+    term(Tokens2,Tokens3,End0,Defs),
+    term(Tokens3,Tokens4,Height,Defs),
+    Tokens4 = [')'|Tokens5],
+    (Duration0==nil -> Duration=1; Duration=Duration0),
+    (Origin0==nil -> Origin=(End0-Duration); Origin=Origin0),
+    Ss = [Origin|SsR], 
+    Ds = [Duration|DsR],
+    Rs = [Height|RsR],
+    task_star(Tokens5,TokensR,SsR,DsR,RsR,Defs).
+task_star([')'|Tokens],TokensR,Ss,Ds,Rs,_) =>
+    Tokens = TokensR,
+    Ss = [],
+    Ds = [],
+    Rs = [].
+
+task2_star(['('|Tokens],TokensR,Ss,Ds,Rs,Defs) =>
+    term(Tokens,Tokens1,Origin,Defs),
+    term(Tokens1,Tokens2,Duration,Defs),
+    Tokens2 = [')'|Tokens3],
+    Ss = [Origin|SsR], 
+    Ds = [Duration|DsR],
+    Rs = [1|RsR],
+    task2_star(Tokens3,TokensR,SsR,DsR,RsR,Defs).
+task2_star([')'|Tokens],TokensR,Ss,Ds,Rs,_) =>
+    Tokens = TokensR,
+    Ss = [],
+    Ds = [],
+    Rs = [].
+
+%%%
+cardinality_star(['(',Value|Tokens],TokensR,Pairs,Defs) =>
+    Pairs = [(Value,Term)|PairsR],
+    term(Tokens,Tokens1,Term,Defs),
+    Tokens1 = [')'|Tokens2],
+    cardinality_star(Tokens2,TokensR,PairsR,Defs).
+cardinality_star([')'|Tokens],TokensR,Pairs,_Defs) =>
+    Tokens = TokensR,
+    Pairs = [].
+
+construct_disj_conj('#\\/',Constr1,0,Constr) => Constr = Constr1.
+construct_disj_conj('#\\/',0,Constr2,Constr) => Constr = Constr2.
+construct_disj_conj('#\\/',Constr1,Constr2,Constr) => Constr = (Constr1 #\/ Constr2).
+construct_disj_conj('#/\\',Constr1,1,Constr) => Constr = Constr1.
+construct_disj_conj('#/\\',1,Constr2,Constr) => Constr = Constr2.
+construct_disj_conj('#/\\',Constr1,Constr2,Constr) => Constr = (Constr1 #/\ Constr2).
+
+%%%
+construct_count_constr(Value,Terms,eq,Term,Constr) =>
+    Constr = $count(Value,Terms,'#=',Term).
+construct_count_constr(Value,Terms,ne,Term,Constr) =>
+    Constr = $count(Value,Terms,'#!=',Term).
+construct_count_constr(Value,Terms,le,Term,Constr) =>
+    Constr = $count(Value,Terms,'#=<',Term).
+construct_count_constr(Value,Terms,lt,Term,Constr) =>
+    Constr = $count(Value,Terms,'#<',Term).
+construct_count_constr(Value,Terms,ge,Term,Constr) =>
+    Constr = $count(Value,Terms,'#>=',Term).
+construct_count_constr(Value,Terms,gt,Term,Constr) =>
+    Constr = $count(Value,Terms,'#>',Term).
+
+
+/* tokenizer */
+read_sugar_tokens(InStream,Tokens) =>
+    read_picat_token(InStream,Type,Token), % first token
+    read_sugar_tokens(InStream,Type,Token,Tokens).
+
+read_sugar_tokens(_InStream,end_of_file,_,Tokens) => Tokens=[].     % end-of-file
+read_sugar_tokens(InStream,punctuation,';',Tokens) => 
+    _ = read_line(InStream),
+    read_picat_token(InStream,Type,PicatToken),
+    read_sugar_tokens(InStream,Type,PicatToken,Tokens).
+read_sugar_tokens(InStream,_Type,Token,Tokens) =>                   
+    Tokens=[Token|Tokens1],
+    read_picat_token(InStream,Type,PicatToken),
+    read_sugar_tokens(InStream,Type,PicatToken,Tokens1).
+
+%%%
+output_var_defs(_,[],_,Vars,NameVarPairs) => Vars = [], NameVarPairs = [].
+output_var_defs(OutStream,[var(OrigName)=('$VAR'(VarNum),DomainInfo)|L],Defs,Vars,NameVarPairs) => 
+    (atom(DomainInfo) ->
+        Defs.get($domain(DomainInfo)) = Domain
+    ;integer(DomainInfo) ->
+        Domain = [DomainInfo]
+    ;
+        Domain = DomainInfo
+    ),
+    (Domain = $min_max(From,To) ->
+        printf(OutStream,"    V%d :: %w..%w,\n",VarNum,From,To)
+    ;
+        printf(OutStream,"    V%d :: %w,\n",VarNum,Domain)
+    ),
+    NewVarStr = "V"++to_string(VarNum),
+    Vars = [NewVarStr|VarsR],
+    NameVarPairs = [(OrigName,NewVarStr)|NameVarPairsR],
+    output_var_defs(OutStream,L,Defs,VarsR,NameVarPairsR).
+output_var_defs(OutStream,[_|L],Defs,Vars,NameVarPairs) => 
+    output_var_defs(OutStream,L,Defs,Vars,NameVarPairs).
+
+output_constrs(_OutStream,[]) => true.
+output_constrs(OutStream,[1|Constrs]) =>
+    output_constrs(OutStream,Constrs).
+output_constrs(OutStream,[0|Constrs]) =>
+    printf(OutStream,"    fail,\n"),
+    output_constrs(OutStream,Constrs).
+output_constrs(OutStream,[Constr|Constrs]) =>
+    (symbolic_constraint(Constr) ->
+        printf(OutStream,"    $%w,\n",Constr)
+    ;
+        printf(OutStream,"    %w,\n",Constr)
+    ),
+    output_constrs(OutStream,Constrs).
+
+/*
+output_solve(OutStream,MainFileStr,_Defs,Vars,_NameVarPairs) =>
+    printf(OutStream,"    solve_all(%w)=All,\n",Vars),
+    printf(OutStream,"    println('%s' = sort(All)).\n",MainFileStr).
+*/
+
+output_solve(OutStream,MainFileStr,Defs,Vars,NameVarPairs) =>
+    Defs.get(objective,[]) = Target,
+    (Target !== [] ->
+        printf(OutStream,"    solve($[%w,dump(\"%s.cnf\")],%w),\n",Target,MainFileStr,Vars)
+    ;
+        printf(OutStream,"    solve($[dump(\"%s.cnf\")],%w),\n",MainFileStr,Vars)
+    ),
+    foreach((Name,Var) in NameVarPairs) 
+        printf(OutStream,"    println('%w'=%w),\n",Name,Var)
+    end,
+    printf(OutStream,"    true.\n").
+/*
+output_solve(OutStream,_MainFileStr,Defs,Vars,NameVarPairs) =>
+    Defs.get(objective,[]) = Target,
+    (Target !== [] ->
+        printf(OutStream,"    solve($[%w],%w),\n",Target,Vars)
+    ;
+        printf(OutStream,"    solve([],%w),\n",Vars)
+    ),
+    foreach((Name,Var) in NameVarPairs) 
+        printf(OutStream,"    println('%w'=%w),\n",Name,Var)
+    end,
+    printf(OutStream,"    true.\n").
+*/
+symbolic_constraint(all_different(_)) => true.
+symbolic_constraint(element(_,_,_)) => true.
+symbolic_constraint(count(_,_,_,_)) => true.
+symbolic_constraint(nvalue(_,_)) => true.
+symbolic_constraint(cumulative(_,_,_,_)) => true.
+symbolic_constraint(lex_lt(_,_)) => true.
+symbolic_constraint(lex_le(_,_)) => true.
+

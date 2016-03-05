@@ -1,0 +1,559 @@
+module fzn_parser.
+import fzn_tokenizer.
+
+/*
+%----------------------------------------------------------------------
+% BEGIN LICENSE BLOCK
+% Version: CMPL 1.1
+%
+% The contents of this file are subject to the Cisco-style Mozilla Public
+% License Version 1.1 (the "License"); you may not use this file except
+% in compliance with the License.  You may obtain a copy of the License
+% at www.eclipse-clp.org/license.
+% 
+% Software distributed under the License is distributed on an "AS IS"
+% basis,WITHOUT WARRANTY OF ANY KIND,either express or implied.  See
+% the License for the specific language governing rights and limitations
+% under the License. 
+% 
+% The Original Code is  The Zinc Modelling Tools for ECLiPSe
+% The Initial Developer of the Original Code is  Joachim Schimpf
+% with support from Cisco Systems and NICTA Victoria.
+% Portions created by the Initial Developer are
+% Copyright (C) 2007 Cisco Systems,Inc.  All Rights Reserved.
+% 
+% Contributor(s): Joachim Schimpf
+% 
+% END LICENSE BLOCK
+%----------------------------------------------------------------------
+
+% A parser for FlatZinc, based on 'Specification of FlatZinc' (Nov 7 2007).
+% It reads and returns one item at a time, as an ECLiPSe structure which
+% closely resembles the FZ input.
+% 
+% For FlatZinc, it seems an item-wise parser is a good idea, since the
+% items can be processed one at a time by ECLiPSe to set up the model.
+
+% Ported to Picat by Neng-Fa Zhou, July 2013.
+*/
+/*
+main([File]) =>
+    time(read_flatzinc(File)).
+*/
+read_flatzinc(File) =>
+    printf("%%reading %w%n",File),
+    FD=open(File),
+    Term = read_flatzinc_item(FD),
+    while (Term!==end_of_file)
+        writeln(Term),
+        Term := read_flatzinc_item(FD)
+    end,
+    close(FD).
+    
+read_flatzinc_item(FD) = Term =>
+    (read_flatzinc_tokens(FD,Tokens,[]) ->     % fails on eof
+        (item(Term,Tokens,[]) ->
+             true
+        ;
+             syntax_error("Syntax error in: %w",Tokens)
+        )
+    ;
+        Term=end_of_file
+    ).
+
+% Items --------------------------------
+item(VarDecl,[var|S],SR) =>
+    non_array_ti_expr_tail(Type,S,S1),
+    expect(':',S1,S2),
+    ident_anns(IdentAnns,S2,S3),
+    ( S3=['='|S4] ->
+        VarDecl = $(':'(var(Type),IdentAnns)=Value),
+        non_array_flat_expr(Value,S4,SR)
+    ;
+        VarDecl = $':'(var(Type),IdentAnns),
+        S3=SR
+    ).
+item(Term,S,SR), 
+    non_array_ti_expr_tail(Type,S,S1),
+    S1=[':'|S2]
+=>
+    Term = $(':'(Type,IdentAnns)=Value),
+    ident_anns(IdentAnns,S2,S3),
+    expect('=',S3,S4),
+    non_array_flat_expr(Value,S4,SR).
+item(Decl,[array|S],SR) =>
+    expect_list(['[',$i(1),'..'],S,S1),
+    int_literal(Max,S1,S2),
+    expect_list([']',of],S2,S3),
+    array_decl_tail($array_of([range(1,Max)],ElmType),ElmType,Decl,S3,SR).
+item(Term,[constraint|S],SR) =>
+    Term = $constraint(ElmAnns),
+    constraint_elem(Elm,S,S1),
+    (S1=['::'|S2] ->
+        ElmAnns = $'::'(Elm,Anns),
+        annotations_tail(Anns,S2,SR)
+    ;
+        ElmAnns = Elm,
+        S1 = SR
+    ).
+item(Solve,[solve|S],SR) =>
+    (S=['::'|S1] ->
+        SolveAnns = $'::'(solve,Anns),
+        solve_annotations(Anns,S1,S2)
+    ;
+        SolveAnns = solve,
+        S=S2
+    ),
+    solve_kind(SolveAnns,Solve,S2,SR).
+item(Term,[output|S],SR) =>
+    Term = $output(List),
+    expect('[',S,S1),
+    nonempty_output_elem_list(List,S1,SR).
+item(Term,[predicate|S],SR) =>
+    Term = $predicate(Pred),
+    pred_decl(Pred,S,SR).
+
+array_decl_tail(Type,InstElmType,Decl,[var|S],SR) =>
+    InstElmType = $var(ElmType),
+    non_array_ti_expr_tail(ElmType,S,S1),
+    expect(':',S1,S2),
+    ident_anns(IdentAnns,S2,S3),
+    (S3 =['='|S4] ->
+        Decl = $(':'(Type,IdentAnns) = Value),
+        array_literal(Value,S4,SR)
+    ;
+        Decl = $':'(Type,IdentAnns),
+        S3=SR
+    ).
+array_decl_tail(Type,ElmType,Decl,S,SR) =>
+    Decl = $(':'(Type,IdentAnns)=Value),
+    non_array_ti_expr_tail(ElmType,S,S1),
+    S1=[':'|S2],
+    ident_anns(IdentAnns,S2,S3),
+    expect('=',S3,S4),
+    array_literal(Value,S4,SR).
+
+constraint_elem(Elm,[ident(Ident),'('|S],SR) =>
+    nonempty_expr_list(Params,S,S1),
+    Elm = new_struct(Ident,Params),
+    (Elm.name==subscript,Elm.arity==2 ->    % avoid clash with array subscript notation
+        S1=SR,
+        syntax_error("Illegal constraint name: %w",Elm)
+    ;
+        S1=SR
+    ).
+constraint_elem(Elm,S,SR) =>
+    variable_expr(Elm,S,SR).
+
+
+solve_kind(SolveAnns,Kind,[satisfy|S],SR) =>
+    Kind = $satisfy(SolveAnns),
+    S=SR.
+solve_kind(SolveAnns,Kind,[minimize|S],SR) =>
+    Kind = $minimize(SolveAnns,Expr),
+    variable_expr(Expr,S,SR).
+solve_kind(SolveAnns,Kind,[maximize|S],SR) =>
+    Kind = $maximize(SolveAnns,Expr),
+    variable_expr(Expr,S,SR).
+
+% Output-Item (obsolete)  --------------------------------
+
+output_elem(Elm,[show|S],SR) =>
+    Elm = $show(Expr),
+    expect('(',S,S1),
+    flat_expr(Expr,S1,S2),
+    expect(')',S2,SR).
+output_elem(Elm,[show_cond|S],SR) =>
+    Elm = $show_cond(E1,E2,E3),
+    expect('(',S,S1),
+    flat_expr(E1,S1,S2),
+    expect(',',S2,S3),
+    flat_expr(E2,S3,S4),
+    expect(',',S4,S5),
+    flat_expr(E3,S5,S6),
+    expect(')',S6,SR).
+output_elem(Expr,[str(Expr)|S],SR) => S=SR.
+
+nonempty_output_elem_list(Elm,S,SR) =>
+    Elm = [E|Es],
+    output_elem(E,S,S1),
+    ( S1=[','|S2] -> 
+        output_elem_list(Es,S2,SR) 
+    ; 
+        expect(']',S1,SR),
+        Es = []
+    ).
+output_elem_list(Es,S,SR) =>
+    (S=[']'|S1] -> 
+        Es = [],
+        S1 = SR
+    ; 
+        nonempty_output_elem_list(Es,S,SR)
+    ).
+
+% Predicate-Decl --------------------------------
+
+pred_decl(Pred,[ident(Ident),'('|S],SR) =>
+    nonempty_pred_args(Params,S,SR),
+    Pred = new_struct(Ident,Params).
+
+nonempty_pred_args(Term,S,SR) =>
+    Term = [E|Es],
+    pred_arg(E,S,S1),
+    ( S1=[','|S2] -> 
+        pred_args(Es,S2,SR) 
+    ; 
+        expect(')',S1,SR),
+        Es = []
+    ).
+
+pred_args(Es,S,SR) =>
+    (S=[')'|SR] -> 
+        Es = []
+    ; 
+        nonempty_pred_args(Es,S,SR)
+    ).
+
+pred_arg(TypeIdent,S,SR) =>
+    pred_arg_type(Type,S,S1),
+    (S1=[':'|S2] ->
+        TypeIdent = $':'(Type,Ident),
+        S2=[$ident(Ident)|SR]
+    ;
+        TypeIdent = Type,
+        S1=SR
+    ).
+
+pred_arg_type(Term,[var|S],SR) =>
+    Term = $var(Type),
+    non_array_ti_expr_tail(Type,S,SR).
+pred_arg_type(Type,S,SR), 
+    non_array_ti_expr_tail(Type,S,SR) 
+=> 
+    true.
+pred_arg_type(Term,[array|S],SR) =>
+    Term = $array_of(Ranges,VarElmType),
+    expect('[',S,S1),
+    array_ranges(Ranges,S1,S3),
+    expect_list([']',of],S3,S4),
+    (S4=[var|S5] ->
+        VarElmType = $var(ElmType)
+    ;
+        S4=S5,
+        VarElmType=ElmType
+    ),
+    non_array_ti_expr_tail(ElmType,S5,SR).
+
+array_ranges(Ranges,[int|S],SR) =>
+    Ranges=[int|RangesR],
+    array_ranges_prime(RangesR,S,SR).
+array_ranges(Ranges,[i(1),'..'|S],SR) =>
+    Ranges=[$range(1,Max)|RangesR],
+    int_literal(Max,S,S1),
+    array_ranges_prime(RangesR,S1,SR).
+
+array_ranges_prime(RangesR,[','|S],SR) =>
+    array_ranges(RangesR,S,SR).
+array_ranges_prime(RangesR,S,SR) =>
+    RangesR=[],
+    S=SR.
+
+% Type-Inst --------------------------------
+non_array_ti_expr_tail(Type,S,SR) =>
+    (S=[set|S1] ->
+        Type = $set_of(ElmType),
+        expect('of',S1,S2),
+        scalar_ti_expr_tail(ElmType,S2,SR)
+    ;
+        scalar_ti_expr_tail(Type,S,SR)
+    ).
+
+scalar_ti_expr_tail(Type,[bool|S],SR) =>
+    Type=bool,
+    S=SR.
+scalar_ti_expr_tail(Type,[int|S],SR) =>
+    Type=int,
+    S=SR.
+scalar_ti_expr_tail(Type,[float|S],SR) =>
+    Type=float,
+    S=SR.
+scalar_ti_expr_tail(Type,['{'|S],SR) =>
+    Type='{}'(Ints),
+    nonempty_int_list(Ints,S,SR).
+scalar_ti_expr_tail(Type,S,SR),
+    int_literal(Min,S,S1) 
+=>
+    Type = $range(Min,Max),
+    expect('..',S1,S2),
+    int_literal(Max,S2,SR).
+scalar_ti_expr_tail(Type,S,SR),
+    float_literal(Min,S,S1)
+=>
+    Type = $range(Min,Max),
+    expect('..',S1,S2),
+    float_literal(Max,S2,SR).
+
+nonempty_int_list(List,S,SR) =>
+    List=[E|Es],
+    int_literal(E,S,S1),
+    (S1=[','|S2] -> 
+        int_list(Es,S2,SR) 
+    ; 
+        expect('}',S1,SR),
+        Es = []
+    ).
+
+int_list(Es,S,SR) =>
+    (S=['}'|S1] -> 
+        Es = [],
+        S1 = SR
+    ;
+        nonempty_int_list(Es,S,SR)
+    ).
+
+% Expressions --------------------------------
+% Rules have been reordered such that cuts do not cut valid alternatives
+% (i.e. rules that match a prefix of another rule must come later).
+
+flat_expr(Expr,S,SR),
+    non_array_flat_expr(Expr,S,SR)
+=> 
+    true.
+flat_expr(Expr,S,SR) =>
+    array_literal(Expr,S,SR).
+
+non_array_flat_expr(Expr,S,SR),
+    set_literal(Expr,S,SR)
+=>
+    true.
+non_array_flat_expr(Expr,S,SR) =>
+    scalar_flat_expr(Expr,S,SR).
+
+scalar_flat_expr(Expr,S,SR),
+    bool_literal(Expr,S,SR)
+=>
+    true.
+scalar_flat_expr(Expr,S,SR),
+    int_literal(Expr,S,SR)
+=>  
+    true.
+scalar_flat_expr(Expr,S,SR), 
+    float_literal(Expr,S,SR)
+=>
+    true.
+scalar_flat_expr(Expr,[str(Expr1)|S],SR) =>
+    Expr=Expr1,
+    S=SR.
+scalar_flat_expr(Expr,S,SR),
+    array_access_expr(Expr,S,SR)
+=>
+    true.
+scalar_flat_expr(Expr,[ident(Expr1)|S],SR) =>
+    Expr=Expr1,
+    S=SR.
+
+int_flat_expr(Expr,S,SR),
+    int_literal(Expr,S,SR)
+=>
+    true.
+int_flat_expr(Expr,S,SR),
+    array_access_expr(Expr,S,SR)
+=>
+    true.
+int_flat_expr(Expr,[ident(Expr1)|S],SR) =>
+    Expr=Expr1,
+    S=SR.
+
+variable_expr(Expr,S,SR),
+    array_access_expr(Expr,S,SR)
+=>
+    true.
+variable_expr(Expr,[ident(Expr1)|S],SR) =>
+    Expr=Expr1,
+    S=SR.
+
+array_access_expr(Expr,[ident(Ident),'['|S],SR) =>
+    Expr = $array_subscript(Ident,Index),
+    int_index_expr(Index,S,S1),
+    expect(']',S1,SR).
+
+int_index_expr(Expr,[ident(Expr1)|S],SR) =>
+    Expr=Expr1,
+    S=SR.
+int_index_expr(Expr,S,SR) =>
+    int_literal(Expr,S,SR).
+
+bool_literal(Bool,[false|S],SR) => Bool=false, S=SR.
+bool_literal(Bool,[true|S],SR) => Bool=true, S=SR.
+
+int_literal(SignedInt,S,SR) =>
+    (S=['-'|S1] -> 
+        S1=[$i(Int)|SR],
+        SignedInt = -Int
+    ;     
+        S=[$i(Int)|SR],
+        SignedInt = Int
+    ).
+
+float_literal(SignedFloat,S,SR) =>
+    (S=['-'|S1] -> 
+        S1=[$f(Float)|SR],
+        SignedFloat = -Float
+    ;     
+        S=[$f(Float)|SR],
+        SignedFloat = Float
+    ).
+
+set_literal(Set,['{'|S],SR) =>
+    Set='{}'(List),
+    sfe_list(List,S,SR).
+set_literal(Set,S,SR) =>
+    Set = $range(Min,Max),
+    int_flat_expr(Min,S,S1),
+    S1=['..'|S2],
+    int_flat_expr(Max,S2,SR).
+
+nonempty_sfe_list(List,S,SR) =>
+    List=[E|Es],
+    scalar_flat_expr(E,S,S1),
+    (S1=[','|S2] -> 
+        sfe_list(Es,S2,SR) 
+    ; 
+        expect('}',S1,SR),
+        Es = []
+    ).
+
+sfe_list(Es,S,SR) =>
+    (S= ['}'|S1] -> 
+        Es = [],
+        S1=SR
+    ; 
+        nonempty_sfe_list(Es,S,SR)
+    ).
+
+array_literal(Array,['['|S],SR) =>
+    nafe_list(Array,S,SR).
+
+nonempty_nafe_list(List,S,SR) =>
+    List=[E|Es],
+    non_array_flat_expr(E,S,S1),
+    (S1=[','|S2] -> 
+        nafe_list(Es,S2,SR) 
+    ; 
+        expect(']',S1,SR),
+    Es = []
+    ).
+
+nafe_list(Es,S,SR) =>
+    (S=[']'|S1] -> 
+        S1=SR,
+        Es = []
+    ;
+        nonempty_nafe_list(Es,S,SR)
+    ).
+
+% Miscellaneous Elements --------------------------------
+
+ident_anns(IdentAnns,[ident(Ident)|S],SR) =>
+    (S= ['::'|S1] ->
+        IdentAnns = $'::'(Ident,Anns),
+        annotations_tail(Anns,S1,SR)
+    ;
+        IdentAnns = Ident,
+    S=SR
+    ).
+
+annotations_tail(Anns,S,SR) =>
+    annotation(Ann,S,S1),
+    (S1= ['::'|S2] ->
+        Anns = $'::'(Ann,Anns1),
+        annotations_tail(Anns1,S2,SR)
+    ;
+        Anns = Ann,
+    S1=SR
+    ).
+
+annotation(Ann,[ident(Ident)|S],SR) =>
+    (S=['('|S1] ->
+        nonempty_expr_list(Params,S1,SR),
+        Ann = new_struct(Ident,Params)
+    ;
+        Ann = Ident,
+    S=SR
+    ).
+
+solve_annotations(Anns,S,SR) =>
+    solve_annotation(Ann,S,S1),
+    (S1 = ['::'|S2] ->
+        Anns = $'::'(Ann,Anns1),
+        solve_annotations(Anns1,S2,SR)
+    ;
+        Anns = Ann,
+        S1=SR
+    ).
+
+solve_annotation(Ann,[ident(seq_search)|S],SR) =>
+    S=['(','['|S1],
+    comma_separated_annotations(Anns,S1,S2),
+    S2=[']',')'|SR],
+    Ann = $seq_search(Anns).
+solve_annotation(Ann,S,SR) =>
+    annotation(Ann,S,SR).
+
+comma_separated_annotations(Anns,S,SR) =>
+    annotation(Ann,S,S1),
+    (S1=[','|S2] ->
+        Anns=[Ann|Anns1],
+        comma_separated_annotations(Anns1,S2,SR)
+    ;
+        Anns=[Ann],
+        S1=SR
+    ).
+
+nonempty_expr_list(List,S,SR) =>
+    List=[E|Es],
+    flat_expr(E,S,S1),
+    (S1=[','|S2] -> 
+        expr_list(Es,S2,SR) 
+    ; 
+        expect(')',S1,SR),
+        Es = []
+    ).
+
+expr_list(Es,S,SR) =>
+    (S= [')'|S1] -> 
+        Es = [],
+        S1=SR
+    ; 
+        nonempty_expr_list(Es,S,SR)
+    ).
+
+% Auxiliaries ------------------------------
+
+expect_list([],S,SR) => S=SR.
+expect_list([Token|Tokens],S,SR) =>
+    expect(Token,S,S1),
+    expect_list(Tokens,S1,SR).
+
+expect(Expected,S,SR) =>
+    S=[Token|S1],
+    (Token == Expected ->
+        S1=SR
+    ;
+        S1=SR,
+        syntax_error("Unexpected Token,expected %w,found %w",Expected,Token)
+    ).
+
+
+syntax_error(Format,A1,A2) =>
+    print("Syntax error: "),
+    printf(Format,A1,A2),
+    nl,
+    exit.
+
+syntax_error(Format,A1) =>
+    print("Syntax error: "),
+    printf(Format,A1),
+    nl,
+    exit.
+

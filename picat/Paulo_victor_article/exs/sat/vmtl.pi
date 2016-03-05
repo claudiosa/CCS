@@ -1,0 +1,39 @@
+/*
+The SAT Compiler in B-Prolog
+The Vertex Magic Total Labeling (VMTL) Problem
+http://www.cs.nmsu.edu/ALP/2013/03/the-sat-compiler-in-b-prolog/
+by Neng-Fa Zhou
+*/
+import sat.
+
+main =>
+   vmtl(9).
+
+go =>
+    vmtl(12).
+
+vmtl(NV) =>
+    VVars = new_array(NV),
+    EVars = new_array(NV,NV),
+    foreach(I in 1..NV) EVars[I,I] = 0 end,
+    foreach(I in 1..NV-1, J in I+1..NV) EVars[I,J] = EVars[J,I] end,
+    Vars = vars((VVars,EVars)),
+    NE = NV*(NV-1) div 2,	% max number of edges for complete graph
+    Vars :: 1..(NV+NE),
+    LB = truncate(NV*(NV**2+3)/4),
+    UB = truncate(NV*(NV+1)**2/4),
+    K :: LB..UB,
+
+    % constraints
+    all_different(Vars),    
+    foreach(I in 1..NV)
+        VVars[I] + sum([EVars[I,J] : J in 1..NV]) #= K
+    end,
+    solve([K|Vars]),
+%    solve([$nvars(NVars),$ncls(NCls)],[K|Vars]),
+%	printf("%% nvars(%w) %n",NVars),
+%	printf("%% ncls(%w) %n",NCls),
+    writeln(k=K),
+    writeln(vvars=VVars),
+    writeln(evars=EVars).
+

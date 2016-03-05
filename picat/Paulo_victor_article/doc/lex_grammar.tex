@@ -1,0 +1,255 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+
+\chapter{\label{chapter:lex}Appendix: Tokens}
+\begin{scriptsize}
+\begin{verbatim}
+/* Picat lexical rules 
+      [...] means optional
+      {...} means 0, 1, or more occurrences
+      "..." means as-is
+      /*  ... */ comment
+
+   Tokens to be returned:
+
+      Token-type     lexeme
+     =====================
+      ATOM           a string of chars of the atom name
+      VARIABLE       a string of chars of the variable name
+      INTEGER        an integer literal
+      FLOAT          a float literal
+      STRING         a string of chars 
+      OPERATOR       a string of chars in the operator
+      SEPARATOR      one of "(" ")" "{" "}"  "[" "]"  
+*/
+line_terminator ->
+    the LF character, also known as "newline"
+    the CR character, also known as "return"
+    the CR character followed by the LF character
+
+input_char ->
+    unicode_input_char but not CR or LF
+
+comment ->
+    traditional_comment
+    end_of_line_comment
+
+traditional_comment ->
+    "/*" comment_tail
+
+comment_tail ->
+    "*" comment_tail_star
+    not_star comment_tail
+
+comment_tail_star ->
+    "/"
+    "*" comment_tail_star
+    not_star_not_slash comment_tail
+
+not_star ->
+    input_char but not "*"
+    line_terminator
+
+not_star_not_slash ->
+    input_char but not "*" or "/"
+    line_terminator
+
+end_of_line_comment ->
+    "%" {input_char} line_terminator
+
+white_space ->
+    the SP character, also known as "space"
+    the HT character, also known as "horizontal tab"
+    the FF character, also known as "form feed"
+    line_terminator
+
+token ->
+    atom_token
+    variable_token
+    integer_literal
+    real_literal
+    string_literal
+    operator_token
+    separator_token
+
+atom_token ->
+    small_letter {alphanumeric_char}
+    single_quoted_token
+   
+variable_token ->
+    anonymous_variable
+    named_variable 
+
+anonymous variable ->
+    "_"
+
+named_variable ->
+    "_" alphanumeric {alphanumeric}
+    capital_letter {alphanumeric} 
+
+alphanumeric ->
+    alpha_char
+    decimal_digit
+    
+alpha_char ->
+    underscore_char
+    letter
+
+letter ->
+    small_letter
+    capital_letter
+
+single_quoted_token ->
+    "'" {string_char} "'"
+
+string_literal ->
+    "\"" {string_char} "\""
+
+string_char ->
+    input_char 
+    escape_sequence
+    
+integer_literal ->
+    decimal_numeral 
+    hex_numeral 
+    octal_numeral 
+    binary_numeral
+
+decimal_numeral ->
+    decimal_digit [decimal_digits_and_underscores]
+
+decimal_digits_and_underscores ->
+    decimal_digit_or_underscore
+    decimal_digits_and_underscores decimal_digit_or_underscore 
+
+decimal_digit_or_underscore ->
+    decimal_digit
+    "_"
+
+hex_numeral ->
+    "0x" hex_digits
+    "0X" hex_digits
+
+hex_digits ->
+    hex_digit [hex_digits_and_underscores]
+
+hex_digits_and_underscores ->
+    hex_digit_or_underscore
+    hex_digits_and_underscores hex_digit_or_underscore
+
+hex_digit_or_underscore ->
+    hex_digit
+    "_"
+
+octal_numeral ->
+    "0O" octal_digits
+    "0o" octal_digits
+
+octal_digits ->
+    octal_digit [octal_digits_and_underscores] 
+
+octal_digits_and_underscores ->
+    octal_digit_or_underscore
+    octal_digits_and_underscores octal_digit_or_underscore
+
+octal_digit_or_underscore ->
+    octal_digit
+    "_"
+
+binary_numeral ->
+    "0b" binary_digits 
+    "0B" binary_digits
+
+binary_digits:
+    binary_digit [binary_digits_and_underscores]
+
+binary_digits_and_underscores ->
+    binary_digit_or_underscore 
+    binary_digits_and_underscores binary_digit_or_underscore 
+
+binary_digit_or_underscore:
+    binary_digit
+    "_" 
+
+real_literal ->
+    decimal_numeral "." decimal_numeral [exponent_part] 
+
+exponent_part ->
+    exponent_indicator signed_integer
+
+exponent_indicator ->
+    "e" 
+    "E"
+
+signed_integer ->
+    [sign] decimal_numeral
+
+sign ->
+    "+"
+    "-"
+
+separator ->
+    one of "(" ")" "{" "}"  "[" "]"  
+
+operator ->
+    one of
+      "=" "!=" ">" ">=" "<" "<=" "=<" ".." "!"
+      "," ";" ":" "::" "." ". " (dot-whitespace)
+      "=>" "?=>" "==" "!==" ":=" "|" "$" "@"
+      "/\" "\/" "~" "^" "<<" ">>"
+      "+" "-" "*" "**" "/" "/>" "/<" "^" 
+      "#=" "#!=" "#>" "#>=" "#<" "#<=" "#=<"
+      "#/\" "#\/" "#~" "#^" "#=>" "#<=>"
+      "@>" "@>=" "@<" "@<=" "@=<"
+
+small_letter ->
+    one of "a" "b" ... "z"
+
+capital_letter ->
+    one of "A" "B" ... "Z"
+
+decimal_digit ->
+    one of "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
+
+hd ->
+    hex_digit
+
+hex_digit ->
+    one of 
+       "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" 
+       "a" "b" "c" "d" "e" "f" "A" "B" "C" "D" "E" "F"
+
+octal_digit ->
+    one of "0" "1" "2" "3" "4" "5" "6" "7"
+
+binary_digit ->
+    one of "0" "1" 
+
+escape_sequence ->
+    "\b"    /* \u0008: backspace BS */
+    "\t"    /* \u0009: horizontal tab HT */
+    "\n"    /* \u000a: linefeed LF */
+    "\f"    /* \u000c: form feed FF */
+    "\r"    /* \u000d: carriage return CR */
+    "\""    /* \u0022: double quote " */
+    "\'"    /* \u0027: single quote ' */
+    "\\"    /* \u005c: backslash \ */
+    unicode_escape 
+
+unicode_escape ->
+    "\u" hd hd hd hd 
+    "\U" hd hd hd hd hd hd hd hd 
+\end{verbatim}
+\end{scriptsize}
+\ignore{
+\end{document}
+}

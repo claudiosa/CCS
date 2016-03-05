@@ -1,0 +1,107 @@
+% solitaire.pi in Picat
+% https://www.mat.unical.it/aspcomp2013/Solitaire
+% by Neng-Fa Zhou, January 21, 2013
+% translated to Picat on August 23, 2013
+import planner.
+
+go =>
+   test.
+
+main =>  % read facts from stdin
+    test.
+
+asp(As),
+    As1 = [Fact1 : Fact in As, (Fact = $time(T) -> Fact1 = $step(T); Fact1=Fact)],
+    cl_facts(As1),
+    initialize_table,
+    max_time(MT),
+    findall([X|Y],full(X,Y)) = Cells,
+    sort(Cells) = State0,
+    plan((State0,MT),Plan)
+=>
+    println('ANSWER'),
+    output_plan(Plan,1),nl.
+asp(_) =>
+    println('INCONSISTENT').
+
+max_time(MT) =>
+    step(MT),
+    not (step(AT), AT>MT).
+
+% It's the final state if there is only one peg left on board or 
+% the given number of moves has been made
+final(([_],_)) => true.
+final((_,0)) => true.
+
+action((State,T),State1,Action,ActionCost) =>
+    ActionCost=1,
+    select(Cell,State,RState),
+    Cell=[X|Y],
+    (   X1=X+1, Y1=Y, X2=X1+1, Y2=Y, Action=$move(right,X,Y);
+	X1=X-1, Y1=Y, X2=X1-1, Y2=Y, Action=$move(left,X,Y);
+	X1=X, Y1=Y+1, X2=X, Y2=Y1+1, Action=$move(down,X,Y);
+	X1=X, Y1=Y-1, X2=X, Y2=Y1-1, Action=$move(up,X,Y)
+    ),
+    field(X1,Y1),
+    field(X2,Y2),
+    Cell1=[X1|Y1],
+    membchk(Cell1,RState),
+    Cell2=[X2|Y2],
+    not membchk(Cell2,RState),
+    State1 = (RState.delete(Cell1).insert_ordered(Cell2), T-1).
+
+table
+field(X,Y) ?=> empty(X,Y).
+field(X,Y) => full(X,Y).
+
+output_plan([],_) => true.
+output_plan([move(D,X,Y)|Plan],T) =>
+    printf("move(%w,%w,%w,%w). ",T,D,X,Y),
+    T1 is T+1,
+    output_plan(Plan,T1).
+
+test =>
+    asp($[time(1),time(2),time(5),
+	   empty(3,1),empty(4,1),empty(5,1),empty(3,2),empty(4,2),empty(5,2),
+	   empty(1,3),empty(2,3),empty(3,3),empty(4,3),empty(5,3),empty(6,3),
+	   empty(7,3),empty(1,4),empty(2,4),full(3,4),full(4,4),empty(5,4),
+	   empty(6,4),empty(7,4),empty(1,5),empty(2,5),full(3,5),empty(4,5),
+	   full(5,5),empty(6,5),empty(7,5),empty(3,6),full(4,6),empty(5,6),
+	   empty(3,7),empty(4,7),empty(5,7)]).
+
+
+test2 =>
+    asp($[time(1),time(2),time(3),time(4),time(5),time(6),
+	   time(7),time(8),time(9),time(10),time(11),time(12),
+	   time(13),time(14),time(15),time(16),time(17),time(18),
+	   time(19),time(20),time(21),time(22),time(23),time(24),
+	   full(3,1),full(4,1),full(5,1),full(3,2),full(4,2),full(5,2),
+	   full(1,3),full(2,3),full(3,3),full(4,3),full(5,3),full(6,3),
+	   full(7,3),full(1,4),full(2,4),full(3,4),empty(4,4),full(5,4),
+	   full(6,4),full(7,4),full(1,5),full(2,5),full(3,5),full(4,5),
+	   full(5,5),full(6,5),full(7,5),full(3,6),full(4,6),full(5,6),
+	   full(3,7),full(4,7),full(5,7)]).
+
+test3 =>
+    asp($[time(1),time(2),time(3),time(4),time(5),time(6),
+	   time(7),time(8),time(9),time(10),time(11),time(12),
+	   time(13),time(14),time(15),time(16),time(17),time(18),
+	   time(19),time(20),time(21),time(22),time(23),time(24),
+	   full(3,1),  full(4,1),  full(5,1),
+	   full(3,2),  full(4,2),  full(5,2),
+	   full(1,3),  full(2,3),  full(3,3), empty(4,3),  full(5,3),  full(6,3),  full(7,3),
+	   full(1,4),  full(2,4),  full(3,4),  full(4,4),  full(5,4),  full(6,4),  full(7,4),
+	   full(1,5),  full(2,5),  full(3,5),  full(4,5),  full(5,5),  full(6,5),  full(7,5),
+	   full(3,6),  full(4,6),  full(5,6),
+	   full(3,7),  full(4,7),  full(5,7)]).
+
+test4 =>
+    asp($[time(30),
+    full(3,1), full(4,1), full(5,1),
+    full(3,2), full(4,2), full(5,2),
+    full(1,3), full(2,3), full(3,3), full(4,3), full(5,3), full(6,3), full(7,3),
+    full(1,4), full(2,4), full(3,4), empty(4,4), full(5,4), full(6,4), full(7,4),
+    full(1,5), full(2,5), full(3,5), full(4,5), full(5,5), full(6,5), full(7,5),
+    full(3,6), full(4,6), full(5,6),
+    full(3,7), full(4,7), full(5,7)
+	   ]).

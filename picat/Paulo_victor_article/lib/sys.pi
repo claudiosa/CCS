@@ -1,0 +1,31 @@
+module sys. % imported by default
+
+abort => abort.
+cl(File) => cl(File).
+cl_facts(Facts) => cl_facts(Facts,[]).
+cl_facts(Facts,IndexInfo) => cl_facts(Facts,IndexInfo).
+command(String) = command(String).
+compile(File) => compile(File).
+compile_bp(File) => compile_bp(File).
+debug => debug.
+exit => halt.
+garbage_collect => garbage_collect.
+garbage_collect(Size) => garbage_collect(Size).
+halt => halt.
+help => help.
+initialize_table => initialize_table.
+load(File) => load(File).
+loaded_modules() = loaded_modules().
+nodebug => nodebug.
+nospy => nospy.
+notrace => notrace.
+picat_path() = picat_path().
+spy(Point) => spy(Point).
+statistics => statistics.
+statistics(Name,Val) => statistics(Name,Val).
+statistics_all() = statistics_all().
+time(Goal) => throw($meta_meta_call_not_allowed(time(Goal))).
+time2(Goal) => throw($meta_meta_call_not_allowed(time2(Goal))).
+time_out(Goal,Limit,Res) => throw($meta_meta_call_not_allowed(time_out(Goal,Limit,Res))).
+trace => trace.
+

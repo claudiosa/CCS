@@ -1,0 +1,254 @@
+/*
+  Some general utilities in Picat.
+  Others have been moved to modules basic, math, sys, etc.
+  by Hakan Kjellerstrand and Neng-Fa Zhou.
+*/
+
+module util.
+
+% array_matrix_to_list(A) = array_matrix_to_list(A).
+% array_matrix_to_list_matrix(A) = array_matrix_to_list_matrix(A).
+% columns(Matrix) = columns(Matrix).
+% diagonal1(Matrix) = diagonal1(Matrix).
+% diagonal2(Matrix) = diagonal2(Matrix).
+% find(String, SubString, From, To) => find(String, SubString, From, To).
+% find_first_of(Compound,Pattern) = find_first_of(Compound,Pattern).
+% find_ignore_case(String, SubString, From, To) => find_ignore_case(String, SubString, From, To).
+% find_last_of(Compound,Pattern) = find_last_of(Compound,Pattern).
+% join(S) = join(S).
+% join(S, Seperator) = join(S, Seperator).
+% list_matrix_to_array_matrix(L) = list_matrix_to_array_matrix(L).
+% lstrip(L) = lstrip(L," \t\n\r").
+% lstrip(L,Chars) = lstrip(L,Chars).
+% matrix_multi(A,B) = matrix_multi(A,B).
+% nextto(X,Y,List) => nextto(X,Y,List).
+% permutation(Xs,Ys) => permutation(Xs,Ys).
+% permutations(Xs) => permutations(Xs).
+% power_set(Set) = power_set(Set).
+% replace(Term,Old,New) = replace(Term,Old,New).
+% replace_at(Compound,I,NewArg) = replace_at(Compound,I,NewArg).
+% rows(Matrix) = rows(Matrix).
+% rstrip(L) = rstrip(L," \t\n\r").
+% rstrip(L,Chars) = rstrip(L,Chars).
+% split(Str) = split(Str).
+% split(Str,Seperators) = split(Str,Seperators).
+% strip(L) = strip(L," \t\n\r").
+% strip(L,Chars) = strip(L,Chars).
+% transpose(Matrix) = transpose(Matrix).
+
+%
+% Convert a 2D array to a list
+%
+array_matrix_to_list(A) = L =>
+    NRows = A.length,
+    NCols = A[1].length,
+    L = [A[I,J] : I in 1..NRows, J in 1..NCols].
+
+% Convert a 2D array to a 2D matrix of lists
+array_matrix_to_list_matrix(A) = L =>
+    L = [A[I].to_list() : I in 1..A.length].
+
+% Convert a 2D list matrix to a 2D array matrix
+list_matrix_to_array_matrix(L) = A =>
+    bp.list_matrix_to_array_matrix(L,A).
+
+%
+% Join a list of strings with a join character.
+% Res = join(String,JoinChar)
+%
+join(S) = join(S," ").
+
+join(S, JoinAtm) = Res, atom(JoinAtm) => 
+    join_aux(S,JoinAtm.to_string(),Res).
+join(S,JoinStr) = Res, string(JoinStr) => 
+    join_aux(S,JoinStr,Res).
+join(S,JoinStr) = _Res => 
+    handle_exception($string_or_atom_expected(JoinStr),$join(S,JoinStr)).
+
+private
+join_aux([],_JoinStr,Res)  => Res=[].
+join_aux([W|Str],JoinStr,Res)  => 
+    once(append(W,Res1,Res)),
+    (Str==[]-> 
+	Res2=Res1
+    ;
+        once(append(JoinStr,Res2,Res1))
+    ),
+    join_aux(Str,JoinStr,Res2).
+
+%%%%
+% replace occurrences of Old in T (a variable or an atomic value) by New
+replace([H|T],Old,New) = [NH|NT] => 
+    NH = replace(H,Old,New), 
+    NT = replace(T,Old,New).
+replace(T,Old,New)=NT,struct(T) => 
+    NT = new_struct(T.name,T.length),
+    foreach(I in 1 .. T.length) 
+        NT[I] = replace(T[I],Old,New) 
+    end.
+replace(Old,Old,New) = New.
+replace(T,_Old,_New) = T.
+
+%%%%
+% return a copy of the compound value, replacing the Ith argument by NewVal
+replace_at(List,I,NewVal) = NewList, integer(I),list(List) =>
+    replace_list_at(List,I,NewVal,NewList,ErrorFlag),
+    (var(ErrorFlag) -> true; handle_exception($out_of_range(I),$replace_at(List,I,NewVal))).
+replace_at(Struct,I,NewVal) = NewStruct, integer(I), struct(Struct) =>
+    Arity = len(Struct),
+    (I>=1, I=<Arity ->
+	NewStruct = new_struct(Struct.name,Arity),
+	foreach(J in 1 .. Arity) 
+            (J==I ->
+	        NewStruct[J] = NewVal
+	    ;
+	        NewStruct[J] = Struct[J]
+	    )
+	end
+    ;
+        handle_exception($out_of_range(I),$replace_at(Struct,I,NewVal))
+    ).
+
+private
+replace_list_at([_|List],1,NewVal,NewList,_ErrorFlag) => NewList=[NewVal|List].
+replace_list_at([E|List],I,NewVal,NewList,ErrorFlag) =>
+    NewList=[E|NewList1],
+    replace_list_at(List,I-1,NewVal,NewList1,ErrorFlag).
+replace_list_at(_,_,_,_,ErrorFlag) => ErrorFlag=1.
+
+% match a string
+%   find(String, SubString,From,To)
+%
+% (If we want to have multiple results it must be a predicate,
+%  not a function.)
+find(String, SubString, From, To) =>
+    SubLen = SubString.length,
+    bp.append(Pre,SubString,_,String),
+    From = Pre.length+1,
+    To = From+SubLen-1.
+
+% Case insensitive match
+find_ignore_case(String, SubString, From, To) =>
+    String2 = String.to_lowercase(),
+    SubString2 = SubString.to_lowercase(),
+    find(String2,SubString2,From,To).
+
+%%%%
+% searches for the first argument that unifies with Pattern and returns the argument's index
+find_first_of(List,Pattern) = Index,list(List) =>
+    find_list_first_of(List,Pattern,1,Index).
+find_first_of(Struct,Pattern) = Index,struct(Struct) =>
+    find_struct_first_of(Struct,Pattern,1,len(Struct),Index).
+find_first_of(Struct,_Pattern) = _ =>
+    handle_exception($compound_expected(Struct),find_first_of).
+
+find_list_first_of([],_Pattern,_CurIndex,Index) => Index = -1.
+find_list_first_of([E|L],Pattern,CurIndex,Index), E != Pattern => % not unifiable
+    find_list_first_of(L,Pattern,CurIndex+1,Index).
+find_list_first_of(_L,_Pattern,CurIndex,Index) => Index=CurIndex.
+
+find_struct_first_of(_Struct,_Pattern,CurIndex,Arity,Index), CurIndex>Arity => Index = -1.
+find_struct_first_of(Struct,Pattern,CurIndex,Arity,Index), Struct[CurIndex] != Pattern => % not unifiable
+    find_struct_first_of(Struct,Pattern,CurIndex+1,Arity,Index).
+find_struct_first_of(_,_,CurIndex,_Arity,Index) => Index = CurIndex.
+
+%%%%
+% searches for the last argument that unifies with Pattern and returns the argument's index
+find_last_of(List,Pattern) = Index,list(List) =>
+    find_list_last_of(List,Pattern,1,-1,Index).
+find_last_of(Struct,Pattern) = Index,struct(Struct) =>
+    find_struct_last_of(Struct,Pattern,len(Struct),Index).
+find_last_of(Struct,_) = _ =>
+    handle_exception($compound_expected(Struct),find_last_of).
+
+find_list_last_of([],_Pattern,_CurIndex,Index0,Index) => Index=Index0.
+find_list_last_of([E|L],Pattern,CurIndex,Index0,Index), E != Pattern => % not unifiable
+    find_list_last_of(L,Pattern,CurIndex+1,Index0,Index).
+find_list_last_of([_|L],Pattern,CurIndex,_Index0,Index) =>
+    find_list_last_of(L,Pattern,CurIndex+1,CurIndex,Index).
+
+find_struct_last_of(_Struct,_Pattern,0,Index) => Index = -1.
+find_struct_last_of(Struct,Pattern,CurIndex,Index), Struct[CurIndex] != Pattern => % not unifiable
+    find_struct_last_of(Struct,Pattern,CurIndex-1,Index).
+find_struct_last_of(_,_,CurIndex,Index) => Index = CurIndex.
+
+% A*B=C
+matrix_multi(A,B) = C,array(A),array(B) =>  % A and B must be array matricies
+    C = new_array(A.length,B[1].length),
+    foreach(I in 1..A.length, J in 1..B[1].length)
+        C[I,J] = sum([A[I,K]*B[K,J] : K in 1..A[1].length])
+    end.
+
+% nondet
+permutation(Xs,Ys) => bp.permutation(Xs,Ys).
+
+% generate permutations
+permutations([]) = [[]].
+permutations([H|T]) = [insert(P,I,H) : P in Ps, I in 1..P.length+1] => Ps = permutations(T).
+
+%nonet
+nextto(X,Y,List) => bp.nextto(X,Y,List).
+
+% generate the power set
+power_set([]) = [[]].
+power_set([H|T]) = P1++P2 =>
+    P1 = power_set(T),
+    P2 = [[H|S] : S in P1].
+
+%
+% Split a string into tokens given some split chars
+% List = split(String, Seperators)
+%
+split(Str) = split(Str," \t\n\r").  % use white spaces as the default set of separators
+
+split(Str,Seperators) = Tokens =>
+    bp.picat_split_string(Str,Seperators,Tokens).
+
+lstrip(L) = lstrip(L," \t\n\r").
+
+lstrip([],_Elms) = [].
+lstrip([E|L],Elms) = NewL, membchk(E,Elms) => NewL = lstrip(L,Elms).
+lstrip(L,_Elms) = NewL => NewL=L.
+
+rstrip(L) = rstrip(L," \t\n\r").
+
+rstrip(L,Elms) = L.reverse().lstrip(Elms).reverse().
+
+strip(L) = strip(L," \t\n\r").
+
+strip(L,Elms) = L.lstrip(Elms).rstrip(Elms).
+
+%
+% Transpose a 2D matrix
+%
+transpose(Matrix) = Transposed,array(Matrix) =>  % array matrix
+    N = Matrix.length,
+    M = Matrix[1].length,
+    Transposed=new_array(M,N),
+    foreach(I in 1..N, J in 1..M)
+        Transposed[J,I] = Matrix[I,J]
+    end.
+transpose(Matrix) = Transposed =>  % assumed to be list matrix
+    N = Matrix.length,
+    M = Matrix[1].length,
+    Transposed = [Mj : J in 1..M, Mj = [Matrix[I,J] : I in 1..N]].
+
+%=============
+% for matrices (inspired by B-Prolog's ^rows, ^columns, ^diag1, ^diag2)
+%
+% These should be put in util.pi since transpose/1 is used.
+
+rows(M) = M, list(M)  => true.
+rows(A) = Rows, array(A)  =>  NRows = A.length, Rows = [A[I] : I in 1..NRows].
+
+columns(M) = [Column : Column in M.transpose()], list(M) => true.
+columns(A) = [Column : Column in A.transpose()], array(A) => true.
+
+diagonal1(M) = [M[I,I] : I in 1..M.length], list(M)  => true.
+diagonal1(A) = [A[I,I] : I in 1..A.length], array(A)  => true.
+
+diagonal2(M) = [M[I,M.length-I+1] : I in 1..M.length], list(M)  => true.
+diagonal2(A) = [A[I,A.length-I+1] : I in 1..A.length], array(A)  => true.
+
+
+

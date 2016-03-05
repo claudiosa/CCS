@@ -1,0 +1,21 @@
+/* copy all the plain files from subdirectories to the root directory */
+
+import os.
+
+main =>
+    get_global_map().put(root,pwd()),
+    flatten_dir(pwd()).
+
+flatten_dir(Dir) =>
+    Dirs = listdir(Dir),
+    foreach (File in Dirs, File !== ".", File !== "..")
+       FullName = full_path(Dir,File),
+       (directory(FullName) ->
+           flatten_dir(FullName)
+        ;
+           cp(FullName,full_path(get_global_map().get(root),File))
+        )
+    end.
+         
+full_path(Dir,Name) =
+    Dir ++ [separator()] ++ Name.

@@ -1,0 +1,11 @@
+fibs(Upto) = Fibs =>
+    L = [2,1],
+    F = L[1]+L[2],
+    while (F <= Upto)
+        L := [F|L],
+	F := L[1]+L[2]
+    end,
+    Fibs = L.
+    
+main =>
+    writeln(sum([X : X in fibs(4000000), even(X)])).

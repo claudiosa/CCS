@@ -1,0 +1,30 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+
+}
+\chapter{The \texttt{ordset} Module}
+An ordered set is represented as a sorted list that does not contain duplicates. The \texttt{ordset} module provides useful utility functions and predicates on ordered sets. This module must be imported before use.
+
+\begin{itemize}
+\item \texttt{delete($OSet$,$Elm$) = $OSet_1$}\index{\texttt{delete/2}}: This function returns of a copy of $OSet$ that does not contain the element $Elm$.
+\item \texttt{disjoint($OSet_1$,$OSet_2$)}\index{\texttt{disjoint/2}}: This predicate is true when $OSet_1$ and $OSet_2$ have no element in common. 
+\item \texttt{insert($OSet$,$Elm$) = $OSet_1$}\index{\texttt{insert/2}}: This function returns a copy of $OSet$ with the element $Elm$ inserted.
+\item \texttt{intersection($OSet_1$,$OSet_2$)=$OSet_3$}\index{\texttt{intersection/2}}: This function returns an ordered set that contains elements which are in both $OSet_1$ and $OSet_2$.
+\item \texttt{new\_ordset($List$) = $OSet$}\index{\texttt{new\_ordset/1}}: This function returns an ordered set that contains the elements of $List$.
+\item \texttt{ordset($Term$)}\index{\texttt{ordset/1}}: This predicate is true if $Term$ is an ordered set.
+\item \texttt{subset($OSet_1$,$OSet_2$)}\index{\texttt{subset/2}}: This predicate is true if $OSet_1$ is a subset of $OSet_2$.
+\item \texttt{subtract($OSet_1$,$OSet_2$)=$OSet_3$}\index{\texttt{subtract/2}}: This function returns an ordered set that contains all of the elements of $OSet_1$ which are not in $OSet_2$.
+\item \texttt{union($OSet_1$,$OSet_2$)=$OSet_3$} \index{\texttt{union/2}}: This function returns an ordered set that contains all of the elements which are present in either $OSet_1$ or $OSet_2$.
+\end{itemize}
+
+\ignore{
+\end{document}
+}

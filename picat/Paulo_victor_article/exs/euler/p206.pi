@@ -1,0 +1,20 @@
+/*********************************************************
+        http://projecteuler.net/problem=206
+
+Find the unique positive integer whose square has the form 
+1_2_3_4_5_6_7_8_9_0, where each "_" is a single digit.
+
+*********************************************************/
+% X's last digit must be 0 and X*X's last two digits must be 00
+main =>
+    I = sqrt(19293949596979899).to_integer(),
+    Found=fail, 
+    while (not Found)
+        if ((I mod 10 == 3 || I mod 10 == 7) &&  (I*I).to_string()=['1',_,'2',_,'3',_,'4',_,'5',_,'6',_,'7',_,'8'|_]) then
+            writeln(I*10),
+	    Found := true
+	else
+            I := I-1
+	end
+    end.
+

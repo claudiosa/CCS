@@ -1,0 +1,13 @@
+/*********************************************************
+        http://projecteuler.net/problem=99
+*********************************************************/
+
+import util.
+
+main =>
+    Lines = read_file_lines("base_exp.txt"),
+    TokLists = [split(Line,",") : Line in Lines],
+    NumLists = [[to_integer(BStr),to_integer(EStr)] : [BStr,EStr] in TokLists],
+    ResList = [E*log(B) : [B,E] in NumLists],
+    writeln(ResList.find_first_of(max(ResList))).
+

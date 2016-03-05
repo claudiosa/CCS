@@ -1,0 +1,730 @@
+/****************************************************************************
+    xcsp2pi.pi, converted to Picat from B-Prolog, Neng-Fa Zhou, Feb. 5, 2015.
+
+    This program converts CSP instances from XCSP format to Picat.
+    The specification of the XCSP format can be found at:
+
+    http://www.cril.univ-artois.fr/~lecoutre/benchmarks.html
+
+   This program can be loaded into the Picat system and run by a query 
+   
+   Picat> cl("xcsp2pi")
+   Picat> main("nqueens_8")
+
+   Alternatively, this program can be run as a standalone command:
+
+   picat xcsp2pi nqueens_8
+/*********************************************************************/
+
+main(InFile),string(InFile) =>
+    xcsp2picat(InFile).    
+main([InFile]),string(InFile) =>
+    xcsp2picat(InFile).
+main(Args) =>
+    println($invalid_args(Args)).           
+
+xcsp2picat(InFile) =>
+    (append(MainFileStr,".xml",InFile) -> 
+        CSPFile = InFile
+    ; 
+        MainFileStr = InFile,
+        CSPFile = InFile++".xml"
+    ),        
+    printf("c converting %s\n",CSPFile),
+    OutFile = MainFileStr++".pi",
+    InStream = open(CSPFile,read),
+    OutStream = open(OutFile,write),
+    process_xcsp_xml(InStream,OutStream),
+    close(InStream),
+    close(OutStream).
+
+process_xcsp_xml(InStream,OutStream) =>
+    println(OutStream,"import sat. \n"),
+    println(OutStream,"main ?=>"),
+    read_next_key_token(InStream,Token),
+    process_sections(InStream,OutStream,Token,_Preds),
+    printf(OutStream,"    solve(Vs),\n"),
+    printf(OutStream,"    writeln(Vs).\n"),
+    println(OutStream,"main => print(\"UNSATISFIABLE\\n\").\n\n"),
+    output_weighted_sum(OutStream).
+
+process_sections(_InStream,_OutStream,end_of_file,_Preds) => true.  % end-of-file
+process_sections(InStream,OutStream,presentation,Preds) => 
+    read_picat_token(InStream,_,Token),
+    skip_presentation(InStream,Token),
+    read_next_key_token(InStream,KeyToken),
+    process_sections(InStream,OutStream,KeyToken,Preds).
+process_sections(InStream,OutStream,domain,Preds) => 
+    not not process_domain(InStream,OutStream),
+    read_next_key_token(InStream,KeyToken),
+    process_sections(InStream,OutStream,KeyToken,Preds).
+process_sections(InStream,OutStream,variable,Preds) => 
+    process_variables(InStream,OutStream,[],Preds).
+process_sections(InStream,OutStream,relation,Preds) => 
+    not not process_relation(InStream,OutStream),
+    read_next_key_token(InStream,KeyToken),
+    process_sections(InStream,OutStream,KeyToken,Preds).
+process_sections(InStream,OutStream,predicate,Preds) => 
+    process_predicate(InStream,Preds),
+    read_next_key_token(InStream,KeyToken),
+    process_sections(InStream,OutStream,KeyToken,Preds).
+process_sections(InStream,OutStream,constraint,Preds) => 
+    closetail(Preds),
+    not not process_constraint(InStream,OutStream,Preds),
+    read_next_key_token(InStream,KeyToken),
+    process_sections(InStream,OutStream,KeyToken,Preds).
+    
+skip_presentation(InStream,'</') => 
+    read_picat_token(InStream,_,Token),
+    (Token==presentation -> true; skip_presentation(InStream,Token)).
+skip_presentation(_InStream,'/>') =>  true.
+skip_presentation(InStream,_) => 
+    read_picat_token(InStream,_,Token),
+    skip_presentation(InStream,Token).
+
+process_variables(InStream,OutStream,Vars,Preds) =>
+    process_variable(InStream,OutStream,Var),
+    Vars1=[Var|Vars],
+    read_next_key_token(InStream,KeyToken),
+    (KeyToken==variable->
+        process_variables(InStream,OutStream,Vars1,Preds)
+     ;
+        Vars2 = reverse(Vars1),
+        print(OutStream,"    Vs = ["),
+        output_vars(OutStream,Vars2),
+        println(OutStream,"],"),
+        process_sections(InStream,OutStream,KeyToken,Preds)
+    ).
+
+%%%%
+process_domain(InStream,OutStream) =>
+    read_picat_token(InStream,_,AName),         % name
+    process_attrs(InStream,AName,Attrs,Token),
+    assoc_member(name,NameCodes,Attrs),
+    printf(OutStream,"    D%s=[",NameCodes),
+    read_dom_item(InStream,Token,Item),
+    read_picat_token(InStream,_,NextToken),  
+    process_dom_items(InStream,OutStream,Item,_IsFirst,NextToken),
+    skip1(InStream,domain).
+
+read_dom_item(InStream,'-',Item) =>
+    read_picat_token(InStream,_,Token),  % must be an int
+    Item is -Token.
+read_dom_item(InStream,'+',Item) =>
+    read_picat_token(InStream,_,Token),  % must be an int
+    Item is Token.
+read_dom_item(_InStream,Token,Item) =>
+    Item = Token.
+
+process_dom_items(InStream,OutStream,Item1,IsFirst,'..') =>
+    read_picat_token(InStream,_,Token),  
+    read_dom_item(InStream,Token,Item2),
+    List = Item1..Item2,
+    foreach (E in List)
+        (var(IsFirst)->IsFirst=0; print(OutStream,",")),    
+        printf(OutStream,"%w",E)
+    end,
+    read_picat_token(InStream,_,NextToken), 
+    process_dom_items_prime(InStream,OutStream,NextToken).    
+process_dom_items(InStream,OutStream,Item1,IsFirst,Token) =>
+    (var(IsFirst)->IsFirst=0; print(OutStream,",")),
+    printf(OutStream,"%w",Item1),
+    process_dom_items_prime(InStream,OutStream,Token).
+
+process_dom_items_prime(InStream,OutStream,'-') =>
+    read_picat_token(InStream,_,Token),  % must be an int
+    Item is -Token,
+    read_picat_token(InStream,_,NextToken),  % must be an int
+    process_dom_items(InStream,OutStream,Item,0,NextToken).
+process_dom_items_prime(InStream,OutStream,'+') =>
+    read_picat_token(InStream,_,Token),  % must be an int
+    Item = Token,
+    read_picat_token(InStream,_,NextToken),  % must be an int
+    process_dom_items(InStream,OutStream,Item,0,NextToken).
+process_dom_items_prime(InStream,OutStream,Token),integer(Token) =>
+    read_picat_token(InStream,_,NextToken),  % must be an int
+    process_dom_items(InStream,OutStream,Token,0,NextToken).
+process_dom_items_prime(_InStream,OutStream,_Token) =>
+    println(OutStream,"],").
+    
+%%%%
+process_variable(InStream,OutStream,Var) =>
+    read_picat_token(InStream,_,AName), 
+    process_attrs(InStream,AName,Attrs,_NextToken),
+    assoc_member(name,VNameCodes,Attrs),
+    assoc_member(domain,DNameCodes,Attrs),
+    Var = to_atom(VNameCodes),
+    printf(OutStream,"    V%s :: D%s,%n",VNameCodes,DNameCodes).
+
+%%%%
+process_relation(InStream,OutStream) =>
+    read_picat_token(InStream,_,AName), 
+    process_attrs(InStream,AName,Attrs,NextToken1),
+    assoc_member(name,RNameCodes,Attrs),
+%    assoc_member(arity,ArityCodes,Attrs),
+    assoc_member(semantics,Semantics,Attrs),
+    get_global_map().put(RNameCodes,Semantics),
+    printf(OutStream,"    R%s = [",RNameCodes),
+    process_tuples(InStream,OutStream,NextToken1,NextToken2,_),
+    println(OutStream,"],"),
+    (NextToken2='/>' ->
+       (read_picat_token(InStream,_,'</'),read_picat_token(InStream,_,relation)->true;true)
+     ;
+       skip1(InStream,relation)
+    ).
+         % handle empty relation   <relation .../> </relation>
+         %                         <relation />
+         %        nonempty         <relation ...>12 12</relation>
+
+process_tuples(InStream,OutStream,'-',NToken,IsFirstTuple) => 
+    read_picat_token(InStream,_,Token1), % must be an integer
+    Token2 is -Token1,
+    process_tuples(InStream,OutStream,Token2,NToken,IsFirstTuple).
+process_tuples(InStream,OutStream,'+',NToken,IsFirstTuple) => 
+    read_picat_token(InStream,_,Token1), % must be an integer
+    process_tuples(InStream,OutStream,Token1,NToken,IsFirstTuple).
+process_tuples(InStream,OutStream,Token,NToken,IsFirstTuple), integer(Token) =>
+    (var(IsFirstTuple)->IsFirstTuple=0;print(OutStream,",")),
+    process_tuple(InStream,OutStream,Token,Token1,_),
+    process_tuples(InStream,OutStream,Token1,NToken,IsFirstTuple).
+process_tuples(InStream,OutStream,'|',NToken,IsFirstTuple) => 
+    read_picat_token(InStream,_,Token), 
+    process_tuples(InStream,OutStream,Token,NToken,IsFirstTuple).
+process_tuples(_InStream,_OutStream,Token,NToken,_IsFirstTuple) => NToken=Token.
+
+process_tuple(InStream,OutStream,'-',NToken,IsFirstElm) => 
+    read_picat_token(InStream,_,Token1), % must be an integer
+    Token2 is -Token1, 
+    process_tuple(InStream,OutStream,Token2,NToken,IsFirstElm).
+process_tuple(InStream,OutStream,'+',NToken,IsFirstElm) => 
+    read_picat_token(InStream,_,Token1), % must be an integer
+    process_tuple(InStream,OutStream,Token1,NToken,IsFirstElm).
+process_tuple(InStream,OutStream,Token,NToken,IsFirstElm), integer(Token) =>
+    (var(IsFirstElm) -> print(OutStream,"{"),IsFirstElm=0; print(OutStream,",")),
+    print(OutStream,Token),
+    read_picat_token(InStream,_,Token1), 
+    process_tuple(InStream,OutStream,Token1,NToken,IsFirstElm).
+process_tuple(_InStream,OutStream,Token,NToken,_IsFirstElm) => 
+    NToken=Token,
+    print(OutStream,"}").
+
+%%%%
+process_constraint(InStream,OutStream,Preds) =>
+    read_picat_token(InStream,_,AName), 
+    process_attrs(InStream,AName,Attrs,NextToken),
+    assoc_member(scope,Scope,Attrs),
+    assoc_member(reference,RefCodes,Attrs),
+    process_constraint(InStream,OutStream,RefCodes,Scope,Preds,NextToken).
+
+process_constraint(InStream,OutStream,"global:allDifferent",Scope,_Preds,NextToken) => 
+    tokenize(Scope,ActualArgs),
+    print(OutStream,"    all_distinct(["),
+    output_vars(OutStream,ActualArgs),
+    print(OutStream,"]),"),
+    (NextToken=='/>'->true;skip1(InStream,constraint)).
+process_constraint(InStream,OutStream,"global:alldifferent",Scope,Preds,NextToken) => 
+    process_constraint(InStream,OutStream,"global:allDifferent",Scope,Preds,NextToken).
+process_constraint(InStream,OutStream,"global:cumulative",_Scope,_Preds,_) => 
+    'skip_until>'(InStream,_,PToken),      % <parameters>
+    process_cumulative_params(InStream,PToken,Os,Ds,_Es,Hs,Limit),
+    print(OutStream,"    cumulative(["),
+    output_args(OutStream,Os), print(OutStream,"],["),
+    output_args(OutStream,Ds), print(OutStream,"],["),
+%    output_args(OutStream,Es), print(OutStream,"],["),
+    output_args(OutStream,Hs), printf(OutStream,"],%w),",Limit),
+    skip1(InStream,constraint).
+process_constraint(InStream,OutStream,"global:element",_Scope,_Preds,_) => 
+    'skip_until>'(InStream,_,IToken),           % <parameters> I
+    read_int_or_id(InStream,IToken,I),
+    read_picat_token(InStream,_,PToken),         % 
+    process_element_params(InStream,PToken,As), % [A1,...,An]
+    read_picat_token(InStream,_,VToken),         % V
+    read_int_or_id(InStream,VToken,V),
+    print(OutStream,"    element("),
+    output_arg(OutStream,I), print(OutStream,",["),
+    output_args(OutStream,As), print(OutStream,"],"),
+    output_arg(OutStream,V), print(OutStream,"),"),
+    skip1(InStream,constraint).
+process_constraint(InStream,OutStream,"global:weightedSum",_Scope,_Preds,_) => 
+    'skip_until>'(InStream,_,PToken),           % <parameters> 
+    process_sum_params(InStream,PToken,Coes,Vs,Rel,Rhs),
+    print(OutStream,"    call_weightedSum(["),
+    output_args(OutStream,Coes), print(OutStream,"],["),
+    output_args(OutStream,Vs), printf(OutStream,"],%w,%w),\n",Rel,Rhs),
+    skip1(InStream,constraint).
+process_constraint(InStream,OutStream,"global:weightedsum",_Scope,_Preds,_) => 
+    'skip_until>'(InStream,_,PToken),           % <parameters> 
+    process_sum_params(InStream,PToken,Coes,Vs,Rel,Rhs),
+    print(OutStream,"    call_weightedSum(["),
+    output_args(OutStream,Coes), print("],["),
+    output_args(OutStream,Vs), printf("],%w,%w),\n",Rel,Rhs),
+    skip1(InStream,constraint).
+process_constraint(InStream,OutStream,RefCodes,_Scope,Preds,_),  % predicate, must exist
+    member($pred(RefCodes,FormalArgs,Body),Preds)
+=>
+%    tokenize(Scope,ScopeVars),
+%    (ScopeVars=[_]->true;print(OutStream,"constr_scope(["),output_vars(OutStream,ScopeVars),println(OutStream,"]),")),
+    read_picat_token(InStream,_,_),         % <constraint ...>
+    'skip_until>'(InStream,_,PToken),      % <parameters>
+    process_actual_params(InStream,PToken,ActualArgs),
+    (FormalArgsCp,BodyCp) = copy_term((FormalArgs,Body)),
+    ActualArgs=FormalArgsCp,
+    output_constrs(OutStream,BodyCp),
+    skip1(InStream,constraint).
+process_constraint(InStream,OutStream,RefCodes,Scope,_Preds,NextToken) =>    % extension
+    tokenize(Scope,ActualArgs),
+%    writeln(get_global_map()),
+    (get_global_map().get(RefCodes,[]) = "supports" -> Type = "table_in"; Type = "table_notin"),
+    printf(OutStream,"    %s(",Type),
+    output_vars_tuple(OutStream,ActualArgs),
+    printf(OutStream,",R%s),\n",RefCodes),
+    (NextToken=='/>'->true;skip1(InStream,constraint)).
+
+process_actual_params(_InStream,'</',Args) =>  Args=[].
+process_actual_params(InStream,Token,Args), integer(Token) =>
+    Args=[Token|Args1],
+    read_picat_token(InStream,_,Token1),
+    process_actual_params(InStream,Token1,Args1).
+process_actual_params(InStream,'-',Args) => 
+    read_picat_token(InStream,_,Token1),
+    Token2 is -Token1,
+    process_actual_params(InStream,Token2,Args).
+process_actual_params(InStream,'+',Args) => 
+    read_picat_token(InStream,_,Token1),
+    process_actual_params(InStream,Token1,Args).
+process_actual_params(InStream,Token,Args) => 
+    Codes = to_string(Token),
+    VToken = to_atom(['V'|Codes]),
+    Args=[VToken|Args1],
+    read_picat_token(InStream,_,Token1),
+    process_actual_params(InStream,Token1,Args1).
+    
+process_cumulative_params(InStream,']',Os,Ds,Es,Hs,Limit) =>  
+    read_picat_token(InStream,_,LimitToken),    
+    read_int_or_id(InStream,LimitToken,Limit),
+    Os=[],Ds=[],Es=[],Hs=[].
+process_cumulative_params(InStream,'[',Os,Ds,Es,Hs,Limit) =>  
+    read_picat_token(InStream,_,NToken),
+    process_cumulative_params(InStream,NToken,Os,Ds,Es,Hs,Limit).
+process_cumulative_params(InStream,'{',Os,Ds,Es,Hs,Limit) =>  
+    Os=[O|Os1],Ds=[D|Ds1],Es=[E|Es1],Hs=[H|Hs1],
+    process_cumulative_param(InStream,O),
+    process_cumulative_param(InStream,D),
+    process_cumulative_param(InStream,E),
+    process_cumulative_param(InStream,H),
+    read_picat_token(InStream,_,_),  % }
+    read_picat_token(InStream,_,NToken),
+    process_cumulative_params(InStream,NToken,Os1,Ds1,Es1,Hs1,Limit).
+
+process_cumulative_param(InStream,A) =>
+    read_picat_token(InStream,_,Token),
+    process_cumulative_param(InStream,Token,A).
+
+process_cumulative_param(InStream,'<',A) =>  A='_$dummy',
+    read_picat_token(InStream,_,_),   % nil
+    read_picat_token(InStream,_,_).   % />
+process_cumulative_param(InStream,Token,A) =>  
+    read_int_or_id(InStream,Token,A).
+
+process_element_params(InStream,'[',As) => 
+    read_picat_token(InStream,_,Token),
+    process_element_params(InStream,Token,As).
+process_element_params(_InStream,']',As) =>  As=[].
+process_element_params(InStream,AToken,As) =>  As=[A|As1],
+    read_int_or_id(InStream,AToken,A),
+    read_picat_token(InStream,_,NToken),
+    process_element_params(InStream,NToken,As1).
+    
+process_sum_params(InStream,'[',Coes,Vs,Rel,Rhs) => 
+    read_picat_token(InStream,_,Token),
+    process_sum_params(InStream,Token,Coes,Vs,Rel,Rhs).
+process_sum_params(InStream,']',Coes,Vs,Rel,Rhs) => 
+    Coes=[],Vs=[],
+    read_picat_token(InStream,_,_),   %<
+    read_picat_token(InStream,_,Rel),
+    read_picat_token(InStream,_,_),   %/>
+    read_picat_token(InStream,_,RhsToken),
+    read_int_or_id(InStream,RhsToken,Rhs).
+process_sum_params(InStream,'{',Coes,Vs,Rel,Rhs) => 
+    Coes=[Coe|Coes1],
+    Vs=[V|Vs1],
+    read_picat_token(InStream,_,CoeToken),
+    read_int_or_id(InStream,CoeToken,Coe),
+    read_picat_token(InStream,_,V),
+    read_picat_token(InStream,_,_), % }
+    read_picat_token(InStream,_,Token),
+    process_sum_params(InStream,Token,Coes1,Vs1,Rel,Rhs).
+
+%%%%
+process_predicate(InStream,Preds) =>
+    read_picat_token(InStream,_,AName), 
+    process_attrs(InStream,AName,Attrs,_NextToken),
+    assoc_member(name,PNameCodes,Attrs),
+    'skip_until>'(InStream,_,PToken),      % <parameters>
+    process_formal_params(InStream,PToken,PredArgs,ArgsTab),
+    skip2(InStream,expression,'>'),
+    skip1(InStream,functional),
+    'skip_until>'(InStream,Type,EToken),
+    read_expression_tokens(InStream,Type,EToken,ETokens),
+    process_expression(ETokens,Constr,ArgsTab),
+    attach($pred(PNameCodes,PredArgs,Constr),Preds),
+    skip2(InStream,predicate,'>').
+     
+process_formal_params(_InStream,'</',Args,_ArgsTab) =>  Args=[].
+process_formal_params(InStream,int,Args,ArgsTab) =>  
+    read_picat_token(InStream,_,Token),
+    process_formal_params(InStream,Token,Args,ArgsTab).
+process_formal_params(InStream,Token,Args,ArgsTab) =>  
+    Args=[VArg|Args1],
+    attach($arg(Token,VArg),ArgsTab),
+    read_picat_token(InStream,_,NToken),
+    process_formal_params(InStream,NToken,Args1,ArgsTab).
+    
+read_expression_tokens(_InStream,_Type,'</',ETokens) =>  ETokens=[].
+read_expression_tokens(InStream,2,Token,ETokens) =>  
+    ETokens=[Token,'('|ETokens1],
+    read_picat_token(InStream,Type,Token1),
+    read_expression_tokens(InStream,Type,Token1,ETokens1).
+read_expression_tokens(InStream,_,Token,ETokens) =>  
+    ETokens=[Token|ETokens1],
+    read_picat_token(InStream,Type,Token1),
+    read_expression_tokens(InStream,Type,Token1,ETokens1).
+    
+process_expression([],Constrs,_ArgsTab) =>  Constrs=[].
+process_expression(ETokens,Constrs,ArgsTab) => 
+    process_bool_exp(ETokens,ETokens1,Constr,ArgsTab),
+    expand_and(Constr,Constrs,Constrs1),
+    process_expression(ETokens1,Constrs1,ArgsTab).
+
+expand_and((Constr1 #/\ Constr2),Constrs,ConstrsR) => 
+      expand_and(Constr1,Constrs,Constrs1),
+      expand_and(Constr2,Constrs1,ConstrsR).
+expand_and(1,Constrs,ConstrsR) =>  Constrs=ConstrsR.
+expand_and(0,Constrs,ConstrsR) =>  Constrs=[fail|ConstrsR].
+expand_and(Constr,Constrs,ConstrsR) =>  Constrs=[Constr|ConstrsR].
+
+process_bool_exp([false|Tokens],TokensR,Constr,_ArgsTab) =>  
+      Constr=0,TokensR=Tokens.
+process_bool_exp([true|Tokens],TokensR,Constr,_ArgsTab) =>  
+      Constr=1,TokensR=Tokens.
+process_bool_exp([not,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_bool_exp(Tokens,Tokens1,Constr1,ArgsTab),
+      Tokens1=[')'|TokensR],
+      Constr=(#~ Constr1).
+process_bool_exp([and,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_bool_exp(Tokens,Tokens1,Constr1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_bool_exp(Tokens2,Tokens3,Constr2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Constr1 #/\ Constr2).
+process_bool_exp([or,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_bool_exp(Tokens,Tokens1,Constr1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_bool_exp(Tokens2,Tokens3,Constr2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Constr1 #\/ Constr2).
+process_bool_exp([xor,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_bool_exp(Tokens,Tokens1,Constr1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_bool_exp(Tokens2,Tokens3,Constr2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Constr1 #^ Constr2).
+process_bool_exp([iff,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_bool_exp(Tokens,Tokens1,Constr1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_bool_exp(Tokens2,Tokens3,Constr2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Constr1 #<=> Constr2).
+process_bool_exp([eq,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Exp1 #= Exp2).
+process_bool_exp([ne,'('|Tokens],TokensR,Constr,ArgsTab) => 
+       process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+       Tokens1=[','|Tokens2],
+       process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+       Tokens3=[')'|TokensR],
+       Constr=(Exp1 #!= Exp2).
+process_bool_exp([ge,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Exp1 #>= Exp2).
+process_bool_exp([gt,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Exp1 #> Exp2).
+process_bool_exp([le,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Exp1 #=< Exp2).
+process_bool_exp([lt,'('|Tokens],TokensR,Constr,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Constr=(Exp1 #< Exp2).
+
+process_int_exp([neg,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[')'|TokensR],
+      Exp = $(-Exp1).
+process_int_exp([abs,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[')'|TokensR],
+      Exp = $abs(Exp1).
+process_int_exp([add,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp = $(Exp1+Exp2).
+process_int_exp([sub,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp = $(Exp1-Exp2).
+process_int_exp([mul,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp=$(Exp1*Exp2).
+process_int_exp([div,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp=$(Exp1//Exp2).
+process_int_exp([mod,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp=$(Exp1 mod Exp2).
+process_int_exp([pow,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp = $(Exp1 ** Exp2).
+process_int_exp([min,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp = $min(Exp1,Exp2).
+process_int_exp([max,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_int_exp(Tokens,Tokens1,Exp1,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp2,ArgsTab),
+      Tokens3=[')'|TokensR],
+      Exp = $max(Exp1,Exp2).
+process_int_exp([if,'('|Tokens],TokensR,Exp,ArgsTab) => 
+      process_bool_exp(Tokens,Tokens1,Cond,ArgsTab),
+      Tokens1=[','|Tokens2],
+      process_int_exp(Tokens2,Tokens3,Exp1,ArgsTab),
+      Tokens3=[','|Tokens4],
+      process_int_exp(Tokens4,Tokens5,Exp2,ArgsTab),
+      Tokens5=[')'|TokensR],
+      Exp = $cond(Cond,Exp1,Exp2).
+process_int_exp(['-',Token|Tokens],TokensR,Exp,_ArgsTab), integer(Token) =>
+      Exp is -Token,
+      Tokens=TokensR.
+process_int_exp(['+',Token|Tokens],TokensR,Exp,_ArgsTab), integer(Token) =>
+      Exp is Token,
+      Tokens=TokensR.
+process_int_exp([Token|Tokens],TokensR,Exp,_ArgsTab), integer(Token) =>
+      Exp=Token,
+      Tokens=TokensR.
+process_int_exp([Token|Tokens],TokensR,Exp,ArgsTab) => 
+      Tokens=TokensR,
+      once member($arg(Token,Exp),ArgsTab).
+
+%%%%
+process_attrs(InStream,'>',Attrs,NextToken) =>  Attrs=[],read_picat_token(InStream,_,NextToken).
+process_attrs(_InStream,'>+',Attrs,NextToken) =>  Attrs=[],NextToken='+'.
+process_attrs(_InStream,'>-',Attrs,NextToken) =>  Attrs=[],NextToken='-'.
+process_attrs(_InStream,'/>',Attrs,NextToken) =>  Attrs=[],NextToken='/>'.
+process_attrs(InStream,AName,Attrs,NextToken) =>  
+     read_picat_token(InStream,_,_),    % =
+     read_picat_token(InStream,_,Val),
+     ((atom(Val);number(Val))->Value = to_string(Val); Value=Val),
+     Attrs=[AName=Value|Attrs1],
+     read_picat_token(InStream,_,AName1),
+     process_attrs(InStream,AName1,Attrs1,NextToken).
+
+%%%%
+'skip_until>'(InStream,Type,Token) =>
+     read_picat_token(InStream,_,Token1),
+     'skip_until>'(InStream,Token1,Type,Token).
+
+'skip_until>'(InStream,'>',Type,Token) => 
+     read_picat_token(InStream,Type,Token).
+'skip_until>'(_InStream,'>+',Type,Token) => 
+     Type=4,Token='+'.
+'skip_until>'(_InStream,'>-',Type,Token) => 
+     Type=4,Token='-'.
+'skip_until>'(InStream,_,Type,Token) => 
+     read_picat_token(InStream,_Type1,Token1),
+     'skip_until>'(InStream,Token1,Type,Token).
+
+skip1(InStream,Token) =>
+    read_picat_token(InStream,_,CurToken),
+    skip1(InStream,Token,CurToken).
+
+skip1(_InStream,Token,Token) =>  true.
+skip1(InStream,Token,_) => 
+    read_picat_token(InStream,_,CurToken),
+    skip1(InStream,Token,CurToken).
+
+skip2(InStream,Token1,Token2) =>
+    read_picat_token(InStream,_,CurToken),
+    skip2(InStream,Token1,Token2,CurToken).
+
+skip2(InStream,Token1,Token2,Token1) => 
+    read_picat_token(InStream,_,CurToken),
+    (CurToken==Token2 -> true;
+     skip2(InStream,Token1,Token2,CurToken)).
+skip2(InStream,Token1,Token2,_) => 
+    read_picat_token(InStream,_,CurToken),
+     skip2(InStream,Token1,Token2,CurToken).
+
+read_next_key_token(InStream,KeyToken) =>
+    read_picat_token(InStream,_, Token),
+    (key_token(Token)->
+     KeyToken=Token;
+     read_next_key_token(InStream,KeyToken)).
+
+read_int_or_id(InStream,'+',Val) => 
+    read_picat_token(InStream,_, Val).  % integer
+read_int_or_id(InStream,'-',Val) => 
+    read_picat_token(InStream,_, Val1),
+    Val is -Val1.
+read_int_or_id(_InStream,Token,Val) =>  Val=Token.
+     
+key_token(end_of_file) => true.
+key_token(domain) =>  true.
+key_token(variable) =>  true.
+key_token(relation) =>  true.
+key_token(predicate) =>  true.
+key_token(constraint) =>  true.
+key_token(presentation) =>  true.
+
+
+%%%%
+tokenize([],Tokens) =>  Tokens=[].
+tokenize([Char|Chars],Tokens),
+     is_space(Char)
+=>
+     tokenize(Chars,Tokens).
+tokenize([Char|Chars],Tokens),
+     is_delimeter(Char)
+=>
+     Tokens=[Char|TokensR],
+     tokenize(Chars,TokensR).
+tokenize([Char|Chars],Tokens) => 
+     extract_token(Chars,Name,CharsR),
+     Token = to_atom([Char|Name]), 
+     Tokens=[Token|TokensR],
+     tokenize(CharsR,TokensR).
+
+extract_token([],Name,CharsR) =>  Name=[],CharsR=[].
+extract_token([Char|Chars],Name,CharsR),
+     is_space(Char)
+=>
+      Name=[],
+      CharsR=Chars.
+extract_token(Chars,Name,CharsR),Chars=[Char|_],
+      is_delimeter(Char)
+=>
+      Name=[],
+      CharsR=Chars.
+extract_token([Char|Chars],Name,CharsR) => 
+      Name=[Char|NameR],
+      extract_token(Chars,NameR,CharsR).
+
+
+index (+)
+is_space(' ').
+is_space('\t').   % tab
+is_space('\b'). 
+is_space('\r'). 
+
+index(+)
+is_delimeter('(').
+is_delimeter(')').
+is_delimeter(',').
+is_delimeter('.').
+is_delimeter('|').
+
+output_vars(_OutStream,[]) =>  true.
+output_vars(OutStream,[V|Vs]) =>  
+  (V=='_$dummy'->print(OutStream,'_');print(OutStream,'V'),print(OutStream,V)),
+  (Vs==[]->true;
+   print(OutStream,','),
+   output_vars(OutStream,Vs)).
+
+output_vars_tuple(OutStream,Tuple) =>  
+   print(OutStream,'{'),
+   output_vars_tuple_rest(OutStream,Tuple).
+
+output_vars_tuple_rest(OutStream,[V]) =>  
+  print(OutStream,'V'),print(OutStream,V),print(OutStream,'}').
+output_vars_tuple_rest(OutStream,[V|Vs]) =>  
+  print(OutStream,'V'),print(OutStream,V),print(OutStream,","),
+  output_vars_tuple_rest(OutStream,Vs).
+
+output_constrs(_OutStream,[]) =>  true.
+output_constrs(OutStream,[Constr|Constrs]) =>
+    print(OutStream,"    "),print(OutStream,Constr),println(OutStream,','),
+    output_constrs(OutStream,Constrs).
+
+output_args(_OutStream,[]) =>  true.
+output_args(OutStream,[V|Vs]) =>  
+    output_arg(OutStream,V),
+      (Vs==[]->
+        true
+    ;   
+        print(OutStream,","),
+           output_args(OutStream,Vs)
+    ).
+
+output_arg(OutStream,'_$dummy') =>  print(OutStream,"_").
+output_arg(OutStream,Arg), integer(Arg) => print(OutStream,Arg).
+output_arg(OutStream,Arg) =>  print(OutStream,'V'),print(OutStream,Arg).
+
+output_weighted_sum(OutStream) =>
+    println(OutStream,"call_weightedSum(Coes,Vars,eq,Const) =>"),
+    println(OutStream,"    sum([Coes[I]*Vars[I] : I in 1..length(Coes)]) #= Const."),
+    println(OutStream,"call_weightedSum(Coes,Vars,ne,Const) =>"),
+    println(OutStream,"    sum([Coes[I]*Vars[I] : I in 1..length(Coes)]) #!= Const."),
+    println(OutStream,"call_weightedSum(Coes,Vars,ge,Const) =>"),
+    println(OutStream,"    sum([Coes[I]*Vars[I] : I in 1..length(Coes)]) #>= Const."),
+    println(OutStream,"call_weightedSum(Coes,Vars,gt,Const) =>"),
+    println(OutStream,"    sum([Coes[I]*Vars[I] : I in 1..length(Coes)]) #> Const."),
+    println(OutStream,"call_weightedSum(Coes,Vars,le,Const) =>"),
+    println(OutStream,"    sum([Coes[I]*Vars[I] : I in 1..length(Coes)]) #=< Const."),
+    println(OutStream,"call_weightedSum(Coes,Vars,lt,Const) =>"),
+    println(OutStream,"    sum([Coes[I]*Vars[I] : I in 1..length(Coes)]) #< Const.").
+
+%%%%%
+assoc_member(AName,AVal,[AName=AVal1|_]) =>  AVal=AVal1.
+assoc_member(AName,AVal,[_|L]) =>  assoc_member(AName,AVal,L).
+
+closetail(L),var(L) => L=[].
+closetail([_|L]) => closetail(L).
+closetail(_) => true.
+
+attach(X,L), var(L) =>
+    L=[X|_].
+attach(X,[_|L]) =>
+    attach(X,L).

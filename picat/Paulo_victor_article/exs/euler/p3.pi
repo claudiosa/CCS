@@ -1,0 +1,27 @@
+/*********************************************************
+        http://projecteuler.net/problem=3
+
+The prime factors of 13195 are 5, 7, 13 and 29.
+
+What is the largest prime factor of the number 600851475143 ?
+*********************************************************/
+
+main =>
+     F=largest_pime_factor(600851475143),
+     writef("The largest prime factor of 600851475143 is %w%n", F).
+
+largest_pime_factor(N)=F =>
+    SF = smallest_factor(N,2,to_integer(sqrt(N))),
+    while (SF !== N)
+        N := N div SF,
+	SF := smallest_factor(N,SF,to_integer(sqrt(N)))
+    end,
+    F=N.
+
+smallest_factor(N,I,End)=F, I<=End =>
+    if (N mod I == 0) then
+        F = I
+    else
+        F=smallest_factor(N,I+1,End)
+    end.
+smallest_factor(N,_I,_End)=F => F=N.

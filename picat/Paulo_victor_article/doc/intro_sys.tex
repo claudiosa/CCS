@@ -1,0 +1,195 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+\chapter{How to Use the Picat System}
+\section{How to Use the Picat Interpreter}
+The Picat system is written in both C and Picat. The Picat interpreter is provided as a single standalone executable file, named \texttt{picat.exe} for Windows and \texttt{picat} for Unix. The Picat interpreter provides an interactive programming environment for users to compile, load, debug, and execute programs. In order to start the Picat interpreter, users first need to open an OS terminal. In Windows, this can be done by selecting \verb+Start->Run+ and typing \verb+cmd+ or selecting \verb+Start->Programs->Accessories->Command Prompt+.  In order to start the Picat interpreter in any working directory, the environment variable \texttt{path} must be properly set to contain the directory where the executable is located.
+
+\subsection{How to Enter and Quit the Picat Interpreter}
+The Picat interpreter is started with the OS command \texttt{picat}\index{\texttt{picat}}. 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> $OSPrompt$ \texttt{picat}
+\end{tabbing}
+where $OSPrompt$ is the OS prompt. After the interpreter is started, it responds with the prompt \verb+Picat>+, and is ready to accept queries. 
+
+Once the interpreter is started, users can type a query after the prompt. For example,
+\begin{verbatim}
+      Picat> X=1+1
+      X=2
+      Picat> printf("hello"++" picat")
+      hello picat
+\end{verbatim}
+\ignore{
+Users can change the prompt by using the query \texttt{prompt($NewPrompt$)}\index{\texttt{prompt/1}}. For example, the command
+\begin{verbatim}
+      prompt("?-")
+\end{verbatim}
+changes the prompt to \verb+?-+. The \texttt{help}\index{\texttt{help/0}} predicate shows the usages of the main commands.
+}
+
+The \texttt{halt}\index{\texttt{halt/0}} predicate, or the \texttt{exit}\index{\texttt{exit/0}} predicate, terminates the Picat interpreter. An alternative way to terminate the interpreter is to enter \verb+ctrl-d+ (control-d) when the cursor is located at the beginning of an empty line.
+
+\subsection{How to Run a Program Directly}
+The \texttt{picat} command can also be used to run a program directly. Consider the following program:
+\begin{verbatim}
+    main =>
+        printf("hello picat%n").
+
+    main(Args) =>
+        printf("hello picat"),
+        foreach(Arg in Args)
+            printf(" %s",Arg)
+        end,
+        nl.
+\end{verbatim}
+Assume the program is stored in a file named \texttt{hello.pi} in the directory \verb+C:\work+. The following shows two runs, one executing \texttt{main/0} and the other executing \texttt{main/1}.
+\begin{verbatim}
+    C:\work> picat hello.pi
+    hello picat
+
+    C:\work> picat hello.pi 6 12 2013
+    hello picat 6 12 2013
+\end{verbatim}
+If the command line contains arguments after the file name, then \texttt{main/1} is executed and all the arguments are passed to the predicate as a list of strings.
+
+In general, the \texttt{picat} command takes the following form:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> \texttt{picat [-path $Directories$][-log] [-g $InitGoal$] $File$ $Arg_1$ $Arg_2$ $\ldots$ $Arg_n$}
+\end{tabbing}
+$Directories$ is a semicolon-separated and double-quoted list of directories, and will be set as the value of the environment variable \texttt{PICATPATH} before the execution of the program. The Picat system will look for the file and the related modules in these directories. The option \texttt{-log} makes the system print log information and warning messages. The option \texttt{-g} makes Picat execute a specified initial query $InitGoal$ rather than the default \texttt{main} predicate. The file name $File$ can have the extension \texttt{.pi}, and can contain a path of directories.
+
+\subsection{How to Use the Command-line Editor}
+The Picat interpreter uses the \texttt{getline} program written by Chris Thewalt. The \texttt{getline} program memorizes up to 100 of the most recent queries that the users have typed, and allows users to recall past queries and edit the current query by using Emacs editing commands. The following gives the editing commands:
+
+\begin{tabular}{ll}
+\verb+ctrl-f+ & Move the cursor one position forward. \\
+\verb+ctrl-b+ & Move the cursor one position backward. \\
+\verb+ctrl-a+ & Move the cursor to the beginning of the line. \\
+\verb+ctrl-e+ & Move the cursor to the end of the line.  \\
+\verb+ctrl-d+ & Delete the character under the cursor.  \\
+\verb+ctrl-h+ & Delete the character to the left of the cursor.  \\
+\verb+ctrl-k+ & Delete the characters to the right of the cursor. \\
+\verb+ctrl-u+ & Delete the whole line.  \\
+\verb+ctrl-p+ & Load the previous query in the buffer.  \\
+\verb+ctrl-n+ & Load the next query in the buffer.
+\end{tabular}
+
+\noindent
+Note that the command \verb+ctrl-d+ terminates the interpreter if the line is empty and the cursor is located in the beginning of the line.
+
+\subsection{How to Compile and Load Programs}
+A Picat program is stored in one or more text files with the extension name \texttt{pi}. A file name\index{file name} is a string of characters. Picat treats both  \verb+'/'+ and \verb+'\'+ as file name\index{file name} separators. Nevertheless, since \verb+'\'+ is used as the escape character in quoted strings, two consecutive backslashes must be used, as in \verb+"c:\\work\\myfile.pi"+, if \verb+'\'+ is used as the separator.
+
+A program first needs to be compiled and loaded into the system before it can be executed. The built-in predicate \texttt{cl($FileName$)}\index{\texttt{cl/1}} compiles and loads the source file named \texttt{$FileName$.pi}. Note that if the full path of the file name\index{file name} is not given, then the file is assumed to be in the current working directory. Also note that users do not need to give the extension name. The system compiles and loads not only the source file \texttt{$FileName$.pi}, but also all of the module files\index{module file} that are either directly imported or indirectly imported by the source file. The system searches for such dependent files in the directory in which \texttt{$FileName$.pi} resides or the directories that are stored in the environment variable\index{environment variable} \texttt{PICATPATH}. For \texttt{$FileName$.pi}, the \texttt{cl} command loads the generated byte-codes without creating a byte-code file.
+
+The built-in predicate \texttt{cl}\index{\texttt{cl/0}} (with no argument) compiles and loads a program from the console, ending when the end-of-file character ({\tt ctrl-z} for Windows and {\tt ctrl-d} for Unix) is typed.
+
+The built-in predicate \texttt{compile($FileName$)}\index{\texttt{compile/1}} compiles the file \texttt{$FileName$.pi} and all of its dependent module files\index{module file} without loading the generated byte-code files. The destination directory for the byte-code file is the same as the source file's directory. If the Picat interpreter does not have permission to write into the directory in which a source file resides, then this built-in throws an exception. 
+
+The built-in predicate \texttt{load($FileName$)}\index{\texttt{load/1}} loads the byte-code file \texttt{$FileName$.qi} and all of its dependent byte-code files. For $FileName$ and its dependent file names\index{file name},  the system searches for a byte-code file in the directory in which \texttt{$FileName$.qi} resides or the directories that are stored in the environment variable\index{environment variable} \texttt{PICATPATH}. If the byte-code file \texttt{$FileName$.qi} does not exist but the source file \texttt{$FileName$.pi} exists, then this built-in compiles the source file and loads the byte codes without creating a {\tt qi} file.
+
+\subsection{How to Run Programs}
+After a program is loaded, users can query the program. For each query, the system executes the program, and reports \texttt{yes} when the query succeeds and \texttt{no} when the query fails. When a query that contains variables succeeds, the system also reports the bindings for the variables. Users can ask the system to find the next solution by typing \texttt{';'} after a solution. For example,
+\begin{verbatim}
+    Picat> member(X,[1,2,3])
+    X=1;
+    X=2;
+    X=3;
+    no
+\end{verbatim}
+Users can force a program to terminate by typing \texttt{ctrl-c}, or by letting it execute the built-in predicate \texttt{abort}\index{\texttt{abort/0}}. Note that when the system is engaged in certain tasks, such as garbage collection, users may need to wait for a while in order to see the termination after they type \texttt{ctrl-c}.
+
+\section{How to Use the Debugger}
+The Picat system has three execution modes: \textit{non-trace mode}\index{non-trace mode}, \textit{trace mode}\index{trace mode}, and \textit{spy mode}\index{spy mode}.  In trace mode\index{trace mode}, it is possible to trace the execution of a program, showing every call in every possible stage.  In order to trace the execution, the program must be recompiled while the system is in trace mode\index{trace mode}.  In spy mode\index{spy mode}, it is possible to trace the execution of individual functions and predicates that are {\it spy points}. When the Picat interpreter is started, it runs in non-trace mode\index{non-trace mode}. The predicate \texttt{debug}\index{\texttt{debug/0}} or \texttt{trace}\index{\texttt{trace/0}}  changes the mode to trace\index{trace mode}. The predicate \texttt{nodebug}\index{\texttt{nodebug/0}} or \texttt{notrace}\index{\texttt{notrace/0}} changes the mode to non-trace\index{non-trace mode}.
+
+In trace mode\index{trace mode}, the debugger displays execution traces\index{execution trace} of queries. An \emph{execution trace}\index{execution trace} consists of a sequence of call traces\index{call trace}. Each \emph{call trace}\index{call trace} is a line that consists of a stage, the number of the call, and the information about the call itself. For a function call, there are two possible stages: \texttt{Call}, meaning the time at which the function is entered, and \texttt{Exit},  meaning the time at which the call is completed with an answer. For a predicate call, there are two additional possible stages: \texttt{Redo}, meaning a time at which execution backtracks to the call, and \texttt{Fail}, meaning the time at which the call is completed with a failure. The information about a call includes the name of the call, and the arguments. If the call is a function, then the call is followed by \texttt{=} and \texttt{?} at the \texttt{Call} stage, and followed by \texttt{= $Value$} at the \texttt{Exit} stage, where $Value$ is the return value of the call. 
+
+Consider, for example, the following program:
+\begin{verbatim}
+    p(X) ?=> X=a.
+    p(X) => X=b.
+    q(X) ?=> X=1.
+    q(X) => X=2.
+\end{verbatim}
+Assume the program is stored in a file named \texttt{myprog.pi}. The following shows a trace for a query:
+\begin{verbatim}
+ Picat> debug
+
+ {Trace mode}
+ Picat> cl(myprog)
+
+ {Trace mode}
+ Picat> p(X),q(Y)  
+    Call: (1) p(_328) ?
+    Exit: (1) p(a) 
+    Call: (2) q(_378) ?
+    Exit: (2) q(1) 
+ X = a
+ Y = 1 ?;
+    Redo: (2) q(1) ?
+    Exit: (2) q(2) 
+ X = a
+ Y = 2 ?;
+    Redo: (1) p(a) ?
+    Exit: (1) p(b) 
+    Call: (3) q(_378) ?
+    Exit: (3) q(1) 
+ X = b
+ Y = 1 ?;
+    Redo: (3) q(1) ?
+    Exit: (3) q(2) 
+ X = b
+ Y = 2 ?;
+ no
+\end{verbatim}
+
+In trace mode\index{trace mode}, the debugger displays every call in every possible stage. Users can set \emph{spy points}\index{spy point} so that the debugger only shows information about calls of the symbols that users are spying. Users can use the predicate 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{spy \$$Name$/$N$}\index{\texttt{spy/1}} 
+\end{tabbing}
+to set the functor $Name$/$N$ as a spy point\index{spy point}, where the arity $N$ is optional. If the functor is defined in multiple loaded modules, then all these definitions will be treated as spy points\index{spy point}. If no arity is given, then any functor of $Name$ is treated as a spy point\index{spy point}, regardless of the arity.
+
+After displaying a call trace\index{call trace}, if the trace is for stage \texttt{Call} or stage \texttt{Redo}, then the debugger waits for a command from the users. A command is either a single letter followed by a carriage-return, or just a carriage-return. See Appendix \ref{chapter:sys} for the debugging commands.
+
+\ignore{
+\section{How to Use the \texttt{picate} and \texttt{picatc} Commands}
+The script file \texttt{picate}\index{\texttt{picate}} executes a Picat program as a standalone application. The command is used in the following way:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{picate -path $Path_1$;$\ldots$;$Path_n$  -debug $FileName$ $Arg_1$ $\ldots$ $Arg_m$ }\index{\texttt{picate}}
+\end{tabbing}
+where the option \texttt{path} specifies the paths where byte code files are searched, and the option \texttt{debug} tells the system to load \texttt{dbpi} byte code files rather than optimized \texttt{pi} files. Although users cannot use the debugger when running a standalone application in debug mode\index{debug mode}, users can view the stack trace in case an uncaught exception occurs during the execution. The command takes exactly one file name\index{file name} $FileName$. The $FileName$'s byte code file and all of its dependent byte code files will be loaded. The system will search for the byte code files in the paths that are specified in the command. If no path is given, then the system searches the paths that are included in the environment variable\index{environment variable} \texttt{\$PICATPATH}. The command can also take several arguments after the file name\index{file name}. The file of $FileName$ must contain a predicate named \texttt{main($Args$)}, where $Args$ is a list. All of the command arguments $Arg_1$ $\ldots$ $Arg_m$ will be passed to the \texttt{main} predicate as a list of strings.
+
+The script file \texttt{picatc}\index{\texttt{picatc}} compiles Picat source files. The command is used in the following way:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{picatc -path $Path_1$;$\ldots$;$Path_n$ -debug $FileName_1$ $\ldots$ $FileName_n$}\index{\texttt{picatc}}
+\end{tabbing}
+where the options are the same as in the command \texttt{picate}\index{\texttt{picatc}}. The command compiles all of the source files $FileName_1$ $\ldots$ $FileName_n$ and all of their dependent files into byte code files. If the option \texttt{debug} is given, then the debuggable byte code files with the extension name \texttt{dbqi} are generated; otherwise, the optimized byte code files with the extension name \texttt{qi} are generated.
+
+\section{How to Use the Profiler}
+The built-in predicate \texttt{profile\_src($FileName$)}\index{\texttt{profile\_src/1}}, where $FileNames$ is the main name of a source file, reports the following information about the source file and all of its dependent files:
+\begin{itemize}
+\item What predicates and functions are defined?
+\item What predicates and functions are used but not defined?
+\item What predicates and functions are  defined but not used?
+\item What built-ins are used?
+\end{itemize}
+The predicate \texttt{profile\_src}\index{\texttt{profile\_src/1}} can be used in both debug\index{debug mode} and non-debug\index{non-debug mode} modes.
+
+The built-in predicate \texttt{profile($Query$)}\index{\texttt{profile/1}} prints the number of times that each predicate or function is called during the execution of $Query$.  The reported statistics are helpful for fine-tunning programs for better performance. The  predicate \texttt{profile}\index{\texttt{profile/1}} can be used only in debug mode\index{debug mode} with \texttt{dbpi} files.
+}
+\ignore{
+\end{document}
+}

@@ -1,0 +1,10 @@
+/*********************************************************
+        http://projecteuler.net/problem=20
+
+Find the sum of the digits in the number 100!
+*********************************************************/
+
+main =>
+    F = factorial(100),   % factorial defined in module 'math'
+    println(sum([to_integer(D) : D in F.to_string()])).
+

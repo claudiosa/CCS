@@ -1,0 +1,20 @@
+/* for each file with the extension name ".pi", generate a command line to execute the file */
+/* by Neng-Fa Zhou, 2015                                                                    */
+
+import os.
+
+main =>
+    gen(".").
+
+gen(Dir) =>
+    Files = listdir(Dir),
+	foreach (File in Files, File != ".", File != "..")
+	    if directory(File) then
+		    gen(Dir++"/"++File)
+		elseif append(MainFileStr,".pi",File) then
+		    printf("echo solving %s/%s\n",Dir,File),
+			printf("picat.exe %s/%s\n",Dir,File)
+		end
+	end.
+
+		

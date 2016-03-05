@@ -1,0 +1,14 @@
+import cp.
+
+main =>
+    N :: 5..99999,
+    R #> 0,
+    S #> 0,
+    R*S #= N*N,     % 1/(N+R) + 1/(N+S) = 1/N
+    R #=< S,
+    S #< N*N,
+%    writeln((R,S)),
+    solve_all([R,S])=All,
+    All.length > 1000.
+
+

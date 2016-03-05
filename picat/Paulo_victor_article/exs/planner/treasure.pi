@@ -1,0 +1,157 @@
+% by N.F. Zhou, March 25, 2015
+% A Picat program for solving the Treasure problem 
+% Gode Jam, 2013, Qualification Round, Problem D
+% https://code.google.com/codejam/contest/2270488/dashboard#s=p3&a=3
+
+% Keys held in hand and keys contained in each chest are represented as 
+% ordered lists of pairs, where in each pair the first element is a type 
+% number and the second is a quantity.
+
+import planner.
+
+main =>
+    data(Keys,Chests),
+    plan_unbounded({Keys,Chests},Plan),
+    foreach(Step in Plan)
+       println(Step)
+    end.
+
+final({_,[]}) => true.                    % done when all chests have been opened
+
+action({Keys,Chests},NewS,Action,Cost) =>
+    Action = $open(Chest), Cost = 1,
+    select(Chest,Chests,ChestsRest),      % select a chest to open, "lexicographical" order is guaranteed
+    Chest = $chest(KeyType,ChestKeys),
+    select((KeyType,Qt),Keys,KeysRest),   % select a key to open the chest
+    NewQt = Qt-1,
+    (NewQt == 0 ->
+        KeysRest1 = KeysRest
+    ;
+        KeysRest1 = insert_ordered(KeysRest,(KeyType,NewQt))
+    ),
+    add_keys(KeysRest1,ChestKeys,NewKeys),
+    NewS = {NewKeys,ChestsRest}.
+
+%% merge two sets (ordered lists)
+add_keys(Keys1,[],NewKeys) => NewKeys = Keys1.
+add_keys([],Keys2,NewKeys) => NewKeys = Keys2.
+add_keys([(Type,Qt1)|Keys1R],[(Type,Qt2)|Keys2R],NewKeys) =>
+    NewKeys = [(Type,Qt1+Qt2)|NewKeysR],
+    add_keys(Keys1R,Keys2R,NewKeysR).
+add_keys([Key1@(Type1,_)|Keys1R],Keys2@[(Type2,_)|_],NewKeys),Type1 < Type2 =>
+    NewKeys = [Key1|NewKeysR],    
+    add_keys(Keys1R,Keys2,NewKeysR).
+add_keys(Keys1,[Key2|Keys2R],NewKeys) =>
+    NewKeys = [Key2|NewKeysR],    
+    add_keys(Keys1,Keys2R,NewKeysR).
+
+data(Keys,Chests) =>
+    Keys = [(5,1)],
+    Chests = 
+        $[chest(3,[(1,2)]),
+          chest(4,[(2,1),(3,3)]),
+          chest(4,[(2,1),(3,1),(5,1)]),
+          chest(5,[(2,2),(4,1)]),
+          chest(2,[(1,1),(2,1),(5,1)]),
+          chest(4,[]),
+          chest(1,[(1,1),(5,1)]),
+          chest(3,[(2,1),(4,3),(5,1)]),
+          chest(3,[(1,1),(5,1)]),
+          chest(2,[(1,1),(2,1),(3,1)]),
+          chest(3,[]),
+          chest(5,[(1,1),(2,1),(3,1)]),
+          chest(2,[(3,3),(4,1)]),
+          chest(2,[]),
+          chest(5,[(1,2),(3,2)]),
+          chest(4,[(2,2),(3,1),(4,1),(5,1)]),
+          chest(5,[(2,1),(3,1),(4,1)]),
+          chest(3,[(1,1),(5,1)]),
+          chest(1,[(2,2),(4,1)]),
+          chest(4,[(1,1),(2,1),(3,1),(5,1)]),
+          chest(2,[(2,1),(3,1),(5,1)]),
+          chest(4,[(1,1),(4,1)]),
+          chest(5,[]),
+          chest(5,[]),
+          chest(4,[(2,3)]),
+          chest(2,[(1,1),(5,1)]),
+          chest(3,[]),
+          chest(5,[(1,1),(5,1)]),
+          chest(2,[(2,1),(3,2)]),
+          chest(5,[(2,2),(5,1)]),
+          chest(1,[(1,1),(2,1),(3,1),(4,1)]),
+          chest(4,[(1,1),(3,3)]),
+          chest(1,[(2,1),(3,1),(4,2),(5,1)]),
+          chest(4,[(1,2),(2,1)]),
+          chest(5,[(1,1),(5,1)]),
+          chest(4,[(1,1),(3,2),(5,1)]),
+          chest(4,[]),
+          chest(2,[(1,1),(2,1),(4,1),(5,2)]),
+          chest(2,[(2,1),(3,2),(4,1),(5,2)]),
+          chest(3,[(1,1),(3,1)]),
+          chest(3,[(1,1),(3,1)]),
+          chest(4,[(1,1),(3,1)]),
+          chest(5,[(1,1),(4,1)]),
+          chest(5,[]),
+          chest(2,[(1,1),(3,1)]),
+          chest(4,[(3,3),(4,1)]),
+          chest(3,[(1,1),(2,1)]),
+          chest(3,[(2,1),(3,2),(5,3)]),
+          chest(4,[(2,1),(3,1),(5,1)]),
+          chest(5,[(2,2),(5,1)]),
+          chest(1,[(1,1),(3,1)]),
+          chest(5,[(1,1),(5,1)]),
+          chest(5,[(1,1),(2,1),(5,1)]),
+          chest(5,[(2,3),(3,1),(4,1)]),
+          chest(1,[]),
+          chest(4,[(2,1),(4,1),(5,1)]),
+          chest(4,[(2,3)]),
+          chest(4,[]),
+          chest(5,[]),
+          chest(5,[(1,1),(4,1)]),
+          chest(5,[(1,1),(3,1),(4,1),(5,1)]),
+          chest(5,[(1,1),(3,1)]),
+          chest(5,[(1,1),(3,1)]),
+          chest(5,[(2,1),(5,2)]),
+          chest(5,[(1,1),(3,1)]),
+          chest(1,[(1,2)]),
+          chest(4,[]),
+          chest(4,[(3,3),(4,2)]),
+          chest(2,[]),
+          chest(5,[(1,1),(3,1),(4,1),(5,1)]),
+          chest(3,[(2,2),(3,2)]),
+          chest(4,[(1,2),(2,1)]),
+          chest(5,[(1,1),(2,1)]),
+          chest(2,[(2,1),(4,1),(5,1)]),
+          chest(5,[(2,2),(5,1)]),
+          chest(1,[(1,1),(2,1)]),
+          chest(3,[(1,1),(2,1)]),
+          chest(4,[]),
+          chest(4,[]),
+          chest(1,[(2,2),(3,1),(4,1)]),
+          chest(1,[(1,2),(3,1),(4,1)]),
+          chest(1,[(1,2)]),
+          chest(2,[(2,1),(3,1),(4,3),(5,1)]),
+          chest(5,[(2,1),(3,1),(4,1)]),
+          chest(3,[(1,1),(2,2),(3,1)]),
+          chest(5,[]),
+          chest(5,[(1,1),(2,1),(3,1)]),
+          chest(3,[(1,1),(2,1),(5,1)]),
+          chest(5,[]),
+          chest(4,[(1,1),(2,2)]),
+          chest(4,[(2,3)]),
+          chest(4,[(3,4)]),
+          chest(3,[(2,2),(4,1)]),
+          chest(5,[(1,2),(3,1),(4,1)]),
+          chest(4,[(1,1),(5,1)]),
+          chest(5,[(1,1),(5,1)]),
+          chest(5,[(1,1),(2,1),(3,1)]),
+          chest(4,[(1,1),(4,1)]),
+          chest(5,[(1,1),(2,1),(3,2)]),
+          chest(1,[(2,1),(3,1),(4,1)]),
+          chest(5,[(1,2)]),
+          chest(2,[(1,1),(5,1)]),
+          chest(1,[(1,1),(2,1),(3,2)]),
+          chest(4,[(2,2),(5,1)]),
+          chest(4,[(2,2),(5,1)]),
+          chest(3,[(1,1),(4,1)]),
+          chest(1,[(1,1),(2,1),(3,1)])].
