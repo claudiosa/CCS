@@ -1,0 +1,21 @@
+# Fdb version 3
+["pdflatex"] 1457306591 "rapidas_gnu.tex" "rapidas_gnu.pdf" "rapidas_gnu" 1457306591
+  "/etc/texmf/web2c/texmf.cnf" 1446149982 1101 af7716885e081ab43982cab7b4672c1a ""
+  "/usr/share/texlive/texmf-dist/tex/generic/unicode-data/CaseFolding.txt" 1449876215 74499 11c335947e5ffa8ac69a3e530b8d2b40 ""
+  "/usr/share/texlive/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt" 1449876215 16740 4c17368651bc455636f58c3366bdbbeb ""
+  "/usr/share/texlive/texmf-dist/tex/generic/unicode-data/UnicodeData.txt" 1449876215 1621978 3a83069e69e2a9101dc4749593cd3268 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1454284088 20708 39fdf9e2fb65617012fa7382a351f485 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1454284088 9179 4cd3c5f593e63512893b8ac0123f1bd7 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty" 1454367976 1699 41a8dcd7126940efa254804d5311bbda ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex" 1453849251 686603 9f8b85b0af9db93ed19d75de651aad2c ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty" 1453849251 9673 2ca4934644a9a7e0597063b0f97d539f ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def" 1450652454 4864 cb51c1350bf4f1fd74d120a19ca0afff ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty" 1453849251 61965 14683d841d7ec123041a99a91475bd92 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1455538388 31351 b32c45dce4a01cb7b53ed90c546614ca ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1455538388 31351 b32c45dce4a01cb7b53ed90c546614ca ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1456835353 725803 bbb8d346f0c1e59f3d5647344cb4d9d6 ""
+  "rapidas_gnu.aux" 1457306591 8 a94a2480d3289e625eea47cd1b285758 ""
+  "rapidas_gnu.tex" 1457306590 5472 170d28acf4621553f3dab83c146acf11 ""
+  (generated)
+  "rapidas_gnu.log"
+  "rapidas_gnu.pdf"

@@ -1,0 +1,262 @@
+\documentclass{article}
+
+\usepackage{fontspec}
+\setmonofont{FreeMono}
+\setsansfont{FreeSans}
+\setmainfont{FreeSerif}
+
+\usepackage{pdfslide}
+\overlay{verdinho.pdf}
+
+\usepackage{svg,pdftexcmds}
+\makeatletter
+\let\pdfstrcmp\pdf@strcmp
+\let\pdffilemoddate\pdf@filemoddate
+
+\begin{document}
+
+\begin{tabular}{lr}
+\begin{minipage}[l]{0.5\textwidth}
+\vskip 2cm
+%http://www.gnu.org/graphics/bwcartoon-m.svg
+%\includesvg[width=0.85\textwidth]{bwcartoon-m}
+%http://www.gnu.org/graphics/bwcartoon.html
+\includegraphics[scale=0.7]{gnu-and-penguin-color-300x276.jpg}
+\end{minipage}
+&
+\begin{minipage}[r]{0.5\textwidth}
+{\Large \underline{Para Todos os Cursos}}\\
+\vskip 1cm
+{\Huge \underline{\textit{Fast} GNU}}\\
+\vskip 1cm
+Grupo Colméia \\
+\$ : linha de comando
+\end{minipage}
+\end{tabular}
+*gnome-terminal, cd (bash), pwd, ls, touch, grep, less, gedit, rm, mkdir, rmdir, cp, mv, cat, echo, chmod and ln are all gnu
+
+\section{Teclas}
+\begin{itemize}
+\item[➸] S shift, C ctrl (\^{}), s super, M meta (alt)
+\item[➸] <M-tab> (Alt+Tab) mudar aplicações
+\item[➸] C-M-t (Ctrl+Alt+t) abrir gnome-terminal
+\item[➸] C-d fim de input, encerrar interpretador
+\item[➸] <tab> ... preencher comandos
+\item[➸] Cursor $+$ botão do meio $=$ \textit{copy-paste}
+\item[➸] 
+\end{itemize}
+
+\section{Gerenciar arquivos (substitui nautilus)}
+➸ Vendo o diretório onde estou:
+\begin{verbatim}
+$ pwd
+/home/udesc
+\end{verbatim}
+
+\pagebreak
+➸ Listando o conteúdo do diretório:
+\begin{verbatim}
+$ ls -1
+Desktop
+Documents
+Downloads
+Music
+Pictures
+Public
+Templates
+Videos
+
+TESTE ESTES
+$ ls .*
+$ ls -A
+\end{verbatim}
+
+\pagebreak
+➸ Entrando em uma pasta/diretório:
+\begin{verbatim}
+$ cd ..          SOBE  um nivel acima
+$ cd Downloads   PARA BAIXO
+$ cd /           RAIZ
+$ cd             HOME
+\end{verbatim}
+
+\pagebreak
+➸ Apagar arquivo e diretório:
+\begin{verbatim}
+$ touch x
+$ rm x
+$ mkdir cria_diretorio
+$ rmdir cria_diretorio
+\end{verbatim}
+
+\pagebreak
+➸ Mover ou renomear arquivo:
+\begin{verbatim}
+$ mv atual novo
+$ mv casa.pdf ~/Downloads
+\end{verbatim}
+
+\pagebreak
+➸ Copiar um arquivo:
+\begin{verbatim}
+$ cp origem.txt destino.txt
+$ cp casa.pdf ~/Downloads
+\end{verbatim}
+
+\pagebreak
+➸ Copiando recursivamente um diretório:
+\begin{verbatim}
+$ cp -r haskell ~/Downloads
+\end{verbatim}
+
+\pagebreak
+➸ Remover um link ou atalho
+\begin{verbatim}
+$ ln -s caminho/nota_Minizinc_IDE.txt TESTE.TXT
+$ rm TESTE.TXT
+$ ls caminho/*.txt
+nota_Minizinc_IDE.txt
+\end{verbatim}
+
+\emph{WARNING: Link dereferenciation}
+\begin{verbatim}
+$ mkdir y
+$ echo whatever >> y/a
+$ cat y/a
+whatever
+$ ln -s y z
+$ rm -rf z
+$ cat y/a
+whatever
+$ ln -s y z
+$ rm -rf z/
+$ cat y/a
+cat: y/a: No such file or directory
+\end{verbatim}
+
+\pagebreak
+➸ Link simbolico (path) e link hard (conteudo)
+\begin{verbatim}
+$ echo whatever >> z
+$ echo hell world >> y
+$ ln -s z sym
+$ ln z hard
+$ rm -f z
+$ cat sym
+cat: sym: No such file or directory
+$ cat hard
+whatever
+$ mv y z
+$ cat sym
+hell world
+$ cat hard
+whatever
+\end{verbatim}
+
+\section{Manipular arquivos texto}
+
+➸ Cria um arquivo e lista o conteúdo:
+\begin{verbatim}
+$ touch nome_arquivo.txt
+$ ls -l *.txt
+-rwxr-xr-x 1 udesc udesc 435 2011-08-29 15:34 append.txt
+-rw-r--r-- 1 udesc udesc   0 2011-08-29 19:41 nome_arquivo.txt
+\end{verbatim}
+
+\pagebreak
+➸ Listar o conteúdo de um arquivo:
+\begin{verbatim}
+$ cat append.txt
+?- append([a,b,c],[d,e], X).
+X = [a, b, c, d, e].
+
+?- append([a,b,c],[d,e], [a, b, c, d, e]).
+true.
+.............
+$ less append.txt
+?- append([a,b,c],[d,e], X).
+X = [a, b, c, d, e].
+
+?- append([a,b,c],[d,e], [a, b, c, d, e]).
+true.
+
+?- append([a,b,c], X , [a, b, c, d, e]).
+\end{verbatim}
+
+\pagebreak
+➸ Pesquisar um arquivo com um dado específico:
+\begin{verbatim}
+$ grep "Y" *.pl
+aula-15-08a.pl:			    p(Y),
+aula-15-08a.pl:			    X \== Y,
+aula-15-08a.pl:			    Z is (X + Y) ,
+aula-15-08.pl:p(X,Y,Z) :- r(X), s(Y), t(Z).
+aula-15-08.pl:x :- p(X,Y,Z), .....
+lab_inic.pl:filho(X,Y) :- pai(Y, X).
+lab_inic.pl:irmao(X,Y) :- pai(X,Z), pai(Y,Z),
+lab_inic.pl:				X \== Y.
+lab_inic.pl:avo(X, Y) :- pai(Z , X), pai(Y,Z).				
+\end{verbatim}
+
+\pagebreak
+➸ Criar um comando sem permissões especiais:
+\begin{verbatim}
+$ cd
+$ mkdir ~/bin
+$ echo '#!/bin/bash
+echo to write λ use C-S-u 3bb
+echo does not display on xterm'>lambda
+PERMISSAO DE EXECUCAO:
+$ chmod +x lambda
+CRIAR LINK SIMBOLICO:
+$ ln -s ~/lambda ~/bin/lambda
+FAZER O PROCESSO (bash) E FILHOS RECONHECEREM A PASTA:
+$ export PATH=~/bin:$PATH
+$ lambda
+to write λ use C-S-u 3bb
+does not display on xterm
+\end{verbatim}
+
+\section{Processos}
+➸ Listando processos na memória:
+\begin{verbatim}
+$ ps
+  PID TTY          TIME CMD
+ 4685 pts/2    00:00:00 bash
+ 4790 pts/2    00:00:00 ps
+
+$ ps -aux | grep udesc
+........
+lista os processos
+
+$ ps -aux | grep udesc | less
+.....................
+less é um visualizador de texto
+\end{verbatim}
+*less is more
+
+\pagebreak
+➸ Processos na memória e seu estado:
+\begin{verbatim}
+$ gedit nome_arquivo.txt &
+[1] 4801
+$ ps aux | grep gedit
+udesc     4809  3.1  0.4  58132 16668 pts/2    Sl   19:54   0:00 gedit nome_arquivo.txt
+udesc     4814  0.0  0.0   3060   816 pts/2    S+   19:54   0:00 grep --color=auto gedit
+
+$ gedit nome_arquivo.txt
+^Z
+[1]+  Parado                  gedit nome_arquivo.txt    PARADO
+$ bg
+[1]+ gedit nome_arquivo.txt &
+\end{verbatim}
+
+\newpage
+\subsection{Contato:}
+UDESC/CCT/DCC \\
+Grupo de Hardware e Software Livre -- Colméia\\
+
+\subsection{Sítio de Referência:}
+\textsf{http://www.colmeia.udesc.br/}
+
+\end{document}
