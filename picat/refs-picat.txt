@@ -1,1 +1,20 @@
+
+BOOK is here
 http://www.springer.com/gp/book/9783319258812
+
+The tutorial I gave on Picat at FLOPS'16 is available on Youtube:
+
+https://youtu.be/XLLxwnKtx78
+https://youtu.be/dfJebzh62Jg
+https://youtu.be/cj1QBcHZWdk
+
+I'd like to than Professor Kiminori Matsuzaki and his organization team for making the video.
+
+PICAT: esta linguagem ainda vai lhe morder!
+
+Esta é uma linguagem de programação multi-paradigma com raízes nas linguagens declarativas, específicamente as linguagens lógicas. Estas linguagens foram originalmente utilizadas em Inteligência Artificial, mas lentamente foram ocupando espaços em outras áreas. PICAT surgiu em 2013 e tem como seu anacrônico P.I.C.A.T. como P:pattern-matching, I: intuitive, C: constraints, A: actors, T: tabling; e sob estes tópicos é a linguagem tem se desenvolvido.
+
+Na palestra, proponho relatar a minha experiência com linguagem trabalhando com alunos iniciantes em programação, em paralelo ao ensino da linguagem C (obrigatória), todos os códigos foram feitos em PICAT também. Esta experiência pode ser acompanhada em: https://github.com/claudiosa/CCS/tree/master/alp_eletrica_course/alp_codes e outros códigos em: https://github.com/claudiosa/CCS/tree/master/picat.
+
+Temos feito algumas contribuições no USER GUIDE desta linguagem com sugestões etc.
+A linguagem tem o seu portal em: http://picat-lang.org/
