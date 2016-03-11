@@ -8,6 +8,10 @@ https://youtu.be/XLLxwnKtx78
 https://youtu.be/dfJebzh62Jg
 https://youtu.be/cj1QBcHZWdk
 
+
+http://picat-lang.org/download/picat_tutorial_flops16.pdf
+
+
 I'd like to than Professor Kiminori Matsuzaki and his organization team for making the video.
 
 PICAT: esta linguagem ainda vai lhe morder!
