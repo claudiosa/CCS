@@ -14,7 +14,8 @@ constraint
 constraint 
    lucro == 5*areaArroz + 2*areaMilho;
 
-solve maximize lucro;
+%solve maximize lucro;
+solve satisfy;
 
 output ["Area Arroz: ",show(areaArroz),"\nArea Milho: ",show(areaMilho), "\nLUCRO: ",show(lucro)];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
