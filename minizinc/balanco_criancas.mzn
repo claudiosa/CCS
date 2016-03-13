@@ -37,14 +37,14 @@ constraint
 constraint 
    36*A + 32*B + 16*C = 0;
 
-   %%% INCLUIR ISTO 
+ %%% INCLUIR ISTO 
 solve satisfy;
 
 output [    "   A: "  ,  show(A),"     B: ", show(B), "     C:  " , show(C) ,   "\n" ];
 
 
 
-/*****
+/* ****
 ccs@gerzat:~/Dropbox/pesquisa/curso_ALL/pgms_slides$ minizinc --all-solutions balanco_criancas.mzn 
   A: 4    B: -4     C:  -1
 ----------
@@ -60,4 +60,4 @@ From ECLIPSE ... please ... see the Eclipse Model
 [4, -5, 1]
 [4, -4, -1]
 [4, -2, -5]
-*********/
+******** */

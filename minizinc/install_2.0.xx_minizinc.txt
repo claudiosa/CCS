@@ -1,3 +1,34 @@
+Agora ainda MAIS facil  Ver 2.0.12
+
+http://www.minizinc.org/
+This fully self-contained package contains the most recent release of MiniZinc, the MiniZinc IDE, and the G12 and Gecode FlatZinc solvers. If you need a package for a different operating system or prefer to install these components separately, please go to our software page. 
+
+OU SEJA .... interface traz consigo o MINIZINC dentro dele
+
+
+
+Basicamente como ROOT:
+1. root@gerzat:/usr/local/share# tar -xvf MiniZincIDE-2.0.12-bundle-linux-x86_64.tgz
+2. mkdir MiniZincIDE
+3. root@gerzat:/usr/local/share# mv  MiniZincIDE-2.0.12-bundle-linux-x86_64/* MiniZincIDE/
+4. root@gerzat:/usr/bin# ln -s /usr/local/share/MiniZincIDE/MiniZincIDE.sh MiniZincIDE
+
+
+ADICIONEI 
+cd /usr/local/MiniZincIDE  <=== ADICIONEI ISTO em MiniZincIDE.sh 
+ficando
+
+#!/bin/sh
+cd /usr/local/share/MiniZincIDE/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib
+export QT_PLUGIN_PATH=$PWD/plugins
+exec ./MiniZincIDE $@
+
+PRONTO PARA USAR 
+
+13/06/2016
+
+
 MINIZINC EM SUA ULTIMA VERSAO .... FICOU FACIL de tudo
 
 Iniciando a instalacao do MINIZINC
