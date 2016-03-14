@@ -25,7 +25,7 @@ constraint %% RETA 4
     1*y + 2*x + 30 >= 0;
 
 constraint
-    custo =  x + y;
+    custo ==  x + y;
 
 
 constraint
