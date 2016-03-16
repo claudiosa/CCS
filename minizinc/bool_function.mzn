@@ -1,7 +1,5 @@
-
 int : ctex = 5 ; %% a constant
 int : ctey = 6; 
-
 var bool : var_bool_01;
 var bool : var_bool_02;
 
@@ -14,17 +12,15 @@ function var bool :  testa_paridade(int : N) =
           false
       endif;
   
-
 constraint
    var_bool_01 == testa_paridade(ctex);
 
 constraint
    var_bool_02 == testa_paridade(ctey);
 
-/*
+/* OR
 constraint
   var_bool_01 == ((x mod 2) == 0);
-
 constraint
   var_bool_02 == ((y mod 2) == 0);
  OK's fine

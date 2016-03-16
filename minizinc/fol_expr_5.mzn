@@ -1,4 +1,3 @@
-
 int: nx = 3;
 int: ny = 3;
 
@@ -12,7 +11,6 @@ var bool : reify_var;
    reify_var = exists( i in lb_array(x)..ub_array(x), 
                     j in lb_array(y)..ub_array(y) ) 
       (
-
 %      x[i] > y[j]
        i > j
       )
@@ -20,10 +18,6 @@ var bool : reify_var;
 
 solve satisfy;
 
-output ["  X: "  ,  show(x),"  Y: ", show(y) , "   Reify_var: ", show(reify_var) , "\n"  ];
+output ["  X: "  ,  show(x),"  Y: ", show(y) ,
+        "   Reify_var: ", show(reify_var) , "\n"  ];
 
-/*****
-
-
-
-*********/

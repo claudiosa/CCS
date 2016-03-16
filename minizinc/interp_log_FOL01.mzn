@@ -1,14 +1,11 @@
-%%% Se estes limites fossem variaveis?
 %int: n = 3; %%% OU ABAIXO VIA EXPLICITO
 int : n;
-
 int: m = 4;
 
-%%% \Phi interpretacoes logicas
+%%% \Phi interpretacoes logicas .... varias formulas
 var  bool : Phi01;
 var  bool : Phi02;
 var  bool : Phi03;
-
 
 x = [1, 3, 5];
 y = [2, 4, 6, 8];
@@ -19,7 +16,7 @@ constraint %% Para todos x > .... em .....
 /*
   forall  (i  in 1..n ) 
    (x[i] > 4) <-> (Phi01 == true);
-%%%OU simplesmente
+   %%%OU simplesmente
 */
    Phi01 == forall  (i  in 1.. length(x) ) 
             (x[i] > 4);
