@@ -9,4 +9,7 @@ for source in *.mzn; do
 	mzn-gecode --all-solutions -s $source --output-to-file  ${Yname}.txt
     echo "Output file => ${Yname}.txt"
 done
+mkdir saidas.txt
+mv *.txt saidas.txt/
+echo " Tudo em saidas.txt .... "
 exit 0
