@@ -1,0 +1,22 @@
+
+Inside in interactive or console mode I missed of two details:
+
+1. halt or ctl-z (d)  -- quit the system
+please correct to:
+   a) halt. 
+   b) ctl-z  in Linux  system put the Picat in  sleeping process .... not in background this process, it is not applied quit neither.
+   c) suggestion: ctl-c as an abort and exit of system integrality
+                   or a warning about ctl-z that is used to exit partially of the system,
+                   once that is in sleeping mode.
+
+2. A miss a lot of a listing command to show all the predicates loaded by the interpreter.
+   How to include a "listing" as in SWI-ProloG?
+   USAGE:
+   Picat> listing. (to show everything)
+   Picat> listing(predicate  or function names). (to show parts of the code loaded)
+
+
+cheers
+
+
+claudio
