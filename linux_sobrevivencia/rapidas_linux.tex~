@@ -66,7 +66,7 @@ pdfsubject=, pdfkeywords=}
 %%%%%%%%%%% INCLUDING PDF FIGURES
 %\includegraphics[scale = 0.5]{mobius_strip_small.pdf}
 %\includegraphics[scale = 1.2]{logo2_coca_icone.jpg}
-\includegraphics[height=0.85\textheight, width=0.85\textwidth]{varios_tugs.jpg}
+\includegraphics[height=0.8\textheight, width=0.8\textwidth]{varios_tugs.jpg}
 %%\includegraphics[scale = 0.5, bb=0.0cm 6.0cm 3cm 3cm]{mobius_strip_small.pdf}
 \end{minipage}
 &

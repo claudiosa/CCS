@@ -1,13 +1,12 @@
 \documentclass[final,a4paper]{article}
 %%% iconv  --from-code=UTF-8 --to-code=ISO-8859-1 x.tex > x_latim.tex
 %\usepackage{lucidabr}
-%\documentclass[12pt,oneside]{article} % Uma Coluna e lingua portuguesa
-%\usepackage[T1]{fontenc}        % Permite digitar os acentos de forma normal
+
+\usepackage[T1]{fontenc}        % Permite digitar os acentos de forma normal
 \usepackage[utf8]{inputenc} %% este caso o doc esteja em utf8
 %% \usepackage[brazil]{babel}
-%\usepackage[latin1]{inputenc}
-%\usepackage{epic,eepic} %%,t1enc}
 
+\usepackage{mathtools}
 %%% FOR SLIDES DIRECTly
 \usepackage[ams]{pdfslide}
 \usepackage{graphicx}
@@ -16,7 +15,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath, amsfonts ,amssymb}
+%%\usepackage{amsmath, amsfonts ,amssymb}
 %%%\usepackage{epsfig}   %float,
 \usepackage[normalem]{ulem}
 \usepackage{hyperref,url}
@@ -42,10 +41,10 @@ pdfsubject=, pdfkeywords=}
 
 
 %\graphicspath{{./figuresdir1/}{./figuresdir2/}{./figuresdir3/}}
-\graphicspath{{/home/claudio/Dropbox/figs_genericas/}{/home/claudio/principal/figs_genericas/}{/home/cc/Dropbox/figs_genericas/}{figuras/}}
+\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}}
 
 %\restylefloat{figure,table}   %%%% obrigat#io... pelo [H]
-\overlay{verdinho.pdf}
+\overlay{fundo_bege.jpg}
 %%salmao.png}
 \pagestyle{title}
 
@@ -88,7 +87,7 @@ pdfsubject=, pdfkeywords=}
 \end{tabular}
 
 
-%%\tableofcontents
+\tableofcontents
 \begin{comment}
 \section{Professores do CoCA}
 %%\textcolor{white}{xxxx}
@@ -134,12 +133,13 @@ pdfsubject=, pdfkeywords=}
 \begin{description}
 
 
-\item[\ding{248}] $xterm$
-\item[\ding{248}] Cursor $+$ botão do meio $=$ \textit{copy-paste}
-\item[\ding{248}] Alt $+$ Tab
-\item[\ding{248}] Alt
+\item[\texttt{xterm} ou \texttt{lxterminal}:] aplicativo terminal (aqui faz tudo!)
+\item[Cursor $+$ botão do meio:]  \textit{copy-paste} ao ter um texto marcado
+\item[Alt $+$ Tab:] alterna entre as aplicações ativas
 
-
+\item[$\uparrow $ e $\downarrow $:] repetem os comandos digitados neste terminal
+\item[\texttt{\^}: ] é o \texttt{ENTER} o qual deve ser pressionado após os comandos
+que se seguem
 \end{description}
 
 
@@ -151,7 +151,7 @@ pdfsubject=, pdfkeywords=}
 \item[\ding{248}] Vendo o diretório onde estou:
 \begin{verbatim}
 $ pwd
-/home/udesc/pgms_prolog
+/home/udesc
 \end{verbatim}
 
 
@@ -162,14 +162,35 @@ $ ls
 append.txt      lab_inic.pl        rapidas_linux.out
 aula-15-08a.pl  lab_recursao.c     rapidas_linux.pdf
 aula-15-08.pl   lab_recursao.pl    rapidas_linux.tex
-casa.fig        lab_word.pl        teste-prolog-recursao.tex
-casa.fig.bak    novo arquivo       triangulo.fig
-casa.pdf        rapidas_linux.aux  triangulo.pdf
-lab_deus.pl     rapidas_linux.log  verdinho.pdf
+......................................................
 $ 
 TESTE ESTE
 $ ls .*
 \end{verbatim}
+
+
+\pagebreak
+\item[\ding{248}] Cria um diretório
+\begin{verbatim}
+$ mkdir seu_diretorio
+$ ls    
+TEM QUE APARECER seu_diretorio LAH
+\end{verbatim}
+
+
+\pagebreak
+\item[\ding{248}] Entrando dentro de uma pasta/diretório:
+\begin{verbatim}
+$ cd seu_diretorio/    VAI para seu diretorio
+$ cd ..                SOBE  um nivel acima
+$ cd pgms_prolog/      VAI PARA BAIXO ou um dado diretorio
+$ cd ~  ATEH RAIZ HOME
+$ pwd
+/home/udesc
+$ 
+\end{verbatim}
+
+
 
 \pagebreak
 \item[\ding{248}] Cria um arquivo e lista o conteúdo:
@@ -180,17 +201,50 @@ $ ls -al *.txt
 -rw-r--r-- 1 udesc udesc   0 2011-08-29 19:41 nome_arquivo.txt
 \end{verbatim}
 
-\pagebreak
-\item[\ding{248}] Entrando dentro de uma pasta/diretório:
-\begin{verbatim}
-$ cd ..                SOBE  um nivel acima
-$ cd pgms_prolog/  PARA BAIXO
-$ cd ~  ATEH RAIZ HOME
-$ pwd
-/home/udesc
-$ 
-\end{verbatim}
 
+\pagebreak
+\item[\ding{248}] Passos para os laboratórios da turma de ALP:
+
+
+\begin{description}
+
+ \setlength\itemsep{13pt}
+
+  \item[\ding{242} \texttt{gterminal}:] é o terminal já mencionado
+    \item[\ding{242} \texttt{mkdir SEU\_NOME \^}:] cria diretório
+        \item[\ding{242} \texttt{cd SEU\_NOME \^}:] vai para o seu diretório
+        \item[\ding{242} \texttt{touch programa.c \^}:] criou um arquivo chamado \texttt{programa.c}
+        \item[\ding{242} \texttt{geany programa.c} \&  \^:] edita o \texttt{programa.c} com o \texttt{geany}
+       \item[\ding{242} \texttt{g++ programa.c \^}:] compila o arquivo o \texttt{programa.c} 
+    \item[\ding{242}  \texttt{ls a* \^}:] verifica se o programa executável foi gerado, é o \textbf{a.out}  
+    \item[\ding{242}  \texttt{./a.out \^}:] executa o \textbf{a.out}  
+    \item[\ding{242}  \texttt{ls \* \^}:] lista diretório corrente
+       
+\end{description}
+
+
+\pagebreak
+\item[\ding{248}] Erro recorrente da turma:
+
+
+
+\begin{verbatim}
+$ geany nome_arquivo.txt  ^ // processo PARADO
+^Z
+[1]+  Parado              //geany xxxx   PARADO
+$
+
+$ bg 1 ^                    // processo 1 PARADO
+[1]+ geany nome_arquivo.txt & ^  // bg ATIVANDO-O
+
+o correto eh:
+
+$ geny nome_arquivo.txt    &  ^   
+          
+          // NAO ESQUECA O & comercial ao final 
+          // ^ eh o ENTER ....
+
+\end{verbatim}
 
 
 \pagebreak
@@ -212,7 +266,6 @@ lista os processos por pagina
 
 
 
-
 \pagebreak
 \item[\ding{248}] Processos na memória e seu estado:
 \begin{verbatim}
@@ -222,12 +275,12 @@ $ ps aux | grep gedit
 udesc     4809  3.1  0.4  58132 16668 pts/2    Sl   19:54   0:00 gedit nome_arquivo.txt
 udesc     4814  0.0  0.0   3060   816 pts/2    S+   19:54   0:00 grep --color=auto gedit
 
-$ gedit nome_arquivo.txt 
+$ gedit nome_arquivo.txt      // processo em modo parado
 ^Z
 [1]+  Parado                  gedit nome_arquivo.txt    PARADO
 $
 $ bg 1
-[1]+ gedit nome_arquivo.txt &
+[1]+ gedit nome_arquivo.txt &   // posto em background
 
 \end{verbatim}
 
@@ -282,17 +335,8 @@ reset
 $ cat append.txt 
 ?- append([a,b,c],[d,e], X).
 X = [a, b, c, d, e].
-
-?- append([a,b,c],[d,e], [a, b, c, d, e]).
-true.
-.............
-$ more append.txt 
-?- append([a,b,c],[d,e], X).
-X = [a, b, c, d, e].
-
-?- append([a,b,c],[d,e], [a, b, c, d, e]).
-true.
-
+.............................................
+.............................................
 ?- append([a,b,c], X , [a, b, c, d, e]).
 --Mais--(32%)
 
@@ -306,19 +350,14 @@ $ grep "Y" *.pl
 aula-15-08a.pl:			    p(Y), 
 aula-15-08a.pl:			    X \== Y, 
 aula-15-08a.pl:			    Z is (X + Y) ,
-aula-15-08.pl:p(X,Y,Z) :- r(X), s(Y), t(Z).
-aula-15-08.pl:x :- p(X,Y,Z), .....
-lab_inic.pl:filho(X,Y) :- pai(Y, X).
-lab_inic.pl:irmao(X,Y) :- pai(X,Z), pai(Y,Z),
-lab_inic.pl:				X \== Y.
-lab_inic.pl:avo(X, Y) :- pai(Z , X), pai(Y,Z).				
+........................................
 udesc@matrizubuntu9:~/pgms_prolog$ 
-
 
 \end{verbatim}
 
 \pagebreak
 \item[\ding{248}] Criar um link simbólico ou atalho (em geral se cria este atalho em \texttt{/usr/bin} ou \texttt{/usr/local/bin}). 
+
 \begin{verbatim}
 EXEMPLO:
 $ ln -s caminho/minizinc minizinc
