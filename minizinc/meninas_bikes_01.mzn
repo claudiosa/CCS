@@ -20,7 +20,6 @@ cost = [|7, 6, 4, 9,
         |]
         ;
 
-
 array[1..rows, 1..cols] of var 0..1: x;
 array[1..rows, 1..cols] of int:  cost;
 var int: total_cost;
@@ -54,7 +53,7 @@ output [
     "CUSTO FINAL: " ++ show(total_cost) 
   else " " endif ++
   if j = 1 then "\n" else " " endif ++
-  show(x[i,j])
+  show(x[i,j])++ ":" ++ show(cost[i,j])
   | i in 1..rows, j in 1..cols] 
   ++ ["\n"];
 /*
