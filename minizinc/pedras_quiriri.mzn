@@ -35,6 +35,7 @@ let {
       var set of int : Colunas = 1..col;
     }
   in (
+
       exists(i in Linhas, j in Colunas where graph[i,j] == 1) 
           ( 
             graph[i-1,j+1] == 1 \/
@@ -42,33 +43,37 @@ let {
             graph[i-1,j-1] == 1 \/
             graph[i+1,j-1] == 1 
            )
-  );
+       );
 
-constraint
-            existe_cam(X, rows ,cols) == true;
+%constraint
+%            existe_cam(X, rows ,cols) == true;
 
 %% total de 1's na MATRIZ no minimo eh largura do rio
-constraint sum(i in 1..rows, j in 1..cols) (X[i,j]) >= cols;
+constraint sum(i in 1..rows, j in 1..cols) 
+           (X[i,j]) >= cols;
 
 
 %%% NO MINIMO CADA COLUNA TEM 1 ... e repetidos SIM talvez
 constraint 
           forall(j in 1 .. cols)(
-           sum(i in 1..rows) (X[i,j]) >= 1)
+          sum(i in 1.. rows) (X[i,j]) >= 1)
          ;
+        %  forall(i in 1 .. rows)(
+        %  sum(j in 1..cols) (X[i,j]) >= 1)
 /*
 constraint exists(i in 1..rows )
            (
             X[i,1] == 1 <-> x_inicial == i  /\
             X[i,cols] == 1 <-> x_final == i
             );
-
+*/
 % permitidos
 %%% NAO ESTAH BOA ....
 constraint %exists(i in 1..(rows), j in 1..(cols) )
            exists(i in 2..(rows-1), j in 2..(cols-1) )
                  (
-                 if( X[i,j] == 1) then ( X[i-1,j+1] == 1 \/
+                 if( X[i,j] == 1) then 
+                                 ( X[i-1,j+1] == 1 \/
 								                   X[i+1,j+1] == 1 \/
                    								 X[i-1,j-1] == 1 \/
                   								 X[i+1,j-1] == 1 )
@@ -76,7 +81,7 @@ constraint %exists(i in 1..(rows), j in 1..(cols) )
                                   true
                 endif
               );
-*/
+
 /*
 OR
                  X[i,j] == 1 <-> ( X[i-1,j+1] == 1 \/

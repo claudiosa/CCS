@@ -1,12 +1,20 @@
 % Soma como predicado
+
+main => soma_p(7, X), 
+        printf("\n X: %d " , X), 
+        printf("\n soma_f1: %d " , soma_f1(7) ),
+        printf("\n soma_f2: %d " , soma_f2(7) ).   
+      
+
 soma_p(0,S) => S = 0.
-soma_p(N,S), N > 0 => 
+soma_p(N,S) , N > 0 => 
                      soma_p(N-1,Parcial), 
                      S = N + Parcial.
  
 % Soma como funcao -- visao classica
 soma_f1(0) = S => S = 0.
-soma_f1(N) = S, N >= 1 => S = N + soma_f1(N-1).
+soma_f1(N) = S, N >= 1 => 
+         S := N + soma_f1(N-1).
 
 % Soma como funcao de fatos -- proximo a Haskell
 soma_f2(0) = 0.
