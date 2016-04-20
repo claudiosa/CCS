@@ -1,4 +1,4 @@
-
+%% pedras do rio quiriri
 
 include "globals.mzn";
 int: rows;
@@ -17,17 +17,17 @@ matriz_pedras =
 |]
 ;
 
+%% decision matrix
 array[1..rows, 1..cols] of var 0..1: X;
-%% to store ONE TRIP -- sequencia da viagem
 
-%array[1..(rows+cols)] of var 1..(rows+cols) : x_TOUR;
+var set of int : Set_Rows = 2 .. (rows-1); %%% indices validos
+var set of int : Set_Cols = 2 .. (cols-1); %%% indices validos
 
-var 1 .. rows : x_inicial;
-var 1 .. rows : x_final;
+%% custo ....
+var int: custo_caminho = 
+         sum(i in 1..rows, j in 1..cols) (X[i,j]*matriz_pedras[i,j]);
 
-var int: custo_caminho = sum(i in 1..rows, j in 1..cols) (X[i,j]*matriz_pedras[i,j]);
-
-
+%%% um predicado ... mas nao usado
 predicate existe_cam(array[int,int] of var 0..1 : graph, int: lin, int: col)
  =
 let {
@@ -35,7 +35,6 @@ let {
       var set of int : Colunas = 1..col;
     }
   in (
-
       exists(i in Linhas, j in Colunas where graph[i,j] == 1) 
           ( 
             graph[i-1,j+1] == 1 \/
@@ -43,71 +42,99 @@ let {
             graph[i-1,j-1] == 1 \/
             graph[i+1,j-1] == 1 
            )
-       );
+  );
 
 %constraint
 %            existe_cam(X, rows ,cols) == true;
 
-%% total de 1's na MATRIZ no minimo eh largura do rio
-constraint sum(i in 1..rows, j in 1..cols) 
-           (X[i,j]) >= cols;
 
-
-%%% NO MINIMO CADA COLUNA TEM 1 ... e repetidos SIM talvez
+%% total de 1's na MATRIZ no Minimo eh largura do rio
 constraint 
-          forall(j in 1 .. cols)(
-          sum(i in 1.. rows) (X[i,j]) >= 1)
+   (sum(i in 1..rows, j in 1..cols) (X[i,j])) > cols+1;
+
+
+%%% NO MINIMO TODA COLUNA TEM 1 NELA... e repetidos SIM talvez
+constraint 
+         forall(j in 1 .. cols)(
+           sum(i in 1..rows) (X[i,j]) >= 1)
          ;
-        %  forall(i in 1 .. rows)(
-        %  sum(j in 1..cols) (X[i,j]) >= 1)
-/*
-constraint exists(i in 1..rows )
-           (
-            X[i,1] == 1 <-> x_inicial == i  /\
-            X[i,cols] == 1 <-> x_final == i
-            );
-*/
-% permitidos
-%%% NAO ESTAH BOA ....
-constraint %exists(i in 1..(rows), j in 1..(cols) )
-           exists(i in 2..(rows-1), j in 2..(cols-1) )
-                 (
-                 if( X[i,j] == 1) then 
-                                 ( X[i-1,j+1] == 1 \/
-								                   X[i+1,j+1] == 1 \/
-                   								 X[i-1,j-1] == 1 \/
-                  								 X[i+1,j-1] == 1 )
-                                  else
-                                  true
-                endif
-              );
+
+%%% algumas linhas podem ter 0 ... e repetidos SIM talvez %%% FINS DIDATICOS
+%% esta constraint nao faz diferenca 
+constraint 
+      exists(i in 1 .. rows)(
+         (sum(j in 1 .. cols) (X[i,j]) >= 0)
+         )
+         ;
+
+
+%%% conectividade na matriz interna internamente
+constraint 
+     exists(i in Set_Rows, j in Set_Cols )
+         (  
+          ((X[i,j] == 1) <-> (X[i-1 , j+1] == 1 \/
+							                X[i+1 , j+1] == 1 \/
+                 							X[i-1 , j-1] == 1 \/
+                 							X[i+1 , j-1] == 1 )
+             )
+          );
+
+
+%%% nas extremidades-BORDAS da matriz
+constraint 
+     forall(i in Set_Rows, j in {1} )
+     (
+      ((X[i,j] == 1) <-> (X[i-1,j+1] == 1))
+                     \/
+      ((X[i,j] == 1) <-> (X[i+1,j+1] == 1))
+     );
+
+constraint 
+     forall(i in Set_Rows, j in {cols} )
+     (  
+      ((X[i,j] == 1) <->  (X[i-1, j-1] == 1))
+                     \/
+      ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
+     );
+
+%%%% para linha superior
+constraint 
+     forall(j in Set_Cols, i in {1} )
+     (  
+       ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
+                      \/
+       ((X[i,j] == 1) <-> (X[i+1, j+1] == 1) )     
+     );
+
+%% linha inferior
+constraint 
+     forall(j in Set_Cols, i in {rows} )
+     (  
+       ((X[i,j] == 1) <-> (X[i-1,j-1] == 1))
+                      \/
+       ((X[i,j] == 1) <-> (X[i-1,j+1] == 1))
+     );
+
 
 /*
 OR
-                 X[i,j] == 1 <-> ( X[i-1,j+1] == 1 \/
-								                   X[i+1,j+1] == 1 \/
-                   								 X[i-1,j-1] == 1 \/
-                  								 X[i+1,j-1] == 1 )
+
+                 if( X[i,j] == 1) then 
+                      ( X[i-1,j+1] == 1 \/
+								         X[i+1,j+1] == 1 \/
+                   				X[i-1,j-1] == 1 \/
+                  				 X[i+1,j-1] == 1 )
+                                  else
+                          true
+                endif
 
 */
   
-/*
-% nao permitidos
-constraint forall(i in 2..(rows-1)) (
-              forall(j in 2..(cols-1))(
-                 X[i,j] == 1 -> ( X[i-1,j] == 0 \/
-								                  X[i,j+1] == 0 \/
-                   								X[i,j-1] == 0 \/
-                  								 X[i+1,j+1] == 0 )
-              )
-           );
-*/
 
-
-%% nem precisam
-%constraint sum(i in 1..rows) (X[i,cols]) >= 1; % garante que a ultima coluna tenha no minimo 1
-
-%constraint sum(i in 1..rows) (X[i,1]) >= 1; % garante que a primeira coluna tenha no minimo 1
+%% nem precisam jah contempladas
+%%constraint sum(i in 1..rows) (X[i,cols]) >= 1; % garante que a ultima coluna tenha no minimo 1
+%% nem precisam jah contempladas
+%%constraint sum(i in 1..rows) (X[i,1]) >= 1; % garante que a primeira coluna tenha no minimo 1
 
 solve minimize custo_caminho;
 %solve satisfy;
@@ -119,6 +146,6 @@ output [
   if j == 1 then "\n" else " " endif ++
   show(X[i,j])++ ":" ++   show(matriz_pedras[i,j])
   | i in 1..rows, j in 1..cols
-] %++ ["\n"++ "Inicial: " ++ show(x_inicial) ++ 
+  ] %++ ["\n"++ "Inicial: " ++ show(x_inicial) ++ 
   %    " Final: " ++ show(x_final)] 
-++["\n"];
+  ++["\n"];

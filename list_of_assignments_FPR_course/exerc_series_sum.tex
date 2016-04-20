@@ -30,8 +30,7 @@
 \fbox{\fbox{
 \parbox [c][2.0cm][c]{15cm} {
 \centering {\Large ALP}\\
-{\bf Exercícios de laços de repetição  (\today)}\\
-(Antes-- faça os da aula passada)\\
+{\bf Exercícios de laços de repetição  (\today) -- faça os da aula passada}\\
 \uwave{Nível Avançado .... }\\
 }
 }}
@@ -40,24 +39,23 @@
 %\vskip13pt Aluno(a): \rule{13cm}{0.4mm}
 %\noindent
 
-\section{Série de Taylor e outras séries -- antes de Cálculo III}
-
+\section{Série de Taylor e outras Séries -- antes de Cálculo III}
 \begin{enumerate}
-
   \item Implemente a seguinte soma com  $n=7$ para um dado $x$
   $$e^x = \sum^\infty_{n=0} {x^n\over n!} =1 + x + {x^2 \over 2!} + {x^3 \over 3!} + {x^4 \over 4!}+\cdots.$$
   \begin{itemize}
     \item Veja são dois valores para ter precisão neste irracional $e^x$
-    \item Para conferir o resultado na linguagem C++ este valor é dado pela função $exp$, veja o 
+    \item Para conferir o resultado .... na linguagem C++ este valor é dado pela função $exp$, veja o 
     exemplo abaixo:
        
 \begin{verbatim}
+  /* exp example */
   #include <stdio.h>      /* printf */
-  #include <math.h>       /* exp  function e outras funcoes */
+  #include <math.h>       /* exp */
 
   int main ()
   {
-  double param, result;   %%% veja os tipos ....
+  double param, result;
   param = 5.0;
   result = exp (param);
   printf ("The exponential value of %f is %f.\n", param, result );
@@ -65,7 +63,7 @@
     }
 \end{verbatim}
     
-      \end{itemize}
+  \end{itemize}
 
 
 \item Casualmente $\cos x$ é dado por:
@@ -89,34 +87,10 @@ $$\sin x =  x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots $$
 $$\pi = \sum_{k = 0}^\infty \frac{1}{16^k}
 \left( \frac{4}{8k + 1} - \frac{2}{8k + 4} - \frac{1}{8k + 5} - \frac{1}{8k + 6}\right).$$
 
-
-
-
-%\item
 \end{enumerate}
-
-\section{Conferindo se voce aprendeu mesmo ....}
-
-Considere os exemplos anteriores, tal que cada um dos valores da
-série tem um número de termos $n$, ora $k$. Considere um \texttt{erro = 0.001}
-o qual é a diferença entre o valor analítico e o valor da série.
-Ou seja:\\
-
-
- $erro = \mid$ Valor da série - Valor analítico $\mid$\\
-
-
-Assim, refaça todos exercícios anteriores, agora retornando valor $n$, ora $k$,
-quando o erro for $erro \le 0.001$. Os valores analíticos voce considera
-das funções matemáticas do C++, consulte o manual para uso destes.
-
-
-
-
 %\vskip 13pt \noindent Considerações para avaliação: clareza, comentários sobre a
 %resolução, isto  é: 0,5 pontos.
 \begin{center}
 \rule{15cm}{0.1cm}
 \end{center}
-
 \end{document}
