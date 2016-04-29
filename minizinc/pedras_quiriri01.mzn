@@ -20,14 +20,14 @@ matriz_pedras =
 %% decision matrix
 array[1..rows, 1..cols] of var 0..1: X;
 
-var set of int : Set_Rows = 2 .. (rows-1); %%% indices validos
-var set of int : Set_Cols = 2 .. (cols-1); %%% indices validos
+var set of int : Set_Rows = 2 .. (rows-1); %%% valid index
+var set of int : Set_Cols = 2 .. (cols-1); %%% valid index
 
-%% custo ....
+%% costs ....
 var int: custo_caminho = 
          sum(i in 1..rows, j in 1..cols) (X[i,j]*matriz_pedras[i,j]);
 
-%%% um predicado ... mas nao usado
+%%% one predicate ... but not used
 predicate existe_cam(array[int,int] of var 0..1 : graph, int: lin, int: col)
  =
 let {
@@ -65,7 +65,7 @@ constraint
          (sum(j in 1 .. cols) (X[i,j]) >= 1)
          );
 */
-%%% conectividade na matriz interna internamente
+%%% the internal conectivity in the matrix
 constraint 
      %exists(i in Set_Rows, j in Set_Cols )
      forall(i in Set_Rows, j in Set_Cols )
@@ -76,8 +76,8 @@ constraint
           ((X[i,j] == 1) <-> (X[i+1 , j-1] == 1))
           );
 
-%%% nas extremidades-BORDAS da matriz
-%% coluna a esquerda
+%%% in the extremitie of this matrix
+%% coluna a esquerda - left
 constraint 
      forall(i in Set_Rows, j in {1} )
      (
@@ -85,7 +85,7 @@ constraint
                      \/
       ((X[i,j] == 1) <-> (X[i+1,j+1] == 1))
      );
-%% coluna a direita
+%% coluna a direita - right
 constraint 
      forall(i in Set_Rows, j in {cols} )
      (  
@@ -94,7 +94,7 @@ constraint
       ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
      );
 
-%%%% para linha superior
+%%%% para linha superior - upper
 constraint 
      forall(j in Set_Cols, i in {1} )
      (  
@@ -103,7 +103,7 @@ constraint
        ((X[i,j] == 1) <-> (X[i+1, j+1] == 1) )     
      );
 
-%% linha inferior
+%% linha inferior -- lower
 constraint 
      forall(j in Set_Cols, i in {rows} )
      (  
@@ -112,7 +112,7 @@ constraint
        ((X[i,j] == 1) <-> (X[i-1 , j+1] == 1))
      );
 
-%% CANTOS
+%% CORNERS
 /*
 constraint 
   (X[1,1] == 1) <-> (X[2,2] == 1);
@@ -127,20 +127,6 @@ constraint
   (X[rows,cols] == 1) <-> (X[(rows-1),(cols-1)] == 1);
 
 */
-/*
-OR
-
-                 if( X[i,j] == 1) then 
-                      ( X[i-1,j+1] == 1 \/
-								         X[i+1,j+1] == 1 \/
-                   				X[i-1,j-1] == 1 \/
-                  				 X[i+1,j-1] == 1 )
-                                  else
-                          true
-                endif
-
-*/
-  
 
 %% nem precisam jah contempladas
 %%constraint sum(i in 1..rows) (X[i,cols]) >= 1; % garante que a ultima coluna tenha no minimo 1
@@ -155,7 +141,7 @@ output [
     "total_cost: " ++ show(custo_caminho)
   else " " endif ++
   if j == 1 then "\n" else " " endif ++
-  show(X[i,j])++ ":" ++   show(matriz_pedras[i,j])
+  show(X[i,j]) %%++ ":" ++   show(matriz_pedras[i,j])
   | i in 1..rows, j in 1..cols
   ] %++ ["\n"++ "Inicial: " ++ show(x_inicial) ++ 
   %    " Final: " ++ show(x_final)] 
