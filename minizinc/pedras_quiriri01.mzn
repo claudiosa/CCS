@@ -50,7 +50,7 @@ let {
 
 %% total de 1's na MATRIZ no Minimo eh largura do rio
 constraint 
-   (sum(i in 1..rows, j in 1..cols) (X[i,j])) >= cols;
+   (sum(i in 1..rows, j in 1..cols) (X[i,j])) >= cols+1;
 
 %%% NO MINIMO TODA COLUNA TEM 1 NELA... e repetidos SIM talvez
 constraint 
@@ -68,6 +68,7 @@ constraint
 %%% the internal conectivity in the matrix
 constraint 
      %exists(i in Set_Rows, j in Set_Cols )
+     %
      forall(i in Set_Rows, j in Set_Cols )
          (  
           ((X[i,j] == 1) <-> (X[i-1 , j+1] == 1)) \/
@@ -81,52 +82,51 @@ constraint
 constraint 
      forall(i in Set_Rows, j in {1} )
      (
-      ((X[i,j] == 1) <-> (X[i-1,j+1] == 1))
-                     \/
-      ((X[i,j] == 1) <-> (X[i+1,j+1] == 1))
+      ((X[i,j] == 1) -> (X[i-1,j+1] == 1 /\ X[i+1,j+1] == 1))
+   %                /\
+      %((X[i,j] == 1) <-> (X[i+1,j+1] == 1))
      );
 %% coluna a direita - right
 constraint 
      forall(i in Set_Rows, j in {cols} )
      (  
-      ((X[i,j] == 1) <->  (X[i-1, j-1] == 1))
-                     \/
-      ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
+      ((X[i,j] == 1) ->  (X[i-1, j-1] == 1  /\ X[i+1, j-1] == 1))
+%%                     /\
+%      ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
      );
 
 %%%% para linha superior - upper
 constraint 
      forall(j in Set_Cols, i in {1} )
      (  
-       ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
-                      \/
-       ((X[i,j] == 1) <-> (X[i+1, j+1] == 1) )     
+       ((X[i,j] == 1) <-> (X[i+1, j-1] == 1 /\ X[i+1, j+1] == 1))
+%                      /\
+%       ((X[i,j] == 1) <-> (X[i+1, j+1] == 1) )     
      );
 
 %% linha inferior -- lower
 constraint 
      forall(j in Set_Cols, i in {rows} )
      (  
-       ((X[i,j] == 1) <-> (X[i-1 , j-1] == 1))
-                      \/
-       ((X[i,j] == 1) <-> (X[i-1 , j+1] == 1))
+       ((X[i,j] == 1) <-> (X[i-1 , j-1] == 1  /\ X[i-1 , j+1] == 1))
+%                      /\
+%       ((X[i,j] == 1) <-> (X[i-1 , j+1] == 1))
      );
 
 %% CORNERS
-/*
 constraint 
-  (X[1,1] == 1) <-> (X[2,2] == 1);
+  (X[1,1] == 1) -> (X[2,2] == 1);
 
 constraint 
-  (X[rows,1] == 1) <-> (X[(rows-1),2] == 1);
+  (X[rows,1] == 1) -> (X[(rows-1),2] == 1);
 
 constraint 
-  (X[1,cols] == 1) <-> (X[2,(cols-1)] == 1);
+  (X[1,cols] == 1) -> (X[2,(cols-1)] == 1);
 
 constraint 
-  (X[rows,cols] == 1) <-> (X[(rows-1),(cols-1)] == 1);
+  (X[rows,cols] == 1) -> (X[(rows-1),(cols-1)] == 1);
 
-*/
+
 
 %% nem precisam jah contempladas
 %%constraint sum(i in 1..rows) (X[i,cols]) >= 1; % garante que a ultima coluna tenha no minimo 1
@@ -140,8 +140,8 @@ output [
   if i = 1 /\ j = 1 then
     "total_cost: " ++ show(custo_caminho)
   else " " endif ++
-  if j == 1 then "\n" else " " endif ++
-  show(X[i,j]) %%++ ":" ++   show(matriz_pedras[i,j])
+  if j == 1 then "\n" else "   " endif ++
+  show(X[i,j]) ++ ":" ++   show(matriz_pedras[i,j])
   | i in 1..rows, j in 1..cols
   ] %++ ["\n"++ "Inicial: " ++ show(x_inicial) ++ 
   %    " Final: " ++ show(x_final)] 

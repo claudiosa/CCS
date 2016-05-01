@@ -4,8 +4,6 @@
 % 
 % TSP, Traveling Salesman Problem
 %
-% Written in GNU MathProg by Andrew Makhorin <mao@mai2.rcnet.ru> */
-%
 % The Traveling Salesman Problem (TSP) is stated as follows.
 % Let a directed graph G = (V, E) be given, where V = {1, ..., n} is
 % a set of nodes, E <= V x V is a set of arcs. Let also each arc
@@ -128,7 +126,7 @@ constraint
      /\
     %subcircuit(x_TOUR) %% it is work but not avoid sub-tours
     %%% HOW TO AVOID subcircuit uses? Anszer: use circuit --- a global constraint
-    circuit(x_TOUR)  %%% Constraints the elements of x to define a circuit where x[i] = j mean that j is the successor of i.
+    circuit(x_TOUR)  %%% Constraints the elements of x to define a circuit where x[i] = j   mean that j is the successor of i.
    %% I will working in other stractegy for these days....
    %% this global constraint must be changed in next versions
  ;
