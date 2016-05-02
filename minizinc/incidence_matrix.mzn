@@ -52,7 +52,7 @@ function var int: num_arcos(array[int,int] of int: Weight_M, int: n) =
          ;
 
 %%% constroi  uma matriz de adjacencia  -- STATUS OK
-function array [0..1,0..1] of var int: matriz_adjacencia(array[int,int] of int: Weight_M, int: n) =
+function array [int,int] of var {0,1}: matriz_adjacencia(array[int,int] of int: Weight_M, int: n) =
    let{
        array[1 .. n, 1 .. n] of var 0..1 : v_aux;
     constraint 
@@ -69,19 +69,25 @@ function array [0..1,0..1] of var int: matriz_adjacencia(array[int,int] of int: 
          in
          v_aux
          ;
-/*
-%%% uma matriz de INDICES para matriz de INCIDENCIA  -- STATUS NAO OK
-function array [int,int] of var int : matriz_index_incidencia(array[int,int] of var 0..1: M_ADJ, int: n, var int: num_arcos) =
 
+%%% uma matriz de INDICES para matriz de INCIDENCIA  -- STATUS NAO OK
+function array [int , {1,2} ] of var int : matriz_index_incidencia(array[int,int] of var 0..1: M_ADJ, int: n) =
+%%, var int: num_arcos) =
+/*
 %%% mas  o numero de arcos eh variavel ????
 %% ao chamar a funcao EH FIXO ... parado aqui 
+
+Solucao
+1. Estimar um comprimento MAXIMO para este novo ARRAY
+2.
+*/
    let{
   %     int : x = num_arcos;
        set of int : ONE_TWO = {1,2};
-       var set of int : N_ARCS = 1..num_arcos; %% variable to FIX in function
+       set of int : N_ARCS = 1 .. n*n; %%num_arcos; %% variable to FIX in function
        array[N_ARCS, ONE_TWO] of var int : v_aux;
     constraint 
-         forall(i,j in 1..n, k in 1 .. num_arcos )
+         forall(i , j in 1..n, k in N_ARCS) %% num_arcos )
          (
           if (M_ADJ[i,j] == 1)
           then
@@ -89,21 +95,25 @@ function array [int,int] of var int : matriz_index_incidencia(array[int,int] of 
             v_aux[k,2] == j 
             )
          else
-           true
+           (v_aux[k,1] == 0 /\
+            v_aux[k,2] == 0 
+            )
+        %%% true
          endif
          )
+         %% eliminar TODOS OS ZEROS  de V_AUX 
          }
          in
          v_aux
          ;
-*/
+
 
 constraint
         n_arcs = num_arcos(G,n);
 constraint
         MAT_ADJ = matriz_adjacencia(G,n);
-
-%        INDEX_INCIDENCIA = matriz_index_incidencia(MAT_ADJ, n, n_arcs);
+constraint
+        INDEX_INCIDENCIA = matriz_index_incidencia(MAT_ADJ, n);
 
 
 
@@ -121,5 +131,11 @@ output
        show(MAT_ADJ[i,j]) 
        | i in 1..n, j in 1..n
 ]
-%%++[show(matriz_index_incidencia(MAT_ADJ, n, K ))]
+%%++[show(matriz_index_incidencia(MAT_ADJ, n, n_arcs  ))]
+++%%[show(INDEX_INCIDENCIA)]
+[ %%% matriz de adjacencia
+  if k == 1 then "\n" else " "  endif ++
+       show(fix(INDEX_INCIDENCIA[iz,k])) 
+       | iz in 1..n*n, k in {1,2}
+]
 ;
