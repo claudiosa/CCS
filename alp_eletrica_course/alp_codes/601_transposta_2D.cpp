@@ -24,19 +24,22 @@ int main (void)
   for (j = 0; j < N; j++)
     {
 		for (i = 0; i < M; i++)
-	 	  printf ("t(%d,%d) = %d  ", i, j, matriz[i][j]);
-	 	  transposta[i][j] = matriz[i][j];
-	 	  // REVER NAO OK  ...
+		  {
+	      transposta[i][j] = matriz[i][j];
+	 	  printf ("t(%d,%d) = %d | %d ", i, j, matriz[i][j], transposta[i][j] );
+	      }
+
 	  	  printf ("\n");
 
      } // fim do  2o. for
   
    printf ("\n\n IMPRIMINDO PELA transposta \n");
   /* IMPRIMINDO PELA transposta */			
-  for (i = 0; i < N; i ++)
+  for (j = 0; j < N; j++)
     {
-		for (j = 0; j < M; j ++)
+	   for (i = 0; i < M; i++)
 	 	  printf("t(%d,%d) = %d  ", i, j, transposta[i][j]);
+	 	  
 	 	  printf("\n");
 
      } // fim do  2o. for
