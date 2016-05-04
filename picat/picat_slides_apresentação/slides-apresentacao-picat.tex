@@ -23,7 +23,7 @@
 \usepackage{comment}
 
 %%%\usepackage{scrhack}
-\usepackage{minted}
+%\usepackage{minted}
 \definecolor{azulclaro}{rgb}{0.9,0.9,1}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -41,6 +41,14 @@
 }
 
 \usetheme{Boadilla}
+%Global Background must be put in preamble
+\usebackgroundtemplate%
+{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{fundo-amarelo.jpeg}%
+}
+
+
+
 \graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}}
 
 \title[Tutorial de Prolog]{Tutorial de Prolog}
