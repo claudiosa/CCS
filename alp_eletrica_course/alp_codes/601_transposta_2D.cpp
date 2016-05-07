@@ -18,31 +18,33 @@ int main (void)
   /* LEITURA */ 
   for (i = 0; i < M; i++)
     for (j = 0; j < N; j++)
-			scanf("%d ", & matriz[i][j] );
+	scanf("%d ", & matriz[i][j] );
 			
- /* IMPRIMINDO transposta por matriz e copiando as matrizes */			
-  for (j = 0; j < N; j++)
+ /* IMPRIMINDO transposta por matriz e copiando as matrizes	
+    ORIGINAL para TRANSPOSTA */
+
+   for (i = 0; i < M; i++)
     {
-		for (i = 0; i < M; i++)
-		  {
-	      transposta[i][j] = matriz[i][j];
-	 	  printf ("t(%d,%d) = %d | %d ", i, j, matriz[i][j], transposta[i][j] );
-	      }
+     for (j = 0; j < N; j++)
+       {
+        // nao esquecer 
+       	transposta[i][j] = matriz[i][j]; // ATRIBUIR ANTES DE IMPRIMIR
+        // repensar uma anternativa para os indices i, j
+	printf ("t(%d,%d) = %d | %d ", i, j, matriz[i][j], transposta[i][j] );
+       }
 
-	  	  printf ("\n");
+	printf ("\n");
+      } // fim do  2o. for
 
-     } // fim do  2o. for
-  
    printf ("\n\n IMPRIMINDO PELA transposta \n");
   /* IMPRIMINDO PELA transposta */			
-  for (j = 0; j < N; j++)
+  for (j = 0; j < N; j++) // em J ... por linha
     {
-	   for (i = 0; i < M; i++)
+        for (i = 0; i < M; i++)
 	 	  printf("t(%d,%d) = %d  ", i, j, transposta[i][j]);
 	 	  
 	 	  printf("\n");
-
-     } // fim do  2o. for
+    } // fim do  2o. for
      
      
      printf("\n Profs. are humans !!!! \n\n");
