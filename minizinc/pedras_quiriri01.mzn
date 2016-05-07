@@ -50,7 +50,7 @@ let {
 
 %% total de 1's na MATRIZ no Minimo eh largura do rio
 constraint 
-   (sum(i in 1..rows, j in 1..cols) (X[i,j])) >= cols+1;
+   (sum(i in 1..rows, j in 1..cols) (X[i,j])) >= cols;
 
 %%% NO MINIMO TODA COLUNA TEM 1 NELA... e repetidos SIM talvez
 constraint 
@@ -82,7 +82,7 @@ constraint
 constraint 
      forall(i in Set_Rows, j in {1} )
      (
-      ((X[i,j] == 1) -> (X[i-1,j+1] == 1 /\ X[i+1,j+1] == 1))
+      ((X[i,j] == 1) <-> (X[i-1,j+1] == 1 /\ X[i+1,j+1] == 1))
    %                /\
       %((X[i,j] == 1) <-> (X[i+1,j+1] == 1))
      );
@@ -116,6 +116,9 @@ constraint
 %% CORNERS
 constraint 
   (X[1,1] == 1) -> (X[2,2] == 1);
+
+constraint 
+  (X[1,1] == 1) ;
 
 constraint 
   (X[rows,1] == 1) -> (X[(rows-1),2] == 1);

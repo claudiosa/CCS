@@ -83,68 +83,6 @@ constraint
          forall(j in 1 .. cols)(
            sum(i in 1..rows) (X[i,j]) >= 1) ;
 
-/*
-%%% conectividade na matriz interna internamente
-constraint 
-     exists(i in Set_Rows, j in Set_Cols )
-         (  
-          ((X[i,j] == 1) <-> (X[i-1 , j+1] == 1)) \/
-					((X[i,j] == 1) <-> (X[i+1 , j+1] == 1)) \/
-          ((X[i,j] == 1) <-> (X[i-1 , j-1] == 1)) \/
-          ((X[i,j] == 1) <-> (X[i+1 , j-1] == 1))
-          );
-
-%%% nas extremidades-BORDAS da matriz
-%% coluna a esquerda
-constraint 
-     forall(i in Set_Rows, j in {1} )
-     (
-      ((X[i,j] == 1) <-> (X[i-1,j+1] == 1))
-                     \/
-      ((X[i,j] == 1) <-> (X[i+1,j+1] == 1))
-     );
-%% coluna a direita
-constraint 
-     forall(i in Set_Rows, j in {cols} )
-     (  
-      ((X[i,j] == 1) <->  (X[i-1, j-1] == 1))
-                     \/
-      ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
-     );
-
-%%%% para linha superior
-constraint 
-     forall(j in Set_Cols, i in {1} )
-     (  
-       ((X[i,j] == 1) <-> (X[i+1, j-1] == 1))
-                      \/
-       ((X[i,j] == 1) <-> (X[i+1, j+1] == 1) )     
-     );
-
-%% linha inferior
-constraint 
-     forall(j in Set_Cols, i in {rows} )
-     (  
-       ((X[i,j] == 1) <-> (X[i-1 , j-1] == 1))
-                      \/
-       ((X[i,j] == 1) <-> (X[i-1 , j+1] == 1))
-     );
-
-%% CANTOS
-
-constraint 
-  (X[1,1] == 1) <-> (X[2,2] == 1);
-
-constraint 
-  (X[rows,1] == 1) <-> (X[(rows-1),2] == 1);
-
-constraint 
-  (X[1,cols] == 1) <-> (X[2,(cols-1)] == 1);
-
-constraint 
-  (X[rows,cols] == 1) <-> (X[(rows-1),(cols-1)] == 1);
-
-*/
 
 %solve minimize custo_caminho;
 solve satisfy;
