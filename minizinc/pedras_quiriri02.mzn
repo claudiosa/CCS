@@ -3,9 +3,10 @@
 include "globals.mzn";
 int: rows;
 int: cols;
+%%%%%%%%
 rows = 5;
 cols = 4;
-
+%%%%%%%%
 array[1..rows, 1..cols] of int:  matriz_pedras;
 matriz_pedras =
 [| 1,  99,  99, 99
@@ -16,7 +17,7 @@ matriz_pedras =
 |]
 ;
 
-var int: teste1;
+var int:  teste1;
 var int:  teste2;
 var int:  teste3;
 
@@ -30,44 +31,45 @@ var set of int : Set_Cols = 2 .. (cols-1); %%% indices validos
 var int: custo_caminho = 
          sum(i in 1..rows, j in 1..cols) (X[i,j]*matriz_pedras[i,j]);
 
-%% M num de colunas
-function var int: desloca (var int: i, var int: j , int: M) =
-   let{
-       var int: dist = M*(i-1) + j;
-%      dist = M*(i-1) + j;
-      }
-     in (
-         if (j >  M)
+%% function for distance in a matrix 
+function var int: desloca (var int: i, var int: j , int: n_COLS) =
+%   let{
+%       var int: dist = n_COLS*(i-1) + j;
+%       dist = M*(i-1) + j;
+%      }
+%     in (
+         if (j >  n_COLS)
          then
-         -99 %%% mensagem de erro.... incluir assert
+         -999999 %%% mensagem de erro.... incluir assert
          else
-         M*(i-1) + j
+         n_COLS*(i-1) + j
          endif 
-        )
+%        ) %% in
     ;
 
-%%% qual linha?? Falta
-function var int: get_i (var int: K , int: COL) =
-     if (K <= COL)
+%%% Which is the row?? suposition: i and j starting with 1
+%%% attention: n_cols .... vertical coluns
+function var int: get_i (var int: Dist , int: n_COLS) =
+     if (Dist <= n_COLS)
      then 
         1
      else
-       (K div COL)
+       ((Dist - 1) div n_COLS) + 1
      endif;
 
-%%% qual coluna? Falta
-function var int: get_j (var int: K , int: COLS) =
-     if (K <= COLS)
+%%% Which is the Column?? suposition: i and j starting with 1
+function var int: get_j (var int: Dist , int: n_COLS) =
+     if (Dist <= n_COLS)
      then 
-       K
+       Dist
      else
-      (COLS - (K mod COLS))
+      ((Dist - 1) mod n_COLS) + 1
      endif;
-
 %%% M num de colunas 
     
 constraint
-    teste1 = desloca (1 , 3 ,cols) /\
+    teste1 = desloca (4 , 1 ,cols) 
+      /\
     teste2 = get_i(teste1, cols)
       /\
     teste3 = get_j(teste1, cols);
@@ -96,8 +98,8 @@ output [
   | i in 1..rows, j in 1..cols
   ] %++ ["\n"++ "Inicial: " ++ show(x_inicial) ++ 
   %    " Final: " ++ show(x_final)] 
-  ++["\n"]++
-  [show(fix(teste1))]  ++["\n"]++
-  [show(teste2)] ++["\n"]++
+  ++["\n Distance: "]++
+  [show(fix(teste1))]  ++["\n Row: "]++
+  [show(teste2)] ++["\n Colun: "]++
   [show(teste3)] ;
 
