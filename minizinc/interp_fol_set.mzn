@@ -1,18 +1,15 @@
-/*
-Considere um domınio Dx = {2, 3, 4}, Dy = {3, 4, 5} 
-construa fun ̧coes que faz a interpreta ̧cao logica das 
+/* Considere um dominio Dx = {2, 3, 4}, Dy = {3, 4, 5} 
+construa funcoes que faz a interpretacao logica das 
 formulas abaixo:
-(a) ∀x∃y(y < x)
-(b) ∃x∀y(x < y)
-(c) ∀x∃y(x^2 == y)
-(d) ∃x∀y(x^2 != y)
+(a) For_All_x  Exist_y    (y < x)
+(b) Exist_x    For_All_y  (x < y)
+(c) For_All_x  Exist_y    (x^2 == y)
+(d) Exist_x    For_All_y  (x^2 != y)
 */
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%% Thiago e Andressa -- modificado por CCS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%declarar variáveis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Declarar variaveis
 
-set of int: A = {2,3,4};
+set of int: A = {2, 3, 4};
 set of int: B = {3, 4, 5};
   
 function bool: exemplo_A(set of int: x, set of int: y) = 

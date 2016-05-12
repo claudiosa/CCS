@@ -51,8 +51,9 @@
 
 \graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}}
 
-\title[Tutorial de P.I.C.A.T]{Tutorial de P.I.C.A.T}
+\title[Tutorial de Prolog]{Tutorial de Prolog}
 \author[Paulo, Claudio, Lu]{Paulo Victor de Aguiar\\
+	Luciani Regina da Costa Dantas\\
 	Claudio Cesar de Sá e Outros\\ 
 	Universidade do Estado de Santa Catarina -- UDESC\\
 	Departamento de Ciência da Computação -- DCC\\
@@ -71,14 +72,10 @@
 \maketitle
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil
 \frametitle{Indice}
 \tableofcontents
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introdução}
 \begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil
@@ -99,15 +96,11 @@
 \end{block}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Tipo de dados}
 \begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil
 \frametitle{Tipo de dados}
 
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Variável}
 \begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil
@@ -115,31 +108,8 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Átomo}
-\begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil
-\frametitle{Átomo}
 
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Número}
-\begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil
-\frametitle{Número}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Termo Composto}
-\begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil
-\frametitle{Termo Composto}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Exemplos}
 \begin{frame}[fragile]   %%%% indica que o ambiente  FRAME é frágil

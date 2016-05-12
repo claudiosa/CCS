@@ -51,15 +51,34 @@ constraint
   somaTotal = sum(i in 1 .. n) (pesos[i, queens[i]]);
 
 /* EXPLORE IT   ++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+solve :: seq_search([
+        %%% combinando esta estrategia para queens
+        int_search(queens, 
+        first_fail, 
+        indomain_min, 
+        complete)
+        ,
+        %%% com esta para outra variavel 
+        int_search([somaTotal], 
+        anti_first_fail, 
+        indomain_max, 
+        complete)
+        ])
+        maximize somaTotal;
+
+/*
+The sequential search constructor first undertakes the search given by th
+e first annotation in its list, when all variables in this annotation are fixed it undertakes the second search annotation, etc until
+all search annotations are complete.
+
+No caso acima fica mais lenta .... do questa aqui abaixo
 
 solve :: int_search(
         queens++[somaTotal], 
         first_fail, 
         indomain_min, 
         complete) maximize somaTotal; %%minimize somaTotal;
-
-
-
+*/
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 output 
@@ -75,3 +94,22 @@ output
 
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*
+For bool_search and int_search only the following parameters (where applicable) will be used:
+
+    variable choice:
+        input_order
+        first_fail (variable with smallest domain size)
+        anti_first_fail (variable with largest domain size)
+        smallest (variable with smallest minimal value)
+        largest (variable with largest maximum value) 
+    value choice: [examples for domain {1,3,4,18}]
+        indomain_min (x <= 1; x > 1)
+        indomain_max (x >= 18; x < 18)
+        indomain_median (x = 3 ; x != 3)
+        indomain_split (x <= (1+18)/2 ; x > (1+18)/2 )
+        indomain_reverse_split (x > (1+18)/2 ; x <= (1+18)/2 ) 
+    search style
+        complete 
+
+*/

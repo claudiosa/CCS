@@ -6,7 +6,6 @@ int: cols;
 %%%%%%%%
 rows = 5;
 cols = 4;
-set of int : K_set  = 1 .. (rows*cols);
 %%%%%%%%
 array[1..rows, 1..cols] of int:  matriz_pedras;
 matriz_pedras =
@@ -24,8 +23,6 @@ var int:  teste3;
 
 %% decision matrix
 array[1..rows, 1..cols] of var 0..1: X;
-
-array[K_set] of var int : distancias;
 
 var set of int : Set_Rows = 2 .. (rows-1); %%% indices validos
 var set of int : Set_Cols = 2 .. (cols-1); %%% indices validos
@@ -69,32 +66,15 @@ function var int: get_j (var int: Dist , int: n_COLS) =
       ((Dist - 1) mod n_COLS) + 1
      endif;
 %%% M num de colunas 
-
-function array[K_set] of var int: fill_index (set of int : K_set, int: rows , int:  cols) =
-     let{
-         array[K_set] of var int : distancias;
-         constraint %%% It is local  EVERYTHING
-         forall(k in K_set, i in 1 .. rows , j in 1 .. cols)   
-         ( distancias[k] = desloca(i , j , cols)
-         );
-        } 
-        in
-        distancias;  
-
+    
 constraint
-      distancias = fill_index (K_set, rows , cols);
-/* OK    distancias[1] = 100       /\
-       distancias[10] = 100      /\
-       distancias[20] = 100;
-
-constraint
-    teste1 = desloca (3 , 2 ,cols) 
+    teste1 = desloca (4 , 1 ,cols) 
       /\
     teste2 = get_i(teste1, cols)
       /\
     teste3 = get_j(teste1, cols);
 %            existe_cam(X, rows ,cols) == true;
-*/
+
 
 %% total de 1's na MATRIZ no Minimo eh largura do rio
 constraint 
@@ -118,11 +98,8 @@ output [
   | i in 1..rows, j in 1..cols
   ] %++ ["\n"++ "Inicial: " ++ show(x_inicial) ++ 
   %    " Final: " ++ show(x_final)] 
-  ++["\n Distance Vector: " ]++ 
-  [show(distancias)] ++ ["\n"] 
- % ++
- % [show(fix(teste1))]  ++ ["\n Row: "]++
- % [show(teste2)] ++ ["\n Colun: "]++
- % [show(teste3)] 
- ;
+  ++["\n Distance: "]++
+  [show(fix(teste1))]  ++["\n Row: "]++
+  [show(teste2)] ++["\n Colun: "]++
+  [show(teste3)] ;
 

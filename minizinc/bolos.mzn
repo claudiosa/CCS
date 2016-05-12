@@ -1,5 +1,5 @@
-var 0..100: bb; %bolo de banana
-var 0..100: bc; %bolo de chocolate
+var 0..100: bc; %Bolo de chocolate: N1
+var 0..100: bb; %Bolo de banana: N2
 
 constraint 250*bb + 200*bc <= 4000;
 constraint 2*bb <= 6;
@@ -7,6 +7,6 @@ constraint 75*bb + 150*bc <= 2000;
 constraint 100*bb + 150*bc <= 500;
 constraint 75*bc <= 500;
 
-solve maximize 450*bc + 400*bb;
+solve maximize (4500*bc + 4000*bb);
 
-output["bb = ",show(bb), "\nbc = ", show(bc)];
+output[" Choc = ", show(bc), "\t Ban = ",show(bb)];
