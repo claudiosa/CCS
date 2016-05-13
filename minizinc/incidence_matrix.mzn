@@ -29,7 +29,7 @@ array[1..n, 1..n] of var 0..1 : MAT_ADJ;
 %%% futuro 
 %%array[1..n*n, 1..2] of var 0 .. n : INDEX_INCIDENCIA;
 %set of int : N_ARCS = 1 .. n_arcs;
-array[1..n*n , 1..2] of var 0 .. n : INDEX_INCIDENCIA;
+array[1..(n*n), 1..2 ] of var 1 .. n : INDEX_INCIDENCIA;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % grafo de DECISAO que representa o resultado dos nos escolhidos
@@ -78,47 +78,53 @@ function array [int,int] of var {0,1}: matriz_adjacencia(array[int,int] of int: 
          in
          v_aux
          ;
-/*
 %%% uma matriz de INDICES para matriz de INCIDENCIA  -- STATUS NAO OK
-function array [int , int ] of var 0 .. n : matriz_index_incidencia(array[int,int] of var 0..1: M_ADJ,  var int: n_arc) =
+function array [int , int ] of var 1 .. n : matriz_index_incidencia
+               (array[int,int] of var 0..1: M_ADJ, int: nodes, int: n_arcs) =
 %%, var int: num_arcos) =
+
 /*
 Solucao
 1. Estimar um comprimento MAXIMO para este novo ARRAY
-
+*/
    let{
   %     int : x = num_arcos;
        set of int : ONE_TWO = {1,2};
-       set of int : N_ARCS = 1 .. n_arc; %% variable to FIX in function
-       array[N_ARCS, ONE_TWO] of var 0 .. n : v_aux_0; %%%% incluir o ZERO
+       set of int : N_ARCS = 1 .. n_arcs  ; %% variable to FIX in function
+       array[N_ARCS, ONE_TWO] of var  1 .. nodes : v_aux_0; %%%% incluir o ZERO
     constraint 
-      forall(i , j  in 1..n,  k in N_ARCS) %% num_arcos j in 1..n,
+      forall(i , j  in 1..nodes,  k in N_ARCS) %% num_arcos j in 1..n,
          (
+            v_aux_0[k,1] = i /\
+            v_aux_0[k,2] = j 
+/*
           if (M_ADJ[i,j] == 1)
           then
            (v_aux_0[k,1] = i /\
             v_aux_0[k,2] = j 
             )
          else
-          /* (v_aux_0[k,1] = 0 /\
+           (v_aux_0[k,1] = 0 /\
             v_aux_0[k,2] = 0 
             )
 
          true
          endif
+*/
         )
          %% DEPOIS eliminar TODOS OS ZEROS  de V_AUX 
        } 
        in
          v_aux_0
       ;
-*/
+
+
 constraint
         n_arcs = num_arcos(G,n);
 constraint
         MAT_ADJ = matriz_adjacencia(G,n);
-%%constraint
-  %%      INDEX_INCIDENCIA = matriz_index_incidencia( G, n_arcs );
+constraint
+        INDEX_INCIDENCIA = matriz_index_incidencia( G, n , n*n );
 
 
 
@@ -137,7 +143,7 @@ output
        | i in 1..n, j in 1..n
 ]
 %%++[show(matriz_index_incidencia(MAT_ADJ, n, n_arcs  ))]
-%%++[show(INDEX_INCIDENCIA)]
+++[show(INDEX_INCIDENCIA)]
 %
 %[ %%% matriz de adjacencia
 %  if k == 1 then "\n" else " "  endif ++
