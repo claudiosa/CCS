@@ -7,7 +7,7 @@ include "globals.mzn";
 
 %numero de rainhas
 int : n;
- n = 18;
+ n = 100;
  
 %vetor das rainhas, indice = linha,
 % valor = coluna
@@ -39,10 +39,10 @@ constraint
 %solve :: int_search( rainha, first_fail, indomain_max, complete ) satisfy;
 %solve :: int_search( rainha, first_fail, indomain_median, complete ) satisfy;
 %solve :: int_search( rainha, first_fail, indomain_random, complete ) satisfy;
-%solve :: int_search( rainha, first_fail, indomain_split, complete ) satisfy;
+solve :: int_search( rainha, anti_first_fail, indomain_split, complete ) satisfy;
 %%
-%solve :: int_search( rainha, anti_first_fail, indomain_min, complete ) satisfy;
-solve :: int_search( rainha, input_order, indomain_max, complete ) satisfy;
+%solve :: int_search( rainha, input_order, indomain_median, complete ) satisfy;
+%solve :: int_search( rainha, input_order, indomain_max, complete ) satisfy;
 %solve :: int_search( rainha, anti_first_fail, indomain_median, complete ) satisfy;
 %solve :: int_search( rainha, anti_first_fail, indomain_random, complete ) satisfy;
 %solve :: int_search( rainha, anti_first_fail, indomain_split, complete ) satisfy;
