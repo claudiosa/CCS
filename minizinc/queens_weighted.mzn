@@ -1,8 +1,8 @@
 %% in lab 07/05
+include "alldifferent.mzn";
 
 % data
 n = 11;
-%%include "globals.mzn";
 
 int: n;
 array[1..n] of var 1..n: queens;
@@ -25,20 +25,9 @@ pesos =[| 0, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9
 % Variavel que soma todos os pesos respectivos as posições das rainhas
 var int : somaTotal;
 
-% solve satisfy;
-%%constraint all_different(queens);
+constraint all_different(queens);
 
-constraint
-/*
- HAKAN -- version
-    forall(i, j in 1..n where i < j) (
-         (queens[i]  != queens[j]) /\
-         (queens[i]  != queens[j] + j-i) /\
-         (queens[i]  != queens[j] - j+i) 
-    ) 
- ;
-*/
-/* RAFAEL and CC */
+constraint   /* RAFAEL and CC */
   forall(i , j in 1..n where i < j) (
          (queens[i]  != queens[j]) /\
          (queens[i]  != queens[j] + abs(j-i)) /\
@@ -50,7 +39,17 @@ constraint
 constraint
   somaTotal = sum(i in 1 .. n) (pesos[i, queens[i]]);
 
-/* EXPLORE IT   ++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+%%% Anotacao de codigo ou procedimento
+ann : search_EXPLORE;
+solve :: search_EXPLORE  maximize somaTotal;
+%%% solve :: search_EXPLORE satisfy; %%% se apenas satisfy
+
+%%%% DEVE ESTAR em um outro arquivo de dados 
+%search_EXPLORE = int_search(queens++[somaTotal], first_fail, indomain_min, complete);
+search_EXPLORE = int_search(queens++[somaTotal], anti_first_fail, indomain_max, complete); 
+
+/* EXPLORE IT   ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 solve :: seq_search([
         %%% combinando esta estrategia para queens
         int_search(queens, 
@@ -65,14 +64,13 @@ solve :: seq_search([
         complete)
         ])
         maximize somaTotal;
-
+*/
 /*
 The sequential search constructor first undertakes the search given by th
 e first annotation in its list, when all variables in this annotation are fixed it undertakes the second search annotation, etc until
 all search annotations are complete.
 
-No caso acima fica mais lenta .... do questa aqui abaixo
-
+No caso acima fica mais lenta .... do que em um BRANCH unico
 solve :: int_search(
         queens++[somaTotal], 
         first_fail, 
