@@ -79,8 +79,8 @@ function array [int,int] of var {0,1}: matriz_adjacencia(array[int,int] of int: 
          v_aux
          ;
 %%% uma matriz de INDICES para matriz de INCIDENCIA  -- STATUS NAO OK
-function array [int , int ] of var 1 .. n : matriz_index_incidencia
-               (array[int,int] of var 0..1: M_ADJ, int: nodes, int: n_arcs) =
+function array [int , int] of var 1 .. n : matriz_index_incidencia
+               (array[int,int] of var 0..1: M_ADJ, int: nodes,  int: n_arcs) =
 %%, var int: num_arcos) =
 
 /*
@@ -93,11 +93,17 @@ Solucao
        set of int : N_ARCS = 1 .. n_arcs  ; %% variable to FIX in function
        array[N_ARCS, ONE_TWO] of var  1 .. nodes : v_aux_0; %%%% incluir o ZERO
     constraint 
-      forall(i , j  in 1..nodes,  k in N_ARCS) %% num_arcos j in 1..n,
+            v_aux_0[1,1] = 9 /\
+            v_aux_0[1,2] = 9 /\
+            v_aux_0[n_arcs,1] = 99999 /\
+            v_aux_0[n_arcs,2] = 99999 
+
+
+/*      forall(i , j  in 1..nodes,  k in N_ARCS) %% num_arcos j in 1..n,
          (
             v_aux_0[k,1] = i /\
             v_aux_0[k,2] = j 
-/*
+
           if (M_ADJ[i,j] == 1)
           then
            (v_aux_0[k,1] = i /\
@@ -110,8 +116,8 @@ Solucao
 
          true
          endif
-*/
-        )
+
+        )*/
          %% DEPOIS eliminar TODOS OS ZEROS  de V_AUX 
        } 
        in
@@ -123,8 +129,8 @@ constraint
         n_arcs = num_arcos(G,n);
 constraint
         MAT_ADJ = matriz_adjacencia(G,n);
-constraint
-        INDEX_INCIDENCIA = matriz_index_incidencia( G, n , n*n );
+%constraint
+%        INDEX_INCIDENCIA = matriz_index_incidencia( G, n , n*n );
 
 
 
@@ -142,8 +148,8 @@ output
        show(MAT_ADJ[i,j]) 
        | i in 1..n, j in 1..n
 ]
-%%++[show(matriz_index_incidencia(MAT_ADJ, n, n_arcs  ))]
-++[show(INDEX_INCIDENCIA)]
+++[show(fix(matriz_index_incidencia(MAT_ADJ, n, n*n)))]
+%++[show(INDEX_INCIDENCIA)]
 %
 %[ %%% matriz de adjacencia
 %  if k == 1 then "\n" else " "  endif ++
