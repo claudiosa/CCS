@@ -5,12 +5,14 @@ Enunciado do Problema: http://rachacuca.com.br/logica/problemas/laboratorio-de-i
 turma: 2015-2
 */
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-import cp.
+import   cp .   %%% 
 main ?=> time(laboratorio(L)),
 	 imprime(L),
  	 fail.
 		 
-main => nl, 
+main =>
+        nl, %%% do prolog
+        printf("\n ")  , 
         writeln('.........FIM.........').   
 
 
@@ -262,17 +264,17 @@ materia(matematica).
 materia(portugues).
 
 index(-)
-suco(morango).
-suco(maracuja).
-suco(uva).
-suco(laranja).
-suco(limao).
+suco  (morango).
+suco  (maracuja).
+suco  (uva).
+suco (laranja).
+suco (limao).
 
 alldifferent([]) ?=> true.
 alldifferent([H|T]) => not(member(H,T)),
                        alldifferent(T).
 
-imprime([]) ?=> true. % nl, writeln('...FIM...').
+imprime([ ]) ?=> true. % nl, writeln('...FIM...').
 imprime([Mochila, Nome, Mes, Jogo, Materia, Suco|T])=> 
          %write('.............'),     
         writeln([Mochila, Nome, Mes, Jogo, Materia, Suco]),
