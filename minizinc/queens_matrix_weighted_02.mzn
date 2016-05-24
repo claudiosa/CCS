@@ -89,8 +89,6 @@ output
    ["Soma dos pesos: " ++ show(somaTotal)]
   ;
 
-
-
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*
 For bool_search and int_search only the following parameters (where applicable) will be used:
