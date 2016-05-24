@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.6.24)  9 MAY 2016 10:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.6.24)  16 MAY 2016 09:03
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1543,12 +1543,11 @@ Package caption Info: End \AtBeginDocument code.
 \openout4 = `slides-apresentacao-picat.vrb'.
 
  (./slides-apresentacao-picat.vrb)
-<fundo-amarelo.jpeg, id=42, 253.94875pt x 199.74625pt>
-File: fundo-amarelo.jpeg Graphic file (type jpg)
-
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 72.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+<fundoprog2.jpeg, id=46, 1606.0pt x 1204.5pt>
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 72.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
@@ -1556,16 +1555,16 @@ LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./fundo-amarelo.jpeg>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./fundoprog2.jpeg>]
 \openout4 = `slides-apresentacao-picat.vrb'.
 
 
 (./slides-apresentacao-picat.vrb) (./slides-apresentacao-picat.toc)
-File: fundo-amarelo.jpeg Graphic file (type jpg)
+File: fundoprog2.jpeg Graphic file (type jpg)
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 79.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 79.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [2
 
 ]
@@ -1599,78 +1598,419 @@ line 4.
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 ))
-File: fundo-amarelo.jpeg Graphic file (type jpg)
+File: fundoprog2.jpeg Graphic file (type jpg)
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 100.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 100.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [3
 
 ]
 \openout4 = `slides-apresentacao-picat.vrb'.
 
  (./slides-apresentacao-picat.vrb)
-File: fundo-amarelo.jpeg Graphic file (type jpg)
+File: fundoprog2.jpeg Graphic file (type jpg)
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 108.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 111.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [4
 
 ]
 \openout4 = `slides-apresentacao-picat.vrb'.
 
- (./slides-apresentacao-picat.vrb)
-File: fundo-amarelo.jpeg Graphic file (type jpg)
+ (./slides-apresentacao-picat.vrb
+Overfull \hbox (2.0108pt too wide) in paragraph at lines 11--11
+[]\T1/cmss/bx/n/10 P.I.C.A.T| 
+ []
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 116.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+[]\T1/cmss/m/n/10 procedu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+[]\T1/cmss/m/n/10 orientado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+[]\T1/cmss/m/n/10 multi-
+ []
+
+
+Overfull \hbox (1.95526pt too wide) in paragraph at lines 13--14
+\T1/cmss/m/n/10 paradigma| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\T1/cmss/m/n/10 Verificação
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 22--22
+[]\T1/cmss/m/n/10 Possui se-gu-
+ []
+
+
+Overfull \hbox (2.78839pt too wide) in paragraph at lines 25--26
+[]\T1/cmss/m/n/10 casamento| 
+ []
+
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 153.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [5
 
 ]
 \openout4 = `slides-apresentacao-picat.vrb'.
 
- (./slides-apresentacao-picat.vrb)
-File: fundo-amarelo.jpeg Graphic file (type jpg)
+ (./slides-apresentacao-picat.vrb
+<figures/picatinstall.png, id=229, 912.40875pt x 460.72125pt>
+File: figures/picatinstall.png Graphic file (type png)
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 124.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+<use figures/picatinstall.png>
+Package pdftex.def Info: figures/picatinstall.png used on input line 5.
+(pdftex.def)             Requested size: 273.9493pt x 138.32991pt.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+))
+File: fundoprog2.jpeg Graphic file (type jpg)
+
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 167.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [6
 
-]
+ <./figures/picatinstall.png>]
 \openout4 = `slides-apresentacao-picat.vrb'.
 
- (./slides-apresentacao-picat.vrb)
-File: fundo-amarelo.jpeg Graphic file (type jpg)
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 132.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+(./slides-apresentacao-picat.vrb
+<figures/tipos_dados_picat_traduzido.jpg, id=257, 242.40562pt x 191.21437pt>
+File: figures/tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
+
+<use figures/tipos_dados_picat_traduzido.jpg>
+Package pdftex.def Info: figures/tipos_dados_picat_traduzido.jpg used on input 
+line 5.
+(pdftex.def)             Requested size: 205.46327pt x 162.08073pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 182.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [7
 
-]
+ <./figures/tipos_dados_picat_traduzido.jpg>]
 \openout4 = `slides-apresentacao-picat.vrb'.
 
  (./slides-apresentacao-picat.vrb)
-File: fundo-amarelo.jpeg Graphic file (type jpg)
+File: fundoprog2.jpeg Graphic file (type jpg)
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 140.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 211.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [8
 
 ]
 \openout4 = `slides-apresentacao-picat.vrb'.
 
  (./slides-apresentacao-picat.vrb)
-File: fundo-amarelo.jpeg Graphic file (type jpg)
+File: fundoprog2.jpeg Graphic file (type jpg)
 
-<use fundo-amarelo.jpeg>
-Package pdftex.def Info: fundo-amarelo.jpeg used on input line 148.
-(pdftex.def)             Requested size: 364.20955pt x 273.18134pt.
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 225.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
  [9
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 240.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [10
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 251.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [11
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 268.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [12
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 280.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [13
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 296.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [14
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+
+<use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 323.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [15
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb
+<figures/picatnumeros.png, id=501, 613.54219pt x 218.31563pt>
+File: figures/picatnumeros.png Graphic file (type png)
+
+<use figures/picatnumeros.png>
+Package pdftex.def Info: figures/picatnumeros.png used on input line 5.
+(pdftex.def)             Requested size: 308.18968pt x 109.66388pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 337.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [16
+
+ <./figures/picatnumeros.png>]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 348.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [17
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 358.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [18
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb
+<figures/picatlista.png, id=585, 609.02531pt x 246.1697pt>
+File: figures/picatlista.png Graphic file (type png)
+
+<use figures/picatlista.png>
+Package pdftex.def Info: figures/picatlista.png used on input line 5.
+(pdftex.def)             Requested size: 308.18968pt x 124.57576pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 372.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [19
+
+ <./figures/picatlista.png>]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 383.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [20
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb
+<figures/picatstring.png, id=640, 437.38406pt x 176.15813pt>
+File: figures/picatstring.png Graphic file (type png)
+
+<use figures/picatstring.png>
+Package pdftex.def Info: figures/picatstring.png used on input line 5.
+(pdftex.def)             Requested size: 308.18968pt x 124.12428pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 397.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [21
+
+ <./figures/picatstring.png>]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 409.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [22
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb
+<figures/picatestrutura.png, id=695, 572.1375pt x 185.94469pt>
+File: figures/picatestrutura.png Graphic file (type png)
+
+<use figures/picatestrutura.png>
+Package pdftex.def Info: figures/picatestrutura.png used on input line 5.
+(pdftex.def)             Requested size: 308.18968pt x 100.16177pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 423.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [23
+
+ <./figures/picatestrutura.png>]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 434.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [24
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb
+<figures/picatvetor.png, id=750, 426.09187pt x 177.66376pt>
+File: figures/picatvetor.png Graphic file (type png)
+
+<use figures/picatvetor.png>
+Package pdftex.def Info: figures/picatvetor.png used on input line 5.
+(pdftex.def)             Requested size: 308.18968pt x 128.51149pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 448.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [25
+
+ <./figures/picatvetor.png>]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 458.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [26
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb
+<figures/picatmapas.png, id=806, 566.115pt x 179.92218pt>
+File: figures/picatmapas.png Graphic file (type png)
+
+<use figures/picatmapas.png>
+Package pdftex.def Info: figures/picatmapas.png used on input line 5.
+(pdftex.def)             Requested size: 308.18968pt x 97.94994pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 472.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [27
+
+ <./figures/picatmapas.png>]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 484.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [28
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb
+<figures/picatconjuntos.png, id=859, 570.63188pt x 177.66376pt>
+File: figures/picatconjuntos.png Graphic file (type png)
+
+<use figures/picatconjuntos.png>
+Package pdftex.def Info: figures/picatconjuntos.png used on input line 5.
+(pdftex.def)             Requested size: 308.18968pt x 95.95326pt.
+)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 498.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [29
+
+ <./figures/picatconjuntos.png>]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+ (./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 512.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [30
+
+]
+\openout4 = `slides-apresentacao-picat.vrb'.
+
+
+(./slides-apresentacao-picat.vrb)
+File: fundoprog2.jpeg Graphic file (type jpg)
+ <use fundoprog2.jpeg>
+Package pdftex.def Info: fundoprog2.jpeg used on input line 533.
+(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+ [31
 
 ]
 \tf@nav=\write7
@@ -1682,39 +2022,48 @@ Package pdftex.def Info: fundo-amarelo.jpeg used on input line 148.
 \tf@snm=\write9
 \openout9 = `slides-apresentacao-picat.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
- (./slides-apresentacao-picat.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 535.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 535.
+
+(./slides-apresentacao-picat.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 535.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 535.
 Package rerunfilecheck Info: File `slides-apresentacao-picat.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 50E4836B4392E781E92BC2F747D8BD2D;380.
+(rerunfilecheck)             Checksum: 3B2A77B49E077A48FEB7193040EAE46C;443.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 150.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 535.
  ) 
 Here is how much of TeX's memory you used:
- 21641 strings out of 493104
- 392864 string characters out of 6136932
- 474103 words of memory out of 5000000
- 24517 multiletter control sequences out of 15000+600000
- 16877 words of font info for 51 fonts, out of 8000000 for 9000
+ 21992 strings out of 493104
+ 400124 string characters out of 6136932
+ 481264 words of memory out of 5000000
+ 24741 multiletter control sequences out of 15000+600000
+ 26094 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,16n,106p,432b,710s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
-fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfss0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfss1440.pfb>
-Output written on slides-apresentacao-picat.pdf (9 pages, 81990 bytes).
+ 76i,16n,106p,432b,725s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfsi1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sftt1095.pfb>
+Output written on slides-apresentacao-picat.pdf (31 pages, 731108 bytes).
 PDF statistics:
- 337 PDF objects out of 1000 (max. 8388607)
- 302 compressed objects within 4 object streams
- 26 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1012 PDF objects out of 1200 (max. 8388607)
+ 922 compressed objects within 10 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 199 words of extra memory for PDF output out of 10000 (max. 10000000)
 

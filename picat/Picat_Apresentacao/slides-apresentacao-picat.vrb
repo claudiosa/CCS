@@ -1,0 +1,15 @@
+\frametitle{Formulário}
+
+\begin{enumerate}
+ \item Qual característica do P.I.C.A.T é mais chamativa?
+ %R: multi-paradigma ...(fora objetos), leve  como Python
+ \item Em quais aplicações você usaria P.I.C.A.T?
+ %R: ensino de uma primeira linguagem
+ \item Quais são os pontos positivos e negativos do P.I.C.A.T que você identifica?
+ %R: negativo .... geração de codigo (ainda eh byte-code) e interface com outras linguagens (ainda incipiente)
+ \item Se pudesse melhorar algo no P.I.C.A.T, o que melhoraria?
+ %R: a interface com outras linguagens
+ \item O P.I.C.A.T pode substituir alguma linguagem?
+ %R: Prolog sim ...
+ \item Você usaria o P.I.C.A.T no lugar de alguma linguagem como C ou Java?
+\end{enumerate}

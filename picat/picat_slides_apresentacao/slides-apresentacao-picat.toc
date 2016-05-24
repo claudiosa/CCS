@@ -1,9 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\select@language {brazilian}
-\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
-\beamer@sectionintoc {2}{Tipo de dados}{4}{0}{2}
-\beamer@subsectionintoc {2}{1}{Vari\IeC {\'a}vel}{5}{0}{2}
-\beamer@subsectionintoc {2}{2}{\IeC {\'A}tomo}{6}{0}{2}
-\beamer@subsectionintoc {2}{3}{N\IeC {\'u}mero}{7}{0}{2}
-\beamer@subsectionintoc {2}{4}{Termo Composto}{8}{0}{2}
-\beamer@sectionintoc {3}{Exemplos}{9}{0}{3}

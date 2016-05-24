@@ -1,0 +1,16 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@sectionintoc {2}{Tipo de dados}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Vari\IeC {\'a}vel}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{\IeC {\'A}tomo}{11}{0}{2}
+\beamer@subsectionintoc {2}{3}{N\IeC {\'u}mero}{13}{0}{2}
+\beamer@subsectionintoc {2}{4}{Termo Composto}{17}{0}{2}
+\beamer@subsubsectionintoc {2}{4}{1}{Listas}{18}{0}{2}
+\beamer@subsubsectionintoc {2}{4}{2}{Strings}{20}{0}{2}
+\beamer@subsubsectionintoc {2}{4}{3}{Estruturas}{22}{0}{2}
+\beamer@subsubsectionintoc {2}{4}{4}{Vetores}{24}{0}{2}
+\beamer@subsubsectionintoc {2}{4}{5}{Mapas}{26}{0}{2}
+\beamer@subsubsectionintoc {2}{4}{6}{Conjuntos}{28}{0}{2}
+\beamer@sectionintoc {3}{Exemplos Pr\IeC {\'a}ticos}{30}{0}{3}
+\beamer@sectionintoc {4}{Formul\IeC {\'a}rio}{31}{0}{4}
