@@ -59,13 +59,34 @@ void ataques_rainha(int  matriz[][N], int TAM, int row, int col)
  
  for (i = 0; i < TAM; i++)
     matriz[i][col] = 1;
+
+// SOLUCAO ROGERIO ....
  
- // Na diagonal esquerda -> direita
- for (i = 0; i < TAM; i++)
-   for (j = 0; j < TAM; j++)
-  {  matriz[i][abs(j-col)] = 1;
-     matriz[abs(i-row)][j] = 1;
-  }
+ // Na diagonal esquerda -> acima
+ for (i = row, j=col ; i>=0 && j >=0 ; j--, i--)
+  matriz[i][j] = 1;
+
+ // Na diagonal esquerda -> baixo
+ for (i = row, j=col ; i< N && j >=0 ; j--, i++)
+  matriz[i][j] = 1;
+  
+ // Na diagonal  direita -> acima
+ for (i = row, j=col ; i>=0 && j < N ; j++, i--)
+  matriz[i][j] = 1;
+
+ // Na diagonal  direita -> baixo
+ for (i = row, j=col ; i<N && j<N ; j++, i++)
+  matriz[i][j] = 1;
+
+  
+ //PARA ESTUDO ...
+    
+//  matriz[i-abs(i-row)][abs(j-col)] = 1;
+   
+  
+  // for (j = 0; j < TAM; j++)
+   //  matriz[abs(i-row)][j] = 1;
+  
  
    return;
  }  
