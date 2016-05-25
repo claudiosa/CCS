@@ -1,7 +1,7 @@
+%%%%%%%%%% use_module(library(bounds)).
 
-%%% :-use_module(library(bounds)).
-y:- all_different( 6, 8).
 %%% Aqui nossas palavras - dicionario -- Vem do problema
+%% PALAVRAS
 word(abalone , a,b,a,l,o,n,e)  .
 word(abandon , a,b,a,n,d,o,n)  .
 word(enhance , e,n,h,a,n,c,e)  .
@@ -10,10 +10,10 @@ word(connect , c,o,n,n,e,c,t)  .
 word(elegant , e,l,e,g,a,n,t)  .
 
 
-use_module(library(bounds)).
+
 /*** ainda INEFICIENTE .... */
 
-cross((PH1, PH2, PH3, PV1, PV2, PV3  )) :-
+cross((PH1, PH2, PH3, PV1, PV2, PV3)) :-
 
 /* Declarando dominbios e variaveis */
      word(PH1, _, H12 , _ , H14,  _ , H16, _),
@@ -29,15 +29,16 @@ cross((PH1, PH2, PH3, PV1, PV2, PV3  )) :-
      H22 == V14, H24 == V24, H26 == V34,     
      H32 == V16, H34 == V26, H36 == V36.
            
-x :- cross((PH1, PH2, PH3, PV1, PV2, PV3  )) ,
+x :- cross((PH1, PH2, PH3, PV1, PV2, PV3)) ,nl,
      nl, write(' HORIZONTAIS: '), write(PH1),  write(' '),  
      write(PH2),  write(' '),   write(PH3),                     
      nl,  write(' VERTICAIS: '), write(PV1),  write(' '),  
-     write(PV2),  write(' '),   write(PV3).       
+     write(PV2),  write(' '),   write(PV3),
+     fail .       
  
-x .
-
-x :- true  .
+x :-nl,
+    writeln('***********************************************'),
+    true .
 
  
                    
