@@ -1,0 +1,4 @@
+\select@language {brazilian}
+\contentsline {section}{\numberline {1}Laborat\IeC {\'o}rio de Inform\IeC {\'a}tica}{5}
+\contentsline {section}{\numberline {2}Turistas na Copa}{6}
+\contentsline {section}{\numberline {3}Passeio de Bicicleta}{7}

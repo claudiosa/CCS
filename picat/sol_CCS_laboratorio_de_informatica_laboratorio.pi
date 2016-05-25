@@ -263,12 +263,12 @@ materia(historia).
 materia(matematica).
 materia(portugues).
 
-index(-)   %%% cuidado ... Prolog nao eh assim
+index(-)
 suco  (morango).
 suco  (maracuja).
 suco  (uva).
-suco  (laranja).
-suco  (limao).
+suco (laranja).
+suco (limao).
 
 alldifferent([]) ?=> true.
 alldifferent([H|T]) => not(member(H,T)),
