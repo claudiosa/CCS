@@ -1,7 +1,0 @@
-import ordset.
-
-main =>
-	A = new_set(2),
-	put(A,111), put(A,222),
-	L = map_to_list(A), write(L).
-%%	union(A,B) = C, write(C).

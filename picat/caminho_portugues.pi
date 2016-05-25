@@ -1,6 +1,6 @@
 
 listar_todos  ?=>     %%% this rule is backtrackable
-          caminho(X,Y)                                    ,  %% and
+          caminho(X,Y)                         ,   %% and
           printf("\n X: %w ---> Y: %w ", X,Y)  ,   %% and
           fail.
 
@@ -8,34 +8,30 @@ listar_todos =>
           printf("\n ")  ,
           true. %% the final rule of above
 
-%% uma regra da LPO: ver apostila
+%% uma regra da LPO: ver apostila em LPO
 caminho(X,Y) ?=> estrada(X,Y)   .
 caminho(X,Y) => estrada(X,Z)   ,   caminho(Z,Y) .
-%% sistema eh de deducao ... ver apostila
 
 %%% FATOS ... = Prolog
 index(-, -) % these facts are not ordered
-estrada(joinville, itajai )      .
+estrada(joinville, itajai )        .
 estrada(joinville, blumenau )      .
-estrada(itajai, camboriu )      .
-estrada(blumenau , camboriu)      .
-estrada(camboriu , floripa)      .
+estrada(itajai, camboriu )         .
+estrada(blumenau , camboriu)       .
+estrada(camboriu , floripa)        .
 /*
 1. Ponto  final  no final da linha de regras er fatos 
 2. Termos ou atomos: letras minusculas ... SEMPRE
 3. Letras maiusculas = variaveis das outras Linguagens
 4. A maquina anda de cima para baixo .... 
 5.  Embora a ordem do codigo nao interessa
-6.   :- do Prolog e agora ?=>
+6.  :- do Prolog e agora ?=>
 7.  Contudo so assim "=>" nao tem backtracking 
 */
 
 %% aconselhavel mas nao obrigatorio ... uso do main
 main => 
- %       homem(X), 
- %       printf("\n 1. Men: %w \n\n", X),
-  %      printf("\n 2. Women: %w \n\n", Y),
-          listar_todos
-           .
+     listar_todos
+     .
 
 
