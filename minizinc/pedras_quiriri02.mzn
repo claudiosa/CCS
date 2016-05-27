@@ -73,10 +73,16 @@ function var int: get_j (var int: Dist , int: n_COLS) =
 function array[K_set] of var int: fill_index (set of int : K_set, int: rows , int:  cols) =
      let{
          array[K_set] of var int : distancias;
+         set of int : Set_Rows = 1 .. rows;
+         int :  t_1 = rows ;
          constraint %%% It is local  EVERYTHING
-         forall(k in K_set, i in 1 .. rows , j in 1 .. cols)   
-         ( distancias[k] = desloca(i , j , cols)
+%%%%%%%%%%%%%%%%%%%%%%%%%WHY .....
+         forall(k in K_set, i in 2 .. 2 , j in 1 .. 1)   
+         ( 
+           distancias[k] =  desloca(i , j , cols)
          );
+           % distancias[1] = desloca(1 , 3 , cols) /\
+           % distancias[2] = desloca(1 , 2 , cols);
         } 
         in
         distancias;  

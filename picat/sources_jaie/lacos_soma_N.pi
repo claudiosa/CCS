@@ -1,3 +1,4 @@
+%% many ways to write a loops that sum from 0 up to N
 main => soma_01(7), soma_02(7),  soma_03(7).
 
 soma_01(N) =>   %% USING foreach
@@ -18,7 +19,7 @@ soma_02(N) => %% USING do-while
 	while (N >= 0),
 printf("\n SOMA de 1 ate %d: %d\n", Aux, S).
 
-soma_03(N) => %% USING while-do
+soma_03   (N) => %% USING while-do
 	S := 0,       
 	Aux := N,
 	while (N >= 0)

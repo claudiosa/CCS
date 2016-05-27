@@ -1,0 +1,23 @@
+%%% ideia de solucao do livro 7 linguagens em 7 semanas
+index(-,-) 
+  diferente_cor(azul, verde).   diferente_cor( verde, azul).   
+  diferente_cor(azul, lilaz).     diferente_cor( lilaz, azul).  
+  diferente_cor(verde, lilaz).   diferente_cor( lilaz, verde).
+%% com 3 cores apenas 
+%% com 4 cores ..... QUALQUER MAPA pode ser pintado
+
+main => modelo_cor.
+
+modelo_cor =>
+        L = [RS, SC, PR, SP, MTMG],
+        diferente_cor(RS, SC),
+        diferente_cor(PR, SC),
+        diferente_cor(PR, SP),
+        diferente_cor(PR, MT),
+        diferente_cor(PR, MG),
+        diferente_cor(SP, MT),
+        diferente_cor(SP, MG),
+%	diferente_cor(MG, MT), 
+        printf("\n RS: %w  SC: %w  PR: %w  SP: %w  MT: %w MG: %w \n", RS, SC, PR, SP, MT, MG).
+
+%%%%%%%%%%%%%%%%%%%%%%	       

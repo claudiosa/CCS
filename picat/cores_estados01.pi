@@ -7,8 +7,7 @@ pintar_sul  =>
     != (X3 , X2),
     printf("\n RS: %d  SC: %d  PR: %d", X1, X2, X3).
 
-
-%%% FATOS ... = Prolog
+%%% FATOS ...  Prolog-like
 index(-) % these facts are not ordered
 cor( 1 )      .
 cor( 2 )      .
@@ -17,7 +16,7 @@ cor( 3 )      .
 main => listar_todos.
 
 listar_todos ?=>     %%% this rule is backtrackable
-         pintar_sul ,  %% and
+         pintar_sul ,    %% and
          fail.
 
 listar_todos => 

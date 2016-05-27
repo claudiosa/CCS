@@ -12,10 +12,15 @@ int main()
    int matriz[N][N];
    
    zera_matriz( matriz ,  N);
-  // imprime_matriz( matriz ,  N);
+  printf("\n----------------------------------\n");
+   imprime_matriz( matriz ,  N);
    ataques_rainha( matriz , N , 3, 4);
    printf("\n----------------------------------\n");
+//      printf("\n----------------------------------\n");
    imprime_matriz( matriz ,  N);
+   /*
+  2a. feira: Falta POSICIONAR o REI (x,y) e verificar se esta posicao tem 1
+     */
    // 3a linha 4a. coluna
     // 1a funcao de inicializa a matriz ... encher de 0
     // 2a funcao de  imprimir a matriz ... ver se estah OK
@@ -43,8 +48,8 @@ void imprime_matriz( int matriz[][N], int TAM)
  for (i = 0; i < TAM; i++)
     {
 	 for (j = 0; j < TAM; j++)
-		 // printf ("m(%d,%d) = %d\t", i, j, matriz[i][j]);
-		  printf ("[%d,%d]:%d\t", i, j, matriz[i][j]);
+ 		  printf (" %d",  matriz[i][j]);
+//		  printf ("[%d,%d]:%d\t", i, j, matriz[i][j]);
 	  	  printf ("\n");
      } // fim do  2o. for
    
@@ -60,33 +65,31 @@ void ataques_rainha(int  matriz[][N], int TAM, int row, int col)
  for (i = 0; i < TAM; i++)
     matriz[i][col] = 1;
 
-// SOLUCAO ROGERIO ....
+// SOLUCAO ROGERIO .... CLARA
  
- // Na diagonal esquerda -> acima
- for (i = row, j=col ; i>=0 && j >=0 ; j--, i--)
+ // para diagonal esquerda -> acima
+ for (i = row, j=col ; (i>=0) && (j >=0) ; j--, i--)
   matriz[i][j] = 1;
 
- // Na diagonal esquerda -> baixo
- for (i = row, j=col ; i< N && j >=0 ; j--, i++)
+ // para diagonal esquerda -> baixo
+ for (i = row, j=col ; (i<N) && (j >=0) ; j--, i++)
   matriz[i][j] = 1;
   
- // Na diagonal  direita -> acima
- for (i = row, j=col ; i>=0 && j < N ; j++, i--)
+ // para diagonal  direita -> acima
+ for (i = row, j=col ; (i>=0) && (j < N) ; j++, i--)
   matriz[i][j] = 1;
 
- // Na diagonal  direita -> baixo
- for (i = row, j=col ; i<N && j<N ; j++, i++)
+ // para diagonal  direita -> baixo 
+ for (i = row, j=col ; (i<N) && (j < N) ; j++, i++)
   matriz[i][j] = 1;
 
-  
- //PARA ESTUDO ...
-    
+   //PARA ESTUDO ...
+   
 //  matriz[i-abs(i-row)][abs(j-col)] = 1;
    
   
   // for (j = 0; j < TAM; j++)
    //  matriz[abs(i-row)][j] = 1;
-  
- 
+
    return;
  }  
