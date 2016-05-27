@@ -1,0 +1,19 @@
+
+main =>
+	 printf(" Digite uma lista  numerica [1, 3, 5, 7] . :  "),
+	 %  Lista := read_line(stdin), % le TODOS caracteres
+	 %  Lista := [1, 3, 5, 7],
+	 Lista := read_term(stdin),    % COM ponto no final
+	 N := length(Lista),
+         S := 0,       
+	 foreach(Ind in 1 .. N)
+	 	printf( " %d", Lista[Ind] ),
+	        S := S + Lista[Ind]            % sem virgula
+	 end,
+	 printf("\n Soma dos elementos de %w  eh:  %d\n" , Lista, S).
+
+/*
+$ picat soma_lista01.pi < ent1.txt 
+ Digite uma lista  numerica [1, 3, 5, 7] . :   1 2 3 4
+ Soma dos elementos de [1,2,3,4]  eh:  10
+*/
