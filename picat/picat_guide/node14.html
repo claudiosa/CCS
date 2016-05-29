@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="next" HREF="node15.html">
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="node13.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html268"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html264"
+  HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html258"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html266"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html269"
+  HREF="node15.html">Example</A>
+<B> Up:</B> <A NAME="tex2html265"
+  HREF="node13.html">Defining Functions</A>
+<B> Previous:</B> <A NAME="tex2html259"
+  HREF="node13.html">Defining Functions</A>
+ &nbsp; <B>  <A NAME="tex2html267"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00231000000000000000">
+Example</A>
+</H2>
+<PRE>
+fib(0)=F =&gt; F=1.
+fib(1)=F =&gt; F=1.
+fib(N)=F,N&gt;1 =&gt; F=fib(N-1)+fib(N-2).
+
+qsort([])=L =&gt; L=[].
+qsort([H|T])=L =&gt; L = qsort([E : E in T, E=&lt;H])++[H]++
+                      qsort([E : E in T, E&gt;H]).
+</PRE>
+A function<A NAME="455"></A> call never fails and never succeeds more than once. For function<A NAME="456"></A> calls such as <TT>fib(-1)</TT> or <TT>fib(X)</TT>, Picat raises an exception<A NAME="459"></A>. 
+
+<P>
+Picat allows inclusion of <SPAN  CLASS="textit">function facts</SPAN><A NAME="461"></A> in the form <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.png"
+ ALT="$f$"></SPAN>(<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$t_1$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\ldots$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$t_n$"></SPAN>)<code>=</code><SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img73.png"
+ ALT="$Exp$"></SPAN></TT> in function<A NAME="463"></A> definitions. 
+
+<P>
+<BR><HR>
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>

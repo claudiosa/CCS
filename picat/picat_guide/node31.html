@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="previous" HREF="node30.html">
+<LINK REL="up" HREF="node30.html">
+<LINK REL="next" HREF="node32.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html467"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html463"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html459"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html465"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html468"
+  HREF="node32.html">Threads</A>
+<B> Up:</B> <A NAME="tex2html464"
+  HREF="node30.html">Action Rules</A>
+<B> Previous:</B> <A NAME="tex2html460"
+  HREF="node30.html">Action Rules</A>
+ &nbsp; <B>  <A NAME="tex2html466"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION002101000000000000000">
+Example</A>
+</H2>
+<PRE>
+echo(X,Flag),var(Flag),{event(X,T)} =&gt; writeln(T).
+echo(_X,_Flag) =&gt; writeln(done).
+
+foo(Flag) =&gt; Flag=1.
+</PRE>
+When a call <TT>echo(X,Flag)</TT> is executed, where <TT>Flag</TT> is a variable, it is attached to the <TT>dom</TT>-port<A NAME="1081"></A> of <TT>X</TT> as an actor<A NAME="879"></A>.  The actor<A NAME="880"></A> is then suspended, waiting for events posted to the <TT>dom</TT>-port<A NAME="1082"></A>. For this actor<A NAME="883"></A> definition, the command
+<PRE>
+echo(X,Flag), post_event(X,hello), post_event(X,picat).
+</PRE>
+prints out <TT>hello</TT> followed by <TT>picat</TT>. If the call <TT>foo(Flag)</TT> is inserted before the second call to <TT>post_event</TT>, then <TT>var(Flag)</TT><A NAME="1083"></A> fails when the actor<A NAME="894"></A> is activated the second time, causing the second rule to be applied to the actor<A NAME="895"></A>. Then, the output will be <TT>hello</TT> followed by <TT>done</TT>. Note that events are not handled until a non-inline call is executed. Replacing <TT>foo(Flag)</TT> by <TT>Flag=1</TT> will result in a different behavior because <TT>Flag=1</TT> is an inline call.
+
+<P>
+<1101>>
+<BR><HR>
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>

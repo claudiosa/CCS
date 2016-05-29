@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html183"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html179"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html173"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html181"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html184"
+  HREF="node8.html">Example</A>
+<B> Up:</B> <A NAME="tex2html180"
+  HREF="node5.html">Data Types</A>
+<B> Previous:</B> <A NAME="tex2html174"
+  HREF="node6.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html182"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00212000000000000000">
+Example</A>
+</H2>
+<PRE>
+Picat&gt; integer(5)
+yes
+
+Picat&gt; real(5)
+no
+
+Picat&gt; var(X)
+yes
+
+Picat&gt; X=5, var(X)
+no
+
+Picat&gt; 5 != 2+2
+yes
+
+Picat&gt; X = to_binary_string(5)
+X = ['1','0','1']
+
+Picat&gt; L = [a,b,c,d], X = L[2]
+X = b
+
+Picat&gt; L = [(A,I) : A in [a,b], I in 1..2].
+L = [(a,1),(a,2),(b,1),(b,2)]
+
+Picat&gt; put_attr(X,one,1), One = get_attr(X,one)  % attributed var
+One = 1
+
+Picat&gt; S = new_struct(point,3), Name = name(S), Len = length(S)
+S = point(_3b0,_3b4,_3b8)
+Name = point
+Len = 3
+
+Picat&gt; S = new_array(2,3), S[1,1] = 11, D2 = length(S[2])
+S = {{11,_93a0,_93a4},{_938c,_9390,_9394}}
+D2 = 3
+
+Picat&gt; M = new_map(), put(M,one,1), One = get(M,one)
+One = 1
+
+Picat&gt; M = new_set(), put(M,one), has_key(M,one).
+</PRE>
+
+<P>
+Picat also allows OOP notations for accessing attributes and for calling predicates<A NAME="331"></A> and functions<A NAME="332"></A>. The notation <TT><!-- MATH
+ $A_1.f(A_2,\ldots,A_k)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="135" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$A_1.f(A_2,\ldots,A_k)$"></SPAN></TT> is the same as <TT><!-- MATH
+ $f(A_1,A_2,\ldots,A_k)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="138" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$f(A_1,A_2,\ldots,A_k)$"></SPAN></TT>, unless <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.png"
+ ALT="$A_1$"></SPAN> is an atom, in which case <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.png"
+ ALT="$A_1$"></SPAN> must be a module qualifier for <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.png"
+ ALT="$f$"></SPAN>.  The notation <SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img43.png"
+ ALT="$A.Attr$"></SPAN>, where <SPAN CLASS="MATH"><IMG
+ WIDTH="39" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img44.png"
+ ALT="$Attr$"></SPAN> is not in the form <SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img45.png"
+ ALT="$f(\ldots)$"></SPAN>, is the same as the function call <TT>get<SPAN CLASS="MATH"><IMG
+ WIDTH="73" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.png"
+ ALT="$(A,Attr)$"></SPAN></TT><A NAME="1013"></A>. A structure<A NAME="337"></A> is assumed to have two attributes called <TT>name</TT><A NAME="1014"></A> and <TT>length</TT><A NAME="1015"></A>.
+
+<P>
+<BR><HR>
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>

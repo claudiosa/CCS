@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Defining Predicates</TITLE>
+<META NAME="description" CONTENT="Defining Predicates">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="node4.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html205"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html201"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html195"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html203"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html206"
+  HREF="node10.html">Example</A>
+<B> Up:</B> <A NAME="tex2html202"
+  HREF="node4.html">Overview</A>
+<B> Previous:</B> <A NAME="tex2html196"
+  HREF="node8.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html204"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00220000000000000000">
+Defining Predicates</A>
+</H1>
+A predicate<A NAME="346"></A> call either succeeds or fails, unless an exception<A NAME="347"></A> occurs. A predicate<A NAME="348"></A> call can return multiple answers through backtracking. The built-in predicate <TT>true</TT><A NAME="1016"></A> always succeeds, and the built-in predicate <TT>fail</TT><A NAME="1017"></A> (or <TT>false</TT><A NAME="1018"></A>) always fails. A <SPAN  CLASS="textit">goal</SPAN><A NAME="356"></A> is made from predicate<A NAME="357"></A> calls and statements, including conjunction (<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$A,B$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img48.png"
+ ALT="$A\ \&amp;\&amp;\ B$"></SPAN>), disjunction (<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$A;B$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img50.png"
+ ALT="$A\ \vert\vert\ B$"></SPAN>), negation (not <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img51.png"
+ ALT="$A$"></SPAN>), if-then-else<A NAME="358"></A>, <TT>foreach</TT> loops<A NAME="360"></A>, and <TT>while</TT> loops<A NAME="362"></A>.
+
+<P>
+A predicate<A NAME="363"></A> is defined with pattern-matching rules. Picat has two types of rules: the non-backtrackable rule<A NAME="364"></A> <SPAN CLASS="MATH"><IMG
+ WIDTH="101" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.png"
+ ALT="$Head, Cond\ $"></SPAN><code>=&gt;</code><SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\ Body$"></SPAN>, and the backtrackable rule<A NAME="365"></A> <SPAN CLASS="MATH"><IMG
+ WIDTH="101" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.png"
+ ALT="$Head, Cond\ $"></SPAN><code>?=&gt;</code><SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\ Body$"></SPAN>. The <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img54.png"
+ ALT="$Head$"></SPAN> takes the form <!-- MATH
+ $p(t_1,\ldots,t_n)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="95" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$p(t_1,\ldots,t_n)$"></SPAN>, where <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$p$"></SPAN> is called the predicate<A NAME="366"></A> name, and <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$n$"></SPAN> is called the arity<A NAME="367"></A>. When <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img57.png"
+ ALT="$n=0$"></SPAN>, the parentheses can be omitted. The condition <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$Cond$"></SPAN>, which is an optional goal<A NAME="368"></A>, specifies a condition under which the rule is applicable. For a call <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN>, if <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN> matches <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img54.png"
+ ALT="$Head$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$Cond$"></SPAN> succeeds, meaning that the condition evaluates to true, the rule is said to be <SPAN  CLASS="textit">applicable</SPAN> to <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN>. When applying a rule to call <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN>, Picat rewrites <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN> into <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\ Body$"></SPAN>. If the used rule is non-backtrackable<A NAME="370"></A>, then the rewriting is a commitment, and the program can never backtrack to <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN>. If the used rule is backtrackable<A NAME="371"></A>, however, the program will backtrack to <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN> once <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\ Body$"></SPAN> fails, meaning that <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\ Body$"></SPAN> will be rewritten back to <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN>, and the next applicable rule will be tried on <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.png"
+ ALT="$C$"></SPAN>. 
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html207"
+  HREF="node10.html">Example</A>
+<LI><A NAME="tex2html208"
+  HREF="node11.html">Example</A>
+<LI><A NAME="tex2html209"
+  HREF="node12.html">Example</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html205"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html201"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html195"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html203"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html206"
+  HREF="node10.html">Example</A>
+<B> Up:</B> <A NAME="tex2html202"
+  HREF="node4.html">Overview</A>
+<B> Previous:</B> <A NAME="tex2html196"
+  HREF="node8.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html204"
+  HREF="node3.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>

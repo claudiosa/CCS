@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html171"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html167"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html161"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html169"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html172"
+  HREF="node7.html">Example</A>
+<B> Up:</B> <A NAME="tex2html168"
+  HREF="node5.html">Data Types</A>
+<B> Previous:</B> <A NAME="tex2html162"
+  HREF="node5.html">Data Types</A>
+ &nbsp; <B>  <A NAME="tex2html170"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00211000000000000000">
+Example</A>
+</H2>
+<PRE>
+Picat&gt; V1 = X1, V2 = _ab, V3 = _       % variables
+
+Picat&gt; N1 = 12, N2 = 0xf3, N3 = 1.0e8  % numbers
+
+Picat&gt; A1 = x1, A2 = '_AB', A3 = ''    % atoms
+
+Picat&gt; L = [a,b,c,d]                   % a list
+
+Picat&gt; write("hello"++"picat")         % strings
+[h,e,l,l,o,p,i,c,a,t]
+
+Picat&gt; print("hello"++"picat")         
+hellopicat
+
+Picat&gt; writef("%s","hello"++"picat")   % formatted write
+hellopicat
+
+Picat&gt; writef("%-5d %5.2f",2,2.0)      % formatted write
+2      2.00
+
+Picat&gt; S = $point(1.0,2.0)             % a structure
+
+Picat&gt; S = new_struct(point,3)         % create a structure   
+S = point(_3b0,_3b4,_3b8)
+
+Picat&gt; A = {a,b,c,d}                   % an array
+
+Picat&gt; A = new_array(3)                % create an array
+A = {_3b0,_3b4,_3b8}
+
+Picat&gt; M = new_map([one=1,two=2])      % create a map
+M =  (map)[two = 2,one = 1]
+
+Picat&gt; M = new_set([one,two,three])    % create a map set
+M = (map)[two,one,three]
+
+Picat&gt; X = 1..2..10                    % ranges
+X = [1,3,5,7,9]
+
+Picat&gt; X = 1..5
+X = [1,2,3,4,5]
+</PRE>
+
+<P>
+Picat allows function<A NAME="270"></A> calls in arguments. For this reason, it requires structures<A NAME="271"></A> to be preceded with a dollar symbol in order for them to be treated as data. Without the dollar symbol, the command <TT>S=point(1.0,2.0)</TT> would call the function <TT>point(1.0,2.0)</TT> and bind <TT>S</TT> to its return value. In order to ensure safe interpretation of meta-terms in higher-order calls<A NAME="275"></A>, Picat forbids the creation of terms<A NAME="276"></A> that contain structures<A NAME="277"></A> with the name <TT>'.'</TT>, index notations, array comprehensions, list comprehensions, and loops.
+
+<P>
+For each type, Picat provides a set of built-in functions<A NAME="279"></A> and predicates<A NAME="280"></A>. The index notation <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>[<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$I$"></SPAN>]</TT>, where <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN> references a compound value<A NAME="282"></A> and <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$I$"></SPAN> is an integer expression, is a special function that returns a single component of <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>. The index of the first element of a list<A NAME="283"></A> or a structure<A NAME="284"></A> is 1. In order to facilitate type checking at compile time, Picat does not overload arithmetic operators for other purposes, and requires an index expression to be an integer<A NAME="285"></A>.
+
+<P>
+A list comprehension<A NAME="286"></A>, which takes the following form, is a special functional notation for creating lists:
+<PRE><TT>
+		 		 <TT>[<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN> : <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$E_1$"></SPAN> <TT>in</TT> <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$D_1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$Cond_1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\ldots$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$E_n$"></SPAN> in <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$D_n$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$Cond_n$"></SPAN>]</TT> 
+</TT></PRE>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN> is an expression, each <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$E_i$"></SPAN> is an iterating pattern<A NAME="290"></A>, each <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$D_i$"></SPAN> is an expression that gives a compound value<A NAME="291"></A>, and the optional conditions <SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$Cond_1$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\ldots$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$Cond_n$"></SPAN> are callable terms<A NAME="292"></A>. This list comprehension<A NAME="293"></A> means that for every tuple of values <SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$E_1 \in D_1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\ldots$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="71" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$E_n \in D_n$"></SPAN>, if the conditions are true, then the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN> is added into the list<A NAME="294"></A>.
+
+<P>
+An array comprehension<A NAME="295"></A> takes the following form:
+<PRE><TT>
+		 		 <TT>{<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN> : <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$E_1$"></SPAN> <TT>in</TT> <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$D_1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$Cond_1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\ldots$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$E_n$"></SPAN> in <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$D_n$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$Cond_n$"></SPAN>}</TT> 
+</TT></PRE>
+It is the same as:
+<PRE><TT>
+		 		 <TT>to_array([<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN> : <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$E_1$"></SPAN> <TT>in</TT> <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$D_1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$Cond_1$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\ldots$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$E_n$"></SPAN> in <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$D_n$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$Cond_n$"></SPAN>])</TT> 
+</TT></PRE>
+
+<P>
+The predicate <TT>put(<SPAN CLASS="MATH"><IMG
+ WIDTH="119" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$Map,Key,Val$"></SPAN>)</TT><A NAME="1008"></A> attaches the key-value pair <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$Key$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$=$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$Val$"></SPAN></TT> to the map <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$Map$"></SPAN></TT>, where <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$Key$"></SPAN></TT> is a non-variable term<A NAME="307"></A>, and <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$Val$"></SPAN></TT> is any term<A NAME="309"></A>. The function <TT>get(<SPAN CLASS="MATH"><IMG
+ WIDTH="83" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$Map,Key$"></SPAN>)</TT><A NAME="1009"></A> returns <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$Val$"></SPAN></TT> of the key-value pair <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$Key$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$=$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$Val$"></SPAN></TT> attached to <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$Map$"></SPAN></TT>. The predicate <TT>has_key(<SPAN CLASS="MATH"><IMG
+ WIDTH="83" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$Map,Key$"></SPAN>)</TT><A NAME="1010"></A> returns true iff <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$Map$"></SPAN> contains a pair with the given key.
+
+<P>
+An attributed variable<A NAME="317"></A> has a map<A NAME="318"></A> attached to it. The predicate <TT>put_attr(<SPAN CLASS="MATH"><IMG
+ WIDTH="97" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$X,Key,Val$"></SPAN>)</TT><A NAME="1011"></A> attaches the key-value pair <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$Key$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$=$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$Val$"></SPAN></TT> to <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN></TT>. The function <TT>get_attr(<SPAN CLASS="MATH"><IMG
+ WIDTH="61" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$X,Key$"></SPAN>)</TT><A NAME="1012"></A> returns <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$Val$"></SPAN></TT> of the key-value pair <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$Key$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$=$"></SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$Val$"></SPAN></TT> attached to <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN></TT>. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html171"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html167"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html161"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html169"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html172"
+  HREF="node7.html">Example</A>
+<B> Up:</B> <A NAME="tex2html168"
+  HREF="node5.html">Data Types</A>
+<B> Previous:</B> <A NAME="tex2html162"
+  HREF="node5.html">Data Types</A>
+ &nbsp; <B>  <A NAME="tex2html170"
+  HREF="node3.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>
