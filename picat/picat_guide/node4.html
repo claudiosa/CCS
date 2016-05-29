@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Overview</TITLE>
+<META NAME="description" CONTENT="Overview">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="next" HREF="node39.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="picat_guide.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html110"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html106"
+  HREF="picat_guide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html100"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html108"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html111"
+  HREF="node5.html">Data Types</A>
+<B> Up:</B> <A NAME="tex2html107"
+  HREF="picat_guide.html">picat_guide</A>
+<B> Previous:</B> <A NAME="tex2html101"
+  HREF="node3.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html109"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00200000000000000000"></A><A NAME="chapter:overview"></A>
+<BR>
+Overview
+</H1>
+Before we give an overview of the Picat language, let us briefly describe how to use the Picat system. The Picat system provides an interactive programming environment for users to load, debug<A NAME="175"></A>, and execute programs. Users can start the Picat interpreter with the OS command <TT>picat</TT><A NAME="991"></A>.
+<PRE><TT>
+		 		 <SPAN CLASS="MATH"><IMG
+ WIDTH="82" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$OSPromt$"></SPAN> <TT>picat</TT>
+</TT></PRE>
+Once the interpreter is started, users can type a command line after the prompt <code>Picat&gt;</code>. The <TT>help</TT><A NAME="992"></A> command shows the usages of commands, and the <TT>halt</TT><A NAME="993"></A> command terminates the Picat interpreter. Users can also use the <TT>picat</TT> command to run a program directly as follows:
+<PRE><TT>
+		 		 <SPAN CLASS="MATH"><IMG
+ WIDTH="82" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$OSPromt$"></SPAN> <TT>picat <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$File$"></SPAN> <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$Arg_1$"></SPAN> <SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$Arg_2$"></SPAN> <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\ldots$"></SPAN> <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$Arg_n$"></SPAN></TT>
+</TT></PRE>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$File$"></SPAN> (with or without the extension <TT>.pi</TT>) is the main file name of the program. The program must define a predicate named <TT>main/0</TT> or <TT>main/1</TT>. If the command line contains arguments after the file name, then <TT>main/1</TT> is executed. Otherwise, if the file name is not followed by any arguments, then <TT>main/0</TT> is executed. When <TT>main/1</TT> executed, all of the arguments after the file name are passed to the predicate as a list of strings.
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html112"
+  HREF="node5.html">Data Types</A>
+<UL>
+<LI><A NAME="tex2html113"
+  HREF="node6.html">Example</A>
+<LI><A NAME="tex2html114"
+  HREF="node7.html">Example</A>
+<LI><A NAME="tex2html115"
+  HREF="node8.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html116"
+  HREF="node9.html">Defining Predicates</A>
+<UL>
+<LI><A NAME="tex2html117"
+  HREF="node10.html">Example</A>
+<LI><A NAME="tex2html118"
+  HREF="node11.html">Example</A>
+<LI><A NAME="tex2html119"
+  HREF="node12.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html120"
+  HREF="node13.html">Defining Functions</A>
+<UL>
+<LI><A NAME="tex2html121"
+  HREF="node14.html">Example</A>
+<LI><A NAME="tex2html122"
+  HREF="node15.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html123"
+  HREF="node16.html">Assignments and Loops</A>
+<UL>
+<LI><A NAME="tex2html124"
+  HREF="node17.html">Example</A>
+<LI><A NAME="tex2html125"
+  HREF="node18.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html126"
+  HREF="node19.html">Tabling</A>
+<UL>
+<LI><A NAME="tex2html127"
+  HREF="node20.html">Example</A>
+<LI><A NAME="tex2html128"
+  HREF="node21.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html129"
+  HREF="node22.html">Modules</A>
+<UL>
+<LI><A NAME="tex2html130"
+  HREF="node23.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html131"
+  HREF="node24.html">Constraints</A>
+<UL>
+<LI><A NAME="tex2html132"
+  HREF="node25.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html133"
+  HREF="node26.html">Exceptions</A>
+<LI><A NAME="tex2html134"
+  HREF="node27.html">Higher-Order Calls</A>
+<UL>
+<LI><A NAME="tex2html135"
+  HREF="node28.html">Example</A>
+<LI><A NAME="tex2html136"
+  HREF="node29.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html137"
+  HREF="node30.html">Action Rules</A>
+<UL>
+<LI><A NAME="tex2html138"
+  HREF="node31.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html139"
+  HREF="node32.html">Threads</A>
+<UL>
+<LI><A NAME="tex2html140"
+  HREF="node33.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html141"
+  HREF="node34.html">Prebuilt Maps</A>
+<UL>
+<LI><A NAME="tex2html142"
+  HREF="node35.html">Example</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html143"
+  HREF="node36.html">External Language Interfaces and Libraries</A>
+<LI><A NAME="tex2html144"
+  HREF="node37.html">Resources</A>
+<LI><A NAME="tex2html145"
+  HREF="node38.html">Programming Exercises</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html110"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html106"
+  HREF="picat_guide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html100"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html108"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html111"
+  HREF="node5.html">Data Types</A>
+<B> Up:</B> <A NAME="tex2html107"
+  HREF="picat_guide.html">picat_guide</A>
+<B> Previous:</B> <A NAME="tex2html101"
+  HREF="node3.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html109"
+  HREF="node3.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>

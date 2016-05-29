@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node22.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html373"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html369"
+  HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html365"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html371"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html374"
+  HREF="node24.html">Constraints</A>
+<B> Up:</B> <A NAME="tex2html370"
+  HREF="node22.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html366"
+  HREF="node22.html">Modules</A>
+ &nbsp; <B>  <A NAME="tex2html372"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00261000000000000000">
+Example</A>
+</H2>
+<PRE>
+% in file my_sum.pi
+module my_sum.
+
+my_sum(L)=Sum =&gt;
+   sum_aux(L,0,Sum).
+
+private
+sum_aux([],Sum0,Sum) =&gt; Sum=Sum0.
+sum_aux([X|L],Sum0,Sum) =&gt; sum_aux(L,X+Sum0,Sum).
+
+% in file test_my_sum.pi
+module test_my_sum.
+import my_sum.
+
+go =&gt;
+   writeln(my_sum([1,2,3,4])).
+</PRE>
+
+<P>
+The predicate <TT>sum_aux</TT> is private, and is never visible outside of the module. The following shows a session that uses these modules. 
+<PRE>
+Picat&gt; load("test_my_sum")
+
+Picat&gt; go
+10
+</PRE>
+The command <TT>load(File)</TT><A NAME="1035"></A> loads a module file<A NAME="652"></A> into the system. If the file<A NAME="653"></A> has not been compiled, then the <TT>load</TT><A NAME="1036"></A> command compiles the file before loading it. If this module is dependent on other modules, then the other modules are loaded automatically if they are not yet in the system.<A NAME="tex2html4"
+  HREF="footnode.html#foot656"><SUP><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> When a module is loaded, all of its public predicates<A NAME="657"></A> and functions<A NAME="658"></A> become visible to the interpreter.
+
+<P>
+The Picat module system is static, meaning that the binding of normal calls to their definitions takes place at compile time. For higher-order calls<A NAME="659"></A>, however, Picat may need to search for their definitions at runtime. Several built-in modules are imported by default, including  <TT>basic</TT>, <TT>io</TT>, <TT>math</TT>,  and <TT>sys</TT>. For a normal call that is not higher-order in a module, the Picat compiler searches modules for a definition in the following order:
+
+<OL>
+<LI>The implicitly imported built-in modules in the order from <TT>basic</TT> to <TT>sys</TT>.
+</LI>
+<LI>The enclosing module of the call.
+</LI>
+<LI>The explicitly imported modules in the order that they were imported.
+</LI>
+<LI>The global module.
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html373"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html369"
+  HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html365"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html371"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html374"
+  HREF="node24.html">Constraints</A>
+<B> Up:</B> <A NAME="tex2html370"
+  HREF="node22.html">Modules</A>
+<B> Previous:</B> <A NAME="tex2html366"
+  HREF="node22.html">Modules</A>
+ &nbsp; <B>  <A NAME="tex2html372"
+  HREF="node3.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>

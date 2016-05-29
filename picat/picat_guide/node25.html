@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node24.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html396"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html392"
+  HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html388"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html394"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html397"
+  HREF="node26.html">Exceptions</A>
+<B> Up:</B> <A NAME="tex2html393"
+  HREF="node24.html">Constraints</A>
+<B> Previous:</B> <A NAME="tex2html389"
+  HREF="node24.html">Constraints</A>
+ &nbsp; <B>  <A NAME="tex2html395"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00271000000000000000">
+Example</A>
+</H2>
+<PRE>
+import cp.
+
+go =&gt; 
+    Vars=[S,E,N,D,M,O,R,Y],  % generate variables
+    Vars :: 0..9,
+    all_different(Vars),     % generate constraints
+    S #!= 0,
+    M #!= 0,
+    1000*S+100*E+10*N+D+1000*M+100*O+10*R+E 
+         #= 10000*M+1000*O+100*N+10*E+Y,
+    solve(Vars),             %  search
+    writeln(Vars).
+</PRE>
+In arithmetic constraints<A NAME="683"></A>, expressions are treated as data, and it is unnecessary to enclose them with dollar-signs.
+
+<P>
+The loops provided by Picat facilitate modeling of many constraint<A NAME="684"></A> satisfaction and optimization problems. The following program solves a Sudoku puzzle:
+<PRE>
+import cp.
+
+sudoku =&gt;
+    instance(N,A),
+    A :: 1..N,
+    foreach(Row in 1..N)
+        all_different(A[Row])
+    end,
+    foreach(Col in 1..N)
+        all_different([A[Row,Col] : Row in 1..N])
+    end,
+    M=floor(sqrt(N)),
+    foreach(Row in 1..M, Col in 1..M) 
+        Square = [A[Row1,Col1] : 
+                    Row1 in (Row-1)*M+1..Row*M, 
+                    Col1 in (Col-1)*M+1..Col*M],
+        all_different(Square)
+    end,
+    solve(A),
+    foreach(I in 1..N) writeln(A[I]) end.
+
+instance(N,A) =&gt;
+    N=9,
+    A={{5,3,_,_,7,_,_,_,_},
+       {6,_,_,1,9,5,_,_,_},
+       {_,9,8,_,_,_,_,6,_},
+       {8,_,_,_,6,_,_,_,3},
+       {4,_,_,8,_,3,_,_,1},
+       {7,_,_,_,2,_,_,_,6},
+       {_,_,_,_,_,_,_,_,_},
+       {_,_,_,_,_,_,_,_,_},
+       {_,_,_,_,_,_,_,_,_},
+       {_,_,_,_,_,_,_,_,_}}.
+</PRE>
+Recall that variables that occur within a loop, and do not occur before the loop in the outer scope<A NAME="687"></A>, are local<A NAME="688"></A> to each iteration of the loop. For example, in the third <TT>foreach</TT><A NAME="690"></A> statement of the <TT>sudoku</TT> predicate, the variables <TT>Row</TT>, <TT>Col</TT>, and <TT>Square</TT> are local<A NAME="695"></A>, and each iteration of the loop has its own values for these variables.
+
+<P>
+<BR><HR>
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>

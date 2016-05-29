@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Action Rules</TITLE>
+<META NAME="description" CONTENT="Action Rules">
+<META NAME="keywords" CONTENT="picat_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="picat_guide.css">
+
+<LINK REL="next" HREF="node32.html">
+<LINK REL="previous" HREF="node27.html">
+<LINK REL="up" HREF="node4.html">
+<LINK REL="next" HREF="node31.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html456"
+  HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html452"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html446"
+  HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html454"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html457"
+  HREF="node31.html">Example</A>
+<B> Up:</B> <A NAME="tex2html453"
+  HREF="node4.html">Overview</A>
+<B> Previous:</B> <A NAME="tex2html447"
+  HREF="node29.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html455"
+  HREF="node3.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION002100000000000000000">
+Action Rules</A>
+</H1>
+Picat provides action rules<A NAME="809"></A> for describing event-driven actors<A NAME="810"></A>. An actor<A NAME="811"></A> is a predicate<A NAME="812"></A> call that can be delayed, and can be activated later by events. Each time an actor<A NAME="813"></A> is activated, an action can be executed. A predicate<A NAME="814"></A> for actors<A NAME="815"></A> contains at least one <SPAN  CLASS="textit">action rule</SPAN><A NAME="817"></A> in the form:
+<PRE><TT>
+		 <SPAN CLASS="MATH"><IMG
+ WIDTH="169" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img100.png"
+ ALT="$Head, Cond, \{Event\} $"></SPAN><code>=&gt;</code><SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\ Body$"></SPAN>
+</TT></PRE>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img54.png"
+ ALT="$Head$"></SPAN> is an actor<A NAME="820"></A> pattern, <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$Cond$"></SPAN> is an optional condition, <SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img101.png"
+ ALT="$Event$"></SPAN> is a non-empty set of event patterns separated by <TT>','</TT>,  and <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\ Body$"></SPAN> is an action. For an actor<A NAME="822"></A> and an event, an action rule<A NAME="823"></A> is said to be <SPAN  CLASS="textit">applicable</SPAN> if the actor<A NAME="825"></A> matches <SPAN CLASS="MATH"><IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img54.png"
+ ALT="$Head$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$Cond$"></SPAN> is true. A predicate<A NAME="826"></A> for actors<A NAME="827"></A> cannot contain backtrackable rules<A NAME="828"></A>.
+
+<P>
+An event channel is an attributed variable<A NAME="829"></A> to which actors<A NAME="830"></A> can be attached, and through which events can be posted to actors<A NAME="831"></A>. A channel has four ports: <TT>ins</TT><A NAME="1073"></A>, <TT>bound</TT><A NAME="1074"></A>, <TT>dom</TT><A NAME="1075"></A>, and <TT>any</TT><A NAME="1076"></A>. An event pattern in <SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img101.png"
+ ALT="$Event$"></SPAN> specifies the port to which the actor<A NAME="840"></A> is attached. The event pattern <TT>ins(<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>)</TT> attaches the actor<A NAME="842"></A> to the <TT>ins</TT>-port<A NAME="1077"></A> of channel <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>, and the actor<A NAME="845"></A> will be activated when <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN> is instantiated<A NAME="846"></A>. The event pattern <TT>event(<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN>)</TT> attaches the actor<A NAME="848"></A> to the <TT>dom</TT>-port<A NAME="1078"></A> of channel <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>. The built-in <TT>post_event(<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>,<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN>)</TT><A NAME="1079"></A> posts an event term<A NAME="853"></A> <TT><SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$T$"></SPAN></TT> to the <TT>dom</TT>-port<A NAME="1080"></A> of channel <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$X$"></SPAN>. After an event is posted to a port of a channel, the actors<A NAME="857"></A> attached to that port are activated. For an activated actor<A NAME="858"></A>, the system searches for an applicable rule<A NAME="859"></A> and executes the rule<A NAME="860"></A> body if it finds one. After execution, the actor<A NAME="861"></A> is <SPAN  CLASS="textit">suspended</SPAN>, waiting to be activated again by other events. Picat does not provide a built-in for detaching actors<A NAME="863"></A> from channels. An actor<A NAME="864"></A> <SPAN  CLASS="textit">fails</SPAN> if no rule<A NAME="866"></A> is applicable to it when it is activated or the body of the applied rule<A NAME="867"></A> fails. An actor<A NAME="868"></A> becomes a <SPAN  CLASS="textit">normal call</SPAN> once a normal non-backtrackable rule<A NAME="870"></A> is applied to it.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html458"
+  HREF="node31.html">Example</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html456"
+  HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html452"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html446"
+  HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html454"
+  HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html457"
+  HREF="node31.html">Example</A>
+<B> Up:</B> <A NAME="tex2html453"
+  HREF="node4.html">Overview</A>
+<B> Previous:</B> <A NAME="tex2html447"
+  HREF="node29.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html455"
+  HREF="node3.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Claudio Cesar de Sa
+2016-05-29
+</ADDRESS>
+</BODY>
+</HTML>
