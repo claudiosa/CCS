@@ -41,9 +41,9 @@ yes
 import cp.
 
 index(-) 
-  prof(advogado).
-  prof(medico).
-  prof(engenheiro).
+  prof (advogado)     .
+  prof (medico)         .
+  prof (engenheiro)  .
 
 index(-) 
   esposa(patricia).
