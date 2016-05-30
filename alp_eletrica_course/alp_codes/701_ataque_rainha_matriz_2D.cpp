@@ -3,21 +3,31 @@
 
 #define N 8
 // a ultima dimensao deve ser declarada
-void zera_matriz(   int  matriz[][N] , int );
+void inicializa_matriz(   int  matriz[][N] , int );
 void imprime_matriz( int matriz[N][N] , int );
 void ataques_rainha(   int  matriz[][N] , int , int, int);
+int posicao_legal_do_REI(   int  matriz[][N] , int , int, int);
   
 int main()
 {
    int matriz[N][N];
    
-   zera_matriz( matriz ,  N);
-  printf("\n----------------------------------\n");
+   inicializa_matriz( matriz ,  N);
+   printf("\n----------------------------------\n");
    imprime_matriz( matriz ,  N);
    ataques_rainha( matriz , N , 3, 4);
    printf("\n----------------------------------\n");
-//      printf("\n----------------------------------\n");
    imprime_matriz( matriz ,  N);
+   
+   if ( posicao_legal_do_REI( matriz , N , 5, 5 ) == 1 )
+    printf(" \n POSICAO OK DO REI ");
+     else
+   printf(" \n POSICAO de PERIGO  AO REI ");
+   
+   printf("\n----------------------------------\n");
+
+   imprime_matriz( matriz ,  N);
+
    /*
   2a. feira: Falta POSICIONAR o REI (x,y) e verificar se esta posicao tem 1
      */
@@ -31,7 +41,7 @@ int main()
   return 1;  
 }
 /*******************************************************************/
-void zera_matriz( int matriz[][N], int TAM)
+void inicializa_matriz( int matriz[][N], int TAM)
 {
   int i, j; 	
   /* inicializa com 0 toda matriz */ 
@@ -55,6 +65,17 @@ void imprime_matriz( int matriz[][N], int TAM)
    
    return;
  }  
+/*******************************************************************/
+int posicao_legal_do_REI(int  matriz[][N], int TAM, int row, int col)
+{
+   if(matriz[row][col] == 1) 
+        return (0); // nao mexe no tabuleiro
+   else
+   {
+    matriz[row][col] = 8; // UMA MARCA AO REI
+    return (1);
+   }
+ }    
 /*******************************************************************/
 void ataques_rainha(int  matriz[][N], int TAM, int row, int col)
 {/* IMPRIME toda matriz */ 

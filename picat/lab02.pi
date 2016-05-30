@@ -1,0 +1,16 @@
+/* 
+ENUNCIADO
+Alexandra, Barbara, e Rosa tem roupas em
+azul, verde, lilaz, vermelho e amarelo.
+Nenhuma delas veste amarelo com vermelho.
+Cada uma delas veste roupas com duas cores.
+Alexandra está vestindo o azul.
+Barbara está vestindo o amarelo mas nao o verde.
+Rosa veste o verde mas nao se veste nem de azul e
+nem lilaz.
+Uma delas está de vermelho.
+Uma das cores é usada tanto por Barbara como por Rosa.
+Alexandra e Barbara tem 04 cores entre elas.
+
+Resolva:
+*/
