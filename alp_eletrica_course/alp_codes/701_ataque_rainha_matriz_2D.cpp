@@ -1,10 +1,9 @@
 #include<stdio.h>
 #include <stdlib.h>
-
 #define N 8
 // a ultima dimensao deve ser declarada
 void inicializa_matriz(   int  matriz[][N] , int );
-void imprime_matriz( int matriz[N][N] , int );
+void imprime_matriz(   int matriz[N][N] , int );
 void ataques_rainha(   int  matriz[][N] , int , int, int);
 int posicao_legal_do_REI(   int  matriz[][N] , int , int, int);
   
@@ -20,24 +19,18 @@ int main()
    imprime_matriz( matriz ,  N);
    
    if ( posicao_legal_do_REI( matriz , N , 5, 5 ) == 1 )
-    printf(" \n POSICAO OK DO REI ");
-     else
-   printf(" \n POSICAO de PERIGO  AO REI ");
+      printf(" \n POSICAO OK DO REI ");
+      else
+      printf(" \n POSICAO de PERIGO  AO REI ");
    
    printf("\n----------------------------------\n");
 
    imprime_matriz( matriz ,  N);
-
-   /*
-  2a. feira: Falta POSICIONAR o REI (x,y) e verificar se esta posicao tem 1
-     */
-   // 3a linha 4a. coluna
-    // 1a funcao de inicializa a matriz ... encher de 0
+     // 1a funcao de inicializa a matriz ... encher de 0
     // 2a funcao de  imprimir a matriz ... ver se estah OK
     // 3a funcao recebe i,j da Rainha ... e preencher com 1 as diagonais e H e V
     // 4a funcao recebe i,j do Rei ... e verifcar se i,j esta nas celulas com 1 as diagonais e H e V  
-      
-    
+ 
   return 1;  
 }
 /*******************************************************************/

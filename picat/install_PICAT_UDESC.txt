@@ -1,0 +1,9 @@
+Os passos iniciais de instalação do PICAT
+
+1. Baixar de http://picat-lang.org/download.html  Windows ou Linux
+2. Descompactar em um diretório qualquer (sem espaços e sem acento)
+3. No linux tar -xvf  ..... tar.gz
+4. Abrir DUAS consoles
+5. Editar em um editor programas
+6. Executar na console onde o Picat foi instalado
+7. Fique entre os passos 5 e 6
