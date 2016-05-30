@@ -34,6 +34,28 @@ constraint
    );
 
 /************** ESTAS PROXIMAS RESTRICOES DEVERIAM SER REPENSADAS ***********/
+/*
+// SOLUCAO ROGERIO .... CLARA ===> reescrever em Minizinc
+// diagonais por parte ....
+ 
+ // para diagonal esquerda -> acima
+ for (i = row, j=col ; (i>=0) && (j >=0) ; j--, i--)
+  matriz[i][j] = 1;
+
+ // para diagonal esquerda -> baixo
+ for (i = row, j=col ; (i<N) && (j >=0) ; j--, i++)
+  matriz[i][j] = 1;
+  
+ // para diagonal  direita -> acima
+ for (i = row, j=col ; (i>=0) && (j < N) ; j++, i--)
+  matriz[i][j] = 1;
+
+ // para diagonal  direita -> baixo 
+ for (i = row, j=col ; (i<N) && (j < N) ; j++, i++)
+  matriz[i][j] = 1;
+
+*/
+
 constraint  
    % at most one queen can be placed in each "\"-diagonal 
    forall(k in 2-n..n-2) (
