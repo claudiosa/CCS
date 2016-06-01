@@ -45,7 +45,7 @@ fat_4(N) = N *  fat_4( (N-1) ) .
 
 /** hah mais DUAS versoes  .... com if-then-else */
 
-iterativo_01(N,Fat) =>
+iterativo_01(N,X) =>
         I := 1,
         Fat := 1,
         while( I < N )
@@ -53,7 +53,8 @@ iterativo_01(N,Fat) =>
             printf("\n  %d    %d ", I, Fat),
             I:= I + 1
         end,
-        printf("\n Finalmene o fatorial de %d = %d ", N, Fat).
+        printf("\n Finalmene o fatorial de %d = %d ", N, Fat),
+        X = Fat. %% unificação final -- Fat era LOCAL
  
  /*
  
