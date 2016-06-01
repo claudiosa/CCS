@@ -46,5 +46,17 @@ fat_4(N) = N *  fat_4( (N-1) ) .
 /** hah mais DUAS versoes  .... com if-then-else */
 
 iterativo_01(N,Fat) =>
-        I = 1,
-/************************************************/        
+        I := 1,
+        Fat := 1,
+        while( I < N )
+            Fat := Fat * I,
+            printf("\n  %d    %d ", I, Fat),
+            I:= I + 1
+        end,
+        printf("\n Finalmene o fatorial de %d = %d ", N, Fat).
+ 
+ /*
+ 
+Fazer com o do-while e foreach: proximos episodios
+      
+************************************************/        
