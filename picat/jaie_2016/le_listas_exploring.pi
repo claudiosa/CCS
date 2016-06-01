@@ -1,0 +1,20 @@
+%%% LISTA eh DEFAULT NA LINHA DE ARGUMENTO 
+%%% POREM EH UM TERMO COMPOSTO
+%main(Lista) =>
+main  =>
+%%      printf("\n Digite a lista " ),
+        Lista =  le_lista_char(),
+        writef(stdout," ... %w" , Lista), %% mostra tudo ....
+	    printf("\n Os elementos da são %w  \n " , Lista).
+/*  ********************************************************* */
+
+
+le_lista_char  = List =>
+        printf("\n Digite uma lista :: termine com <ENTER> : ") ,
+		L=[ ],
+		E=read_char(),
+		while (E != '\n') %% melhorar ISTO .... ...ler ateh um Enter depois
+			L := [E|L],
+			E := read_char()
+		end,
+		List = L.
