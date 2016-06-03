@@ -1,0 +1,80 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+
+}
+\chapter{\label{chapter:exception}Exceptions}
+An \emph{exception}\index{exception} is an event that occurs during the execution of a program.  An exception\index{exception} requires a special treatment. In Picat, an exception\index{exception} is just a term. A built-in exception\index{exception} is a structure\index{structure}, where the name denotes the \emph{type} of the exception\index{exception}, and the arguments provide other information about the exception\index{exception}, such as the \emph{source}, which is the goal or function that raised the exception\index{exception}. 
+
+\section{Built-in Exceptions}
+A built-in exception\index{exception} is one of the following:\footnote{In the current implementation, exceptions thrown by B-Prolog are not compliant with the documentation.}
+\begin{itemize}
+\item \texttt{divide\_by\_zero($Source$)}: $Source$ divides a number by zero.
+\item \texttt{file\_not\_found($EArg$,$Source$)}: $Source$ tries to open a file named $EArg$ that does not exist.
+\item \texttt{function\_not\_found($FName$,$Source$)}: $Source$ tries to call a function that is not defined in the imported modules, where $Source$ is a higher-order call in which names cannot be completely bound to definitions at compile time.
+\item \texttt{interrupt($Source$)}: The execution is interrupted\index{interrupt} by a signal. For an interrupt\index{interrupt} caused by \texttt{ctrl-c}, $Source$ is \texttt{keyboard}.
+\item \texttt{io\_error($ENo$,$EMsg$,$Source$)}: An I/O error with the number $ENo$ and message $EMsg$ occurs in $Source$.
+\item \texttt{key\_not\_found($Key$,$Source$)}: $Source$ tries to access a map or an attributed variable with a $Key$ that does not exist.
+\item \texttt{load\_error($FName$,$Source$)}: An error occurs while loading the byte-code file named $FName$.  This error is caused by the malformatted byte-code file.
+\item \texttt{out\_of\_memory($Area$)}: The system runs out of memory while expanding $Area$, which can be: \texttt{stack\_heap}, \texttt{trail}, \texttt{program}, \texttt{table}, or \texttt{findall}.
+\item \texttt{out\_of\_range($EIndex$,$Source$)}: $Source$ tries to access an element of a compound value using the index $EIndex$, which is out of range.  An index is out of range if it is less than or equal to zero, or if it is greater than the length of the compound value.
+\item \texttt{predicate\_not\_found($PredName$,$Source$)}: $Source$ tries to call a predicate that is not defined in the imported modules, where $Source$ is a higher-order call in which names cannot be completely bound to definitions at compile time.
+\item \texttt{syntax\_error($String$,$Source$)}: $String$ cannot be parsed into a value that is expected by $Source$. For example, \texttt{read\_int()}\index{\texttt{read\_int/0}} throws this exception\index{exception} if it reads in a string \texttt{"a"} rather than an integer, and \texttt{parse\_term("a()")}\index{\texttt{parse\_term/1}} also throws this exception\index{exception}, because the string \texttt{"a()"} is not a valid term.
+\item \texttt{unresolved\_function\_call($FCall$)}: No rule is applicable to the function call $FCall$.
+\item \texttt{\emph{Type}\_expected($EArg$,$Source$)}: The argument $EArg$ in $Source$ is not an expected type or value, where $Type$ can be \texttt{var}, \texttt{nonvar}, \texttt{dvar}, \texttt{atom}, \texttt{integer}, \texttt{real}, \texttt{number}, \texttt{list}, \texttt{map}, etc.
+\end{itemize}
+
+\section{Throwing Exceptions}
+The built-in predicate \texttt{throw $Exception$}\index{\texttt{throw}}  throws $Exception$. After an exception\index{exception} is thrown, the system searches for a handler\index{handler} for the exception\index{exception}. If none is found, then the system displays the exception\index{exception} and aborts the execution of the current query. It also prints the backtrace of the stack if it is in debug mode. For example, for the function call \texttt{open("abc.txt")}\index{\texttt{open/1}}, the following message will be displayed if there is no file that is named \texttt{"abc.txt"}.
+\begin{verbatim}
+   ***  error file_not_found("abc.txt",open("abc.txt"))
+\end{verbatim}
+
+\section{Defining Exception Handlers}
+All exceptions, including those raised by built-ins and interruptions, can be caught by catchers. A catcher is a call in the form:
+\begin{verbatim}
+      catch(Goal,ExceptionPattern,Recovergoal)
+\end{verbatim}
+which is equivalent to \texttt{Goal}, except when an exception is raised during the execution of \texttt{Goal} that unifies \texttt{ExceptionPattern}. When such an exception is raised, all of the bindings that have been performed on variables in \texttt{Goal} will be undone, and \texttt{Recovergoal} will be executed to handle the exception. Note that \texttt{ExceptionPattern} is unified with a renamed copy of the exception before \texttt{Recovergoal} is executed. Also note that only exceptions that are raised by a descendant call of \texttt{Goal} can be caught.
+\index{\texttt{catch/3}}
+
+The call \texttt{call\_cleanup(Call,Cleanup)} is equivalent to \texttt{call(Call)}, except that \texttt{Cleanup} is called when \texttt{Call} succeeds determinately (i.e., with no remaining choice point), when \texttt{Call} fails, or when \texttt{Call} raises an exception.
+\index{\texttt{call\_cleanup/2}}
+
+\ignore{
+The \texttt{try}\index{\texttt{try}} statement, which takes the following form, is provided for defining exception\index{exception} handlers\index{handler}:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{try} \\
+\> \> $Goal$  \\
+\>  \texttt{catch ($Pattern_1$)} \\
+\> \>  \texttt{$Handler_1$} \\
+\> $\vdots$ \\
+\>  \texttt{catch ($Pattern_n$)} \\
+\> \>  \texttt{$Handler_n$} \\
+\>  \texttt{finally} \\
+\> \>  \texttt{$Handler_{fin}$} \\
+\> \texttt{end} 
+\end{tabbing}
+The \texttt{catch}\index{\texttt{catch}} clauses and the \texttt{finally}\index{\texttt{finally}} clause are optional.  However, the \texttt{finally}\index{\texttt{finally}} clause is mandated if there is no \texttt{catch}\index{\texttt{catch}} clause, and there must be at least one \texttt{catch}\index{\texttt{catch}} clause if there is no \texttt{finally}\index{\texttt{finally}} clause. Each $Pattern_i$ is a term pattern, like the head of a rule, and each handler\index{handler} is a goal. For an exception\index{exception}, a \texttt{catch}\index{\texttt{catch}} clause is said to be \emph{applicable} if the exception\index{exception} matches the pattern of the clause. When an exception\index{exception} is thrown during the execution of $Goal$, Picat walks along the chain of ancestor calls of the thrower of the exception\index{exception} until it finds an ancestor that is wrapped inside a \texttt{try}\index{\texttt{try}} statement. For the \texttt{try}\index{\texttt{try}} statement, Picat searches for the first applicable \texttt{catch}\index{\texttt{catch}} clause and executes the handler\index{handler}. If no \texttt{catch}\index{\texttt{catch}} clause exists, or no \texttt{catch}\index{\texttt{catch}} clause is applicable to the exception\index{exception}, then $Handler_{fin}$ is executed before the exception\index{exception} is re-thrown. The \texttt{finally}\index{\texttt{finally}} clause is always executed, if it exists.  It is executed when $Goal$ terminates with an exception\index{exception}, and it is executed when $Goal$ finishes its normal execution.  This means that the \texttt{finally}\index{\texttt{finally}} clause is executed when $Goal$ succeeds deterministically with no choice points left behind, and when $Goal$ fails.  For example,
+\begin{verbatim}
+    try
+        S = open(File),
+        process(S)
+    catch (E)
+        writeln(E)
+    finally
+        close(S).
+\end{verbatim}
+The \texttt{finally}\index{\texttt{finally}} clause specifies a clean-up action for the \texttt{try}\index{\texttt{try}} goal.
+}
+\ignore{
+\end{document}
+}

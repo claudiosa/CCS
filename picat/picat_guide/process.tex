@@ -1,0 +1,145 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+
+\chapter{\label{chapter:process}Processes}
+%\pagenumbering{arabic}
+
+As an alternative to threads\index{thread}, Picat has a \texttt{process} module, which allows the user to create new processes\index{process}.
+
+\section{Creating New Processes}
+Let's begin with an example.
+
+\subsection*{Example}
+\begin{verbatim}
+import process.
+
+ex1 =>
+    Id = fork(),
+    if Id == 0 then
+       printf("I am the child process, with process ID %d, ", pid()),
+       printf("and parent process %d.%n", ppid())
+    else
+       printf("I am the parent process, with process ID %d, ", pid()),
+       printf("and child process %d.%n", Id)
+    end.
+
+ex2 =>
+    new_process(execute, "ls, -l"),
+    printf("I have created a new process").
+\end{verbatim}
+
+The \texttt{ex1} predicate uses \texttt{fork}\index{\texttt{fork/0}} in order to create a new \emph{child} process\index{child process}.  The new process\index{process} has the original process\index{process}, which called \texttt{fork}\index{\texttt{fork/0}}, as its \emph{parent}\index{parent process}.  The \texttt{fork}\index{\texttt{fork/0}} function returns $0$ to the child process\index{child process}, and returns the child's\index{child process} process ID to the parent process\index{parent process}.  The child process\index{child process} prints its ID followed by the parent's\index{parent process} ID, while the parent process\index{parent process} prints its ID followed by the child's\index{child process} ID.  In the standard output, users will see the lines in a random order.
+
+The \texttt{ex2} predicate uses \texttt{new\_process}\index{\texttt{new\_process}} in order to create a new process\index{process}, which immediately runs the ``\texttt{ls -l}" command.  Meanwhile, the original process\index{process} prints a string to standard output.  In the standard output, users will see the parent's\index{parent process} output and the child's\index{child process} output in a random order.
+
+These examples use the following built-ins. 
+\begin{itemize}
+\item \texttt{fork() = $ID$}\index{\texttt{fork/0}}: This function creates a new process\index{process}, which continues running the same code from the point where \texttt{fork}\index{\texttt{fork/0}} was called.  The new process\index{process} receives a separate copy of the parent process's\index{parent process} memory, including the instantiated variables\index{instantiated variable}, the free variables\index{free variable}, and the file descriptor table\index{file descriptor table}.  The \texttt{fork}\index{\texttt{fork/0}} function returns $0$ to the new process\index{process}, and returns the process ID of the new process\index{process} to the parent process\index{parent process}.  If \texttt{fork}\index{\texttt{fork/0}} fails, then it throws an error.
+\item \texttt{new\_process($S$, $Arg_1$, $\ldots$, $Arg_n$) = $ID$}\index{\texttt{new\_process}}: This function creates a new process\index{process}, which will execute the call 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{call($S$,$Arg_1$,$\ldots$,$Arg_n$)}\index{\texttt{call}}.  
+\end{tabbing}
+The new process\index{process} has a separate copy of the parent process's\index{parent process} memory. The \texttt{new\_process}\index{\texttt{new\_process}} function returns the same values that \texttt{fork}\index{\texttt{fork/0}} returns.  The \texttt{exec}\index{\texttt{exec}} predicate will be discussed in Section \ref{execute}.
+\item \texttt{pid() = $ID$}\index{\texttt{pid/0}}: This function returns the ID of the current process\index{process}.  The ID number is an integer.
+\item \texttt{ppid() = $ID$}\index{\texttt{ppid/0}}: This function returns the ID of the current process's\index{process} parent process\index{parent process}.  The ID number is an integer.
+\end{itemize}
+
+\section{\label{execute}Executing Other Code}
+The \texttt{ex2} example showed how to execute different code in a child process\index{child process}.  The following examples illustrate two other functions that allow a process\index{process} to run different code.
+
+\subsection*{Example}
+\begin{verbatim}
+import process.
+
+ex3 =>
+    Id = fork(),
+    if Id == 0 then
+       exec("ls", "-l", "*.pdf")
+    else
+       printf("I am the parent process, with process ID %d, ", pid()),
+       printf("and child process %d.%n", Id)
+    end.
+
+ex4 =>
+    Id = fork(),
+    if Id == 0 then
+       execl("ls", ["-l", "*.pdf"])
+    else
+       printf("I am the parent process, with process ID %d, ", pid()),
+       printf("and child process %d.%n", Id)
+    end.
+\end{verbatim}
+
+In both of these examples, the parent process\index{parent process} forks a new process\index{process}, which will run the ``\texttt{ls} command, with the parameters ``\texttt{-l}" and ``\texttt{*.pdf}".
+
+These examples use the following built-ins.
+\begin{itemize}
+\item \texttt{exec($S$, $Arg_1$, $\ldots$, $Arg_n$)}\index{\texttt{exec}}: This executes $S$ with the parameters $Arg_1$, $\ldots$, $Arg_n$.  Unlike the \texttt{call}\index{\texttt{call}} predicate, the $S$ argument to \texttt{exec}\index{\texttt{exec}} either specifies a command that should be run, or specifies the path to a file that should be run.  Note that each argument, $Arg_i$, must be a string.  If \texttt{exec}\index{\texttt{exec}} fails, then an error is thrown.
+\item \texttt{execl($S$, $ArgList$)}\index{\texttt{execl/2}}: This is similar to \texttt{exec}\index{\texttt{exec}}, except that the second parameter is a list, which contains the arguments that should be passed to $S$.  Each member of $ArgList$ must be a string.
+\end{itemize}
+
+As shown in Chapter \ref{chapter:io}, a process's\index{process} file descriptor table\index{file descriptor table} stays the same when \texttt{exec}\index{\texttt{exec}} or \texttt{execl}\index{\texttt{execl/2}} is called.  This means that if standard input, standard output, or standard error was redirected to a file before \texttt{exec}\index{\texttt{exec}} or \texttt{execl}\index{\texttt{execl/2}} is called, then the code that is executed will also redirect to the same file.
+
+\section{Making Processes Wait}
+Sometimes, it is necessary for the parent process\index{parent process} to wait for one or more of its child processes\index{child process} to finish, allowing the parent process\index{parent process} to determine the exit status of the child processes\index{child process} for which it waits.
+
+The \texttt{process} module includes two built-ins for allowing a parent process\index{parent process} to wait for its children\index{child process}.
+\begin{itemize}
+\item \texttt{wait() = $StatMap$}\index{\texttt{wait/0}}: This causes the parent process\index{parent process} to wait until one of its children\index{child process} finishes running.  The \texttt{wait}\index{\texttt{wait/0}} function returns a map with the keys \texttt{pid} and \texttt{status}.  The \texttt{pid} key indicates the child process's\index{child process} process number.  The \texttt{status} key refers to an integer that indicates the child process's\index{child process} exit status.  If \texttt{wait}\index{\texttt{wait/0}} fails, then an error is thrown.
+\item \texttt{waitpid($ID$) = $StatMap$}\index{\texttt{waitpid/1}}: This causes the parent process\index{parent process} to wait for the process that has the specified ID number.  If $ID$ is $0$ or $-1$, then this function is the same as \texttt{wait}\index{\texttt{wait/0}}.  This function returns a map with the keys \texttt{pid} and \texttt{status}.  If \texttt{waitpid}\index{\texttt{waitpid/1}} fails, then an error is thrown.
+\end{itemize}
+
+The following code demonstrates these functions.
+
+\subsection*{Example}
+\begin{verbatim}
+import process.
+
+ex5 =>
+    foreach (I in 1..5)
+        if fork() == 0 then
+           printf("Process %d%n.", pid())
+        end
+    end,
+    Stat = wait(),
+    printf("Process %d has status %d", Stat.pid, Stat.status).
+
+ex6 =>
+    L = [],
+    foreach (I in 1..5)
+        F = fork(),
+        if F == 0 then
+           printf("Process %d%n.", pid())
+        else
+           L := [F | L]
+        end
+    end,
+    Index = math.randrange(1, length(L) + 1),
+    Stat = waitpid(L[Index]),
+    printf("Process %d has status %d", Stat.pid, Stat.status).
+\end{verbatim}
+
+The \texttt{ex5} example causes the parent process\index{parent process} to wait and get the exit status of one of its child processes\index{child process}.  The \texttt{ex6} example chooses the ID of a random one of the the child processes\index{child process}, and passes the ID to \texttt{waitpid}\index{\texttt{waitpid/1}}.
+
+\section{Differences Between Processes and Threads}
+There are a number of differences between processes\index{process} and threads\index{thread}.
+
+Each process\index{process} runs at least one thread\index{thread}.  In addition, each process\index{process} has its own memory.  This means that each process\index{process} has its own copy of instantiated variables\index{instantiated variable} and free variables\index{free variable}, and that each process\index{process} has its own file descriptor table\index{file descriptor table}.  
+
+A thread\index{thread} is a light-weight process\index{process}.  Threads\index{thread} from the same process\index{process} share the same memory space.  This means that each thread\index{thread} accesses the same copy of instantiated variables\index{instantiated variable} and free variables\index{free variable}.  Furthermore, threads\index{thread} from the same process\index{process} share the same file descriptor table\index{file descriptor table}.
+
+An advantage of processes\index{process} is that, since processes\index{process} have their own memory space, the synchronization of processes\index{process} is not as difficult  as the synchronization of threads\index{thread}.  An advantage of threads\index{thread} is that threads\index{thread} share memory, meaning that threads\index{thread} do not have as much memory overhead as processes\index{process} have.  Another advantage of threads\index{thread} is that threads\index{thread} multitask.  If a process\index{process} is slow, and the process\index{process} is timeshared with other processes\index{process}, then the process\index{process} loses its timeslot; however, if a thread\index{thread} within a process\index{process} is slow, then other threads\index{thread} in the same process\index{process} can still run.
+
+\ignore{
+\end{document}
+}

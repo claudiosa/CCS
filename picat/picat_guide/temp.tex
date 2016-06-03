@@ -1,0 +1,50 @@
+\item \texttt{write\_char($FD$, $Chars$)}\index{\texttt{write\_char/2}}: This predicate writes a single character or a list of characters to a file.
+\item \texttt{write\_char($Chars$)}\index{\texttt{write\_char/1}}: This predicate is the same as \texttt{write\_char(stdout,$Chars$)}.
+
+
+\item \texttt{write\_char\_code($FD$, $Codes$)}\index{\texttt{write\_char\_code/2}}: This predicate writes a single character or a list of characters of the given code or list of codes to a file.
+\item \texttt{write\_char\_code($Codes$)}\index{\texttt{write\_char\_code/1}}: This predicate is the same as \texttt{write\_char\_code(stdout,$Chars$)}.
+
+
+
+\item \texttt{read\_char\_code($FD$) = $Val$}\index{\texttt{read\_char\_code/1}}: This function reads a single UTF-8 character from the file that is represented by $FD$ and returns its code point.
+\item \texttt{read\_char\_code() = $Val$}\index{\texttt{read\_char\_code/0}}: This function is the same as \texttt{read\_char\_code(stdin)}.
+\item \texttt{read\_char\_code($FD$, $N$) = $List$}\index{\texttt{read\_char\_code/2}}: This function reads up to $N$ UTF-8 characters from the file that is represented by $FD$.  It returns a list of code points of the characters that were read.
+
+
+\item {\tt $Vars$ in $Exp$}
+\item {\tt $Vars$ notin $Exp$}
+\item {\tt all\_different($FDVars$)}
+\item {\tt all\_distinct($FDVars$)}
+\item {\tt assignment($FDVars1$,$FDVars2$)}
+\item {\tt circuit($FDVars$)}
+\item {\tt count($V$,$FDVars$,$Rel$,$N$)}
+\item {\tt cumulative($Starts$,$Durations$,$Resources$,$Limit$)}
+\item {\tt diffn($RectangleList$)}
+\item {\tt disjunctive\_tasks($Tasks$)}
+\item {\tt element($I$,$List$,$V$)}
+\item {\tt fd\_degree($FDVar$) = $Degree$}
+\item {\tt fd\_disjoint($DVar1$,$DVar2$)}
+\item {\tt fd\_dom($FDVar$) = $List$}
+\item {\tt fd\_false($FDVar$,$Elm$)}
+\item {\tt fd\_max($FDVar$) = $Max$}
+\item {\tt fd\_min($FDVar$) = $Min$}
+\item {\tt fd\_min\_max($FDVar$,$Min$,$Max$)}
+\item {\tt fd\_next($FDVar$,$Elm$) = $NextElm$}
+\item {\tt fd\_prev($FDVar$,$Elm$) = $PrevElm$}
+\item {\tt fd\_set\_false($FDVar$,$Elm$)}
+\item {\tt fd\_size($FDVar$) = $Size$}
+\item {\tt fd\_superset($DVar1$,$DVar2$)}
+\item {\tt fd\_true($FDVar$,$Elm$)}
+\item {\tt fd\_var($Term$)}
+\item {\tt global\_cardinality($List$,$Pairs$)}
+\item {\tt indomain($Var$)}
+\item {\tt indomain\_down($Var$)}
+\item {\tt lp\_in($Vars$,$LExp$,$UExp$)}
+\item {\tt neqs($NeqList$)}
+\item {\tt new\_fd\_var() = $FDVar$}
+\item {\tt serialized($Starts$,$Durations$)}
+\item {\tt solve($Options$,$Vars$)}
+\item {\tt solve($Vars$)}
+\item {\tt subcircuit($FDVars$)}
+

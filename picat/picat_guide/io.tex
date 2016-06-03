@@ -1,0 +1,379 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+\chapter{\label{chapter:io}I/O}
+Picat has an \texttt{io} module for reading input from files and writing output to files.  The \texttt{io} module is imported by default.
+
+The \texttt{io} module contains functions and predicates that read from a file, write to a file, reposition the read/write pointer within a file, redirect input and output, and create temporary files and pipes.
+
+The \texttt{io} module uses file descriptors\index{file descriptor} to read input from files, and to write output to files.  A \emph{file descriptor}\index{file descriptor} is a structure that encodes file descriptor\index{file descriptor} data, including an index in a file descriptor table\index{file descriptor table} that stores information about opened files.  The following example reads data from one file, and writes the data into another file.
+
+\subsection*{Example}
+\begin{verbatim}
+rw =>
+     Reader = open("input_file.txt"),
+     Writer = open("output_file.txt", write),
+     L = read_line(Reader),
+     while (L != end_of_file)
+            println(Writer, L),
+            flush(Writer),
+            L := read_line(Reader)
+     end,
+     close(Reader),
+     close(Writer).
+\end{verbatim}
+
+\section{Opening a File}
+There are two functions for opening a file.  Both of them are used in the previous example.
+\begin{itemize}
+\item \texttt{open($Name$) = $FD$}\index{\texttt{open/1}}: The $Name$ parameter is a filename that is represented as a string.  This function opens the file with a default \texttt{read} mode.
+\item \texttt{open($Name$, $Mode$) = $FD$}\index{\texttt{open/2}}: The $Mode$ parameter is one of the four atoms: \texttt{read}, \texttt{write}, or \texttt{append}.  The \texttt{read} atom is used for reading from a file; if the file does not exist, or the program tries to write to the file, then the program will throw an error.  The \texttt{write} atom is used for reading from a file and writing to a file; if the file already exists, then the file will be overwritten.  The \texttt{append} atom is similar to the write atom; however, if the file already exists, then data will be appended at the end of the pre-existing file.  
+\end{itemize}
+
+\section{Reading from a File}
+The \texttt{io} module has at least one function for reading data into each primitive data type.  It also has functions for reading \ignore{unicode characters, }tokens, strings, and bytes.  Recall that strings are stored as lists of single-character atoms.
+
+The \texttt{read} functions in the \texttt{io} module take a file descriptor\index{file descriptor} as the first parameter.  This file descriptor\index{file descriptor} is the same descriptor that the \texttt{open}\index{\texttt{open/1}}\index{\texttt{open/2}} function returns. The parameter can be omitted if it is the standard input file \texttt{stdin}.
+
+\begin{itemize}
+\item \texttt{read\_int($FD$) = $Int$}\index{\texttt{read\_int/1}}: This function reads a single integer from the file that is represented by $FD$. It throws an {\tt input\_mismatch} exception if $FD$ is at the end of the file or the next token at $FD$ is not an integer.
+
+\item \texttt{read\_int() = $Int$}\index{\texttt{read\_int/0}}: This function is the same as \texttt{read\_int(stdin)}.
+\item \texttt{read\_real($FD$) = $Real$}\index{\texttt{read\_real/1}}: This function reads a single real number from the file that is represented by $FD$. It throws an {\tt input\_mismatch} exception if $FD$ is at the end of the file or the next token at $FD$ is not a number.
+\item \texttt{read\_real() = $Real$}\index{\texttt{read\_real/0}}: This function is the same as \texttt{read\_real(stdin)}.
+\item \texttt{read\_char($FD$) = $Val$}\index{\texttt{read\_char/1}}: This function reads a single UTF-8 character from the file that is represented by $FD$. It returns {\tt end\_of\_file} if $FD$ is at the end of the file.
+\item \texttt{read\_char() = $Val$}\index{\texttt{read\_char/0}}: This function is the same as \texttt{read\_char(stdin)}.
+\item \texttt{read\_char($FD$, $N$) = $String$}\index{\texttt{read\_char/2}}: This function reads up to $N$ UTF-8 characters from the file that is represented by $FD$.  It returns a string that contains the characters that were read.
+\item \texttt{read\_char\_code($FD$) = $Val$}\index{\texttt{read\_char\_code/1}}: This function reads a single UTF-8 character from the file that is represented by $FD$ and returns its code point. It returns -1 if $FD$ is at the end of the file.
+\item \texttt{read\_char\_code() = $Val$}\index{\texttt{read\_char\_code/0}}: This function is the same as \texttt{read\_char\_code(stdin)}.
+\item \texttt{read\_char\_code($FD$, $N$) = $List$}\index{\texttt{read\_char\_code/2}}: This function reads up to $N$ UTF-8 characters from the file that is represented by $FD$.  It returns a list of code points of the characters that were read.
+\item \texttt{read\_picat\_token($FD$,$TokenType$,$TokenValue$)}\index{\texttt{read\_picat\_token/3}}: This predicate reads a single Picat token from the file that is represented by $FD$. $TokenType$ is the type and $TokenValue$ is the value of the token. $TokenType$ is one of the following: \texttt{atom}, \texttt{end\_of\_file}, \texttt{end\_of\_rule}, \texttt{integer}, \texttt{punctuation}, \texttt{real},  \texttt{string},  \texttt{underscore}, and \texttt{var}.
+\item \texttt{read\_picat\_token($TokenType$,$TokenValue$)}\index{\texttt{read\_picat\_token/2}}: This predicate reads a token from \texttt{stdin}.
+\item \texttt{read\_picat\_token($FD$) = $TokenValue$}\index{\texttt{read\_picat\_token/1}}: This function reads a single Picat token from the file that is represented by $FD$ and returns the token value.
+\item \texttt{read\_picat\_token() = $TokenValue$}\index{\texttt{read\_picat\_token/0}}: This function is the same as the above, except that it reads from {\tt stdin}.
+\item \texttt{read\_term($FD$) = $Term$}\index{\texttt{read\_term/1}}: This function reads a single Picat term from the file that is represented by $FD$.  The term must be followed by a dot  `\texttt{.}' and at least one whitespace character.  This function consumes the dot symbol.  The whitespace character is not stored in the returned string.
+\item \texttt{read\_term() = $Term$}\index{\texttt{read\_term/0}}: This function is the same as \texttt{read\_term(stdin)}.
+\item \texttt{read\_line($FD$) = $String$}\index{\texttt{read\_line/1}}: This function reads a string from the file that is represented by $FD$, stopping when either a newline (`\texttt{$\backslash$r$\backslash$n}' on Windows, and `\texttt{$\backslash$n}' on Unix) is read, or the \texttt{end\_of\_file} atom is returned.  The newline is not stored in the returned string.
+\item \texttt{read\_line() = $String$}\index{\texttt{read\_line/0}}: This function is the same as \texttt{read\_line(stdin)}.
+\item \texttt{readln($FD$) = $String$}\index{\texttt{readln/1}}: This function does the same thing as \texttt{read\_line}\index{\texttt{read\_line/1}}.
+\item \texttt{readln() = $String$}\index{\texttt{readln/0}}: This function is the same as \texttt{readln(stdin)}.
+\item \texttt{read\_byte($FD$) = $Val$}\index{\texttt{read\_byte/1}}: This function reads a single byte from the file that is represented by $FD$.
+\item \texttt{read\_byte() = $Val$}\index{\texttt{read\_byte/0}}: This function is the same as \texttt{read\_byte(stdin)}.
+\item \texttt{read\_byte($FD$, $N$) = $List$}\index{\texttt{read\_byte/2}}: This function reads up to $N$ bytes from the file that is represented by $FD$.  It returns the list of bytes that were read. 
+\item \texttt{read\_file\_bytes($File$) = $List$}\index{\texttt{read\_file\_bytes/1}}: This function reads an entire byte file into a list. 
+\item \texttt{read\_file\_bytes() = $List$}\index{\texttt{read\_file\_bytes/0}}: This function reads an entire byte file from the console into a list.
+\item \texttt{read\_file\_chars($File$) = $String$}\index{\texttt{read\_file\_chars/1}}: This function reads an entire character file into a string. 
+\item \texttt{read\_file\_chars() = $String$}\index{\texttt{read\_file\_chars/0}}: This function reads an entire character file from the console into a string. 
+\item \texttt{read\_file\_codes($File$) = $List$}\index{\texttt{read\_file\_codes/1}}: This function reads UTF-8 codes of an entire character file into a list. 
+\item \texttt{read\_file\_codes() = $List$}\index{\texttt{read\_file\_codes/0}}: This function reads UTF-8 codes of an entire character file from the console into a list. 
+\item \texttt{read\_file\_lines($File$) = $Lines$}\index{\texttt{read\_file\_lines/1}}: This function reads an entire character file into a list of line strings.  
+\item \texttt{read\_file\_lines() = $Lines$}\index{\texttt{read\_file\_lines/0}}: This function reads an entire character file from the console into a list of line strings.  
+\item \texttt{read\_file\_terms($File$) = $Lines$}\index{\texttt{read\_file\_terms/1}}: This function reads an entire text file into a list of terms. In the file, each term must be terminated by '.' followed by at least one white space.
+\item \texttt{read\_file\_terms() = $Lines$}\index{\texttt{read\_file\_terms/0}}: This function reads an entire text file from the console into a list of terms.
+\end{itemize}
+
+There are cases when the \texttt{read\_char($FD$, $N$)}\index{\texttt{read\_char/2}},\ignore{ \texttt{read\_unicode\_char($FD$, $N$)}\index{\texttt{read\_unicode\_char/2}},} and \texttt{read\_byte($FD$, $N$)}\index{\texttt{read\_byte/2}} functions will read fewer than $N$ values.  One case occurs when the end of the file is encountered.  Another case occurs when reading from a pipe.  If a pipe is empty, then the \texttt{read} functions wait until data is written to the pipe.  As soon as the pipe has data, the \texttt{read} functions read the data.  If a pipe has fewer than $N$ values when a read occurs, then these three functions will return a string that contains all of the values that are currently in the pipe, without waiting for more values.  In order to determine the actual number of elements that were read, after the functions return, use \texttt{length($List$)}\index{\texttt{length/1}} to check the length of the list that was returned.
+
+The \texttt{io} module also has functions that peek at the next value in the file without changing the current file location.  This means that the next \texttt{read} or \texttt{peek} function will return the same value, unless the read/write pointer is repositioned or the file is modified.
+
+\begin{itemize}
+%\item \texttt{peek\_int($FD$) = $Int$}\index{\texttt{peek\_int/1}}
+%\item \texttt{peek\_real($FD$) = $Real$}\index{\texttt{peek\_real/1}}
+\item \texttt{peek\_char($FD$) = $Val$}\index{\texttt{peek\_char/1}}
+%\item \texttt{peek\_unicode\_char($FD$) = $Val$}\index{\texttt{peek\_unicode\_char/1}}
+\item \texttt{peek\_byte($FD$) = $Val$}\index{\texttt{peek\_byte/1}}
+\end{itemize}
+
+\subsection{End of File}
+The end of a file is detected through the \texttt{end\_of\_file}\index{\texttt{end\_of\_file}} atom.  If the input function returns a single value, and the read/write pointer is at the end of the file, then the \texttt{end\_of\_file}\index{\texttt{end\_of\_file}} atom is returned.  If the input function returns a list, then the end-of-file behavior is more complex.   If no other values have been read into the list, then the \texttt{end\_of\_file}\index{\texttt{end\_of\_file}} atom is returned.  However, if other values have already been read into the list, then reaching the end of the file causes the function to return the list, and the \texttt{end\_of\_file}\index{\texttt{end\_of\_file}} atom will not be returned until the next input function is called.
+
+Instead of checking for \texttt{end\_of\_file}\index{\texttt{end\_of\_file}}, the \texttt{at\_end\_of\_stream}\index{\texttt{at\_end\_of\_stream/1}} predicate can be used to monitor a file descriptor\index{file descriptor} for the end of a file.
+
+\begin{itemize}
+\item \texttt{at\_end\_of\_stream($FD$)}\index{\texttt{at\_end\_of\_stream/1}}: The \texttt{at\_end\_of\_stream}\index{\texttt{at\_end\_of\_stream/1}} predicate is demonstrated in the following example. 
+\end{itemize}
+
+\subsection*{Example}
+\begin{verbatim}
+rw =>
+     Reader = open("file1.txt"),
+     Writer = open("file2.txt", write),
+     while (not at_end_of_stream(Reader))
+            L := read_line(Reader),
+            println(Writer, L),
+            flush(Writer)
+     end,
+     close(Reader),
+     close(Writer).
+\end{verbatim}
+
+The advantage of using the \texttt{at\_end\_of\_stream}\index{\texttt{at\_end\_of\_stream/1}} predicate instead of using the \texttt{end\_of\_file}\index{\texttt{end\_of\_file}} atom is that \texttt{at\_end\_of\_stream}\index{\texttt{at\_end\_of\_stream/1}} immediately indicates that the end of the file was reached, even if the last \texttt{read} function read values into a list. In the first example in this chapter, which used the \texttt{end\_of\_file}\index{\texttt{end\_of\_file}} atom, an extra \texttt{read\_line}\index{\texttt{read\_line/1}} function was needed before the end of the file was detected.  In the above example, which used \texttt{at\_end\_of\_stream}\index{\texttt{at\_end\_of\_stream/1}}, \texttt{read\_line}\index{\texttt{read\_line/1}} was only called if there was data remaining to be read.
+
+\section{Writing to a File}
+The \texttt{write} and \texttt{print} predicates take a file descriptor\index{file descriptor} as the first parameter.  The file descriptor\index{file descriptor} is the same descriptor that the \texttt{open}\index{\texttt{open/1}}\index{\texttt{open/2}} function returns. If the file descriptor is \texttt{stdout}, then the parameter can be omitted.
+\begin{itemize}
+\item \texttt{write($FD$, $Term$)}\index{\texttt{write/2}}: This predicate writes $Term$ to a file.  Single-character lists are treated as strings.  Strings are double-quoted, and atoms are single-quoted when necessary.  This predicate does not print a newline, meaning that the next write will begin on the same line.
+\item \texttt{write($Term$)}\index{\texttt{write/1}}: This predicate is the same as \texttt{write(stdout,$Term$)}.
+\item \texttt{write\_byte($FD$, $Bytes$)}\index{\texttt{write\_byte/2}}: This predicate writes a single byte or a list of bytes to a file.
+\item \texttt{write\_byte($Bytes$)}\index{\texttt{write\_byte/1}}: This predicate is the same as \texttt{write\_byte(stdout,$Bytes$)}.
+\item \texttt{write\_char($FD$, $Chars$)}\index{\texttt{write\_char/2}}: This predicate writes a single character or a list of characters to a file. The characters are not quoted. When writing a single-character atom $Char$, \texttt{write\_char($FD$, $Char$)} is the same as \texttt{print($FD$, $Char$)}, but \texttt{write\_char} is faster than \texttt{print}.
+\item \texttt{write\_char($Chars$)}\index{\texttt{write\_char/1}}: This predicate is the same as \texttt{write\_char(stdout,$Chars$)}.
+\item \texttt{write\_char\_code($FD$, $Codes$)}\index{\texttt{write\_char\_code/2}}: This predicate writes a single character or a list of characters of the given code or list of codes to a file.
+\item \texttt{write\_char\_code($Codes$)}\index{\texttt{write\_char\_code/1}}: This predicate is the same as the above, except that it writes to \texttt{stdout}.
+
+\item \texttt{writeln($FD$, $Term$)}\index{\texttt{writeln/2}}: This predicate writes $Term$ and a newline, meaning that the next write will begin on the next line.
+\item \texttt{writeln($Term$)}\index{\texttt{writeln/1}}: This predicate is the same as \texttt{writeln(stdout,$Term$)}.
+\item \texttt{writef($FD$, $Format$, $Args\ldots$)}\index{\texttt{writef}}: This predicate is used for formatted writing, where the $Format$ parameter contains format characters that indicate how to print each of the arguments in the $Args$ parameter. The number of arguments in $Args\ldots$ cannot exceed 10.
+\end{itemize}
+Note that these predicates write both primitive values and compound values.
+
+The \texttt{writef}\index{\texttt{writef}} predicate includes a parameter that specifies the string that is to be formatted.  The $Format$ parameter is a string that contains format characters.  Format characters take the form \texttt{\%[flags][width][.precision]specifier}.  Only the percent sign and the specifier are mandatory.  \emph{Flags} can be used for justification and padding.  The \emph{width} is the minimum number of characters that are to be printed.  The \emph{precision} is the number of characters that are to be printed after the number's radix point.  Note that the width includes all characters, including the radix point and the characters that follow it.  The \emph{specifier} indicates the type of data that is to be written.  A specifier can be one of the C format specifiers \texttt{\%\%}, \texttt{\%c},\footnote{The specifier \texttt{\%c} can only be used to print ASCII characters. Use the specifier \texttt{\%w} to print UTF-8 characters.}  \texttt{\%d}, \texttt{\%e}, \texttt{\%E}, \texttt{\%f}, \texttt{\%g}, \texttt{\%G}, \texttt{\%i}, \texttt{\%o}, \texttt{\%s}, \texttt{\%u}, \texttt{\%x}, and \texttt{\%X}.  In addition, Picat uses the specifier \texttt{\%n} for newlines, and uses \texttt{\%w} for terms.  For details, see Appendix \ref{chapter:format}.
+
+\subsection*{Example}
+\begin{verbatim}
+formatted_print =>
+    FD = open("birthday.txt",write),
+    Format1 = "Hello, %s.  Happy birthday!  ",
+    Format2 =  "You are %d years old today.  ", 
+    Format3 =  "That is %.2f%% older than you were last year",
+    writef(FD, Format1, "Bob"),
+    writef(FD, Format2, 7),
+    writef(FD, Format3, 7.0 / 6.0),
+    close(FD).
+\end{verbatim}
+
+This writes ``\texttt{Hello, Bob.  Happy birthday!  You are 7 years old today.  That is 1.17\% older than you were last year}".
+    
+The \texttt{io} module also has the three \texttt{print} predicates.  
+\begin{itemize}
+\item \texttt{print($FD$, $Term$)}\index{\texttt{print/2}}: This predicate prints $Term$ to a file.  Unlike the \texttt{write}\index{\texttt{write/2}} predicates, the \texttt{print}\index{\texttt{print/2}} predicates do not place quotes around strings and atoms. 
+\item \texttt{print($Term$)}\index{\texttt{print/1}}: This predicate is the same as \texttt{print(stdout,$Term$)}.
+\item \texttt{println($FD$, $Term$)}\index{\texttt{println/2}} This predicate prints $Term$ and a newline.
+\item \texttt{println($Term$)}\index{\texttt{println/1}} This predicate is the same as \texttt{println(stdout,$Term$)}.
+\item \texttt{printf($FD$, $Format$, $Args\ldots$)}\index{\texttt{printf}}: This predicate is the same as \texttt{writef}\index{\texttt{writef}}, except that \texttt{printf}\index{\texttt{printf}} uses \texttt{print}\index{\texttt{print/2}} to display the arguments in the $Args$ parameter, while \texttt{writef}\index{\texttt{writef}} uses \texttt{write}\index{\texttt{write}} to display the arguments in the $Args$ parameter.
+\end{itemize}
+
+The following example demonstrates the differences between the \texttt{write}\index{\texttt{write/1}} and \texttt{print}\index{\texttt{print/1}} predicates.  
+\subsection*{Example}
+\begin{verbatim}
+picat> write("abc")
+[a,b,c]
+picat> write([a,b,c])
+[a,b,c]
+picat> write('a@b')
+'a@b'
+picat> writef("%w %s%n",[a,b,c],"abc")
+[a,b,c] abc
+picat> print("abc")
+abc
+picat> print([a,b,c])
+abc
+picat> print('a@b')
+a@b
+picat> printf("%w %s%n",[a,b,c],"abc")
+abc abc
+\end{verbatim}
+
+\section{Flushing and Closing a File}
+The \texttt{io} module has one predicate to flush a file stream, and one predicate to close a file stream.
+\begin{itemize}
+\item \texttt{flush($FD$)}\index{\texttt{flush/1}}: This predicate causes all buffered data to be written without delay.
+\item \texttt{close($FD$)}\index{\texttt{close/1}}: This predicate causes the file to be closed, releasing the file's resources, and removing the file from the file descriptor table\index{file descriptor table}.  Any further attempts to write to the file descriptor\index{file descriptor} without calling \texttt{open}\index{\texttt{open/1}}\index{\texttt{open/2}} will cause an error to be thrown.
+\end{itemize}
+\ignore{
+\section{Repositioning I/O Pointers Within Files}
+Sometimes, sequential file access is not enough.  Picat provides functions and predicates that allow a program to access and to modify its current location in a file.  These built-ins are demonstrated in the following example.
+\subsection*{Example}
+\begin{verbatim}
+rw =>
+     Writer = open("bond.txt", write),
+     println(Writer, " Bond, James The name is."),
+     flush(Writer),
+     close(Writer),
+     Reader = open("bond.txt", read),
+     CS = sizeof_char(),
+     setpos(Reader, 13 * CS)
+     L = read_char(Reader, 11),
+     print(L), % "The name is"
+     rewind(Reader),
+     L := read_char(Reader, 13),
+     print(L), % " Bond, James "
+     seek(Reader, -12 * CS, current),
+     L := read_char(Reader, 4),
+     print(L), % "Bond"
+     seek(Reader, 1 * CS, end)
+     C = read_char(Reader),
+     print(C), % "."
+     close(Reader).     
+\end{verbatim}
+
+The above example prints ``\texttt{The name is Bond, James Bond.}" if there are no errors during I/O.  The following five functions and predicates are used for repositioning file locations.
+\begin{itemize}
+\item \texttt{getpos($FD$) = $Pos$}\index{\texttt{getpos/1}}: This function returns the current file position, indicating the offset in the number of bytes from the beginning of the file.
+\item \texttt{setpos($FD$, $Pos$)}\index{\texttt{setpos/2}}: This predicate changes the current file position of the read/write pointer to $Pos$, which is the number of bytes from the beginning of the file.
+\item \texttt{rewind($FD$)}\index{\texttt{rewind/1}}: This predicate repositions the read/write pointer at the beginning of the file.
+\item \texttt{seek($FD$, $Offset$, $From$)}\index{\texttt{seek/3}}: This predicate is similar to \texttt{setpos}\index{\texttt{setpos/2}}, because both predicates change the position of the read/write pointer.  However, the \texttt{seek}\index{\texttt{seek/3}} predicate uses two arguments to indicate the file location.  The $Offset$ argument indicates the number of bytes to move.  The $From$ argument is an atom.  If $From$ is \texttt{beginning}, then \texttt{seek}\index{\texttt{seek/3}} will move the read/write pointer to $Offset$ bytes from the beginning of the file.  If $From$ is \texttt{current}, then \texttt{seek}\index{\texttt{seek/3}} will move the read/write pointer to $Offset$ bytes from the current position.  This is the only case where $Offset$ can be negative, because a negative offset indicates that the read/write pointer should be moved backwards.  If $From$ is \texttt{end}, then \texttt{seek}\index{\texttt{seek/3}} will move the read/write pointer to $Offset$ bytes before the end of the file; note that, although the pointer is moved backwards from the end of the file, $Offset$ must be a positive number.  
+\item \texttt{sizeof\_char() = $Size$}\index{\texttt{sizeof\_char/0}}: The bytesize of a character can differ on different systems.  Therefore, the \texttt{sizeof\_char}\index{\texttt{sizeof\_char/0}} function indicates the size of a character, in bytes, on the current system.  The \texttt{getpos}\index{\texttt{getpos/1}}, \texttt{setpos}\index{\texttt{setpos/2}}, and \texttt{seek}\index{\texttt{seek/3}} functions all indicate offsets in bytes.  If you want to show how many \emph{characters} to move the read/write pointer, use the \texttt{sizeof\_char}\index{\texttt{sizeof\_char/0}} function, and multiply the $Offset$ or $Pos$ parameter by the result, as shown in the previous example.  Note that if you seek to the middle of a character while performing character I/O, the program will have unpredictable behavior.    
+\end{itemize}
+The repositioning functions have no effect if they are passed the file descriptor\index{file descriptor} of standard input, standard output, or standard error.  The \texttt{getpos}\index{\texttt{getpos/1}} function will return $0$, while the \texttt{setpos}\index{\texttt{setpos/2}}, \texttt{seek}\index{\texttt{seek/3}}, and \texttt{rewind}\index{\texttt{rewind/1}} functions will not change the file pointer location.
+}
+\section{Standard File Descriptors}
+The atoms \texttt{stdin}\index{\texttt{stdin}}, \texttt{stdout}\index{\texttt{stdout}}, and \texttt{stderr}\index{\texttt{stderr}} represent the file descriptors\index{file descriptor} for standard input, standard output, and standard error.  These atoms allow the program to use the input and output functions of the \texttt{io} module to read from and to write to the three standard streams. 
+\ignore{
+An advantage of using these atoms is that they can be used to allow the user to redirect standard input, standard output, and standard error to files, as shown in the following section.
+}
+
+\ignore{
+\section{Redirection}
+
+The following example shows how to redirect standard input and standard output to files.  This allows the program to read from and to write to files by using the functions and predicates that are defined in the \texttt{basic} module.
+
+\subsection*{Example}
+\begin{verbatim}
+rw1 =>
+     Reader = open("input_file.txt"),
+     Writer = open("output_file.txt", write),
+     close(stdin),
+     InFD = dup(Reader),  % Redirects standard input
+     close(stdout),
+     OutFD = dup(Writer), % Redirects standard output
+     close(Reader),
+     close(Writer),
+     L = read_line(),
+     while (not at_end_of_stream(InFD))
+            L := read_line(), % Reads from input_file.txt
+            writeln(L)        % Writes to output_file.txt
+     end.
+
+rw2 =>
+     Reader = open("input_file.txt"),
+     Writer = open("output_file.txt", write),
+     dup2(Reader, stdin),  % Redirects standard input
+     dup2(Writer, stdout), % Redirects standard output
+     close(Reader),
+     close(Writer),
+     L = read_line(),
+     while (not at_end_of_stream(stdin))
+            L := read_line(), % Reads from input_file.txt
+            writeln(L)        % Writes to output_file.txt
+     end.
+\end{verbatim}
+
+The above example uses the \texttt{dup}\index{\texttt{dup/1}} and \texttt{dup2}\index{\texttt{dup2/2}} built-ins.
+\begin{itemize}
+\item \texttt{dup($FD$) = $NewFD$}\index{\texttt{dup/1}}:  This function modifies the program's file descriptor table\index{file descriptor table}.  It takes the lowest available file descriptor\index{file descriptor}, and adds it to the program's file descriptor table\index{file descriptor table}. Then, \texttt{dup}\index{\texttt{dup/1}} copies the name of $FD$'s file to the new file descriptor\index{file descriptor}.  The \texttt{dup}\index{\texttt{dup/1}} function returns the new file descriptor\index{file descriptor}.
+\item \texttt{dup2($FromFD$, $ToFD$)}\index{\texttt{dup2/2}}:  This predicate modifies the program's file descriptor table\index{file descriptor table}, performing two operations.  First, \texttt{dup2}\index{\texttt{dup2/2}} closes the entry to which $ToFD$ points in the file descriptor table\index{file descriptor table}.  Then, \texttt{dup2}\index{\texttt{dup2/2}} copies the name of the file of $FromFD$ to $ToFD$ in the file descriptor table\index{file descriptor table}.
+\end{itemize}
+
+If the above examples do not throw any errors, then they close standard input, copying \texttt{input\_file.txt} to the file descriptor\index{file descriptor} that is usually reserved for standard input.  Then, they close standard output, copying \texttt{output\_file.txt} to the file descriptor\index{file descriptor} number that is usually reserved for standard output.  At this point, \texttt{input\_file.txt} and \texttt{output\_file.txt} each have two entries in the file descriptor table\index{file descriptor table}.  Then, since \texttt{Reader} and \texttt{Writer} will not be used, their file descriptors\index{file descriptor} are closed.  At this point, \texttt{input\_file.txt} and \texttt{output\_file.txt} each have one entry in the file descriptor table\index{file descriptor table}.  Finally, the program uses \texttt{read\_line}\index{\texttt{read\_line/0}} and \texttt{writeln}\index{\texttt{writeln/1}}, both of which are defined in the \texttt{basic} Picat module, in order to read from and to write to the files.
+
+Notice the differences between \texttt{rw1} and \texttt{rw2}.  The \texttt{rw1} example explicitly closes \texttt{stdin}\index{\texttt{stdin}}.  Then, the lowest available file descriptor\index{file descriptor} is the file descriptor\index{file descriptor} that was used for \texttt{stdin}\index{\texttt{stdin}}, so \texttt{dup}\index{\texttt{dup/1}} copies \texttt{input\_file.txt} to the file descriptor\index{file descriptor} that is usually reserved for standard input.  Then, \texttt{rw1} explicitly closes \texttt{stdout}\index{\texttt{stdout}}.  The lowest available file descriptor\index{file descriptor} is the file descriptor\index{file descriptor} that was used for \texttt{stdout}\index{\texttt{stdout}}, so \texttt{dup}\index{\texttt{dup/1}} copies \texttt{output\_file.txt} to the file descriptor\index{file descriptor} that is usually reserved for standard output.  Unlike \texttt{rw1}, the \texttt{rw2} example explictly indicates standard input and standard output as the destination file descriptors\index{file descriptor} for \texttt{dup2}\index{\texttt{dup2/2}}.  The \texttt{dup2}\index{\texttt{dup2/2}} predicate closes \texttt{stdin}\index{\texttt{stdin}} and \texttt{stdout}\index{\texttt{stdout}} automatically.
+
+Note that a program's file descriptor table\index{file descriptor table} is initialized as soon as it begins execution.  Each process\index{process} has its own file descriptor table\index{file descriptor table}.  The \texttt{dup}\index{\texttt{dup/1}} and \texttt{dup2}\index{\texttt{dup2/2}} built-ins only modify the current program's file descriptor table\index{file descriptor table}, which is destroyed when the program finishes execution.  Therefore, if a program is executed multiple times, then \texttt{stdin}\index{\texttt{stdin}}, \texttt{stdout}\index{\texttt{stdout}}, and \texttt{stderr}\index{\texttt{stderr}} are initialized to their default values before execution.  
+
+Note that standard input, standard output, and standard error do not need to be explicitly closed, even if they are redirected.  This is why the program does not call \texttt{close}\index{\texttt{close/1}} after the while loop terminates.
+
+The following example shows how to use \texttt{dup2}\index{\texttt{dup2/2}} together with the \texttt{process} module in order to imitate the command ``\texttt{ls -l > dir.txt}".
+
+\subsection*{Example}
+\begin{verbatim}
+import io, process.
+
+ls =>
+    Writer = open("dir.txt", write),
+    dup2(Writer, stdout),
+    close(Writer),
+    process.exec("ls", "-l").
+\end{verbatim}
+
+The \texttt{dup2}\index{\texttt{dup2/2}} predicate redirects standard output to ``\texttt{dir.txt}".  Therefore, when \texttt{exec}\index{\texttt{exec}} is called, the output of ``\texttt{ls}", will also redirect to ``\texttt{dir.txt}".  For more information about the \texttt{exec}\index{\texttt{exec}} predicate, see Chapter \ref{chapter:process}.
+
+\section{Temporary Files and Pipes}
+The \texttt{io} module has four functions whose purpose is to create new files and file descriptors\index{file descriptor} for the purposes of communication.
+
+\subsection{Temporary Files}
+The \texttt{mktmp}\index{\texttt{mktmp/0}} function is used to create temporary files.
+\begin{itemize}
+\item \texttt{mktmp() = $FD$}\index{\texttt{mktmp/0}}: This function creates a temporary file in the file system, and returns a file descriptor\index{file descriptor} for the temporary file.  This file descriptor\index{file descriptor} can be used to read from and to write to the file.  The temporary file exists until the file descriptor\index{file descriptor} is closed, or until termination of the program that called the \texttt{mktmp}\index{\texttt{mktmp/0}} function.
+\end{itemize}
+
+\subsection{Pipes}
+Pipes are special files that are used for interprocess\index{process} communication.  Picat provides three functions and predicates for the creation of pipes.
+\begin{itemize}
+\item \texttt{mkpipe() = $FD\_Map$}\index{\texttt{mkpipe/0}}:  This function creates an unnamed pipe\index{unnamed pipe}, which is stored in in kernel memory.  This function returns a map with two keys.  The \texttt{readFD} key represents the file descriptor\index{file descriptor} that is used to read from the pipe.  The \texttt{writeFD} key represents the file descriptor\index{file descriptor} used to write to the pipe.  The unnamed pipe\index{unnamed pipe} can only be used by related processes\index{process}.  It is removed from kernel memory when all processes\index{process} that use the pipe have terminated.  Note that if the pipe is empty, and no process\index{process} has the pipe open for writing, then the \texttt{read} functions will return \texttt{end\_of\_file}\index{\texttt{end\_of\_file}}.
+\item \texttt{mkfifo($Path$)}\index{\texttt{mkfifo/1}}:  This predicate creates a named pipe\index{fifo}, or a \emph{FIFO}\index{fifo}, which is stored as a file in the location specified by $Path$.  The FIFO\index{fifo} can be used by unrelated processes\index{process}.  Like a regular file, the FIFO\index{fifo} remains in memory even if it is not currently being used by any processes\index{process}.  In order to remove the FIFO\index{fifo} from memory, use the \texttt{rm}\index{\texttt{rm/1}} predicate that is defined in the \texttt{os} module.
+\item \texttt{mkfifo($Path$, $Mode$)}\index{\texttt{mkfifo/2}}:  This version of \texttt{mkfifo}\index{\texttt{mkfifo/2}} has a $Mode$ parameter.  This parameter is either a single atom or a list of two or three atoms.  The format of the atoms is specified by the regular expression \texttt{r?w?(u|g|o)}.  If the atom contains \texttt{r}, then it provides permission to read from the FIFO\index{fifo}.  If the atom contains \texttt{w}, then it provides permission to write to the FIFO\index{fifo}.  The second part of the atom indicates the receiver(s) of the permission, where \texttt{u} specifies the user, \texttt{g} specifies anybody who is in the user's group, and \texttt{o} specifies anybody who is not in the user's group.  At most one atom can exist for each of \texttt{u}, \texttt{g}, and \texttt{o}.  If a permission is not explicitly specified in the $Mode$ parameter, then the permission is not provided.  However, the \texttt{mkfifo($Path$)}\index{\texttt{mkfifo/1}} predicate provides a default permission list of \texttt{[rwu, rwg]}, which allows the user and the user's group to read from and to write to the FIFO\index{fifo}.
+\end{itemize}
+
+The following example demonstrates the difference between unnamed pipes\index{unnamed pipe} and named pipes\index{fifo}.
+\subsection*{Example:}
+\begin{verbatim}
+% File 1
+import io, process.
+
+unnamed =>
+    FDs = mkpipe(), % create the pipe
+    ID = process.fork(),
+    if ID == 0 then % child process
+       close(FDs.writeFD),
+       reader(FDs.readFD)
+    else            % parent process
+       close(FDs.readFD),
+       writer(FDs.writeFD)
+    end.
+    
+reader(FD) =>
+    Str = read_line(FD),
+    close(FD).
+
+writer(FD) =>
+    writeln(FD, "Communicating"),
+    close(FD).
+
+% File 2
+import io.
+
+fifo =>
+   mkfifo("fifo.txt", [rwu, rwg, rwo]),
+   Writer = open("fifo.txt", append),
+   foreach (I in 1..100)
+            writeln(Writer, I)
+   end,
+   close(Writer).
+
+% File 3 -- executed by any user some time after File 2 was executed
+import io, os.
+
+nofifo =>
+   Reader = open("fifo.txt", read),
+   while (not at_end_of_stream(Reader))
+          I := read_int(Reader),
+          write_int(I), % prints I to standard output
+          writeln()
+   end,
+   close(Reader),
+   os.rm("fifo.txt"). % deletes the fifo
+\end{verbatim}
+
+Notice the differences between the unnamed pipe\index{unnamed pipe} and the named pipe\index{fifo}.  The unnamed pipe\index{unnamed pipe} is used by two related processes\index{process}.  Each process\index{process} closes one of the pipe's file descriptors\index{file descriptor} immediately, and closes the other file descriptor\index{file descriptor} as soon as the process\index{process} finishes communicating.  As soon as the \texttt{unnamed} predicate finishes executing, the unnamed pipe\index{unnamed pipe} is removed from memory.  The named pipe\index{fifo} can be used by two unrelated processes\index{process}.  After the \texttt{fifo} predicate finishes executing, the named pipe\index{fifo} remains in memory until it is removed in the \texttt{nofifo} predicate.
+
+For more information on processes\index{process}, see Chapter \ref{chapter:process}.
+
+\subsection{A Note on Errors}
+The functions and predicates in the \texttt{io} module can throw a large number of errors.  For example, attempts to read from and to write to a non-existent file descriptor\index{file descriptor} will generate an error.  Another error occurs when trying to create a file that already exists.  Errors can also be generated when the user tries to perform an operation on a file, such as writing to the file, when the user does not have permission to perform the operation.
+
+In most cases, if an I/O error occurs, then Picat will throw \texttt{io\_error($ENo$, $EMsg$, $Source$)}, where $ENo$ is the error number, $EMsg$ is a string that indicates the error that occurred, and $Source$ is the goal that caused the error to occur.  
+
+If the \texttt{open}\index{\texttt{open/1}}\index{\texttt{open/2}} function is unable to find the file that is passed to it, then the \texttt{open}\index{\texttt{open/1}}\index{\texttt{open/2}} function will throw \texttt{file\_not\_found($Earg$, $Source$)}, where $Earg$ is the name of the file, and $Source$ is the function or predicate that called \texttt{open}\index{\texttt{open/1}}\index{\texttt{open/2}}. 
+}
+\ignore{
+\end{document}
+}

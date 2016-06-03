@@ -1,0 +1,294 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+
+\chapter{\label{chapter:syntax}Appendix: Grammar}
+\begin{scriptsize}
+\begin{verbatim}
+/* Picat syntax rules 
+      [...] means optional
+      {...} means 0, 1, or more occurrences
+      (a | b) means choice
+      "..." means a token
+      %... one-line comment
+      input tokens:
+            atom
+            variable
+            integer
+            float
+            operator
+            separator
+            eor is "." followed by a white space or eof
+*/
+program ->
+    [module_declaration]
+    {import_declaration}
+    program_body
+
+program_body ->
+    {predicate_definition | function_definition | actor_definition}
+
+module_declaration -> 
+    "module" atom eor
+
+import_declaration ->
+    import import_item {"," import_item} eor
+
+import_item ->
+    atom 
+
+predicate_definition ->
+    {predicate_directive} predicate_rule_or_fact {predicate_rule_or_fact}
+
+function_definition ->
+    {function_directive} function_rule_or_fact {function_rule_or_fact}
+
+actor_definition ->
+    ["private"] action_rule {(action_rule 
+                              | nonbacktrackable_predicate_rule)}
+
+function_directive ->
+    "private"
+    "table"
+
+predicate_directive ->
+    "private"
+    "table" ["(" table_mode {"," table_mode} ")" ]
+    "index" index_declaration {"," index_declaration}
+
+index_declaration ->
+    "(" index_mode {"," index_mode} ")"
+
+index_mode ->
+   "+"
+   "-"
+   
+table_mode ->
+   "+"
+   "-"
+   "min"
+   "max"
+   "nt"
+      
+predicate_rule_or_fact ->
+    predicate_rule
+    predicate_fact
+
+function_rule_or_fact ->
+    function_rule
+    function_fact
+
+predicate_rule ->
+    head ["," condition] ("=>" | "?=>") body eor
+
+nonbacktrackable_predicate_rule ->
+    head ["," condition] "=>" body eor
+
+predicate_fact ->
+    head eor
+
+head ->
+    atom ["(" [term {"," term}] ")"]
+
+function_rule ->
+    head "=" expression ["," condition] "=>" body eor    
+
+function_fact ->
+    head "=" argument eor
+
+action_rule ->
+    head ["," condition] "," "{" event_pattern "}"   => body eor
+
+event_pattern ->
+    term {',' term}
+
+condition -> goal
+
+body -> goal
+
+goal ->
+    disjunctive_goal
+
+argument ->
+    negative_goal
+
+disjunctive_goal ->
+    disjunctive_goal ";" conjunctive_goal
+    conjunctive_goal
+
+conjunctive_goal ->
+    conjunctive_goal ","  negative_goal
+    negative_goal
+
+negative_goal ->
+   "not" negative_goal
+   equiv_constr
+
+equiv_constr ->
+   equiv_constr "#<=>" impl_constr
+   impl_constr
+
+impl_constr ->
+   impl_constr "#=>" or_constr
+   or_constr
+
+or_constr ->
+   or_constr "#\/" xor_constr
+   xor_constr
+
+xor_constr ->
+   xor_constr "#^" and_constr
+   and_constr
+
+and_constr ->
+   and_constr "#/\" not_constr
+   not_constr
+
+not_constr ->
+   "#~" not_constr
+   enclosed_goal
+
+enclosed_goal ->
+   "if" goal "then" goal {"elseif" goal "then" goal} "else" goal "end"
+   "foreach" "(" iterator {"," (iterator | condition)} ")" goal "end"
+   "while" "(" goal ")" ["do"] goal "end"
+   "do" goal "while" "(" goal ")"
+   expression {bin_rel_op expression}
+
+bin_rel_op ->
+    "=" 
+    "!="
+    ":=" 
+    "=="
+    "!=="
+    ">"
+    ">="
+    "<"
+    "=<"
+    "<="
+    "::"
+    "in"
+    "notin"
+    "#=" 
+    "#!=" 
+    "#>" 
+    "#>=" 
+    "#<" 
+    "#=<" 
+    "#<=" 
+    "@>" 
+    "@>=" 
+    "@<" 
+    "@=<" 
+    "@<=" 
+
+expression -> 
+    concat_expression 
+
+concat_expression ->
+    range_expression ["++" concat_expression]
+
+range_expression ->
+   or_expression [".." or_expression [".." or_expression]]
+    
+or_expression  ->
+    xor_expression 
+    or_expression "\/" xor_expression
+
+xor_expression ->  
+    and_expression 
+    xor_expression "^" and_expression              % bit-wise xor
+
+and_expression ->
+    shift_expression 
+    and_expression  "/\" shift_expression
+
+shift_expression ->
+    additive_expression 
+    shift_expr ( "<<" | ">>" ) additive_expression 
+
+additive_expression ->
+    multiplicative_expression
+    additive_expression "+" multiplicative_expression
+    additive_expression "-" multiplicative_expression
+
+multiplicative_expression ->
+    unary_expression
+    multiplicative_expression "*" unary_expression
+    multiplicative_expression "/" unary_expression
+    multiplicative_expression "//" unary_expression
+    multiplicative_expression "/>" unary_expression
+    multiplicative_expression "/<" unary_expression
+    multiplicative_expression "div" unary_expression
+    multiplicative_expression "mod" unary_expression
+    multiplicative_expression "rem" unary_expression
+
+    
+unary_expression ->
+    power_expression
+    "+" unary_expression
+    "-" unary_expression
+    "~" unary_expression                           % bit-wise complement
+
+power_expression ->
+    primary_expression ["**" unary_expression]
+
+primary_expression ->
+    "(" goal ")"
+    variable "[" argument ["," argument] "]"       % subscript notation
+    variable "@" term ["@"]                        % as-pattern
+    variable
+    integer
+    float
+    atom_or_call
+    list_expression
+    array_expression
+    function_call
+    term_constructor
+    primary_expression "." atom_or_call            % dot-notation
+
+atom_or_call ->
+    atom ["(" [argument {"," argument}] ")"]  
+
+list_expression ->
+    "[]"
+    "[" argument list_expression_suffix "]"
+
+list_expression_suffix ->
+    ":" iterator {"," (iterator | condition)}      % list comprehension
+    {"," argument} ["|" argument] 
+
+array_expression ->
+    "{}"
+    "{" argument array_expression_suffix "}"    
+
+array_expression_suffix ->
+    ":" iterator {"," (iterator | condition)}      % array comprehension
+    {"," argument} 
+
+function_call ->
+    [primary_expression "."] atom "(" [argument {"," argument}] ")"
+
+variable_list ->
+    "[" [variable {"," variable}] "]"
+
+term_constructor ->
+    "$" goal ["$"]
+
+/* a term has the same form as a goal except that it cannot contain loops 
+   or if-then-else. Note that subscript notations, range expressions, and  
+   list comprehensions are still treated as functions in term constructors */
+
+\end{verbatim}
+\end{scriptsize}
+\ignore{
+\end{document}
+}

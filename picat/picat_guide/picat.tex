@@ -1,0 +1,71 @@
+\documentclass[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{setspace}
+\newcommand{\ignore}[1]{}
+
+\usepackage{vmargin}
+%\setpapersize{USletter}
+%\setmarginsrb{19mm}{19mm}{19mm}{19mm}{12pt}{5mm}{0pt}{0mm}
+
+\usepackage{url}
+\usepackage{times}
+\usepackage{sectsty}
+\sectionfont{\normalsize\bf}
+\subsectionfont{\normalsize\bf}
+
+\graphicspath{{figs/}}
+\newcommand{\myimp}{\verb+ :- +}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+\vspace*{4cm}
+\begin{center}
+{\Huge\bf Picat: A Scalable Logic-based Language and System} \\
+
+\vspace*{8cm}
+
+{\large\bf Neng-Fa Zhou and Jonathan Fruhman} \\
+{\large\bf The City University of New York} \\
+\vspace*{1cm}
+{\bf Copyright \copyright picat-lang.org, 2013.} \\
+%{\bf Under construction}
+{\bf Last updated Jan. 2, 2013} \\
+\end{center}
+\thispagestyle{empty}
+\clearpage
+
+\pagenumbering{roman}
+\section*{Preface}
+\input{preface.tex}
+
+%\section*{Acknowledgements}
+
+\tableofcontents
+
+\input{overview.tex}
+\input{intro_sys.tex}
+\input{data_types.tex}
+\input{predfunc.tex}
+\input{loops.tex}
+\input{exception.tex}
+\input{tabling.tex}
+\input{module.tex}
+\input{io.tex}
+\input{os.tex}
+\input{ar.tex}
+\input{constraints.tex}
+\input{sockets.tex}
+\input{cinterface.tex}
+\input{math.tex}
+\input{datetime.tex}
+\input{format.tex}
+\input{sockopt.tex}
+\input{builtin.tex}
+\end{document}

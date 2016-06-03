@@ -1,0 +1,166 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+\chapter{\label{chapter:tabling}Tabling}
+The Picat system is a term-rewriting system. For a predicate call, Picat selects a matching rule and rewrites the call into the body of the rule. For a function call $C$, Picat rewrites the equation $C = X$ where $X$ is a variable that holds the return value of $C$. Due to the existence of recursion in programs, the term-rewriting process may never terminate. Consider, for example, the following program:  
+\begin{verbatim}
+    reach(X,Y) ?=> edge(X,Y).
+    reach(X,Y) => reach(X,Z),edge(Z,Y).
+\end{verbatim}
+where the predicate \texttt{edge} defines a relation, and the predicate \texttt{reach} defines the transitive closure of the relation. For a query such as \texttt{reach(a,X)}, the program never terminates due to the existence of left-recursion in the second rule. Even if the rule is converted to right-recursion, the query may still not terminate if the graph that is represented by the relation contains cycles. 
+
+Another issue with recursion is redundancy. Consider the following problem: \emph{Starting in the top left corner of a $N\times N$ grid, one can either go rightward or downward. How many routes are there through the grid to the bottom right corner?} The following gives a program in Picat for the problem:
+\begin{verbatim}
+    route(N,N,_Col) = 1.
+    route(N,_Row,N) = 1.
+    route(N,Row,Col) = route(N,Row+1,Col)+route(N,Row,Col+1).
+\end{verbatim}
+The function call \texttt{route(20,1,1)} returns the number of routes through a 20$\times$20 grid. The function call \texttt{route(N,1,1)} takes exponential time in \texttt{N}, because the same function calls are repeatedly spawned during the execution, and are repeatedly resolved each time that they are spawned.
+
+\section{Table Declarations}
+Tabling\index{tabling} is a memoization technique that can prevent infinite loops and redundancy. The idea of tabling\index{tabling} is to memorize the answers to subgoals and use the answers to resolve their variant descendants. In Picat, in order to have all of the calls and answers of a predicate or function tabled\index{tabling}, users just need to add the keyword \texttt{table}\index{\texttt{table}} before the first rule.
+
+\subsection*{Example}
+\begin{verbatim}
+    table
+    reach(X,Y) ?=> edge(X,Y).
+    reach(X,Y) => reach(X,Z),edge(Z,Y).
+
+    table
+    route(N,N,_Col) = 1.
+    route(N,_Row,N) = 1.
+    route(N,Row,Col) = route(N,Row+1,Col)+route(N,Row,Col+1).
+\end{verbatim}
+With tabling\index{tabling}, all queries to the \texttt{reach} predicate are guaranteed to terminate, and the function call \texttt{route(N,1,1)} takes only \texttt{N}$^2$ time.
+
+For some problems, such as planning problems, it is infeasible to table\index{tabling} all answers, because there may be an infinite number of answers. For some other problems, such as those that require the computation of aggregates, it is a waste to table\index{tabling} non-contributing answers. Picat allows users to provide table modes\index{mode-directed tabling} to instruct the system about which answers to table\index{tabling}. For a tabled\index{tabling} predicate, users can give a \emph{table mode declaration}\index{mode-directed tabling} in the form ($M_{1},M_{2},\ldots,M_{n}$), where each $M_{i}$ is one of the following: a plus-sign (+) indicates input, a minus-sign (-) indicates output, \texttt{max} indicates that the corresponding variable should be maximized, and \texttt{min} indicates that the corresponding variable should be minimized. The last mode $M_{n}$ can be \texttt{nt}, which indicates that the argument is not tabled. Two types of data can be passed to a tabled predicate as an \texttt{nt} argument: (1) global data that are the same to all the calls of the predicate, and (2) data that are functionally dependent on the input arguments. Input arguments are assumed to be ground.  Output arguments, including \texttt{min} and \texttt{max} arguments, are assumed to be variables. An argument with the mode \texttt{min} or \texttt{max} is called an \emph{objective} argument. Only one argument can be an objective to be optimized. As an objective argument can be a compound value, this limit is not essential, and users can still specify multiple objective variables to be optimized. When a table mode\index{mode-directed tabling} declaration is provided, Picat tables\index{tabling} only one optimal answer for the same input arguments.
+
+\subsection*{Example}
+\begin{verbatim}
+    table(+,+,-,min)
+    sp(X,Y,Path,W) ?=>
+        Path = [(X,Y)],
+        edge(X,Y,W).
+    sp(X,Y,Path,W) =>
+        Path = [(X,Z)|Path1],
+        edge(X,Z,Wxz),
+        sp(Z,Y,Path1,W1),
+        W = Wxz+W1.
+\end{verbatim}
+The predicate \texttt{edge(X,Y,W)} specifies a weighted directed graph, where \texttt{W} is the weight of the edge between node \texttt{X} and node \texttt{Y}. The predicate \texttt{sp(X,Y,Path,W)} states that \texttt{Path} is a path from \texttt{X} to \texttt{Y} with the minimum weight \texttt{W}. Note that whenever the predicate \texttt{ sp/4} is called, the first two arguments must always be instantiated. For each pair, the system stores only one path with the minimum weight. 
+
+The following program finds a shortest path among those with the minimum weight for each pair of nodes:
+\begin{verbatim}
+    table (+,+,-,min).
+    sp(X,Y,Path,WL) ?=>
+        Path = [(X,Y)],
+        WL = (Wxy,1),
+        edge(X,Y,Wxy).
+    sp(X,Y,Path,WL) =>
+        Path = [(X,Z)|Path1],
+        edge(X,Z,Wxz),
+        sp(Z,Y,Path1,WL1),
+        WL1 = (Wzy,Len1),
+        WL = (Wxz+Wzy,Len1+1).
+\end{verbatim}
+For each pair of nodes, the pair of variables \texttt{(W,Len)} is minimized, where \texttt{W} is the weight, and \texttt{Len} is the length of a path. The built-in function \texttt{compare\_terms($T_1$,$T_2$)} is used to compare answers. Note that the order is important. If the term would be \texttt{(Len,W)}, then the program would find a shortest path, breaking a tie by selecting one with the minimum weight.
+
+The tabling system is useful for offering dynamic programming solutions for planning problems. The following shows a tabled program for general planning problems:
+\begin{verbatim}
+    table (+,-,min)
+    plan(S,Plan,Len),final(S) => Plan=[],Len=0.
+    plan(S,Plan,Len) =>
+        action(Action,S,S1),
+        plan(S1,Plan1,Len1),
+        Plan = [Action|Plan1],
+        Len = Len1+1.
+\end{verbatim}
+The predicate \texttt{action(Action,S,S1)} selects an action and performs the action on state \texttt{S} to generate another state, \texttt{S1}.
+
+\subsection*{Example}
+The program shown in Figure \ref{fig:farmer} solves the Farmer's problem: {\em The farmer wants to get his goat, wolf, and cabbage to the other side of the river. His boat isn't very big, and it can only carry him and either his goat, his wolf, or his cabbage. If he leaves the goat alone with the cabbage, then the goat will gobble up the cabbage. If he leaves the wolf alone with the goat, then the wolf will gobble up the goat. When the farmer is present, the goat and cabbage are safe from being gobbled up by their predators.}
+
+
+\begin{figure}
+\begin{center}
+\begin{verbatim}
+    go =>
+        S0=[s,s,s,s],
+        plan(S0,Plan,_),
+        writeln(Plan.reverse()).
+
+    table (+,-,min)
+    plan([n,n,n,n],Plan,Len) => Plan=[], Len=0.
+    plan(S,Plan,Len) =>
+        Plan=[Action|Plan1],
+        action(S,S1,Action),
+        plan(S1,Plan1,Len1),
+        Len=Len1+1.
+    
+    action([F,F,G,C],S1,Action) ?=>
+        Action=farmer_wolf,
+        opposite(F,F1),
+        S1=[F1,F1,G,C],
+        not unsafe(S1).
+    action([F,W,F,C],S1,Action) ?=>
+        Action=farmer_goat,
+        opposite(F,F1),
+        S1=[F1,W,F1,C],
+        not unsafe(S1).
+    action([F,W,G,F],S1,Action) ?=>
+        Action=farmer_cabbage,
+        opposite(F,F1),
+        S1=[F1,W,G,F1],
+        not unsafe(S1).
+    action([F,W,G,C],S1,Action) ?=>
+        Action=farmer_alone,
+        opposite(F,F1),
+        S1=[F1,W,G,C],
+        not unsafe(S1).
+
+    index (+,-) (-,+)
+    opposite(n,s).
+    opposite(s,n).
+
+    unsafe([F,W,G,_C]),W==G,F!==W => true.
+    unsafe([F,_W,G,C]),G==C,F!==G => true.
+\end{verbatim}
+\end{center}
+\caption{\label{fig:farmer}A program for the Farmer's problem.}
+\end{figure}
+
+\section{The Tabling Mechanism}
+The Picat tabling\index{tabling} system employs the so-called \emph{linear tabling}\index{linear tabling} mechanism, which computes fixpoints by iteratively evaluating looping subgoals. The system uses a data area, called the \emph{table area}\index{tabling}, to store tabled\index{tabling} subgoals and their answers. The tabling area can be initialized with the following built-in predicate:
+
+\begin{itemize}
+\item \texttt{initialize\_table}\index{\texttt{initialize\_table/0}}: This predicate initializes the table area.   
+\end{itemize}
+This predicate clears up the table area. It's users' responsibility to ensure that no data in the table area are referenced by any part of the application.
+
+Linear tabling relies on the following three primitive operations to access and update the table\index{tabling} area.
+
+\begin{description}
+\item[Subgoal lookup and registration:] This operation is used when a tabled\index{tabling} subgoal is encountered during execution. It looks up the subgoal table\index{tabling} to see if there is a variant of the subgoal. If not, it inserts the subgoal (termed a \emph{pioneer} or \emph{generator}) into the subgoal table\index{tabling}. It also allocates an answer table\index{tabling} for the subgoal and its variants. Initially, the answer table\index{tabling} is empty. If the lookup finds that there already is a variant of the subgoal in the table\index{tabling}, then the record that is stored in the table\index{tabling} is used for the subgoal (called a \emph{consumer}). Generators and consumers are handled differently. In linear tabling\index{linear tabling}, a generator is resolved using rules, and a consumer is resolved using answers; a generator is iterated until the fixed point is reached, and a consumer fails after it exhausts all of the existing answers.
+\item[Answer lookup and registration:] This operation is executed when a rule succeeds in generating an answer for a tabled\index{tabling} subgoal. If a variant of the answer already exists in the table\index{tabling}, then it does nothing; otherwise, it inserts the answer into the answer table\index{tabling} for the subgoal, or it tables\index{tabling} the answer according to the mode declaration. Picat uses the lazy consumption strategy (also called the local strategy). After an answer is processed, the system backtracks to produce the next answer. 
+\item[Answer return:] When a consumer is encountered, an answer is returned immediately, if an answer exists. On backtracking, the next answer is returned. A generator starts consuming its answers after it has exhausted all of its rules. Under the lazy consumption strategy, a top-most looping generator does not return any answer until it is complete.
+\end{description}
+
+\ignore{
+\section{Initialization of the Table Area}
+\begin{itemize}
+\item \texttt{table\_get\_all($Goal$) = $List$}\index{\texttt{table\_get\_all/1}}:  This function returns a list of answers of the subgoals that are subsumed by $Goal$. For example, the \texttt{table\_get\_all(\_)}\index{\texttt{table\_get\_all/1}} fetches all of the answers in the table\index{tabling}, since any subgoal is subsumed by the anonymous variable\index{anonymous variable}.
+\item \texttt{table\_get\_one($Goal$)}\index{\texttt{table\_get\_one/1}}: If there is a subgoal in the subgoal table\index{tabling} that is a variant of \texttt{$Goal$}, and that has answers, then \texttt{$Goal$} is unified with the first answer. This predicate fails if there is no variant subgoal in the table\index{tabling}, or if there is no answer available.
+\end{itemize}
+}
+
+\ignore{
+\end{document}
+}
