@@ -1,0 +1,387 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+
+}
+\chapter{Assignments and Loops\label{chapter:loops}}
+This chapter discusses variable assignments\index{assignment}, loop constructs, and list and array comprehensions\index{list comprehension} in Picat.  It describes the \emph{scope}\index{scope} of an assigned\index{assignment} variable, indicating where the variable is defined, and where it is not defined.  Finally, it shows how assignments\index{assignment}, loops, and list comprehensions\index{list comprehension} are related, and how they are compiled.  
+
+\section{Assignments}
+Picat variables are \emph{single-assignment}\index{assignment}\index{single-assignment}, meaning that once a variable is bound to a value, the variable cannot be bound again.  In order to simulate imperative\index{imperative} language variables, Picat provides the assignment\index{assignment} operator \verb+:=+.  An assignment\index{assignment} takes the form $LHS $$:$$=$$ RHS$, where $LHS$ is either a variable or an access of a compound value\index{compound value} in the form \texttt{$X$[\ldots]}. When $LHS$ is an access in the form $X[I]$, the component of $X$ indexed $I$ is updated.  This update is undone if execution backtracks over this assignment\index{assignment}.
+
+\subsection*{Example}
+\begin{verbatim}
+test => X = 0, X := X + 1,  X := X + 2, write(X).
+\end{verbatim}
+
+The compiler needs to give special consideration to the \emph{scope}\index{scope} of a variable.  The scope\index{scope} of a variable refers to the parts of a program where a variable occurs.  
+
+Consider the \texttt{test} example.  This example binds \texttt{X} to $0$.  Then, the example tries to bind \texttt{X} to \texttt{X + 1}.  However, \texttt{X} is still in scope\index{scope}, meaning that \texttt{X} is already bound to $0$.  Since \texttt{X} cannot be bound again, the compiler must perform extra operations in order to manage assignments\index{assignment} that use the \texttt{:=} operator. 
+
+In order to handle assignments\index{assignment}, Picat creates new variables at compile time.  In the \texttt{test} example, at compile time, Picat creates a new variable, say \texttt{X1}, to hold the value of \texttt{X} after the assignment\index{assignment} \verb-X := X + 1-. Picat replaces \texttt{X} by \texttt{X1} on the LHS of the assignment\index{assignment}.  All occurrences of \texttt{X} after the assignment\index{assignment} are replaced by \texttt{X1}.  When encountering \verb-X1 := X1 + 2-, Picat creates another new variable, say \texttt{X2}, to hold the value of \texttt{X1} after the assignment\index{assignment}, and replaces the remaining occurrences of \texttt{X1} by \texttt{X2}. When \texttt{write(X2)}\index{\texttt{write/1}} is executed, the value held in \texttt{X2}, which is 3, is printed.  This means that the compiler rewrites the above example as follows:
+\begin{verbatim}
+test => X = 0, X1 = X + 1, X2 = X1 + 2, write(X2).
+\end{verbatim}
+
+\subsection{If-Else}
+This leads to the question: what does the compiler do if the code branches?  Consider the following code skeleton.
+\subsection*{Example}
+\begin{verbatim}
+if_ex(Z) =>
+    X = 1, Y = 2,
+    if Z > 0 then
+       X := X * Z    
+    else
+       Y := Y + Z
+    end,
+    println([X,Y]).
+\end{verbatim}
+
+The \texttt{if\_ex} example performs exactly one assignment\index{assignment}.  At compilation time, the compiler does not know whether or not \texttt{ Z$>$0} evaluates to \texttt{true}\index{\texttt{true}}.  Therefore, the compiler does not know whether to introduce a new variable for \texttt{X} or for \texttt{Y}.
+
+Therefore, when an if-else statement\index{if statement} contains an assignment\index{assignment}, the compiler rewrites the if-else statement\index{if statement} as a predicate.  For example, the compiler rewrites the above example as follows:
+
+\begin{verbatim}
+if_ex(Z) => 
+   X = 1, Y = 2, 
+   p(X, Xout, Y, Yout, Z),
+   println([Xout,Yout]).
+
+p(Xin, Xout, Yin, Yout, Z), Z > 0 =>
+   Xout = X * Z,
+   Yout = Yin.
+p(Xin, Xout, Yin, Yout) =>
+   Xout = Xin,
+   Yout = Y + Z.
+\end{verbatim}
+One rule is generated for each branch of the if-else statement\index{if statement}.  For each variable \texttt{V} that occurs on the LHS of an assignment\index{assignment} statement that is inside of the if-else statement\index{if statement}, predicate \texttt{p} is passed two arguments, \texttt{Vin} and \texttt{Vout}.  In the above example, \texttt{X} and \texttt{Y} each occur on the LHS of an assignment\index{assignment} statement.  Therefore, predicate \texttt{p} is passed the parameters \texttt{Xin}, \texttt{Xout}, \texttt{Yin}, and \texttt{Yout}. 
+
+\section{Types of Loops}
+Picat has three types of loop statements for programming repetitions: \texttt{foreach}\index{foreach loop}, \texttt{while}\index{while loop}, and \texttt{do-while}\index{do-while loop}.
+
+\subsection{Foreach Loops}
+A \texttt{foreach} loop\index{foreach loop} has the form:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{foreach ($E_1$ in $D_1$, $Cond_1$, $\ldots$, $E_n$ in $D_n$, $Cond_n$)}  \\
+\> \> $Goal$ \\
+\>  \texttt{end} 
+\end{tabbing}
+Each $E_i$ is an \emph{iterating pattern}\index{iterator}.  Each $D_i$ is an expression that gives a \emph{compound value}\index{compound value}.  Each $Cond_i$ is an optional \emph{condition} on iterators\index{iterator} $E_1$ through $E_i$.
+
+Foreach loops\index{foreach loop} can be used to iterate through compound values\index{compound value}, as in the following examples.
+
+\subsection*{Example}
+\begin{verbatim}
+loop_ex1 =>
+    L = [17, 3, 41, 25, 8, 1, 6, 40],
+    foreach (E in L)
+        println(E)
+    end.
+
+loop_ex2(Map) =>
+    foreach(Key=Value in Map)
+        writef("%w=%w\n", Key, Value)
+    end.
+\end{verbatim}
+
+The \texttt{loop\_ex1} example iterates through a list.  The \texttt{loop\_ex2} example iterates through a map, where \texttt{Key=Value} is the iterating pattern\index{iterator}.
+
+The \texttt{loop\_ex1} example can also be written, using a \emph{failure-driven loop}\index{failure-driven loop}, as follows.
+
+\subsection*{Example}
+\begin{verbatim}
+loop_ex1 =>
+    L = [17, 3, 41, 25, 8, 1, 6, 40],
+    (    member(E, L),
+         println(E),
+         fail
+    ;
+         true
+    ).
+\end{verbatim}
+
+
+Recall that the range $Start .. Step .. End$ stands for a list of numbers.  Ranges can be used as compound values\index{compound value} in iterators\index{iterator}.
+\subsection*{Example}
+\begin{verbatim}
+loop_ex3 =>
+    foreach(E in 1 .. 2 .. 9)
+        println(E)
+    end.
+\end{verbatim}
+
+Also recall that the function \texttt{zip($List_1$, $List_2$, $\ldots$, $List_n$)}\index{\texttt{zip}} returns a list of tuples. This function can be used to simultaneously iterate over multiple lists.
+
+\subsection*{Example:}
+\begin{verbatim}
+loop_ex_parallel =>
+    foreach(Pair in zip(1..2, [a,b]))
+        println(Pair)
+    end.
+\end{verbatim}
+
+
+\subsection{Foreach Loops with Multiple Iterators}
+Each of the previous examples uses a single iterator\index{iterator}.  Foreach loops\index{foreach loop} can also contain multiple iterators\index{iterator}.
+\subsection*{Example:}
+\begin{verbatim}
+loop_ex4 =>
+    L = [2, 3, 5, 10],
+    foreach(I in L, J in 1 .. 10, J mod I != 0)
+        printf("%d is not a multiple of %d%n", J, I)
+    end.
+\end{verbatim}
+
+If a foreach loop\index{foreach loop} has multiple iterators\index{iterator}, then it is compiled into a series of nested foreach loops\index{foreach loop}\index{nested loop} in which each nested loop\index{nested loop} has a single iterator\index{iterator}.  In other words, a foreach loop\index{foreach loop} with multiple iterators\index{iterator} executes its goal once for every possible combination of values in the iterators\index{iterator}.
+
+The foreach loop\index{foreach loop} in \texttt{loop\_ex4} is the same as the nested loop\index{nested loop}:
+\begin{verbatim}
+loop_ex5 =>
+    L = [2, 3, 5, 10],
+    foreach(I in L)
+        foreach(J in 1..10)
+            if J mod I != 0 then
+               printf("%d is not a multiple of %d%n", J, I)
+            end
+        end
+    end.
+\end{verbatim}
+
+\subsection{While Loops}
+A \texttt{while} loop\index{while loop} has the form:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{while ($Cond$)} \\
+\> \> $Goal$  \\
+\>  \texttt{end}
+\end{tabbing} 
+As long as $Cond$ succeeds, the loop will repeatedly execute $Goal$.  
+\subsection*{Example:}
+\begin{verbatim}
+loop_ex6 =>
+    I = 1, 
+    while (I <= 9)
+        println(I),
+        I := I + 2
+    end.
+
+loop_ex7 =>
+    J = 6,
+    while (J <= 5)
+        println(J),
+        J := J + 1
+    end.
+
+loop_ex8 =>
+    E = read_int(),
+    while (E mod 2 == 0; E mod 5 == 0)
+        println(E),
+        E := read_int()
+    end.
+
+loop_ex9 =>
+    E = read_int(),
+    while (E mod 2 == 0, E mod 5 == 0)
+        println(E),
+        E := read_int()
+    end.
+\end{verbatim}
+
+The while loop\index{while loop} in \texttt{loop\_ex6} prints all of the odd numbers between $1$ and $9$.  It is similar to the foreach loop\index{foreach loop}
+\begin{verbatim}
+foreach(I in 1 .. 2 .. 9)
+    println(I)
+end.
+\end{verbatim}
+
+The while loop\index{while loop} in \texttt{loop\_ex7} never executes its goal.  \texttt{J} begins at $6$, so the condition \texttt{J <= 5} is never true, meaning that the body of the loop does not execute.
+
+The while loop\index{while loop} in \texttt{loop\_ex8} demonstrates a compound condition.  The loop executes as long as the value that is read into \texttt{E} is either a multiple of $2$ or a multiple of $5$.
+
+The while loop\index{while loop} in \texttt{loop\_ex9} also demonstrates a compound condition.  Unlike in \texttt{loop\_ex8}, in which either condition must be true, in \texttt{loop\_ex9}, both conditions must be true.  The loop executes as long as the value that is read into \texttt{E} is both a multiple of $2$ and a multiple of $5$. 
+
+\subsection{Do-while Loops}
+A \texttt{do-while} loop\index{do-while loop} has the form:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{do} \\
+\> \> $Goal$  \\
+\>  \texttt{while ($Cond$)}
+\end{tabbing} 
+A do-while loop\index{do-while loop} is similar to a while loop\index{while loop}, except that a do-while loop\index{do-while loop} executes $Goal$ one time before testing $Cond$.  The following example demonstrates the similarities and differences between do-while loops\index{do-while loop} and while loops\index{while loop}.
+\subsection*{Example}
+\begin{verbatim}
+loop_ex10 =>
+    J = 6,
+    do
+        println(J),
+        J := J + 1
+    while (J <= 5).
+\end{verbatim}
+
+Unlike \texttt{loop\_ex7}, \texttt{loop\_ex10} executes its body once.  Although \texttt{J} begins at $6$, the do-while loop\index{do-while loop} prints \texttt{J}, and increments \texttt{J} before evaluating the condition \texttt{J <= 5}.
+
+\section{List and Array Comprehensions}
+A \emph{list comprehension}\index{list comprehension} is a special functional notation for creating lists.  List comprehensions\index{list comprehension} have a similar format to foreach loops\index{foreach loop}.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> \texttt{[$T$ : $E_1$ \texttt{in} $D_1$, $Cond_1$, $\ldots$, $E_n$ in $D_n$, $Cond_n$]} 
+\end{tabbing}
+$T$ is an expression.  Each $E_i$ is an \emph{iterating pattern}\index{iterator}.  Each $D_i$ is an expression that gives a \emph{compound value}\index{compound value}.  Each $Cond_i$ is an optional \emph{condition} on iterators\index{iterator} $E_1$ through $E_i$.
+
+An array comprehension\index{array comprehension} takes the following form:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> \texttt{\{$T$ : $E_1$ \texttt{in} $D_1$, $Cond_1$, $\ldots$, $E_n$ in $D_n$, $Cond_n$\}} 
+\end{tabbing}
+It is the same as:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> \texttt{to\_array([$T$ : $E_1$ \texttt{in} $D_1$, $Cond_1$, $\ldots$, $E_n$ in $D_n$, $Cond_n$])} 
+\end{tabbing}
+
+\subsection*{Example}
+\begin{verbatim}
+picat> L = [(A, I) : A in [a, b], I in 1 .. 2].
+L = [(a , 1),(a , 2),(b , 1),(b , 2)]
+
+picat> L = {(A, I) : A in [a, b], I in 1 .. 2}.
+L = {(a , 1),(a , 2),(b , 1),(b , 2)}
+\end{verbatim}
+
+\section{Compilation of Loops}
+Variables that occur in a loop, but do not occur before the loop in the outer scope\index{scope}, are local\index{local variable} to each iteration of the loop. For example, in the rule
+\begin{verbatim}
+p(A) =>
+    foreach (I in 1 .. A.length)
+        E = A[I],
+        println(E)
+    end.
+\end{verbatim}
+the variables \texttt{I} and \texttt{E} are local\index{local variable}, and each iteration of the loop has its own values for these variables.
+
+Consider the example:
+\subsection*{Example}
+\begin{verbatim}
+while_test(N) =>
+    I = 1,
+    while (I <= N)
+        I := I + 1,
+        println(I)
+    end.
+\end{verbatim}
+In this example, the while loop\index{while loop} contains an assignment\index{assignment} statement.  As mentioned above, at compilation time, Picat creates new variables in order to handle assignments\index{assignment}.  One new variable is created for each assignment\index{assignment}.  However, when this example is compiled, the compiler does not know the number of times that the body of the while loop\index{while loop} can be executed.  This means that the compiler does not know how many times the assignment\index{assignment} \texttt{I := I + 1} will occur, and the compiler is unable to create new variables for this assignment\index{assignment}.  In order to solve this problem, the compiler compiles while loops\index{while loop} into tail-recursive\index{tail recursion} predicates.
+
+In the \texttt{while\_test} example, the while loop\index{while loop} is compiled into:
+\begin{verbatim}
+while_test(N) =>
+    I = 1,
+    p(I, N).
+
+p(I, N), I <= N => 
+    I1 = I + 1,
+    println(I1),
+    p(I1, N).
+p(_, _) => true. 
+\end{verbatim}
+
+Note that the first rule of the predicate \texttt{p(I, N)} has the same condition as the while loop\index{while loop}.  The second rule, which has no condition, terminates the while loop\index{while loop}, because the second rule is only executed if \texttt{I > N}.  The call \texttt{p(I1, N)} is the tail-recursive\index{tail recursion} call, with \texttt{I1} storing the modified value.
+
+Suppose that a while loop\index{while loop} modifies a variable that is then used outside of the while loop\index{while loop}.   For each modified variable \texttt{V} that is used after the while loop\index{while loop}, predicate \texttt{p} is passed two arguments, \texttt{Vin} and \texttt{Vout}.  Then, a predicate that has the body \texttt{true}\index{\texttt{true}} is not sufficient to terminate the compiled while loop\index{while loop}.  Instead, a predicate fact must be used, as in the next example.
+
+The next example demonstrates a loop that has multiple accumulators\index{accumulator}, and that modifies values which are then used outside of the loop.
+\subsection*{Example}
+\begin{verbatim}
+min_max([H|T], Min, Max) =>
+    LMin = H,
+    LMax = H,
+    foreach (E in T)
+        LMin := min(LMin, E),
+        LMax := max(LMax, E)
+    end,
+    Min = LMin,
+    Max = LMax.
+\end{verbatim}
+
+This loop finds the minimum and maximum values of a list.  The loop is compiled to:
+\begin{verbatim}
+min_max([H|T], Min, Max) =>
+    LMin = H,
+    LMax = H,
+    p(T, LMin, LMin1, LMax, LMax1),
+    Min = LMin1,
+    Max = LMax1.
+
+p([], MinIn, MinOut, MaxIn, MaxOut) =>
+    MinOut = MinIn,
+    MaxOut= MaxIn.
+p([E|T], MinIn, MinOut, MaxIn, MaxOut) =>
+    Min1 = min(MinIn, E),
+    Max1 = max(MaxIn, E),
+    p(T, Min1, MinOut, Max1, MaxOut).
+\end{verbatim}
+Notice that there are multiple accumulators\index{accumulator}: \texttt{MinIn} and \texttt{MaxIn}.  Since the \texttt{min\_max} predicate returns two values, the accumulators each have an ``in" variable (\texttt{MinIn} and \texttt{Maxin}) and an ``out" variable (\texttt{MinOut} and \texttt{MaxOut}).   If the first parameter of predicate \texttt{p} is an empty list, then \texttt{MinOut} is set to the value of \texttt{MinIn}, and \texttt{MaxOut} is set to the value of \texttt{MaxIn}.
+
+Foreach\index{foreach loop} and do-while loops\index{do-while loop} are compiled in a similar manner to while loops\index{while loop}.
+
+\subsubsection{Nested Loops}
+As mentioned above, variables that only occur within a loop are local\index{local variable} to each iteration of the loop.  In nested loops\index{nested loop}, variables that are local\index{local variable} to the outer loop are global to the inner loop.  In other words, if a variable occurs in the outer loop, then the variable is also visible in the inner loop.  However, variables that are local\index{local variable} to the inner loop are not visiable to the outer loop.
+
+For example, consider the nested loops\index{nested loop}:
+\begin{verbatim}
+nested =>
+    foreach (I in 1 .. 10)
+        printf("Numbers between %d and %d ", I, I * I),
+        foreach (J in I .. I * I)
+            printf("%d ", J)
+        end,
+        nl
+    end.
+\end{verbatim}
+Variable \texttt{I} is local\index{local variable} to the outer foreach loop\index{foreach loop}, and is global to the inner foreach loop\index{foreach loop}.  Therefore, iterator\index{iterator} \texttt{J} is able to iterate from \texttt{I} to \texttt{I * I} in the inner foreach loop\index{foreach loop}.  Iterator\index{iterator} \texttt{J} is local\index{local variable} to the inner loop, and does not occur in the outer loop.
+
+Since a foreach loop\index{foreach loop} with \texttt{N} iterators\index{iterator} is converted into \texttt{N} nested foreach loops\index{foreach loop}\index{nested loop}, the order of the iterators\index{iterator} matters.  
+
+\subsection{List Comprehensions}
+List comprehensions\index{list comprehension} are compiled into foreach loops\index{foreach loop}.
+
+\subsection*{Example}
+\begin{verbatim}
+comp_ex =>
+    L = [(A, X) : A in [a, b], X in 1 .. 2].
+\end{verbatim}
+This list comprehension\index{list comprehension} is compiled to:
+\begin{verbatim}
+comp_ex =>
+    List = L, 
+    foreach (A in [a, b], X in 1 .. 2)
+        L = [(A, X) | T], 
+        L := T
+    end,
+    L = [].
+\end{verbatim}
+
+\subsection*{Example}
+\begin{verbatim}
+make_list1 =>
+    L = [Y : X in 1..5],
+    write(L).
+
+make_list2 =>
+    Y = Y,
+    L = [Y : X in 1..5],
+    write(L).
+\end{verbatim}
+Suppose that a user would like to create a list \texttt{[Y, Y, Y, Y, Y]}.  The \texttt{make\_list1} predicate incorrectly attempts to make this list; instead, it outputs a list of 5 different variables since \texttt{Y} is local.  In order to make all five variables the same, \texttt{make\_list2} makes variable \texttt{Y} global, by adding the line \texttt{Y = Y} to globalize \texttt{Y}.
+
+\ignore{
+\end{document}
+}

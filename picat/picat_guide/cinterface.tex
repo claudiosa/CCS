@@ -1,0 +1,265 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+\chapter{\label{ch:cinterface}External Language Interface with C}
+Picat has an interface with C, through which Picat programs can call deterministic predicates that are written as functions in C. C programs that use this interface must include the file \texttt{"picat.h"} in the directory \texttt{Picat/Emulator}. In order to make C-defined predicates available to Picat, users have to re-compile Picat's C source code together with the newly-added C functions.
+
+
+%\section{Calling C from Picat}
+\section{Term Representation}
+Picat's C interface provides functions for accessing, manipulating, and building Picat terms. In order to understand these functions, users need to know how terms are represented in Picat's virtual machine.
+
+A term is represented by a word that contains a value and a tag. A word has 32 bits or 64 bits, depending on the underlying CPU and OS. The tag in a word distinguishes the type of the term. 
+
+The value of a term is an address, except when the term is an integer (in which case, the value represents the integer itself).  The location to which the address points is dependent on the type of the term.  In a reference, the address points to the referenced term. An unbound variable is represented by a self-referencing pointer. In an atom, the address points to the record for the atom symbol in the symbol table.  In a structure, $f(t_1,\ldots,t_n)$, the address points to a block of $n+1$ consecutive words, where the first word points to the record for the functor, \emph{f/n}, in the symbol table, and the remaining $n$ words store the components of the structure. Arrays, floating-point numbers, and big integers are represented as special structures. Picat lists are singly-linked lists. In a list, \emph{[H$|$T]}, the address points to a block of two consecutive words, where the first word stores the car, \emph{H}, and the second word stores the cdr, \emph{T}. 
+
+\section{Fetching Arguments of Picat Calls} 
+A C function that defines a Picat predicate should not take any argument. The following function is used in order to fetch arguments in the current Picat call.
+\begin{itemize}
+\item \texttt{TERM picat\_get\_call\_arg(int i, int arity)}: Fetch the \texttt{i}th argument, where \texttt{arity} is the arity of the predicate, and \texttt{i} must be an integer between 1 and \texttt{arity}. The validity of the arguments is not checked, and an invalid argument may cause fatal errors.
+\end{itemize}
+
+\section{Testing Picat Terms} 
+The following functions are provided for testing Picat terms. They return \texttt{PICAT\_TRUE} when they succeed and \texttt{PICAT\_FALSE} when they fail.
+\begin{itemize}
+\item \texttt{int picat\_is\_var(TERM t)}: Term \texttt{t} is a variable.   
+\item \texttt{int picat\_is\_attr\_var(TERM t)}: Term \texttt{t} is an attributed variable.   
+\item \texttt{int picat\_is\_dvar(TERM t)}: Term \texttt{t} is an attributed domain variable.   
+\item \texttt{int picat\_is\_bool\_dvar(TERM t)}: Term \texttt{t} is an attributed Boolean variable.   
+\item \texttt{int picat\_is\_integer(TERM t)}: Term \texttt{t} is an integer.   
+\item \texttt{int picat\_is\_float(TERM t)}: Term \texttt{t} is a floating-point number.   
+\item \texttt{int picat\_is\_atom(TERM t)}: Term \texttt{t} is an atom.   
+\item \texttt{int picat\_is\_nil(TERM t)}: Term \texttt{t} is nil, i.e., the empty list \texttt{[]}.   
+\item \texttt{int picat\_is\_list(TERM t)}: Term \texttt{t} is a list.   
+\item \texttt{int picat\_is\_string(TERM t)}: Term \texttt{t} is a string.
+\item \texttt{int picat\_is\_structure(TERM t)}: Term \texttt{t} is a structure (but not a list).   
+\item \texttt{int picat\_is\_array(TERM t)}: Term \texttt{t} is an array.   
+\item \texttt{int picat\_is\_compound(TERM t)}: True if either \texttt{picat\_is\_list(t)} \\ or \texttt{picat\_is\_structure(t)} is true.   
+\item \texttt{int picat\_is\_identical(TERM t1, TERM t2)}: \texttt{t1} and \texttt{t2} are identical. This function is equivalent to the Picat call \texttt{t1==t2}.
+\item \texttt{int picat\_is\_unifiable(TERM t1, TERM t2)}: \texttt{t1} and \texttt{t2} are unifiable. This is equivalent to the Picat call \texttt{not(not(t1=t2))}.
+\end{itemize}
+
+\section{Converting Picat Terms into C}
+The following functions convert Picat terms to C. If a Picat term does not have the expected type, then the global C variable \texttt{exception}, which is of type \texttt{Term}, is assigned a term. A C program that uses these functions must check \texttt{exception} in order to see whether data are converted correctly. The converted data are only correct when \texttt{exception} is \texttt{(TERM)NULL}.
+
+\begin{itemize}
+\item \texttt{long picat\_get\_integer(TERM t)}: Convert the Picat integer \texttt{t} into C. The term \texttt{t} must be an integer; otherwise \texttt{exception} is set to \texttt{integer\_expected} and 0 is returned. Note that precision may be lost if \texttt{t} is a big integer.
+
+\item \texttt{double picat\_get\_float(TERM t)}: Convert the Picat float \texttt{t} into C. The term \texttt{t} must be a floating-point number; otherwise \texttt{exception} is set to \texttt{number\_expected}, and 0.0 is returned. 
+
+\item \texttt{(char *) picat\_get\_atom\_name(TERM t)}: Return a pointer to the string that is the name of atom \texttt{t}. The term \texttt{t} must be an atom; otherwise, \texttt{exception} is set to \texttt{atom\_expected}, and \texttt{NULL} is returned. 
+
+\item \texttt{(char *) picat\_get\_struct\_name(TERM t)}: Return a pointer to the string that is the name of structure \texttt{t}. The term \texttt{t} must be a structure; otherwise, \texttt{exception} is set to \texttt{structure\_expected}, and \texttt{NULL} is returned. 
+
+\item \texttt{int picat\_get\_struct\_arity(TERM t)}: Return the arity of term \texttt{t}.  The term \texttt{t} must be a structure; otherwise, \texttt{exception} is set to \texttt{structure\_expected} and 0 is returned.
+\end{itemize}
+
+\section{Manipulating and Writing Picat Terms} 
+\begin{itemize}
+\item \texttt{int picat\_unify(TERM t1,TERM t2)}: Unify two Picat terms \texttt{t1} and \texttt{t2}. The result is \texttt{PICAT\_TRUE} if the unification succeeds, and \texttt{PICAT\_FALSE} if the unification fails.
+
+\item \texttt{TERM picat\_get\_arg(int i,TERM t)}: Return the \texttt{i}th argument of term \texttt{t}. The term \texttt{t} must be compound, and \texttt{i} must be an integer that is between 1 and the arity of \texttt{t}; otherwise, \texttt{exception} is set to \texttt{compound\_expected}, and the Picat integer \texttt{0} is returned.
+
+\item \texttt{TERM picat\_get\_car(TERM t)}: Return the car of the list \texttt{t}. The term \texttt{t} must be a non-empty list; otherwise \texttt{exception} is set to \texttt{list\_expected}, and the Picat integer \texttt{0} is returned.
+
+\item \texttt{TERM picat\_get\_cdr(TERM t)}: Return the cdr of the list \texttt{t}. The term \texttt{t} must be a non-empty list; otherwise \texttt{exception} is set to \texttt{list\_expected}, and the Picat integer \texttt{0} is returned.
+
+\item \texttt{void picat\_write\_term(TERM t)}: Send term \texttt{t} to the standard output stream.
+\end{itemize}
+
+\section{Building Picat Terms}
+\begin{itemize}
+\item \texttt{TERM picat\_build\_var()}: Return a free Picat variable.
+
+\item \texttt{TERM picat\_build\_integer(long i)}: Return a Picat integer whose value is \texttt{i}.
+
+\item \texttt{TERM picat\_build\_float(double f)}: Return a Picat float whose value is \texttt{f}.
+
+\item \texttt{TERM picat\_build\_atom(char *name)}: Return a Picat atom whose name is \texttt{name}.
+
+\item \texttt{TERM picat\_build\_nil()}: Return an empty Picat list.
+
+\item \texttt{TERM picat\_build\_list()}: Return a Picat list whose car and cdr are free variables.
+
+\item \texttt{TERM picat\_build\_structure(char *name, int arity)}: Return a Picat structure whose functor is \texttt{name}, and whose arity is \texttt{arity}.  The structure's arguments are all free variables.
+
+\item \texttt{TERM picat\_build\_array(int n)}: Return a Picat array whose size is \texttt{n}.  The array's arguments are all free variables.
+\end{itemize}
+
+\section{Registering C-defined Predicates}
+The following function registers a predicate that is defined by a C function.
+\begin{verbatim}
+       insert_cpred(char *name, int arity, int (*func)())
+\end{verbatim}
+The first argument is the predicate name, the second argument is the arity, and the third argument is the name of the function that defines the predicate. The function that defines the predicate cannot take any argument. As described above, \texttt{picat\_get\_call\_arg(i,arity)} is used to fetch arguments from the Picat call.
+
+For example, the following registers a predicate whose name is \texttt{"p"}, and whose arity is 2.
+\begin{verbatim}
+       extern int p();	
+       insert_cpred("p", 2, p)
+\end{verbatim}
+The C function's name does not need to be the same as the predicate name.
+
+Predicates that are defined in C should be registered after the Picat engine is initialized, and before any call is executed. One good place for registering predicates is the \texttt{Cboot()} function in the file \texttt{cpreds.c}, which registers all of the C-defined built-ins of Picat. After registration, the predicate can be called. All C-defined predicates must be explicitly called with the module qualifier \texttt{bp}, as in \texttt{bp.p(a,X)}.
+
+\section*{Example}
+Consider the Picat predicate:
+\begin{verbatim}
+      p(a,X) => X = $f(a).
+      p(b,X) => X = [1].
+      p(c,X) => X = 1.2.
+\end{verbatim}
+where the first argument is given and the second is unknown. The following steps show how to define this predicate in C, and how to make it callable from Picat.
+
+\begin{description}
+\item [Step 1]. Write a C function to implement the predicate. The following shows a sample:
+\begin{verbatim}
+#include "picat.h"
+
+p(){
+  TERM a1, a2, a, b, c, f1, l1, f12;
+  char *name_ptr;
+  
+  /*   prepare Picat terms */
+  a1 = picat_get_call_arg(1, 2);       /* first argument */
+  a2 = picat_get_call_arg(2, 2);       /* second argument */
+  a = picat_build_atom("a");
+  b = picat_build_atom("b");
+  c = picat_build_atom("c");
+  f1 = picat_build_structure("f", 1);  /* f(a) */
+  picat_unify(picat_get_arg(1, f1), a);
+  l1 = picat_build_list();             /* [1] */ 
+  picat_unify(picat_get_car(l1), picat_build_integer(1));
+  picat_unify(picat_get_cdr(l1), picat_build_nil());
+  f12 = picat_build_float(1.2);        /* 1.2 */
+  
+  /* code for the rules */
+  if (!picat_is_atom(a1)) 
+      return PICAT_FALSE;
+  name_ptr = picat_get_name(a1);
+  switch (*name_ptr){
+  case 'a': 
+    return (picat_unify(a1, a) ? 
+               picat_unify(a2, f1) : PICAT_FALSE);
+  case 'b': 
+    return (picat_unify(a1, b) ? 
+               picat_unify(a2, l1) : PICAT_FALSE);
+  case 'c': 
+    return (picat_unify(a1, c) ? 
+               picat_unify(a2, f12) : PICAT_FALSE);
+  default: return PICAT_FALSE;
+  }
+}
+\end{verbatim}
+
+\item [Step 2]. Insert the following two lines into \texttt{Cboot()} in \texttt{cpreds.c}:
+\begin{verbatim}
+      extern int p();
+      insert_cpred("p", 2, p);
+\end{verbatim}
+\item [Step 3]. Modify the make file, if necessary, and recompile the system. Now, \texttt{p/2} is in the group of built-ins in Picat.
+
+\item [Step 4]. Use \texttt{bp.p(...)} to call the predicate.
+\begin{verbatim}
+      picat> bp.p(a,X)
+      X = f(a)
+\end{verbatim}
+
+\end{description}
+
+\ignore{
+\section{Calling Picat from C} 
+In order to make Picat predicates callable from C, one must replace the \texttt{main.c} file in the emulator with a new file that starts his/her own application. The following function must be executed before any call to Picat predicates is executed: 
+\begin{verbatim}
+       initialize_bprolog(int argc, char *argv[])
+\end{verbatim}
+\index{\texttt{initialize\_bprolog}}
+In addition, the environment variable \texttt{BPDIR} must be correctly set to the home directory where Picat was installed. The function \texttt{initialize\_bprolog()} allocates all of the stacks that are used in Picat, initializes them, and loads the byte code file \texttt{bp.out} into the program area. \texttt{PICAT\_ERROR} is returned if the system cannot be initialized.
+
+A query can be a string or a Picat term, and a query can return one or more solutions.
+
+\begin{itemize}
+\item \texttt{int picat\_call\_string(char *goal)}\index{\texttt{picat\_call\_string}}:
+ This function executes the Picat call, as represented by the string \texttt{goal}. The return value is \texttt{PICAT\_TRUE} if the call succeeds, \texttt{PICAT\_FALSE} if the call fails, and \texttt{PICAT\_ERROR} if an exception occurs. Examples:
+\begin{verbatim}
+      picat_call_string("load(myprog)")
+      picat_call_string("X is 1+1")
+      picat_call_string("p(X,Y), q(Y,Z)")
+\end{verbatim}
+\item \texttt{picat\_call\_term(TERM goal)}\index{\texttt{picat\_call\_term}}:
+ This function is similar to \texttt{picat\_call\_string}, except that it executes the Picat call, as represented by the term \texttt{goal}. While \texttt{picat\_call\_string} cannot return any bindings for variables, this function can return results through the Picat variables in \texttt{goal}.  Example:
+\begin{verbatim}
+      TERM call = picat_build_structure("p", 2);
+      picat_call_term(call);
+\end{verbatim}
+\item \texttt{picat\_mount\_query\_string(char *goal)}:
+ Mount \texttt{goal} as the next Picat goal to be executed.
+\item \texttt{picat\_mount\_query\_string(TERM goal)}:
+ Mount \texttt{goal} as the next Picat goal to be executed.
+\item \texttt{picat\_next\_solution()}:
+ Retrieve the next solution of the current goal. If no goal is mounted before this function, then the exception \texttt{illegal\_predicate} will be raised, and \texttt{PICAT\_ERROR} will be returned as the result. If no further solution is available, then the function returns \texttt{PICAT\_FALSE}. Otherwise, the next solution is found.
+\end{itemize}
+
+\subsubsection*{Example}
+\begin{picture}(380,1)(0,0)
+\put (0,0){\framebox(380,1)}
+\end{picture}
+
+\noindent
+This example program retrieves all of the solutions of the query \texttt{member(X,[1,2,3])}\index{\texttt{member/2}}. 
+\begin{verbatim}
+#include "bprolog.h"
+
+main(int argc, char *argv[])
+{
+  TERM query;
+  TERM list0, list;
+  int res;
+  
+  initialize_bprolog(argc, argv);
+  /* build the list [1,2,3] */
+  list = list0 = picat_build_list();
+  picat_unify(picat_get_car(list), picat_build_integer(1));
+  picat_unify(picat_get_cdr(list), picat_build_list());
+  list = picat_get_cdr(list);
+  picat_unify(picat_get_car(list), picat_build_integer(2));
+  picat_unify(picat_get_cdr(list), picat_build_list());
+  list = picat_get_cdr(list);
+  picat_unify(picat_get_car(list), picat_build_integer(3));
+  picat_unify(picat_get_cdr(list), picat_build_nil());
+
+  /* build the call member(X,list) */
+  query = picat_build_structure("member", 2);
+  picat_unify(picat_get_arg(2, query), list0);
+
+  /* invoke member/2 */
+  picat_mount_query_term(query);
+  res = picat_next_solution();
+  while (res == PICAT_TRUE) {
+    picat_write(query); 
+    printf("\n");
+    res = picat_next_solution();
+  }
+}
+\end{verbatim}
+In order to run the program, users need to replace the content of the file \texttt{main.c} in \texttt{\$BPDIR/Emulator} with this program, and then recompile the system. The newly compiled system will give the following output when it is started.
+\begin{verbatim}
+      member(1,[1,2,3])
+      member(2,[1,2,3])
+      member(3,[1,2,3])
+\end{verbatim}
+\begin{picture}(380,1)(0,0)
+\put (0,0){\framebox(380,1)}
+\end{picture}
+}
+\ignore{
+\end{document}
+}

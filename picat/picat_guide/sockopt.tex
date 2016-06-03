@@ -1,0 +1,93 @@
+\ignore{
+\documentclass[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+\usepackage{multicol}
+\makeindex
+\begin{document}
+}
+
+\chapter{\label{chapter:sockopt}Appendix: Socket Options}
+This appendix contains the list of options for \texttt{setsockopt}\index{\texttt{setsockopt/4}} and \texttt{getsockopt}\index{\texttt{getsockopt/3}}, sorted by level.   Note that some options can only be used in \texttt{getsockopt}\index{\texttt{getsockopt/3}}.
+
+\begin{multicols}{2}
+\section*{Socket Level}
+\begin{itemize}
+\item \texttt{acceptconn}
+\item \texttt{bindtodevice}
+\item \texttt{broadcast}
+\item \texttt{bspstate}
+\item \texttt{conditionalaccept}
+\item \texttt{connecttime}
+\item \texttt{debug}
+\item \texttt{domain}
+\item \texttt{dontlinger}
+\item \texttt{dontroute}
+\item \texttt{error}
+\item \texttt{exclusiveaddruse}
+\item \texttt{groupid}
+\item \texttt{grouppriority}
+\item \texttt{keepalive}
+\item \texttt{linger}
+\item \texttt{maxmsgsize}
+\item \texttt{oobinline}
+\item \texttt{portscalability}
+\item \texttt{protocolinfo}
+\item \texttt{prototype}
+\item \texttt{pvdconfig}
+\item \texttt{rcvbuf}
+\item \texttt{rcvlowat}
+\item \texttt{rcvtimeo}
+\item \texttt{reuseaddr}
+\item \texttt{sndbuf}
+\item \texttt{sndlowat}
+\item \texttt{sndtimeo}
+\item \texttt{type}
+\item \texttt{updateacceptcontext}
+\end{itemize}
+
+\section*{TCP Level}
+\begin{itemize}
+\item \texttt{nodelay}
+\end{itemize}
+
+\section*{IPX Level}
+\begin{itemize}
+\item \texttt{address}
+\item \texttt{addressnotify}
+\item \texttt{dstype}
+\item \texttt{extendedaddress}
+\item \texttt{filterptype}
+\item \texttt{getnetinfo}
+\item \texttt{genetinfonorip}
+\item \texttt{immediatespxack}
+\item \texttt{maxadapternum}
+\item \texttt{maxsize}
+\item \texttt{ptype}
+\item \texttt{receivebroadcast}
+\item \texttt{recvhdr}
+\item \texttt{reripnetnumber}
+\item \texttt{spxgetconnectionstatus}
+\item \texttt{stopfilterptype}
+\end{itemize}
+
+\section*{IP Level}
+\begin{itemize}
+\item \texttt{addmembership} 
+\item \texttt{dropmembership}
+\end{itemize}
+
+\section*{IPv6 Level}  
+\begin{itemize}
+\item \texttt{multicasthops}
+\item \texttt{multicastif}
+\item \texttt{multicastloop}
+\item \texttt{unicasthops}
+\end{itemize}  
+\end{multicols}
+\ignore{
+\end{document}
+}

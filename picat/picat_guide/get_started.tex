@@ -1,0 +1,124 @@
+\documentclass{article}[12pt]
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[margin=2.5cm]{geometry}
+\newcommand{\ignore}[1]{}
+\begin{document}
+\begin{center}
+\textbf{\huge{Getting Started With Picat (Windows Users)}}\\
+\end{center}
+\rule{450pt}{1pt}
+
+\vspace*{5mm}
+\begin{center}
+{\Large Bo Yuan Zhou}
+\end{center}
+
+\vspace*{5mm}
+
+\section*{\Large{Install Picat}}
+\begin{enumerate}
+\item Download the zip archive file for Windows from: \url{http://picat-lang.org}.
+\item Extract the files of the zip archive to a directory, say \verb+c:\+. The file named \verb+picat.exe+ is the executable of the Picat system.
+\item For convenience, add the directory that contains \verb+picat.exe+ to the environment variable \texttt{PATH} so that you can start Picat from any working directory. Please refer to the following Web page for instructions for updating environment variables.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> \verb+http://www.itechtalk.com/thread3595.html+ 
+\end{tabbing}
+\end{enumerate}
+
+\ignore{
+Once you're finished, the directory that you are in should look like this:
+\\
+\\
+\includegraphics[width=6in]{tutorial_2.jpg}
+\\
+}
+
+\section*{\Large{Start and Quit Picat}}
+\begin{enumerate}
+\item Open an OS terminal. This can be done by selecting \verb+Start->Run+ and typing \verb+cmd+ or selecting 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \> \verb+Start->Programs->Accessories->Command Prompt+.  
+\end{tabbing}
+
+\item Change the working directory. In the following, the working directory is assumed to be \verb+c:\Picat\work\+. The command DOS \texttt{mkdir} can be used to create directories.
+
+\item Type \verb+picat+ to start the system. If Windows does not recognize the command, then you need to edit the environment variable \texttt{PATH} or type the full path of the executable \verb+picat.exe+. Once Picat is started, the system shows the prompt \verb+Picat>+ and is ready to accept queries.
+
+\item Type \texttt{help} to see the help information.
+
+\item Type \texttt{halt} or \verb+ctrl-d+ (control-d) to exit the system.
+\end{enumerate}
+
+\includegraphics[width=6in]{tutorial_1.jpg}
+
+\section*{\Large{Load and Run Programs}} 
+\indent For the sake of demonstration we'll create a Picat function to the sum of the
+even-valued terms of the Fibonacci sequence whose values do not exceed four million.
+
+\begin{figure}[htb]
+\begin{verbatim} 
+main =>
+    S = 0,
+    I = 1,
+    F = fib(I),
+    while (F <= 4000000)
+        if (F mod 2 == 0) then
+            S := S+F
+        end,
+        I := I+1,
+        F := fib(I)
+    end,
+    writef("Sum of the even-valued terms is %w%n",S).
+       
+main([A1]) => 
+    writef("fib(%s)=%w%n",A1,A1.to_integer().fib()).
+
+table
+fib(1) = 1.
+fib(2) = 2.
+fib(N)=fib(N-1)+fib(N-2).
+\end{verbatim}
+\end{figure}
+\vspace*{-5mm}
+
+\begin{enumerate}
+\item Create a file named \texttt{fib.pi} in the directory \verb+c:\Picat\work\+.
+\item Start Picat.
+\item Compile and load the file using \texttt{cl(fib)}.
+\item Type \texttt{main} to run the program.
+\item You can also call the function {\tt fib} by typing a query such as \verb+X=fib(100)+.
+\end{enumerate}
+
+\includegraphics[width=6in]{tutorial_2.jpg}
+
+\clearpage
+
+\section*{\Large{Debug}}
+\begin{enumerate}
+\item Start Picat.
+\item Enable debug mode with \texttt{debug}.
+\item Compile and run the file using \texttt{cl(fib)}.
+\item Type \texttt{main} to run the program.
+\item At the entrance and exit of each call, the debugger displays the call and waits for a command. For the available debugging commands, type the question mark \texttt{?}.
+\item Use the command \texttt{spy fib} to set a spy point on the \texttt{fib} function.
+\end{enumerate}
+Note that only programs compiled in debug mode can be traced or spied on. 
+
+\includegraphics[width=6in]{tutorial_3.jpg}
+
+\includegraphics[width=6in]{tutorial_3_2.jpg}
+
+\section*{\Large{Run Programs Directly}}
+\begin{enumerate}
+\item Type the DOS command \texttt{picat fib}. The Picat system will execute the \texttt{main/0} predicate defined in \texttt{fib.pi}.
+
+\item Type the DOS command \texttt{picat fib 100}. The Picat system will execute the \texttt{main/1} predicate, which calls the \texttt{fib} function.
+\end{enumerate}
+
+\includegraphics[width=6in]{tutorial_4.jpg}
+
+If the command line contains arguments after the file name, then the Picat system calls \texttt{main/1}, passing all the arguments after the file name to the predicate as a list of strings.
+\end{document}

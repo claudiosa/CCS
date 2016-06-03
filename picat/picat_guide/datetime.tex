@@ -1,0 +1,55 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+
+\chapter{\label{chapter:datetime}The \texttt{datetime} Module}
+
+Picat's \texttt{datetime} module provides built-ins for retrieving the date and time. This module must be imported before use.
+
+\begin{itemize}
+\item \texttt{current\_datetime() = $DateTime$}\index{\texttt{current\_datetime/0}}: This function returns the current date and time as a structure in the form 
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{date\_time($Year$, $Month$, $Day$, $Hour$, $Minute$, $Second$)}
+\end{tabbing}
+where the arguments are all integers, and have the following meanings and ranges.
+
+% \begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l||}
+\hline
+\textbf{Argument} & \textbf{Meaning} & \textbf{Range} \\
+\hline 
+\hline 
+$Year$ & years since 1900 & an integer \\
+$Month$ & months since January & 0-11 \\
+$Day$ & day of the month & 1-31 \\
+$Hour$ & hours since midnight & 0-23 \\
+$Minute$ & minutes after the hour & 0-59 \\
+$Second$ & seconds after the minute & 0-60 \\
+\hline
+\end{tabular}
+\end{center}
+%\end{table}
+
+\noindent
+In the $Month$ argument, $0$ represents January, and $11$ represents December.  In the $Hour$ argument, $0$ represents $12$ AM, and $23$ represents $11$ PM.  In the $Second$ argument, the value $60$ represents a leap second.
+
+\item \texttt{current\_date() = $Date$}\index{\texttt{current\_date/0}}: This function returns the current date as a structure in the form \texttt{date($Year$, $Month$, $Day$)}, where the arguments have the meanings and ranges that are defined above.
+
+\item \texttt{current\_day() = $WDay$}\index{\texttt{current\_day/0}}: This function returns the number of days since Sunday, in the range 0 to 6. 
+
+\item \texttt{current\_time() = $Time$}\index{\texttt{current\_time/0}}: This function returns the current time as a structure in the form \texttt{time($Hour$, $Minute$, $Second$)}, where the arguments have the meanings and ranges that are defined above.
+
+\end{itemize}
+\ignore{
+\end{document}
+}

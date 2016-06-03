@@ -1,0 +1,170 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+
+}
+\chapter{The \texttt{os} Module}
+Picat has an \texttt{os} module for manipulating files and directories.  In order to use any of the functions or predicates, users must import the module.
+
+\section{The $Path$ Parameter}
+Many of the functions and predicates in this module have a $Path$ parameter.  This parameter is a string or an atom, representing the path of a file or directory.  This path can be an absolute path, from the system's root directory, or a relative path, from the current file location.  Different systems use different separator characters to separate directories in different levels of the directory hierarchy.  For example, Windows uses `\texttt{$\backslash$}' and Unix uses `\texttt{/}'.  The following function outputs a single character, representing the character that the current system uses as a file separator.
+\begin{itemize}
+\item \texttt{separator() = $Val$}\index{\texttt{separator/0}}
+\end{itemize}
+
+\section{Directories}
+The \texttt{os} module includes functions for reading and modifying directories.  The following example shows how to list all of the files in a directory tree, using a depth-first directory traversal.
+
+\subsection*{Example}
+\begin{verbatim}
+import os.
+
+traverse(Dir), directory(Dir) =>
+   List = listdir(Dir),
+   printf("Inside %s%n",Dir),
+   foreach(File in List)
+       printf("    %s%n",File)
+   end,
+   foreach (File in List, File != ".", File != "..")
+       FullName = Dir ++ [separator()] ++ File,
+       traverse(FullName) 
+   end.
+traverse(_Dir) => true.
+\end{verbatim}
+
+The following function can be used to read the contents of a directory:
+\begin{itemize}
+\item \texttt{listdir($Path$) = $List$}\index{\texttt{listdir/1}}: This function returns a list of all of the files and directories that are contained inside the directory specified by $Path$.  If $Path$ is not a directory, then an error is thrown.  The returned list contains strings, each of which is the name of a file or directory.
+\ignore{
+\item \texttt{listdir($Path$, $Pattern$) = $List$}\index{\texttt{listdir/2}}: The $Pattern$ parameter is a string that represents a regular expression.  The list that is returned will only contain files and directories whose names match the regular expression.
+\item \texttt{root() = $Path$}\index{\texttt{root/0}}: This function returns a string representing the path of the root of the file system tree (such as ``C:$\backslash$", or ``/").
+}
+\end{itemize}
+The above example also uses the \texttt{directory}\index{\texttt{directory/1}} predicate, which will be discussed in Section \ref{file_info}.
+
+\subsection{The Current Working Directory}
+The \texttt{os} module includes two functions that obtain the program's current working directory:
+\begin{itemize}
+\item \texttt{cwd() = $Path$}\index{\texttt{cwd/0}}
+\item \texttt{pwd() = $Path$}\index{\texttt{pwd/0}}
+\end{itemize}
+
+The \texttt{os} module also includes two predicates to change the program's current working directory:
+\begin{itemize}
+\item \texttt{cd($Path$)}\index{\texttt{cd/1}}
+\item \texttt{chdir($Path$)}\index{\texttt{chdir/1}}
+\end{itemize}
+If the \texttt{cd}\index{\texttt{cd/1}} and \texttt{chdir}\index{\texttt{chdir/1}} predicates cannot move to the directory specified by $Path$, the functions throw an error.  This can occur if $Path$ does not exist, if $Path$ is not a directory, or if the program does not have permission to access $Path$.
+
+\section{Modifying Files and Directories}
+\ignore{
+In a file system, each directory entry refers to a structure called an \emph{inode}\index{inode}, which contains file information.  The \texttt{ino}\index{\texttt{ino/1}} function returns the number of the inode\index{inode} to which $Path$ refers.
+}
+
+\subsection{Creation}
+The \texttt{os} module contains a number of predicates for creating new files and directories:
+\begin{itemize}
+\ignore{
+\item \texttt{create($Path$)}\index{\texttt{create/1}}: This predicate creates a new file at location $Path$.  The file will be created with a default permission list of \texttt{[rwu, rwg, ro]}.  If the program does not have permission to write to the parent directory of $Path$, this predicate will throw an error.  An error will also occur if the parent directory does not exist.  
+\item \texttt{create($Path$, $Mode$)}\index{\texttt{create/2}}: The $Mode$ parameter indicates access permissions.  For details, see the \texttt{chmod}\index{\texttt{chmod/2}} function, in Section \ref{modification}.  If a permission is not explicitly specified in the $Mode$ parameter, then the permission is not provided.
+}
+\item \texttt{mkdir($Path$)}\index{\texttt{mkdir/1}}: This predicate creates a new directory at location $Path$.  The directory will be created with a default permission list of \texttt{[rwu, rwg, ro]}.  If the program does not have permission to write to the parent directory of $Path$, this predicate will throw an error.  An error will also occur if the parent directory does not exist.  
+
+\item \texttt{rename($Old$, $New$)}\index{\texttt{rename/2}}: This renames a file or a directory from $Old$ to $New$.  This predicate will throw an error if $Old$ does not exist.  An error will also occur if the program does not have permission to write to $Old$ or $New$.
+
+\item \texttt{cp($FromPath$, $ToPath$)}\index{\texttt{cp/2}}: This copies a file from $FromPath$ to $ToPath$.  This predicate will throw an error if $FromPath$ does not exist or $FromPath$ is a directory.  An error will also occur if the program does not have permission to read from $FromPath$, or if it does not have permission to write to $ToPath$.
+
+\end{itemize}
+
+\ignore{
+\subsection{\label{modification}Modification}
+The \texttt{os} module has one predicate for modifying access permissions.
+\begin{itemize}
+\item \texttt{chmod($Path$, $Mode$)}\index{\texttt{chmod/2}}: An error will be thrown if the program cannot modify the permissions.
+\end{itemize}
+The $Mode$ parameter is either a single atom or a list of two or three atoms.  This parameter specifies the access permissions.  The format of the atoms is specified by the regular expression \texttt{r?w?x?(u|g|o)}.  If the atom contains \texttt{r}, then it provides permission to read from the file.  If the atom contains \texttt{w}, then it provides permission to write to the file.  If the atom contains \texttt{x}, then it provides permission to execute the file.  The second part of the atom indicates the receiver(s) of the permission, where \texttt{u} specifies the user, \texttt{g} specifies anybody who is in the user's group, and \texttt{o} specifies anybody who is not in the user's group.  At most one atom can exist for each of \texttt{u}, \texttt{g}, and \texttt{o}.  
+
+Note that the \texttt{chmod}\index{\texttt{chmod/2}} predicate will only modify the permissions for the specified receivers.  If a receiver is not specified in the $Mode$ parameter, then the receiver will have the same permissions as the receiver had before \texttt{chmod}\index{\texttt{chmod/2}} was called. 
+}
+
+\subsection{Deletion}
+The \texttt{os} module contains a number of predicates for deleting files and directories.
+\begin{itemize}
+\item \texttt{rm($Path$)}\index{\texttt{rm/1}}: This deletes a file.  An error will be thrown if the file does not exist, if the program does not have permission to delete the file, or if $Path$ refers to a directory, a hard link\index{hard link}, a symbolic link\index{symbolic link}, or a special file type.
+\item \texttt{rmdir($Path$)}\index{\texttt{rmdir/1}}: This deletes a directory.  An error will be thrown if the directory does not exist, the program does not have permission to delete the directory, the directory is not empty, or if $Path$ does not refer to a directory.
+\ignore{
+\item \texttt{unlink($Path$)}\index{\texttt{unlink/1}}: This removes a hard link\index{hard link} or a symbolic link\index{symbolic link}.
+}
+\end{itemize}
+
+\section{\label{file_info}Obtaining Information about Files}
+The \texttt{os} module contains a number of functions that retrieve file status information, and predicates that test the type of a file.  These predicates will all throw an error if the program does not have permission to read from $Path$.
+\begin{itemize}
+\ignore{
+\item \texttt{dev\_id($Path$) = $Int$}\index{\texttt{dev\_id/1}}: This function returns the device ID of the device that contains $Path$.
+\item \texttt{ino($Path$) = $Int$}\index{\texttt{ino/1}}: This function returns the inode\index{inode} number of $Path$.  
+\item \texttt{mode($Path$) = $String$}\index{\texttt{mode/1}}: This function returns the file permissions for $Path$ in a string.  The string will contain atoms, in the same format as the atoms that are passed to the \texttt{chmod}\index{\texttt{chmod/2}} predicate.  This function will throw an error if $Path$ does not exist.
+\item \texttt{mode($Path$, $Value$)}\index{\texttt{mode/2}}: Does the program's current permission for the file include $Value$?  The $Value$ parameter is one of the atoms: \texttt{read}, \texttt{write}, or \texttt{execute}.
+\item \texttt{nlink($Path$) = $Int$}\index{\texttt{nlink/1}}: This function returns the number of hard links\index{hard link} to the inode\index{inode} to which $Path$ refers.
+\item \texttt{uid($Path$) = $Int$}\index{\texttt{uid/1}}: This function returns the user ID of the user who created $Path$.  This function will throw an error if $Path$ does not exist.
+\item \texttt{gid($Path$) = $Int$}\index{\texttt{gid/1}}: This function returns the group ID of the user who created $Path$.  This function will throw an error if $Path$ does not exist.
+\item \texttt{atime($Path$) = $DateTime$}\index{\texttt{atime/1}}: This function returns the date and time that $Path$ was last accessed.
+\item \texttt{ctime($Path$) = $DateTime$}\index{\texttt{ctime/1}}: This function returns the date and time that $Path$ was created.
+\item \texttt{mtime($Path$) = $DateTime$}\index{\texttt{mtime/1}}: This function returns the date and time that $Path$ was last modified.
+\item \texttt{file\_type($Path$) = $Term$}\index{\texttt{file\_type/1}}: This returns the type of $Path$.  The value returned is one of the atoms: \texttt{regular}, \texttt{directory}, \texttt{hard\_link}, \texttt{symbolic\_link}, \texttt{fifo}, \texttt{socket}, \texttt{block\_special}, \texttt{char\_special}, \texttt{message\_queue}, \texttt{semaphore}, \texttt{shared\_memory}, or \texttt{unknown}.
+\item \texttt{link($Path$)}\index{\texttt{link/1}}: Does $Path$ refer to a hard link\index{hard link}?  
+\item \texttt{shortcut($Path$)}\index{\texttt{shortcut/1}}: Does $Path$ refer to a symbolic link\index{symbolic link}?  This predicate might not be supported by Windows.
+\item \texttt{fifo($Path$)}\index{\texttt{fifo/1}}: Does $Path$ refer to a named pipe\index{fifo}?
+\item \texttt{socket($Path$)}\index{\texttt{socket/1}}: Does $Path$ refer to a socket\index{socket}?
+\item \texttt{block\_special($Path$)}\index{\texttt{block\_special/1}}: Does $Path$ refer to a block special file?  A \emph{special file} is used to communicate with hardware.  A block special file is capable of reading or writing blocks of data at a time.  This predicate might not be supported by Windows.
+\item \texttt{char\_special($Path$)}\index{\texttt{char\_special/1}}: Does $Path$ refer to a character special file?  A character special can only read or write one character at a time.
+\item \texttt{message\_queue($Path$)}\index{\texttt{message\_queue/1}}: Does $Path$ refer to a message queue?  Message queues, as defined by POSIX, allow processes to exchange data through messages.  This predicate is true if the system implements POSIX message queues and $Path$ refers to a message queue.
+\item \texttt{semaphore($Path$)}\index{\texttt{semaphore/1}}: Does $Path$ refer to a semaphore\index{semaphore}?  Semaphores\index{semaphore} are used to protect critical sections, in which race conditions can occur, in multithreaded code.  This predicate is true $Path$ refers to a semaphore.  For more on semaphores\index{semaphore}, see Chapter \ref{chapter:thread}.
+\item \texttt{shared\_memory($Path$)}\index{\texttt{shared\_memory/1}}: Does $Path$ refer to a shared memory object?  Shared memory objects, as defined by POSIX, allow unrelated processes to share an area of memory.  This predicate is true if the system implements POSIX shared memory objects, and $Path$ refers to a shared memory object.
+}
+\item \texttt{readable($Path$)}\index{\texttt{readable/1}}: Is the program allowed to read from the file?
+\item \texttt{writable($Path$)}\index{\texttt{writable/1}}: Is the program allowed to write to the file?
+\item \texttt{executable($Path$)}\index{\texttt{executable/1}}: Is the program allowed to execute the file?
+\item \texttt{size($Path$) = $Int$}\index{\texttt{size/1}}: If $Path$ is not a symbolic link\index{symbolic link}, then this function returns the number of bytes contained in the file to which $Path$ refers.  If $Path$ is a symbolic link\index{symbolic link}, then this function returns the path size of the symbolic link\index{symbolic link}. Because the function {\tt size/1} is defined in the {\tt basic} module for returning the size of a map, this function requires an explicit module qualifier {\tt os.size($Path$)}.
+
+\item \texttt{file\_base\_name($Path$) = $List$}\index{\texttt{file\_base\_name/1}}: This function returns a string containing the base name of $Path$.  For example, the base name of ``\texttt{a/b/c.txt}" is ``\texttt{c.txt}".
+\item \texttt{file\_directory\_name($Path$) = $List$}\index{\texttt{file\_directory\_name/1}}: This function returns a string containing the path of the directory that contains $Path$.  For example, the directory name of ``\texttt{a/b/c.txt}" is ``\texttt{a/b/}".
+\item \texttt{exists($Path$)}\index{\texttt{exists/1}}: Is $Path$ an existing file or directory?
+\item \texttt{file($Path$)}\index{\texttt{file/1}}: Does $Path$ refer to a regular file?  This predicate is true if $Path$ is neither a directory nor a special file, such as a socket or a pipe.
+\item \texttt{file\_exists($Path$)}\index{\texttt{file\_exists/1}}:  This tests whether $Path$ exists, and, if it exists, whether $Path$ refers to a regular file.
+\item \texttt{directory($Path$)}\index{\texttt{directory/1}}: Does $Path$ refer to a directory?
+\end{itemize}
+
+The following example shows how to use a few of the predicates.
+
+\subsection*{Example}
+\begin{verbatim}
+import os.
+
+test_file(Path) =>
+    if (not exists(Path)) then
+        printf("%s does not exist %n",Path)
+    elseif (directory(Path)) then
+        println("Directory")
+    elseif (file(Path)) then
+        println("File")
+    else
+        println("Unknown")
+    end.
+\end{verbatim}
+
+\section{Environment Variables}
+\begin{itemize}
+\item \texttt{env\_exists($Name$)}\index{\texttt{env\_exists/1}}: This predicate succeeds if $Name$ is an environment variable in the system.
+\item \texttt{getenv($Name$) = $String$}\index{\texttt{getenv/1}}: This function returns the value of the environment variable \texttt{$Name$} as a string. This function will throw an error if the environment variable $Name$ does not exist.
+\end{itemize}
+\ignore{
+\end{document}
+}

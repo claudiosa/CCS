@@ -1,0 +1,212 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+\chapter{\label{ch:actors}Event-Driven Actors and Action Rules}
+Many applications require event-driven computing. For example, an interactive GUI system needs to react to UI events such as mouse clicks on UI components; a Web service provider needs to respond to service requests; a constraint propagator for a constraint needs to react to updates to the domains of the variables in the constraint. Picat provides action rules\index{action rule} for describing event-driven actors. An actor is a predicate call that can be delayed and can be activated later by events. Actors communicate with each other through event channels. 
+
+\section{Channels, Ports, and Events}
+An event channel is an attributed variable to which actors can be attached, and through which events can be posted to actors. A channel has four ports, named \texttt{ins}\index{\texttt{ins}-port}, \texttt{bound}\index{\texttt{bound}-port}, \texttt{dom}\index{\texttt{dom}-port}, and \texttt{any}\index{\texttt{any}-port}, respectively. Many built-ins in Picat post events. When an attributed variable is instantiated, an event is posted to the \texttt{ins}-port\index{\texttt{ins}-port} of the variable. When the lower bound or upper bound of a variable's domain changes, an event  is posted to the \texttt{bound}-port\index{\texttt{bound}-port} of the variable. When an inner element $E$, which is neither the lower or upper bound, is excluded from the domain of a variable, $E$ is posted to the \texttt{dom}-port\index{\texttt{dom}-port} of the variable. When an arbitrary element $E$, which can be the lower or upper bound or an inner element, is excluded from the domain of a variable, $E$ is posted to the \texttt{any}-port\index{\texttt{any}-port} of the variable. The division of a channel into ports facilitates speedy handling of events. For better performance, the system posts an event to a port only when there are actors attached to the port. For example, if no actor is attached to a domain variable to handle exclusions of domain elements, then these events will never be posted.
+
+The built-in \texttt{post\_event($X$,$T$)}\index{\texttt{post\_event/2}} posts the event term $T$ to the \texttt{dom}-port\index{\texttt{dom}-port} of the channel variable $X$.
+\ignore{where $X$ can be a channel variable, a conjunction of channel variables \texttt{($X_1$,$X_2$,$\ldots$,$X_n$)}, or a disjunction of channel variables \texttt{($X_1$;$X_2$;$\ldots$;$X_n$)}. When $X$ is a conjunction, the event is posted to the actors attached to the \texttt{dom}-ports\index{\texttt{dom}-port} of \emph{all} of the channel variables; when $X$ is a disjunction, the event is posted to actors attached to the \texttt{dom}-port\index{\texttt{dom}-port} of at least one of the channels. For example, suppose that an actor is attached to variable $X_1$, but the actor is not attached to variable $X_2$; then, the actor will \emph{not} be activated by the call \texttt{post\_event(($X_1$,$X_2$),$T$)}\index{\texttt{post\_event/2}}, but the actor \emph{will} be activated by the call \texttt{post\_event(($X_1$;$X_2$),$T$)}\index{\texttt{post\_event/2}}. Operationally, \\ \texttt{post\_event(($X_1$;$X_2$),$T$)}\index{\texttt{post\_event/2}} is different from posting $T$ to $X_1$ and $X_2$ separately; if an actor is attached to both $X_1$ and $X_2$, then \texttt{post\_event(($X_1$;$X_2$),$T$)}\index{\texttt{post\_event/2}} causes the actor to be activated one time, while posting $T$ to $X_1$ and $X_2$ separately causes the actor to be activated twice.
+}
+
+The following built-ins are used to post events to one of a channel's four ports:
+\begin{itemize}
+\item \texttt{post\_event\_ins($X$)}\index{\texttt{post\_event\_ins/1}}: posts an event to the \texttt{ins}-port\index{\texttt{ins}-port} of the channel $X$. 
+\item \texttt{post\_event\_bound($X$)}\index{\texttt{post\_event\_bound/1}}: posts an event to the \texttt{bound}-port\index{\texttt{bound}-port} of the channel $X$. 
+\item \texttt{post\_event\_dom($X$, $T$)}\index{\texttt{post\_event\_dom/2}}: posts the term $T$ to the \texttt{dom}-port\index{\texttt{dom}-port} of the channel $X$.
+\item \texttt{post\_event\_any($X$, $T$)}\index{\texttt{post\_event\_any/2}}: posts the event $T$ to the \texttt{any}-port\index{\texttt{any}-port} of the channel of $X$.
+\end{itemize}
+The call \texttt{post\_event($X$,$T$)}\index{\texttt{post\_event/2}} is the same as \texttt{post\_event\_dom($X$,$T$)}\index{\texttt{post\_event\_dom/2}}.  This means that the \texttt{dom}-port\index{\texttt{dom}-port} of a finite domain variable has two uses: posting exclusions of inner elements from the domain, and posting general term events. 
+
+\section{Action Rules}
+Picat provides \emph{action rules}\index{action rule} for describing the behaviors of actors. An action rule\index{action rule} takes the following form:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> $Head, Cond, \{Event\}\ $$=$$>$$\ Body$ 
+\end{tabbing}
+where $Head$ is an actor pattern, $Cond$ is an optional condition, $Event$ is a non-empty set of event patterns separated by \texttt{','}, and $Body$ is an action. For an actor that is activated by an event, an action rule\index{action rule} is said to be \emph{applicable} if the actor matches $Head$ and $Cond$ is true. A predicate for actors is defined with action rules\index{action rule} and non-backtrackable rules. It cannot contain backtrackable rules.
+
+Unlike rules for a normal predicate or function, in which the conditions can contain any predicates, the conditions of the rules in a predicate for actors must be conjunctions of inline test predicates, such as type-checking built-ins (e.g., \texttt{integer($X$)}\index{\texttt{integer/1}} and \texttt{var($X$)}\index{\texttt{var/1}}) and comparison built-ins (e.g., equality test \texttt{$X$ == $Y$}, disequality test {\tt $X$ \verb+!+== $Y$}, and arithmetic comparison \texttt{$X$ $>$ $Y$}). This restriction ensures that no variables in an actor can be changed while the condition is executed.
+
+For an actor that is activated by an event, the system searches the definition sequentially from the top for an applicable rule. If no applicable rule is found, then the actor fails. If an applicable rule is found, the system executes the body of the rule. If the body fails, then the actor also fails. The body cannot succeed more than once. The system enforces this by converting \texttt{$Body$} into \texttt{`once $Body$'}\index{\texttt{once}} if $Body$ contains calls to nondeterministic predicates. If the applied rule is an action rule\index{action rule}, then the actor is suspended after the body is executed, meaning that the actor is waiting to be activated again. If the applied rule is a normal non-backtrackable rule, then the actor vanishes after the body is executed. For each activation, only the first applicable rule is applied.
+
+For a call and an action rule\index{action rule} `$Head, Cond, \{Event\}\ $$=$$>$$\ Body$', the call is registered as an actor if the call matches $Head$ and $Cond$ evaluates to \texttt{true}. The event pattern $Event$ implicitly specifies the ports to which the actor is attached, and the events that the actor watches. The following event patterns are allowed in $Event$:
+\begin{itemize}
+\item \texttt{event($X$,$T$)}: This is the general event pattern. The actor is attached to the \texttt{dom}-ports\index{\texttt{dom}-port} of the variables in $X$.  The actor will be activated by events posted to the \texttt{dom}-ports\index{\texttt{dom}-port}. $T$ must be a variable that does not occur before \texttt{event($X$,$T$)} in the rule.
+\item \texttt{ins($X$)}: The actor is attached to the \texttt{ins}-ports\index{\texttt{ins}-port} of the variables in $X$.  The actor will be activated when a variable in $X$ is instantiated.
+\item \texttt{bound($X$)}: The actor is attached to the \texttt{bound}-ports\index{\texttt{bound}-port} of the variables in $X$.  The actor will be activated when the lower bound or upper bound of the domain of a variable in $X$ changes.
+\item \texttt{dom($X$)}: The actor is attached to the \texttt{dom}-ports\index{\texttt{dom}-port} of the variables in $X$.  The actor will be activated when an inner value is excluded from the domain of a variable in $X$. The actor is not interested in what value is actually excluded.
+\item \texttt{dom($X$,$E$)}: This is the same as \texttt{dom($X$)}, except the actor is interested in the value $E$ that is excluded. $E$ must be a variable that does not occur before \texttt{dom($X$,$E$)} in the rule.
+\item \texttt{dom\_any(X)}: The actor is attached to the \texttt{any}-ports\index{\texttt{any}-port} of the variables in $X$.  The actor will be activated when an arbitrary value, including the lower bound value and the upper bound value, is excluded from the domain of a variable in $X$.  The actor is not interested in what value is actually excluded. 
+\item \texttt{dom\_any($X$,$E$)}: This is the same as \texttt{dom\_any($X$)}, except the actor is interested in the value $E$ that is actually excluded. $E$ must be a variable that does not occur before \texttt{dom\_any($X$,$E$)} in the rule.
+\end{itemize}
+In an action rule\index{action rule}, multiple event patterns can be specified.  After a call is registered as an actor on the channels, it will be suspended, waiting for events, unless the atom \texttt{generated} occurs in $Event$, in which case the actor will be suspended after $Body$ is executed.
+
+Each thread has an event queue. After events are posted, they are added into the queue. Events are not handled until execution enters or exits a non-inline predicate or function. In other words, only non-inline predicates and functions can be interrupted, and inline predicates, such as \texttt{$X$ = $Y$}, and inline functions, such as \texttt{$X$ + $Y$}, are never interrupted by events.
+
+\subsection*{Example}
+Consider the following action rule:
+\begin{verbatim}
+      p(X), {event(X,T)} => writeln(T).
+\end{verbatim}
+The following gives a query and its output:
+\begin{verbatim}
+Picat> p(X), X.post_event(ping), X.post_event(pong)
+ping
+pong
+\end{verbatim}
+The call \texttt{p(X)} is an actor. After {\tt X.post\_event(ping)}, the actor is activated and the body of the action rule is executed, giving the output {\tt ping}. After \texttt{X.post\_event(pong)}, the actor is activated again, outputting {\tt pong}.
+
+
+There is no primitive for killing actors or explicitly detaching actors from channels. As described above, an actor never disappears as long as action rules\index{action rule} are applied to it. An actor vanishes only when a normal rule is applied to it. Consider the following example.
+\begin{verbatim}
+      p(X,Flag), 
+          var(Flag), 
+          {event(X,T)}
+      => 
+          writeln(T),
+          Flag=1.
+      p(_,_) => true.
+\end{verbatim}
+An actor defined here can only handle one event posting. After it handles an event, it binds the variable \texttt{Flag}. When a second event is posted, the action rule\index{action rule} is no longer applicable, causing the second rule to be selected.
+
+One question arises here: what happens if a second event is never posted to \texttt{X}? In this case, the actor will stay forever. If users want to immediately kill the actor after it is activated once, then users have to define it as follows:
+\begin{verbatim}
+      p(X,Flag), 
+          var(Flag), 
+          {event(X,O),ins(Flag)},
+
+      => 
+          write(O),
+          Flag=1.
+      p(_,_) => true.
+\end{verbatim}
+In this way, the actor will be activated again after \texttt{Flag} is bound to $1$, and will be killed after the second rule is applied to it.
+
+\section{Lazy Evaluation}
+The built-in predicate \texttt{freeze(X,Goal)}\index{\texttt{freeze/2}} is equivalent to `\texttt{once Goal}'\index{\texttt{once}}, but its evaluation is delayed until \texttt{X} is bound to a non-variable term. The predicate is defined as follows:
+\begin{verbatim}
+     freeze(X,Goal),var(X),{ins(X)} => true.
+     freeze(X,Goal) => call(Goal).
+\end{verbatim}
+For the call \texttt{freeze(X,Goal)}\index{\texttt{freeze/2}}, if  \texttt{X} is a variable, then \texttt{X} is registered as an actor on the \texttt{ins}-port\index{\texttt{ins}-port} of \texttt{X}, and \texttt{X} is then suspended. Whenever \texttt{X} is bound, the event \texttt{ins} is posted to the \texttt{ins}-port\index{\texttt{ins}-port} of \texttt{X}, which activates the actor \texttt{freeze(X,Goal)}\index{\texttt{freeze/2}}. The condition \texttt{var(X)}\index{\texttt{var/1}} is checked. If true, the actor is suspended again; otherwise, the second rule is executed, causing the actor to vanish after it is rewritten into \texttt{once Goal}\index{\texttt{once}}.
+
+The built-in predicate \texttt{different\_terms($T_1$,$T_2$)}\index{\texttt{different\_terms/2}} is a disequality constraint on terms $T_1$ and $T_2$. The constraint fails if the two terms are identical; it succeeds whenever the two terms are found to be different; it is delayed if no decision can be made because the terms are not sufficiently instantiated. The predicate is defined as follows:
+\begin{verbatim}
+import cp.
+
+different_terms(X,Y) =>
+    different_terms(X,Y,1).
+
+different_terms(X,Y,B),var(X),{ins(X),ins(Y)} => true.
+different_terms(X,Y,B),var(Y),{ins(X)} => true.
+different_terms([X|Xs],[Y|Ys],B) =>
+    different_terms(X,Y,B1),
+    different_terms(Xs,Ys,B2),
+    B #= (B1 #\/ B2).
+different_terms(X,Y,B),struct(X),struct(Y) =>
+    writeln(X), writeln(Y),											  
+    if (X.name !== Y.name; X.length !== Y.length) then
+       B=1
+    else
+       Bs = new_list(X.length),
+       foreach(I in 1 .. X.length)
+           different_terms(X[I],Y[I],Bs[I])
+       end,
+       max(Bs) #= B
+    end.
+different_terms(X,Y,B),X==Y => B=0.
+different_terms(X,Y,B) => B=1.
+\end{verbatim}
+The call \texttt{different\_terms(X,Y,B)} is delayed if either \texttt{X} or \texttt{Y} is a variable. The delayed call watches \texttt{ins(X)} and  \texttt{ins(Y)} events. Once both \texttt{X} and \texttt{Y} become non-variable, the action rule\index{action rule} becomes inapplicable, and one of the subsequent rules will be applied. If \texttt{X} and \texttt{Y} are lists, then they are different if the heads are different (\verb+B1+), or if the tails are different (\verb+B2+).  This relationship is represented as the Boolean constraint \verb+ B #= (B1 #\/ B2)+. If \texttt{X} and \texttt{Y} are both structures, then they are different if the functor is different, or if any pair of arguments of the structures is different.
+
+
+\section{Constraint Propagators}
+A constraint propagator is an actor that reacts to updates of the domains of the variables in a constraint.The following predicate defines a propagator for maintaining arc consistency on \texttt{X} for the constraint \verb-X+Y #= C-:
+\begin{verbatim}
+   import cp.
+
+   x_in_c_y_ac(X,Y,C),var(X),var(Y),
+      {dom(Y,Ey)}
+       =>         
+      fd_set_false(X,C-Ey).
+   x_in_c_y_ac(X,Y,C) => true.
+\end{verbatim}
+Whenever an inner element \texttt{Ey} is excluded from the domain of \texttt{Y}, this propagator is triggered to exclude \texttt{C-Ey}, which is the support of \texttt{Ey}, from the domain of \texttt{X}. For the constraint \verb-X+Y #= C-, users need to generate two propagators, namely, \texttt{x\_in\_c\_y\_ac(X,Y,C)} and \texttt{x\_in\_c\_y\_ac(Y,X,C)}, to maintain the arc consistency. Note that in addition to these two propagators, users also need to generate propagators for maintaining interval consistency, because \texttt{dom(Y,Ey)} only captures exclusions of inner elements, and does not capture bounds. The following propagator maintains interval consistency for the constraint:
+\begin{verbatim}
+   import cp.
+
+   x_add_y_eq_c_ic(X,Y,C),var(X),var(Y),
+       {generated,ins(X),ins(Y),bound(X),bound(Y)}
+   =>         
+       X :: C-Y.max .. C-Y.min,
+       Y :: C-X.max .. C-X.min.
+   x_add_y_eq_c_ic(X,Y,C),var(X) =>
+       X = C-Y.
+   x_add_y_eq_c_ic(X,Y,C) =>
+       Y = C-X.
+\end{verbatim}
+When both \texttt{X} and \texttt{Y} are variables, the propagator \texttt{x\_add\_y\_eq\_c\_ic(X,Y,C)} is activated whenever \texttt{X} and \texttt{Y} are instantiated, or whenever the bounds of their domains are updated. The body maintains the interval consistency of the constraint \verb-X+Y #= C-. The body is also executed when the propagator is generated. When either \texttt{X} or \texttt{Y} becomes non-variable, the propagator becomes a normal call, and vanishes after the variable \texttt{X} or \texttt{Y} is solved.
+
+\ignore{
+\section{Timers and Time Events}
+In some applications, actors need to be activated regularly at a predefined time rate. For example, a clock animator is activated every second, and the scheduler in a time-sharing system switches control to the next process after a certain time quota elapses. To facilitate the description of time-related behavior of actors, Picat provides a module named \texttt{timer}.
+
+The function \texttt{new\_timer($Interval$)}\index{\texttt{new\_timer/1}} returns a timer that posts a time event at the specified time rate. A timer runs as a separate thread, and starts ticking immediately after it is created. A timer itself is a channel. It posts the event \texttt{time} to itself in every $Interval$ milliseconds. A timer $T$ stops posting events after the predicate call \texttt{stop($T$)}\index{\texttt{stop/1}}. A stopped timer can be started again. A timer is destroyed after the call \texttt{kill($T$)}\index{\texttt{kill/1}} is executed.
+
+\begin{itemize}
+\item \texttt{new\_timer($Interval$) = $T$}\index{\texttt{new\_timer/1}}: \texttt{T} is a timer that posts a time event every $Interval$ milliseconds.
+\item \texttt{new\_timer() = $T$}\index{\texttt{new\_timer/0}}: This is equivalent to \texttt{new\_timer(200)}\index{\texttt{new\_timer/1}}.
+\item \texttt{start($T$)}\index{\texttt{start/1}}: Start the timer $T$. After a timer is created, it starts ticking immediately. Therefore, it is unnecessary to start a timer with this call. This predicate is used to restart a stopped timer.
+\item \texttt{stop($T$)}\index{\texttt{stop/1}}: Stop the timer.
+\item \texttt{kill($T$)}\index{\texttt{kill/1}}: Kill the timer.
+\item \texttt{set\_interval($T$, $Interval$)}\index{\texttt{set\_interval/2}}: Reset the interval of the timer $T$ to $Interval$. The update is destructive, and the old value is not restored upon backtracking.
+\item \texttt{get\_interval($T$) = $Interval$}\index{\texttt{get\_interval/1}}: Get the interval of the timer $T$.
+\end{itemize}
+
+\subsubsection*{Example}
+\noindent
+\begin{picture}(380,1)(0,0)
+\put (0,0){\framebox(380,1)}
+\end{picture}
+
+\noindent
+The following example shows two actors that behave in accordance with two timers.
+\begin{verbatim}
+go =>
+    T1 = new_timer(100), 
+    T2 = new_timer(1000),
+    T1.add_actor(ping),
+    T2.add_actor(pong),
+    while (true) true end.
+
+ping,{_} => writeln(ping).
+
+pong,{_} => writeln(pong).
+\end{verbatim}
+\noindent
+\begin{picture}(380,1)(0,0)
+\put (0,0){\framebox(380,1)}
+\end{picture}
+
+\noindent
+Note that the empty \texttt{while} loop in predicate \texttt{go} is needed to let the main thread run. Without it, the query \texttt{go} would succeed before any time event is posted, meaning that neither of the actors would get a chance to be activated.
+
+}
+%\section{Bottom-Up Evaluation of Datalog Rules}
+
+\ignore{
+\end{document}
+}
+
+

@@ -1,0 +1,59 @@
+\chapter{Probabilistic Reasoning and Learning With PRISM}\label{chapter:prism}
+The {\tt prism}\index{PRISM}\index{prism} module provides an interface to the PRISM system, which is developed by Taisuke Sato, Yoshitaka Kameya, Neng-Fa Zhou, Yusuke Izumi, Keiichi Kubota, and several other people at Tokyo Institute of Technology. In order to use the {\tt prism} module, users must import the module and start the Picat system with the command {\tt picat\_prism}.
+
+PRISM provides predicates for describing {\it probability experiments}, which are also called {\it multi-valued switches}. A PRISM program must include a predicate, named {\tt values($I$,$Os$)}\index{\texttt{values/2}}, which specifies the identifier $I$ and the outcomes $Os$ of each of the switches in the application. The most important predicate in PRISM is the one named {\tt msw($I$,$V$)}\index{\texttt{msw/2}}, which performs a probabilistic choice of the switch $I$ and binds $V$ to the outcome of the choice. In addition to probability computations, PRISM also supports parameter learning. For a given set of possibly incomplete observed facts $Fs$, the predicate {\tt learn($Fs$)}\index{\texttt{learn/1}} estimates the probability distributions of the switches to best explain the data.
+
+An example program and several example queries are given below. The users are refered to the Web page at:
+\begin{tabbing}
+aaa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \url{http://picat-lang.org/download/prism.pi} 
+\end{tabbing}
+for the list of predicates provided by the {\tt prism} module, and the PRISM User's Manual available at:
+\begin{tabbing}
+aaa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \url{http://sato-www.cs.titech.ac.jp/prism}
+\end{tabbing}
+for detailed descriptions of these predicates.
+
+\subsection*{Example:}
+\subsubsection*{Program}
+\begin{verbatim}
+% direction.pi
+
+import prism.
+
+values(coin,Os) => Os = [head,tail].
+
+direction(D) =>
+    msw(coin,Face),
+    (Face==head -> D=left; D=right).
+\end{verbatim}
+
+\subsubsection*{Queries}
+\begin{verbatim}
+c:\picat\work\picat_prism       % start picat_prism
+
+Picat> cl(direction).           % compile and load the program
+
+Picat> set_sw(coin,[0.5,0.5])   % set the probability distribution
+
+Picat> sample($direction(D))    % sample execution
+D = left
+
+Picat> direction(D)             % sample execution
+D = left
+
+Picat> prob($direction(left),P) % probability computation
+P = 0.5
+
+Picat> prob($direction(_),P)    % probability computation
+P = 1.0
+
+Picat> learn($[direction(left),direction(left),direction(right)])
+
+Picat> show_sw
+Switch coin: unfixed_p: head (p: 0.666666667) tail (p: 0.333333333)
+\end{verbatim}
+
+
+

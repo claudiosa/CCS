@@ -1,0 +1,463 @@
+\ignore{
+\documentstyle[11pt]{report}
+\textwidth 13.7cm
+\textheight 21.5cm
+\newcommand{\myimp}{\verb+ :- +}
+\newcommand{\ignore}[1]{}
+\def\definitionname{Definition}
+
+\makeindex
+\begin{document}
+}
+\chapter{\label{chapter:datatypes}Data Types, Operators, and Built-ins}
+Picat is a dynamically-typed language, in which type checking occurs at runtime. A variable gets a type once it is bound to a value. In Picat, variables and values are terms. A value can be \emph{primitive}\index{primitive value} or \emph{compound}\index{compound value}. A primitive value\index{primitive value} can be an \emph{integer}\index{integer}, a \emph{real number}\index{number}, or an \emph{atom}\index{atom}. A compound value\index{compound value} can be a \emph{list}\index{list} or a \emph{structure}\index{structure}. Strings\index{string}, arrays\index{array}, and maps\index{map} are special compound values\index{compound value}. This chapter describes the data types and the built-ins for each data type that are provided by the \texttt{basic} module. 
+
+Many of the built-ins are given as operators. Table \ref{tab:ops} shows all of the operators that are provided by Picat. Unless the table specifies otherwise, the operators are left-associative.  The as-pattern operator (\verb+@+) and the operators for composing goals, including \texttt{not}\index{\texttt{not}}, \texttt{once}\index{\texttt{once}}, conjunction (\verb+,+ and \verb+&&+), and disjunction (\verb+;+ and \verb+||+), will be described in Chapter \ref{chapter:predicates} on Predicates and Functions.  The constraint operators (the ones that begin with \verb+#+) will be described in Chapter \ref{ch:constraints} on Constraints. In Picat, no new operators can be defined, and none of the existing operators can be redefined.
+
+The dot operator (\verb+.+) is used in OOP notations for accessing attributes and for calling predicates and functions. It is also used to qualify calls with a module name. The notation \texttt{$A_1.f(A_2,\ldots,A_k)$} is the same as \texttt{$f(A_1,A_2,\ldots,A_k)$}, unless $A_1$ is an atom, in which case $A_1$ must be a module qualifier for $f$.  If an atom\index{atom} needs to be passed as the first argument to a function or a predicate, then this notation cannot be used. The notation $A.Attr$, where $Attr$ does not have the form \texttt{f($\ldots$)}, is the same as the function call \texttt{get$(A,Attr)$}\index{\texttt{get/2}}. For example, the expression \texttt{$S$.name}\index{\texttt{name/1}} returns the name, and the expression \texttt{$S$.arity}\index{\texttt{arity/1}} returns the arity\index{arity} of $S$ if $S$ is a structure\index{structure}.   Note that the dot operator is left-associative.  For example, the expression \texttt{X.f().g()} is the same as \texttt{g(f(X))}.
+
+\begin{table}
+\caption{\label{tab:ops}Operators in Picat}
+\input{operators.tex}
+\end{table}
+
+The following functions are provided for all terms:
+\begin{itemize}
+\item \texttt{copy\_term($Term_1$) = $Term_2$}\index{\texttt{copy\_term/1}}: This function copies $Term_1$ into $Term_2$.  If $Term_1$ is an attributed variable\index{attributed variable}, then $Term_2$ will not contain any of the attributes.
+\item \texttt{hash\_code($Term$) = $Code$}\index{\texttt{hash\_code/1}}: This function returns the hash code of $Term$. If $Term$ is a variable, then the returned hash code is always 0.
+\item \texttt{to\_codes($Term$) = $Codes$}\index{\texttt{to\_codes/1}}: This function returns a list of character codes of $Term$.
+\item \texttt{to\_fstring($Format$, $Args\ldots$)}\index{\texttt{to\_fstring}}: This function converts the arguments in the $Args\ldots$ parameter into a string, according to the format string $Format$, and returns the string. The number of arguments in $Args\ldots$ cannot exceed 10. Format characters are described in Chapter \ref{chapter:io}.
+\item \texttt{to\_string($Term$) = $String$}\index{\texttt{to\_string/1}}: This function returns a string representation of $Term$.
+\end{itemize}
+Other built-ins on terms are given in Sections \ref{sec:unification} and \ref{sec:otherbuiltins}.
+
+\section{Variables}
+Variables in Picat, like variables in mathematics, are value holders. Unlike variables in imperative languages, Picat variables are not symbolic addresses of memory locations. A variable is said to be \emph{free}\index{free variable} if it does not hold any value. A variable is \emph{instantiated}\index{instantiated variable} when it is bound to a value. Picat variables are \emph{single-assignment}\index{single-assignment}, which means that after a variable is instantiated\index{instantiated variable} to a value, the variable will have the same identity as the value. After execution backtracks over a point where a binding took place, the value that was assigned to a variable will be dropped, and the variable will be turned back into a free variable\index{free variable}.
+
+A variable name is an identifier that begins with a capital letter or the underscore. For example, the following are valid variable names:
+\begin{verbatim}
+    X1   _   _ab
+\end{verbatim}
+The name \verb+_+ is used for \emph{anonymous variables}\index{anonymous variable}. In a program, different occurrences of \verb+_+ are treated as different variables. So the test \verb+ _ == _+ is always false.
+
+The following two built-ins are provided to test whether a term is a free variable\index{free variable}:
+\begin{itemize}
+\item \texttt{var($Term$)}\index{\texttt{var/1}}: This predicate is true if $Term$ is a free variable\index{free variable}.
+\item \texttt{nonvar($Term$)}\index{\texttt{nonvar/1}}: This predicate is true if $Term$ is not a free variable\index{free variable}.
+\end{itemize}
+
+An \emph{attributed variable}\index{attributed variable} is a variable that has a map\index{map} of attribute-value pairs attached to it. The following built-ins are provided for attributed variables\index{attributed variable}:
+
+\begin{itemize}
+\item \texttt{attr\_var($Term$)}\index{\texttt{attr\_var/1}}: This predicate is true if $Term$ is an attributed variable\index{attributed variable}.
+\item \texttt{dvar($Term$)}\index{\texttt{dvar/1}}: This predicate is true if $Term$ is an attributed domain variable.
+\item \texttt{bool\_dvar($Term$)}\index{\texttt{bool\_dvar/1}}: This predicate is true if $Term$ is an attributed domain variable whose lower bound is 0 and whose upper bound is 1.
+\item \texttt{dvar\_or\_int($Term$)}\index{\texttt{dvar\_or\_int/1}}: This predicate is true if $Term$ is an attributed domain variable or an integer.
+\item \texttt{get\_attr($X$, $Key$) = $Val$}\index{\texttt{get\_attr/2}}: This function returns the \texttt{$Val$} of the key-value pair \texttt{$Key$$=$$Val$} that is attached to \texttt{$X$}. It throws an error if \texttt{$X$} has no attribute named $Key$.
+\item \texttt{get\_attr($X$, $Key$, $DefaultVal$) = $Val$}\index{\texttt{get\_attr/3}}: This function returns \texttt{$Val$} of the key-value pair \texttt{$Key$$=$$Val$} that is attached to \texttt{$X$}. It returns $DefaultVal$ if $X$ does not have the attribute named $Key$.
+\item \texttt{put\_attr($X$, $Key$, $Val$)}\index{\texttt{put\_attr/3}}: This predicate attaches the key-value pair \texttt{$Key$$=$$Val$} to \texttt{$X$}, where \texttt{$Key$} is a non-variable term, and \texttt{$Val$} is any term. 
+\item \texttt{put\_attr($X$, $Key$)}\index{\texttt{put/2}}: This predicate call is the same as \texttt{put\_attr($X$, $Key$,not\_a\_value)}.
+\end{itemize}
+
+\section{Atoms}
+An atom\index{atom} is a symbolic constant. An atom\index{atom} name can either be quoted or unquoted. An unquoted name is an identifier that begins with a lower-case letter, followed by an optional string\index{string} of letters, digits, and underscores. A quoted name is a single-quoted sequence of arbitrary characters. A character can be represented as a single-character atom\index{atom}. For example, the following are valid atom\index{atom} names:
+\begin{verbatim}
+    x   x_1   '_'   '\\'   'a\'b\n'   '_ab'   '$%'
+\end{verbatim}
+No atom\index{atom} name can last more than one line.   An atom\index{atom} name cannot contain more than 1000 characters. The backslash character \verb+'\'+ is used as the escape character. So, the name \verb+'a\'b\n'+ contains four characters: \texttt{a}, \texttt{'}, \texttt{b}, and \verb+\n+.
+
+The following built-ins are provided for atoms\index{atom}:
+\begin{itemize}
+\item \texttt{atom($Term$)}\index{\texttt{atom/1}}: This predicate is true if $Term$ is an atom\index{atom}.
+\item \texttt{atom\_chars($Atm$) = $String$}\index{\texttt{atom\_chars/1}}: This function returns string\index{string} that contains the characters of the atom\index{atom} $Atm$. It throws an error if $Atm$ is not an atom\index{atom}.
+\item \texttt{atom\_codes($Atm$) = $List$}\index{\texttt{atom\_codes/1}}: This function returns the list\index{list} of codes of the characters of the atom\index{atom} $Atm$. It throws an error if $Atm$ is not an atom\index{atom}. 
+\item \texttt{atomic($Term$)}\index{\texttt{atomic/1}}: This predicate is true if $Term$ is an atom\index{atom} or a number\index{number}.
+\item \texttt{char($Term$)}\index{\texttt{char/1}}: This predicate is true if $Term$ is an atom and the atom is made of one character.
+\item \texttt{chr($Code$) = $Char$}\index{\texttt{chr/1}}: This function returns the UTF-8 character of the code point $Code$.  
+\item \texttt{digit($Term$)}\index{\texttt{digit/1}}: This predicate is true if $Term$ is an atom and the atom is made of one digit.
+\item \texttt{len($Atom$) = $Len$}\index{\texttt{len/1}}: This function returns the number of characters in $Atom$. Note that this function is overloaded in such a way that the argument can also be an array, a list, or a structure.
+\item \texttt{length($Atom$) = $Len$}\index{\texttt{length/1}}: This function is the same as \texttt{len($Atom$)}.
+\item \texttt{ord($Char$) = $Int$}\index{\texttt{ord/1}}: This function returns the code point of the UTF-8 character $Char$.  It throws an error if $Char$ is not a single-character atom.
+\end{itemize}
+
+\section{Numbers}
+A number\index{number} can be an integer\index{integer} or a real number\index{number}. An integer\index{integer} can be a decimal numeral, a binary numeral, an octal numeral, or a hexadecimal numeral. In a numeral, digits can be separated by underscores, but underscore separators are ignored by the tokenizer. For example, the following are valid integers\index{integer}:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{12\_345} \> \> \> a decimal numeral \\
+\> \texttt{0b100} \> \> \> 4 in binary notation  \\
+\> \texttt{0o73} \> \> \>  59 in octal notation \\
+\> \texttt{0xf7} \> \> \>  247 in hexadecimal notation  
+\end{tabbing}
+
+A real number\index{number} consists of an optional integer part\index{integer}, an optional decimal fraction preceded by a decimal point, and an optional exponent. If an integer part\index{integer} exists, then it must be followed by either a fraction or an exponent in order to distinguish the real number\index{number} from an integer literal\index{integer}. For example, the following are valid real numbers\index{number}.
+\begin{verbatim}
+    12.345   0.123   12-e10   0.12E10
+\end{verbatim}
+
+Table \ref{tab:arithdef} gives the meaning of each of the numeric operators in Picat, from the operator with the highest precedence (\verb+**+) to the one with the lowest precedence (\verb+..+). Except for the power operator \verb+**+, which is right-associative, all of the arithmetic operators are left-associative. 
+
+\begin{table}
+\caption{\label{tab:arithdef}Arithmetic Operators}
+\begin{center}
+\begin{tabular}{ |c|c| } \hline
+ \texttt{$X$ ** $Y$}  &  power \\ \hline 
+ \texttt{+$X$}      &  same as $X$ \\ \hline
+ \texttt{-$X$}      &  sign reversal \\ \hline 
+ {\tt \verb+~+$X$ }  &   bitwise complement \\ \hline 
+ \texttt{$X$ * $Y$} &    multiplication \\ \hline 
+ \texttt{$X$ / $Y$} &    division \\ \hline 
+ \texttt{$X$ // $Y$} &    integer division, truncated \\ \hline 
+ \texttt{$X$ /> $Y$}  &  integer division (ceiling($X$ / $Y$)) \\ \hline
+ \texttt{$X$ /< $Y$}  &  integer division (floor($X$ / $Y$)) \\ \hline
+ \texttt{$X$ div $Y$} &   integer division, floored \\ \hline
+ \texttt{$X$ mod $Y$} &   modulo, same as $X$ - floor($X$ div $Y$) * $Y$ \\ \hline 
+ \texttt{$X$ rem $Y$} &  remainder ($X$ - ($X$ // $Y$) * $Y$) \\ \hline 
+ \texttt{$X$ + $Y$} & addition \\ \hline 
+ \texttt{$X$ - $Y$} &   subtraction \\ \hline 
+ \texttt{$X$ >> $Y$}  &  right shift \\ \hline 
+% \texttt{$X$ >>> $Y$}  &  unsigned  right shift \\ \hline 
+ \texttt{$X$ << $Y$}  &  left shift \\ \hline 
+ {\tt $X$ \verb+/\+ $Y$}  &   bitwise and \\ \hline 
+ {\tt $X$ \verb+^+ $Y$} &   bitwise xor \\ \hline
+ {\tt $X$ \verb+\/+ $Y$}  &   bitwise or \\ \hline 
+ {\tt $From$ \verb+..+ $Step$ \verb+..+ $To$}  &   A range (list) of numbers with a step \\ \hline 
+ {\tt $From$ \verb+..+ $To$}  &   A range (list) of numbers with step 1 \\ \hline 
+\end{tabular}
+\end{center}
+\end{table}
+
+In addition to the numeric operators, the \texttt{basic} module also provides the following built-ins for numbers\index{number}:
+
+\begin{itemize}
+\item \texttt{between($From$, $To$, $X$)}\index{\texttt{between/3}} (nondet): If $X$ is bound to an integer, then this predicate determines whether $X$ is between $From$ and $To$.  Otherwise, if $X$ is unbound, then this predicate nondeterministically selects $X$ from the integers that are between $From$ and $To$. It is the same as \texttt{member($X$, $From$..$To$)}\index{\texttt{member/2}}.
+\item \texttt{float($Term$)}\index{\texttt{float/1}}: This predicate is true if $Term$ is a real number\index{number}.
+\item \texttt{int($Term$)}\index{\texttt{int/1}}: This predicate is true if $Term$ is an integer.
+\item \texttt{integer($Term$)}\index{\texttt{integer/1}}: The same as \texttt{int($Term$)}.
+\item \texttt{max($X$, $Y$) = $Val$}\index{\texttt{max/2}}: This function returns the maximum of $X$ and $Y$, where $X$ and $Y$ are terms.
+\item \texttt{maxint\_small() = $Int$}\index{\texttt{maxint\_small/0}}: This function returns the maximum integer that is represented in one word. All integers that are greater than this integer are represented as \textit{big integers}.
+\item \texttt{min($X$, $Y$) = $Val$}\index{\texttt{min/2}}: This function returns the minimum of $X$ and $Y$, where $X$ and $Y$ are terms.
+\item \texttt{minint\_small() = $Int$}\index{\texttt{minint\_small/0}}: This function returns the minimum integer that is represented in one word. All integers that are smaller than this integer are represented as \textit{big integers}.
+\item \texttt{number($Term$)}\index{\texttt{number/1}}: This predicate is true if $Term$ is a number\index{number}.
+\item \texttt{number\_chars($Num$) = $String$}\index{\texttt{number\_chars/1}}: This function returns a list\index{list} of characters of $Num$. This function is the same as \texttt{to\_fstring("\%d",$Num$)}\index{\texttt{to\_fstring/2}} if $Num$ is an integer\index{integer}, and the same as \texttt{to\_fstring("\%f",$Num$)}\index{\texttt{to\_fstring/2}} if $Num$ is a real number\index{number}.
+\item \texttt{number\_codes($Num$) = $List$}\index{\texttt{number\_codes/1}}: This function returns a list\index{list} of codes of the characters of $Num$. It is the same as \texttt{number\_chars($Num$).to\_codes()}\index{\texttt{number\_chars/1}}\index{\texttt{to\_codes/1}}.
+\item \texttt{real($Term$)}\index{\texttt{real/1}}: This predicate is the same as \texttt{float($Term$)}\index{\texttt{float/1}}.
+\item \texttt{to\_binary\_string($Int$) = $String$}\index{\texttt{to\_binary\_string/1}}: This function returns the binary representation of the integer\index{integer} $Int$ as a string\index{string}.
+\item \texttt{to\_float($NS$) = $Real$}\index{\texttt{to\_float/1}}: This function is the same as \texttt{$NS$*1.0} if $NS$ is a number, and the same as \texttt{parse\_term($NS$)} if $NS$ is a string of digits.
+\item \texttt{to\_hex\_string($Int$) = $String$}\index{\texttt{to\_hex\_string/1}}: This function returns the hexadecimal representation of the integer\index{integer} $Int$ as a string\index{string}.
+\item \texttt{to\_int($ANS$) = $Int$}\index{\texttt{to\_int/1}}: This function is the same as \texttt{truncate($ANS$)}\index{\texttt{truncate/1}} in the \texttt{math} module if $ANS$ is a number, the same as \texttt{ord($ANS$)-ord('0')} if $ANS$ is a digit character, and the same as \texttt{parse\_term($ANS$)} if $ANS$ is a string.
+\item \texttt{to\_integer($ANS$) = $Int$}\index{\texttt{to\_integer/1}}: This function is the same as \texttt{to\_int($ANS$)}.
+\item \texttt{to\_oct\_string($Int$) = $String$}\index{\texttt{to\_oct\_string/1}}:  This function returns the octal representation of the integer $Int$ as a string\index{string}.
+\item \texttt{to\_radix\_string($Int$,$Base$) = $String$}\index{\texttt{to\_radix\_string/2}}:  This function returns the representation of the integer $Int$ of the numeral $Base$ as a string\index{string}, where $Base$ must be greater than 1 and less than 37. The call \texttt{to\_oct\_string($Int$)} is the same as \texttt{to\_radix\_string($Int$,8)}.
+\item \texttt{to\_real($NS$) = $Real$}\index{\texttt{to\_real/1}}: This function is the same as \texttt{to\_float($NS$)}.
+\end{itemize}
+The \texttt{math} module provides more numeric functions.  See Appendix \ref{chapter:math}.
+
+\section{Compound Terms}
+A compound term\index{compound value} can be a \emph{list}\index{list} or a \emph{structure}\index{structure}. Components of compound terms\index{compound value} can be accessed with subscripts. Let $X$ be a variable that references a compound value\index{compound value}, and let $I$ be an integer expression that represents a subscript. The index notation \texttt{$X$[$I$]} is a special function that returns the $I$th component of $X$, counting from the beginning. Subscripts begin at $1$, meaning that $X$[$1$] is the first component of $X$. An index notation can take multiple subscripts. For example, the expression \texttt{X[1,2]} is the same as \texttt{T[2]}, where \texttt{T} is a temporary variable that references the component that is returned by \texttt{X[1]}. The predicate \texttt{compound($Term$)}\index{\texttt{compound/1}} is true if $Term$ is a compound term\index{compound value}.
+
+\subsection{\label{subsec:lists}Lists}
+A list\index{list} takes the form \texttt{[$t_1$,$\ldots$,$t_{n}$]}, where each $t_i$ ($1\le i \le n$) is a term. Let $L$ be a list\index{list}. The expression \texttt{$L$.length}\index{\texttt{length/1}}, which is the same as the functions \texttt{get($L$,length)}\index{\texttt{get/2}} and \texttt{length($L$)}\index{\texttt{length/1}}, returns the length of $L$. Note that a list is represented internally as a singly-linked list.  Also note that the length of a list is not stored in memory; instead, it is recomputed each time that the attribute \texttt{length} is accessed.
+
+The symbol \verb+'|'+ is not an operator, but a separator that separates the first element (so-called \emph{car}\index{car}) from the rest of the list\index{list} (so-called \emph{cdr}\index{cdr}). The \emph{cons}\index{cons} notation {\tt [$H$\verb+|+$T$]} can occur in a pattern or in an expression. When it occurs in a pattern, it matches any list\index{list} in which $H$ matches the car\index{car} and $T$ matches the cdr\index{cdr}. When it occurs in an expression, it builds a list\index{list} from $H$ and $T$. The notation {\tt [$A_1$,$A_2$,$\ldots$,$A_n$\verb+|+$T$]} is a shorthand for {\tt [$A_1$\verb+|+[$A_2$\verb+|+$\ldots$[$A_n$\verb+|+$T$]$\ldots$]}. So \texttt{[a,b,c]} is the same as \texttt{[a|[b|[c|[]]]]}.
+
+
+The \texttt{basic} module provides the following built-ins on lists, most of which are overloaded for strings (\ref{subsec:strings}) and arrays (see \ref{subsec:arrays}).
+\begin{itemize}
+\item \texttt{$List_1$ ++ $List_2$ = $List$}: This function returns the concatenated list of $List_1$ and $List_2$. 
+\item \texttt{append($X$, $Y$, $Z$)}\index{\texttt{append/3}} (nondet): This predicate is true if appending $Y$ to $X$ can create $Z$. This predicate may backtrack if $X$ is not a complete list.\footnote{A list is \emph{complete} \index{complete list} if it is empty, or if its tail is complete. For example, \texttt{[a,b,c]} and \texttt{[X,Y,Z]} are complete, but \texttt{[a,b|T]} is not complete if \texttt{T} is a variable.}
+
+\item \texttt{append($W$, $X$, $Y$, $Z$)}\index{\texttt{append/4}} (nondet): This predicate is defined as:
+\begin{verbatim}
+    append(W,X,Y,Z) => append(W,X,WX), append(WX,Y,Z).
+\end{verbatim}
+
+\item \texttt{avg($List$) = $Val$}\index{\texttt{avg/1}}: This function returns the average of all the elements in $List$. This function throws an exception if $List$ is not a list or any of the elements is not a number. 
+
+\item \texttt{delete($List$, $X$) = $ResList$}\index{\texttt{delete/2}}: This function deletes the first occurrence of $X$ from $List$, returning the result in $ResList$. The built-in \verb+!=/2+ is used to test if two terms are different. No variables in $List$ or $X$ will be bound after this function call.
+\item \texttt{delete\_all($List$, $X$) = $ResList$}\index{\texttt{delete\_all/2}}: This function deletes all occurrences of $X$ from $List$, returning the result in $ResList$. The built-in \verb+!=/2+ is used to test if two terms are different.
+\item \texttt{first($List$) = $Term$}\index{\texttt{first/1}}: This function returns the first element of $List$. 
+\item \texttt{flatten($List$) = $ResList$}\index{\texttt{flatten/1}}: This function flattens a list of nested lists into a list. For example, \texttt{flatten([[1],[2,[3]]])} returns \texttt{[1,2,3]}.
+\item \texttt{head($List$) = $Term$}\index{\texttt{head/1}}: This function returns the head of the list $List$. For example, \texttt{head([1,2,3])} returns \texttt{1}.
+\item \texttt{insert($List$, $Index$, $Elm$) = $ResList$}\index{\texttt{insert/3}}: This function inserts $Elm$ into $List$ at the index $Index$, returning the result in $ResList$. After insertion, the original $List$ is not changed, and $ResList$ is the same as \\ \texttt{$List$.slice(1, $Index$-1)++[$Elm$|$List$.slice($Index$, $List$.length)]}.
+\item \texttt{insert\_all($List$, $Index$, $AList$) = $ResList$}\index{\texttt{insert\_all/3}}: This function inserts all of the elements in $AList$ into $List$ at the index $Index$, returning the result in $ResList$. After insertion, the original $List$ is not changed, and $ResList$ is the same as \\ \texttt{$List$.slice(1, $Index$-1)++$AList$++$List$.slice($Index$, $List$.length)}.
+
+\item \texttt{insert\_ordered($List$,$Term$)}\index{\texttt{insert\_ordered/2}}: This function inserts $Term$ into the ordered list $List$, such that the resulting list remains sorted.
+
+\item \texttt{insert\_ordered\_down($List$,$Term$)}\index{\texttt{insert\_ordered\_down/2}}: This function inserts $Term$ into the descendantly ordered list $List$, such that the resulting list remains sorted down.
+\item \texttt{last($List$) = $Term$}\index{\texttt{last/1}}: This function returns the last element of $List$. 
+\item \texttt{len($List$) = $Len$}\index{\texttt{len/1}}: This function returns the number of elements in $List$. Note that this function is overloaded in such a way that the argument can also be an atom, an array, or a structure.
+\item \texttt{length($List$) = $Len$}\index{\texttt{length/1}}: This function is the same as \texttt{len($List$)}.
+\item \texttt{list($Term$)}\index{\texttt{list/1}}: This predicate is true if $Term$ is a list\index{list}.
+\item \texttt{max($List$) = $Val$}\index{\texttt{max/1}}: This function returns the maximum value that is in $List$, where $List$ is a list of terms. 
+\item \texttt{membchk($Term$, $List$)}\index{\texttt{membchk/2}}: This predicate is true if $Term$ is an element of $List$. 
+\item \texttt{member($Term$, $List$)}\index{\texttt{member/2}} (nondet): This predicate is true if $Term$ is an element of $List$.  When $Term$ is a variable, this predicate may backtrack, instantiating\index{instantiated variable} $Term$ to different elements of $List$.
+\item \texttt{min($List$) = $Val$}\index{\texttt{min/1}}: This function returns the minimum value that is in $List$, where $List$ is a list or an array of terms. 
+\item \texttt{new\_list($N$) = $List$}\index{\texttt{new\_list/1}}: This function creates a new list that has $N$ free variable\index{free variable} arguments. 
+\item \texttt{new\_list($N$,$InitVal$) = $List$}\index{\texttt{new\_list/2}}: This function creates a new list that has $N$ arguments all initialized to $InitVal$. 
+
+\item \texttt{nth($Index$, $List$, $Elem$)}\index{\texttt{nth/3}} (nondet): This predicate is true when $Elem$ is the $Index$'th element of $List$.  Counting starts at 1. When $Index$ is a variable, this predicate may backtrack, instantiating $Index$ to a different integer between 1 and \texttt{len($List$)}.
+
+\item \texttt{prod($List$) = $Val$}\index{\texttt{prod/1}}: This function returns the product of all of the values in $List$. 
+\item \texttt{remove\_dups($List$) = $ResList$}\index{\texttt{remove\_dups/1}}: This function removes all duplicate values from $List$, retaining only the first occurrence of each value.  The result is returned in $ResList$. Note that an $O(n^2)$ algorithm is used in the implementation. If $List$ is large, then \texttt{sort\_remove\_dups($List$)} may be faster than this function.
+\item \texttt{reverse($List$) = $ResList$}\index{\texttt{reverse/1}}: This function reverses the order of the elements in $List$, returning the result in $ResList$. 
+\item \texttt{select($X$, $List$, $ResList$)}\index{\texttt{select/3}} (nondet): This predicate nondeterministically selects an element $X$ from $List$, and binds $ResList$ to the list after $X$ is removed. On backtracking, it selects the next element.
+\item \texttt{sort($List$) = $SList$}\index{\texttt{sort/1}}: This function sorts the elements of $List$ in ascending order, returning the result in $SList$. 
+\item \texttt{sort($List$,$KeyIndex$) = $SList$}\index{\texttt{sort/2}}: This function sorts the elements of $List$ by the key index $KeyIndex$ in ascending order, returning the result in $SList$. The elements of $List$ must be compound values and $KeyIndex$ must be a positive integer that does not exceed the length of any of the elements of $List$. This function is defined as follows:
+\begin{verbatim}
+    sort(List,KeyIndex) = SList =>
+        List1 = [(E[KeyIndex],E) : E in List],
+        List2 = sort(List1),
+        SList = [E : (_,E) in List2].
+\end{verbatim}
+
+\item \texttt{sort\_remove\_dups($List$) = $SList$}\index{\texttt{sort\_remove\_dups/1}}: This function is the same as the following, but is faster.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \=aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{sort($List$).remove\_dups()}
+\end{tabbing}
+
+\item \texttt{sort\_remove\_dups($List$,$KeyIndex$) = $SList$}\index{\texttt{sort\_remove\_dups/2}}: This function is the same as the following, but is faster.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \=aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{sort($List$,$KeyIndex$).remove\_dups()}
+\end{tabbing}
+
+\item \texttt{sort\_down($List$) = $SList$}\index{\texttt{sort\_down/1}}: This function sorts the elements of $List$ in descending order, returning the result in $SList$.
+
+\item \texttt{sort\_down($List$,$KeyIndex$) = $SList$}\index{\texttt{sort\_down/1}}: This function sorts the elements of $List$ by the key index $KeyIndex$ in descending order, returning the result in $SList$.
+
+\item \texttt{sort\_down\_remove\_dups($List$) = $SList$}\index{\texttt{sort\_down\_remove\_dups/1}}: This function is the same as the following, but is faster.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \=aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{sort\_down($List$).remove\_dups()}
+\end{tabbing}
+
+\item \texttt{sort\_down\_remove\_dups($List$,$KeyIndex$) = $SList$}\index{\texttt{sort\_down\_remove\_dups/1}}: This function is the same as the following, but is faster.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \=aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{sort\_down($List$,$KeyIndex$).remove\_dups()}
+\end{tabbing}
+
+\item \texttt{slice($List$,$From$,$To$) = $SList$}\index{\texttt{slice/3}}: This function returns the sliced list of $List$ from index $From$ through index $To$. $From$ must not be less than 1. 
+
+\item \texttt{slice($List$,$From$) = $SList$}\index{\texttt{slice/2}}: This function is the same as the following.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \=aaa \= aaa \= aaa \= aaa \kill
+\> \texttt{slice($List$,$From$,$List$.length)}
+\end{tabbing}
+
+\item \texttt{sum($List$) = $Val$}\index{\texttt{sum/1}}: This function returns the sum of all of the values in $List$. 
+\item \texttt{tail($List$) = $Term$}\index{\texttt{tail/1}}: This function returns the tail of the list $List$.  For example, the call \texttt{tail([1,2,3])} returns \texttt{[2,3]}.
+\item \texttt{to\_array($List$) = $Array$}\index{\texttt{to\_array/1}}: This function converts the list\index{list} $List$ to an array\index{array}.  The elements of the array\index{array} are in the same order as the elements of the list.
+\item \texttt{zip($List_1$, $List_2$, $\ldots$, $List_n$) = $List$}\index{\texttt{zip}}:This function makes a list\index{list} of array tuples.  The $j$th tuple in the list takes the form \texttt{\{$E_{1j},\ldots,E_{nj}$\}}, where $E_{ij}$ is the $j$th element in $List_i$. In the current implementation, $n$ can be 2, 3, or 4.
+
+\end{itemize}
+
+\subsection{\label{subsec:strings}Strings}
+A {\emph string}\index{string} is represented as a list\index{list} of single-character atoms\index{atom}. For example, the string\index{string} \texttt{"hello"} is the same as the list\index{list} \texttt{[h,e,l,l,o]}. In addition to the built-ins on lists\index{list}, the following built-ins are provided for strings\index{string}:
+\begin{itemize}
+\item \texttt{string($Term$)}\index{\texttt{string/1}}: This predicate is true if $Term$ is a string\index{string}. 
+\item \texttt{to\_lowercase($String$) = $LString$}\index{\texttt{to\_lowercase/1}}: This function converts all uppercase alphabetic characters into lowercase characters, returning the result in $LString$.
+\item \texttt{to\_uppercase($String$) = $UString$}\index{\texttt{to\_uppercase/1}}: This function converts all lowercase alphabetic characters into uppercase characters, returning the result in $UString$.
+\end{itemize}
+
+\subsection{Structures}
+A structure\index{structure} takes the form \texttt{\$$s$($t_1$,$\ldots$,$t_{n}$)}, where $s$ is an atom, and $n$ is called the \emph{arity}\index{arity} of the structure\index{structure}. The dollar symbol is used to distinguish a structure\index{structure} from a function call. The \emph{functor}\index{functor} of a structure\index{structure} comprises the name and the arity\index{arity} of the structure\index{structure}. A structure\index{structure} has two attributes: \texttt{name}\index{\texttt{name/1}} and \texttt{arity}\index{\texttt{arity/1}}. The attribute \texttt{arity}\index{\texttt{arity/1}} is also named \texttt{length}\index{\texttt{length/1}}. 
+
+The following types of structures\index{structure} can never denote functions, meaning that they do not need to be preceded by a \$ symbol.
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \=aaa \= aaa \= aaa \= aaa \kill
+\> Goals:  \>  \> \> \> \> \> \texttt{(a,b)},\ \texttt{(a;b)},\ \texttt{not a},\ \texttt{X = Y},\ \verb-X != 100-,\ \verb+X > 1+ \\
+\> Constraints:  \>  \> \> \> \> \> \verb-X+Y #= 100-,\ \verb+X #!= 1+ \\
+\> Arrays:  \>  \> \> \> \> \> \verb+{2,3,4}+,\ \verb+{P1,P2,P3}+ \\
+% \> Lambda:  \>  \> \> \> \> \> \texttt{lambda([X, Y], X + Y)}
+\end{tabbing}
+Picat disallows creation of the following types of structures\index{structure}:
+\begin{tabbing}
+aa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \= aaa \kill
+\> Dot notations:  \>  \> \> \> \> \> \texttt{math.pi},\ \texttt{my\_module.f(a)} \\
+\> Index notations:  \>  \> \> \> \> \> \texttt{X[1]+2}\, \texttt{X[Y[I]]} \\
+\> Assignments:  \>  \> \> \> \> \> \texttt{X:=Y+Z},\ \texttt{X:=X+1} \\
+\> Ranges:  \>  \> \> \> \> \> \texttt{1..10},\ \texttt{1..2..10} \\
+\> List comprehensions:  \>  \> \> \> \> \> \texttt{[X : X in 1..5]} \\
+\> Array comprehensions:  \>  \> \> \> \> \> \texttt{\{X : X in 1..5\}} \\
+\> If-then:  \>  \> \> \> \> \> \texttt{if X>Y then Z=X else Z=Y end} \\
+\> Loops:  \>  \> \> \> \> \> \texttt{foreach (X in L) writeln(X) end } 
+\end{tabbing}
+The compiler will report a syntax error when it encounters any of these expressions within a term constructor.
+
+The following built-ins are provided for structures\index{structure}:
+\begin{itemize}
+\item \texttt{arity($Struct$) = $Arity$}\index{\texttt{arity/1}}: This function returns the arity of $Struct$, which must be a structure.
+\item \texttt{new\_struct($Name$, $IntOrList$) = $Struct$}\index{\texttt{new\_struct/2}}: This function creates a structure\index{structure} that has the name $Name$.  If $IntOrList$ is an integer, $N$, then the structure\index{structure} has $N$ free variable\index{free variable} arguments.  Otherwise, if $IntOrList$ is a list\index{list}, then the structure\index{structure} contains the elements in the list\index{list}.  
+\item \texttt{struct($Term$)}\index{\texttt{struct/1}}: This predicate is true if $Term$ is a structure\index{structure}.
+\item \texttt{to\_list($Struct$) = $List$}\index{\texttt{to\_list/1}}: This function returns a list\index{list} of the components of the structure\index{structure} $Struct$.
+\end{itemize}
+
+\subsection{\label{subsec:arrays}Arrays}
+An \emph{array}\index{array} takes the form \texttt{\{$t_1$,$\ldots$,$t_{n}$\}}, which is a special structure\index{structure} with the name \texttt{'\{\}'} and arity\index{arity} $n$. Note that, unlike a list, an array always has its length stored in memory, so the function \texttt{length($Array$)} always takes constant time. Also note that Picat supports constant-time access of array elements, so the index notation \texttt{A[I]} takes constant time. 
+
+In addition to the built-ins for structures\index{structure}, the following built-ins are provided for arrays\index{array}:
+\begin{itemize}
+\item \texttt{array($Term$)}\index{\texttt{array/1}}: This predicate is true if $Term$ is an array.
+\item \texttt{new\_array($D_1$, $\ldots$, $D_n$) = $Arr$}\index{\texttt{new\_array}}: This function creates an n-dimensional array, where each $D_i$ is an integer expression that specifies the size of a dimension. In the current implementation, $n$ cannot exceed 10.
+\end{itemize}
+
+The following built-ins, which are originally provided for lists (see \ref{subsec:lists}), are overloaded for arrays:
+\begin{itemize}
+\item \texttt{$Array_1$ ++ $Array_2$ = $Array$}
+\item \texttt{avg($Array$) = $Val$}\index{\texttt{avg/1}}
+\item \texttt{first($Array$) = $Term$}\index{\texttt{first/1}}
+\item \texttt{last($Array$) = $Term$}\index{\texttt{last/1}}
+\item \texttt{len($Array$) = $Len$}\index{\texttt{len/1}}
+\item \texttt{length($Array$) = $Len$}\index{\texttt{length/1}}
+\item \texttt{max($Array$) = $Val$}\index{\texttt{max/1}}
+\item \texttt{min($Array$) = $Val$}\index{\texttt{min/1}}
+\item \texttt{nth($Index$, $List$, $Elem$)}\index{\texttt{nth/3}} (nondet)
+\item \texttt{reverse($Array$) = $ResArray$}\index{\texttt{reverse/1}}
+\item \texttt{slice($Array$,$From$,$To$) = $SArray$}\index{\texttt{slice/3}}
+\item \texttt{slice($Array$,$From$) = $SArray$}\index{\texttt{slice/2}}
+\item \texttt{sum($Array$) = $Val$}\index{\texttt{max/1}}
+\item \texttt{sort($Array$) = $SArray$}\index{\texttt{sort/1}}
+\item \texttt{sort($Array$,$KeyIndex$) = $SArray$}\index{\texttt{sort/2}}
+\item \texttt{sort\_remove\_dups($Array$) = $SArray$}\index{\texttt{sort\_remove\_dups/1}}
+\item \texttt{sort\_remove\_dups($Array$,$KeyIndex$) = $SArray$}\index{\texttt{sort\_remove\_dups/2}}
+\item \texttt{sort\_down($Array$) = $SArray$}\index{\texttt{sort\_down/1}}
+\item \texttt{sort\_down($Array$,$KeyIndex$) = $SArray$}\index{\texttt{sort\_down/1}}
+\item \texttt{sort\_down\_remove\_dups($Array$) = $SArray$}\index{\texttt{sort\_down\_remove\_dups/1}}
+\item \texttt{sort\_down\_remove\_dups($Array$,$KeyIndex$) = $SArray$}\index{\texttt{sort\_down\_remove\_dups/1}}
+\end{itemize}
+Note that many of the overloaded built-ins for arrays are not implemented efficiently, but are provided for convenience. For example, \texttt{sort(Array)} is implemented as follows:
+\begin{verbatim}
+    sort(Array) = Array.to_list().sort().to_array().
+\end{verbatim}
+
+\subsection{Maps}
+A \emph{map}\index{map} is a hash-table that is represented as a structure\index{structure} that contains a set of key-value pairs. The functor\index{functor} of the structure\index{structure} that is used for a map\index{map} is not important.  An implementation may ban access to the name and the arity\index{arity} of the structure\index{structure} of a map\index{map}. Maps\index{map} must be created with the built-in function \texttt{new\_map}\index{\texttt{new\_map/1}}, unless they are prebuilt (see Section \ref{prebuiltmaps}). In addition to the built-ins for structures\index{structure}, the following built-ins are provided for maps\index{map}:
+\begin{itemize}
+\item \texttt{clear($Map$)}\index{\texttt{clear/1}}: This predicate clears the map $Map$. It throws an error if $Map$ is not a map.
+\item \texttt{get($Map$, $Key$) = $Val$}\index{\texttt{get/2}}: This function returns \texttt{$Val$} of the key-value pair \texttt{$Key$$=$$Val$} in \texttt{$Map$}. It throws an error if $Map$ does not contain the key $Key$.
+\item \texttt{get($Map$, $Key$, $DefaultVal$) = $Val$}\index{\texttt{get/3}}: This function returns \texttt{$Val$} of the key-value pair \texttt{$Key$$=$$Val$} in \texttt{$Map$}. It returns $DefaultVal$ if $Map$ does not contain $Key$.
+\item \texttt{has\_key($Map$, $Key$)}\index{\texttt{has\_key/2}}: This predicate is true if $Map$ contains a pair with $Key$. 
+\item \texttt{keys($X$) = $List$}\index{\texttt{keys/1}}: This function returns the list of keys of the pairs in $Map$.
+\item \texttt{map($Term$)}\index{\texttt{map/1}}: This predicate is true if $Term$ is a map\index{map}. 
+\item \texttt{map\_to\_list($Map$) = $PairsList$}\index{\texttt{map\_to\_list/1}}: This function returns a list\index{list} of \texttt{$Key$$=$$Val$} pairs that constitute $Map$. 
+\item \texttt{new\_map($IntOrPairsList$) = $Map$}\index{\texttt{new\_map/1}}: This function creates a map\index{map} with an initial capacity or an initial list of pairs.
+\item \texttt{new\_map($N$,$PairsList$) = $Map$}\index{\texttt{new\_map/2}}: This function creates a map\index{map} with the initial capacity $N$, the initial list of pairs $PairsList$, where each pair has the form \texttt{$Key$$=$$Val$}.
+\item \texttt{put($Map$, $Key$, $Val$)}\index{\texttt{put/3}}: This predicate attaches the key-value pair \texttt{$Key$$=$$Val$} to \texttt{$Map$}, where \texttt{$Key$} is a non-variable term, and \texttt{$Val$} is any term. 
+\item \texttt{put($Map$, $Key$)}\index{\texttt{put/2}}: This predicate is the same as \texttt{put($Map$, $Key$, not\_a\_value)}.
+\item \texttt{values($Map$) = $List$}\index{\texttt{values/1}}: This function returns the list\index{list} of values of the pairs in $Map$.
+\item \texttt{size($Map$) = $Size$}\index{\texttt{size/1}}: This function returns the number of pairs in $Map$.
+\end{itemize}
+Most of the built-ins are overloaded for attributed variables\index{attributed variable}.
+
+\subsection{Sets}
+A set\index{set} is a map where every key is associated with the atom \texttt{not\_a\_value}. All of the built-ins for maps can be applied to sets. For example, the built-in predicate \texttt{has\_key($Set$,$Elm$)} tests if $Elm$ is in $Set$. In addition to the built-ins on maps, the following built-ins are provided for sets:
+\begin{itemize}
+\item \texttt{new\_set($IntOrKeysList$) = $Set$}\index{\texttt{new\_set/1}}: This function creates a set with an initial capacity or an initial list of keys.
+\item \texttt{new\_set($N$,$KeysList$) = $Set$}\index{\texttt{new\_set/2}}: This function creates a set with the initial capacity $N$ and the initial list of keys $KeysList$.
+\end{itemize}
+
+\section{\label{sec:unification}Equality Testing, Unification, and Term Comparison}
+The equality test \texttt{$T_1$ == $T_2$} \index{{\verb+==/2+}} is true if term $T_1$ and term $T_2$ are identical. Two variables are identical if they are aliases. Two primitive values\index{primitive value} are identical if they have the same type and the same internal representation. Two lists\index{list} are identical if the cars\index{car} are identical and the cdrs\index{cdr} are identical. Two structures\index{structure} are identical if their functors\index{functor} are the same and their components are pairwise identical. The inequality test \texttt{$T_1$ !== $T_2$} is the same as \texttt{not $T_1$ == $T_2$}.  Note that two terms can be identical even if they are stored in different memory locations.  Also note that it takes linear time in the worst case to test whether two terms are identical, unlike in C-family languages, in which the equality test operator \texttt{==} only compares addresses.
+
+The unification \texttt{$T_1$ = $T_2$} \index{{\verb+=/2+}} is true if term $T_1$ and term $T_2$ are already identical, or if they can be made identical by instantiating\index{instantiated variable} the variables in the terms. The built-in \texttt{$T_1$ != $T_2$} is true if term $T_1$ and term $T_2$ are not unifiable.
+
+The predicate \texttt{bind\_vars($Term$,$Val$)} \index{\texttt{bind\_vars/2}} This predicate binds all of the variables in $Term$ to $Val$.
+
+\subsection*{Example}
+\begin{verbatim}
+    picat> X = 1
+    X = 1
+    picat> $f(a,b) = $f(a,b)
+    yes
+    Picat> [H|T] = [a,b,c]
+    H = a
+    T = [b,c]
+    picat> $f(X,b) = $f(a,Y)
+    X = a
+    Y = b
+    picat> X = $f(X)
+\end{verbatim}
+The last query illustrates the \emph{occurs-check problem}\index{occurs-check problem}. When binding \texttt{X} to \texttt{f(X)}, Picat does not check if \texttt{X} occurs in \texttt{f(X)} for the sake of efficiency. This unification creates a cyclic term, which can never be printed.
+
+When a unification's operands contain attributed variables\index{attributed variable}, the implementation is more complex. When a plain variable is unified with an attributed variable\index{attributed variable}, the plain variable is bound to the attributed variable\index{attributed variable}. When two attributed variables\index{attributed variable}, say $Y$ and $O$, where $Y$ is younger than $O$, are unified,  $Y$ is bound to $O$, but $Y$'s attributes are not copied to $O$. Since garbage collection does not preserve the seniority of terms, the result of the unification of two attributed variables\index{attributed variable} is normally unpredictable.
+
+\begin{itemize}
+\item \texttt{$Term1$ @< $Term2$}: The term $Term1$ precedes the term $Term2$ in the standard order. For example, \texttt{a @< b} succeeds.
+\item \texttt{$Term1$ @<= $Term2$}: This is the same as \texttt{$Term1$ @=< $Term2$}.
+\item \texttt{$Term1$ @=< $Term2$}: The term $Term1$ either precedes, or is identical to, the term $Term2$ in the standard order. For example, \texttt{a @=< b} succeeds.
+\item \texttt{$Term1$ @> $Term2$}: The term $Term1$ follows the term $Term2$ in the standard order.
+\item \texttt{$Term1$ @>= $Term2$}: The term $Term1$ either follows, or is identical to, the term $Term2$ in the standard order.
+\end{itemize}
+
+\section{Expressions}
+Expressions are made from variables, values, operators, and function calls. Expressions differ from terms in the following ways: 
+\begin{itemize}
+\item An expression can contain dot notations, such as \texttt{math.pi}\index{\texttt{pi}}.
+\item An expression can contain index notations, such as \texttt{X[I]}.
+\item An expression can contain ranges, such as \texttt{1..2..100}.
+\item An expression can contain list comprehensions, such as \texttt{[X : X in 1..100]}.
+\item An expression can contain array comprehensions, such as \texttt{\{X : X in 1..100\}}.
+\end{itemize}
+
+A conditional expression, which takes the form \texttt{cond($Cond$,$Exp_1$,$Exp_2$)}, is a special kind of function call that returns the value of $Exp_1$ if the condition $Cond$ is true and the value of $Exp_2$ if $Cond$ is false.
+
+Note that, except for conditional expressions in which the conditions are made of predicates, no expressions can contain predicates. A predicate is true or false, but never returns any value.
+
+
+\section{Higher-order Predicates and Functions}
+A predicate\index{predicate} or function\index{function} is said to be \emph{higher-order}\index{higher-order call} if it takes calls as arguments. The \texttt{basic} module has the following higher-order predicates and functions.
+
+\begin{itemize}
+\item \texttt{apply($S$, $Arg_1$, $\ldots$, $Arg_n$) = $Val$}\index{\texttt{apply}}:   $S$ is an atom or a structure.  This function calls the function that is named by $S$ with the arguments that are specified in $S$, together with extra arguments $Arg_1$, \ldots, $Arg_n$.  This function returns the value that $S$ returns.
+\item \texttt{call($S$, $Arg_1$, $\ldots$, $Arg_n$)}\index{\texttt{call}}:  $S$ is an atom or a structure.  This predicate calls the predicate that is named by $S$ with the arguments that are specified in $S$, together with extra arguments $Arg_1$, \ldots, $Arg_n$.
+\item \texttt{call\_cleanup($Call$,$Cleanup$)}\index{\texttt{call\_cleanup/2}}: This predicate is the same as \texttt{call($Call$)}, except that \texttt{$Cleanup$} is called when \texttt{$Call$} succeeds determinately (i.e., with no remaining choice point), when \texttt{$Call$} fails, or when \texttt{$Call$} raises an exception.
+\item \texttt{catch($Call$, $Exeption$, $Handler$)}\index{\texttt{catch/3}}: This predicate is the same as $Call$, except when an exception that matches $Exception$ is raised during the execution of $Call$. When such an exception is raised, all of the bindings that have been performed on variables in \texttt{$Call$} will be undone, and \texttt{$Handler$} will be executed to handle the exception. 
+\item \texttt{findall($Template$,$Call$) = $Answers$}\index{\texttt{findall/2}}: This function returns a list of all possible instances of \texttt{call($Call$)} that are true in the form of $Template$. Note that $Template$ is assumed to be a term without function calls, and that $Call$ is assumed to be a predicate call whose arguments can contain function calls. Also note that, like a loop, \texttt{findall} forms a name scope. For example, in \texttt{findall(f(X),p(X,g(Y)))}, \texttt{f(X)} is a term even though it is not preceded with \verb+$+; \texttt{g(Y)} is a function call; the variables \texttt{X} and \texttt{Y} are assumed to be local to \texttt{findall} if they do not occur before in the outer scope.
+\item \texttt{find\_all($Template$,$Call$) = $Answers$}\index{\texttt{find\_all/2}}: This function is the same as the above function.
+\item \texttt{count\_all($Call$) = $Count$}\index{\texttt{count\_all/2}}: This function returns the number of all possible instances of \texttt{call($Call$)} that are true. For example, \texttt{count\_all(member(X,[1,2,3]))} returns 3.
+\item \texttt{freeze($X$, $Call$)}\index{\texttt{freeze/2}}: This predicate delays the evaluation of $Call$ until $X$ becomes a non-variable term.
+\item \texttt{map($FuncOrList$, $ListOrFunc$) = $ResList$}\index{\texttt{map/2}}: This function applies a function to every element of a given list and returns a list of the results. One of the arguments is a function, and the other is a list. The order of the arguments is not important.
+\item \texttt{map($Func$, $List1$, $List2$) = $ResList$}\index{\texttt{map/3}}: Let $List1$ be \texttt{[$A_1$,$\ldots$,$A_n$]} and $List2$ be \texttt{[$B_1$,$\ldots$,$B_n$]}. This function applies the function $Func$ to every pair of elements $(A_i,B_i)$ by calling \texttt{apply($Func$,$A_i$,$B_i$)}, and returns a list of the results.
+\item \texttt{maxof($Call$,$Objective$)}\index{\texttt{maxof/2}}: This predicate finds a satisfiable instance of $Call$, such that $Objective$ has the maximum value. Here, $Call$ is used as a generator, and $Objective$ is an expression to be maximized. For every satisfiable instance of $Call$, $Objective$ must be a ground expression. For \texttt{maxof}, search is restarted with a new bound each time that a better answer is found.
+\item \texttt{maxof($Call$,$Objective$,$ReportCall$)}\index{\texttt{maxof/3}}: This is the same as \texttt{maxof($Call$,$Objective$)}, except that \texttt{call($ReportCall$)} is executed each time that an answer is found.
+\item \texttt{maxof\_inc($Call$,$Objective$)}\index{\texttt{maxof\_inc/2}}: This is the same as \texttt{maxof($Call$,$Objective$)}, except that search continues rather than being restarted each time that a better solution is found.
+\item \texttt{maxof\_inc($Call$,$Objective$,$ReportCall$)}\index{\texttt{maxof\_inc/3}}: This is the same as the previous predicate, except that \texttt{call($ReportCall$)} is executed each time that an answer is found.
+\item \texttt{minof($Call$,$Objective$)}\index{\texttt{minof/2}}: This predicate finds a satisfiable instance of $Call$, such that $Objective$ has the minimum value. 
+\item \texttt{minof($Call$,$Objective$,$ReportCall$)}\index{\texttt{minof/3}}: This is the same as \texttt{minof($Call$,$Objective$)}, except that \texttt{call($ReportCall$)} is executed each time that an answer is found.
+\item \texttt{minof\_inc($Call$,$Objective$)}\index{\texttt{minof\_inc/2}}: This predicate is the same as \texttt{minof($Call$,$Objective$)}, except that search continues rather than being restarted each time that a better solution is found.
+\item \texttt{minof\_inc($Call$,$Objective$,$ReportCall$)}\index{\texttt{minof\_inc/3}}: This predicate is the same as the previous one, except that \texttt{call($ReportCall$)} is executed each time that an answer is found.
+\item \texttt{reduce($Func$,$List$) = $Res$}\index{\texttt{reduce/2}}: If $List$ contains only one element, this function returns the element. If $List$ contains at least two elements, then the first two elements $A_1$ and $A_2$ are replaced with \texttt{apply($Func$,$A_1$,$A_2$)}. This step is repeatedly applied to the list until the list contains a single element, which is the final value to be returned.
+\item \texttt{reduce($Func$,$List$,$InitVal$) = $Res$}\index{\texttt{reduce/3}}: This function is the same as\\
+ \texttt{reduce($Func$,[$InitVal$$|$$List$])}.
+\end{itemize}
+
+
+\section{\label{sec:otherbuiltins}Other Built-ins in the \texttt{basic} Module}
+\begin{itemize}
+\item \texttt{acyclic\_term($Term$)}\index{\texttt{acyclic\_term/1}}: This predicate is true if $Term$ is acyclic, meaning that $Term$ does not contain itself.
+\item \texttt{and\_to\_list($Conj$) = $List$}\index{\texttt{and\_to\_list/1}}: This function converts $Conj$ in the form \texttt{($a_1$,$\ldots$,$a_n$)} into a list in the form \texttt{[$a_1$,$\ldots$,$a_n$]}.
+\item \texttt{compare\_terms($Term_1$, $Term_2$) = $Res$}\index{\texttt{compare\_terms/2}}:  This function compares $Term_1$ and $Term_2$.  If $Term_1 < Term_2$, then this function returns $-1$.  If $Term_1 == Term_2$, then this function returns $0$.  Otherwise, $Term_1 > Term_2$, and this function returns $1$.
+\item \texttt{different\_terms($Term_1$, $Term_2$)}\index{\texttt{different\_terms/2}}: This constraint ensures that $Term_1$ and $Term_2$ are different. This constraint is suspended when the arguments are not sufficiently instantiated\index{instantiated variable}.
+\item \texttt{get\_global\_map() = $Map$}\index{\texttt{get\_global\_map/0}}: This function returns the global map\index{map}, which is shared by all threads.
+\item \texttt{get\_heap\_map() = $Map$}\index{\texttt{get\_heap\_map/0}}: This function returns the current thread's heap map\index{map}.  Each thread has its own heap map\index{map}. 
+\item \texttt{get\_table\_map() = $Map$}\index{\texttt{get\_table\_map/0}}: This function returns the current thread's table map\index{map}.  Each thread has its own table map\index{map}. The table map is stored in the table area and both keys and values are hash-consed (i.e., common sub-terms are shared).
+\item \texttt{ground($Term$)}\index{\texttt{ground/1}}: This predicate is true if $Term$ is ground\index{ground}.  A \emph{ground}\index{ground} term does not contain any variables.
+\item \texttt{list\_to\_and($List$) = $Conj$}\index{\texttt{list\_to\_and/1}}: This function converts $List$ in the form \texttt{[$a_1$,$\ldots$,$a_n$]} into a term in the form \texttt{($a_1$,$\ldots$,$a_n$)}.
+\item \texttt{number\_vars($Term$, $N_0$) = $N_1$}\index{\texttt{number\_vars/2}}: This function numbers the variables in $Term$ by using the integers starting from $N_0$.  $N_1$ is the next integer that is available after $Term$ is numbered.  Different variables receive different numberings, and the occurrences of the same variable all receive the same numbering.
+\item \texttt{parse\_radix\_string($String$, $Base$) = $Int$}\index{\texttt{parse\_radix\_string/2}}: This function converts a radix $String$ of $Base$ into a decimal integer $Int$, where $Base$ must be greater than 1 and less than 37. For example, \texttt{parse\_radix\_string("101",2)} returns 5, which is the same as \texttt{parse\_term("0b101")}.
+\item \texttt{parse\_term($String$, $Term$, $Vars$)}\index{\texttt{parse\_term/3}}: This predicate uses the Picat parser to extract a term $Term$ from $String$. $Vars$ is a list of pairs, where each pair has the form $Name$=$Var$. 
+\item \texttt{parse\_term($String$) = $Term$}\index{\texttt{parse\_term/1}}: This function converts $String$ to a term.
+\item \texttt{second($Compound$) = $Term$}\index{\texttt{second/1}}: This function returns the second argument of the compound term $Compound$.  
+\item \texttt{subsumes($Term_1$, $Term_2$)}\index{\texttt{subsumes/2}}: This predicate is true if $Term_1$ subsumes $Term_2$.
+\ignore{
+\item \texttt{unnumber\_vars($Term_1$) = $Term_2$}\index{\texttt{unnumber\_vars/1}}: $Term_2$ is a copy of $Term_1$, with all numbered variables being replaced by Picat variables.  Different numbered variables are replaced by different Picat variables.
+}
+\item \texttt{variant($Term_1$, $Term_2$)}\index{\texttt{variant/2}}: This predicate is true if $Term_2$ is a variant of $Term_1$.
+\item \texttt{vars($Term$) = $Vars$}\index{\texttt{vars/1}}: This function returns a list\index{list} of variables that occur in $Term$.
+\end{itemize}
+\ignore{
+\end{document}
+}
