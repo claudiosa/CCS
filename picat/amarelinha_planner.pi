@@ -1,0 +1,97 @@
+/*
+
+        Resposta: estado inicial: ('b', 'a', 'c','_','_','_','_') 
+                  estado final  : ('_', '_', '_','_','c','a','b')
+                  numero total de estados: 42
+                  Cada posição pode ter os valores, a,b,c ou _ .
+*/
+
+
+/*
+   X2    X5
+X1    X4    X7
+   X3    X6
+*/
+
+/* pontos iniciais e finais do problema */
+index(-)
+pt_origem(  ('b', 'a', 'c','_','_','_','_') ).
+index(-)
+pt_destino( ('_', '_', '_','_','c','a','b') ).
+
+
+
+
+/* movimentos permitidos  ===> veja o diagrama*/
+move((X1,X2,X3,X4,X5,X6,X7), (X1,X4,X3,X2,X5,X6,X7)) ?=>  X2 = '_';  X4 = '_'. 
+move((X1,X2,X3,X4,X5,X6,X7), (X1,X2,X4,X3,X5,X6,X7)) ?=>  X3 = '_';  X4 = '_'.
+move((X1,X2,X3,X4,X5,X6,X7), (X2,X1,X3,X4,X5,X6,X7)) ?=>  X2 = '_'.
+move((X1,X2,X3,X4,X5,X6,X7), (X3,X2,X1,X4,X5,X6,X7)) ?=>  X3 = '_'.
+move((X1,X2,X3,X4,X5,X6,X7), (X1,X2,X3,X6,X5,X4,X7)) ?=>  X4 = '_';  X6 = '_'.
+move((X1,X2,X3,X4,X5,X6,X7), (X1,X2,X3,X5,X4,X6,X7)) ?=>  X4 = '_';  X5 = '_'.
+move((X1,X2,X3,X4,X5,X6,X7), (X1,X2,X3,X4,X7,X6,X5)) ?=>  X5 = '_';  X7 = '_'.
+move((X1,X2,X3,X4,X5,X6,X7), (X1,X2,X3,X4,X5,X7,X6)) =>  X6 = '_';  X7 = '_'.
+
+
+main  ?=>  
+    pt_origem(X),
+%    printf("\n Onde a posicao inicial era: %w ", X),
+    printf("\n ================ 0"),
+    busca([ X ], Solucao), 
+    /* X  é o nó inicial, logo entra na lista inicial */
+    reverse(Solucao, Sol_invertida),
+    write_L(Sol_invertida),
+    length(Sol_invertida) = Total,
+  
+    pt_destino(Y),
+    printf("\n Onde a posicao inicial era: %w ", X),
+    printf("\n A posicao final era: %w", Y),
+    printf("\n Total de estados: %d", Total), 
+    Aux := (Total -1),
+    printf("\n Total de movimentos: %w", Aux).
+   
+
+main => nl, write('Sem solução ... caminho não encontrado!').
+
+
+
+/*************************************************************/
+
+%% cond. de parada.... o nó corrente é o desejado
+busca( [ No_final | Caminho] , [No_final | Caminho]) ?=>
+           printf(" \n ================0 "),
+           pt_destino(No_final),
+	    printf(" \n Onde a posicao FINAL era: %w ", No_final). 
+
+busca( [Nodo|Caminho], Solucao) =>
+	    printf(" \n ================ 1 "),
+         move(Nodo , Novo_nodo), 
+	     printf(" \n ================ " ),
+%	 write(Nodo),nl,
+%	 notrace,
+         not( member(Novo_nodo,[Nodo|Caminho])),
+         busca( [Novo_nodo , Nodo | Caminho ] , Solucao).
+
+/*************************************************************/
+/*
+   X2    X5
+X1    X4    X7
+   X3    X6
+*/
+/************************************************************/
+w_amarelinha((X1,X2,X3,X4,X5,X6,X7)) ?=>
+       write('  '), write(X2), write('  '), write(X5), nl,
+       write(X1), write('  '), write(X4), write('  '), write(X7), nl, 
+       write('  '), write(X3), write('  '), write(X6).
+
+w_amarelinha( _ )   => printf("\n  ===================\n").   
+ 
+ write_L([])  ?=> true.
+ write_L([X|L]) =>  w_amarelinha(X), nl, nl, write_L(L).
+/************************************************************/
+
+reverse([],[]) ?=> true.
+reverse([A|B], Inverted) => reverse(B, X),
+                                append(X, [A], Inverted). 
+                                .
+/************************************************************/
