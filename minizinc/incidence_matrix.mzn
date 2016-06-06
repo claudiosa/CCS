@@ -30,7 +30,7 @@ array[1..n, 1..n] of var 0..1 : MAT_ADJ;
 %%% futuro 
 %%array[1..n*n, 1..2] of var 0 .. n : INDEX_INCIDENCIA;
 %set of int : N_ARCS = 1 .. n_arcs;
-array[1..(n*n), 1..2 ] of var 1 .. n : INDEX_INCIDENCIA;
+array[1..n_max_arcs, 1..2 ] of var 1 .. n : INDEX_INCIDENCIA;
 %%function array [int , int] of var 1 .. n
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -83,30 +83,30 @@ function array [int,int] of var {0,1}: matriz_adjacencia(array[int,int] of int: 
 
 %%%%%%%%%%%%%%%%%%%%%%%% novamente 
 %%% uma matriz de INDICES para matriz de INCIDENCIA  -- STATUS NAO OK
-function array [int , int] of var 1 .. n : matriz_index_incidencia
+function array [1..n_max_arcs, 1..2] of var 1 .. n : matriz_index_incidencia
                ( array[int,int] of var 0..1: M_ADJ, int: nodes,  int: n_arcs) =
 %%, var int: num_arcos) =
 
-/*
-Solucao
-1. Estimar um comprimento MAXIMO para este novo ARRAY
-*/
    let{
-  %     int : x = num_arcos;
-       set of int : ONE_TWO = {1,2};
-       set of int : N_ARCS = 1 .. n_arcs  ; %% variable to FIX in function
-       array[N_ARCS, ONE_TWO] of var 1 .. nodes  : v_aux_0; %%%% incluir o ZERO 1 .. nodes
+        var int : i ;
+        var int : j ;
+        set of int : ONE_TWO = {1,2};
+        set of int : N_ARCS = 1 .. n_arcs  ; %% variable to FIX in function
+        array[N_ARCS, 1..2] of var 1 .. nodes  : v_aux_0; %%%% incluir o ZERO 1 .. nodes
     constraint 
-            v_aux_0[1,1] = 9 /\
+         %   assert(i, j in index_set_2of2(v_aux_0),
+         %          "indices de v_aux_0 fora dos limites", i=0)
+         %   /\
+/*            v_aux_0[1,1] = 9 /\
             v_aux_0[1,2] = 9 /\
             v_aux_0[n_arcs,1] = 99999 /\
             v_aux_0[n_arcs,2] = 99999 
 
-
-/*      forall(i , j  in 1..nodes,  k in N_ARCS) %% num_arcos j in 1..n,
+*/
+      forall(i , j  in 1..nodes,  k in N_ARCS) %% num_arcos j in 1..n,
          (
-            v_aux_0[k,1] = i /\
-            v_aux_0[k,2] = j 
+         %   v_aux_0[k,1] = i /\
+         %   v_aux_0[k,2] = j 
 
           if (M_ADJ[i,j] == 1)
           then
@@ -117,15 +117,12 @@ Solucao
            (v_aux_0[k,1] = 0 /\
             v_aux_0[k,2] = 0 
             )
-
-         true
-         endif
-
-        )*/
+          endif
+        )
          %% DEPOIS eliminar TODOS OS ZEROS  de V_AUX 
        } 
        in
-         v_aux_0
+        v_aux_0
       ;
 
 
@@ -133,8 +130,8 @@ constraint
         n_arcs = num_arcos(G,n);
 constraint
         MAT_ADJ = matriz_adjacencia(G,n);
-%constraint
-%        INDEX_INCIDENCIA = matriz_index_incidencia( G, n , n_max_arcs );
+constraint
+        INDEX_INCIDENCIA = matriz_index_incidencia( G, n , n_max_arcs );
 
 %%n_max_arcs
 
@@ -152,8 +149,8 @@ output
        show(MAT_ADJ[i,j]) 
        | i in 1..n, j in 1..n
 ]
-++[show(matriz_index_incidencia(MAT_ADJ, n, n_max_arcs))]
-%++[show(INDEX_INCIDENCIA)]
+%++[show(matriz_index_incidencia(MAT_ADJ, n, n_max_arcs))]
+++[show(INDEX_INCIDENCIA)]
 %
 %[ %%% matriz de adjacencia
 %  if k == 1 then "\n" else " "  endif ++
