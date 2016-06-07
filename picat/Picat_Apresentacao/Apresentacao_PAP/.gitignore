@@ -1,0 +1,11 @@
+*.aux
+*.bbl
+*.blg
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+main.tex
+*.toc
+*.swp
