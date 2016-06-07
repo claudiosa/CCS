@@ -41,9 +41,9 @@ yes
 import cp.
 
 index(-) 
-  prof (advogado)     .
-  prof (medico)         .
-  prof (engenheiro)  .
+  prof(advogado).
+  prof(medico).
+  prof(engenheiro).
 
 index(-) 
   esposa(patricia).
@@ -55,7 +55,7 @@ index(-)
 %
 /*
 main ?=>   
-        deduz1( [X, Y, Z] ),
+    deduz1( [X, Y, Z] ),
 	write(X),
 	nl,
 	write(Y),
@@ -119,4 +119,4 @@ deduz_2( [(carlos,M1,P1), (luis,maria,medico), (paulo,M3,advogado)] ) =>
 	P1 #!= medico,
 	P1 #!= advogado.
 
- */
+
