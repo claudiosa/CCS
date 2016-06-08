@@ -1,0 +1,305 @@
+/*
+%% Sol inicial: alunos
+%% Melhoramentos etc: ccs
+Enunciado do Problema: 
+http://rachacuca.com.br/logica/problemas/turistas-na-copa/turma: 2015-2
+*/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% SEM USAR A BIBLIOTECA DE CP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%import cp. sem CP
+main ?=> 
+     time(turista(L)),
+    % writeln(L),
+	 imprime(L).
+		 
+main => nl, 
+       writeln('====================================================').   
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+turista(Lista) ?=>
+
+    Lista = 
+	[[Camisa_1, Nacionalidade_1, Bebida_1, Dias_1, Idade_1, Companhia_1],
+     [Camisa_2, Nacionalidade_2, Bebida_2, Dias_2, Idade_2, Companhia_2],
+     [Camisa_3, Nacionalidade_3, Bebida_3, Dias_3, Idade_3, Companhia_3],
+     [Camisa_4, Nacionalidade_4, Bebida_4, Dias_4, Idade_4, Companhia_4],
+     [Camisa_5, Nacionalidade_5, Bebida_5, Dias_5, Idade_5, Companhia_5]
+    ] ,
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Camisa_
+camisa(Camisa_1),
+camisa(Camisa_2),
+camisa(Camisa_3),
+camisa(Camisa_4),
+camisa(Camisa_5),
+alldifferent([Camisa_1, Camisa_2, Camisa_3, Camisa_4, Camisa_5]),
+
+
+%19 Os turistas das Camisa_s amarela e vermelha estão lado a lado.
+(
+(Camisa_1==vermelhito,Camisa_2==amarelito);
+(Camisa_2==vermelhito,(Camisa_1==amarelito;Camisa_3==amarelito));
+(Camisa_3==vermelhito,(Camisa_2==amarelito;Camisa_4==amarelito));
+(Camisa_4==vermelhito,(Camisa_3==amarelito;Camisa_5==amarelito));
+(Camisa_5==vermelhito,Camisa_4==amarelito)
+),
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Nacionalidade_
+nacionalIdade(Nacionalidade_1),
+nacionalIdade(Nacionalidade_2),
+nacionalIdade(Nacionalidade_3),
+nacionalIdade(Nacionalidade_4),
+nacionalIdade(Nacionalidade_5),
+alldifferent([Nacionalidade_1, Nacionalidade_2, Nacionalidade_3, Nacionalidade_4, Nacionalidade_5]),
+
+%10 O Italiano está na terceira posição.
+Nacionalidade_3==italiano,
+
+
+%13 O turista de Verde está em algum lugar entre o Espanhol e o turista de Branco, nessa ordem.
+(
+(Nacionalidade_1==espanhol,Camisa_3==branquito,(Camisa_2==verdito));
+(Nacionalidade_1==espanhol,Camisa_4==branquito,(Camisa_2==verdito;Camisa_3==verdito));
+(Nacionalidade_1==espanhol,Camisa_5==branquito,(Camisa_2==verdito;Camisa_3==verdito;Camisa_4==verdito));
+(Nacionalidade_2==espanhol,Camisa_4==branquito,(Camisa_3==verdito));
+(Nacionalidade_2==espanhol,Camisa_5==branquito,(Camisa_3==verdito;Camisa_4==verdito));
+(Nacionalidade_3==espanhol,Camisa_5==branquito,(Camisa_4==verdito))
+),
+
+
+%6 O Alemão está exatamente à esquerda do turista de Vermelho.
+(
+(Nacionalidade_1==alemao,Camisa_2==vermelhito);
+(Nacionalidade_2==alemao,Camisa_3==vermelhito);
+(Nacionalidade_3==alemao,Camisa_4==vermelhito);
+(Nacionalidade_4==alemao,Camisa_5==vermelhito)
+),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Bebida_
+bebida(Bebida_1),
+bebida(Bebida_2),
+bebida(Bebida_3),
+bebida(Bebida_4),
+bebida(Bebida_5),
+alldifferent([Bebida_1, Bebida_2, Bebida_3, Bebida_4, Bebida_5]),
+
+
+%17 O turista que gosta de Café está na quinta posição.
+Bebida_5==cafe,
+
+% 2 O turista da Camisa_ Verde está em algum lugar entre quem gosta de Água e o Croata, nessa ordem.
+(
+(Bebida_1==agua,Nacionalidade_3==croata,(Camisa_2==verdito));
+(Bebida_1==agua,Nacionalidade_4==croata,(Camisa_2==verdito;Camisa_3==verdito));
+(Bebida_1==agua,Nacionalidade_5==croata,(Camisa_2==verdito;Camisa_3==verdito;Camisa_4==verdito));
+(Bebida_2==agua,Nacionalidade_4==croata,(Camisa_3==verdito));
+(Bebida_2==agua,Nacionalidade_5==croata,(Camisa_3==verdito;Camisa_4==verdito));
+(Bebida_3==agua,Nacionalidade_5==croata,(Camisa_4==verdito))
+),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Dias_
+dias(Dias_1),
+dias(Dias_2),
+dias(Dias_3),
+dias(Dias_4),
+dias(Dias_5),
+alldifferent([Dias_1, Dias_2, Dias_3, Dias_4, Dias_5]),
+
+
+%1 Na primeira posição está quem ficará 15 Dias_ no Brasil.
+Dias_1==15,
+
+%11 O Alemão está ao lado do turista que passará 20 Dias_ no Brasil.
+(
+(Dias_1==20,Nacionalidade_1==alemao);
+(Dias_2==20,(Nacionalidade_1==alemao;Nacionalidade_3==alemao));
+(Dias_3==20,(Nacionalidade_2==alemao;Nacionalidade_4==alemao));
+(Dias_4==20,(Nacionalidade_3==alemao;Nacionalidade_5==alemao));
+(Dias_5==20,Nacionalidade_4==alemao)
+),
+
+%9 O turista de Azul está ao lado do turista que ficará 10 Dias_ no Brasil.
+(
+(Camisa_1==azulzito,Dias_2==10);
+(Camisa_2==azulzito,(Dias_1==10;Dias_3==10));
+(Camisa_3==azulzito,(Dias_2==10;Dias_4==10));
+(Camisa_4==azulzito,(Dias_3==10;Dias_5==10));
+(Camisa_5==azulzito,Dias_4==10)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Idade_
+idade(Idade_1),
+idade(Idade_2),
+idade(Idade_3),
+idade(Idade_4),
+idade(Idade_5),
+alldifferent([Idade_1, Idade_2, Idade_3, Idade_4, Idade_5]),
+
+%4 O Espanhol é o turista mais velho.
+(
+(Idade_1==57,Nacionalidade_1==espanhol);
+(Idade_2==57,Nacionalidade_2==espanhol);
+(Idade_3==57,Nacionalidade_3==espanhol);
+(Idade_4==57,Nacionalidade_4==espanhol);
+(Idade_5==57,Nacionalidade_5==espanhol)
+),
+
+%5 O turista de 45 anos está exatamente à direita do turista de 31 anos.
+(
+(Idade_1==31,Idade_2==45);
+(Idade_2==31,Idade_3==45);
+(Idade_3==31,Idade_4==45);
+(Idade_4==31,Idade_5==45)
+),
+
+%7 O turista de 36 anos está exatamente à esquerda do turista que gosta de Leite.
+(
+(Idade_1==36,Bebida_2==leite);
+(Idade_2==36,Bebida_3==leite);
+(Idade_3==36,Bebida_4==leite);
+(Idade_4==36,Bebida_5==leite)
+),
+
+%12 O turista de 28 anos está exatamente à direita do turista que ficará 25 Dias_ no Brasil.
+(
+(Idade_2==28,Dias_1==25);
+(Idade_3==28,Dias_2==25);
+(Idade_4==28,Dias_3==25);
+(Idade_5==28,Dias_4==25)
+),
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Companhia_
+companhia(Companhia_1),
+companhia(Companhia_2),
+companhia(Companhia_3),
+companhia(Companhia_4),
+companhia(Companhia_5),
+alldifferent([Companhia_1, Companhia_2, Companhia_3, Companhia_4, Companhia_5]),
+
+%8 O turista do meio está acompanhado do Amigo.
+Companhia_3==amigo,
+
+%15 Na quinta posição está o turista que veio com a Namorada.
+Companhia_5==namorada,
+
+
+%20 O turista de 31 anos veio com o Amigo.
+(
+(Idade_1==31,Companhia_1==amigo);
+(Idade_2==31,Companhia_2==amigo);
+(Idade_3==31,Companhia_3==amigo);
+(Idade_4==31,Companhia_4==amigo);
+(Idade_5==31,Companhia_5==amigo)
+),
+
+%14 Quem gosta de Chá está exatamente à esquerda de quem veio acompanhado do Amigo.
+(
+(Bebida_1==cha,Companhia_2==amigo);
+(Bebida_2==cha,Companhia_3==amigo);
+(Bebida_3==cha,Companhia_4==amigo);
+(Bebida_4==cha,Companhia_5==amigo)
+),
+
+%3 O Alemão está acompanhado do Filho.
+(
+(Nacionalidade_1==alemao,Companhia_1==filho);
+(Nacionalidade_2==alemao,Companhia_2==filho);
+(Nacionalidade_3==alemao,Companhia_3==filho);
+(Nacionalidade_4==alemao,Companhia_4==filho);
+(Nacionalidade_5==alemao,Companhia_5==filho)
+),
+
+%16 Quem está acompanhado da Esposa está ao lado de quem ficará 20 Dias_ no Brasil.
+(
+(Companhia_1==esposa,Dias_1==20);
+(Companhia_2==esposa,(Dias_1==20;Dias_3==20));
+(Companhia_3==esposa,(Dias_2==20;Dias_4==20));
+(Companhia_4==esposa,(Dias_3==20;Dias_5==20));
+(Companhia_5==esposa,Dias_4==20)
+),
+
+%18 O turista que veio com a Esposa está exatamente à esquerda de quem gosta de Leite.
+
+(
+(Companhia_1==esposa,Bebida_2==leite);
+(Companhia_2==esposa,Bebida_3==leite);
+(Companhia_3==esposa,Bebida_4==leite);
+(Companhia_4==esposa,Bebida_5==leite)
+),
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% quase terminandos
+	printf("\n==> Atingiu o Final do Modelo : UFA !!!! =====\n").
+	
+turista( _ ) =>	
+      printf("\n==> Inconsistencia no passo anterior: REVISE TUDO <== \n").
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+index(-) 
+camisa(amarelito).
+camisa(azulzito).
+camisa(branquito).
+camisa(verdito).
+camisa(vermelhito).
+
+index(-) 
+
+nacionalIdade(alemao).
+nacionalIdade(croata).
+nacionalIdade(espanhol).
+nacionalIdade(frances).
+nacionalIdade(italiano).
+
+index(-) 
+
+bebida(agua).
+bebida(cafe).
+bebida(cha).
+bebida(cerveja).
+bebida(leite).
+
+index(-)
+dias(10).
+dias(15).
+dias(20).
+dias(25).
+dias(30).
+
+index(-)
+idade(28).
+idade(31).
+idade(36).
+idade(45).
+idade(57).
+
+index(-)
+companhia(amigo).
+companhia(filho).
+companhia(irma).
+companhia(esposa).
+companhia(namorada).
+
+alldifferent([]) ?=> true.
+alldifferent([H|T]) => not(member(H,T)),
+                       alldifferent(T).
+
+imprime([]) ?=> true. 
+imprime([[Camisa, Nacionalidade, Bebida, Dias, Idade, Companhia]|T]) => 
+        writeln([Camisa, Nacionalidade, Bebida, Dias, Idade, Companhia]),
+	    imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
