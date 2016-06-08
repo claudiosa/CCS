@@ -3,14 +3,14 @@ Exemplo 1
 Implementacao IMEDIATA
 */
 
-%var float : x1;
-%var float : x2;
+var int : x1;
+var int : x2;
 /* LIMITAR O DOMINIO DOS REAIS ... roda com o GECODE */
-var -5.0 .. 4.5 : x1;
-var -5.0 .. 4.5 : x2;
+%var -5.0 .. 4.5 : x1;
+%var -5.0 .. 4.5 : x2;
 
 %% f objetivo
-var float: z ; %% =   3.0*x1 + 5.0*x2 ;
+var int: z ; %% =   3.0*x1 + 5.0*x2 ;
 
 constraint 
     z =  3.0*x1 + 5.0*x2 ;
