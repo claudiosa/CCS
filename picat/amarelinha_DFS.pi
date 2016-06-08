@@ -1,4 +1,5 @@
 /*
+By CCS
 Busca em Profundidade com Prolog
 	Onde a posicao inicial era: b,a,c,_,_,_,_ 
 	 A posicao final era: _,_,_,_,c,a,b
@@ -8,25 +9,13 @@ Busca em Profundidade com Prolog
 	 Tempo total: 0.0010792490  msec
 	true.
 
-
 	Busca em Largura OTIMO com Prolog
 	 A posicao final era: _,_,_,_,c,a,b
 	 Total de estados: 9
 	 Total de movimentos: 8
 	 T1: 2.290018 	 T2: 24.449603  msec
 	 Tempo total: 22.1595845060  msec
-
-em PICAT
- Posicao inicial (estado): bacoooo 
- Posicao final (estado): oooocba
- Total de estados: 81
- Total de movimentos: 80 
  ======================
- 
-real	0m0.032s
-user	0m0.024s
-sys	0m0.004s
-
 */
 
 import datetime.
@@ -40,11 +29,12 @@ pt_destino([o,o,o,o,c,b,a] ).
 
 
 /* movimentos permitidos  ===> veja o diagrama*/
-
 /*
-   X2    X5
-X1    X4    X7
-   X3    X6
+     X2      X5
+    /    \    /    \
+X1     X4       X7
+   \     /    \     /
+     X3      X6
 */
 % means: X2 <--> X4 
 move( [ X1,X2,X3,X4,X5,X6,X7 ]  , L) ?=> 
@@ -61,12 +51,12 @@ move( [ X1,X2,X3,X4,X5,X6,X7 ] , L) ?=>
 	printf("\t 3"), 
        	(X2 == o, X1 !=o),
 	%%%  (X1 == o, X2 != o)), 
-       L = [ X2,X1,X3,X4,X5,X6,X7 ] .
+       	L = [ X2,X1,X3,X4,X5,X6,X7 ] .
        
 move( [ X1,X2,X3,X4,X5,X6,X7 ], L) ?=>  
 	printf("\t 4"), 
-       X3 == o, (X1 != o),
-       L = [ X3,X2,X1,X4,X5,X6,X7 ].
+	(X3 == o, X1 != o),
+       	L = [ X3,X2,X1,X4,X5,X6,X7 ].
 
 move( [ X1,X2,X3,X4,X5,X6,X7 ],  L) ?=>  
 	printf("\t 5"), 
@@ -76,61 +66,53 @@ move( [ X1,X2,X3,X4,X5,X6,X7 ],  L) ?=>
 move( [ X1,X2,X3,X4,X5,X6,X7 ] , L) ?=> 
 	printf("\t 6"), 
 	((X5 == o, X4 !=o) ;  (X4 == o, X5 != o)), 
-        L =  [ X1,X2,X3,X5,X4,X6,X7 ].
+        	L =  [ X1,X2,X3,X5,X4,X6,X7 ].
 			
 move( [ X1,X2,X3,X4,X5,X6,X7 ], L) ?=> 
 	printf("\t 7"), 
-	((X5 == o, X7 !=o) ;  (X7 == o, X5 != o)), 
+	(X5 == o, X7 !=o)  ,
+	%%; (X7 == o, X5 != o)), 
 	L =  [ X1,X2,X3,X4,X7,X6,X5] .
  
  move( [ X1,X2,X3,X4,X5,X6,X7 ]  , L) => 
-	  printf("\t 8"), 
-      	((X6 == o, X7 !=o) ;  (X7 == o, X6 != o)), 
-         L =  [X1,X2,X3,X4,X5,X7,X6].
+	 printf("\t 8"), 
+      	%((X6 == o, X7 !=o) ; 
+      	 (X7 == o, X6 != o), 
+         	 L =  [X1,X2,X3,X4,X5,X7,X6].
 
 move( _ , _) => 
          printf("\n NONE RULES WERE MATCHED  -- Houston problem").
-/*
-Picat> [[b,a,c,o,o,o,o]] = X 
-X = [[b,a,c,o,o,o,o]]
-yes
-Picat> [[b,a,c,o,o,o,o]] = [FX]  
-FX = [b,a,c,o,o,o,o]
-yes
-Picat> [[b,a,c,o,o,o,o]] = [[FX]]
-NO
-*/
 
 main  ?=>  
     pt_origem(X),    %%%write([X]),
     pt_destino(Y),
-% printf("\n Posicao inicial: %w ", X),
-     T1 = current_time(),
+    T1 = current_time(),
      time(busca_DFS( [X] , Solucao)), %%% CPU TIME
-      T2 = current_time(), 
+     T2 = current_time(), 
     /* X  é o nó inicial, logo entra na lista inicial */
- % write(Solucao),
 
-    Sol_invertida = reverse(  Solucao ),
+    %%Sol_invertida = reverse(  Solucao ), %% OR
+    reverse_2(Solucao, Sol_invertida),
     write_L(Sol_invertida),
     length(Solucao) = Total,
     Num_Movts := (Total -1),
    % T_CPU :=T2-T1,
-    printf("\n Posicao inicial (estado): %w ", X),
-    printf("\n Posicao final (estado): %w", Y),
-    printf("\n Total de estados: %d", Total), 
-    printf("\n Total de movimentos: %w", Num_Movts),
-    printf("\n Tempo corrente de CPU INIC: %w  FIM %w",     T1, T2),
-    printf(" \n ======================\n ").
-   
-main => nl, write('Sem solução ... caminho não encontrado!' ) .
+    printf("\n Initial Position (state): %w ", X),
+    printf("\n Final  Position (state): %w", Y),
+    printf("\n Total of states: %d", Total), 
+    printf("\n Total of moviments: %w", Num_Movts),
+    printf("\n CPU TIME INIC: %w  FIM %w",     T1, T2),
+    printf(" \n =========================================\n ")
+    .
+
+main => nl, write('No solution in the model  ... Houston we have a trouble!!!!' ) .
 
 /*************************************************************/
 
 %% cond. de parada.... o nó corrente é o desejado
 busca_DFS( [ No_corrente | Caminho] , L) ?=>
            pt_destino(No_final),
-% 	   write(No_final),   write(No_corrente), 
+%       the halting conditions
 	   No_corrente == No_final,
  %       printf(" \n  == TESTE de PARADA passou   ==  "),
 	   L = [ No_corrente | Caminho ],
@@ -140,7 +122,7 @@ busca_DFS( [ No_corrente | Caminho] , L) ?=>
 busca_DFS(  [Nodo | Caminho], Solucao) =>
             move(Nodo , Novo_nodo), 
             not( member(Novo_nodo, [Nodo|Caminho]) ),
-	  %printf(" \n novo %w %w %w", Novo_nodo, Nodo, Caminho),
+           %printf(" \n novo %w %w %w", Novo_nodo, Nodo, Caminho),
            busca_DFS(  [Novo_nodo , Nodo | Caminho ] , Solucao).
 
 /*************************************************************/
@@ -159,17 +141,10 @@ w_amarelinha(  _ )   => printf("\n  ===================\n").
  
  write_L([])  ?=> true.
  write_L([X|L]) =>  w_amarelinha( X ), nl, nl, write_L(L).
-/***REVER reverse******************************************************/
-reverse([],R) ?=>  R=[].
-reverse([A|B], Inverted) => reverse(B, X),
-                                          append(X, [A], Inverted) . 
-
-/*
-From Neng-Fa:
- I think you messed up input and output arguments. Only input arguments can be written in head patterns; outputs must be explicitly written using unification. For example, reverse/2 should be defined as follows:
-
-reverse([],R) => R=[].
-reverse([A|B], Inverted) => reverse(B, X),
-                               append(X, [A], Inverted).
 					  					  
-***********************************************************/
+/***********************************************************/
+
+reverse_2([],R) => R=[].
+reverse_2([A|B], Inverted) => reverse_2(B, X),
+                                                 append(X, [A], Inverted).
+/***********************************************************/                                                 
