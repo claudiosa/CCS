@@ -5,11 +5,12 @@ Enunciado do Problema:
 http://rachacuca.com.br/logica/problemas/turistas-na-copa/turma: 2015-2
 */
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%% PROBLEMA DO .................
+%% Veja a versao sem CP ... aprox. Prolog-like
+%%
+%% USANDO CP  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-import cp.
+import cp.   %%% diferenca fundamenteal
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=> 
      time(turista(L)),
 	 imprime(L),
