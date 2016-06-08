@@ -1,0 +1,25 @@
+/*
+Picat> [[b,a,c,o,o,o,o]] = X 
+X = [[b,a,c,o,o,o,o]]
+yes
+Picat> [[b,a,c,o,o,o,o]] = [FX]  
+FX = [b,a,c,o,o,o,o]
+yes
+Picat> [[b,a,c,o,o,o,o]] = [[FX]]
+NO
+*/
+    % printf("\n Posicao inicial: %w ", X),
+    
+    
+/*
+From Neng-Fa:
+ I think you messed up input and output arguments. 
+ Only input arguments can be written in head patterns;
+  outputs must be explicitly written using unification. 
+  For example, reverse/2 should be defined as follows:
+
+reverse([],R) => R=[].
+reverse([A|B], Inverted) => reverse(B, X),
+                               append(X, [A], Inverted).
+					  					  
+***********************************************************/
