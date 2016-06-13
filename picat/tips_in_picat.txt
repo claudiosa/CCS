@@ -23,3 +23,20 @@ reverse([A|B], Inverted) => reverse(B, X),
                                append(X, [A], Inverted).
 					  					  
 ***********************************************************/
+I was testing the struct function arity(), but i forgot to put the name of struct. 
+When i tested the function, It came with it:
+
+Picat> N = $(1,2,3,4,5), arity(N) = Aridade.
+N = (1,2,3,4,5)
+Aridade = 2
+yes
+
+Aridade shouldn't be zero ou five?
+
+It's designed this way (inherited from Prolog), not an error. 
+A tuple of the form (1,2,3,4,5) is the same as (1, (2, (3, (4, 5)))). 
+That's why its arity is 2, not 5. In contrast, the array {1,2,3,4,5} 
+has arity 5.
+
+Cheers,
+Neng-Fa
