@@ -1,0 +1,22 @@
+
+/*
+Um predicado (ou função) que calcule  a soma da seguinte sequência:
+    1*n + 2*n + 3*n  + ... + n*n
+    Admita N =7  para fins de teste.
+*/
+   
+main => serie(2,S0), printf("\n:: serie 2 a soma eh: %d" , S0),
+		serie(3,S1), printf("\n:: serie 3 a soma eh: %d" , S1),
+		serie(4,S2), printf("\n:: serie 4 a soma eh: %d" , S2),
+		serie(5,S3), printf("\n:: serie 5 a soma eh: %d" , S3),
+		nl.
+		
+serie(N, S) => aux(N,N,S).
+
+aux(0, _, R) ?=>  R = 0. 
+aux(1, N, R) ?=> R = N. 
+aux(N_var , Fixo ,S) =>
+            Aux = (N_var - 1),
+            aux(Aux , Fixo , S1 ),
+            S = ((N_var * Fixo) + S1).
+          
