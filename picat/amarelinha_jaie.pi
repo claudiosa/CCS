@@ -1,44 +1,12 @@
-%%%By ccs and Roger -- DCC UDESC
-% the problem ...
-
+/**************************************************************/
 /*
-     X2      X5
-    /    \    /    \
-X1     X4       X7
-   \     /    \     /
-     X3      X6
+     X2       X5
+   /    \   /    \
+  X1     X4       X7
+   \    /   \    /
+     X3       X6
 */
-
-/**** COMMENTS ***
-Busca em Profundidade com Prolog
-	Onde a posicao inicial era: b,a,c,_,_,_,_ 
-	 A posicao final era: _,_,_,_,c,a,b
-	 Total de estados: 29
-	 Total de movimentos: 28
-	 T1: 24.480552 	 T2: 24.481631  msec
-	 Tempo total: 0.0010792490  msec
-	true.
-
-Busca em Largura OTIMO com Prolog
-	 A posicao final era: _,_,_,_,c,a,b
-	 Total de estados: 9
-	 Total de movimentos: 8
-	 T1: 2.290018 	 T2: 24.449603  msec
-	 Tempo total: 22.1595845060  msec
-
-em PICAT without PLANNER
- Posicao inicial (estado): bacoooo 
- Posicao final (estado): oooocba
- Total de estados: 81
- Total de movimentos: 80 
- ======================
- 
-real	0m0.032s
-user	0m0.024s
-sys	0m0.004s
-
-*/
-
+/**************************************************************/
 import datetime.
 import planner.
 
@@ -56,11 +24,6 @@ final( [o, o, o, o, c, a, b] ) => true .
 /* movimentos permitidos  ===> veja o diagrama*/
 % $ picat amarelinha_planner.pi 
 %['X4 <-> X2','X1 <-> X2','X4 <-> X6','X4 <-> X2','X6 <-> X7','X4 <-> X6','X4 <-> X3','X4 <-> X5']
-/*
-   X2    X5
-X1    X4    X7
-   X3    X6
-*/
 
 /* Describing the possible actions ==> for the planner */
 action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
@@ -80,7 +43,7 @@ action( [ X1,X2,X3,X4,X5,X6,X7 ] , S1, Action, Action_Cost ) ?=>
     Action = 'X1 <-> X2',
        	(X2 == o, X1 !=o),
 	%%%  (X1 == o, X2 != o)), 
-       S1 = [ X2,X1,X3,X4,X5,X6,X7 ] .
+    S1 = [ X2,X1,X3,X4,X5,X6,X7 ] .
        
 action( [ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
     Action_Cost = 1,
@@ -135,15 +98,6 @@ main  ?=>
     .
    
 main => nl, write('No solution in the model  ... Houston we have a trouble!!!!' ) .
-
-/* ************************************************************/
-/*
-      X2       X5
-    /    \   /    \
-  X1       X4      X7
-   \     /   \    /
-     X3        X6
-*/
 
 /************************************************************/
  write_L([])  ?=> true.
