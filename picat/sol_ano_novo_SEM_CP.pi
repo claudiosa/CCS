@@ -1,0 +1,257 @@
+% Trabalho - Resoluções de ano novo.
+% URL do problema - http://rachacuca.com.br/logica/problemas/resolucoes-de-ano-novo/
+% Aluno - Matheus Rambo da Roza ... orientado por CCS
+%% modificado por CCS
+
+main ?=>
+	time(amigas(L)),
+	imprime_L(L),
+	fail.
+
+main => printf("\nUMA UNICA RESPOSTA e PRONTO!!!!!!!!!!!!!!\n").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+amigas(L) ?=> 
+	L= [ 
+         [NOME_1, BOLSA_1, RESOLUCAO_1, NAMORADO_1, IDADE_1],
+	     [NOME_2, BOLSA_2, RESOLUCAO_2, NAMORADO_2, IDADE_2],
+	     [NOME_3, BOLSA_3, RESOLUCAO_3, NAMORADO_3, IDADE_3],
+	     [NOME_4, BOLSA_4, RESOLUCAO_4, NAMORADO_4, IDADE_4],
+	     [NOME_5, BOLSA_5, RESOLUCAO_5, NAMORADO_5, IDADE_5]
+	   ],
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+nome(NOME_1),nome(NOME_2),nome(NOME_3),
+nome(NOME_4),nome(NOME_5),
+alldifferent([NOME_1,NOME_2,NOME_3,NOME_4,NOME_5]),
+
+% 16-A Thaís está ao lado da fabiana.
+(
+(NOME_1 == thais, NOME_2 == fabiana);
+(NOME_2 == thais, (NOME_1 == fabiana;NOME_3 == fabiana));
+(NOME_3 == thais, (NOME_2 == fabiana;NOME_4 == fabiana));
+(NOME_4 == thais, (NOME_3 == fabiana;NOME_5 == fabiana));
+(NOME_5 == thais, NOME_4 == fabiana)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOLSA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+bolsa(BOLSA_1),bolsa(BOLSA_2),bolsa(BOLSA_3),
+bolsa(BOLSA_4),bolsa(BOLSA_5),
+alldifferent([BOLSA_1,BOLSA_2,BOLSA_3,BOLSA_4,BOLSA_5]),
+
+% 15-A cor da bolsa da ana é vermelha.
+(
+(NOME_1 == ana, BOLSA_1 == vermelha);
+(NOME_2 == ana, BOLSA_2 == vermelha);
+(NOME_3 == ana, BOLSA_3 == vermelha);
+(NOME_4 == ana, BOLSA_4 == vermelha);
+(NOME_5 == ana, BOLSA_5 == vermelha)
+),
+
+% 18-A mulher de bolsa verde está em algum lugar à direita da Thaís.
+(
+(NOME_1 == thais, (BOLSA_2 == verde; BOLSA_3 == verde; BOLSA_4 == verde; BOLSA_5 == verde));
+(NOME_2 == thais, (BOLSA_3 == verde; BOLSA_4 == verde; BOLSA_5 == verde));
+(NOME_3 == thais, (BOLSA_4 == verde; BOLSA_5 == verde));
+(NOME_4 == thais, BOLSA_5 == verde)
+),
+
+% 12-A moça de bolsa amarela está exatamente à esquerda da ana.
+(
+(NOME_2 == ana, BOLSA_1 == amarela);
+(NOME_3 == ana, BOLSA_2 == amarela);
+(NOME_4 == ana, BOLSA_3 == amarela);
+(NOME_5 == ana, BOLSA_4 == amarela)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESOLUCAO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+resolucao(RESOLUCAO_1),resolucao(RESOLUCAO_2),resolucao(RESOLUCAO_3),
+resolucao(RESOLUCAO_4),resolucao(RESOLUCAO_5),
+alldifferent([RESOLUCAO_1,RESOLUCAO_2,RESOLUCAO_3,RESOLUCAO_4,RESOLUCAO_5]),
+
+% 10-Quem gostaria de emagrecer está na segunda posição.
+RESOLUCAO_2 == emagrecer,
+
+% 8-A vivian está em algum lugar à esquerda de quem pretende economizar dinheiro.
+(
+(RESOLUCAO_5 == poupar_dinheiro, (NOME_1 == vivian; NOME_2 == vivian; NOME_2 == vivian; NOME_4 == vivian));
+(RESOLUCAO_4 == poupar_dinheiro, (NOME_1 == vivian; NOME_2 == vivian; NOME_3 == vivian));
+(RESOLUCAO_3 == poupar_dinheiro, (NOME_1 == vivian; NOME_2 == vivian))
+),
+
+% 9-Quem quer ler mais no ano novo está ao lado da vivian.
+(
+(NOME_2 == vivian, (RESOLUCAO_1 == ler_mais;RESOLUCAO_3 == ler_mais));
+(NOME_4 == vivian, (RESOLUCAO_3 == ler_mais;RESOLUCAO_5 == ler_mais ));
+(NOME_5 == vivian, RESOLUCAO_4 == ler_mais)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NAMORADO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+namorado(NAMORADO_1), namorado(NAMORADO_2), namorado(NAMORADO_3), 
+namorado(NAMORADO_4), namorado(NAMORADO_5),
+alldifferent([NAMORADO_1,NAMORADO_2,NAMORADO_3,NAMORADO_4,NAMORADO_5]),
+
+% 5-A moça que namora o daniel está na última posição.
+NAMORADO_5 == daniel,
+
+% 7-Quem namora o marcelo está ao lado da vivian.
+(
+(NAMORADO_1 == marcelo,(NOME_2 == vivian));
+(NAMORADO_2 == marcelo,(NOME_1 == vivian; NOME_3 == vivian));
+(NAMORADO_3 == marcelo,(NOME_2 == vivian; NOME_4 == vivian));
+(NAMORADO_4 == marcelo,(NOME_3 == vivian; NOME_5 == vivian))
+),
+
+% 11-A Thaís está ao lado da mulher que namora o Otávio.
+(
+(NAMORADO_1 == otavio,(NOME_2 == thais));
+(NAMORADO_2 == otavio,(NOME_1 == thais; NOME_3 == thais));
+(NAMORADO_3 == otavio,(NOME_2 == thais; NOME_4 == thais));
+(NAMORADO_4 == otavio,(NOME_3 == thais; NOME_5 == thais))
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IDADE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+idade(IDADE_1), idade(IDADE_2), idade(IDADE_3),
+idade(IDADE_4), idade(IDADE_5),
+alldifferent([IDADE_1,IDADE_2,IDADE_3,IDADE_4,IDADE_5]),
+
+% 17-A mulher de 26 anos está exatamente à esquerda da mulher que namora o alexandre.
+(
+(NAMORADO_2 == alexandre, IDADE_1 == 26);
+(NAMORADO_3 == alexandre, IDADE_2 == 26);
+(NAMORADO_4 == alexandre, IDADE_3 == 26)
+),
+
+% 1-A moça que quer viajar está ao lado de quem tem 24 anos.
+(
+(IDADE_1 == 24, RESOLUCAO_2 == viajar);
+(IDADE_2 == 24, (RESOLUCAO_1 == viajar;RESOLUCAO_3 == viajar));
+(IDADE_3 == 24, (RESOLUCAO_2 == viajar;RESOLUCAO_4 == viajar));
+(IDADE_4 == 24, (RESOLUCAO_3 == viajar;RESOLUCAO_5 == viajar ));
+(IDADE_5 == 24, RESOLUCAO_4 == viajar)
+),
+
+% 2-A clarissa está em algum lugar à esquerda de quem tem 23 anos.
+(
+(IDADE_5 == 23, (NOME_1 == clarissa; NOME_2 == clarissa; NOME_2 == clarissa; NOME_4 == clarissa));
+(IDADE_4 == 23, (NOME_1 == clarissa; NOME_2 == clarissa; NOME_3 == clarissa));
+(IDADE_3 == 23, (NOME_1 == clarissa; NOME_2 == clarissa));
+(IDADE_2 == 23, NOME_1 == clarissa)
+),
+ 
+ % 3-A vivian está exatamente à direita da mulher mais velha.
+(
+(IDADE_1 == 26, NOME_2 == vivian);
+(IDADE_2 == 26, NOME_3 == vivian);
+(IDADE_3 == 26, NOME_4 == vivian);
+(IDADE_4 == 26, NOME_5 == vivian)
+),
+
+% 4-A namorada do Otávio é a mulher mais nova do grupo.
+(
+(IDADE_1 == 19, NAMORADO_1 == otavio);
+(IDADE_2 == 19, NAMORADO_2 == otavio);
+(IDADE_3 == 19, NAMORADO_3 == otavio);
+(IDADE_4 == 19, NAMORADO_4 == otavio)
+),
+
+% 13-A mulher de 19 anos está ao lado da mulher de bolsa verde.
+(
+(BOLSA_1 == verde, IDADE_2 == 19);
+(BOLSA_2 == verde, (IDADE_1 == 19;IDADE_3 == 19));
+(BOLSA_3 == verde, (IDADE_2 == 19;IDADE_4 == 19));
+(BOLSA_4 == verde, (IDADE_3 == 19;IDADE_5 == 19 ));
+(BOLSA_5 == verde, IDADE_4 == 19)
+),
+
+% 6-A fabiana está em algum lugar entre quem tem 20 anos e quem quer viajar, nessa ordem.
+(
+	(NOME_2 == fabiana, (IDADE_1 == 20, RESOLUCAO_3 == viajar));
+	((NOME_2 == fabiana; NOME_3 == fabiana), (IDADE_1 == 20, RESOLUCAO_4 == viajar));
+	((NOME_2 == fabiana; NOME_3 == fabiana; NOME_4 == fabiana), (IDADE_1 == 20, RESOLUCAO_5 == viajar));
+	((NOME_3 == fabiana; NOME_4 == fabiana), (IDADE_2 == 20, RESOLUCAO_5 == viajar));
+	((NOME_4 == fabiana), (IDADE_3 == 20, RESOLUCAO_5 == viajar))
+),
+
+% 14-Quem tem a bolsa branca está em algum lugar entre a moça de 20 anos e a de 26 anos, nessa ordem.
+(
+	(BOLSA_2 == branca, (IDADE_1 == 20, IDADE_3 == 26));
+	((BOLSA_2 == branca; BOLSA_3 == branca), (IDADE_1 == 20, IDADE_4 == 26))
+)
+    ,
+	printf("\n Passou no final do Modelo  .... bom sinal \n").
+
+amigas(_) => printf("\n Confira o seu modelo acima, 
+                     há regras conflitantes que geram 
+                     inconsistências (VAZIO mesmo) !!!!! \n").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Biblioteca de FATOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+index(-)
+nome(ana).
+nome(clarissa).
+nome(fabiana).
+nome(thais).
+nome(vivian).
+
+index(-)
+bolsa(amarela).
+bolsa(azul).
+bolsa(branca).
+bolsa(verde).
+bolsa(vermelha).
+
+index(-)
+resolucao(aprender_ingles).
+resolucao(emagrecer).
+resolucao(ler_mais).
+resolucao(poupar_dinheiro).
+resolucao(viajar).
+
+index(-)
+namorado(alexandre).
+namorado(daniel).
+namorado(julio).
+namorado(marcelo).
+namorado(otavio).
+
+index(-)
+idade(19).
+idade(20).
+idade(23).
+idade(24).
+idade(26).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINICAO DE ALLDIFERENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+alldifferent([]) => true.
+alldifferent([H|T]) ?=>
+			not(member(H,T)),
+			alldifferent(T).
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%% IMPRIME LISTA DE LISTA CUIDADO 	
+imprime_L([ ]) ?=> true. % nl, writeln('...FIM...').
+imprime_L([[NOME, BOLSA, RESOLUCAO, NAMORADO, IDADE]|T]) => 
+    %%writeln([NOME, BOLSA, RESOLUCAO, NAMORADO, IDADE]),
+    printf("\n Nome: %w \tBolsa: %w \t Resolucao: %w \t Namorado: %w \t Idade: %w ",
+            NOME, BOLSA, RESOLUCAO, NAMORADO, IDADE),
+    imprime_L(T).
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
