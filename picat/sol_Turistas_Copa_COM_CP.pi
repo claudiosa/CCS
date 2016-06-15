@@ -23,13 +23,12 @@ main => nl,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 turista(Lista)=>
 
-    Lista = 
-	[
-     Camisa_1, Nacionalidade_1, Bebida_1, Dias_1, Idade_1, Companhia_1,
-     Camisa_2, Nacionalidade_2, Bebida_2, Dias_2, Idade_2, Companhia_2,
-     Camisa_3, Nacionalidade_3, Bebida_3, Dias_3, Idade_3, Companhia_3,
-     Camisa_4, Nacionalidade_4, Bebida_4, Dias_4, Idade_4, Companhia_4,
-     Camisa_5, Nacionalidade_5, Bebida_5, Dias_5, Idade_5, Companhia_5
+    Lista = [
+     	Camisa_1, Nacionalidade_1, Bebida_1, Dias_1, Idade_1, Companhia_1,
+     	Camisa_2, Nacionalidade_2, Bebida_2, Dias_2, Idade_2, Companhia_2,
+     	Camisa_3, Nacionalidade_3, Bebida_3, Dias_3, Idade_3, Companhia_3,
+     	Camisa_4, Nacionalidade_4, Bebida_4, Dias_4, Idade_4, Companhia_4,
+     	Camisa_5, Nacionalidade_5, Bebida_5, Dias_5, Idade_5, Companhia_5
 	],
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
