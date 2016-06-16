@@ -36,38 +36,33 @@
 int : n = 10;
 int : m = 3;
 array[1..m, 1..n] of int:  notas;
-
+%%% NOTAS DOS TECNICOS 
  notas = 
-    [| 4, 5, 6, 7, 2, 1, 0, 4, 5, 6
-     | 0, 5, 8, 7, 3, 2, 1, 5, 4, 7
-     | 5, 4, 5, 6, 3, 1, 0, 4, 6, 4 
+    [| 4, 5, 6, 7, 2, 1, 0, 4, 5, 6      %% T1
+     | 0, 5, 8, 7, 3, 2, 1, 5, 4, 7      %% T2
+     | 5, 4, 5, 6, 3, 1, 0, 4, 6, 4      %% T3
      |];
 
 
-%int: n;
-%int: m;
 array[1..m , 1..n] of var 0..1      : Dec_Matrix;
-%array[      1..n] of var 1..m : times;
-array[ 1 .. m ] of var 1..n : sizes;
+
+array[ 1 .. m ] of var 1..n : sizes; %%% Vini e Renan
 
 %%% Funcao objetivo
-var int: result = sum(i in 1..m, j in 1..n) (Dec_Matrix[i,j]*notas[i,j]);
+var int: result = sum(i in 1..m, j in 1..n) (Dec_Matrix[i,j] * notas[i,j] );
 
-
-%  one assignment per column = 1
+%  one assignment per column = 1 .. um jogador esta em um unico time
 constraint 
   forall(j in 1..n) (
         sum(i in 1..m) (Dec_Matrix[i,j]) == 1
-  )
-;
+   );
 
 %%% sum of all seletions in each line
 %%% Calcula o tamanho de cada time
 constraint  
  forall(i in 1..m) (
         sizes[i]  =  sum(j in 1..n) (Dec_Matrix[i,j])  
- )
-;
+ );
 
 % Garante q a diferenca maxima eh 1 entre o tamanho das equipes em O(n^2)
 %% By Renan and Vini 
@@ -82,21 +77,14 @@ constraint
 
 solve  maximize result;
 
-output [
+output 
+  [
   if i = 1 /\ j = 1 then
     "total_cost: " ++ show(result) ++ " \t sizes: " ++ show(sizes) 
   else " " endif ++
   if j = 1 then "\n" else " " endif ++
   show(Dec_Matrix[i,j])
   | i in 1..m, j in 1..n
-] ++ ["\n"] ;
+  ] ++ ["\n"] ;
 
-%output [
-%    show(sizes) ++ " " ++ show(Dec_Matrix) ++ " " ++ show(result)
-%];
-
-% A saida esta nos arquivos
-%   teamagain1_times.log
-%   teamagain2_times.log
-%   teamagain3_times.log
-%   teamagain4_times.log
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,15 @@
+import mip.
+main => model.
+
+model =>
+   Vars = [X, Y],
+   Vars :: 1 .. 100,
+   
+   TheSum #= X + Y  ,
+
+   3*X*2  #> 4*Y*3  ,
+
+   solve($[max(TheSum)], Vars),
+   writeln(theSum = TheSum),
+   writeln(vars = Vars),
+   nl.
