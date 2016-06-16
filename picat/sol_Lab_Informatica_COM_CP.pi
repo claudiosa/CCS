@@ -15,7 +15,6 @@ main =>
         printf("\n ")  , 
         writeln('.........FIM.........').   
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 laboratorio(Lista) =>
@@ -72,8 +71,7 @@ laboratorio(Lista) =>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%MES
-	mes(Mes_1), mes(Mes_2), mes(Mes_3), mes(Mes_4), 
-	mes(Mes_5), 
+	mes(Mes_1), mes(Mes_2), mes(Mes_3), mes(Mes_4), mes(Mes_5), 
 	alldifferent([Mes_1, Mes_2, Mes_3, Mes_4, Mes_5 ]),
 	%Quem nasceu em Setembro está ao lado de quem gosta de suco de Laranja.
 	(
@@ -276,8 +274,8 @@ alldifferent([H|T]) => not(member(H,T)),
 
 imprime([ ]) ?=> true. % nl, writeln('...FIM...').
 imprime([Mochila, Nome, Mes, Jogo, Materia, Suco|T])=> 
-         %write('.............'),     
+        %write('.............'),     
         writeln([Mochila, Nome, Mes, Jogo, Materia, Suco]),
-	    imprime(T).
+	imprime(T).
 
 /**********************************************************/
