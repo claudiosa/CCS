@@ -13,7 +13,7 @@ http://rachacuca.com.br/logica/problemas/turistas-na-copa/turma: 2015-2
 main ?=> 
      time(turista(L)),
     % writeln(L),
-	 imprime(L).
+      imprime(L).
 		 
 main => nl, 
        writeln('====================================================').   
@@ -22,8 +22,8 @@ main => nl,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 turista(Lista) ?=>
 
-    Lista = 
-	[[Camisa_1, Nacionalidade_1, Bebida_1, Dias_1, Idade_1, Companhia_1],
+    Lista = [
+     [Camisa_1, Nacionalidade_1, Bebida_1, Dias_1, Idade_1, Companhia_1],
      [Camisa_2, Nacionalidade_2, Bebida_2, Dias_2, Idade_2, Companhia_2],
      [Camisa_3, Nacionalidade_3, Bebida_3, Dias_3, Idade_3, Companhia_3],
      [Camisa_4, Nacionalidade_4, Bebida_4, Dias_4, Idade_4, Companhia_4],
@@ -39,7 +39,6 @@ camisa(Camisa_3),
 camisa(Camisa_4),
 camisa(Camisa_5),
 alldifferent([Camisa_1, Camisa_2, Camisa_3, Camisa_4, Camisa_5]),
-
 
 %19 Os turistas das Camisa_s amarela e vermelha estão lado a lado.
 (
@@ -293,13 +292,13 @@ companhia(filho).
 companhia(irma).
 companhia(esposa).
 companhia(namorada).
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 alldifferent([]) ?=> true.
 alldifferent([H|T]) => not(member(H,T)),
                        alldifferent(T).
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 imprime([]) ?=> true. 
 imprime([[Camisa, Nacionalidade, Bebida, Dias, Idade, Companhia]|T]) => 
         writeln([Camisa, Nacionalidade, Bebida, Dias, Idade, Companhia]),
-	    imprime(T).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
