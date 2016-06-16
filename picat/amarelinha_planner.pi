@@ -1,5 +1,6 @@
+
 %%%By ccs and Roger -- DCC UDESC
-% the problem ...
+%% the problem ...
 
 /*
      X2      X5
@@ -132,17 +133,18 @@ main  ?=>
     printf("\n Total of moviments: %w", Num_Movts),
     printf("\n CPU TIME INIC: %w  FIM %w",     T1, T2),
     printf(" \n =========================================\n ")
+
     .
    
 main => nl, write('No solution in the model  ... Houston we have a trouble!!!!' ) .
 
 /* ************************************************************/
 /*
-      X2       X5
-    /    \   /    \
-  X1       X4      X7
-   \     /   \    /
-     X3        X6
+     X2      X5
+    /    \    /    \
+X1     X4       X7
+   \     /    \     /
+     X3      X6
 */
 
 /************************************************************/
