@@ -1,4 +1,4 @@
-% 3 Jogos Olı́mpicos à Vista
+%  Jogos Olı́mpicos à Vista
 % Com as proximidades dos Jogos Olı́mpicos temos a dificuldade dos capitães escolherem os
 % atletas de uma dada modalidade. Assim cada capitão (m) terá que escolher um valor k de
 % atletas de seu plantel, que contém n atletas a serem escolhidos.
@@ -31,54 +31,68 @@
 % Ou seja, a saı́da acima é reflexiva aos n atletas onde cada posição indica o atleta em questão.
 % Claro, que nenhum atleta pode ser selecionado por dois técnicos simultaneamente.
 
+%%include "alldifferent.mzn";
 
-
-int : n = 10;
-int : m = 3;
-array[1..m, 1..n] of int:  value;
+int : n = 10; %% jogadores
+int : m = 3;  %% tecnicos 
+array[1..m, 1..n] of int:  notas;
 %%% NOTAS DOS TECNICOS 
- value = 
+notas = 
     [| 4, 5, 6, 7, 2, 1, 0, 4, 5, 6      %% T1
      | 0, 5, 8, 7, 3, 2, 1, 5, 4, 7      %% T2
      | 5, 4, 5, 6, 3, 1, 0, 4, 6, 4      %% T3
      |];
 
+%% De cada um dos N jogadores serah selecionado por um dos M tecnicos
+array[ 1 .. n ] of var 1..m : Dec_Matrix;
+
+%% M times ...de 1 ate n jogadores .... todos em um time so
+array[ 1 .. m ] of var 1..n : sizes; %%% Vini e Renan
+ %% NOTAS PARCIAIS DOS TIMES
+array[ 1 .. m ] of var int : Sum_of_Teams;
+
+%%% Funcao objetivo ::: faca o desenho
+var int: result ;  
 
 
+%%% Calcula o tamanho de cada time ... 
+constraint  
+ forall(i in 1..m) ( 
+%  sizes[i]  =  sum(j in 1..n) (Dec_Matrix[j] == i) EQUIVALENTE A
+   sizes[i]  =  sum([bool2int(Dec_Matrix[j] == i) | j in 1..n] ) 
+       );
 
-
-
-array[      1..n] of var 1..m : times;
-array[1..m      ] of var 1..n : sizes;
-var int: result;
-
-% Calcula o tamanho de cada time
+% Garante que a diferenca maxima eh 1 entre o tamanho das equipes em O(n^2)
+%% By Renan and Vini 
 constraint
-    forall (i in 1..m) (
-        sizes[i] = sum (j in 1..n where times[j] == i) (1)
+    forall (i , j in 1..m) (
+        abs (sizes[i] - sizes[j])  <= 1
     );
+%% todos com todos ... pode ser melhorado...
 
-% Garante q a diferenca maxima eh 1 entre o tamanho das equipes em O(n^2)
+%%% parciais dos coaches/tecnicos ... AINDA eficiente  ... tem que relacionar SIZE
 constraint
-    forall (i, j in 1..m) (
-        abs (
-            sizes[i] - sizes[j]
-        ) <= 1
-    );
+    forall( i in 1 .. m ) (
+  % Sum_of_Teams[i] = sum([notas[Dec_Matrix[j], j] | j in 1 .. n where Dec_Matrix[j] == i])  %%% Equivalente a
+  Sum_of_Teams[i] = sum([notas[Dec_Matrix[j], j] * bool2int(Dec_Matrix[j] == i) | j in 1..n])
+  );
 
-% FUncao objetivo
+%% objetivo
 constraint
-    result = sum (j in 1..n) (value[times[j], j]);
+     result = sum(i in 1..m) (Sum_of_Teams[i]) ;
+
 
 % SELECT_VAR e DOMAIN_VAR sao modificados por um script black_magic.sh
-%solve :: int_search(times, SELECT_VAR, DOMAIN_VAR, complete) maximize result;
-solve  maximize result;
-output [
-    show(sizes) ++ " " ++ show(times) ++ " " ++ show(result)
-];
+%solve :: int_search(Dec_Matrix, SELECT_VAR, DOMAIN_VAR, complete) maximize result;
 
-% A saida esta nos arquivos
-%   teamagain1_times.log
-%   teamagain2_times.log
-%   teamagain3_times.log
-%   teamagain4_times.log
+solve  maximize result;
+
+output 
+  [
+  "Best: " ++ show(result) ++ " \t Sizes: " ++ show(sizes) ++
+  "\t Times: "++ show(fix(Dec_Matrix)) 
+  %% ++ "\t Parcial: " ++ show(fix(Sum_of_Teams)) %%% DEMORANDO WHY ????
+  ] ++ 
+   ["\n"] ;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,15 +1,19 @@
 import mip.
-main => model.
+main => go.
 
-model =>
-   Vars = [X, Y],
-   Vars :: 1 .. 100,
-   
-   TheSum #= X + Y  ,
+go =>
+  
+  Vars = [X,Y],
+  Vars :: 0.0 .. 1000.0,
 
-   3*X*2  #> 4*Y*3  ,
+  X #>= 0.17,
+  Y #>= 0.17,
+  
+ % Y #= (X*2)*0.17,
 
-   solve($[max(TheSum)], Vars),
-   writeln(theSum = TheSum),
-   writeln(vars = Vars),
-   nl.
+ Y #= (quad(X)) * 0.17,
+  solve(Vars),
+  println(Vars),
+  nl.
+  
+quad(X) = R =>  R = X*X.

@@ -1,0 +1,21 @@
+ %import cp.  
+import mip.
+
+main ?=> 
+     time(modelo) .
+		 
+main => nl, 
+        writeln('.........Houston .... we have a problem ........').   
+
+modelo =>
+    X :: 0.0 .. 20.0,
+    Y :: -4.0 .. 20.0,
+
+     %Y #=  pow(X,2) , %%% + (16*X) - (64 + 16),
+    
+     Y #= (X*X) + (16*X) - (64 + 16),
+
+     solve($[max(Y)] , [X,Y] ),
+    
+     printf("X:%f \t Y:%f \n ", X, Y).
+
