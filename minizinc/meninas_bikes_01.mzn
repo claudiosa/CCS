@@ -1,9 +1,3 @@
-%
-% Classical Assignment Problem in Minizinc
-% 
-% Model created by Hakan Kjellerstrand, hakank@bonetmail.com
-% Adapted  by CCS
-%
 
 int: rows;
 int: cols;
@@ -24,26 +18,22 @@ array[1..rows, 1..cols] of var 0..1: x;
 array[1..rows, 1..cols] of int:  cost;
 var int: total_cost;
 
-
 %
 % exacly one assignment per row, all rows must be assigned
 %
 constraint  
  forall(i in 1..rows) (
-        sum(j in 1..cols) (x[i,j]) = 1
- )
-;
+        sum(j in 1..cols) (x[i,j]) == 1
+        );
 
 % zero or one assignments per column
 constraint 
   forall(j in 1..cols) (
         sum(i in 1..rows) (x[i,j]) <= 1
-  )
-;
+        );
 
 constraint
 total_cost = sum(i in 1..rows, j in 1..cols) (x[i,j]*cost[i,j]);
-
 
 % minimize total_cost
 solve minimize total_cost;

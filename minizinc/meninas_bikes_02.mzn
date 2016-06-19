@@ -1,7 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Classical Assignment Problem in Minizinc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classical Assignment Problem
 %% MODEL CREATED by CCS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 include "alldifferent.mzn";
 
 int: rows;
@@ -19,21 +19,22 @@ cost = [|7, 6, 4, 9,
         |]
         ;
 
-array[1..rows] of var 1..4 : x; %%% DECISION OTHER DOMAINS
+array[1..rows] of var 1..cols : x; %%% DECISION SOBRE DOMINIOS
 array[1..rows, 1..cols] of int:  cost;
 var int: total_cost;
 
 constraint  
-      alldifferent(x);
+      alldifferent(x); %% um vetor que indica a coluna selecionada
 
 constraint
-  total_cost = sum(i in 1..rows) ( cost[i,x[i]] );
+  total_cost = sum(i in 1..rows) ( cost[ i, x[i] ] );
 
 % minimize total_cost
 solve minimize total_cost;
 
 output [  
-       "Menina "++ show(i) ++ " = "++  show(x[i]) ++ "\n"
-        | i in 1..rows]
-       ++ [ "CUSTO FINAL: " ++ show(total_cost) ++ "\n" ] ;
+        "Menina "++ show(i) ++ " = " ++  
+        show(x[i]) ++ "\t"
+        | i in 1..rows ]  ++ 
+       [ "CUSTO FINAL: " ++ show(total_cost) ++ "\n" ] ;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
