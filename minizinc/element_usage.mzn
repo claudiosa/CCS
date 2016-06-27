@@ -14,15 +14,15 @@ custo = [| 1 , 11 , 5 , 7 , 13,   %% MAQ1
          ;
 
 %INDICES >>>> 3 escolhas APENAS tarefas....
-var 1 .. tarefas : A; 
+var 1 .. tarefas : A; %%% indice para MAQ1 ....
 var 1 .. tarefas : B; 
 var 1 .. tarefas : C;
-var int : result;
+var int : result;  
 array[1 .. maquinas] of var 1 .. tarefas : maq_selec;
 
 %array[1 .. tarefas] of var 1 .. maquinas: tar_selec;
-%%% PROBLEMA AQUI .... pois aqui #maquinas < #tarefas
-%% UMA MAQUINA = UMA TAREFA .... hum hum 
+% PROBLEMA AQUI .... pois aqui #maquinas < #tarefas
+% se UMA MAQUINA = UMA TAREFA .... seria BEM diferente
 
 constraint all_different([A,B,C]);
 %constraint 
