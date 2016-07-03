@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {portuges}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@sectionintoc {2}{Caracter\IeC {\'\i }sticas}{7}{0}{2}
+\beamer@sectionintoc {3}{Tipos de Dados}{17}{0}{3}
+\beamer@sectionintoc {4}{Exemplos}{28}{0}{4}
+\beamer@sectionintoc {5}{Conclus\IeC {\~a}o}{33}{0}{5}

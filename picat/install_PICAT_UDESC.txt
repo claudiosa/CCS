@@ -7,3 +7,20 @@ Os passos iniciais de instalação do PICAT
 5. Editar em um editor programas
 6. Executar na console onde o Picat foi instalado
 7. Fique entre os passos 5 e 6
+
+Em sua casa:
+
+
+1. Baixar de http://picat-lang.org/download.html  Windows ou Linux
+2. Como su
+3. Va para cd /usr/local/
+4. em /usr/local# tar -xvf picat19_linux64.tar.gz para
+   descompactar em um diretório qualquer (sem espaços e sem acento)
+5. No linux tar -xvf  ..... tar.gz
+4. Criar link simbolico exemplo
+   root@XXXXX:/usr/local# ln - /usr/local/Picat/picat /usr/bin/picat
+6. Editar em um editor programas
+7. Executar na console onde o Picat foi instalado
+8. Fique entre os passos 6 e 7
+
+Ou seja ... tudo igual exceto a criacao do link simbolico para o aplicativo!

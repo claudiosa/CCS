@@ -90,7 +90,7 @@ Universidade do Estado de Santa Catarina}
     \textbf{Pattern-matching}:\\ 
     Utiliza o conceito de casamento padrão. 
     Um predicado define uma relação e pode ter zero ou várias respostas. 
-    Uma função é um predicao especial que sempre retorna uma única resposta. 
+    Uma função é um predicado especial que sempre retorna uma única resposta. 
     Ambos são definidos com regras de Picat, e seus predicados e funções seguem as regras do casamento.
 \end{frame}
 
@@ -101,7 +101,7 @@ Universidade do Estado de Santa Catarina}
     \textbf{Intuitive}:\\ 
     O Picat oferece atribuições e laços de repetições para a programação dos dias de hoje. 
     Uma variável atribuída pode imitar várias variáveis lógicas, alterado seu valor seguindo o estado da computação. 
-    As atribuições são úteis para associar os termos, bem como utilizadas nas estruturas de laços repretitivos. 
+    As atribuições são úteis para associar os termos, bem como utilizadas nas estruturas de laços repetitivos. 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,9 +120,11 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Características: P-I-C-\textcolor{red}{A}-T}
     \textbf{Actors}:\\ 
-    Atores são chamadas orientadas a eventos. 
-    O Picat fornece regras de ação para descrever o comportamento dos atores. 
-    Eventos são postados através de canais e um ator pode ser conectado a um canal, afim de verificar ou processar seus eventos.  
+    Atores são chamadas orientadas à eventos.
+		Em Picat, as regras de ação descrevem comportamentos dos atores.
+		Um ator recebe um objeto e dispara uma ação. 
+		Os eventos são postados via canais de mensagem e um ator pode ser conectado há um canal, verificar e/ou processar seus eventos postados no canal.
+		Neste ponto, estes atores desempenham características de área de Inteligência Artificial, especificamente a áreas de planejamento e sistemas multi-agentes.   
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,9 +132,9 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Características: P-I-C-A-\textcolor{red}{T}}
     \textbf{Tabling}:\\ 
-    É possível guardar o resultado de certas operações na memória, 
-    permitindo que o programa acesse esse valor novamente invés de repetir a operações. 
-    Com isso oferece soluções imediatas para programação dinamicas em diversos problemas. 
+    Considerando que operações entre variáveis podem ser armazenadas parcialmente em uma tabela na memória, permitindo que um programa acesse valores já calculados.
+		Assim, evita-se a repetição de operações já realizadas.
+		Com esta técnica de memoization, o Picat oferece soluções imediatas para problemas de programação dinâmica.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,12 +143,12 @@ Universidade do Estado de Santa Catarina}
     \frametitle{Comparações}
     \begin{table}[!bh]
 \centering
-\caption{Comparativo entre algumas linguagens}
+\caption{Comparativo entre algumas linguagens: \url{https://rosettacode.org/wiki/Language_Comparison_Table}}
 \label{tabela_ling_refs}
 {\tiny
 %%%\begin{tabular}{c|c|c|c|c|c|c}\hline \hline
 %\begin{tabular}{C{2cm}|C{1.4cm}|C{1.4cm}|C{1.4cm}|C{1.4cm}|C{1.4cm}|C{1.4cm}}\hline \hline
-\begin{tabular}{p{2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}}\hline \hline
+\begin{tabular}{p{2cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}}\hline \hline
       &\textbf{C}  &  \textbf{Haskell} &  \textbf{Java} &  \textbf{Prolog} &  \textbf{P.I.C.A.T}\\ \hline \hline
 	    
 Paradigma(s)	                        & procedural                                    & funcional                               & orientado à objetos   &  lógico                                             & multi-paradigma \\
@@ -158,7 +160,10 @@ Tipagem	        & fraca                                         & forte         
 Verificação de tipos	                & estático                                      & estático                                & estático                              & dinâmico                                   & dinâmico \\
 
 \hline  
-Possui segurança?	                & não                                             & sim                                      & sim                                            & sim                                          & sim\\
+Possui segurança?	                & não                                             & sim                                      & sim                                            & não                                          & sim\\
+
+\hline  
+Possui coletor de lixo?	                        & não                                                                        & sim                 &  sim                  & sim                                     & sim \\
 
 \hline  
 Passagem de parâmetros	                &  valor & -                                       &  valor                                     &  valor & casamento \\
@@ -316,9 +321,50 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+    \frametitle{Estruturas}
+    A forma de uma estrutura é definida como \$s(t1, t2, ..., tn),onde s é um átomo e \$ é usado para diferenciar uma função. 
+    Seus principais elementos são o nome da estrutura que é o átomo que fica na frente e a aridade (número de argumentos do predicado). 
+    Veja o exemplo:
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Estruturas}
+    \texttt{Picat> N = \$nome(1,2,3,4,5), struct(N), arity(N) = Aridade,}\\
+    \texttt{to\_list(N) = Lista.}\\
+
+    \texttt{N = nome(1,2,3,4,5)}\\
+    \texttt{Aridade = 5}\\
+    \texttt{Lista = [1,2,3,4,5]}\\
+    \texttt{yes.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Estruturas}
+    \texttt{Picat> N = \$(1,2,3,4,5), struct(N), arity(N) = Aridade,}\\
+    \texttt{to\_list(N) = Lista.}\\
+
+    \texttt{N = (1,2,3,4,5)}\\
+    \texttt{Aridade = 2}\\
+    \texttt{Lista = [1,(2,3,4,5)]}\\
+    \texttt{yes.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Exemplos}
 \begin{frame}
     \frametitle{Exemplos}
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.6\textwidth]{exercicio.jpg}
+    %\caption{Hierarquia dos Tipos de dados}
+    %\label{Hiera}
+    \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,6 +390,25 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+    \frametitle{Soma até N}
+    \texttt{Soma como predicado}\\
+    \texttt{soma\_p(0,S) => S = 0.}\\
+    \texttt{soma\_p(N,S), N > 0 =>}\\
+    \texttt{\qquad \qquad \qquad \qquad \qquad soma\_p(N-1, Parcial),}\\
+    \texttt{\qquad \qquad \qquad \qquad \qquad S = N + Parcial.}\\
+		\texttt{}\\
+		\texttt{Soma como Função - Classic}\\
+		\texttt{soma\_f1(0) = S => S = 0.}\\
+		\texttt{soma\_f1(N) = S, N >= 1 => S = N + soma\_f1 (N-1).}\\
+		\texttt{}\\
+		\texttt{Soma como função de fatos - próx. à Haskell}\\
+		\texttt{soma\_f2(0) 0.}\\
+		\texttt{soma\_f2(N) = N + soma\_f2 (N-1).}\\
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
     \frametitle{Entradas e Saídas}
     \texttt{main =>}\\
     \texttt{printf("Digite dois números: "),}\\
@@ -359,11 +424,12 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 \section{Conclusão}
 \begin{frame}
     \frametitle{Conclusão}
-    PICAT é uma linguagem nova (2013), desconhecida, revolucionária e com um futuro promissor para áreas de pesquisas e utilização comercial.
-    
-    Atualmente há pouco material disponível e uma comunidade pequena de usuários, 
+    \begin{itemize}
+    \item PICAT é uma linguagem nova (2013), desconhecida, revolucionária e com um futuro promissor para áreas de pesquisas e utilização comercial.
+    \item Atualmente há pouco material disponível e uma comunidade pequena de usuários, 
     mas existe um site atualizado e mantido por Hakan Kjellerstrand e um fórum de discussão no próprio site que está cada dia mais ativo, 
-    graças ao crescimento de usuários desta linguagem. 
+    graças ao crescimento de usuários desta linguagem.
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

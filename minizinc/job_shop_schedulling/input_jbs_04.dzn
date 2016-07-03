@@ -1,0 +1,17 @@
+n_jobs = 3;
+
+n_machines = 4;
+
+job_time = array2d(jobs, machines,
+ [
+   10,  8,   4,  0,  
+   3,   8,   6,  5,  
+   4,   7,   0,  3    
+  ]);
+
+job_sequence =  array2d(jobs, machines,
+  [
+   1 , 2,  3,  0,
+   2,  1,  4,  3,
+   1,  2,  0,  4
+  ]);
