@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.6.24)  16 MAY 2016 09:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.6.24)  27 JUN 2016 08:57
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**slides-apresentacao-picat.tex
-(./slides-apresentacao-picat.tex
+**Picat_b.tex
+(./Picat_b.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 79 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -106,10 +106,6 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen126
 \Gm@dimlist=\toks15
 )
-
-Class beamer Warning: ``sans'' is obsolete. Just remove this option on input li
-ne 348.
-
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
@@ -705,7 +701,27 @@ Package: beamerinnerthemedefault 2013/10/15  (rcs-revision 65cb471f9634)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemede
 fault.sty
 Package: beamerouterthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
-))) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+))) (./udesc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemesp
+lit.sty
+Package: beamerouterthemesplit 2012/10/16  (rcs-revision 51a8c72084af)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemewh
+ale.sty
+Package: beamercolorthemewhale 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemero
+unded.sty
+Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemeor
+chid.sty
+Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemest
+ructure.sty
+Package: beamercolorthemestructure 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2014/04/30 v1.2b Input encoding file
 \inpenc@prehook=\toks43
 \inpenc@posthook=\toks44
@@ -931,6 +947,26 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen188
+\lightrulewidth=\dimen189
+\cmidrulewidth=\dimen190
+\belowrulesep=\dimen191
+\belowbottomsep=\dimen192
+\aboverulesep=\dimen193
+\abovetopsep=\dimen194
+\cmidrulesep=\dimen195
+\cmidrulekern=\dimen196
+\defaultaddspace=\dimen197
+\@cmidla=\count153
+\@cmidlb=\count154
+\@aboverulesep=\dimen198
+\@belowrulesep=\dimen199
+\@thisruleclass=\count155
+\@lastruleclass=\count156
+\@thisrulewidth=\dimen200
+)
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2014/03/24 3.9k The Babel package
 
@@ -939,418 +975,397 @@ Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2014/03/24 3.9k Babel common definitions
-\babel@savecnt=\count153
-\U@D=\dimen188
+\babel@savecnt=\count157
+\U@D=\dimen201
 LaTeX Info: Redefining \textlatin on input line 1428.
 )
-\l@brazilian = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/base/fixltx2e.sty
-Package: fixltx2e 2014/06/10 v1.1r fixes to LaTeX
-LaTeX Info: Redefining \em on input line 430.
-LaTeX Info: The control sequence `\[' is already robust on input line 481.
-LaTeX Info: The control sequence `\]' is already robust on input line 482.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/svg/svg.sty
-Package: svg 2012/09/05 v1.0 SVG inclusion and extraction
-
-(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2014/05/25 v2.7 package option processing (HA)
-
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks45
-\XKV@tempa@toks=\toks46
-)
-\XKV@depth=\count154
-File: xkeyval.tex 2014/05/25 v2.7 key=value parser (HA)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
-Package: subfig 2005/06/28 ver: 1.3 subfig package
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen189
-\captionmargin@=\dimen190
-\captionwidth=\dimen191
-\caption@tempdima=\dimen192
-\caption@indent=\dimen193
-\caption@parindent=\dimen194
-\caption@hangindent=\dimen195
-)
-\c@ContinuedFloat=\count155
-Package caption Info: beamer document class.
-Package caption Info: hyperref package is loaded.
-Package caption Info: Hyperref support is turned off
-(caption)             because hyperref has stopped early.
-)
-\c@KVtest=\count156
-\sf@farskip=\skip57
-\sf@captopadj=\dimen196
-\sf@capskip=\skip58
-\sf@nearskip=\skip59
-\c@subfigure=\count157
-\c@subfigure@save=\count158
-\c@depth=\count159
-\c@subtable=\count160
-\c@subtable@save=\count161
-\sf@top=\skip60
-\sf@bottom=\skip61
-)
-(/usr/share/texlive/texmf-dist/tex/latex/import/import.sty
-Package: import 2009/03/23  v 5.1
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/transparent.sty
-Package: transparent 2007/01/08 v1.0 Transparency via pdfTeX's color stack (HO)
-
-)
-\SVG@out@width=\skip62
-\SVG@out@height=\skip63
-\c@svgfigure=\count162
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip64
-\LTright=\skip65
-\LTpre=\skip66
-\LTpost=\skip67
-\LTchunksize=\count163
-\LTcapwidth=\dimen197
-\LT@head=\box53
-\LT@firsthead=\box54
-\LT@foot=\box55
-\LT@lastfoot=\box56
-\LT@cols=\count164
-\LT@rows=\count165
-\c@LT@tables=\count166
-\c@LT@chunks=\count167
-\LT@p@ftn=\toks47
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
-Package textcomp Info: Sub-encoding information:
-(textcomp)               5 = only ISO-Adobe without \textcurrency
-(textcomp)               4 = 5 + \texteuro
-(textcomp)               3 = 4 + \textohm
-(textcomp)               2 = 3 + \textestimated + \textcurrency
-(textcomp)               1 = TS1 - \textcircled - \t
-(textcomp)               0 = TS1 (full)
-(textcomp)             Font families with sub-encoding setting implement
-(textcomp)             only a restricted character set as indicated.
-(textcomp)             Family '?' is the default used for unknown fonts.
-(textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-Now handling font encoding TS1 ...
-... processing UTF-8 mapping file for font encoding TS1
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
-   defining Unicode char U+00A2 (decimal 162)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00A4 (decimal 164)
-   defining Unicode char U+00A5 (decimal 165)
-   defining Unicode char U+00A6 (decimal 166)
-   defining Unicode char U+00A7 (decimal 167)
-   defining Unicode char U+00A8 (decimal 168)
-   defining Unicode char U+00A9 (decimal 169)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AC (decimal 172)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00AF (decimal 175)
-   defining Unicode char U+00B0 (decimal 176)
-   defining Unicode char U+00B1 (decimal 177)
-   defining Unicode char U+00B2 (decimal 178)
-   defining Unicode char U+00B3 (decimal 179)
-   defining Unicode char U+00B4 (decimal 180)
-   defining Unicode char U+00B5 (decimal 181)
-   defining Unicode char U+00B6 (decimal 182)
-   defining Unicode char U+00B7 (decimal 183)
-   defining Unicode char U+00B9 (decimal 185)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+00BC (decimal 188)
-   defining Unicode char U+00BD (decimal 189)
-   defining Unicode char U+00BE (decimal 190)
-   defining Unicode char U+00D7 (decimal 215)
-   defining Unicode char U+00F7 (decimal 247)
-   defining Unicode char U+0192 (decimal 402)
-   defining Unicode char U+02C7 (decimal 711)
-   defining Unicode char U+02D8 (decimal 728)
-   defining Unicode char U+02DD (decimal 733)
-   defining Unicode char U+0E3F (decimal 3647)
-   defining Unicode char U+2016 (decimal 8214)
-   defining Unicode char U+2020 (decimal 8224)
-   defining Unicode char U+2021 (decimal 8225)
-   defining Unicode char U+2022 (decimal 8226)
-   defining Unicode char U+2030 (decimal 8240)
-   defining Unicode char U+2031 (decimal 8241)
-   defining Unicode char U+203B (decimal 8251)
-   defining Unicode char U+203D (decimal 8253)
-   defining Unicode char U+2044 (decimal 8260)
-   defining Unicode char U+204E (decimal 8270)
-   defining Unicode char U+2052 (decimal 8274)
-   defining Unicode char U+20A1 (decimal 8353)
-   defining Unicode char U+20A4 (decimal 8356)
-   defining Unicode char U+20A6 (decimal 8358)
-   defining Unicode char U+20A9 (decimal 8361)
-   defining Unicode char U+20AB (decimal 8363)
-   defining Unicode char U+20AC (decimal 8364)
-   defining Unicode char U+20B1 (decimal 8369)
-   defining Unicode char U+2103 (decimal 8451)
-   defining Unicode char U+2116 (decimal 8470)
-   defining Unicode char U+2117 (decimal 8471)
-   defining Unicode char U+211E (decimal 8478)
-   defining Unicode char U+2120 (decimal 8480)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+2126 (decimal 8486)
-   defining Unicode char U+2127 (decimal 8487)
-   defining Unicode char U+212E (decimal 8494)
-   defining Unicode char U+2190 (decimal 8592)
-   defining Unicode char U+2191 (decimal 8593)
-   defining Unicode char U+2192 (decimal 8594)
-   defining Unicode char U+2193 (decimal 8595)
-   defining Unicode char U+2329 (decimal 9001)
-   defining Unicode char U+232A (decimal 9002)
-   defining Unicode char U+2422 (decimal 9250)
-   defining Unicode char U+25E6 (decimal 9702)
-   defining Unicode char U+25EF (decimal 9711)
-   defining Unicode char U+266A (decimal 9834)
-))
-LaTeX Info: Redefining \oldstylenums on input line 266.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
-
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/marvosym/marvosym.sty
-Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
-)
-(/usr/share/texlive/texmf-dist/tex/latex/wasysym/wasysym.sty
-Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
-\symwasy=\mathgroup6
-LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
-(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
-Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
-\symlasy=\mathgroup7
-LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
-(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2014/04/23 v1.8e multicolumn formatting (FMi)
-\c@tracingmulticols=\count168
-\mult@box=\box57
-\multicol@leftmargin=\dimen198
-\c@unbalance=\count169
-\c@collectmore=\count170
-\doublecol@number=\count171
-\multicoltolerance=\count172
-\multicolpretolerance=\count173
-\full@width=\dimen199
-\page@free=\dimen200
-\premulticols=\dimen201
-\postmulticols=\dimen202
-\multicolsep=\skip68
-\multicolbaselineskip=\skip69
-\partial@page=\box58
-\last@line=\box59
-\maxbalancingoverflow=\dimen203
-\mult@rightbox=\box60
-\mult@grightbox=\box61
-\mult@gfirstbox=\box62
-\mult@firstbox=\box63
-\@tempa=\box64
-\@tempa=\box65
-\@tempa=\box66
-\@tempa=\box67
-\@tempa=\box68
-\@tempa=\box69
-\@tempa=\box70
-\@tempa=\box71
-\@tempa=\box72
-\@tempa=\box73
-\@tempa=\box74
-\@tempa=\box75
-\@tempa=\box76
-\@tempa=\box77
-\@tempa=\box78
-\@tempa=\box79
-\@tempa=\box80
-\c@columnbadness=\count174
-\c@finalcolumnbadness=\count175
-\last@try=\dimen204
-\multicolovershoot=\dimen205
-\multicolundershoot=\dimen206
-\mult@nat@firstbox=\box81
-\colbreak@box=\box82
-\mc@col@check@num=\count176
-)
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
-Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
-LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
-File: upzd.fd 2001/06/04 font definitions for U/pzd.
-)
-LaTeX Font Info:    Try loading font information for U+psy on input line 64.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd
-File: upsy.fd 2001/06/04 font definitions for U/psy.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count177
-\lst@gtempboxa=\box83
-\lst@token=\toks48
-\lst@length=\count178
-\lst@currlwidth=\dimen207
-\lst@column=\count179
-\lst@pos=\count180
-\lst@lostspace=\dimen208
-\lst@width=\dimen209
-\lst@newlines=\count181
-\lst@lineno=\count182
-\lst@maxwidth=\dimen210
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
-\c@lstnumber=\count183
-\lst@skipnumbers=\count184
-\lst@framebox=\box84
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2014/03/04 1.5c listings configuration
-))
-Package: listings 2014/03/04 1.5c (Carsten Heinz)
-
-(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
-\CommentStream=\write5
-
-Excluding comment 'comment')
-(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeBoadill
-a.sty
-Package: beamerthemeBoadilla 2010/06/17  (rcs-revision d02a7cf4d8ae)
-
-(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemero
-se.sty
-Package: beamercolorthemerose 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemero
-unded.sty
-Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemedo
-lphin.sty
-Package: beamercolorthemedolphin 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemein
-folines.sty
-Package: beamerouterthemeinfolines 2012/10/16  (rcs-revision 51a8c72084af)
-))
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 59.
+(hyperref)                removing `\\' on input line 15.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 59.
+(hyperref)                removing `\new@ifnextchar' on input line 15.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 59.
+(hyperref)                removing `\medskipamount' on input line 15.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 59.
+(hyperref)                removing `\begingroup' on input line 15.
 
-(./slides-apresentacao-picat.aux)
-\openout1 = `slides-apresentacao-picat.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 66.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 66.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\%' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\#' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\&' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\textunderscore' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\_' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\~' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\textasciitilde' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Hy@tempa' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Hy@tempa' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\%' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\#' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\&' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\textunderscore' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\_' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\catcode' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\active' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\~' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\textasciitilde' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\csname\endcsname' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Hy@tempa' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Hy@tempa' on input line 15.
+
+(./Picat_b.aux)
+\openout1 = `Picat_b.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1360,14 +1375,14 @@ LaTeX Font Info:    ... okay on input line 66.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(10.88002pt, 342.43532pt, 10.88002pt)
+* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
 * v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
 * \paperwidth=364.19536pt
 * \paperheight=273.14662pt
-* \textwidth=342.43532pt
+* \textwidth=307.28987pt
 * \textheight=244.6939pt
-* \oddsidemargin=-61.38997pt
-* \evensidemargin=-61.38997pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
 * \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
@@ -1388,17 +1403,17 @@ LaTeX Font Info:    ... okay on input line 66.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count185
-\scratchdimen=\dimen211
-\scratchbox=\box85
-\nofMPsegments=\count186
-\nofMParguments=\count187
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count188
-\MPscratchDim=\dimen212
-\MPnumerator=\count189
-\makeMPintoPDFobject=\count190
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count158
+\scratchdimen=\dimen202
+\scratchbox=\box53
+\nofMPsegments=\count159
+\nofMParguments=\count160
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count161
+\MPscratchDim=\dimen203
+\MPnumerator=\count162
+\makeMPintoPDFobject=\count163
+\everyMPtoPDFconversion=\toks46
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1415,8 +1430,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box86
-Package hyperref Info: Link coloring OFF on input line 66.
+\AtBeginShipoutBox=\box54
+Package hyperref Info: Link coloring OFF on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1424,73 +1439,73 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count191
+\c@section@level=\count164
 )
-LaTeX Info: Redefining \ref on input line 66.
-LaTeX Info: Redefining \pageref on input line 66.
-LaTeX Info: Redefining \nameref on input line 66.
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
+LaTeX Info: Redefining \nameref on input line 24.
 
-(./slides-apresentacao-picat.out) (./slides-apresentacao-picat.out)
-\@outlinefile=\write6
-\openout6 = `slides-apresentacao-picat.out'.
+(./Picat_b.out) (./Picat_b.out)
+\@outlinefile=\write5
+\openout5 = `Picat_b.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 66.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 24.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 66.
-\symnumbers=\mathgroup8
-\sympureletters=\mathgroup9
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 24.
+\symnumbers=\mathgroup6
+\sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 66.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 24.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 66.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 66.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 24.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 66.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 66.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 24.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 66.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 66.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 24.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 66.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 66.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 24.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 66.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 24.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 66.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 66.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 66.
+(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 66.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 66.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 24.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 66.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 66.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 24.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 24.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 66
+(Font)              `pureletters' in the math version `normal' on input line 24
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 66
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 24
 .
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 66.
+(Font)              `pureletters' in the math version `bold' on input line 24.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 6
-6.
+(Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 2
+4.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 66.
+ut line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
 ic-dictionary/translator-basic-dictionary-English.dict
@@ -1516,554 +1531,217 @@ Dictionary: translator-numbers-dictionary, Language: English
 orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 66.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: Incompatible package detected (regarding \caption).
-(caption)             \caption = macro:->\ifx \@captype \@undefined \@latex@err
-or {\noexpand \caption outside figure or table}\@ehd \expandafter \@gobble \els
-e \refstepcounter \@captype \expandafter \@firstofone \fi {\@dblarg {\@caption 
-\@captype }}.
+LaTeX Info: Redefining \includegraphics on input line 24.
+ (./Picat_b.nav)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 28.
 
-
-Package caption Warning: \caption will not be redefined since it's already
-(caption)                redefined by a document class or package which is
-(caption)                unknown to the caption package.
-See the caption package documentation for explanation.
-
-Package caption Info: listings package is loaded.
-Package caption Info: longtable package is loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2013/02/03 v1.3-62 longtable captions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count192
-
-(./slides-apresentacao-picat.nav)
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb)
-<fundoprog2.jpeg, id=46, 1606.0pt x 1204.5pt>
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 72.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
-
-
-LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 72.
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./fundoprog2.jpeg>]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
-
-(./slides-apresentacao-picat.vrb) (./slides-apresentacao-picat.toc)
-File: fundoprog2.jpeg Graphic file (type jpg)
-
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 79.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [2
-
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb
-LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 4.
-
-(/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
-File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
-)
-LaTeX Font Info:    Try loading font information for U+lasy on input line 4.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 4.
+line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-))
-File: fundoprog2.jpeg Graphic file (type jpg)
-
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 100.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [3
-
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
-
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 111.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [4
-
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb
-Overfull \hbox (2.0108pt too wide) in paragraph at lines 11--11
-[]\T1/cmss/bx/n/10 P.I.C.A.T| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-[]\T1/cmss/m/n/10 procedu-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-[]\T1/cmss/m/n/10 orientado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-[]\T1/cmss/m/n/10 multi-
- []
-
-
-Overfull \hbox (1.95526pt too wide) in paragraph at lines 13--14
-\T1/cmss/m/n/10 paradigma| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--19
-[]\T1/cmss/m/n/10 Verificação
- []
-
-
-Underfull \hbox (badness 3536) in paragraph at lines 22--22
-[]\T1/cmss/m/n/10 Possui se-gu-
- []
-
-
-Overfull \hbox (2.78839pt too wide) in paragraph at lines 25--26
-[]\T1/cmss/m/n/10 casamento| 
- []
-
 )
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 153.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [5
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
+(Font)              size <5> substituted on input line 28.
 
- (./slides-apresentacao-picat.vrb
-<figures/picatinstall.png, id=229, 912.40875pt x 460.72125pt>
-File: figures/picatinstall.png Graphic file (type png)
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-<use figures/picatinstall.png>
-Package pdftex.def Info: figures/picatinstall.png used on input line 5.
-(pdftex.def)             Requested size: 273.9493pt x 138.32991pt.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
+ <./udesc_background.pdf> <./udesc_logo.png>]
+\openout4 = `Picat_b.vrb'.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-))
-File: fundoprog2.jpeg Graphic file (type jpg)
+ (./Picat_b.vrb) (./Picat_b.toc) [2
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 167.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [6
+ <./udesc_logo.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 47.
 
- <./figures/picatinstall.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
+LaTeX Font Info:    No file OMScmss.fd. on input line 47.
 
 
-(./slides-apresentacao-picat.vrb
-<figures/tipos_dados_picat_traduzido.jpg, id=257, 242.40562pt x 191.21437pt>
-File: figures/tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 47.
 
-<use figures/tipos_dados_picat_traduzido.jpg>
-Package pdftex.def Info: figures/tipos_dados_picat_traduzido.jpg used on input 
-line 5.
-(pdftex.def)             Requested size: 205.46327pt x 162.08073pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 182.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [7
+[3
 
- <./figures/tipos_dados_picat_traduzido.jpg>]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>] [4
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
+ <./udesc_logo.png>] [5
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 211.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [8
+ <./udesc_logo.png>] [6
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>] [7
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
+ <./udesc_logo.png>] [8
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 225.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [9
+ <./udesc_logo.png>] [9
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>] [10
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
+ <./udesc_logo.png>] [11
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 240.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [10
+ <./udesc_logo.png>]
+Overfull \hbox (2.07545pt too wide) in paragraph at lines 181--181
+[]\T1/cmss/m/n/6 procedural| 
+ []
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[]\T1/cmss/m/n/6 orientado
+ []
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 251.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [11
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[]\T1/cmss/m/n/6 multi-
+ []
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 268.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [12
+Overfull \hbox (1.90344pt too wide) in paragraph at lines 181--181
+\T1/cmss/m/n/6 paradigma| 
+ []
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
+Underfull \hbox (badness 2818) in paragraph at lines 181--181
+[]\T1/cmss/m/n/6 Possui co-le-tor de
+ []
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 280.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [13
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+Overfull \hbox (2.56358pt too wide) in paragraph at lines 181--181
+[]\T1/cmss/m/n/6 casamento| 
+ []
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
+[12
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 296.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [14
+ <./udesc_logo.png>] [13
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>] [14
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
+ <./udesc_logo.png>]
+[15
 
-<use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 323.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [15
+ <./udesc_logo.png>] [16
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>]
+<tipos_dados_picat_traduzido.jpg, id=284, 242.40562pt x 191.21437pt>
+File: tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
 
- (./slides-apresentacao-picat.vrb
-<figures/picatnumeros.png, id=501, 613.54219pt x 218.31563pt>
-File: figures/picatnumeros.png Graphic file (type png)
-
-<use figures/picatnumeros.png>
-Package pdftex.def Info: figures/picatnumeros.png used on input line 5.
-(pdftex.def)             Requested size: 308.18968pt x 109.66388pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 337.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [16
-
- <./figures/picatnumeros.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 348.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+<use tipos_dados_picat_traduzido.jpg>
+Package pdftex.def Info: tipos_dados_picat_traduzido.jpg used on input line 241
+.
+(pdftex.def)             Requested size: 184.3758pt x 145.44696pt.
  [17
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png> <./tipos_dados_picat_traduzido.jpg>] [18
 
+ <./udesc_logo.png>] [19
 
-(./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 358.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [18
+ <./udesc_logo.png>] [20
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>] [21
 
+ <./udesc_logo.png>] [22
 
-(./slides-apresentacao-picat.vrb
-<figures/picatlista.png, id=585, 609.02531pt x 246.1697pt>
-File: figures/picatlista.png Graphic file (type png)
+ <./udesc_logo.png>] [23
 
-<use figures/picatlista.png>
-Package pdftex.def Info: figures/picatlista.png used on input line 5.
-(pdftex.def)             Requested size: 308.18968pt x 124.57576pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 372.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [19
+ <./udesc_logo.png>] [24
 
- <./figures/picatlista.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>] [25
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 383.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [20
+ <./udesc_logo.png>] [26
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>]
+[27
 
+ <./udesc_logo.png>] <exercicio.jpg, id=433, 422.57875pt x 171.64125pt>
+File: exercicio.jpg Graphic file (type jpg)
 
-(./slides-apresentacao-picat.vrb
-<figures/picatstring.png, id=640, 437.38406pt x 176.15813pt>
-File: figures/picatstring.png Graphic file (type png)
-
-<use figures/picatstring.png>
-Package pdftex.def Info: figures/picatstring.png used on input line 5.
-(pdftex.def)             Requested size: 308.18968pt x 124.12428pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 397.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [21
-
- <./figures/picatstring.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 409.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [22
-
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
-
-(./slides-apresentacao-picat.vrb
-<figures/picatestrutura.png, id=695, 572.1375pt x 185.94469pt>
-File: figures/picatestrutura.png Graphic file (type png)
-
-<use figures/picatestrutura.png>
-Package pdftex.def Info: figures/picatestrutura.png used on input line 5.
-(pdftex.def)             Requested size: 308.18968pt x 100.16177pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 423.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [23
-
- <./figures/picatestrutura.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 434.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [24
-
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
-
-(./slides-apresentacao-picat.vrb
-<figures/picatvetor.png, id=750, 426.09187pt x 177.66376pt>
-File: figures/picatvetor.png Graphic file (type png)
-
-<use figures/picatvetor.png>
-Package pdftex.def Info: figures/picatvetor.png used on input line 5.
-(pdftex.def)             Requested size: 308.18968pt x 128.51149pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 448.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [25
-
- <./figures/picatvetor.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 458.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [26
-
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
-
-(./slides-apresentacao-picat.vrb
-<figures/picatmapas.png, id=806, 566.115pt x 179.92218pt>
-File: figures/picatmapas.png Graphic file (type png)
-
-<use figures/picatmapas.png>
-Package pdftex.def Info: figures/picatmapas.png used on input line 5.
-(pdftex.def)             Requested size: 308.18968pt x 97.94994pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 472.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [27
-
- <./figures/picatmapas.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
-
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 484.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
+<use exercicio.jpg>
+Package pdftex.def Info: exercicio.jpg used on input line 368.
+(pdftex.def)             Requested size: 184.3758pt x 74.89117pt.
  [28
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png> <./exercicio.jpg>] [29
 
+ <./udesc_logo.png>] [30
 
-(./slides-apresentacao-picat.vrb
-<figures/picatconjuntos.png, id=859, 570.63188pt x 177.66376pt>
-File: figures/picatconjuntos.png Graphic file (type png)
+ <./udesc_logo.png>] [31
 
-<use figures/picatconjuntos.png>
-Package pdftex.def Info: figures/picatconjuntos.png used on input line 5.
-(pdftex.def)             Requested size: 308.18968pt x 95.95326pt.
-)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 498.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [29
+ <./udesc_logo.png>] [32
 
- <./figures/picatconjuntos.png>]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>]
+[33
 
- (./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 512.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [30
+ <./udesc_logo.png>] [34
 
-]
-\openout4 = `slides-apresentacao-picat.vrb'.
+ <./udesc_logo.png>] [35
 
+ <./udesc_logo.png>]
+\tf@nav=\write6
+\openout6 = `Picat_b.nav'.
 
-(./slides-apresentacao-picat.vrb)
-File: fundoprog2.jpeg Graphic file (type jpg)
- <use fundoprog2.jpeg>
-Package pdftex.def Info: fundoprog2.jpeg used on input line 533.
-(pdftex.def)             Requested size: 364.17706pt x 273.15117pt.
- [31
+\tf@toc=\write7
+\openout7 = `Picat_b.toc'.
 
-]
-\tf@nav=\write7
-\openout7 = `slides-apresentacao-picat.nav'.
+\tf@snm=\write8
+\openout8 = `Picat_b.snm'.
 
-\tf@toc=\write8
-\openout8 = `slides-apresentacao-picat.toc'.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 460.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 460.
 
-\tf@snm=\write9
-\openout9 = `slides-apresentacao-picat.snm'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 535.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 535.
-
-(./slides-apresentacao-picat.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 535.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 535.
-Package rerunfilecheck Info: File `slides-apresentacao-picat.out' has not chang
-ed.
-(rerunfilecheck)             Checksum: 3B2A77B49E077A48FEB7193040EAE46C;443.
+(./Picat_b.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 460.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 460.
+Package rerunfilecheck Info: File `Picat_b.out' has not changed.
+(rerunfilecheck)             Checksum: 40CD6314840F0042F9F59656E1F51E3B;243.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 535.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 460.
  ) 
 Here is how much of TeX's memory you used:
- 21992 strings out of 493104
- 400124 string characters out of 6136932
- 481264 words of memory out of 5000000
- 24741 multiletter control sequences out of 15000+600000
- 26094 words of font info for 78 fonts, out of 8000000 for 9000
+ 17788 strings out of 493104
+ 334498 string characters out of 6136932
+ 420718 words of memory out of 5000000
+ 20709 multiletter control sequences out of 15000+600000
+ 23355 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,16n,106p,432b,725s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,55p,427b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/font
+f-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sfsi1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm-sup
-er/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sftt1095.pfb>
-Output written on slides-apresentacao-picat.pdf (31 pages, 731108 bytes).
+s/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfsx0600.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfsx0900.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfsx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on Picat_b.pdf (35 pages, 606132 bytes).
 PDF statistics:
- 1012 PDF objects out of 1200 (max. 8388607)
- 922 compressed objects within 10 object streams
- 80 named destinations out of 1000 (max. 500000)
- 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 611 PDF objects out of 1000 (max. 8388607)
+ 465 compressed objects within 5 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 290 words of extra memory for PDF output out of 10000 (max. 10000000)
 

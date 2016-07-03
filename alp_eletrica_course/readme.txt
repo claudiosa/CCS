@@ -11,3 +11,8 @@ http://www.tutorialspoint.com/compile_c_online.php
 
 Ou:
 https://ideone.com/
+
+Basicamente o nosso curso
+http://www.ime.usp.br/~macmulti/exercicios/
+
+teste seu aprendizado...

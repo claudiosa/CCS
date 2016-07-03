@@ -1,20 +1,29 @@
+%%import os.
+
+cat_F ?=> command("cat retangulo.pi") = Status , 
+          printf("====================================== %d", Status).
+cat_F =>  printf("\n Wrong file name !!!").
+
+
+%% cp("retangulo.pi", File), printf("%s", File).
+%% list_all =>  printf("%s", "retangulo.pi").
 
 main => retangulo(3,4), nl,
-		retangulo(1,4), nl,
-		retangulo(4,1).
+	retangulo(1,4), nl,
+	retangulo(4,1).
 
 imp_col(0) ?=>  true.
 imp_col(1) ?=>  write('*'). 
 imp_col(N2) =>  write('*'), 
           N1 := (N2-1), 
           imp_col(N1).
-/**** Colunas ****/
+/**** Coluns ****/
 retangulo(X, Y ) ?=> (X==0; Y==0); 
-					 (X < 1; Y < 1), 
-                      write('X >= 1 , Y >= 1').
+		(X < 1; Y < 1), 
+                write('X >= 1 , Y >= 1').
 
 retangulo(Linha, Coluna) =>  
                imp_col(Coluna), 
                nl, /* salta a linha */
                L_N := (Linha - 1) , 
-   		       retangulo( L_N, Coluna).
+   	       retangulo( L_N, Coluna).
