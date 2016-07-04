@@ -116,13 +116,13 @@ forall( j in jobs ) % assim as linhas estão disjuntivas %% acredito que seja is
 %
 
 % coloquei para testar se fazia diferença, mas não faz muita não
-ann : search_EXPLORE;
-search_EXPLORE = int_search( array1d(job_end), first_fail, indomain_min, complete );
+%ann : search_EXPLORE;
+%search_EXPLORE = int_search( array1d(job_end), first_fail, indomain_min, complete );
 
 
-%solve minimize end_time;
+solve minimize end_time;
 %solve minimize min_duration; % min_duration é apenas o menor tempo possivel considerando apenas as durações de cada tarefa, 
-solve :: search_EXPLORE minimize end_time;
+%solve :: search_EXPLORE minimize end_time;
 %solve :: search_EXPLORE minimize min_duration;
 
 output [
