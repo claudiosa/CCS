@@ -1,0 +1,101 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+%%\usepackage[portuges,brazil]{babel}
+%\usepackage[utf8, ansinew]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{url}
+%\usepackage{times}
+\pagestyle{empty}
+
+\setlength{\textwidth}{18cm} %%% largura
+\setlength{\hoffset}{0cm}
+\setlength{\voffset}{0cm}
+\setlength{\headheight}{0cm} 
+\setlength{\oddsidemargin}{-4.5cm}
+\setlength{\evensidemargin}{-4.5cm}
+\setlength{\textheight}{27.4cm}
+\setlength{\topmargin}{0.00cm}
+
+
+\newcommand{\clogo}{\includegraphics
+[height=2.2cm,width=2.2cm]{udesc_vertical.pdf}}
+%%[height=1.5cm,width=1cm]{/home/ccs/Dropbox/figs_genericas/logo2_coca_icone.jpg}}
+%\newcommand{\clogocolmeia}{\includegraphics[height=1.5cm,width=1cm]{/home/ccs/Dropbox/figs_genericas/nova_colmeia_pb.jpg}}
+
+% EDIT THE FOLLOWING VARIABLES
+%
+\newcommand{\cname}{Claudio Cesar de Sá}
+%\newcommand{\ctitlea}{Grupo de   Software Livre -- Colméia} % Executive Director and Research}
+\newcommand{\ctitleb}{Grupo de Computação Cognitiva Aplicada -- COCA} % Dept of Electrical and Computer}
+\newcommand{\ctitlec}{} % Engineering}
+\newcommand{\cadra}{Universidade do Estado Santa Catarina - UDESC}
+\newcommand{\cadrb}{Departamento de Ciência da Computação - DCC}
+\newcommand{\cadrc}{Campus Universitário Prof. Avelino Marcante}
+%% -- Bloco F -- 2o. Andar}
+\newcommand{\cadrd}{89.219-710 -- Joinville -- SC -- Brasil}
+\newcommand{\cphone}{(47) 9245-1825 (VIVO) (47) 9990-1151 (TIM)}
+%%  e (47) 4009-7987}
+\newcommand{\cphoneFIX}{(47) 3481798}
+\newcommand{\cemail}{\underline{\textbf{claudio.sa@udesc.br}}}
+\newcommand{\outro}{claudio@colmeia.udesc.br}
+%\newcommand{\cemail}{claudio@joinville.udesc.br}
+%%\newcommand{\curlb}{\url{http://www.joinville.udesc.br/coca}}
+%\newcommand{\curlb}{\url{http://claudiocesar.wordpress.com/}}
+\newcommand{\curlb}{\url{https://github.com/claudiosa}}
+%\newcommand{\curlb}{http:$/\!/$www-dsp.rice.edu/}
+%\newcommand{\curlb}{http:$/\!/$www-ece.rice.edu/}
+
+
+\begin{document}
+\setlength{\unitlength}{1mm}
+\begin{picture}(190,258)(-7,-1)
+\linethickness{1.5pt}
+  \multiput(0,0)(0,58){5}{%
+    \multiput(0,0)(100,0){2}{
+      \begin{picture}(100,60)(0,0)
+      %  \put(0,52){\line(0,1){3}}
+      %  \put(-1,51){\line(-1,0){3}}
+       % \put(89,52){\line(0,1){3}}
+       % \put(90,51){\line(1,0){3}}
+        \put(20,47){\line(3,0){83}}
+        \put(20,4){\line(3,0){83}}
+        \put(42,42){\underline{\textsc{\large\cname}}}
+     %   \put(31,39){\textsc{\scriptsize\ctitlea}}
+        %\put(31,39){\textsc{\scriptsize\ctitleb}}
+%        \put(31,33){\textsc{\scriptsize\ctitlec}}
+        \put(31,30){\scriptsize \cadra}
+        \put(31,27){\scriptsize \cadrb}
+        \put(31,24){\scriptsize\ctitleb}
+        %\put(31,21){\scriptsize \cadrc}
+        \put(31,21){\scriptsize \cadrd}
+
+        \put(31,17){\textsc{\scriptsize Fone:}}
+        \put(41,17){\scriptsize \cphoneFIX}
+
+        \put(31,13){\textsc{\scriptsize E-mail:}}
+        \put(44,13){\scriptsize \cemail}
+%        \put(56,13){\scriptsize \outro}
+        \put(31,10){\textsc{\scriptsize url:}}
+        \put(44,10){\scriptsize \curlb}
+        \put(31,7){\textsc{\scriptsize Fones:}}
+        \put(41,7){\scriptsize \cphone}
+      
+        \put(15,28){\clogo}
+     %   \put(20,30){\clogocolmeia}
+        % \put(5,8){\textsc{\scriptsize Phone:}}
+        % \put(15,8){\scriptsize \cphone}
+        % \put(5,5){\textsc{\scriptsize Fax:}}
+        % \put(15,5){\scriptsize \cfax}
+        %\put(3,3){\line(1,0){83}}
+        %\put(0,-1){\line(0,-1){3}}
+        %\put(-1,0){\line(-1,0){3}}
+        %\put(89,-1){\line(0,-1){3}}
+        %\put(90,0){\line(1,0){3}}
+      \end{picture}}}
+\end{picture}
+
+\end{document}
