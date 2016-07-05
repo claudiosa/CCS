@@ -86,7 +86,8 @@ forall(j in jobs, k in 1 .. (n_machines-1) ) % (restrição horizontal, ou seja 
 % ou seja, o inicio de uma tarefa não pode ser antes do termino da anterior em um mesmo job
 );
 
-%%% bug aqui .....
+%%% COMENTADO POR CCS ... versao simplificada abaixo
+/*
 constraint % (restrição global-vertical, ou seja afeta uma linha com relação as outras)
 forall ( j_1 in jobs, j_2 in (j_1 + 1)..n_jobs, k_1, k_2 in machines) (
     if
@@ -98,14 +99,24 @@ forall ( j_1 in jobs, j_2 in (j_1 + 1)..n_jobs, k_1, k_2 in machines) (
            true
     endif
 );
+*/
+
+constraint % (restrição global-vertical, ou seja afeta uma linha com relação as outras)
+forall ( j_1 in jobs, j_2 in (j_1 + 1) .. n_jobs, k_1, k_2 in machines where
+          job_sequence[j_1, k_1]  ==  job_sequence[j_2, k_2]) (
+         %  EVITAR que uma maquina é seja usada por mais de um job
+           (job_end[j_1, k_1] <= job_start[j_2, k_2])  
+           \/ 
+           (job_end[j_2, k_2] <= job_start[j_1, k_1])    % ou a outra acabar antes da uma
+);
+
 
 
 constraint
 forall( j in jobs ) % assim as linhas estão disjuntivas %% acredito que seja isto que queremos
-(
-  disjunctive([ job_start[j,k] | k in machines where (job_sequence[j,k] > 0) \/   (job_time[j,k] > 0)] ,
-                [ job_time[j,k] | k in machines where (job_sequence[j,k] > 0) \/ (job_time[j,k] > 0)] )
-);
+  (
+  disjunctive([ job_start[j,k] | k in machines], [job_time[j,k] | k in machines ] )
+  );
 
 /*
   disjunctive([ job_start[j,k] | k in machines where (job_sequence[j,k] > 0) \/   (job_time[j,k] > 0)] ,
@@ -115,7 +126,7 @@ forall( j in jobs ) % assim as linhas estão disjuntivas %% acredito que seja is
 % Objective.
 %
 
-% coloquei para testar se fazia diferença, mas não faz muita não
+% ACHO QUE HA UM ERRO NO SEARCH ....
 %ann : search_EXPLORE;
 %search_EXPLORE = int_search( array1d(job_end), first_fail, indomain_min, complete );
 
@@ -126,11 +137,11 @@ solve minimize end_time;
 %solve :: search_EXPLORE minimize min_duration;
 
 output [
-"job_start = \n", show2d(job_start), "\n",
-"job_time = \n", show2d(job_time), "\n",
-"job_SEQUENCE = \n", show2d(job_sequence), "\n",
-"job_end = \n", show2d(job_end), "\n",
-"tempo de termino = ", show(end_time), "\n"
-];
+  "job_time (duration) = \n", show2d(job_time), "\n",
+  "job_SEQUENCE (plan) = \n", show2d(job_sequence), "\n",
+  "job_start = \n", show2d(job_start), "\n",
+  "job_end = \n", show2d(job_end), "\n",
+  "tempo de termino = ", show(end_time), "\n"
+  ];
 
 %-----------------------------------------------------------------------------%
