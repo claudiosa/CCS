@@ -1,36 +1,15 @@
-
-/*
-THE PROBLEM:
-
-B   E   T  
-3   5   7
-I   N   A  
-
-Created and solved by CCS
-*/
-
-
 import cp.
-main ?=> 
-    printf("=============================================\n"),
-	puzzle_BETINA,
-	printf("\n================= THE END =================\n")
-	.
+main ?=> puzzle_BONJA.
 main => printf("\n calling  HOUSTON ....  \n").
 
-puzzle_BETINA ?=>
-    Vars = [B, E, T, I, N, A],
+puzzle_BONJA ?=>
+    Vars = [B, O, N, J, A],
     Vars :: 1..9,
-    all_different( [B, E, T, I, N, A] ), 
-    B + E + T  #= 15,
-    B + E + T  #= I + N + A,
-    B + 3 + I  #= 15,
-    B + 5 + A  #= 15,
-    E + 5 + N  #= 15,
-    T + 7 + A  #= 15,
-    T + 5 + I  #= 15,
+    all_different( [B,O,N,J,A] ), 
+    B + O + N  #= J+ A,
+    B * O * N * J * A  #= 1008,
     solve([ff] , Vars),
-    printf("\tB:%d E:%d T:%d I:%d N:%d A:%d \n", B,E,T,I,N,A),
+    printf("B:%d  O:%d  N:%d  J:%d  A:%d \n", B,O,N,J,A),
     fail.
-puzzle_BETINA =>  true.
-
+puzzle_BONJA =>  true.
+    

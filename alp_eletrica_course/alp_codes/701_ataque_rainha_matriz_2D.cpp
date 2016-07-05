@@ -7,18 +7,32 @@ void imprime_matriz(   int matriz[N][N] , int );
 void ataques_rainha(   int  matriz[][N] , int , int, int);
 int posicao_legal_do_REI(   int  matriz[][N] , int , int, int);
   
-int main()
+int main(void)
 {
+   /* leitura **/
+//  int N; // DIMENSAO TABULEIRO
+  int x_Rainha, y_Rainha;
+  int x_REI, y_REI;
+   
+   /* 5 variáveis */
+//   scanf("%d", &N);
+   scanf("%d %d", &x_Rainha, &y_Rainha);
+   scanf("%d %d", &x_REI, &y_REI);
+/***************************************************/
+
+
+
+
    int matriz[N][N];
    
    inicializa_matriz( matriz ,  N);
    printf("\n----------------------------------\n");
    imprime_matriz( matriz ,  N);
-   ataques_rainha( matriz , N , 3, 4);
+   ataques_rainha( matriz , N , x_Rainha, y_Rainha);
    printf("\n----------------------------------\n");
    imprime_matriz( matriz ,  N);
    
-   if ( posicao_legal_do_REI( matriz , N , 5, 5 ) == 1 )
+   if ( posicao_legal_do_REI( matriz , N , x_REI, y_REI) == 1 )
       printf(" \n POSICAO OK DO REI ");
       else
       printf(" \n POSICAO de PERIGO  AO REI ");
@@ -30,9 +44,12 @@ int main()
     // 2a funcao de  imprimir a matriz ... ver se estah OK
     // 3a funcao recebe i,j da Rainha ... e preencher com 1 as diagonais e H e V
     // 4a funcao recebe i,j do Rei ... e verifcar se i,j esta nas celulas com 1 as diagonais e H e V  
- 
-  return 1;  
+    printf("\n----------------------------------\n");
+    return 1;  // FIM DO MAIN
+    
 }
+
+
 /*******************************************************************/
 void inicializa_matriz( int matriz[][N], int TAM)
 {
