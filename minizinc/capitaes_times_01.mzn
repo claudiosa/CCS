@@ -54,8 +54,8 @@ var int: result = sum(i in 1..m, j in 1..n) (Dec_Matrix[i,j] * notas[i,j] );
 %  one assignment per column = 1 .. um jogador esta em um unico time
 constraint 
   forall(j in 1..n) (
-      sum(i in 1..m) (Dec_Matrix[i,j]) == 1)
-     ;
+      sum(i in 1..m) (Dec_Matrix[i,j]) == 1
+      );
 
 %%% sum of all seletions in each line
 %%% Calcula o tamanho de cada time
