@@ -60,14 +60,14 @@ constraint
  forall(i in 1..m) ( 
 %  sizes[i]  =  sum(j in 1..n) (Dec_Matrix[j] == i) EQUIVALENTE A
    sizes[i]  =  sum([bool2int(Dec_Matrix[j] == i) | j in 1..n] ) 
-       );
+    );
 
 % Garante que a diferenca maxima eh 1 entre o tamanho das equipes em O(n^2)
 %% By Renan and Vini 
 constraint
     forall (i , j in 1..m) (
         abs (sizes[i] - sizes[j])  <= 1
-    );
+        );
 %% todos com todos ... pode ser melhorado...
 
 %%% parciais dos coaches/tecnicos ... AINDA eficiente  ... tem que relacionar SIZE
