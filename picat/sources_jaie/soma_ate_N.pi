@@ -1,4 +1,10 @@
-% Soma como predicado
+main => 
+        soma_p(7,S1),
+        printf(" Visao logica: %d", S1),
+        printf("\n Visao funcional 01: %d", soma_f1(7)),
+        printf("\n Visao funcional 02: %d\n", soma_f1(7)).
+
+% Soma como predicado -- visao logica
 soma_p(0,S) => S = 0.
 soma_p(N,S), N > 0 => 
                      soma_p(N-1,Parcial), 
