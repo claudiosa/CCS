@@ -1,3 +1,4 @@
+
 Alguns slides da disciplina estarão aqui
 os codigos estarao no diretorio de PICAT e  .... C ....
 
@@ -16,3 +17,8 @@ Basicamente o nosso curso
 http://www.ime.usp.br/~macmulti/exercicios/
 
 teste seu aprendizado...
+
+
+Apostila da disciplina:
+
+http://www.rogerioesilva.net/disciplinas/ALP/alp.pdf
