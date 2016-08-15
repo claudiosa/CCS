@@ -1,4 +1,3 @@
-/*   Logic Interpretation: Phi */   
 var bool : x;
 var bool : y;
 var bool : Phi01;
@@ -9,12 +8,13 @@ constraint             %% MODUS PONENS
       (x -> y)) -> y) 
       <-> Phi01 ;
 
-constraint 		%% MODUS TOLLENS
+constraint 		          %% MODUS TOLLENS
       ((not y /\ 
       (x -> y)) -> not x) 
       <-> Phi02 ;
 
 solve satisfy;
 
-output [" X: "++show(x)++"   Y: "++ show(y) ++"  MP:Phi01: "++ show(Phi01)++ "\n" ]++
-       [" X: "++show(x)++"   Y: "++ show(y) ++"  MT:Phi02: "++ show(Phi02)++ "\n" ];
+output
+[" X: "++show(x)++"   Y: "++ show(y) ++"  MP:Phi01: "++ show(Phi01)++ "\n" ]++
+[" X: "++show(x)++"   Y: "++ show(y) ++"  MT:Phi02: "++ show(Phi02)++ "\n" ];
