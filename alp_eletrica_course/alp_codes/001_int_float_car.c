@@ -14,7 +14,7 @@ int main()
 // printf("FORMATACAO DA ESCRITA", SOH as variaveis);	 
 	 printf(" SAIDA: \n");
 	 printf(" Int: %d  Real: %f CARACTER: %c", 
-	  num_inteiro, num_real, UM_CARACTER );
+	 num_inteiro, num_real, UM_CARACTER );
 	 printf("\n String: %s ", UMA_CADEIA); 
 	 printf("\n \tProfs are humans !!!! \n\n");
  return(1);
