@@ -1,19 +1,29 @@
-int: soma;
+int: N = 4;
+float: Kte = ceil(N*(N*N +1 )/2); %% Coercao float -> int ou floor
+set of int : Index = 1..N;
+array[Index, Index] of var 1 .. (N*N)-1: mat;
 
-array[0..3,0..3] of var 1..16: mat;
+constraint forall(i in Index) %% LINHAS
+	(mat[i,1] + mat[i,2] + mat[i,3]+ mat[i,4] = Kte);
 
-constraint forall(i in 0..3)
-	(mat[i,0] + mat[i,1] + mat[i,2] + mat[i,3] = soma);
-constraint forall(j in 0..3)
-	(mat[0,j] + mat[1,j] + mat[2,j] + mat[3,j] = soma);
-constraint mat[0,0] + mat[1,1] + mat[2,2] + mat[3,3] = soma;
-constraint mat[0,3] + mat[1,2] + mat[2,1] + mat[3,0] = soma;
-constraint forall(i in 0..3, j in 0..3, k in i..3, l in j..3)
-	(if (i!= k \/ j != l) then mat[i,j] != mat[k,l] else true endif);
-constraint forall(i in 0..3, j in 0..3)(mat[i,j] <= 16);
+constraint forall(j in Index) %% COLUNAS
+	(mat[1,j] + mat[2,j] + mat[3,j] + mat[4,j] = Kte);
+
+constraint % Diagonal 1...
+   mat[1,1] + mat[2,2] + mat[3,3] + mat[4,4] = Kte;
+
+constraint % Diagonal 2 ...
+   mat[4,1] + mat[3,2] + mat[2,3] + mat[1,4] = Kte;
+
+constraint %% alldifferent
+ forall(i in Index, j in Index, k in i..N, l in j..N)
+ (if (i!= k \/ j != l) then mat[i,j] != mat[k,l] else 
+  true endif);
 
 solve satisfy;
 
-output[show_int(2,mat[i,j]) ++
-        if j==3 then "\n" else " " endif |
-        i in 0..3, j in 0..3];
+
+
+
+output[show_int(2,mat[i,j]) ++ if j==N then "\n" else " " endif |
+        i in 1..N, j in 1..N];

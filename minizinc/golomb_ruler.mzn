@@ -1,7 +1,7 @@
-include "alldifferent.mzn";
+include "globals.mzn";
 %% GOLOMB mas n itens a serem escolhidos e repetidos
 int: n = 3;  %% NUM de PEDACOS
-int: m = 6 ; %% TAMANHO 0 .. 6
+int: m = 6;  %% TAMANHO 0 .. 6
 
 array[1..n] of var 0..m : regua; %% TAMANHO dos PEDACOS
 array[1..(n+1)] of var 0..m : regua_SAIDA; %% APENAS para OUT
@@ -9,14 +9,14 @@ array[1..(n+1)] of var 0..m : regua_SAIDA; %% APENAS para OUT
 constraint  %% pedacos maior que 0
     forall(i in 1 .. n) ( regua[i] > 0 );       
 
-%% Diferentes PEDACOS/medidas entre si
+%% Diferentes e decrescente ... PEDACOS/medidas 
 constraint 
-  alldifferent ( regua  );
-
+  alldifferent ( regua ); %% /\ decreasing( regua );
+  
 %% Diferentes medidas/PEDACOS entre TODOS os CORTES
 constraint
-    forall(i in 1 .. n-2 ) ( 
-      forall(j in i+1 .. n ) (regua[ i ] != regua[ j ]) );
+    forall(i in 1 .. n-2) ( 
+      forall(j in i+1 .. n) (regua[ i ] != regua[ j ]) );
 
 constraint  %% CRITERIO DE REGUA OTIMA 
        sum([regua[i] | i in 1..n] ) == m;       
