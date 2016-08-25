@@ -11,7 +11,7 @@ constraint
      z1 = pot_3_F(n) ;
 
 constraint
-     pot_3_P(n,z2) ;
+    n `pot_3_P` z2 ;  %% ou como na LPO   pot_3_P(n,z2) ;
 
 solve satisfy;
 

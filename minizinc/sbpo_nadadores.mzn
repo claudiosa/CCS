@@ -1,5 +1,6 @@
 include "alldifferent.mzn";
 int : N = 4;
+
 array[1..N] of var 1..N: vetDecisao; %% VETOR Decisao 1D
 var int: T_min;
 
@@ -15,10 +16,12 @@ constraint alldifferent(vetDecisao);
 
 constraint 
    T_min = sum(i in 1..N)(tempo_NADADORES[i, vetDecisao[i]]);
+   %% Melhorar aqui
    
 solve minimize T_min;
 
 output[" Menor tempo: ", show(T_min) ,"\n",
        " Atribuicao (vetDecisao): ", show(vetDecisao), "\n "] ++
- [show(i)++":"++show(vetDecisao[i])++"-> "++
-  show(tempo_NADADORES[ i, vetDecisao[i] ])++ "\n " | i in 1..N] ;  
+      [show(i) ++ ":" ++ show(vetDecisao[i]) ++ "-> " ++
+       show(tempo_NADADORES[ i, vetDecisao[i] ]) ++ 
+       "\n " | i in 1..N] ;  

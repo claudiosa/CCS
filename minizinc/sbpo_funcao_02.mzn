@@ -3,7 +3,7 @@ int : Y = 6;
 var bool : var_bool_01;
 var bool : var_bool_02;
 
-%%% Temos if-then-else-endif
+%%% Temos if-then-else-endif   e NENHUMA VARIAVEL LOCAL
 function var bool :  testa_paridade(int : N) =
      if( (N mod 2) == 0)
         then
@@ -25,7 +25,7 @@ solve satisfy;
 
 output
     ["  CTE_X = ", show(X), "  CTE_Y = ", show(Y), "\n",
-     "  VAR_B01 = ", show( var_bool_01 ),
+     "  VAR_B01 = ", show( var_bool_01 ), "\n",
      "  VAR_B02 = ", show( var_bool_02 )  ] ;
 
 
