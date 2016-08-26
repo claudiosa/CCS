@@ -118,9 +118,11 @@ Regis: Tratamento de String
 Tiago: Geometria Computacional
 Guilherme: Grafo - Arvores e Grafos em Acíclicos
 Leonardo: Union-Find Disjoint Sets
-Rafael: Backtracking
+Rafael: PD
 Bruno: Busca Gulosa
-
+Robson:
+Devair:
+Rafael:
 
 
 
