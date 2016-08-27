@@ -12,13 +12,10 @@ constraint
   total_VALOR = sum([X_DEC[i] * V_Valores[i]| i in 1..n ]) ;
   % OU          sum( i in 1..n ) (X_DEC[i]* V_Valores[i]);
 
-constraint
-  total_VALOR == K;
+constraint      total_VALOR == K;
 
-% minimize ou maximize ALGO
-solve satisfy; 
+solve satisfy;    %%%% minimize ou maximize algo
 
 output ["Total_VALOR: " ++ show(total_VALOR) ++"\n"++
         "Seleciona:" ++ show( X_DEC ) ++ "\n\t  " , 
-        show( V_Valores ) ];
-
+         show( V_Valores ) ];

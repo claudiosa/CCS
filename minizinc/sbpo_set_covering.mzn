@@ -1,7 +1,7 @@
 /*
 Solucao como saida MATRIX (M x N)
-m: varas disponiveis
-n: as distancias CONTINUAS a cobrir
+m: varas ou mouroes disponiveis
+n: as distancias CONTINUAS a cobrir .. 1 a n pontos
 */
 int: m = 6; %% num de varas -- LINHAS
 int: n = 4 ; %% num de mouroes -- COLUNAS
@@ -9,12 +9,12 @@ int: n = 4 ; %% num de mouroes -- COLUNAS
 array[1..m] of int : varas;      %% LINHAS
 array[1..n] of int : dist_N_col; %% COLUNAS
 
-varas =  [4, 5, 4, 7, 8 , 9]; % n
+varas =  [4, 5, 4, 7, 8, 9]; % n
 dist_N_col = [4, 5, 4, 9]; % m
 
 array[1..m , 1..n] of var 0..1 : Mat_Sol;
 array[1..m] of var 0..1 : QUAIS_USADAS;
-var   int:  num_varas_usadas;
+var   int:  melhor_dist; %% Funcao objetivo
 
 %% todas as COLUNAS devem ser selecionadas == 1
 constraint
@@ -55,11 +55,12 @@ constraint
        endif
      );
 
-%%% construindo a funcao minimizadora em NUM DE VAROES USADOS
+%%% construindo UMA funcao minimizadora em NUM DE VAROES USADOS
 constraint
-   num_varas_usadas = sum( i in 1..m ) (QUAIS_USADAS[i]) ;
+   melhor_dist = sum( i in 1..m ) (QUAIS_USADAS[i]*varas[i]) 
+               + sum( i in 1..m ) (QUAIS_USADAS[i]);
 
-solve minimize num_varas_usadas;
+solve minimize melhor_dist;
 %solve  satisfy;
 %solve maximize total_VALOR;
 
@@ -68,7 +69,7 @@ output
   "Distancias : " ++ show( dist_N_col )   ++ "\n" ++
  % "Matriz Solucao: \n" ++ show2d( Mat_Sol ) ++ "\n" ++
   "Varas usadas: " ++ show( QUAIS_USADAS ) ++ "\n" ++   
-  "NUM VARAS: " ++ show( num_varas_usadas ) 
+  "UMA MELHOR DISTANCIA: " ++ show( melhor_dist ) 
    ++ "\n VARAS (i) x Distancias (j) - Vert\n" ] ++
   ["\n  :"] ++
   [" " ++ show(j) |  j in 1..n] %%  1o. ITERADOR
@@ -77,4 +78,3 @@ output
     show( Mat_Sol[i,j] )  ++ 
     if j = n then " .... VARA " ++ show(i)++ "\n" else " " endif
     | i in 1..m, j in 1..n ] ;
-

@@ -7,7 +7,8 @@ array[1..n] of var 0..m : regua; %% TAMANHO dos PEDACOS
 array[1..(n+1)] of var 0..m : regua_SAIDA; %% APENAS para OUT
 
 constraint  %% pedacos maior que 0
-    forall(i in 1 .. n) ( regua[i] > 0 );       
+    forall(i in 1 .. n) ( regua[i] > 0 
+    );       
 
 %% Diferentes e decrescente ... PEDACOS/medidas 
 constraint 
@@ -16,7 +17,9 @@ constraint
 %% Diferentes medidas/PEDACOS entre TODOS os CORTES
 constraint
     forall(i in 1 .. n-2) ( 
-      forall(j in i+1 .. n) (regua[ i ] != regua[ j ]) );
+      forall(j in i+1 .. n) 
+        ( regua[ i ] != regua[ j ] ) 
+     );
 
 constraint  %% CRITERIO DE REGUA OTIMA 
        sum([regua[i] | i in 1..n] ) == m;       
@@ -24,13 +27,14 @@ constraint  %% CRITERIO DE REGUA OTIMA
 constraint %% formatando uma saida
     regua_SAIDA[1] == 0 /\ 
     forall(i in 1 .. n)  ( 
-    regua_SAIDA[i+1] == regua_SAIDA[i] + regua[i]
-    );
+          regua_SAIDA[i+1] == regua_SAIDA[i] + regua[i]
+     );
 
-% minimize ou maximize ALGO
+% minimize ou maximize 
 solve  satisfy;
 
 output 
-[" Tamanho dos cortes: "]++[show(regua[i])++" | "|i in 1 .. n]++
-[" A REGUA: "]++[show(regua_SAIDA[j] ) ++" | " | j in 1 .. n+1 ];
- 
+      [" Tamanho dos cortes: "] ++
+      [show(regua[i]) ++ " | "|i in 1 .. n]++
+      [" A REGUA: "] ++
+      [show(regua_SAIDA[j] ) ++ " | " | j in 1 .. n+1 ];
