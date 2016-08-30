@@ -1,61 +1,50 @@
 %%%% CABO DE GUERRA
-int: n; %% total de pessoas
+int:  n = 8;  %% total de pessoas
 
-%% Quantos em cada lado
+%%% quantidade de pessoas e seu peso
+array[1..n] of int : peso;
+peso = [ 77, 97, 120, 45, 57, 96, 100, 59 ];
+
+%% Quantas pessoas em cada lado
 var int: NA;
 var int: NB;
 
-%%% quantidade de pessoas e seu peso
-n = 4; 
-peso = [ 77, 9, 100, 15 ];
-%n = 8; 
-%peso = [ 77, 90, 10, 15, 17, 9, 0, 5 ];
-
-array[1..n] of int : peso;
-
-%% var de decisao BINARIA
-array[1..n] of var 0..1 : x_decision;
-
+%% Variavel de decisao BINARIA
+array[1..n] of var 0..1 : V_DEC;
 var int: PESO_TOTAL;
 var int: PA;
 var int: PB;
 
-%%% ilustrando uma funcao em MINIZINC
+%%% Ilustrando uma funcao em MINIZINC
 function var int: metade( int: n) = n div 2 ;
 
 %% quantos em cada lado
 constraint
-   NA = metade(n)
-   /\
-   NB = (n - NA);
+   NA == metade(n)   /\ %% and
+   NB == (n - NA); %% LOGO:  NB >= NA 
+
+constraint %% B ... selecionados
+  NB == sum( i in 1..n ) ( V_DEC[i] );
 
 constraint
-   PESO_TOTAL = sum( i in 1..n ) (peso[i]);
+  PESO_TOTAL = sum([peso[i] | i in 1..n]) ;
 
 constraint
-  NB = sum( i in 1..n ) ( x_decision[i] );
+  PB = sum([V_DEC[i]*peso[i] | i in 1..n]);
 
 constraint
-  PB = sum( i in 1..n ) ( x_decision[i]*peso[i] );
+  PA == (PESO_TOTAL - PB);
 
-constraint
-  PA = (PESO_TOTAL - PB);
-
-% minimizar a diferenca entre os PESOS
-solve minimize abs(PA-PB);
+% minimizar a diferenca entre os PESOS -- F_OBJETIVO
+solve minimize abs(PA - PB);
 
 output [
-  " Peso Total: " ++ show(PESO_TOTAL) ++ 
-  "\tVetor de pesos: " ++ show(peso) ++"\n"++
-  " PA : " ++ show( PA ) ++"\n"++
-  " PB : " ++ show( PB ) ++"\n"++
-  " TIME B: " ++ show( x_decision ) ++ "\n" 
-  ]   ++	
-  [" TIME A: " ++
-   show([peso[i] | i in 1..n where fix(x_decision[i]) == 0 ])
-  ]  ++	
-  ["\n TIME B: " ++
-   show([x_decision[i]*peso[i] | i in 1..n where fix(x_decision[i]) == 1 ])
+  " Peso Total: ", show(PESO_TOTAL), "\t PA : ", show( PA ),
+  "\t PB : ", show( PB ),
+  "\n Vetor de pesos: ", show(peso),
+  "\n V_BIN_TIMES B/1 A/0: ", show(V_DEC )] ++	
+  ["\n TIME A: ",
+   show([peso[i] | i in 1..n where fix(V_DEC[i]) == 0 ])
+  ]  ++	 ["\n TIME B: ",
+   show([V_DEC[i]*peso[i] | i in 1..n where fix(V_DEC[i]) == 1 ])
   ];
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
