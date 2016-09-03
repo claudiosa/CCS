@@ -1,6 +1,6 @@
 
 :-lib(ic).
-:-inicio.
+/* ARRUMAR */
 
 inicio :-
 	%%Fred, Joao, Roberto e Tomas
