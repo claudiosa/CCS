@@ -1,0 +1,8 @@
+output (["job_start = \n",show2d(job_start),"\n","job_end = \n",show2d(job_end),"\n","job_sequence = \n",show2d(job_sequence),"\n","job_duration = \n",show2d(job_time),"\n","t_end = ",show(min_duration),"\n"]++["\n Output detailed: \n"])++[(((if machine==1 then (("\n"++show("JOB "))++show(job))++" : " else " " endif++show(job_start[job,machine]))++"..")++show(job_end[job,machine]))++" " | job in jobs, machine in machines, ];
+set of int: jobs = 1..15;
+set of int: machines = 1..5;
+array [jobs,machines] of int: job_time = [|47,57,71,96,14|75,60,22,79,65|32,33,69,31,58|44,34,51,58,47|29,44,62,17,8|15,40,97,38,66|58,39,57,20,50|57,32,87,63,21|56,84,90,85,61|15,20,67,30,70|84,82,23,45,38|50,21,18,41,29|16,52,52,38,54|37,54,57,74,62|57,61,81,30,68|];
+array [jobs,machines] of int: job_sequence = [|0,4,1,3,2|0,1,4,3,2|3,0,2,1,4|0,1,4,3,2|3,1,0,2,4|1,2,0,4,3|2,1,0,4,3|2,3,4,0,1|4,0,2,1,3|4,0,1,3,2|4,0,1,2,3|3,2,0,4,1|4,1,0,2,3|4,0,3,2,1|4,1,0,2,3|];
+array [jobs,machines] of int: job_start;
+array [jobs,machines] of int: job_end;
+int: min_duration = max([job_end[j,k] | j in jobs, k in machines, ]);
