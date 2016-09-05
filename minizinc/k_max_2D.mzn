@@ -1,4 +1,4 @@
-*
+/*
 k-maiores: Seja uma matriz $m \times n$
 que contém valores positivos em cada uma das   
 suas $n.m$ células. Faça um programa que       
@@ -56,7 +56,7 @@ solve maximize total_cost;
 output [  if i = 1 /\ j = 1 then "total_cost: " ++ show(total_cost) else " " endif ++
           if j = 1 then "\n" else " " endif ++ show(x[i,j]) | i in 1..rows, j in 1..cols ] ++ ["\n"];
 
-/**************************************
+/* 
 Compiling k_max_2D.mzn
 Running k_max_2D.mzn
 total_cost: 41

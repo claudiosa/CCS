@@ -1,0 +1,14 @@
+array [1..2] of int: X_INTRODUCED_0 = [1,-1];
+var 1..3: norte:: output_var;
+var 1..3: nordeste:: output_var;
+var 1..3: centro_oeste:: output_var;
+var 1..3: sudeste:: output_var;
+var 1..3: sul:: output_var;
+constraint int_lin_ne(X_INTRODUCED_0,[norte,nordeste],0);
+constraint int_lin_ne(X_INTRODUCED_0,[norte,centro_oeste],0);
+constraint int_lin_ne(X_INTRODUCED_0,[nordeste,centro_oeste],0);
+constraint int_lin_ne(X_INTRODUCED_0,[nordeste,sudeste],0);
+constraint int_lin_ne(X_INTRODUCED_0,[centro_oeste,sudeste],0);
+constraint int_lin_ne(X_INTRODUCED_0,[centro_oeste,sul],0);
+constraint int_lin_ne(X_INTRODUCED_0,[sudeste,sul],0);
+solve  satisfy;

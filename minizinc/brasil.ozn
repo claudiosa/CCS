@@ -1,0 +1,6 @@
+output [(((((((("norte: "++show(norte))++"\nnordeste: ")++show(nordeste))++"\ncentro_oeste: ")++show(centro_oeste))++"\nsudeste: ")++show(sudeste))++"\nsul: ")++show(sul)];
+int: norte;
+int: nordeste;
+int: centro_oeste;
+int: sudeste;
+int: sul;
