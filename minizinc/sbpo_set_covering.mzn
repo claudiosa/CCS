@@ -1,10 +1,10 @@
 /*
 Solucao como saida MATRIX (M x N)
-m: varas ou sarrafos disponiveis
-n: as distancias CONTINUAS a cobrir .. 1 a n pontos ou mouroes
+m: varas ou sarrafos disponiveis -- repetidas ou nao
+n: distancias CONTINUAS a cobrir .. 1 a n+1 pontos
 */
 int: m = 6; %% num de varas -- LINHAS
-int: n = 4; %% num de intervalos entre (n-1) mouroes -- COLUNAS
+int: n = 4; %% num de intervalos entre (n+1) mouroes -- COLUNAS
 
 array[1..m] of int : varas;      %% LINHAS
 array[1..n] of int : dist_N_col; %% COLUNAS
