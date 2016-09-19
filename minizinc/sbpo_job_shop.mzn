@@ -24,25 +24,25 @@ var 0..END_TIME:
    min_duration = 
      max([job_end[j, k] | j in jobs, k in machines]);
         
-constraint %%
+constraint %% intervalo int => num negativos
    forall(j in jobs, k in machines )
          (job_start[j,k] >= 0  );
 
-constraint
+constraint %% tempo final = tempo inicial + duracao tarefa 
  forall(j in jobs, k in machines )
     (job_end[j,k] = job_start[j,k] + job_time[j,k]);
 
 constraint    %% Restricao-chave: PRECEDENCIA (again)
-  forall( j in  jobs) 
+ forall( j in  jobs) 
   (forall( k1, k2  in  machines where k1 < k2) 
     (if( job_sequence[j,k1] < job_sequence[j,k2])
        then 
          job_end[j,k1] <= job_start[j, k2] 
-       %% tempo final de J1 eh menor ou igual o tempo de inicio de J2
+      %% tempo final de J1 eh menor ou igual o tempo de inicio de J2
        else
          job_end[j,k2] <= job_start[j, k1] 
        endif
-     ));
+   ) );
 
 %% Disjuncao entre todas as tarefas sobre uma maquina
 constraint %%%% para cada MAQUINA cada JOB sera DISJUNTIVO
@@ -50,11 +50,10 @@ constraint %%%% para cada MAQUINA cada JOB sera DISJUNTIVO
   (disjunctive([job_start[j,k] | j in jobs  ] , 
                [job_time[j,k]  | j in jobs ])  );
 
-%constraint 
-%    min_duration < 13;
-% Objective.
+% constraint 
+%    min_duration < 13;    %% Ex: estabelecendo COTAS
 
-%%%% 
+% Objetivo.
 solve minimize  min_duration;
 
 output [
