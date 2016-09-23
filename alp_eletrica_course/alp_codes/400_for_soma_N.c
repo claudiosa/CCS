@@ -1,20 +1,18 @@
 #include <stdio.h>
  
 int main () {
-
-   /* local variable definition */
-   int S = 0; 
-   int N;
-   printf(" Digite um inteiro MAIOR que 0 :");
+   int S = 0; // variavel para guardar a soma
+   int N; // ate N
+   printf(" Digite um inteiro N MAIOR que 0 :");
    scanf("%d", &N );
-   
    /* do loop execution */
    for(int cont = 0 ; cont <= N; cont ++)
+   // cont ++  <=> cont = cont + 1
     {
-      printf("Valor de CONT e S: %d %d\t", cont, S);
+      printf("\n CONT: %d \t S:%d", cont, S);
       S = S + cont;
      };
  
-   printf("\n Valor de 1 até %d  é igual: %d \n", N, S);
+   printf("\n Valor de 1 até %d  a soma é igual: %d \n", N, S);
    return 0;
 }
