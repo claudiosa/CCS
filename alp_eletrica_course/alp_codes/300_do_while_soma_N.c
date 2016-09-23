@@ -10,9 +10,9 @@ int main () {
    
    /* do loop execution */
    do {
-      printf("Valor de N: %d\t", N);
-      S = S + N;
-      N = N -  1;
+       printf("\n CONT N: %d \t S:%d", N, S);
+       S = S + N;
+       N = N - 1;
    } while( N > 0 );
  
    printf("\n Valor desta Soma é: %d \n", S);
