@@ -12,7 +12,7 @@ int main () {
       printf("\n CONT N: %d \t S:%d", N, S);
       S = S + N;
       N = N - 1;
-   } 
+   } // FIM DO BLOCO ou do WHILE
  
    printf("\n Valor desta Soma é: %d \n", S);
    return 0;
