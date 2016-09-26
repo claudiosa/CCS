@@ -11,7 +11,7 @@ int main () {
     {
       printf("\n CONT: %d \t S:%d", cont, S);
       S = S + cont;
-     };
+     }; // FIM DO BLOCO ou fim do FOR
  
    printf("\n Valor de 1 até %d  a soma é igual: %d \n", N, S);
    return 0;
