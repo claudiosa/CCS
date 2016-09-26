@@ -10,6 +10,28 @@ Rosa veste o verde mas nao se veste nem de azul e nem lilaz.
 Uma delas está de vermelho.
 Uma das cores é usada tanto por Barbara como por Rosa.
 Alexandra e Barbara tem 04 cores entre elas.
+
+Picat> load('roupas-meninas.pi').
+Compiling:: roupas-meninas.pi
+roupas-meninas.pi compiled in 4 milliseconds
+loading...
+
+aqui NAO TINHA o byte-code .qi :
+
+
+Compiling::roupas-meninas.pi
+roupas-meninas.pi compiled in 12 milliseconds
+
+yes
+
+Picat> load ("roupas-meninas")   
+loading...roupas-meninas.qi
+
+yes
+
+agora pronto para execucao ....
+
+
 */
 
 index(-)
@@ -29,6 +51,7 @@ modelo_meninas =>
              cor(S1),
              cor(B1),
              cor(S2),
+           %  trace,
              cor(B2),
              cor(S3),
              cor(B3),
@@ -36,6 +59,7 @@ modelo_meninas =>
              S1 != B1,  S2 != B2, S3 != B3,
              (not(B1==amarelo, S1==vermelho);
              not(S1==amarelo, B1==vermelho)),
+          %   notrace,
      	(not(B2==amarelo, S2==vermelho);
              not(S2==amarelo, B2==vermelho)),
             (not(B3==amarelo, S3==vermelho);
