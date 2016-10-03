@@ -8,13 +8,14 @@ int main(){
      n = (float) (sizeof(vetor) / sizeof(int));//coerse ... coerção   
      // forçando que a divisão ocorra como fosse para
      // reais
-     printf("\n Bytes de inteiros %zu", sizeof(int));  
-     printf("\n Tamanho do vetor %zu", sizeof(vetor));
-     printf("\n Numero de elmentos  do vetor %d\n\n", n);
+     printf("\n NUM de Bytes dos inteiros: %zu", sizeof(int));  
+     printf("\n Tamanho do vetor: %zu", sizeof(vetor));
+     printf("\n Numero de elementos  do vetor: %d\n\n", n);
      for(i=0; i < n ;  i++ ){
      // {3, 4, 5, 5 ,6, 7, 8, 9, -9, -8}; 
      soma = soma +  vetor[i];
      }
-     printf("\n\n Soma FINAL: %d\n", soma);
+     printf("\n Soma FINAL: %d", soma);
+     printf("\n Valor Medio: %0.3f\n", (float)soma/n);
  return 0;
 }
