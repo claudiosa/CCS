@@ -1,7 +1,7 @@
 // Entrada via ARQUIVO
 /*
  * $ ./a.out <  entrada_array_1d.txt
- * 
+   MUITO UTIL ESTE EXEMPLO 
  */ 
 #include <stdio.h>
 int main(){
@@ -11,12 +11,13 @@ int main(){
      int vetor[tamanho];
     // LEITURA DO VETOR 
     for(int i=0; i < tamanho ; i++ ){
-	   scanf("%d", &vetor[i]);
+	   scanf("%d ", &vetor[i]);
 	   }
     // ESCRITA  DO VETOR 
     for(int i=0; i < tamanho ; i++){
       printf("\n vetor[%d]: %d", i,  vetor[i]);
       }
      
+
 return 0;
 }
