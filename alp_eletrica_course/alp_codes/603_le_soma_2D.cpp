@@ -12,7 +12,7 @@ int main (void)
   // vamos criar e ler a matriz
   int matriz[M][N];
   int i, j; 
-
+  
   /* LEITURA */ 
   for (i = 0; i < M; i++)
     for (j = 0; j < N; j++)
