@@ -37,6 +37,28 @@ real	0m0.032s
 user	0m0.024s
 sys	0m0.004s
 
+COM O PLANNER
+[ccs@gerzat picat]$ picat amarelinha_planner.pi 
+
+CPU time 0.003 seconds.
+
+['X4 <-> X2','X1 <-> X2','X4 <-> X6','X4 <-> X2','X4 <-> X5','X4 <-> X3','X5 <-> X7','X4 <-> X5']
+'X4 <-> X2'
+'X1 <-> X2'
+'X4 <-> X6'
+'X4 <-> X2'
+'X4 <-> X5'
+'X4 <-> X3'
+'X5 <-> X7'
+'X4 <-> X5'
+
+ Initial Position (state): bacoooo 
+ Final  Position (state): oooocab
+ Total of states: 8
+ Total of moviments: 7
+ CPU TIME INIC: time(10,14,48)  FIM time(10,14,48) 
+ =========================================
+
 */
 
 import datetime.
