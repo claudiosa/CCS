@@ -1,18 +1,90 @@
-\documentclass{beamer}
-\usepackage{graphicx,hyperref,udesc,url}
+%\documentclass{beamer}
+
+\documentclass[10pt]{beamer} 
+\usetheme[pageofpages=of,% String used between the current page and the
+          % total page count.
+          alternativetitlepage=true,% Use the fancy title page.
+          %titlepagelogo=coca,% Logo for the first page.
+          titleline=true
+          ]{Torino}
+%\usetheme{Frankfurt}
+\usecolortheme{chameleon}
+
+\usepackage{graphicx,hyperref,url}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{booktabs}
-\usepackage[portuges]{babel}
+\usepackage[portuges,brazilian]{babel}
+%%%\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subfigure}
+%\usepackage{subcaption}
+\usepackage{latexsym}
+\usepackage{amssymb, amsmath}
+\usepackage{multicol}
+\usepackage{pifont}%,bbding}%%,dingbat} %%% ver manual de simbolos
+\usepackage[final]{listings}
+\usepackage{comment}
+
+
+\definecolor{azulclaro}{rgb}{0.9,0.9,0.9}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\newcommand{\minizinc}{MiniZinc}
+
+\lstset{ 
+  %  label={pgm_ex01},
+    backgroundcolor=\color{azulclaro}, 
+    language=Haskell, %%Miranda,%%Perl,%%%Python, %%Mercury,
+    showstringspaces=false,
+    basicstyle=\bf\scriptsize\ttfamily,
+%%      basicstyle= \footnotesize %%% TESTAR
+%%      keywordstyle=\bfseries\color{green!40!black},
+    keywordstyle=\textbf{\color{mygreen}}, 
+    otherkeywords={*, \%, array, constraint, solve, output,  show, "/\", satisfy, set, of, if, then, elseif, float, search},
+%%  keywordstyle=\color{blue},       % keyword style
+%%    commentstyle=\itshape\color{purple!40!black},
+      commentstyle=\color{orange},    % comment style
+      identifierstyle=\color{blue},
+      stringstyle=\color{orange},
+      stringstyle=\color{mymauve},
+      numbers=left,  % where to put the line-numbers; possible values are (none, left, right)
+      numbersep=5pt,   % how far the line-numbers are from the code
+      numberstyle=\tiny\color{magenta},
+      keepspaces=true      
+    % %caption={LEGENDA no source PASCAL ficou OK},
+}
+
+
+\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/minizinc/}{minizinc/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%Global Background must be put in preamble
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{amarelinho.pdf}}
+%%% \begin{frame}[allowframebreaks=0.8]
+
+% The log drawn in the upper right corner.
+
+%\logo{\centering
+%\includegraphics[height=0.050\paperheight]{figuras/logo_SBPO_Peixe.png}
+%%\hspace{9.6cm}
+%\includegraphics[height=0.027\paperheight]{figuras/logo_udesc_horizontal.jpg}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[Picat]{Picat: uma Linguagem Multiparadigma}
 
-\author[Battisti \& PV]{
+\title[Picat]{\fontsize{20}{30}\selectfont \textcolor{black}{PICAT: uma Linguagem Multiparadigma}}
+
+\author[Battisti \& PV]{Claudio Cesar de Sá, Rogério Eduardo da Silva,
     João Herique Faes Battisti, Paulo Victor de Aguiar\\\medskip
     {\small \url{joaobattisti@gmail.com}} \\ 
-{\small \url{pavaguiar@gmail.com}}}
+    {\small \url{pavaguiar@gmail.com}}\\
+     {\small \url{claudio.sa@udesc.br}}}
 
 \institute[UDESC]{
     Departamento de Ci\^encia da Computa\c{c}\~ao \\
@@ -36,13 +108,14 @@ Universidade do Estado de Santa Catarina}
 
 \section{Introdução}
 \begin{frame}
-    \frametitle{História}
+    \frametitle{Histórico}
     \begin{itemize}
-      \item Foi criada em 2013 pelos cientistas da computação Neng-Fa Zhou e Jonathan Fruhman.
-      \item Utilizou o B-Prolog como base de implementação, e ambas utilizam regras lógicas na programação.
+      \item Criada em 2013 por Neng-Fa Zhou e Jonathan Fruhman.
+      \item Utilizou o B-Prolog como base de implementação, e ambas utilizam 
+      a  programação em lógica baseada em regras de predicativas>
       \item Picat 0.1 – Teve seu lançamento em Maio de 2013.
       \item Picat 1.0 – Foi lançada Abril de 2015.
-      \item Sua atual versão é a 1.9 com lançamento em Maio de 2016
+      \item Sua atual versão é a 2.0 (\today)
     \end{itemize}
 \end{frame}
 
@@ -52,9 +125,10 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Picat é Multiparadigma}
     \begin{itemize}
-      \item Imperativo
+      \item Imperativo -- procedural
       \item Funcional
       \item \underline{Lógico}
+    %  \item 
     \end{itemize}
 \end{frame}
 
@@ -64,7 +138,7 @@ Universidade do Estado de Santa Catarina}
     \frametitle{Linguagem Multiparadigma}
     Motivo de existencia dos paradigmas?
     \begin{itemize}
-      \item Velocidade de implementação
+      \item Sintaxe %%Velocidade de implementação
       \item Velocidade de execução
       \item Elegância do código
     \end{itemize}
@@ -75,10 +149,10 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Linguagem Picat}
     \begin{itemize}
-      \item A terminologia de picat segue as bases teóricas da linguagem Prolog.
-      \item Lógica de primeira-ordem onde objetos são chamados por Termos.
-      \item O destaque de Picat é a sua natureza declarativa, funcional, tipagem dinâmica, sintaxe simples mas poderosas.
-      \item PICAT é um anacronico onde cada letra representa uma característica marcante de sua funcionalidade.
+      \item Terminologia: segue as bases teóricas da linguagem Prolog.
+      \item Na \textbf{l}ógica de \textbf{p}rimeira-\textbf{o}rdem (LPO) os objetos são chamados por Termos.
+      \item O destaque de Picat é a sua natureza declarativa, funcional, tipagem dinâmica, e sintaxe
+      \item \texttt{PICAT} é um anacrônico onde cada letra representa uma característica  de sua funcionalidade (operacionalidade).
     \end{itemize}
 \end{frame}
 
@@ -88,10 +162,14 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Características: \textcolor{red}{P}-I-C-A-T}
     \textbf{Pattern-matching}:\\ 
-    Utiliza o conceito de casamento padrão. 
-    Um predicado define uma relação e pode ter zero ou várias respostas. 
-    Uma função é um predicado especial que sempre retorna uma única resposta. 
-    Ambos são definidos com regras de Picat, e seus predicados e funções seguem as regras do casamento.
+\begin{itemize}
+  \item     Utiliza o conceito de casamento padrão. 
+  \item    Um predicado define uma relação entre objetos n-ários
+  \item     Uma função é um predicado especial que sempre retorna uma única resposta. 
+  \item     Ambos são definidos com regras de Picat, e seus predicados e funções seguem as regras de \textit{casamento-de-padrões}.
+
+\end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -99,9 +177,14 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Características: P-\textcolor{red}{I}-C-A-T}
     \textbf{Intuitive}:\\ 
-    O Picat oferece atribuições e laços de repetições para a programação dos dias de hoje. 
-    Uma variável atribuída pode imitar várias variáveis lógicas, alterado seu valor seguindo o estado da computação. 
-    As atribuições são úteis para associar os termos, bem como utilizadas nas estruturas de laços repetitivos. 
+  \begin{itemize}
+      \item     O Picat oferece atribuições e laços de repetições para a programação dos dias de hoje. 
+ \item         Uma variável atribuída pode imitar várias variáveis lógicas, alterado seu valor seguindo o estado da computação. 
+ \item        As atribuições são úteis para associar os termos, bem como utilizadas nas estruturas de laços repetitivos. 
+    
+    \end{itemize}
+    
+    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,32 +192,39 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Características: P-I-\textcolor{red}{C}-A-T}
     \textbf{Constraints}:\\ 
-    Picat suporta a programação por restrições. 
-    Dado um conjunto de variáveis, 
+\begin{itemize}
+      \item   Picat suporta a programação por restrições. 
+  \item  Dado um conjunto de variáveis, 
     cada uma possui um domínio de valores possíveis e restrições para limitar os valores a serem atribuídos nas variáveis. 
-    O objetivo é atribuir os valores que satisfaçam todas as restrições. 
-\end{frame}
+ \item    O objetivo é atribuir os valores que satisfaçam todas as restrições. 
+
+    \end{itemize}
+    \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
     \frametitle{Características: P-I-C-\textcolor{red}{A}-T}
-    \textbf{Actors}:\\ 
-    Atores são chamadas orientadas à eventos.
-		Em Picat, as regras de ação descrevem comportamentos dos atores.
-		Um ator recebe um objeto e dispara uma ação. 
-		Os eventos são postados via canais de mensagem e um ator pode ser conectado há um canal, verificar e/ou processar seus eventos postados no canal.
-		Neste ponto, estes atores desempenham características de área de Inteligência Artificial, especificamente a áreas de planejamento e sistemas multi-agentes.   
+    \textbf{Actors}: \textcolor{red}{ \textbf{REFAZER não é nada disto ...}}
+  \begin{itemize}
+      \item   Atores são chamadas orientadas à eventos.
+		\item Em Picat, as regras de ação descrevem comportamentos dos atores.
+\item 		Um ator recebe um objeto e dispara uma ação. 
+\item 		Os eventos são postados via canais de mensagem e um ator pode ser conectado há um canal, verificar e/ou processar seus eventos postados no canal.
+\item 		Neste ponto, estes atores desempenham características de área de Inteligência Artificial, especificamente a áreas de planejamento e sistemas multi-agentes.
+    \end{itemize}   
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
     \frametitle{Características: P-I-C-A-\textcolor{red}{T}}
-    \textbf{Tabling}:\\ 
-    Considerando que operações entre variáveis podem ser armazenadas parcialmente em uma tabela na memória, permitindo que um programa acesse valores já calculados.
-		Assim, evita-se a repetição de operações já realizadas.
-		Com esta técnica de memoization, o Picat oferece soluções imediatas para problemas de programação dinâmica.
+    \textbf{Tabling}:
+    \begin{itemize}
+      \item     Considerando que operações entre variáveis podem ser armazenadas parcialmente em uma tabela na memória, permitindo que um programa acesse valores já calculados.
+	\item 	Assim, evita-se a repetição de operações já realizadas.
+	\item 	Com esta técnica de memoization, o Picat oferece soluções imediatas para problemas de programação dinâmica.
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

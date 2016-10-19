@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.26)  13 OCT 2016 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.26)  17 OCT 2016 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1655,7 +1655,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\Hy@tempa' on input line 87.
 
-(./slides_picat.aux)
+No file slides_picat.aux.
 \openout1 = `slides_picat.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
@@ -1672,7 +1672,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
 LaTeX Font Info:    ... okay on input line 96.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
 LaTeX Font Info:    ... okay on input line 96.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -2104,12 +2103,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [16
 
-] <tipos_dados_picat_traduzido.jpg, id=142, 242.40562pt x 191.21437pt>
-File: tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
+]
+<figures/tipos_dados_picat_traduzido.jpg, id=142, 242.40562pt x 191.21437pt>
+File: figures/tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
 
-<use tipos_dados_picat_traduzido.jpg>
-Package pdftex.def Info: tipos_dados_picat_traduzido.jpg used on input line 331
-.
+<use figures/tipos_dados_picat_traduzido.jpg>
+Package pdftex.def Info: figures/tipos_dados_picat_traduzido.jpg used on input 
+line 331.
 (pdftex.def)             Requested size: 192.29817pt x 151.69666pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2123,7 +2123,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [17
 
- <./tipos_dados_picat_traduzido.jpg>]
+ <./figures/tipos_dados_picat_traduzido.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2243,10 +2243,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [27
 
-] <exercicio.jpg, id=201, 422.57875pt x 171.64125pt>
-File: exercicio.jpg Graphic file (type jpg)
- <use exercicio.jpg>
-Package pdftex.def Info: exercicio.jpg used on input line 458.
+] <figures/exercicio.jpg, id=201, 422.57875pt x 171.64125pt>
+File: figures/exercicio.jpg Graphic file (type jpg)
+
+<use figures/exercicio.jpg>
+Package pdftex.def Info: figures/exercicio.jpg used on input line 458.
 (pdftex.def)             Requested size: 192.29817pt x 78.10735pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2260,7 +2261,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [28
 
- <./exercicio.jpg>]
+ <./figures/exercicio.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2366,11 +2367,14 @@ Package rerunfilecheck Info: File `slides_picat.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 550.
  ) 
 Here is how much of TeX's memory you used:
- 20448 strings out of 493105
- 376058 string characters out of 6137072
+ 20447 strings out of 493105
+ 376096 string characters out of 6137072
  490578 words of memory out of 5000000
  23320 multiletter control sequences out of 15000+600000
  21533 words of font info for 63 fonts, out of 8000000 for 9000
@@ -2390,7 +2394,7 @@ r/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr
 ype1/public/cm-super/sfsx0500.pfb></usr/share/texmf/fonts/type1/public/cm-super
 /sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/
 share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on slides_picat.pdf (35 pages, 280517 bytes).
+Output written on slides_picat.pdf (35 pages, 280596 bytes).
 PDF statistics:
  319 PDF objects out of 1000 (max. 8388607)
  254 compressed objects within 3 object streams
