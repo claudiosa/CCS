@@ -3,26 +3,16 @@ include "order_fn.mzn";
 include "is_adj_matrix_square.mzn";
 
 /*
-
-Original coded by Marcos -- 2015
-Modified and revised by Claudio - Oct. 21 / 2016
-*/
-
-/*
   Functions related to cycles in graphs.
   All the functions (except exists_cycle) returns a simple cycle.
 
   Params:
   graph: an adjacency-matrix representing a graph
-  cost: the value of the sum of all the edges in the cycle. 
-        Can be a decision-variable (optional param).
-        Another function was created without this criteria
-  length: the number of edges in the cycle. 
-          Can be a decision-variable (optional param)
+  cost: the value of the sum of all the edges in the cycle. Can be a decision-variable (optional param)
+  length: the number of edges in the cycle. Can be a decision-variable (optional param)
 
   Issues:
-  - The size of the cycle array should be exactly equals to the size of the cycle, 
-    instead of using -1s to denote the end of the cycle
+  - The size of the cycle array should be exactly equals to the size of the cycle, instead of using -1s to denote the end of the cycle
 */
 
 
@@ -50,56 +40,126 @@ in (
       cycle_array[i] != cycle_array[j] )
 );
 
+/**
+  Returns a cycle of the graph.
+  The returned cycle is represented by an array, containing the sequence of vertexes that makes up the cycle.
+  The value -1 is used to fill the array after the end of the cycle.
+  If the cycle has more than one vertex, then the last vertex in the array is not equals to the first one, but they are connected by an edge.
+*/
+function array [int] of var int: cycle(array[int,int] of int: graph)::promise_total =
+let {
+  int: order = order(graph);
+  set of int: indexes = 1..order;
+  set of int: V = vertex_set(graph);
+  array[indexes] of var (V union {-1}): cycle_array;
+  var indexes: length;
+  var V: source;
+  var V: target;
+
+  constraint is_adj_matrix_square(graph);
+
+  constraint cycle_array[1] == source;
+  constraint cycle_array[length] == target;
+  constraint graph[target,source] != 0;
+
+  constraint 
+      forall(i in 2..length) (
+         graph[ cycle_array[i-1], cycle_array[i] ] != 0 );
+
+  constraint 
+      forall(i in indexes, where i > length) ( 
+         cycle_array[i] = -1 );
+
+  constraint 
+      forall(i,j in indexes, where i<j /\ j<=length) (
+         cycle_array[i] != cycle_array[j] );
+} in cycle_array;
+
+
+/**
+  Returns a cycle of the graph with the specified cost.
+  The returned cycle is represented by an array, containing the sequence of vertexes that makes up the cycle.
+  The value -1 is used to fill the array after the end of the cycle.
+  If the cycle has more than one vertex, then the last vertex in the array is not equals to the first one, but they are connected by an edge.
+*/
+
+function array [int] of var int: cycle(array[int,int] of int: graph, var int: cost)::promise_total =
+let {
+  int: order = order(graph);
+  set of int: indexes = 1..order;
+  set of int: V = vertex_set(graph);
+  array[indexes] of var (V union {-1}): cycle_array;
+  var indexes: length;
+  var V: source;
+  var V: target;
+
+  constraint is_adj_matrix_square(graph);
+
+  constraint cycle_array[1] == source;
+  constraint cycle_array[length] == target;
+  constraint graph[target,source] != 0;
+
+  constraint 
+      forall(i in 2..length) ( 
+         graph[ cycle_array[i-1], cycle_array[i] ] != 0 );
+
+  constraint 
+      forall(i in indexes, where i > length) (
+         cycle_array[i] = -1 );
+
+  constraint 
+      forall(i,j in indexes, where i<j /\ j<=length) ( 
+         cycle_array[i] != cycle_array[j] );
+
+  constraint 
+     cost = (sum(i in 2..length) ( 
+     graph[ cycle_array[i-1], cycle_array[i] ] )) + graph[target,source];
+} in cycle_array;
+
+
 
 /**
   Returns a cycle of the graph with the specified cost and length.
   The returned cycle is represented by an array, containing the sequence of vertexes that makes up the cycle.
   The value -1 is used to fill the array after the end of the cycle.
   If the cycle has more than one vertex, then the last vertex in the array is not equals to the first one, but they are connected by an edge.
-
-  The cost concept:  with this "cost" let this NP problem ready for a defintion of a NPC.
-  All NPC problems must be admit a DECISION problem that it is in NP
-   
 */
 function array [int] of var int: cycle(array[int,int] of int: graph, 
                var int: cost, var int: length) :: promise_total =
 let {
 
-  int: order = order(graph); %% nodes NUMBER
+  int: order = order(graph);
   set of int: indexes = 1 .. order;
   set of int: V = vertex_set(graph);
   array[indexes] of var (V union {-1}): cycle_array;
   var V: source;
   var V: target;
 
-  constraint %% is it square?
+  constraint 
       is_adj_matrix_square(graph);
 
-  constraint  %% start node 
+  constraint 
       cycle_array[1] == source;
-      
   constraint 
       cycle_array[length] == target;
-      
   constraint 
       graph[target,source] != 0;
 
-  constraint %% two subsequent nodes must be connected
+  constraint 
       forall(i in 2..length) ( 
         graph[ cycle_array[i-1], cycle_array[i] ] != 0 );
 
-  constraint %% redundant constraint
+  constraint 
       forall(i in indexes, where i > length) ( 
          cycle_array[i] = -1 );
 
-  constraint %% all nodes should be disjoint
+  constraint 
       forall(i,j in indexes, where i<j /\ j<=length) ( 
          cycle_array[i] != cycle_array[j] );
 
-  constraint  %% the cost must be equal "cost"
+  constraint 
       cost = (sum(i in 2..length) 
          ( graph[ cycle_array[i-1], cycle_array[i] ] )) + graph[target,source];
-         
 } in cycle_array;
 
 
@@ -110,8 +170,6 @@ let {
   The value -1 is used to fill the array after the end of the cycle.
   If the cycle has more than one vertex, then the last vertex in the array is not equals to the first one, but they are connected by an edge.
   ADDED by CCS 
-  
-  The "cost" or bound in a cycle value was removed in this function
 */
 
 function array [int] of var int: cycle_without_cost(array[int,int] of int: graph, 
@@ -130,10 +188,8 @@ let {
 
   constraint 
       cycle_array[1] == source;
-      
   constraint 
       cycle_array[length] == target;
-
   constraint 
       graph[target,source] != 0;
 
@@ -149,10 +205,5 @@ let {
       forall(i,j in indexes, where i<j /\ j<=length) ( 
          cycle_array[i] != cycle_array[j] );
 
-%% The cost was removed ....
-
 } in cycle_array;
 
-/*
-****************************************************************************
-*/

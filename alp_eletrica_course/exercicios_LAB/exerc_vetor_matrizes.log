@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.26)  9 MAY 2016 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.9.21)  19 OCT 2016 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **exerc_vetor_matrizes.tex
 (./exerc_vetor_matrizes.tex
 LaTeX2e <2014/05/01>
-Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+Babel <3.9l> and hyphenation patterns for 3 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -389,10 +389,6 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 137.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
-\CommentStream=\write3
-
-Excluding comment 'comment')
 (/usr/share/texlive/texmf-dist/tex/latex/marvosym/marvosym.sty
 Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
 )
@@ -487,18 +483,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./exerc_vetor_matrizes.au
 x) ) 
 Here is how much of TeX's memory you used:
- 3493 strings out of 493105
- 43941 string characters out of 6137072
- 112811 words of memory out of 5000000
- 6874 multiletter control sequences out of 15000+600000
+ 3457 strings out of 494996
+ 43340 string characters out of 6180489
+ 107193 words of memory out of 5000000
+ 6602 multiletter control sequences out of 15000+600000
  9687 words of font info for 37 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 16 hyphenation exceptions out of 8191
  38i,6n,24p,288b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb>
-Output written on exerc_vetor_matrizes.pdf (1 page, 40915 bytes).
+Output written on exerc_vetor_matrizes.pdf (1 page, 41454 bytes).
 PDF statistics:
  24 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream
