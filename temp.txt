@@ -1,0 +1,7 @@
+minizinc/experimental_graph_library/lib/order_fn.mzn~
+minizinc/experimental_graph_library/lib/vertex_colouring_fn.mzn~
+minizinc/experimental_graph_library/lib/graphs.mzn~
+minizinc/experimental_graph_library/lib/vertex_set_fn.mzn~
+minizinc/experimental_graph_library/lib/is_adj_matrix_square.mzn~
+minizinc/experimental_graph_library/examples/connected_ex.mzn~
+minizinc/lista-warmup01-MFO/lab-minizinc-mfo.tex~
