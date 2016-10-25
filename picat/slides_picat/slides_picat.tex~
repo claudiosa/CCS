@@ -38,7 +38,7 @@
 \lstset{ 
   %  label={pgm_ex01},
     backgroundcolor=\color{azulclaro}, 
-    language=Haskell, %%Miranda,%%Perl,%%%Python, %%Mercury,
+    language=erlang, %%Miranda,%%Perl,%%%Python, %%Mercury,
     showstringspaces=false,
     basicstyle=\bf\scriptsize\ttfamily,
 %%      basicstyle= \footnotesize %%% TESTAR
@@ -59,7 +59,7 @@
 }
 
 
-\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/minizinc/}{minizinc/}}
+\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/picat}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 %Global Background must be put in preamble
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{amarelinho.pdf}}
@@ -71,8 +71,6 @@
 %\includegraphics[height=0.050\paperheight]{figuras/logo_SBPO_Peixe.png}
 %%\hspace{9.6cm}
 %\includegraphics[height=0.027\paperheight]{figuras/logo_udesc_horizontal.jpg}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -324,7 +322,7 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 \frametitle{Tipos de Dados}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=.6\textwidth]{tipos_dados_picat_traduzido.jpg}
+\includegraphics[width=.6\textwidth]{figures/tipos_dados_picat_traduzido.jpg}
 \caption{Hierarquia dos Tipos de dados}
 \label{Hiera}
 \end{figure}
@@ -451,7 +449,7 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
     \frametitle{Exemplos}
     \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.6\textwidth]{exercicio.jpg}
+    \includegraphics[width=.6\textwidth]{figures/exercicio.jpg}
     %\caption{Hierarquia dos Tipos de dados}
     %\label{Hiera}
     \end{figure}
@@ -507,6 +505,140 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
     \texttt{Media = (N$\_real01+N\_real$02)/2,}\\
     \texttt{printf("A média é: \%6.2f", Media),}\\
     \texttt{printf("$\backslash n ......FIM....... \backslash$ n").}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{PICAT aplicado a lógica -- LMA}
+\begin{frame}
+    \frametitle{Dirigido aos estudantes de LMA da UDESC}
+    \begin{itemize}
+    \item 
+    \item 
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{PICAT aplicado a lógica -- LMA}
+\begin{frame}[fragile]
+    \frametitle{Dirigido aos estudantes de LMA da UDESC}
+    \begin{itemize}
+    \item Instalem o PICAT a partir de \url{http//www.picat-lang.org}
+    \item Windows, Mac ou Linux
+    \item Tenham um editor de código de programa. Sugestão: \textit{geany} ou \textit{sublime}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Fatos}
+\begin{frame}
+    \frametitle{Fatos em Lógica  -- Exemplo 01}
+    \begin{itemize}
+    \item \texttt{nome(joao)}, \texttt{nome(maria)}, etc, \textcolor{red}{$aridade=1$} 
+    \item \texttt{idade\_nome(18, joao)}, \texttt{idade\_nome(19, maria)}, etc, \textcolor{red}{$aridade=2$}
+    \item \texttt{pai(pedro, joao)}, \texttt{pai(pedro, maria)}, etc, \textcolor{red}{$aridade=2$}
+    \item \texttt{idade\_nome\_sexo(18, joao, 'm')}, \texttt{idade\_nome\_sexo(19, maria, 'f')}, etc, \textcolor{red}{$aridade=3$}
+    \item \texttt{dados(futebol, 18, joao, 'm', joinville)}, \texttt{dados(natacao, 19, maria, 'f', blumenau)}, etc, \textcolor{red}{$aridade=5$}
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Fatos em PICAT}
+
+%\begin{block}{}
+\lstinputlisting{../fatos_ex_01.pi}
+%\end{block}
+
+Experimente: \texttt{\$ picat fatos\_ex\_01.pi}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Regras}
+\begin{frame}
+    \frametitle{Regras  em Lógica -- Exemplo 01: os mortais!}
+    \begin{itemize}
+    \item $homem(adao)$ \hspace{2cm} leia-se: \textit{Adão é um homem}         
+    \item $homem(platao)$ \hspace{2cm} leia-se: \textit{Platão é um homem}
+    \item $homem(socrates)$ \hspace{2cm} leia-se: \textit{Sócrates é um homem}
+
+    \item Todos homens sao mortais
+    \pause
+    \item $\forall x . (homem(x) \rightarrow mortal(x))$
+    \item A LPO usa um raciocínio dedutivo $\Rightarrow $ pesquise sobre isto!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Regras em PICAT}
+%\begin{block}{}
+\lstinputlisting{../regras_ex_01.pi}
+%\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Regras  em Lógica -- Exemplo 02: os pais!}
+    \begin{itemize}
+    
+    \item $pai(platao, luna)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Luna}
+    \item $pai(platao, péricles)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Péricles}
+    \item $pai(epimenides, platao)$ \hspace{1.5cm} leia-se: \textit{Sócrates é o pai de Platão}
+    
+    \pause
+    \item Alguém que é avô tem um filho que é um pai de alguém
+    \pause
+    \item Alguém que é irmão tem o mesmo pai e não é irmão consigo mesmo
+    \pause
+    \item \textcolor{red}{As regras estão nos slides de lógica}
+%%   \item 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Regras em PICAT}
+
+\lstinputlisting{../regras_ex_02.pi}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Regras  em Lógica -- Exemplo 03: os conexões entre cidades}
+    \begin{itemize}
+    \item as estradas existentes:
+  $$\begin{array}{lll} \hline\hline
+	(1) & estrada(joinville, itajai) & \\
+	(2) & estrada(joinville, blumenau) & \\
+	(3) & estrada(itajai, balneariocamboriu) & \\
+	(4) & estrada(blumenau, balneariocamboriu) & \\
+	(5) & estrada(balneariocamboriu, florianopolis) & \\
+	(6) & \forall x ~\exists y: estrada(x, y) \rightarrow caminho(x, y) & \\
+	(7) & \forall x ~\exists z ~\exists y: estrada(x, z) \wedge caminho(z, y) \rightarrow caminho (x,y) &\\
+	\hline\hline
+	\end{array}$$	
+
+    \item \textcolor{red}{Veja os comentários nos slides de lógica}
+%%    \item 
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Regras em PICAT}
+%\begin{block}{}
+%\lstinputlisting{../regras_ex_01.pi}
+%\end{block}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
