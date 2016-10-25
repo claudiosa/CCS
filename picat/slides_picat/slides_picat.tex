@@ -38,7 +38,7 @@
 \lstset{ 
   %  label={pgm_ex01},
     backgroundcolor=\color{azulclaro}, 
-    language=Haskell, %%Miranda,%%Perl,%%%Python, %%Mercury,
+    language=erlang, %%Miranda,%%Perl,%%%Python, %%Mercury,
     showstringspaces=false,
     basicstyle=\bf\scriptsize\ttfamily,
 %%      basicstyle= \footnotesize %%% TESTAR
@@ -59,7 +59,7 @@
 }
 
 
-\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/minizinc/}{minizinc/}}
+\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/picat}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 %Global Background must be put in preamble
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{amarelinho.pdf}}
@@ -71,8 +71,6 @@
 %\includegraphics[height=0.050\paperheight]{figuras/logo_SBPO_Peixe.png}
 %%\hspace{9.6cm}
 %\includegraphics[height=0.027\paperheight]{figuras/logo_udesc_horizontal.jpg}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,7 +106,9 @@ Universidade do Estado de Santa Catarina}
 
 \section{Introdução}
 \begin{frame}
+
     \frametitle{Histórico}
+
     \begin{itemize}
       \item Criada em 2013 por Neng-Fa Zhou e Jonathan Fruhman.
       \item Utilizou o B-Prolog como base de implementação, e ambas utilizam 
@@ -138,9 +138,9 @@ Universidade do Estado de Santa Catarina}
     \frametitle{Linguagem Multiparadigma}
     Motivo de existencia dos paradigmas?
     \begin{itemize}
-      \item Sintaxe %%Velocidade de implementação
+      \item Sintaxe $\Rightarrow $ elegância do código%%Velocidade de implementação
       \item Velocidade de execução
-      \item Elegância do código
+      \item Portabilidade
     \end{itemize}
 \end{frame}
 
@@ -150,9 +150,13 @@ Universidade do Estado de Santa Catarina}
     \frametitle{Linguagem Picat}
     \begin{itemize}
       \item Terminologia: segue as bases teóricas da linguagem Prolog.
-      \item Na \textbf{l}ógica de \textbf{p}rimeira-\textbf{o}rdem (LPO) os objetos são chamados por Termos.
-      \item O destaque de Picat é a sua natureza declarativa, funcional, tipagem dinâmica, e sintaxe
+    
+      \item Na \textbf{l}ógica de \textbf{p}rimeira-\textbf{o}rdem (LPO) os objetos são chamados por \textbf{termos}.
+      
+      \item O destaque de Picat é a sua natureza declarativa, funcional, tipagem dinâmica, e sintaxe \textit{açucarada}
+      
       \item \texttt{PICAT} é um anacrônico onde cada letra representa uma característica  de sua funcionalidade (operacionalidade).
+    
     \end{itemize}
 \end{frame}
 
@@ -161,8 +165,9 @@ Universidade do Estado de Santa Catarina}
 \section{Características}
 \begin{frame}
     \frametitle{Características: \textcolor{red}{P}-I-C-A-T}
-    \textbf{Pattern-matching}:\\ 
-\begin{itemize}
+ 
+ \textit{Pattern-matching}:\\ 
+ \begin{itemize}
   \item     Utiliza o conceito de casamento padrão. 
   \item    Um predicado define uma relação entre objetos n-ários
   \item     Uma função é um predicado especial que sempre retorna uma única resposta. 
@@ -176,13 +181,14 @@ Universidade do Estado de Santa Catarina}
 
 \begin{frame}
     \frametitle{Características: P-\textcolor{red}{I}-C-A-T}
-    \textbf{Intuitive}:\\ 
-  \begin{itemize}
-      \item     O Picat oferece atribuições e laços de repetições para a programação dos dias de hoje. 
- \item         Uma variável atribuída pode imitar várias variáveis lógicas, alterado seu valor seguindo o estado da computação. 
+    \textit{Intuitive}:\\ 
+ \begin{itemize}
+ 
+ \item     O Picat oferece atribuições e laços de repetições para a programação dos dias de hoje. 
+ \item         Uma variável atribuída  imita  variáveis lógicas, alterado seu valor seguindo o estado da computação. 
  \item        As atribuições são úteis para associar os termos, bem como utilizadas nas estruturas de laços repetitivos. 
     
-    \end{itemize}
+ \end{itemize}
     
     
 \end{frame}
@@ -191,11 +197,13 @@ Universidade do Estado de Santa Catarina}
 
 \begin{frame}
     \frametitle{Características: P-I-\textcolor{red}{C}-A-T}
-    \textbf{Constraints}:\\ 
+    \textit{Constraints}:\\ 
 \begin{itemize}
       \item   Picat suporta a programação por restrições. 
+ 
   \item  Dado um conjunto de variáveis, 
     cada uma possui um domínio de valores possíveis e restrições para limitar os valores a serem atribuídos nas variáveis. 
+ 
  \item    O objetivo é atribuir os valores que satisfaçam todas as restrições. 
 
     \end{itemize}
@@ -205,13 +213,13 @@ Universidade do Estado de Santa Catarina}
 
 \begin{frame}
     \frametitle{Características: P-I-C-\textcolor{red}{A}-T}
-    \textbf{Actors}: \textcolor{red}{ \textbf{REFAZER não é nada disto ...}}
+    \textit{Actors}: \textcolor{red}{ \textbf{REFAZER em breve  ...}}
   \begin{itemize}
       \item   Atores são chamadas orientadas à eventos.
 		\item Em Picat, as regras de ação descrevem comportamentos dos atores.
 \item 		Um ator recebe um objeto e dispara uma ação. 
 \item 		Os eventos são postados via canais de mensagem e um ator pode ser conectado há um canal, verificar e/ou processar seus eventos postados no canal.
-\item 		Neste ponto, estes atores desempenham características de área de Inteligência Artificial, especificamente a áreas de planejamento e sistemas multi-agentes.
+
     \end{itemize}   
 \end{frame}
 
@@ -219,11 +227,11 @@ Universidade do Estado de Santa Catarina}
 
 \begin{frame}
     \frametitle{Características: P-I-C-A-\textcolor{red}{T}}
-    \textbf{Tabling}:
+    \textit{Tabling}:
     \begin{itemize}
       \item     Considerando que operações entre variáveis podem ser armazenadas parcialmente em uma tabela na memória, permitindo que um programa acesse valores já calculados.
 	\item 	Assim, evita-se a repetição de operações já realizadas.
-	\item 	Com esta técnica de memoization, o Picat oferece soluções imediatas para problemas de programação dinâmica.
+	\item 	Com esta técnica de \textit{memoization}, o Picat oferece soluções imediatas para problemas de programação dinâmica.
     \end{itemize}
 \end{frame}
 
@@ -332,6 +340,7 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Variáveis}
 \begin{frame}
     \frametitle{Variável}
     \begin{itemize}
@@ -343,9 +352,9 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\subsection{Átomos}
 \begin{frame}
-    \frametitle{Átomo}
+    \frametitle{Átomos}
     \begin{itemize}
      \item Um átomo é uma constante simbólica e seu nome pode ser representado tanto com aspas simples ou sem. 
      \item Um átomo não pode ultrapassar uma linha de comando e seu nome tem um limite de mil caracteres. 
@@ -355,7 +364,7 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\subsection{Números}
 \begin{frame}
     \frametitle{Número}
     \begin{itemize}
@@ -380,6 +389,7 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Termos Compostos}
 \begin{frame}
     \frametitle{Termos Compostos}
     Um termo composto se divide entre listas,  estruturas e outros tipos compostos derivado destes são: 
@@ -387,7 +397,7 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\subsection{Listas}
 \begin{frame}
     \frametitle{Listas}
     A forma de uma lista reúne um conjunto de termos e os coloca dentro de colchetes: [t1; t2; :::; tn]. Veja o exemplo:
@@ -410,7 +420,7 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\subsection{Estruturas}
 \begin{frame}
     \frametitle{Estruturas}
     A forma de uma estrutura é definida como \$s(t1, t2, ..., tn),onde s é um átomo e \$ é usado para diferenciar uma função. 
@@ -479,8 +489,163 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Entradas e Sa\'idas}
 \begin{frame}
-    \frametitle{Soma até N}
+    \frametitle{Entradas e Saídas}
+    \texttt{main =>}\\
+    \texttt{printf("Digite dois números: "),}\\
+    \texttt{N$\_real01 = read\_$real(),}\\
+    \texttt{N$\_real02 = read\_$real(),}\\
+    \texttt{Media = (N$\_real01+N\_real$02)/2,}\\
+    \texttt{printf("A média é: \%6.2f", Media),}\\
+    \texttt{printf("$\backslash n ......FIM....... \backslash$ n").}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{PICAT aplicado a lógica -- LMA}
+\begin{frame}
+    \frametitle{Dirigido aos estudantes de LMA da UDESC}
+    \begin{itemize}
+    \item Ainda fora de ordem este material, mas acompanhe as explicações
+    em sala de aula
+    \item Traga o notebook se quiser
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\section{PICAT aplicado a lógica -- LMA}
+\begin{frame}[fragile]
+    \frametitle{Dirigido aos estudantes de LMA da UDESC}
+    \begin{itemize}
+    \item Instalem o PICAT a partir de \url{http//www.picat-lang.org}
+    \item Windows, Mac ou Linux
+    \item Tenham um editor de código de programa. Sugestão: \textit{geany} ou \textit{sublime}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Fatos}
+\begin{frame}
+    \frametitle{Fatos em Lógica  -- Exemplo 01}
+    \begin{itemize}
+    \item \texttt{nome(joao)}, \texttt{nome(maria)}, etc, \textcolor{red}{$aridade=1$} 
+    \item \texttt{idade\_nome(18, joao)}, \texttt{idade\_nome(19, maria)}, etc, \textcolor{red}{$aridade=2$}
+    \item \texttt{pai(pedro, joao)}, \texttt{pai(pedro, maria)}, etc, \textcolor{red}{$aridade=2$}
+    \item \texttt{idade\_nome\_sexo(18, joao, 'm')}, \texttt{idade\_nome\_sexo(19, maria, 'f')}, etc, \textcolor{red}{$aridade=3$}
+    \item \texttt{dados(futebol, 18, joao, 'm', joinville)}, \texttt{dados(natacao, 19, maria, 'f', blumenau)}, etc, \textcolor{red}{$aridade=5$}
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Fatos em PICAT}
+
+%\begin{block}{}
+\lstinputlisting{../fatos_ex_01.pi}
+%\end{block}
+
+Experimente: \texttt{\$ picat fatos\_ex\_01.pi}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Regras}
+\begin{frame}
+    \frametitle{Regras  em Lógica -- Exemplo 01: os mortais!}
+    \begin{itemize}
+    \item $homem(adao)$ \hspace{2cm} leia-se: \textit{Adão é um homem}         
+    \item $homem(platao)$ \hspace{2cm} leia-se: \textit{Platão é um homem}
+    \item $homem(socrates)$ \hspace{2cm} leia-se: \textit{Sócrates é um homem}
+
+    \item Todos homens sao mortais
+    \pause
+    \item $\forall x . (homem(x) \rightarrow mortal(x))$
+    \item A LPO usa um raciocínio dedutivo $\Rightarrow $ pesquise sobre isto!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Regras em PICAT}
+%\begin{block}{}
+\lstinputlisting{../regras_ex_01.pi}
+%\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Regras  em Lógica -- Exemplo 02: os pais!}
+    \begin{itemize}
+    
+    \item $pai(platao, luna)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Luna}
+    \item $pai(platao, péricles)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Péricles}
+    \item $pai(epimenides, platao)$ \hspace{1.5cm} leia-se: \textit{Sócrates é o pai de Platão}
+    
+    \pause
+    \item Alguém que é avô tem um filho que é um pai de alguém
+    \pause
+    \item Alguém que é irmão tem o mesmo pai e não é irmão consigo mesmo
+    \pause
+    \item \textcolor{red}{As regras estão nos slides de lógica}
+%%   \item 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Regras em PICAT}
+
+\lstinputlisting{../regras_ex_02.pi}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Regras  em Lógica -- Exemplo 03: os conexões entre cidades}
+    \begin{itemize}
+    \item as estradas existentes:
+  $$\begin{array}{lll} \hline\hline
+	(1) & estrada(joinville, itajai) & \\
+	(2) & estrada(joinville, blumenau) & \\
+	(3) & estrada(itajai, balneariocamboriu) & \\
+	(4) & estrada(blumenau, balneariocamboriu) & \\
+	(5) & estrada(balneariocamboriu, florianopolis) & \\
+	(6) & \forall x ~\exists y: estrada(x, y) \rightarrow caminho(x, y) & \\
+	(7) & \forall x ~\exists z ~\exists y: estrada(x, z) \wedge caminho(z, y) \rightarrow caminho (x,y) &\\
+	\hline\hline
+	\end{array}$$	
+
+    \item \textcolor{red}{Veja os comentários nos slides de lógica}
+%%    \item 
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Regras em PICAT}
+%\begin{block}{}
+\lstinputlisting{../regras_ex_03.pi}
+%\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Recursão}
+
+\begin{frame}%%%%[allowframebreaks=0.9]
+ \frametitle{Recursão em PICAT}
+
+\begin{block}{}
+
     \texttt{Soma como predicado}\\
     \texttt{soma\_p(0,S) => S = 0.}\\
     \texttt{soma\_p(N,S), N > 0 =>}\\
@@ -494,20 +659,23 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 		\texttt{Soma como função de fatos - próx. à Haskell}\\
 		\texttt{soma\_f2(0) 0.}\\
 		\texttt{soma\_f2(N) = N + soma\_f2 (N-1).}\\
+
+\textcolor{red}{Será refeito .....}
+
+\end{block}
+
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-    \frametitle{Entradas e Saídas}
-    \texttt{main =>}\\
-    \texttt{printf("Digite dois números: "),}\\
-    \texttt{N$\_real01 = read\_$real(),}\\
-    \texttt{N$\_real02 = read\_$real(),}\\
-    \texttt{Media = (N$\_real01+N\_real$02)/2,}\\
-    \texttt{printf("A média é: \%6.2f", Media),}\\
-    \texttt{printf("$\backslash n ......FIM....... \backslash$ n").}
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Recursão em PICAT}
+
+\lstinputlisting{../recursao_soma_N.pi}
+
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

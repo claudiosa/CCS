@@ -42,50 +42,95 @@
 \headcommand {\beamer@subsectionpages {7}{16}}
 \headcommand {\slideentry {3}{0}{17}{17/17}{}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {3}{0}{18}{18/18}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{18}{Vari\IeC {\'a}veis}}\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\slideentry {3}{1}{1}{18/18}{Vari\IeC {\'a}veis}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\slideentry {3}{0}{19}{19/19}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{19}{\IeC {\'A}tomos}}\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\slideentry {3}{2}{1}{19/19}{\IeC {\'A}tomos}{0}}
 \headcommand {\beamer@framepages {19}{19}}
-\headcommand {\slideentry {3}{0}{20}{20/20}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{20}{N\IeC {\'u}meros}}\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\slideentry {3}{3}{1}{20/20}{N\IeC {\'u}meros}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\slideentry {3}{0}{21}{21/21}{}{0}}
+\headcommand {\slideentry {3}{3}{2}{21/21}{N\IeC {\'u}meros}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\slideentry {3}{0}{22}{22/22}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{22}{Termos Compostos}}\headcommand {\beamer@subsectionpages {20}{21}}
+\headcommand {\slideentry {3}{4}{1}{22/22}{Termos Compostos}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\slideentry {3}{0}{23}{23/23}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{5}{23}{Listas}}\headcommand {\beamer@subsectionpages {22}{22}}
+\headcommand {\slideentry {3}{5}{1}{23/23}{Listas}{0}}
 \headcommand {\beamer@framepages {23}{23}}
-\headcommand {\slideentry {3}{0}{24}{24/24}{}{0}}
+\headcommand {\slideentry {3}{5}{2}{24/24}{Listas}{0}}
 \headcommand {\beamer@framepages {24}{24}}
-\headcommand {\slideentry {3}{0}{25}{25/25}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{6}{25}{Estruturas}}\headcommand {\beamer@subsectionpages {23}{24}}
+\headcommand {\slideentry {3}{6}{1}{25/25}{Estruturas}{0}}
 \headcommand {\beamer@framepages {25}{25}}
-\headcommand {\slideentry {3}{0}{26}{26/26}{}{0}}
+\headcommand {\slideentry {3}{6}{2}{26/26}{Estruturas}{0}}
 \headcommand {\beamer@framepages {26}{26}}
-\headcommand {\slideentry {3}{0}{27}{27/27}{}{0}}
+\headcommand {\slideentry {3}{6}{3}{27/27}{Estruturas}{0}}
 \headcommand {\beamer@framepages {27}{27}}
 \headcommand {\sectionentry {4}{Exemplos}{28}{Exemplos}{0}}
 \headcommand {\beamer@sectionpages {17}{27}}
-\headcommand {\beamer@subsectionpages {17}{27}}
-\headcommand {\slideentry {4}{0}{28}{28/28}{}{0}}
+\headcommand {\beamer@subsectionpages {25}{27}}
+\headcommand {\slideentry {4}{0}{4}{28/28}{}{0}}
 \headcommand {\beamer@framepages {28}{28}}
-\headcommand {\slideentry {4}{0}{29}{29/29}{}{0}}
+\headcommand {\slideentry {4}{0}{5}{29/29}{}{0}}
 \headcommand {\beamer@framepages {29}{29}}
-\headcommand {\slideentry {4}{0}{30}{30/30}{}{0}}
+\headcommand {\slideentry {4}{0}{6}{30/30}{}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\slideentry {4}{0}{31}{31/31}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{31}{Entradas e Sa\'idas}}\headcommand {\beamer@subsectionpages {28}{30}}
+\headcommand {\slideentry {4}{1}{1}{31/31}{Entradas e Sa\'idas}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\slideentry {4}{0}{32}{32/32}{}{0}}
+\headcommand {\sectionentry {5}{PICAT aplicado a l\IeC {\'o}gica -- LMA}{32}{PICAT aplicado a l\IeC {\'o}gica -- LMA}{0}}
+\headcommand {\beamer@sectionpages {28}{31}}
+\headcommand {\beamer@subsectionpages {31}{31}}
+\headcommand {\slideentry {5}{0}{2}{32/32}{}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\sectionentry {5}{Conclus\IeC {\~a}o}{33}{Conclus\IeC {\~a}o}{0}}
-\headcommand {\beamer@sectionpages {28}{32}}
-\headcommand {\beamer@subsectionpages {28}{32}}
-\headcommand {\slideentry {5}{0}{33}{33/33}{}{0}}
+\headcommand {\slideentry {5}{0}{3}{33/33}{}{0}}
 \headcommand {\beamer@framepages {33}{33}}
-\headcommand {\slideentry {5}{0}{34}{34/34}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{34}{Fatos}}\headcommand {\beamer@subsectionpages {32}{33}}
+\headcommand {\slideentry {5}{1}{1}{34/34}{Fatos}{0}}
 \headcommand {\beamer@framepages {34}{34}}
-\headcommand {\slideentry {5}{0}{35}{35/35}{}{0}}
+\headcommand {\slideentry {5}{1}{2}{35/35}{Fatos}{0}}
 \headcommand {\beamer@framepages {35}{35}}
-\headcommand {\beamer@partpages {1}{35}}
-\headcommand {\beamer@subsectionpages {33}{35}}
-\headcommand {\beamer@sectionpages {33}{35}}
-\headcommand {\beamer@documentpages {35}}
-\headcommand {\def \inserttotalframenumber {35}}
+\headcommand {\slideentry {5}{1}{2}{35/36}{Fatos}{0}}
+\headcommand {\beamer@framepages {35}{36}}
+\headcommand {\slideentry {5}{1}{2}{35/37}{Fatos}{0}}
+\headcommand {\beamer@framepages {35}{37}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{38}{Regras}}\headcommand {\beamer@subsectionpages {34}{37}}
+\headcommand {\slideentry {5}{2}{1}{38/39}{Regras}{0}}
+\headcommand {\beamer@framepages {38}{39}}
+\headcommand {\slideentry {5}{2}{2}{40/40}{Regras}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {5}{2}{3}{41/44}{Regras}{0}}
+\headcommand {\beamer@framepages {41}{44}}
+\headcommand {\slideentry {5}{2}{4}{45/45}{Regras}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {5}{2}{4}{45/46}{Regras}{0}}
+\headcommand {\beamer@framepages {45}{46}}
+\headcommand {\slideentry {5}{2}{5}{47/47}{Regras}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {5}{2}{6}{48/48}{Regras}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\slideentry {5}{2}{6}{48/49}{Regras}{0}}
+\headcommand {\beamer@framepages {48}{49}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{50}{Recurs\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {38}{49}}
+\headcommand {\slideentry {5}{3}{1}{50/50}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {5}{3}{2}{51/51}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\slideentry {5}{3}{2}{51/52}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {51}{52}}
+\headcommand {\sectionentry {6}{Conclus\IeC {\~a}o}{53}{Conclus\IeC {\~a}o}{0}}
+\headcommand {\beamer@sectionpages {32}{52}}
+\headcommand {\beamer@subsectionpages {50}{52}}
+\headcommand {\slideentry {6}{0}{3}{53/53}{}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\slideentry {6}{0}{4}{54/54}{}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {6}{0}{5}{55/55}{}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\beamer@partpages {1}{55}}
+\headcommand {\beamer@subsectionpages {53}{55}}
+\headcommand {\beamer@sectionpages {53}{55}}
+\headcommand {\beamer@documentpages {55}}
+\headcommand {\def \inserttotalframenumber {51}}

@@ -1,0 +1,36 @@
+%%% FATOS ...  desenhe a arvore geneologica
+index(-,-)    
+	pai(platao, luna).
+	pai(platao, pericles).
+	pai(platao, eratostenes).
+	pai(epimenides, platao).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+listar_pais  ?=>    
+          pai(X,Y) ,  
+          printf("\n ==> %w  e pai de  %w", X , Y)  , 
+          false.
+
+listar_pais => 
+          printf("\n ")  ,
+          true. %% the final rule of above
+          
+listar_avos  ?=>    
+          avo(X,Y) ,  
+          printf("\n ==> %w  e avo de  %w", X , Y)  , 
+          false.
+
+listar_avos => 
+          printf("\n ")  ,
+          true. %% the final rule of above          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+avo(X,Y) ?=> pai(X,Z), pai(Z,Y).
+
+irmao(X,Y) ?=> pai(X,Z), pai(Z,Y), X !== Y. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% main padrao
+main ?=> listar_pais, 
+	avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
+    irmao(Z,W), printf("\n ==> %w  eh irmao de  %w", Z , W),
+    false.   
+main => true.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

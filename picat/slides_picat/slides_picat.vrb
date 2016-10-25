@@ -1,2 +1,6 @@
-\frametitle{Sumário}
-\tableofcontents
+\frametitle{Dirigido aos estudantes de LMA da UDESC}
+    \begin{itemize}
+    \item Instalem o PICAT a partir de \url{http//www.picat-lang.org}
+    \item Windows, Mac ou Linux
+    \item Tenham um editor de código de programa. Sugestão: \textit{geany} ou \textit{sublime}
+    \end{itemize}

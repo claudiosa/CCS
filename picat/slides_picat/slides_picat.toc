@@ -3,5 +3,16 @@
 \beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
 \beamer@sectionintoc {2}{Caracter\IeC {\'\i }sticas}{7}{0}{2}
 \beamer@sectionintoc {3}{Tipos de Dados}{17}{0}{3}
+\beamer@subsectionintoc {3}{1}{Vari\IeC {\'a}veis}{18}{0}{3}
+\beamer@subsectionintoc {3}{2}{\IeC {\'A}tomos}{19}{0}{3}
+\beamer@subsectionintoc {3}{3}{N\IeC {\'u}meros}{20}{0}{3}
+\beamer@subsectionintoc {3}{4}{Termos Compostos}{22}{0}{3}
+\beamer@subsectionintoc {3}{5}{Listas}{23}{0}{3}
+\beamer@subsectionintoc {3}{6}{Estruturas}{25}{0}{3}
 \beamer@sectionintoc {4}{Exemplos}{28}{0}{4}
-\beamer@sectionintoc {5}{Conclus\IeC {\~a}o}{33}{0}{5}
+\beamer@subsectionintoc {4}{1}{Entradas e Sa\'idas}{31}{0}{4}
+\beamer@sectionintoc {5}{PICAT aplicado a l\IeC {\'o}gica -- LMA}{32}{0}{5}
+\beamer@subsectionintoc {5}{1}{Fatos}{34}{0}{5}
+\beamer@subsectionintoc {5}{2}{Regras}{38}{0}{5}
+\beamer@subsectionintoc {5}{3}{Recurs\IeC {\~a}o}{50}{0}{5}
+\beamer@sectionintoc {6}{Conclus\IeC {\~a}o}{53}{0}{6}
