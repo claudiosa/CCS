@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tree version="1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../documentation/tree.xsd">
+<root id="0"/>
+<try id="1" parent="0" name="S" size="1" value="9" />
+<fail id="2" parent="1" name="E" size="4" value="4" />
+<try id="3" parent="1" name="E" size="4" value="5" />
+<try id="4" parent="3" name="N" size="1" value="6" />
+<try id="5" parent="4" name="D" size="1" value="7" />
+<try id="6" parent="5" name="M" size="1" value="1" />
+<try id="7" parent="6" name="O" size="1" value="0" />
+<try id="8" parent="7" name="R" size="1" value="8" />
+<try id="9" parent="8" name="Y" size="1" value="2" />
+<succ id="9"/>
+<fail id="10" parent="1" name="E" size="4" value="6" />
+<fail id="11" parent="1" name="E" size="4" value="7" />
+</tree>
