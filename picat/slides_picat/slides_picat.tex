@@ -671,7 +671,82 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercícios}
+
+
+
+\begin{frame}[fragile]%[allowframebreaks=0.9]
+ \frametitle{Exercícios}
+
+\begin{block}{Resolva e implemente em PICAT os seguintes problemas:}
+
+\begin{itemize}
+  \item Seja o conjunto das seguintes fórmulas em lógica de primeira-ordem (LPO), as quais descrevem o comportamento de um adversário 
+autônomo (NPC--\textit{nerd por computador}) em um videogame:\\
+
+\begin{small}
+\begin{tabular}{ll}
+\\  \hline \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  1. & agente(oponente) \\
+  2. & estado(oponente, fome) \\
+  3. & fruta(banana) \\
+  4. & fruta(laranja) \\
+  5. & sanduiche(bigmac) \\
+  6. & $\forall x \exists y: (fruta(x) \vee sanduiche(y) \rightarrow alimento(x) )$ \\
+  7. & $\exists z \forall x: (agente(z) \wedge estado(z, fome) \wedge alimento(x) \rightarrow decisao(z, comer, x))$ \\
+    \hline \hline
+ \end{tabular}
+
+\end{small}
+Demonstre as possíveis decisões que o \textbf{agente} pode executar quando está no estado ``{\tt fome}''.
+
+
+\end{itemize}
+
+\end{block}
+
+   $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
+ 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]%[allowframebreaks=0.9]
+ \frametitle{Exercícios}
+
+\begin{block}{continuação:}
+
+\begin{itemize}
+
+\item Seja o conjunto das seguintes fórmulas em lógica de primeira-ordem (LPO), as quais descrevem uma estória:
+\begin{small}
+
+\begin{tabular}{ll}
+ \hline \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    1. &  $\forall y \exists x ( pessoa(y) \wedge pet(x) \wedge vacinado(x) \rightarrow ama(y, x) )$ \\
+    2. &  $ \forall x ( pet(x) \wedge saudavel(x) \rightarrow vacinado(x) ) $ \\
+    3. &  $ pessoa(mickey) $ \\
+    4. &  $ pet(pluto) $ \\
+    5. &  $ pet(garfield) $ \\
+    6. &  $ saudavel(pluto)$ \\
+    7. &  $ saudavel(garfield)$ \\
+    \hline \hline
+ \end{tabular}
+Responda quem é saudável, vacinado, e quem \textit{ama} o quem?
+
+\end{small}
+\end{itemize}
+
+\end{block}
+
+   $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
+ 
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Recursão}
 
 
@@ -681,7 +756,7 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
 \begin{block}{}
 
 \begin{itemize}
-  \item A recursão já foi usada nos exemplos da cidade
+  \item A recursão já foi usada nos exemplos da cidade, dos pais, etc
   \pause
   
   \item O objetivo é buscar a solução $n$-ésima instância na solução da $(n-1)$-ésima   instância
@@ -699,23 +774,107 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
 \begin{frame}%%%%[allowframebreaks=0.9]
  \frametitle{Recursão em PICAT}
 
-\begin{block}{}
+\begin{block}{Exemplo da soma de 0 a N (inteiro, positivo)}
+\begin{itemize}
+  
+  \item $0 + 1 + 2 + \cdots + n = \frac{n(n + 1)}{2}$
+  \pause
+  
+  \item Ilustrando:
+  
+   \pause
+  
+  \begin{figure}[!ht]
+\centering
+\includegraphics[width=.3\textwidth]{figures/six_triangular_numbers.png}
+%\caption{Hierarquia dos Tipos de dados}
+%\label{Hiera}
+\end{figure}
+  
+  \item Aqui temos a fórmula da soma, e se não tivéssemos?
+  \pause
+   
+  \item  ...
+  
+  
+  
+\end{itemize}
 
-    \texttt{Soma como predicado}\\
-    \texttt{soma\_p(0,S) => S = 0.}\\
-    \texttt{soma\_p(N,S), N > 0 =>}\\
-    \texttt{\qquad \qquad \qquad \qquad \qquad soma\_p(N-1, Parcial),}\\
-    \texttt{\qquad \qquad \qquad \qquad \qquad S = N + Parcial.}\\
-		\texttt{}\\
-		\texttt{Soma como Função - Classic}\\
-		\texttt{soma\_f1(0) = S => S = 0.}\\
-		\texttt{soma\_f1(N) = S, N >= 1 => S = N + soma\_f1 (N-1).}\\
-		\texttt{}\\
-		\texttt{Soma como função de fatos - próx. à Haskell}\\
-		\texttt{soma\_f2(0) 0.}\\
-		\texttt{soma\_f2(N) = N + soma\_f2 (N-1).}\\
 
-\textcolor{red}{Será refeito .....}
+
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}%%%%[allowframebreaks=0.9]
+ \frametitle{Recursão em PICAT}
+
+\begin{block}{Exemplo da soma de 0 a N (inteiro, positivo)}
+
+$$
+S(n)=0+1+2+3+4+.....+(n-1)+n
+$$
+\pause
+Reformulado sob uma visão da indução finita como:
+
+\pause
+$$
+S(n)=\left \{
+\begin{tabular}
+[c]{ll}
+$0$ & para $n=0$ \\
+$S(n-1) + n $ & para $n \geqslant 1$
+\end{tabular}
+\right.
+$$
+
+
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}%%%%[allowframebreaks=0.9]
+ \frametitle{Recursão em PICAT}
+
+\begin{block}{Explicando}
+\begin{itemize}
+  \item O procedimento é recursivo, 
+
+\item Contudo, deve-se encontrar a definição para 
+a ``\textbf{parada}'' da recursividade. 
+
+\item Como $n$ não tem limite superior,
+então $n$, inicia-se pelo que se conhece, $n=0$
+
+\pause
+\item Em um procedimento algoritmico:\\
+
+{\small
+\begin{center}
+\begin{tabular}[c]{p{8cm}}\hline \hline
+\textbf{\#1}. A soma até 0 \'{e} 0, logo: \texttt{soma(0,0).}\\
+\textbf{\#2}. Para soma dos $n$-\'{e}simos termos,
+ \'{e} necess\'{a}rio a soma \\
+do $(n-1)$-\'{e}simos termos\\
+Assim uma fórmula recursiva é deduzida como:\\
+\texttt{soma(N,S) = Nant := (N-1)} $\wedge$\\ 
+\texttt{soma(Nant, S\_Nant)}   $\wedge$ \\
+ \texttt{S := (N + S\_Nant)}.\\ 
+ \hline \hline
+\end{tabular}
+\end{center}
+}
+\pause
+\item Entendido?
+\pause
+$\Rightarrow $ \textbf{\textcolor{red}{Agora basta escrever em PICAT}}
+
+\end{itemize}
+
 
 \end{block}
 

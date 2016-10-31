@@ -115,26 +115,35 @@
 \headcommand {\beamer@framepages {50}{50}}
 \headcommand {\slideentry {5}{2}{6}{50/51}{Regras}{0}}
 \headcommand {\beamer@framepages {50}{51}}
-\headcommand {\beamer@subsectionentry {0}{5}{3}{52}{Recurs\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {40}{51}}
-\headcommand {\slideentry {5}{3}{1}{52/54}{Recurs\IeC {\~a}o}{0}}
-\headcommand {\beamer@framepages {52}{54}}
-\headcommand {\slideentry {5}{3}{2}{55/55}{Recurs\IeC {\~a}o}{0}}
-\headcommand {\beamer@framepages {55}{55}}
-\headcommand {\slideentry {5}{3}{3}{56/56}{Recurs\IeC {\~a}o}{0}}
-\headcommand {\beamer@framepages {56}{56}}
-\headcommand {\slideentry {5}{3}{3}{56/57}{Recurs\IeC {\~a}o}{0}}
-\headcommand {\beamer@framepages {56}{57}}
-\headcommand {\sectionentry {6}{Conclus\IeC {\~a}o}{58}{Conclus\IeC {\~a}o}{0}}
-\headcommand {\beamer@sectionpages {32}{57}}
-\headcommand {\beamer@subsectionpages {52}{57}}
-\headcommand {\slideentry {6}{0}{4}{58/58}{}{0}}
-\headcommand {\beamer@framepages {58}{58}}
-\headcommand {\slideentry {6}{0}{5}{59/59}{}{0}}
-\headcommand {\beamer@framepages {59}{59}}
-\headcommand {\slideentry {6}{0}{6}{60/60}{}{0}}
-\headcommand {\beamer@framepages {60}{60}}
-\headcommand {\beamer@partpages {1}{60}}
-\headcommand {\beamer@subsectionpages {58}{60}}
-\headcommand {\beamer@sectionpages {58}{60}}
-\headcommand {\beamer@documentpages {60}}
-\headcommand {\def \inserttotalframenumber {53}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{52}{Exerc\IeC {\'\i }cios}}\headcommand {\beamer@subsectionpages {40}{51}}
+\headcommand {\slideentry {5}{3}{1}{52/52}{Exerc\IeC {\'\i }cios}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\slideentry {5}{3}{2}{53/53}{Exerc\IeC {\'\i }cios}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\beamer@subsectionentry {0}{5}{4}{54}{Recurs\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {52}{53}}
+\headcommand {\slideentry {5}{4}{1}{54/56}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {54}{56}}
+\headcommand {\slideentry {5}{4}{2}{57/60}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {57}{60}}
+\headcommand {\slideentry {5}{4}{3}{61/63}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {61}{63}}
+\headcommand {\slideentry {5}{4}{4}{64/67}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {64}{67}}
+\headcommand {\slideentry {5}{4}{5}{68/68}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {68}{68}}
+\headcommand {\slideentry {5}{4}{5}{68/69}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {68}{69}}
+\headcommand {\sectionentry {6}{Conclus\IeC {\~a}o}{70}{Conclus\IeC {\~a}o}{0}}
+\headcommand {\beamer@sectionpages {32}{69}}
+\headcommand {\beamer@subsectionpages {54}{69}}
+\headcommand {\slideentry {6}{0}{6}{70/70}{}{0}}
+\headcommand {\beamer@framepages {70}{70}}
+\headcommand {\slideentry {6}{0}{7}{71/71}{}{0}}
+\headcommand {\beamer@framepages {71}{71}}
+\headcommand {\slideentry {6}{0}{8}{72/72}{}{0}}
+\headcommand {\beamer@framepages {72}{72}}
+\headcommand {\beamer@partpages {1}{72}}
+\headcommand {\beamer@subsectionpages {70}{72}}
+\headcommand {\beamer@sectionpages {70}{72}}
+\headcommand {\beamer@documentpages {72}}
+\headcommand {\def \inserttotalframenumber {57}}

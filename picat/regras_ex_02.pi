@@ -25,7 +25,7 @@ listar_avos =>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 avo(X,Y) ?=> pai(X,Z), pai(Z,Y).
 
-irmao(X,Y) ?=> pai(X,Z), pai(Z,Y), X !== Y. 
+irmao(X,Y) ?=> pai(Z,X), pai(Z,Y), X !== Y. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% main padrao
 main ?=> listar_pais, 

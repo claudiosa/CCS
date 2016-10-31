@@ -14,5 +14,6 @@
 \beamer@sectionintoc {5}{PICAT aplicado a l\IeC {\'o}gica -- LMA}{32}{0}{5}
 \beamer@subsectionintoc {5}{1}{Fatos}{34}{0}{5}
 \beamer@subsectionintoc {5}{2}{Regras}{40}{0}{5}
-\beamer@subsectionintoc {5}{3}{Recurs\IeC {\~a}o}{52}{0}{5}
-\beamer@sectionintoc {6}{Conclus\IeC {\~a}o}{58}{0}{6}
+\beamer@subsectionintoc {5}{3}{Exerc\IeC {\'\i }cios}{52}{0}{5}
+\beamer@subsectionintoc {5}{4}{Recurs\IeC {\~a}o}{54}{0}{5}
+\beamer@sectionintoc {6}{Conclus\IeC {\~a}o}{70}{0}{6}

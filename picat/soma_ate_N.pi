@@ -1,16 +1,25 @@
 % Soma como predicado
 
-main => soma_p(7, X), 
-        printf("\n X: %d " , X), 
+main => soma_p1(7, X), 
+        printf("\n soma_P1: %d " , X), 
+        soma_p2(7, Y), 
+        printf("\n soma_P2: %d " , Y), 
         printf("\n soma_f1: %d " , soma_f1(7) ),
         printf("\n soma_f2: %d " , soma_f2(7) ).   
       
+soma_p1(0,S) ?=> S = 0.
+soma_p1(N,S) , N > 0 => 
+             soma_p1(N-1,Parcial), 
+             S = N + Parcial.
 
-soma_p(0,S) => S = 0.
-soma_p(N,S) , N > 0 => 
-                     soma_p(N-1,Parcial), 
-                     S = N + Parcial.
- 
+/* recursividade CLASSICA -- prolog like*/
+soma_p2(0,S) ?=> S = 0.
+% regra backtrackable
+soma_p2( N, S ) => N > 0, %%% evita negativos
+                   Ant  =  (N - 1),
+                   soma_p2( Ant , Parcial ),
+                   S = (N + Parcial) . 
+
 % Soma como funcao -- visao classica
 soma_f1(0) = S => S = 0.
 soma_f1(N) = S, N >= 1 => 

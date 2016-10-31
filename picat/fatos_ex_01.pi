@@ -2,6 +2,8 @@
 index(-)      % these facts are not ordered
 	nome(joao).
 	nome(maria).
+	nome(marcia).
+
 index(-,-)     % these facts are not ordered
     idade_nome(18, joao).
     idade_nome(19, maria).

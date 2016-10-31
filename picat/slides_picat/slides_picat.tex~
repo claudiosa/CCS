@@ -540,6 +540,29 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Fatos em Lógica  -- Generalizações}
+    
+    \begin{itemize}
+    \item \texttt{nome(joao)}\\ 
+     \texttt{nome(maria)}\\ 
+      $\therefore $ \textcolor{red}{$\exists x . nome(x)$} 
+      ou \textcolor{red}{$\forall x . nome(x)$} 
+    
+    \item \texttt{idade\_nome(18, joao)}\\ 
+     \texttt{idade\_nome(19, maria)}\\ 
+       $\therefore $ \textcolor{red}{$\exists x \exists y . idade\_nome(x,y)$} ou \textcolor{red}{$\forall x \exists y . idade\_nome(x,y)$} 
+    
+    \item \texttt{pai(pedro, joao)}\\ 
+    \texttt{pai(pedro, maria)}\\ 
+    $\therefore $ \textcolor{red}{$\exists x \exists y . pai(x,y)$} ou \textcolor{red}{$\exists x \forall y . pai(x,y)$}
+    \pause
+    
+    \item \textcolor{red}{Cuidar nas \textbf{generalizações} ... há muitas regras!}
+    \item \textcolor{red}{Principalmente nas regras (fórmulas com conectivos) e fatos com $aridade \ge 2$} 
+    
+        \end{itemize}
+\end{frame}
 
 
 \begin{frame}[allowframebreaks=0.9]
@@ -549,7 +572,10 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 \lstinputlisting{../fatos_ex_01.pi}
 %\end{block}
 
-Experimente: \texttt{\$ picat fatos\_ex\_01.pi}
+Experimente: \texttt{\$ picat fatos\_ex\_01.pi}\\
+
+$\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -566,6 +592,9 @@ Experimente: \texttt{\$ picat fatos\_ex\_01.pi}
     \pause
     \item $\forall x . (homem(x) \rightarrow mortal(x))$
     \item A LPO usa um raciocínio dedutivo $\Rightarrow $ pesquise sobre isto!
+    %\pause
+    %\item 
+
     \end{itemize}
 \end{frame}
 
@@ -593,7 +622,9 @@ Experimente: \texttt{\$ picat fatos\_ex\_01.pi}
     \item Alguém que é irmão tem o mesmo pai e não é irmão consigo mesmo
     \pause
     \item \textcolor{red}{As regras estão nos slides de lógica}
-%%   \item 
+
+    \item  $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
+ 
     \end{itemize}
 \end{frame}
 
@@ -635,11 +666,35 @@ Experimente: \texttt{\$ picat fatos\_ex\_01.pi}
 \lstinputlisting{../regras_ex_03.pi}
 %\end{block}
 
+   $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
+ 
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Recursão}
+
+
+\begin{frame}%%%%[allowframebreaks=0.9]
+ \frametitle{Recursão em PICAT}
+
+\begin{block}{}
+
+\begin{itemize}
+  \item A recursão já foi usada nos exemplos da cidade
+  \pause
+  
+  \item O objetivo é buscar a solução $n$-ésima instância na solução da $(n-1)$-ésima   instância
+  \pause
+  
+  \item Raciocínio análogo (e o contrário) da hipótese indutiva
+  
+  
+\end{itemize}
+
+\end{block}
+
+\end{frame}
 
 \begin{frame}%%%%[allowframebreaks=0.9]
  \frametitle{Recursão em PICAT}

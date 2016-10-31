@@ -1,6 +1,30 @@
-\frametitle{Dirigido aos estudantes de LMA da UDESC}
-    \begin{itemize}
-    \item Instalem o PICAT a partir de \url{http//www.picat-lang.org}
-    \item Windows, Mac ou Linux
-    \item Tenham um editor de código de programa. Sugestão: \textit{geany} ou \textit{sublime}
-    \end{itemize}
+\frametitle{Exercícios}
+
+\begin{block}{continuação:}
+
+\begin{itemize}
+
+\item Seja o conjunto das seguintes fórmulas em lógica de primeira-ordem (LPO), as quais descrevem uma estória:
+\begin{small}
+
+\begin{tabular}{ll}
+ \hline \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    1. &  $\forall y \exists x ( pessoa(y) \wedge pet(x) \wedge vacinado(x) \rightarrow ama(y, x) )$ \\
+    2. &  $ \forall x ( pet(x) \wedge saudavel(x) \rightarrow vacinado(x) ) $ \\
+    3. &  $ pessoa(mickey) $ \\
+    4. &  $ pet(pluto) $ \\
+    5. &  $ pet(garfield) $ \\
+    6. &  $ saudavel(pluto)$ \\
+    7. &  $ saudavel(garfield)$ \\
+    \hline \hline
+ \end{tabular}
+Responda quem é saudável, vacinado, e quem \textit{ama} o quem?
+
+\end{small}
+\end{itemize}
+
+\end{block}
+
+   $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
+
