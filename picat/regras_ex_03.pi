@@ -1,6 +1,6 @@
 
 %%% FATOS ... = Mapa
-index(-, -) % these facts are not ordered
+index(-, -) 
 estrada(joinville , itajai )        .
 estrada(joinville , blumenau )      .
 estrada(itajai    , camboriu )      .

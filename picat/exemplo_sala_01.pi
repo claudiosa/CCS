@@ -1,0 +1,29 @@
+%%% FATOS ... = Prolog
+index(-)      % these facts are not ordered
+	f1(a).
+	f1(b).
+	
+index(-)     % these facts are not ordered
+    f2(1).
+	f2(2).
+	
+index(-)     % these facts are not ordered
+    f3('#').
+	f3('@').
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+regra(X,Y,Z)  =>     %%% this rule is backtrackable
+          f1(Z),
+          f2(X),
+          f3(Y).
+
+l_vars ?=> 
+   regra(X,Y,Z),                            
+   printf("\n X: %w Y: %w Z: %w ", X,Y,Z)  ,   %% and
+   false.
+
+l_vars => 
+       printf("\n\n FIM DOS FATOS \n\n ")  ,
+       true. %% the final rule of above
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+main => l_vars.
