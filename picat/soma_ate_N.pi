@@ -7,18 +7,18 @@ main => soma_p1(7, X),
         printf("\n soma_f1: %d " , soma_f1(7) ),
         printf("\n soma_f2: %d " , soma_f2(7) ).   
       
-soma_p1(0,S) ?=> S = 0.
-soma_p1(N,S) , N > 0 => 
-             soma_p1(N-1,Parcial), 
-             S = N + Parcial.
-
 /* recursividade CLASSICA -- prolog like*/
-soma_p2(0,S) ?=> S = 0.
-% regra backtrackable
-soma_p2( N, S ) => N > 0, %%% evita negativos
+soma_p1(0,S) ?=> S = 0.   % regra backtrackable
+soma_p1( N, S ) => N > 0, %%% regra recursiva
                    Ant  =  (N - 1),
-                   soma_p2( Ant , Parcial ),
+                   soma_p1( Ant , Parcial ),
                    S = (N + Parcial) . 
+
+/* simplificada */
+soma_p2(0,S) ?=> S = 0.
+soma_p2(N,S) , N > 0 => 
+             soma_p2( N-1 , Parcial ), 
+             S = N + Parcial.
 
 % Soma como funcao -- visao classica
 soma_f1(0) = S => S = 0.

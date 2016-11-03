@@ -14,9 +14,13 @@ Modified and revised by Claudio - Oct. 21 / 2016
   graph: an adjacency-matrix representing a graph
   cost: the value of the sum of all the edges in the cycle. 
   Can be a decision-variable (an optional param)
+ 
+
+  To be change HERE .... two functions ....
+  
   */
 
-function array [int] of var int: hamiltonian_cycle(array[int,int] of int: graph)::promise_total =
+function array [int] of var int: hamiltonian_cycle(array[int,int] of int: graph) :: promise_total =
 let {
   int: path_size = order(graph);
   array[1..path_size] of var int: cycle_array;
@@ -24,7 +28,7 @@ let {
   var 1..path_size: length;
 
 
-  constraint %% for users proposals ... change one of two options 
+  constraint %% for users proposals ... change one of these two options 
         %% adding cost: cycle_array = cycle(adj_mat, cost, length);
         cycle_array = cycle_without_cost(adj_mat, length);
          %%  a cycle of the graph ... just a cycle true
@@ -34,3 +38,24 @@ let {
         %% card(vertex_set(graph));
 } in cycle_array;
 
+/************* by ccs *************/
+%%%% to be change ... such a predicate ............... the cost 
+%%% it is an important value from hamiltonian_cycle 
+function array [int] of var int: hamiltonian_cycle_WITH_COST(array[int,int] of int: graph,  
+  var int: upper_cost) :: promise_total =
+let {
+  int: path_size = order(graph);
+  array[1..path_size] of var int: cycle_array;
+  var int: cost;
+  var 1..path_size: length;
+
+
+  constraint %% find a cycle with cost below of upper_cost
+         cycle_array = cycle(adj_mat, cost, length)
+         /\
+         cost <= upper_cost;
+                
+  constraint 
+        length = order(adj_mat); 
+        %% card(vertex_set(graph));
+} in cycle_array;

@@ -506,11 +506,13 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
 
 \section{PICAT aplicado a lógica -- LMA}
 \begin{frame}
-    \frametitle{Dirigido aos estudantes de LMA da UDESC}
+    \frametitle{Dirigido aos estudantes de LMA da UDESC -- \today}
     \begin{itemize}
     \item Ainda fora de ordem este material, mas acompanhe as explicações
     em sala de aula
-    \item Traga o notebook se quiser
+    
+    \item Traga o seu notebook para aula
+    
     \end{itemize}
 \end{frame}
 
@@ -522,7 +524,8 @@ Legibilidade	  & baixa   & média     & média &  média       & boa \\
     \begin{itemize}
     \item Instalem o PICAT a partir de \url{http//www.picat-lang.org}
     \item Windows, Mac ou Linux
-    \item Tenham um editor de código de programa. Sugestão: \textit{geany} ou \textit{sublime}
+    \item Tenham um editor de código de programa.\\
+     Sugestão: \textit{geany} ou \textit{sublime}
     \end{itemize}
 \end{frame}
 
@@ -587,7 +590,8 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
     \item $homem(adao)$ \hspace{2cm} leia-se: \textit{Adão é um homem}         
     \item $homem(platao)$ \hspace{2cm} leia-se: \textit{Platão é um homem}
     \item $homem(socrates)$ \hspace{2cm} leia-se: \textit{Sócrates é um homem}
-
+    \pause 
+     
     \item Todos homens sao mortais
     \pause
     \item $\forall x . (homem(x) \rightarrow mortal(x))$
@@ -599,10 +603,9 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
 \end{frame}
 
 \begin{frame}[allowframebreaks=0.9]
- \frametitle{Regras em PICAT}
-%\begin{block}{}
+\frametitle{Regras em PICAT}
+
 \lstinputlisting{../regras_ex_01.pi}
-%\end{block}
 
 \end{frame}
 
@@ -617,10 +620,13 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
     \item $pai(epimenides, platao)$ \hspace{1.5cm} leia-se: \textit{Sócrates é o pai de Platão}
     
     \pause
+    
     \item Alguém que é avô tem um filho que é um pai de alguém
     \pause
+    
     \item Alguém que é irmão tem o mesmo pai e não é irmão consigo mesmo
     \pause
+    
     \item \textcolor{red}{As regras estão nos slides de lógica}
 
     \item  $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
@@ -640,7 +646,8 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
 
 \begin{frame}
     \frametitle{Regras  em Lógica -- Exemplo 03: os conexões entre cidades}
-    \begin{itemize}
+   
+   \begin{itemize}
     \item as estradas existentes:
   $$\begin{array}{lll} \hline\hline
 	(1) & estrada(joinville, itajai) & \\
@@ -649,7 +656,7 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
 	(4) & estrada(blumenau, balneariocamboriu) & \\
 	(5) & estrada(balneariocamboriu, florianopolis) & \\
 	(6) & \forall x ~\exists y: estrada(x, y) \rightarrow caminho(x, y) & \\
-	(7) & \forall x ~\exists z ~\exists y: estrada(x, z) \wedge caminho(z, y) \rightarrow caminho (x,y) &\\
+	(7) & \forall x ~\exists z ~\exists y: estrada(x, z) \wedge caminho(z, y) \rightarrow caminho  (x,y) &\\
 	\hline\hline
 	\end{array}$$	
 
@@ -666,15 +673,13 @@ $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
 \lstinputlisting{../regras_ex_03.pi}
 %\end{block}
 
-   $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
+  $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
  
 \end{frame}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exercícios}
-
-
 
 \begin{frame}[fragile]%[allowframebreaks=0.9]
  \frametitle{Exercícios}
@@ -770,7 +775,7 @@ Responda quem é saudável, vacinado, e quem \textit{ama} o quem?
 \end{block}
 
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}%%%%[allowframebreaks=0.9]
  \frametitle{Recursão em PICAT}
 
@@ -794,9 +799,7 @@ Responda quem é saudável, vacinado, e quem \textit{ama} o quem?
   \item Aqui temos a fórmula da soma, e se não tivéssemos?
   \pause
    
-  \item  ...
-  
-  
+  \item Eis a recursão ...
   
 \end{itemize}
 
@@ -805,7 +808,7 @@ Responda quem é saudável, vacinado, e quem \textit{ama} o quem?
 \end{block}
 
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{frame}%%%%[allowframebreaks=0.9]
@@ -835,7 +838,7 @@ $$
 
 \end{frame}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}%%%%[allowframebreaks=0.9]
  \frametitle{Recursão em PICAT}
@@ -884,11 +887,24 @@ $\Rightarrow $ \textbf{\textcolor{red}{Agora basta escrever em PICAT}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[allowframebreaks=0.9]
- \frametitle{Recursão em PICAT}
+\frametitle{Recursão em PICAT}
 
-\lstinputlisting{../recursao_soma_N.pi}
+\lstinputlisting{../recursao_ex_01.pi}
 
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Estruturas de Repetição}
+\begin{frame}[allowframebreaks=0.9]
+\frametitle{Variações do Problema da Soma}
+
+Reusando todo aprendizado o exemplo anterior:
+
+\lstinputlisting{../soma_ate_N.pi}
+
+\end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

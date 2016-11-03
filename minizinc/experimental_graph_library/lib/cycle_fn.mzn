@@ -58,9 +58,10 @@ in (
   If the cycle has more than one vertex, then the last vertex in the array is not equals to the first one, but they are connected by an edge.
 
   The cost concept:  with this "cost" let this NP problem ready for a defintion of a NPC.
-  All NPC problems must be admit a DECISION problem that it is in NP
-   
-*/
+  All NPC problems must be admit a DECISION problem that it is in NP, in this case,
+  is there any cycle with a boundary K? (lesser, upper or equal)
+
+**/
 function array [int] of var int: cycle(array[int,int] of int: graph, 
                var int: cost, var int: length) :: promise_total =
 let {
