@@ -45,4 +45,4 @@ let {
   );
 } in forall(target,i in V) (
        real_distance[target,i] <= order
-     );
+);
