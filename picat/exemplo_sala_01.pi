@@ -1,22 +1,23 @@
 %%% FATOS ... = Prolog
-index(-)      % these facts are not ordered
-	f1(a).
-	f1(b).
+index(-)      % fatos instanciados como retorno
+     f1(a).
+     f1(b).
 	
-index(-)     % these facts are not ordered
+index(-)  % fatos instanciados como retorno
     f2(1).
-	f2(2).
+    f2(2).
 	
-index(-)     % these facts are not ordered
+index(-)     % fatos instanciados como retorno
     f3('#').
-	f3('@').
+    f3('@').
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-regra(X,Y,Z)  =>     %%% this rule is backtrackable
-          f1(Z),
-          f2(X),
-          f3(Y).
-
-l_vars ?=> 
+regra(X_1,Y_1,Z_1)  =>     %%% this rule is NOT backtrackable
+          	f1(Z_1),
+          	f2(X_1),
+          	f3(Y_1).
+%% COMO EXERCICIO TROQUE AS ORDENS das VARIAVEIS	  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+l_vars ?=> %%% this rule is  backtrackable
    regra(X,Y,Z),                            
    printf("\n X: %w Y: %w Z: %w ", X,Y,Z)  ,   %% and
    false.
