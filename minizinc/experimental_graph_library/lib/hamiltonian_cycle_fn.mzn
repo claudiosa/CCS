@@ -27,35 +27,40 @@ let {
   var int: cost;
   var 1..path_size: length;
 
-
   constraint %% for users proposals ... change one of these two options 
         %% adding cost: cycle_array = cycle(adj_mat, cost, length);
         cycle_array = cycle_without_cost(adj_mat, length);
-         %%  a cycle of the graph ... just a cycle true
+         %%  a cycle of the graph ... just a true cycle 
          
   constraint 
         length = order(adj_mat); 
         %% card(vertex_set(graph));
 } in cycle_array;
 
-/************* by ccs *************/
-%%%% to be change ... such a predicate ............... the cost 
+/************* by CCS *************/
+%% a predicate ............... the cost 
 %%% it is an important value from hamiltonian_cycle 
-function array [int] of var int: hamiltonian_cycle_WITH_COST(array[int,int] of int: graph,  
-  var int: upper_cost) :: promise_total =
+%% hamiltonian_cycle_WITH_COST(input, output_R, output_R)
+predicate hamiltonian_cycle_WITH_COST(array[int,int] of int: graph, 
+          array[int] of var int : cicle_array_R,  
+          var int : cost_R ) =
 let {
   int: path_size = order(graph);
   array[1..path_size] of var int: cycle_array;
   var int: cost;
   var 1..path_size: length;
 
-
   constraint %% find a cycle with cost below of upper_cost
-         cycle_array = cycle(adj_mat, cost, length)
-         /\
-         cost <= upper_cost;
+         cycle_array = cycle(adj_mat, cost, length);
+         %% cost ... if the matrix comes with weight values in its edges
+         %% the cost sum these weights... length is a constant
                 
   constraint 
         length = order(adj_mat); 
         %% card(vertex_set(graph));
-} in cycle_array;
+} in    %% Returning some values... cycle and its costs
+  cicle_array_R == cycle_array 
+  /\
+  cost_R == cost %% the sum weight's edges
+  ;
+/* ************************************************************* */
