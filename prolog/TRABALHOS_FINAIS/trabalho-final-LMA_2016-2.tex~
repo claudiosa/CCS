@@ -14,7 +14,7 @@
 \usepackage[francais]{babel}
 \end{comment}
 
-\title{Lógica Matemática -- Trabalho Final -- 2016-1}
+\title{Lógica Matemática -- Trabalho Final -- 2016-2}
 \author{Claudio Cesar de Sá e Rogério Eduardo da Silva}
 \date{\today}
 
@@ -27,6 +27,11 @@
 
 \begin{flushleft}
 
+
+\vspace{0.5cm}
+\ding{224}  {\bf \textcolor{red}{
+Antes de tudo leia com \textbf{muita atenção}.} Em geral, há muitos equívocos
+que os alunos cometem por não lerem corretamente!}
 
 \vspace{0.5cm}
 \ding{224}  {\bf \textcolor{red}{Os enunciados dos problemas encontram-se no site oficial dos problemas escolhidos.}}
@@ -44,7 +49,7 @@ instruções que se seguem.}}
 
 
 \vspace{0.5cm}
-\ding{224} Tarefa: Implementar os  \textbf{03} (três)  problemas dos problemas propostos abaixo. 
+\ding{224} Tarefa: Implementar os  \textbf{03} (três)   problemas propostos abaixo. 
 Peso de cada problema: $\frac{1}{3}$
 
 
@@ -55,8 +60,8 @@ Peso de cada problema: $\frac{1}{3}$
 \ding{224} A senha de entrega  é: \texttt{lma} (as siglas da disciplina em letras minúsculas)
 
 \vspace{0.5cm}
-\ding{224} Entrega dos trabalhos: \textcolor{red}{xxx/junho} (para o 1o. Semestre)\\
-\textcolor{red}{20/novembro} (para o 2o. Semestre). Em geral, pode-se
+\ding{224} Entrega dos trabalhos: \textcolor{red}{xx/junho} (para o 1o. Semestre)\\
+\textcolor{red}{yy/novembro} (para o 2o. Semestre). Em geral, pode-se
 ocorrer uma flexibilização aqui.\\
 
 %\vspace{0.5cm}
@@ -109,8 +114,8 @@ entradas e saídas devem vir COMENTADAS no código fonte.
 
 \item Há exemplos detalhados para estudo em:
 \begin{itemize}
-  \item  \url{https://github.com/claudiosa/prolog} 
-  \item  \url{https://github.com/claudiosa/picat}
+  \item  \url{https://github.com/CCS/prolog} 
+  \item  \url{https://github.com/CCS/picat}
 \end{itemize}
 
 
@@ -159,10 +164,12 @@ Algumas fontes alternativas de aprendizado s\~ao:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Livros de Colorir}
+\section{Acampamento de Férias}
 
+Como as férias estão se aproximando ... nada como um acampamento de férias para
+relembras as aulas de LMA, eis o problema proposto:\\
  Fonte do problema proposto:\\
- \url{https://rachacuca.com.br/logica/problemas/livros-de-colorir/}
+ \url{https://rachacuca.com.br/logica/problemas/acampamento-de-ferias/}
  (tem a montagem da tabela para irem entendendo e depurando o problema).\\
 
 
@@ -170,10 +177,11 @@ Algumas fontes alternativas de aprendizado s\~ao:
 \ding{224} Sua tarefa é associar todas essas informações a partir dessas dicas dadas e deduzir o que problema solicita. Acompanhe o andamento de sua solução pela fornecida no site.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Festa Junina}
+\section{Campeonato de Surf}
 
+Ainda relacionado as férias e o verão, eis o problema proposto:\\
  Fonte do problema proposto:\\
- \url{https://rachacuca.com.br/logica/problemas/festa-junina/}
+ \url{https://rachacuca.com.br/logica/problemas/campeonato-de-surf/}
  (tem a montagem da tabela para irem entendendo e depurando o problema).\\
 
 
@@ -181,22 +189,17 @@ Algumas fontes alternativas de aprendizado s\~ao:
 \ding{224} Sua tarefa é associar todas essas informações a partir dessas dicas dadas e deduzir o que problema solicita. Acompanhe o andamento de sua solução pela fornecida no site.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Anagramas}
+\section{Implementações de Fórmulas de Primeira-Ordem}
 
- Fonte do problema proposto:\\
- \url{https://rachacuca.com.br/palavras/anagramas/}
- (tem a montagem da tabela para irem entendendo e depurando o problema).
- 
+Implementar em Prolog ou Picat as fórmulas ilustradas nas páginas
+26 e 27 do arquivo   \textbf{complemento\_2016\_2.pdf}
  \begin{itemize}
-   \item  Tarefa: Forme o maior número possível de palavras usando as letras disponíveis,
- a partir do seguinte alfabeto: $\{$\texttt{c, a, o, c, o, d, r}$\}$
- 
-\item  Observação: cada letra deste alfabeto  só pode ser usado uma única vez.
-Com exceção das letras '\texttt{c}' e '\texttt{o}' que aparecem duas vezes.
- 
-\item  Construa palavras de tamanho  $3$ a $7$ letras. Se baseie no site para validar
- as palavras válidas.
-
+   \item Como domínio dos objetos, faça uma base de dados com nomes de sua família.
+   No mínimo 3 objetos por item a ser instanciado.
+   \item Faça regras para consultas ilustrando a leituras das regras acima
+   \item Finalmente crie um predicado \texttt{main} para que tudo possa ser testado na console
+   \item Aproxime as fórmulas as regras adaptando-as se for o caso.
+   \item Dúvidas: melhore os exercícios, nunca simplificando-os (pois já estão)
  \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
