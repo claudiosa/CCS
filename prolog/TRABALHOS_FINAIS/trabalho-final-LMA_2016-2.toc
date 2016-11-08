@@ -1,0 +1,4 @@
+\select@language {brazilian}
+\contentsline {section}{\numberline {1}Acampamento de F\IeC {\'e}rias}{5}
+\contentsline {section}{\numberline {2}Campeonato de Surf}{6}
+\contentsline {section}{\numberline {3}Implementa\IeC {\c c}\IeC {\~o}es de F\IeC {\'o}rmulas de Primeira-Ordem}{7}
