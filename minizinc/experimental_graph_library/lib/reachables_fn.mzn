@@ -8,6 +8,8 @@ include "is_adj_matrix_square.mzn";
 
   Issues:
   - These functions are not working properly with the G12 solver.
+  - this function is not working properly with some cases ... 
+  - the sub-graph function should be revised before.
 */
 
 /*
@@ -16,6 +18,8 @@ include "is_adj_matrix_square.mzn";
 */
 
 /*
+Re-check this function -- CCS
+
 function var set of int: reachables(array[int,int] of int: graph, int: source)::promise_total = 
 let {
   set of int: V = vertex_set(graph);
@@ -33,7 +37,9 @@ let {
     bool_set[v] <-> ( exists(u in V, where u != v) (bool_set[u] /\ graph[u,v] != 0) )
   );
 
-} in reachable_set;*/
+} in reachable_set;
+
+*/
 
 
 function var set of int: reachables(array[int,int] of int: graph, int: source)::promise_total = 
