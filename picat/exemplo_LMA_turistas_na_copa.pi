@@ -11,9 +11,9 @@ http://rachacuca.com.br/logica/problemas/turistas-na-copa/turma: 2015-2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%import cp. sem CP
 main ?=> 
-     time(turista(L)),
+     time( turista(L) ),
     % writeln(L),
-      imprime(L).
+      imprime( L ).
 		 
 main => nl, 
        writeln('====================================================').   
@@ -51,11 +51,11 @@ alldifferent([Camisa_1, Camisa_2, Camisa_3, Camisa_4, Camisa_5]),
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Nacionalidade_
-nacionalIdade(Nacionalidade_1),
-nacionalIdade(Nacionalidade_2),
-nacionalIdade(Nacionalidade_3),
-nacionalIdade(Nacionalidade_4),
-nacionalIdade(Nacionalidade_5),
+nacional_do_turista(Nacionalidade_1),
+nacional_do_turista(Nacionalidade_2),
+nacional_do_turista(Nacionalidade_3),
+nacional_do_turista(Nacionalidade_4),
+nacional_do_turista(Nacionalidade_5),
 alldifferent([Nacionalidade_1, Nacionalidade_2, Nacionalidade_3, Nacionalidade_4, Nacionalidade_5]),
 
 %10 O Italiano está na terceira posição.
@@ -64,11 +64,11 @@ Nacionalidade_3==italiano,
 
 %13 O turista de Verde está em algum lugar entre o Espanhol e o turista de Branco, nessa ordem.
 (
-(Nacionalidade_1==espanhol,Camisa_3==branquito,(Camisa_2==verdito));
-(Nacionalidade_1==espanhol,Camisa_4==branquito,(Camisa_2==verdito;Camisa_3==verdito));
+(Nacionalidade_1==espanhol,Camisa_3==branquito,(Camisa_2==verdito))    ;
+(Nacionalidade_1==espanhol,Camisa_4==branquito,(Camisa_2==verdito;Camisa_3==verdito))    ;
 (Nacionalidade_1==espanhol,Camisa_5==branquito,(Camisa_2==verdito;Camisa_3==verdito;Camisa_4==verdito));
-(Nacionalidade_2==espanhol,Camisa_4==branquito,(Camisa_3==verdito));
-(Nacionalidade_2==espanhol,Camisa_5==branquito,(Camisa_3==verdito;Camisa_4==verdito));
+(Nacionalidade_2==espanhol,Camisa_4==branquito,(Camisa_3==verdito))    ;
+(Nacionalidade_2==espanhol,Camisa_5==branquito,(Camisa_3==verdito;Camisa_4==verdito))   ;
 (Nacionalidade_3==espanhol,Camisa_5==branquito,(Camisa_4==verdito))
 ),
 
@@ -95,7 +95,9 @@ alldifferent([Bebida_1, Bebida_2, Bebida_3, Bebida_4, Bebida_5]),
 %17 O turista que gosta de Café está na quinta posição.
 Bebida_5==cafe,
 
-% 2 O turista da Camisa_ Verde está em algum lugar entre quem gosta de Água e o Croata, nessa ordem.
+% 2 O turista da Camisa_ Verde está
+% em algum lugar entre quem gosta de Água 
+% e o Croata, nessa ordem.
 (
 (Bebida_1==agua,Nacionalidade_3==croata,(Camisa_2==verdito));
 (Bebida_1==agua,Nacionalidade_4==croata,(Camisa_2==verdito;Camisa_3==verdito));
@@ -258,11 +260,11 @@ camisa(vermelhito).
 
 index(-) 
 
-nacionalIdade(alemao).
-nacionalIdade(croata).
-nacionalIdade(espanhol).
-nacionalIdade(frances).
-nacionalIdade(italiano).
+nacional_do_turista(alemao).
+nacional_do_turista(croata).
+nacional_do_turista(espanhol).
+nacional_do_turista(frances).
+nacional_do_turista(italiano).
 
 index(-) 
 

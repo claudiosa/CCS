@@ -1,0 +1,37 @@
+%% Exemplo do AGENTE ESFOMEADO
+index(-) % dados a serem casados
+agente(oponente). %% o oponente eh o agente
+
+index(- , + ) % dados a serem casados
+estado(oponente , fome).
+
+index(-) % dados a serem casados
+sopas(cebola).
+sopas(ervilha).
+
+index(-) % dados a serem casados
+frutas(banana) .
+frutas(laranja) .
+
+index(-) % dados a serem casados
+sanduiche(bigmac).
+
+%% aqui a ordem interessa 
+alimento(X) ?=> frutas(X) . %%% backtracking controlavel
+alimento(X) ?=> sanduiche(X)  .
+alimento(X) => sopas (X)  .
+
+decisao(Z, comer , X) =>
+    agente(Z),
+    estado(Z , fome),
+    alimento(X).
+
+main ?=>
+	decisao(Z, comer , X),
+	printf("\n O %w come %w ...", Z, X),
+	false.
+	
+main =>	printf("\n\n .... FINAL FELIZ .....\n\n")
+        ,
+        true.
+
