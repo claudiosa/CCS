@@ -1,0 +1,68 @@
+/* Parte do trabalho_2016-2 */
+
+index(-) 
+pessoa(joao).
+pessoa(ana).
+
+
+index(- , -) 
+
+gosta(joao, ana).
+gosta(ana, joao).
+
+/*
+Todas as pessoas gostam de outra pessoa
+–  ∀ x Pessoa(x) ⇒ ∃ y Pessoa(y) ∧ Gosta(x,y) ∧ ¬(x=y)
+ Em Picat temos: */
+
+person(X) => pessoa(Y), 
+             gosta(X,Y), 
+             X != Y, 
+             printf("\n X .... gosta de .... %w", Y).
+
+
+/*
+Existe uma pessoa de quem todas as outras pessoas
+gostam
+–  ∃ x Pessoa(x) ∧ ∀ y Pessoa(y) ∧ ¬(x=y) ⇒ Gosta(y,x)
+Em Picat temos: */
+
+admira(Y,X) => 
+           pessoa(X), 
+           pessoa(Y), 
+           not(X == Y).
+
+/*
+A Ana tem no máximo uma irmã
+–  ∀ x,y Irmã(x,Ana) ∧ Irmã(y,Ana) ⇒ x=y
+*/
+
+igual(X,Y) => 
+           irma(X,ana), 
+           irma(Y,ana).
+           %%X == Y. 
+
+index(- , -) 
+%irma(paula,ana).
+irma(joana,ana).
+
+
+main ?=> 
+    /* 1a questao */
+   % person(X1),
+   % printf("\n pessoa X era: %w", X1),
+
+   /* 2a questao */
+%    admira(Y2 , X2 ),
+%    printf("\n %w admira %w", Y2, X2),
+
+
+   /* 5a questao */
+    igual(X5 , Y5 ),
+    printf("\n %w irmã de ANA", X5),    
+%   printf("\n %w irmã de ANA", Y5),    
+    false.
+    
+		 
+main => nl, 
+       writeln('====================================================').   
