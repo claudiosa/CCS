@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{O Curso}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Avalia\IeC {\c c}\IeC {\~a}o}{5}{0}{1}
+\beamer@sectionintoc {2}{Motiva\IeC {\c c}\IeC {\~a}o}{6}{0}{2}
+\beamer@sectionintoc {3}{Conclus\IeC {\~a}o}{12}{0}{3}
