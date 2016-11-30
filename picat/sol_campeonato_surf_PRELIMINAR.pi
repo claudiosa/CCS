@@ -4,10 +4,13 @@ Campeonato de Surf do RACHA-CUCA INCOMPLETO
 REGRAS FICTICIAS foram modificadas .......
 
 
-ERRO comum dos alunos: 
+ERRO comum dos alunos (2016-2): 
 "Voces soh podem montar as regras com as variaveis,
 uma vez que estas estejam INSTANCIADAS durante
 o programa na ordem correta ...."
+
+ISTO EH: NUNCA MONTAR REGRAS COM FATOS NAO INSTANCIADOS
+
 
 FALTA BASICAMENTE ACERTAREM as regras ....
 
@@ -70,7 +73,7 @@ alldifferent([Surf_1, Surf_2, Surf_3, Surf_4, Surf_5]),
 
 
 %%% ALUNO ... voce aqui ...
-%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores
 %%%%%%%%%%%%% TODAS PRAIAS %%%%%%%%%%%%%
 
 praia(Praia_1),
@@ -86,7 +89,7 @@ alldifferent([Praia_1, Praia_2, Praia_3, Praia_4, Praia_5]),
  Praia_3 == maresias, 
  Cor_5==branca,
  Surf_5==fernando, 
-%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores
 
 %%%%%%%%%%%% TODOS TAMANHOS DAS PRANCHAS %%%%%%%%%%%%%
 
@@ -127,8 +130,7 @@ alldifferent([Gent_1, Gent_2, Gent_3, Gent_4, Gent_5]),
 
 (Gent_4==gaucho),
 
-
-%%%%%%%%%%%%% REGRAS  COMPLEXAS %%%%%%%%%%%%%
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores
 
 (Gent_2==paulista),
 ( Tam_4 == '5_11' ) , %%% ATENCAO NOS APOSTROFOS
@@ -136,6 +138,7 @@ alldifferent([Gent_1, Gent_2, Gent_3, Gent_4, Gent_5]),
  Praia_3 == maresias, 
  Cor_4==amarela,
  Surf_5==fernando, 
+
 %%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO
 
 	%%%%%%%%%%%%% RANKING %%%%%%%%%%%%%
@@ -158,12 +161,13 @@ alldifferent([Rank_1, Rank_2, Rank_3, Rank_4, Rank_5]),
  Cor_4==amarela,
  Surf_5==fernando, 
  Rank_3== oit_8 , 
- %%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO
- 
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores 
  /*
- NESTE PONTO TODAS AS VARIAVEIS FORAM INSTANCIADAS ...
+ 
+ NESTE PONTO TODAS AS VARIAVEIS DOS FATOS FORAM INSTANCIADAS ...
  ASSIM falta apenas ir construindo as regras
  de acordo com o texto
+ 
  */
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -188,9 +192,9 @@ imprime([[Cor_, Surf_, Praia_, Tam_, Gent_, Rank_]|T]) =>
         %%%%%writeln([Cor_, Surf_, Praia_, Tam_, Gent_, Rank_]),
         imprime(T).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% BANCO DE DADOS %%%%%%%%%%%%%
+%%%%%%%%%%%%% BANCO DE DADOS ou FATOS %%%%%%%%%%%%%
 
-	% Cor_
+	% Cores
 index(-)
 cor(amarela).
 cor(azul).
@@ -237,4 +241,4 @@ rank(seg_2).
 rank(terc_3).
 rank(quin_5).
 rank(oit_8).
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
