@@ -1,0 +1,398 @@
+%% Solução original feita por: Gustavo Miquelluzzi Bonassa
+%% 2016-2
+%%https://rachacuca.com.br/logica/problemas/acampamento-de-ferias/
+%%% Solucao OK falta OTIMIZAR
+%%% LENTO
+%% MODIFICADA POR CCS .... 
+/*
+SAIDA OK:
+[branca,andre,13,presunto,rocket,natacao]
+[vermelho,rudi,11,queijo,dragao,futebol]
+[amarela,bruno,10,salame,ciclanos,tenis]
+[verde,guilherme,12,atum,alfafas,basquete]
+[azul,marcelo,9,frango,tupis,corrida]
+
+
+$ picat sol_acampamento_de_ferias.pi 
+****** Final do Modelo .... LENTO MAS OK ******
+Barraca: branca || Nome: andre || Idade: 13 || Sanduiche: presunto || Equipes: rocket || Esporte: natacao 
+Barraca: vermelho || Nome: rudi || Idade: 11 || Sanduiche: queijo || Equipes: dragao || Esporte: futebol 
+Barraca: amarela || Nome: bruno || Idade: 10 || Sanduiche: salame || Equipes: ciclanos || Esporte: tenis 
+Barraca: verde || Nome: guilherme || Idade: 12 || Sanduiche: atum || Equipes: alfafas || Esporte: basquete 
+Barraca: azul || Nome: marcelo || Idade: 9 || Sanduiche: frango || Equipes: tupis || Esporte: corrida 
+
+==================== FIM DO main = OK =========================
+
+COM PARTES COMENTADAS ..... ===> mais rapido ....
+ SAIDA 
+:: Barraca: branca || Nome: andre || Idade: 13 || Sanduiche: presunto || Equipes: rocket || Esporte: natacao ||
+:: Barraca: vermelho || Nome: rudi || Idade: 11 || Sanduiche: queijo || Equipes: dragao || Esporte: futebol ||
+:: Barraca: amarela || Nome: bruno || Idade: 10 || Sanduiche: salame || Equipes: ciclanos || Esporte: tenis ||
+:: Barraca: verde || Nome: guilherme || Idade: 12 || Sanduiche: atum || Equipes: alfafas || Esporte: basquete ||
+:: Barraca: azul || Nome: marcelo || Idade: 9 || Sanduiche: frango || Equipes: tupis || Esporte: corrida ||
+
+ ==================== FIM DO main = OK ========================= 
+*/
+
+%%%%%%%%%%%%%%%% MAIN  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+main ?=> 
+     acampamento(L) ,
+     printf("\n SAIDA \n"),
+     imprime( L ),
+     false.
+     
+main => 
+      printf("\n ==================== FIM DO main = OK ========================= \n").   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+acampamento(Lista) =>
+
+  Lista = [
+     [Barraca_1, Nome_1, Idade_1, Sanduiche_1, Equipe_1, Esportes_1],
+     [Barraca_2, Nome_2, Idade_2, Sanduiche_2, Equipe_2, Esportes_2],
+     [Barraca_3, Nome_3, Idade_3, Sanduiche_3, Equipe_3, Esportes_3],
+     [Barraca_4, Nome_4, Idade_4, Sanduiche_4, Equipe_4, Esportes_4],
+     [Barraca_5, Nome_5, Idade_5, Sanduiche_5, Equipe_5, Esportes_5]
+    ] ,
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% INSTANCIA barraca
+barraca(Barraca_1),
+barraca(Barraca_2),
+barraca(Barraca_3),
+barraca(Barraca_4),
+barraca(Barraca_5),
+alldifferent([Barraca_1, Barraca_2, Barraca_3, Barraca_4, Barraca_5]),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% INSTANCIA nome
+nome(Nome_1),
+nome(Nome_2),
+nome(Nome_3),
+nome(Nome_4),
+nome(Nome_5),
+alldifferent([Nome_1, Nome_2, Nome_3, Nome_4, Nome_5]),
+
+% 4 - Bruno está em algum lugar à direita da barraca Vermelha.
+(
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+(Barraca_1==vermelho, (Nome_2==bruno; Nome_3==bruno; Nome_4==bruno; Nome_5==bruno));
+
+(Barraca_2==vermelho, (Nome_3==bruno; Nome_4==bruno; Nome_5==bruno));
+(Barraca_3==vermelho, (Nome_4==bruno; Nome_5==bruno));
+(Barraca_4==vermelho, Nome_5==bruno)
+),
+%% REVISADO CCS OK
+
+% 14 -A barraca Amarela está em algum lugar à esquerda de Marcelo.
+(
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+(Nome_5==marcelo, (Barraca_1==amarela; Barraca_2==amarela; Barraca_3==amarela; Barraca_4==amarela));
+(Nome_4==marcelo, (Barraca_1==amarela; Barraca_2==amarela; Barraca_3==amarela));
+(Nome_3==marcelo, (Barraca_1==amarela; Barraca_2==amarela));
+(Nome_2==marcelo, Barraca_1==amarela)
+),
+%% REVISADO CCS OK
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% INSTANCIA idade
+idade(Idade_1),
+idade(Idade_2),
+idade(Idade_3),
+idade(Idade_4),
+idade(Idade_5),
+alldifferent([Idade_1, Idade_2, Idade_3, Idade_4, Idade_5]),
+
+% 18 - A barraca Amarela está em algum lugar à esquerda do garoto de 12 anos.
+(
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Idade_5==12, (Barraca_1==amarela; Barraca_2==amarela; Barraca_3==amarela; Barraca_4==amarela));
+
+(Idade_4==12, (Barraca_1==amarela; Barraca_2==amarela; Barraca_3==amarela));
+(Idade_3==12, (Barraca_1==amarela; Barraca_2==amarela));
+(Idade_2==12, Barraca_1==amarela)
+),
+%% REVISADO CCS OK
+
+% 6 - O menino de 9 anos está em algum lugar à direita da barraca Verde.
+(
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Barraca_1==verde, (Idade_2==9; Idade_3==9; Idade_4==9; Idade_5==9));
+
+(Barraca_2==verde, (Idade_3==9; Idade_4==9; Idade_5==9));
+(Barraca_3==verde, (Idade_4==9; Idade_5==9));
+(Barraca_4==verde, Idade_5==9)
+),
+%% REVISADO CCS OK
+
+% 10 - O menino de 10 anos está em algum lugar à direita da barraca Vermelha.
+(
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Barraca_1==vermelho, (Idade_2==10; Idade_3==10; Idade_4==10; Idade_5==10));
+
+(Barraca_2==vermelho, (Idade_3==10; Idade_4==10; Idade_5==10));
+(Barraca_3==vermelho, (Idade_4==10; Idade_5==10));
+(Barraca_4==vermelho, Idade_5==10)
+),
+%% REVISADO CCS OK
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% INSTANCIA sanduiche
+sanduiche(Sanduiche_1),
+sanduiche(Sanduiche_2),
+sanduiche(Sanduiche_3),
+sanduiche(Sanduiche_4),
+sanduiche(Sanduiche_5),
+alldifferent([Sanduiche_1, Sanduiche_2, Sanduiche_3, Sanduiche_4, Sanduiche_5]),
+
+
+% 8 - O garoto da barraca Verde gosta de sanduíche de Atum.
+(
+(Barraca_1==verde,Sanduiche_1==atum);
+(Barraca_2==verde,Sanduiche_2==atum);
+(Barraca_3==verde,Sanduiche_3==atum);
+(Barraca_4==verde,Sanduiche_4==atum);
+(Barraca_5==verde,Sanduiche_5==atum)
+),
+%% REVISADO CCS OK -- troquei a ordem desta
+
+
+%2 - O menino que gosta de sanduíche de Salame está ao lado de quem está na barraca Verde.
+(
+(Barraca_1==verde,Sanduiche_2==salame);
+(Barraca_2==verde,(Sanduiche_1==salame;Sanduiche_3==salame));
+(Barraca_3==verde,(Sanduiche_2==salame;Sanduiche_4==salame));
+(Barraca_4==verde,(Sanduiche_3==salame;Sanduiche_5==salame));
+(Barraca_5==verde,Sanduiche_4==salame)
+),
+%% REVISADO CCS OK
+
+
+% 17 - Quem gosta de sanduíche de Frago está em algum lugar à direita da barraca Verde.
+(
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Barraca_2==verde, (Sanduiche_3==frango; Sanduiche_4==frango; Sanduiche_5==frango));
+(Barraca_3==verde, (Sanduiche_4==frango; Sanduiche_5==frango));
+(Barraca_4==verde, Sanduiche_5==frango)
+),
+%% REVISADO CCS OK
+
+
+% 9 - Guilherme está ao lado do menino que gosta de sanduíche de Frango.
+(
+(Sanduiche_1==frango,Nome_2==guilherme);
+(Sanduiche_2==frango,(Nome_1==guilherme;Nome_3==guilherme));
+(Sanduiche_3==frango,(Nome_2==guilherme;Nome_4==guilherme));
+(Sanduiche_4==frango,(Nome_3==guilherme;Nome_5==guilherme));
+(Sanduiche_5==frango,Nome_4==guilherme)
+),
+%% REVISADO CCS OK
+
+
+% 20 - A barraca Vermelha está em algum lugar entre quem gosta de sanduíche de Presunto e quem tem 12 anos.
+(
+(Sanduiche_1==presunto,Idade_3==12,(Barraca_2==vermelho));
+(Sanduiche_1==presunto,Idade_4==12,(Barraca_2==vermelho;Barraca_3==vermelho));
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Sanduiche_1==presunto,Idade_5==12,(Barraca_2==vermelho;Barraca_3==vermelho;Barraca_4==vermelho));
+
+(Sanduiche_2==presunto,Idade_4==12,(Barraca_3==vermelho));
+(Sanduiche_2==presunto,Idade_5==12,(Barraca_3==vermelho;Barraca_4==vermelho));
+(Sanduiche_3==presunto,Idade_5==12,(Barraca_4==vermelho))
+),
+%% REVISADO CCS OK
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% INSTANCIA  equipe
+equipe(Equipe_1),
+equipe(Equipe_2),
+equipe(Equipe_3),
+equipe(Equipe_4),
+equipe(Equipe_5),
+alldifferent([Equipe_1, Equipe_2, Equipe_3, Equipe_4, Equipe_5]),
+
+% 13 - O garoto da equipe Tupis está em uma das pontas.
+(Equipe_1==tupis ; Equipe_5==tupis),
+
+
+% 11 - O garoto da equipe Rocket está exatamente à esquerda de Rudi.
+(
+(Equipe_1==rocket,Nome_2==rudi);
+(Equipe_2==rocket,Nome_3==rudi);
+(Equipe_3==rocket,Nome_4==rudi);
+(Equipe_4==rocket,Nome_5==rudi)
+),
+%% REVISADO CCS OK
+
+
+% 16 - O menino da equipe Dragão está em algum lugar entre a barraca Branca e o garoto que gosta de sanduíche de Salame, nessa ordem.
+(
+(Barraca_1==branca,Sanduiche_3==salame,(Equipe_2==dragao));
+(Barraca_1==branca,Sanduiche_4==salame,(Equipe_2==dragao;Equipe_3==dragao));
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Barraca_1==branca,Sanduiche_5==salame,(Equipe_2==dragao;Equipe_3==dragao;Equipe_4==dragao));
+
+(Barraca_2==branca,Sanduiche_4==salame,(Equipe_3==dragao));
+(Barraca_2==branca,Sanduiche_5==salame,(Equipe_3==dragao;Equipe_4==dragao));
+(Barraca_3==branca,Sanduiche_5==salame,(Equipe_4==dragao))
+),
+%% REVISADO CCS OK
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% INSTANCIA  esportes
+esportes(Esportes_1),
+esportes(Esportes_2),
+esportes(Esportes_3),
+esportes(Esportes_4),
+esportes(Esportes_5),
+alldifferent([Esportes_1, Esportes_2, Esportes_3, Esportes_4, Esportes_5]),
+
+% 5 - Na primeira barraca está o garoto que gosta de Natação.
+Esportes_1==natacao,
+%% REVISADO CCS OK
+
+% 21 - O garoto da equipe Rocket está exatamente à esquerda de quem gosta de Futebol.
+(
+(Equipe_1==rocket,Esportes_2==futebol);
+(Equipe_2==rocket,Esportes_3==futebol);
+(Equipe_3==rocket,Esportes_4==futebol);
+(Equipe_4==rocket,Esportes_5==futebol)
+),
+%% TROQUEI A ORDEM
+
+% 3 - O garoto que joga Tênis está exatamente à esquerda de quem está na barraca Verde.
+(
+(Esportes_1==tenis,Barraca_2==verde);
+(Esportes_2==tenis,Barraca_3==verde);
+(Esportes_3==tenis,Barraca_4==verde);
+(Esportes_4==tenis,Barraca_5==verde)
+),
+%% TROQUEI A ORDEM
+
+
+% 19 - O menino que gosta de Futebol está ao lado do menino da equipe Ciclanos.
+(
+(Esportes_1==futebol,Equipe_2==ciclanos);
+(Esportes_2==futebol,(Equipe_1==ciclanos;Equipe_3==ciclanos));
+(Esportes_3==futebol,(Equipe_2==ciclanos;Equipe_4==ciclanos));
+(Esportes_4==futebol,(Equipe_3==ciclanos;Equipe_5==ciclanos));
+(Esportes_5==futebol,Equipe_4==ciclanos)
+),
+
+% 15 - O menino da equipe Dragão está ao lado de quem gosta de jogar Tênis.
+(
+(Equipe_1==dragao,Esportes_2==tenis);
+(Equipe_2==dragao,(Esportes_1==tenis;Esportes_3==tenis));
+(Equipe_3==dragao,(Esportes_2==tenis;Esportes_4==tenis));
+(Equipe_4==dragao,(Esportes_3==tenis;Esportes_5==tenis));
+(Equipe_5==dragao,Esportes_4==tenis)
+),
+
+
+% 7 -A barraca Vermelha está em algum lugar à esquerda de quem gosta de Basquete.
+(
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Esportes_5==basquete,(Barraca_1==vermelho; Barraca_2==vermelho; Barraca_3==vermelho; Barraca_4==vermelho));
+
+(Esportes_4==basquete,(Barraca_1==vermelho; Barraca_2==vermelho; Barraca_3==vermelho));
+(Esportes_3==basquete,(Barraca_1==vermelho; Barraca_2==vermelho));
+(Esportes_2==basquete,Barraca_1==vermelho)
+),
+
+
+%1 - A barraca Vermelha está em algum lugar entre o garoto mais velho e quem gosta de Basquete, nessa ordem.
+(
+(Idade_1==13,Esportes_3==basquete,(Barraca_2==vermelho));
+(Idade_1==13,Esportes_4==basquete,(Barraca_2==vermelho;Barraca_3==vermelho));
+%%% CUIDAR AO COMENTAR .... com CAUTELA
+%%% (Idade_1==13,Esportes_5==basquete,(Barraca_2==vermelho;Barraca_3==vermelho;Barraca_4==vermelho));
+(Idade_2==13,Esportes_4==basquete,(Barraca_3==vermelho));
+(Idade_2==13,Esportes_5==basquete,(Barraca_3==vermelho;Barraca_4==vermelho));
+(Idade_3==13,Esportes_5==basquete,(Barraca_4==vermelho))
+),
+
+% 12 - Quem gosta de Corrida está em algum lugar à direita da barraca Verde.
+
+(
+(Barraca_1==verde,(Esportes_2==corrida; Esportes_3==corrida; Esportes_4==corrida; Esportes_5==corrida));
+(Barraca_2==verde,(Esportes_3==corrida; Esportes_4==corrida; Esportes_5==corrida));
+(Barraca_3==verde,(Esportes_4==corrida; Esportes_5==corrida));
+(Barraca_4==verde, Esportes_5==corrida)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  printf("\n ****** Final do Modelo .... LENTO MAS OK ****** \n").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/* 
+acampamento( _ ) => 
+      printf("\n****** REVISE O PASSO ANTERIOR ****** \n").
+*/   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Os nomes foram alterados da seguinte forma:
+% anderson -> andre
+% breno -> bruno
+% gabriel -> guilherme
+% marco -> marcelo
+% rui -> rudi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% BANCO DE DADOS ou FATOS %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+index(-) 
+barraca(amarela).
+barraca(azul).
+barraca(branca).
+barraca(verde).
+barraca(vermelho).
+
+index(-) 
+nome(andre).
+nome(bruno).
+nome(guilherme).
+nome(marcelo).
+nome(rudi).
+
+index(-) 
+idade(9).
+idade(10).
+idade(11).
+idade(12).
+idade(13).
+
+index(-)
+sanduiche(atum).
+sanduiche(frango).
+sanduiche(presunto).
+sanduiche(queijo).
+sanduiche(salame).
+
+index(-)
+equipe(alfafas).
+equipe(ciclanos).
+equipe(dragao).
+equipe(rocket).
+equipe(tupis).
+
+index(-)
+esportes(basquete).
+esportes(corrida).
+esportes(futebol).
+esportes(natacao).
+esportes(tenis).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+alldifferent([]) ?=> true.
+alldifferent([H|T]) => not(member(H,T)),
+                       alldifferent(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+imprime([]) ?=> true. 
+imprime([[Barraca, Nome, Idade, Sanduiche, Equipe, Esportes]|T]) => 
+    % writeln([Barraca, Nome, Idade, Sanduiche, Equipe, Esportes]),
+    printf(":: Barraca: %w || Nome: %w || Idade: %w || Sanduiche: %w || Equipes: %w || Esporte: %w ||\n" ,
+              Barraca, Nome, Idade, Sanduiche, Equipe, Esportes), 
+        imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
