@@ -1,0 +1,58 @@
+%%import os.
+
+main => 
+       read_Map(Mapa, Linhas,Colunas),
+       print_map(Mapa, Linhas, Colunas).
+	
+
+test_Array_2D =>
+		new_array(3,2) = Arr_2D, nl,
+		Arr_2D[1,1] = 3,
+		%%write(Arr_2D),
+		printf("\n The First Line: %w", first(Arr_2D) ),
+		printf("\n The Last Line: %w",  last(Arr_2D) ),
+		printf("\n The Number of Lines: %w",  length(Arr_2D) ).
+		
+
+
+%% le mapa ....
+read_Map(Arr_2D,Lines,Cols)
+    =>
+    Reader = open("mapa.txt"),
+    Lines = read_int(Reader),
+    Cols = read_int(Reader),
+    new_array(Lines , Cols ) = Arr_2D, %% cria array 2D
+    I = 1, 
+    while (not at_end_of_stream(Reader)) %% continuando a leitura
+        L_read := read_line(Reader),
+        delete_all( L_read, ' ') = L_aux,
+        Arr_AUX = to_array(L_aux),   %%  lista para array
+        printf("\n By Line: %w",  L_aux ),
+        printf("\n  By Array %d: %w", I, Arr_AUX ),
+        Arr_2D[I] := Arr_AUX ,  %% array recebe uma linha -- teste
+        I := I+1
+       end,
+    close(Reader),
+    printf("\n The Final Array: %w\n\n", Arr_2D ).
+    
+
+%% imprime mapa ....
+print_map(M,L,C) =>
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     end,
+     nl,
+   end.   
+	   
+
+
+
+/*
+WORKS FINE
+%printf("\n The Number of Bytes: %w",  read_byte(Reader) ),
+    %L_aux  :=  read_line(Reader) ,
+     %%flush(stdout)
+       
+*/
+
