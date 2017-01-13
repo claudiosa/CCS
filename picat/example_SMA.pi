@@ -1,9 +1,11 @@
-%%import os.
-
-main => 
-       read_Map(Mapa, Linhas,Colunas),
-       print_map(Mapa, Linhas, Colunas).
-	
+import os.
+main ?=> Status = command("clear") ,
+		printf("====================================== %d", Status),
+        read_Map(Mapa, Linhas,Colunas),
+        print_map(Mapa, Linhas, Colunas),
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong !!!").
 
 test_Array_2D =>
 		new_array(3,2) = Arr_2D, nl,
