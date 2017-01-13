@@ -13,8 +13,8 @@ t1 =>
 		I = 1,
         printf("\n  %d    %d    %d", I, X1, X2),
 		while( I < 5 )
-		  X1 := teste(X1),    %%% simula a troca de valores
-		  X2 := teste(X2),
+		  X1 := teste1(X1),    %%% simula a troca de valores
+		  X2 := teste1(X2),
 		  printf("\n  %d    %d    %d", I, X1, X2),
 		  I := I + 1,   %%% simula a troca de valores
 		end  .
@@ -35,7 +35,6 @@ t2 =>
 
 
 /* Usando sintaxe de FUNCOES  */
-
-teste(N) = Resp => Resp = N + 2. %% Calcula mesmo ...
+teste1(N) = Resp => Resp = N + 2. %% Calcula mesmo ...
 teste2(N,R) => R = N + 2. 
 /***********************************************/        
