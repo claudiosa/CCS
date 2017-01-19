@@ -1,0 +1,46 @@
+import os.
+import util.
+
+main ?=>
+        Map = {{*,#,*,*,2,*},
+               {*,#,*,#,#,*}},
+        N = 2,       
+        position_XY( N, [X,Y], Map ), 
+        printf("\n %w....%w \n", X, Y),
+        
+        print_map( Map ),
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong !!!").
+
+/*************** HERE ******************************/
+position_XY(N, [X,Y], Map ) ?=>
+      L = Map.length, %% from Hakan's Page
+      C = Map[1].length, %% should be evidenced in the User Guide
+      
+      println( [Map,N, L,C, Map.length, Map[1].length] ),
+        foreach(I in 1..L, J in 1..C)
+             if  (Map[I,J] == N) then  
+                  X = I,
+                  Y = J
+               end
+              
+           end,
+         printf("\n %w.%w ||", X,Y)
+        .
+          
+position_XY(_,_,_) => printf("\n Could find the agent position!\n").
+
+
+%% print map ....
+print_map( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     end,
+     nl,
+   end.   
+	   
