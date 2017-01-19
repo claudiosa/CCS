@@ -4,33 +4,106 @@ import util.
 main ?=> Status = command("clear") ,
 		printf("====================================== %d OK", Status),
         Map = read_Map_1("MAP_02.txt") , 
-      
+        writeln(map=Map),
+  
+        N = 2, %% dois agentes
         % INICIO do LOOP 
-        %writeln(map=Map),
-        position_XY( 2, [X,Y], Map ), 
-        printf("\n MAP: %w \n [X:%w....Y:%w] \n", Map, X, Y),
-    
+        while( not final( Map ))
+			foreach(I in 1 .. N) %% one action per time 
+			Map = agent(I, Map) %% New_Map 
+			end
+        end, 
+
+
+        %position_XY( 2, [X,Y], Map ), 
+        %printf("\n MAP: %w \n [X:%w....Y:%w] \n", Map, X, Y),
+        %New_Map = update_MAP(3,[X,Y], Map ),
         %final( Map ),
       	%%test_Array_1,
-
-        print_map( Map ),
+        print_map( New_Map ),
         %% FIM
         printf("\n====================================== \n")
         .
 main =>  printf("\n Something Wrong !!!").
 
 /***********  AGENTES + ACOES *************/
+%%% IN FUNCTIONS: no backtrackable rules are allowed 
+%%% Backtrackable rules only in predicates
 
+%%% UPDATING THE GRID=MAP
+update_MAP(N,[X,Y], Map ) = Res =>  Map[X,Y] := N,
+                                    Res := Map.
 
-
-
+agent(N, Grid) = New_Grid => 
+				position_XY(N, [X,Y], Grid ),
+				printf("\n%d: %w.....%w", N, X,Y),
+				New_Grid = move(N, [X,Y], Grid ).
+				
+/** possible movements */
+move(N, [X,Y], Grid ) =	 New_Grid =>
+     printf(" \n==== "),
+     
+     writeln(grid = Grid),
+     printf("\n%d: %w.....%w ....", N, X,Y),
+	
+     [Row, Col] = [Grid.length , Grid[1].length ],
+  %   Row = Grid.length ,
+  %   Col =  Grid[1].length ,
+     
+     /** UP **/
+     if (X > 1 && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') ) then
+        Grid[X,Y] = '*',			
+		Grid[X-1,Y] = N		
+    
+     /** DONW **/
+    elseif (X < Row && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') ) then
+        Grid[X , Y] = '*',			
+		Grid[X+1 ,Y] = N
+		 		
+    /* LEFT */
+     elseif(Y > 1 && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$') ) then
+        Grid[X,Y] = '*',			
+		Grid[X,Y-1] = N		
+     
+     /** RIGHT **/
+     elseif(Y < Row && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') ) then
+        Grid[X,Y] = '*',			
+		Grid[X,Y+1] = N
+	
+	/**** CORNERS cols and lines ******/
+	/** upper line **/	
+	elseif(X == 1 && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') ) then
+        Grid[X,Y] = '*',			
+		Grid[X+1,Y] = N		
+    /** lower line **/	
+	elseif(X == Row && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') ) then
+        Grid[X,Y] = '*',			
+		Grid[X-1,Y] = N		
+    
+    elseif(Y == 1 && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') ) then
+        Grid[X,Y] = '*',			
+		Grid[X,Y+1] = N
+				
+    /** upper col **/	
+	elseif(Y == Col && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$')  ) then
+        Grid[X,Y] = '*',			
+		Grid[X,Y-1] = N		
+    
+    else
+       printf("\n\n Any movement was possible --- call HOUSTON")
+	end, %% END IF
+    
+    New_Grid = Grid,
+     writeln(NEW_Grid = New_Grid)
+    .
+ 
 
 
 /* Get position XY in a grid from a cell with N */
 position_XY(N, [X,Y], Map ) ?=>
   L = Map.length,
   C = Map[1].length,
-  %% println([Map,N, L,C, Map.length, Map[1].length] ),
+   println([Map,N, L,C, Map.length, Map[1].length] ),
 	foreach(I in 1..L, J in 1..C)
 	  % printf(":%w" , Map[I,J]),
 		if (digit(Map[I,J])) then %% test only if a digit such '3'
@@ -51,11 +124,11 @@ position_XY(_,_,_) => printf("\n Problem in XY position function \n").
 
 
 /*** check the '$' absent ****/
-final( Map ) ?=>
+final( Map ) =>
           array_matrix_to_list(Map) = List,
           not member('$',List). 
 
-final(_) => printf("\n There are some $ in the map!\n").
+%final(_) => printf("\n There are some $ in the map!\n").
  
 %% READING A FILE  ....
 read_Map_1(File_NAME) = Arr_2D  
@@ -77,9 +150,6 @@ read_Map_1(File_NAME) = Arr_2D
     close(Reader)  .
     %% printf("\n The Final Array: %w\n\n", Arr_2D )
 
-        
-read_Map_1(_) = {{-999999},{-999999}}
-    => printf("\n Any problem in reading map!\n").
 
 %% READING A MAP  ....
 read_Map_2(File_NAME) = Arr_2D  
@@ -93,6 +163,7 @@ read_Map_2(File_NAME) = Arr_2D
     N_rows = to_int(Lines),
     N_cols = to_int(Cols),
     println([N_rows , N_cols]),
+%%% CONFERIR SE LIST estah OK
     Arr_2D = new_array(N_rows , N_cols ) , %% cria um array 2D
     writeln( l_Final = List ),
     writeln(a_array = Arr_2D ),
@@ -105,8 +176,6 @@ read_Map_2(File_NAME) = Arr_2D
     printf("\n Array: %w\n List:%w \n", Arr_2D, List ).
    
   
-read_Map_2(_) = {{-999999},{-999999}}
-    => printf("\n Any problem in reading map!\n").
  
 
 %% imprime mapa ....
@@ -147,6 +216,25 @@ WORKS FINE
    %printf("\n The Number of Bytes: %w",  read_byte(Reader) ),
     %L_aux  :=  read_line(Reader) ,
      %%flush(stdout)
+
+Picat> X ={2,1,3}, N = 1, write(X[N+2]).
+
+Picat> if(3>2 && 2<1) then X = 1 end.
+
+yes
+
+Picat> if(3>2 && 2<1) then X = 1 else X = 3 end.
+X = 3
+yes
+
+Picat> X = 2, if (X == (1 || 2)) then X := 3 end.
+X = 2
+yes
+
+Picat> X = 2, if ((X == 1) ||(X== 2)) then X := 3 end.
+X = 3
+yes
+
 
 
 test_Array_2D =>
