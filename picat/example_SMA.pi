@@ -4,29 +4,34 @@ import util.
 main ?=> Status = command("clear") ,
 		printf("====================================== %d OK", Status),
         Map = read_Map_1("MAP_02.txt") , 
-        writeln(map=Map),
-  
+        
+        %writeln(map=Map),
+        print_map( Map ),
         N = 2, %% dois agentes
         % INICIO do LOOP 
-        while( not final( Map ))
+        J = 1,
+        %while( (not final( Map )) || J < 10   )
+        while(  J < 10   )
+		
 			foreach(I in 1 .. N) %% one action per time 
 			Map = agent(I, Map) %% New_Map 
-			end
-        end, 
+			end,
+			J := J+1 
+         end, 
 
 
-        %position_XY( 2, [X,Y], Map ), 
-        %printf("\n MAP: %w \n [X:%w....Y:%w] \n", Map, X, Y),
+ %       position_XY( N, [X,Y], Map ), 
+ %       printf("\n MAP: %w \n [X:%w....Y:%w] \n", Map, X, Y),
         %New_Map = update_MAP(3,[X,Y], Map ),
         %final( Map ),
       	%%test_Array_1,
-        print_map( New_Map ),
+        print_map( Map ),
         %% FIM
         printf("\n====================================== \n")
         .
 main =>  printf("\n Something Wrong !!!").
 
-/***********  AGENTES + ACOES *************/
+/*********** << AGENTES + ACOES *************/
 %%% IN FUNCTIONS: no backtrackable rules are allowed 
 %%% Backtrackable rules only in predicates
 
@@ -36,15 +41,31 @@ update_MAP(N,[X,Y], Map ) = Res =>  Map[X,Y] := N,
 
 agent(N, Grid) = New_Grid => 
 				position_XY(N, [X,Y], Grid ),
-				printf("\n%d: %w.....%w", N, X,Y),
+				printf("\n AGENTE %d: %w...%w", N, X,Y),
 				New_Grid = move(N, [X,Y], Grid ).
+
+agent_fake(N, Grid) = New_Grid => 
+				position_XY(N, [X,Y], Grid ),
+				%printf("\n%d: %w.....%w", N, X,Y),
+			    writeln( x=X), writeln( y=Y),
+				 
+				%New_Grid = Grid.
+				New_Grid = move_fake(N, [X,Y], Grid ).
+	
+move_fake(N, [X,Y], Grid ) = New_Grid =>
+		Grid[X,Y] := '*',			
+		Grid[X+1,Y] := N,		
+        New_Grid = Grid,
+        writeln(minusculo_ALLWAYS = New_Grid)
+        .
+ 
+
 				
 /** possible movements */
 move(N, [X,Y], Grid ) =	 New_Grid =>
-     printf(" \n==== "),
-     
-     writeln(grid = Grid),
-     printf("\n%d: %w.....%w ....", N, X,Y),
+     printf(" \n==> "),
+     writeln(grid_ANTES = Grid),
+     %%printf("\n%d: %w.....%w ....", N, X,Y),
 	
      [Row, Col] = [Grid.length , Grid[1].length ],
   %   Row = Grid.length ,
@@ -52,49 +73,49 @@ move(N, [X,Y], Grid ) =	 New_Grid =>
      
      /** UP **/
      if (X > 1 && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') ) then
-        Grid[X,Y] = '*',			
-		Grid[X-1,Y] = N		
+        Grid[X,Y] := '*',			
+		Grid[X-1,Y] := N		
     
      /** DONW **/
     elseif (X < Row && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') ) then
-        Grid[X , Y] = '*',			
-		Grid[X+1 ,Y] = N
+        Grid[X , Y] := '*',			
+		Grid[X+1 ,Y] := N
 		 		
     /* LEFT */
      elseif(Y > 1 && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$') ) then
-        Grid[X,Y] = '*',			
-		Grid[X,Y-1] = N		
+        Grid[X,Y] := '*',			
+		Grid[X,Y-1] := N		
      
      /** RIGHT **/
      elseif(Y < Row && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') ) then
-        Grid[X,Y] = '*',			
-		Grid[X,Y+1] = N
+        Grid[X,Y] := '*',			
+		Grid[X,Y+1] := N
 	
 	/**** CORNERS cols and lines ******/
 	/** upper line **/	
 	elseif(X == 1 && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') ) then
-        Grid[X,Y] = '*',			
-		Grid[X+1,Y] = N		
+        Grid[X,Y] := '*',			
+		Grid[X+1,Y] := N		
     /** lower line **/	
 	elseif(X == Row && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') ) then
-        Grid[X,Y] = '*',			
-		Grid[X-1,Y] = N		
+        Grid[X,Y] := '*',			
+		Grid[X-1,Y] := N		
     
     elseif(Y == 1 && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') ) then
-        Grid[X,Y] = '*',			
-		Grid[X,Y+1] = N
+        Grid[X,Y] := '*',			
+		Grid[X,Y+1] := N
 				
     /** upper col **/	
 	elseif(Y == Col && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$')  ) then
-        Grid[X,Y] = '*',			
-		Grid[X,Y-1] = N		
+        Grid[X,Y] := '*',			
+		Grid[X,Y-1] := N		
     
     else
        printf("\n\n Any movement was possible --- call HOUSTON")
 	end, %% END IF
     
     New_Grid = Grid,
-     writeln(NEW_Grid = New_Grid)
+    writeln(grid_DEPOIS = New_Grid)
     .
  
 
@@ -103,10 +124,10 @@ move(N, [X,Y], Grid ) =	 New_Grid =>
 position_XY(N, [X,Y], Map ) ?=>
   L = Map.length,
   C = Map[1].length,
-   println([Map,N, L,C, Map.length, Map[1].length] ),
-	foreach(I in 1..L, J in 1..C)
+   
+   foreach(I in 1..L, J in 1..C)
 	  % printf(":%w" , Map[I,J]),
-		if (digit(Map[I,J])) then %% test only if a digit such '3'
+		if ( digit(Map[I,J]) ||   number(Map[I,J]) ) then %% test only if a digit such '3'
 		   if  (to_int(Map[I,J]) == N) then  
 		   %% convert digit, ex '3'  to  3 compare with N
 			 X = I,
@@ -115,6 +136,9 @@ position_XY(N, [X,Y], Map ) ?=>
 		  end  
 	   end %% END  FOREACH
 	 ,
+	 printf("\n ALL: "),
+	 println([  N, L, C, Map, X, Y] ),
+	
 	 if( var(X) || var(Y) ) then
 	 printf("The N was not found: %w" , N )
 	 end	%% END  IF
@@ -235,6 +259,9 @@ Picat> X = 2, if ((X == 1) ||(X== 2)) then X := 3 end.
 X = 3
 yes
 
+ X = {'$','*'}, if (X[1] == '$') then Y=1 else Y=2 end, write(Y).
+1X = {$,*}
+Y = 1
 
 
 test_Array_2D =>
