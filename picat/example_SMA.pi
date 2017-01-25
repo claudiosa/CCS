@@ -1,10 +1,14 @@
 import os.
 import util.
+import math.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 main ?=> Status = command("clear") ,
 		printf("====================================== %d OK", Status),
         Map = read_Map_1("MAP_02.txt") , 
-        
+             
         %writeln(map=Map),
         print_map( Map ),
         N = 2, %% dois agentes
@@ -12,7 +16,6 @@ main ?=> Status = command("clear") ,
         J = 1,
         %while( (not final( Map )) || J < 10   )
         while(  J < 10   )
-		
 			foreach(I in 1 .. N) %% one action per time 
 			Map = agent(I, Map) %% New_Map 
 			end,
@@ -35,36 +38,18 @@ main =>  printf("\n Something Wrong !!!").
 %%% IN FUNCTIONS: no backtrackable rules are allowed 
 %%% Backtrackable rules only in predicates
 
-%%% UPDATING THE GRID=MAP
-update_MAP(N,[X,Y], Map ) = Res =>  Map[X,Y] := N,
-                                    Res := Map.
-
 agent(N, Grid) = New_Grid => 
-				position_XY(N, [X,Y], Grid ),
-				printf("\n AGENTE %d: %w...%w", N, X,Y),
-				New_Grid = move(N, [X,Y], Grid ).
-
-agent_fake(N, Grid) = New_Grid => 
-				position_XY(N, [X,Y], Grid ),
-				%printf("\n%d: %w.....%w", N, X,Y),
-			    writeln( x=X), writeln( y=Y),
-				 
-				%New_Grid = Grid.
-				New_Grid = move_fake(N, [X,Y], Grid ).
-	
-move_fake(N, [X,Y], Grid ) = New_Grid =>
-		Grid[X,Y] := '*',			
-		Grid[X+1,Y] := N,		
-        New_Grid = Grid,
-        writeln(minusculo_ALLWAYS = New_Grid)
-        .
- 
-
+				position_XY(N, [X,Y], Grid ), %% take the position
+				printf("AGENT %d IS IN: [%w , %w]", N, X,Y), 
+				New_Grid = move(N, [X,Y], Grid ),  % action
+				printf("\n\n==> New Grid: "),
+				print_map( New_Grid ).
 				
+ 				
 /** possible movements */
 move(N, [X,Y], Grid ) =	 New_Grid =>
-     printf(" \n==> "),
-     writeln(grid_ANTES = Grid),
+     
+     %writeln(grid_ANTES = Grid),
      %%printf("\n%d: %w.....%w ....", N, X,Y),
 	
      [Row, Col] = [Grid.length , Grid[1].length ],
@@ -72,53 +57,61 @@ move(N, [X,Y], Grid ) =	 New_Grid =>
   %   Col =  Grid[1].length ,
      
      /** UP **/
-     if (X > 1 && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') ) then
+     if (X > 1 && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') && f_bool_RAND()== true) then
         Grid[X,Y] := '*',			
 		Grid[X-1,Y] := N		
     
      /** DONW **/
-    elseif (X < Row && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') ) then
+    elseif (X < Row && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') && f_bool_RAND()== true  ) then
         Grid[X , Y] := '*',			
 		Grid[X+1 ,Y] := N
 		 		
     /* LEFT */
-     elseif(Y > 1 && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$') ) then
+     elseif(Y > 1 && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$') && f_bool_RAND()== true ) then
         Grid[X,Y] := '*',			
 		Grid[X,Y-1] := N		
      
      /** RIGHT **/
-     elseif(Y < Row && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') ) then
+     elseif(Y < Row && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') && f_bool_RAND()== true ) then
         Grid[X,Y] := '*',			
 		Grid[X,Y+1] := N
 	
 	/**** CORNERS cols and lines ******/
 	/** upper line **/	
-	elseif(X == 1 && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') ) then
+	elseif(X == 1 && (Grid[X+1,Y]=='*' || Grid[X+1,Y]=='$') && f_bool_RAND()== true  ) then
         Grid[X,Y] := '*',			
-		Grid[X+1,Y] := N		
+		Grid[X+1,Y] := N
+				
     /** lower line **/	
-	elseif(X == Row && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') ) then
+	elseif(X == Row && (Grid[X-1,Y]=='*' || Grid[X-1,Y]=='$') && f_bool_RAND()== true ) then
         Grid[X,Y] := '*',			
 		Grid[X-1,Y] := N		
     
-    elseif(Y == 1 && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') ) then
+    elseif(Y == 1 && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') && f_bool_RAND()== true ) then
         Grid[X,Y] := '*',			
 		Grid[X,Y+1] := N
 				
     /** upper col **/	
-	elseif(Y == Col && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$')  ) then
+	elseif(Y == Col && (Grid[X,Y-1]=='*' || Grid[X,Y-1]=='$') && f_bool_RAND()== true  ) then
         Grid[X,Y] := '*',			
 		Grid[X,Y-1] := N		
     
     else
-       printf("\n\n Any movement was possible --- call HOUSTON")
+       printf("\n Any movement was possible in this step --- call HOUSTON")
 	end, %% END IF
     
-    New_Grid = Grid,
-    writeln(grid_DEPOIS = New_Grid)
+    New_Grid = Grid
+    %writeln(grid_DEPOIS = New_Grid)
+    %print_map( New_Grid )
     .
  
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+f_bool_RAND() = X_RAND => 
+      if (random() >  (round( rand_max()/2) ) )
+       then X_RAND = true %1
+       else X_RAND = false % 0
+       end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 /* Get position XY in a grid from a cell with N */
 position_XY(N, [X,Y], Map ) ?=>
@@ -127,7 +120,7 @@ position_XY(N, [X,Y], Map ) ?=>
    
    foreach(I in 1..L, J in 1..C)
 	  % printf(":%w" , Map[I,J]),
-		if ( digit(Map[I,J]) ||   number(Map[I,J]) ) then %% test only if a digit such '3'
+		if ( digit(Map[I,J]) || number(Map[I,J]) ) then %% test only if a digit such '3'
 		   if  (to_int(Map[I,J]) == N) then  
 		   %% convert digit, ex '3'  to  3 compare with N
 			 X = I,
@@ -136,16 +129,17 @@ position_XY(N, [X,Y], Map ) ?=>
 		  end  
 	   end %% END  FOREACH
 	 ,
-	 printf("\n ALL: "),
-	 println([  N, L, C, Map, X, Y] ),
+	% printf("\n ALL: "),
+	% println([  N, L, C, Map, X, Y] ),
 	
 	 if( var(X) || var(Y) ) then
-	 printf("The N was not found: %w" , N )
+	 printf("The N was not found: %d" , N )
 	 end	%% END  IF
 	 .
 	  
 position_XY(_,_,_) => printf("\n Problem in XY position function \n").
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 /*** check the '$' absent ****/
 final( Map ) =>
@@ -153,6 +147,13 @@ final( Map ) =>
           not member('$',List). 
 
 %final(_) => printf("\n There are some $ in the map!\n").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% UPDATING THE GRID=MAP
+update_MAP(N,[X,Y], Map ) = Res =>  Map[X,Y] := N,
+                                    Res := Map.
+
  
 %% READING A FILE  ....
 read_Map_1(File_NAME) = Arr_2D  
@@ -175,6 +176,7 @@ read_Map_1(File_NAME) = Arr_2D
     %% printf("\n The Final Array: %w\n\n", Arr_2D )
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% READING A MAP  ....
 read_Map_2(File_NAME) = Arr_2D  
     =>
@@ -193,16 +195,17 @@ read_Map_2(File_NAME) = Arr_2D
     writeln(a_array = Arr_2D ),
     
     printf("\n Size: %d\n List:%w \n", length(List), List ),
-%%%% PROBLEM HERE     
+%%%% PROBLEM HERE   >>> to be rewrite it  
      Arr_2D = to_array(List)  ,   %% converte lista para array
      writeln(a_array = Arr_2D ),
         
     printf("\n Array: %w\n List:%w \n", Arr_2D, List ).
    
-  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
  
 
-%% imprime mapa ....
+%% printing mapa ....
 print_map( M ) =>
  L = M.length,
  C = M[1].length,
@@ -211,29 +214,12 @@ print_map( M ) =>
      foreach(J in 1  ..  C)
       printf("%w " , M[I,J] )
      end,
-     nl,
+     nl
    end.   
 	   
+	   
+	   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-my_list_to_array( M, L ) = New_M =>
- L = M.length,
- C = M[1].length,
-  nl,
-   foreach(I in 1  .. L)
-     foreach(J in 1  ..  C)
-      M[I,J] = head(L),
-      Laux = del_head(L),
-      L = Laux
-     end,
-     nl,
-   end.   
-
-head([A|B]) = Res => Res = A.
-del_head([A|B]) = Res => Res = B.
-
-
 
 /*  
 WORKS FINE
@@ -283,6 +269,24 @@ test_Array_2D =>
                    
   Picat> new_array(2,2) = X, X = {{3,4},{5,6}}, X[2,2] = 6, write(X).
 {{3,4},{5,6}}X = {{3,4},{5,6}}
+
+
+
+agent_fake(N, Grid) = New_Grid => 
+				position_XY(N, [X,Y], Grid ),
+				%printf("\n%d: %w.....%w", N, X,Y),
+			    writeln( x=X), writeln( y=Y),
+				 
+				%New_Grid = Grid.
+				New_Grid = move_fake(N, [X,Y], Grid ).
+	
+move_fake(N, [X,Y], Grid ) = New_Grid =>
+		Grid[X,Y] := '*',			
+		Grid[X+1,Y] := N,		
+        New_Grid = Grid,
+        writeln(minusculo_ALLWAYS = New_Grid)
+        .
+
 yes        
 */
 

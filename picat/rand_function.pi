@@ -1,0 +1,40 @@
+import os.
+import util.
+import math.
+
+main ?=> Status = command("clear") ,
+		printf("====================================== %d (ZERO) = OK", Status),
+
+       printf("\n float ... %f " , (random()/rand_max()) +1 ),
+	   printf("\n integer ... %d " , random() ),
+	   printf("\n max ... %w " , rand_max()),
+
+       I = 1,
+       while (I < 11)
+        printf("\n True or False ... %w " , f_bool_RAND() ),
+        %nl, write(f_bool_RAND()),
+        I:= I + 1
+        %,
+        %if f_bool_RAND() == true then write(1) else write (0) end
+        
+       end ,
+
+        %% FIM
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong !!!").
+
+
+
+                   
+
+f_bool_RAND() = X_RAND => 
+      if (random() >  (round( rand_max()/2) ) )
+       then X_RAND = true %1
+       else X_RAND = false % 0
+       end.
+                   
+
+%%% X = mod(random(),2) >>> ou o numero gerado é PAR ou IMPAR
+
+
