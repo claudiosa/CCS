@@ -77,13 +77,13 @@
 
 \title[Picat]{\fontsize{20}{30}\selectfont \textcolor{black}{Sistemas Multiagentes}}
 
-\author[]{Claudio Cesar de Sá
+\author[]{Claudio Cesar de Sá\\
      {\small \url{claudio.sa@udesc.br}}}
 
 \institute[UDESC]{
     Departamento de Ci\^encia da Computa\c{c}\~ao \\
     Centro de Ci\^encias e Tecnol\'ogias\\
-Universidade do Estado de Santa Catarina}
+   Universidade do Estado de Santa Catarina}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -100,6 +100,7 @@ Universidade do Estado de Santa Catarina}
 \tableofcontents
 \end{frame}
 
+
 \section{Introdução}
 \begin{frame}
 
@@ -112,6 +113,34 @@ Universidade do Estado de Santa Catarina}
     \end{itemize}
 \end{frame}
 
+
+
+\subsection{O Curso}
+\begin{frame}
+
+    \frametitle{Conteúdo do Curso}
+
+    \begin{itemize}
+      \item Conceitos de SMA (há muitos correlacionados há áreas diversas)
+      \item Ferramentas: Netlogo e Picat
+      \item Aplicação: voces escolhem
+      \item Um artigo
+      
+    \end{itemize}
+\end{frame}
+
+\subsection{Avaliação}
+\begin{frame}
+
+    \frametitle{Avaliação}
+
+    \begin{itemize}
+      \item Duas provas 
+      \item Implementação
+      \item O artigo (resultados da implementação)
+      
+    \end{itemize}
+\end{frame}
 
 
 \section{Motivação}
