@@ -15,7 +15,7 @@ main ?=> Status = command("clear") ,
         % INICIO do LOOP 
         J = 1,
         %while( (not final( Map )) || J < 10   )
-        while(  J < 10   )
+        while(  J < 20   )
 			foreach(I in 1 .. N) %% one action per time 
 			Map = agent(I, Map) %% New_Map 
 			end,
@@ -72,7 +72,7 @@ move(N, [X,Y], Grid ) =	 New_Grid =>
 		Grid[X,Y-1] := N		
      
      /** RIGHT **/
-     elseif(Y < Row && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') && f_bool_RAND()== true ) then
+     elseif(Y < Col && (Grid[X,Y+1]=='*' || Grid[X,Y+1]=='$') && f_bool_RAND()== true ) then
         Grid[X,Y] := '*',			
 		Grid[X,Y+1] := N
 	
