@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  31 JAN 2017 10:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  1 FEB 2017 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1917,7 +1917,7 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 98.
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \vbox (31.89961pt too high) detected at line 98
+Overfull \vbox (29.95564pt too high) detected at line 98
  []
 
 
@@ -1940,7 +1940,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout4 = `video_aula_01_PICAT.vrb'.
 
 
-(./video_aula_01_PICAT.vrb) (./video_aula_01_PICAT.toc)
+(./video_aula_01_PICAT.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1953,6 +1953,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [2
 
 ]
+\openout4 = `video_aula_01_PICAT.vrb'.
+
+ (./video_aula_01_PICAT.vrb) (./video_aula_01_PICAT.toc)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2037,6 +2040,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [9
 
 ]
+
+LaTeX Warning: Command \' invalid in math mode on input line 265.
+
+Missing character: There is no é in font cmss10!
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2049,6 +2057,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [10
 
 ]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <7> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 272.
+ (../regras_ex_02.pi)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2061,14 +2072,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [11
 
 ]
-<figures/tipos_dados_picat_traduzido.jpg, id=119, 242.40562pt x 191.21437pt>
-File: figures/tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
-
-<use figures/tipos_dados_picat_traduzido.jpg>
-Package pdftex.def Info: figures/tipos_dados_picat_traduzido.jpg used on input 
-line 246.
-(pdftex.def)             Requested size: 192.29817pt x 151.69666pt.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2080,7 +2083,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [12
 
- <./figures/tipos_dados_picat_traduzido.jpg>]
+
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2092,12 +2096,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [13
 
-] <figures/exercicio.jpg, id=132, 422.57875pt x 171.64125pt>
-File: figures/exercicio.jpg Graphic file (type jpg)
 
-<use figures/exercicio.jpg>
-Package pdftex.def Info: figures/exercicio.jpg used on input line 278.
-(pdftex.def)             Requested size: 192.29817pt x 78.10735pt.
+]
+<figures/tipos_dados_picat_traduzido.jpg, id=145, 242.40562pt x 191.21437pt>
+File: figures/tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
+
+<use figures/tipos_dados_picat_traduzido.jpg>
+Package pdftex.def Info: figures/tipos_dados_picat_traduzido.jpg used on input 
+line 287.
+(pdftex.def)             Requested size: 192.29817pt x 151.69666pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -2110,7 +2117,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [14
 
- <./figures/exercicio.jpg>]
+ <./figures/tipos_dados_picat_traduzido.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2147,11 +2154,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [17
 
 ]
-
-LaTeX Warning: Command \' invalid in math mode on input line 342.
-
-Missing character: There is no é in font cmss10!
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2164,11 +2166,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [18
 
 ]
-
-LaTeX Warning: Command \' invalid in math mode on input line 342.
-
-Missing character: There is no é in font cmss10!
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2181,11 +2178,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [19
 
 ]
-
-LaTeX Warning: Command \' invalid in math mode on input line 342.
-
-Missing character: There is no é in font cmss10!
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2197,11 +2189,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [20
 
-]
+] <figures/meu_logo_picat.pdf, id=187, 198.7425pt x 85.31876pt>
+File: figures/meu_logo_picat.pdf Graphic file (type pdf)
 
-LaTeX Warning: Command \' invalid in math mode on input line 342.
-
-Missing character: There is no é in font cmss10!
+<use figures/meu_logo_picat.pdf>
+Package pdftex.def Info: figures/meu_logo_picat.pdf used on input line 403.
+(pdftex.def)             Requested size: 255.47214pt x 109.66579pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -2214,71 +2207,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [21
 
-]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <7> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 349.
- (../regras_ex_02.pi)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[22
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[23
-
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[24
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[25
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[26
-
-]
+ <./figures/meu_logo_picat.pdf>]
 \tf@nav=\write7
 \openout7 = `video_aula_01_PICAT.nav'.
 
@@ -2288,25 +2217,25 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `video_aula_01_PICAT.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 394.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 394.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 405.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 405.
  (./video_aula_01_PICAT.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 394.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 394.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 405.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 405.
 Package rerunfilecheck Info: File `video_aula_01_PICAT.out' has not changed.
-(rerunfilecheck)             Checksum: CBC0B864E449DF7EB09C387D35B5E69A;313.
+(rerunfilecheck)             Checksum: 7FAC1CCAA5FBE0689464994DB64DCA3F;436.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 394.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 405.
  ) 
 Here is how much of TeX's memory you used:
- 20960 strings out of 493013
- 378137 string characters out of 6139317
- 523382 words of memory out of 5000000
- 23927 multiletter control sequences out of 15000+600000
+ 20970 strings out of 493013
+ 378307 string characters out of 6139317
+ 539382 words of memory out of 5000000
+ 23943 multiletter control sequences out of 15000+600000
  23644 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,17n,51p,470b,1276s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2324,10 +2253,10 @@ texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/font
 s/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/public/
 cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt09
 00.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on video_aula_01_PICAT.pdf (26 pages, 277018 bytes).
+Output written on video_aula_01_PICAT.pdf (21 pages, 315594 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
- 60 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 217 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
