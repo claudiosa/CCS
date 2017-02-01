@@ -59,7 +59,7 @@
 }
 
 
-\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/picat}}
+\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/picat/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 %Global Background must be put in preamble
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{amarelinho.pdf}}
@@ -99,10 +99,35 @@ Universidade do Estado de Santa Catarina}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\begin{frame}[fragile]
+\frametitle{Objetivos desta Vídeo-Aula -- 01}
+
+\begin{itemize}
+  \item Apresentação da Linguagem de Programação: PICAT
+  \item Contexto
+  \item Características
+  \item Como instalar
+  \item Como usar
+  \item Exemplos
+  \item Referências 
+  \item Estes slides e outros:\\
+   \url{https://github.com/claudiosa/CCS/tree/master/picat/slides_picat}
+\end{itemize}
+
+\end{frame}
+
+
 \begin{frame}[fragile]
 \frametitle{Sumário}
 \tableofcontents
 \end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \section{Introdução}
 \begin{frame}
@@ -110,10 +135,10 @@ Universidade do Estado de Santa Catarina}
     \frametitle{Histórico}
 
     \begin{itemize}
-      \item Criada em 2013 por Neng-Fa Zhou e Jonathan Fruhman.
+      \item Criada em 2013 por Neng-Fa Zhou e Jonathan Fruhman 
 
-      \item Utilizou o B-Prolog como base de implementação, e ambas utilizam 
-      a  programação em lógica baseada na Lógica de Primeira-Ordem (LPO)
+      \item Utiliza o B-Prolog como base de implementação, e ambas utilizam 
+      a  programação em lógica: Lógica de Primeira-Ordem (LPO)
 
       \item Uma evolução ao Prolog após seus mais de 40 anos de sucesso!
 
@@ -126,13 +151,16 @@ Universidade do Estado de Santa Catarina}
 
 %\section{Isso é outra seção}
 \begin{frame}
-    \frametitle{Picat é Multiparadigma:}
+    \frametitle{O que é multiparadigma?}
+
     \begin{itemize}
       \item Imperativo -- Procedural
       \item Funcional
       \item \underline{Lógico}
-    %  \item 
+      \item Uma boa \textit{mistura} de: Haskell, Prolog e Python
+
     \end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,6 +169,7 @@ Universidade do Estado de Santa Catarina}
     \frametitle{Algumas Características:}
 
     \begin{itemize}
+    
       \item Sintaxe $\Rightarrow $ elegância do código
       \item Velocidade de execução
       \item Portabilidade (todas plataformas)
@@ -151,39 +180,25 @@ Universidade do Estado de Santa Catarina}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-    \frametitle{Algumas Características:}
-    \begin{itemize}
-      \item Terminologia: segue as bases teóricas da linguagem Prolog.
-    
-      \item Na \textbf{l}ógica de \textbf{p}rimeira-\textbf{o}rdem (LPO) os objetos são chamados por \textbf{termos}.
-      
-      \item O destaque de Picat é a sua natureza declarativa, funcional, tipagem dinâmica, e sintaxe \textit{açucarada}
-      
-      \item \texttt{PICAT} é um anacrônico onde cada letra representa uma característica  de sua funcionalidade (operacionalidade).
-    
-    \end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Características}
 \begin{frame}
-    \frametitle{Anacrônico: \textbf{P.I.C.A.T.}}
- 
- 
+    \frametitle{Anacrônico de \textbf{P.I.C.A.T.}}
+  
  \begin{description}
    
  
- \item [P:] \textit{Pattern-matching}:  Utiliza o conceito de casamento padrão da LPO
+ \item [\textbf{P}:] \textit{Pattern-matching}:  Utiliza o conceito de casamento padrão da LPO
  
- \item [I:]  \textit{Intuitive}: oferece atribuições e laços de repetições análogo as outras linguagens de programação
+ \item [\textbf{I}:] \textit{Intuitive}: oferece atribuições e laços de repetições análogo as outras linguagens de programação
  
-  \item [C:]   \textit{Constraints}: suporta a programação por restrições
+  \item [\textbf{C}:] \textit{Constraints}: suporta a programação por restrições
  
-     \item [A:] \textit{Actors}: suporte as chamadas a eventos, os atores (futuro gráfico) 
+     \item [\textbf{A}:] \textit{Actors}: suporte as chamadas a eventos, os atores (futuro gráfico) 
  
-  \item [T:] \textit{Tabling}: implementa a técnica de \textit{memoization}, com soluções imediatas para problemas de Programação Dinâmica.
+  \item [\textbf{T}:] \textit{Tabling}: implementa a técnica de \textit{memoization}, com soluções imediatas para problemas de Programação Dinâmica.
    
   
 \end{description}
@@ -191,24 +206,26 @@ Universidade do Estado de Santa Catarina}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-    
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-    \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\subsection{Instalação}
 \begin{frame}
     \frametitle{Instalação do PICAT}
 
-     Tenham um editor de código de programa.\\
+  \begin{itemize}
+    \item Baixar a versão desejada de \url{http://picat-lang.org/download.html}
+   \item Descompactar. Em geral em \textbf{/usr/local/Picat/}
+    \item Criar um link simbólico (linux) ou atalhos (Windows):\\ 
+   \texttt{ln -s /usr/local/Picat/picat  /usr/bin/picat}
+    \item Se quiser adicionar (opcional) uma variável de ambiente:\\
+          \texttt{PICATPATH=/usr/local/Picat/}\\
+          \texttt{export PICATPATH}
+
+    \item ou ainda adicione o caminho: \texttt{PATH=\$PATH:/usr/local/Picat}
+
+   \item Finalmente, tenha um editor de código de programa.\\
      Sugestão: \textit{geany} ou \textit{sublime}
+    
+  \end{itemize}
 
 
 
@@ -218,17 +235,41 @@ Universidade do Estado de Santa Catarina}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Usando do Picat}
 
 \begin{frame}
-    \frametitle{Sistema de Programação}
+    \frametitle{Usando do Picat}
     \begin{itemize}
-     \item Picat é uma linguagem de multiplataforma, disponível em qualquer arquitetura de processamento e também de sistema operacional
-     \item Utiliza a extensão .pi em seus arquivos de código fonte. 
-     \item Existem 2 modos de utilização do Picat: Modo linha de comando e Modo Interativo. 
+     \item Picat é uma linguagem de multiplataforma, disponível em qualquer arquitetura de processamento e também de sistema operacional. Nesta vídeo-aula: Linux (Manjaro)
+     \item Em seus arquivos fontes utiliza a extensão \textbf{.pi}. Exemplo: \texttt{programa.pi}
+     \item Existem 2 modos de utilização do Picat: modo linha de comando (ou console) e modo interativo
+     \item Códigos executáveis 100\% \textbf{stand-alone}: ainda não!
+     \item Neste quesito, estamos em igualdade com Java, Prolog e Python
+     
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exemplo}
+\begin{frame}
+    \frametitle{Fatos e Regras -- os pais!}
+    \begin{itemize}
+    
+    \item $pai(platao, luna)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Luna}
+    \item $pai(platao, péricles)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Péricles}
+    \item $pai(epimenides, platao)$ \hspace{1.5cm} leia-se: \textit{Sócrates é o pai de Platão}
+    \item Codificando tudo isto  em Picat
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks=0.9]
+ \frametitle{Regras em PICAT}
+
+\lstinputlisting{../regras_ex_02.pi}
+
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,7 +289,7 @@ Universidade do Estado de Santa Catarina}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\subsection{Outros Detalhes}
 \begin{frame}
     \frametitle{Número}
     \texttt{Picat> A = 5, B = 7, number(A), number(B),
@@ -266,16 +307,6 @@ Universidade do Estado de Santa Catarina}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Exemplos}
-\begin{frame}
-    \frametitle{Exemplos}
-    \begin{figure}[!ht]
-    \centering
-    \includegraphics[width=.6\textwidth]{figures/exercicio.jpg}
-    %\caption{Hierarquia dos Tipos de dados}
-    %\label{Hiera}
-    \end{figure}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -300,7 +331,7 @@ Universidade do Estado de Santa Catarina}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Entradas e Sa\'idas}
+
 \begin{frame}
     \frametitle{Entradas e Saídas}
     \texttt{main =>}\\
@@ -311,42 +342,9 @@ Universidade do Estado de Santa Catarina}
     \texttt{printf("A média é: \%6.2f", Media),}\\
     \texttt{printf("$\backslash n ......FIM....... \backslash$ n").}
 \end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-    \frametitle{Regras  em Lógica -- os pais!}
-    \begin{itemize}
-    
-    \item $pai(platao, luna)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Luna}
-    \item $pai(platao, péricles)$ \hspace{1.5cm} leia-se: \textit{Platão é o pai de Péricles}
-    \item $pai(epimenides, platao)$ \hspace{1.5cm} leia-se: \textit{Sócrates é o pai de Platão}
-    
-    \pause
-    
-    \item Alguém que é avô tem um filho que é um pai de alguém
-    \pause
-    
-    \item Alguém que é irmão tem o mesmo pai e não é irmão consigo mesmo
-    \pause
-    
-    \item \textcolor{red}{As regras estão nos slides de lógica}
-
-    \item  $\Rightarrow $ as saídas são \textbf{particularizações} (PU e PE)
- 
-    \end{itemize}
-\end{frame}
-
-\begin{frame}[allowframebreaks=0.9]
- \frametitle{Regras em PICAT}
-
-\lstinputlisting{../regras_ex_02.pi}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -355,10 +353,14 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Conclusão}
     \begin{itemize}
-    \item PICAT é uma linguagem nova (2013), desconhecida, revolucionária e com um futuro promissor para áreas de pesquisas e utilização comercial.
+    \item PICAT é uma linguagem nova (2013), 
+    desconhecida, revolucionária e com um futuro promissor
+    
     \item Atualmente há pouco material disponível e uma comunidade pequena de usuários
-    \item Uso acadêmico
-    \item
+
+    \item Uso muito bom quanto a: Planejamento, Programação por Restrição e PD (diretamente)
+    
+    \item Todos problemas NPs-Completos!
     \end{itemize}
 \end{frame}
 
@@ -368,14 +370,17 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Referências}
     \begin{itemize}
-    \item O User Guide que está no diretório  doc/
-     \item \url{https://github.com/claudiosa/CCS/tree/master/picat}
-     \item \url{http://picat-lang.org/}
-    \item Assinem o fórum do PICAT
+    \item O \textit{User Guide} que está no diretório  \texttt{doc/} da instalação em \LaTeX
+    
+     \item Meu GitHub $\Rightarrow $  \url{https://github.com/claudiosa/CCS/tree/master/picat}
 
-    \item Site do Hakan  Kjellerstrand 
-    \item Site do Román Bartak
-    \item Site do Dymichenko
+     \item \url{http://pic at-lang.org/} -- \textit{User Guide on-line} está lá
+    
+    \item Assinem o fórum do PICAT(em inglês: respondo lá também)
+
+    \item Site do Hakan  Kjellerstrand  $\Rightarrow $ \url{http://www.hakank.org/picat/}
+    \item Site do Roman Barták  $\Rightarrow $ 	\url{http://ktiml.mff.cuni.cz/~bartak/}
+    \item Site do Sergii Dimychenko  $\Rightarrow $ \url{http://sdymchenko.com/blog/2015/01/31/ai-planning-picat/}
     
     \end{itemize}
 \end{frame}
@@ -386,7 +391,13 @@ Universidade do Estado de Santa Catarina}
 \begin{frame}
     \frametitle{Obrigado}
 
- Retornem os comentários para .........
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=0.45\textheight]{figures/meu_logo_picat.pdf}
+%%\caption{Hierarquia dos Tipos de dados} [width=.7\textwidth]
+%%\label{Hiera}
+\end{figure}
+ Retornem os comentários para o próximo vídeo!!!
 
 
 \end{frame}
