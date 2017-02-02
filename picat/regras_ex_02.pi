@@ -39,9 +39,9 @@ listar_avos =>
 %% main ... facilidade no uso console
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=>         %%% ?=>  regra "backtrackavel"
-    listar_pais,
-    listar_avos, 
-    avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
+ %   listar_pais,
+ %   listar_avos, 
+ %   avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
     irmao(Z,W), printf("\n ==> %w  eh irmao de  %w", Z , W),
     false.   
 main => true.

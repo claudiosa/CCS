@@ -1,0 +1,7 @@
+main =>
+	  printf("\n Digite dois numeros:  "),
+	  N_real_01 = read_real(),
+	  N_real_02 = read_real(),
+	  Media = (N_real_01 + N_real_02) / 2,
+	  printf(" A media eh: %6.4f ", Media ),
+	  printf("\n ...... FIM ....... \n ").
