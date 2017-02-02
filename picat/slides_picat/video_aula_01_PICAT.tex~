@@ -104,7 +104,7 @@ Universidade do Estado de Santa Catarina}
 \frametitle{Objetivos desta Vídeo-Aula -- 01}
 
 \begin{itemize}
-  \item Apresentação da Linguagem de Programação: PICAT
+  \item Apresentação da Linguagem de Programação (LP): PICAT
   \item Contexto
   \item Características
   \item Como instalar
@@ -113,6 +113,7 @@ Universidade do Estado de Santa Catarina}
   \item Referências 
   \item Estes slides e outros:\\
    \url{https://github.com/claudiosa/CCS/tree/master/picat/slides_picat}
+  \item \textbf{\textcolor{red}{Pré-requisito: noções de lógica e LPs $\Rightarrow$ muitos vídeos bons!} }
 \end{itemize}
 
 \end{frame}
@@ -320,27 +321,19 @@ Universidade do Estado de Santa Catarina}
 
 \begin{frame}
     \frametitle{Estruturas de Controle}
-     \texttt{ex1 =>}\\
-     \texttt{X:=3, Y:=4,}\\
-     \texttt{if(X >= Y)}\\
-     \texttt{then printf("\%d", X)}\\
-     \texttt{else printf("\%d", Y)}\\
-     \texttt{end.}
+        
+     \lstinputlisting{../estrutura_if_then_ex01.pi}
+    
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
     \frametitle{Entradas e Saídas}
-    \texttt{main =>}\\
-    \texttt{printf("Digite dois números: "),}\\
-    \texttt{N$\_real01 = read\_$real(),}\\
-    \texttt{N$\_real02 = read\_$real(),}\\
-    \texttt{Media = (N$\_real01+N\_real$02)/2,}\\
-    \texttt{printf("A média é: \%6.2f", Media),}\\
-    \texttt{printf("$\backslash n ......FIM....... \backslash$ n").}
+  
+  
+  \lstinputlisting{../media_2_reais.pi}
+  
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -393,7 +386,7 @@ Universidade do Estado de Santa Catarina}
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[height=0.4\textheight]{figures/meu_logo_picat.pdf}
+\includegraphics[height=0.45\textheight]{figures/meu_logo_picat.pdf}
 %%\caption{Hierarquia dos Tipos de dados} [width=.7\textwidth]
 %%\label{Hiera}
 \end{figure}

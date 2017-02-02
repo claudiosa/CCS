@@ -5,11 +5,11 @@ import datetime.
 import planner.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-main ?=> Status = command("clear") ,
-		printf("====================================== %d OK", Status),
+main ?=>
+   Status = command("clear") ,
+   printf("====================================== %d OK", Status),
     Map = read_Map_1("MAP_03.txt") , 
+    nl,
    /*
     Map =  {{*,#,#,*,@,* },
             {*,*,c,*,#,* },
@@ -19,23 +19,21 @@ main ?=> Status = command("clear") ,
     print_map( Map ), nl,
        
     T1 = current_time(),
-       write(Map),
-       time(best_plan_unbounded( Map , Solucao)), %%% CPU TIME
-    
+%    write(map2=Map),
+    time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
     T2 = current_time(), 
-    print_map( Map ),
-   write(Solucao), nl,
-    writeln(Solucao), 
-  
-    Total := length(Solucao) ,
+    print_map( Map ), %%% INITIAL MAP AGAIN
+    
+    print_States(Plan, Map),
+    printf("\n PLAN: %w", Plan), 
+    Total := length(Plan) ,
     Num_Movts := (Total -1) ,
-   % T_CPU :=T2-T1, %%% think in something better
+  
    % printf("\n Initial Position (state): %w ", X),
    % printf("\n Final  Position (state): %w", Y),
     printf("\n Total of states: %d", Total), 
     printf("\n Total of moviments: %w", Num_Movts),
-    printf("\n CPU TIME INIC: %w  FIM %w",     T1, T2),
-    
+    printf("\n CPU TIME INIC: %w  FIM: %w ", T1, T2),
     printf(" \n=========================================\n ")
     .
     
@@ -49,154 +47,181 @@ main =>  printf("\n Something Wrong !!!").
 
 /*** check the '@' absent ****/
 final( Grid ) =>
+          % println(final=Grid),
           array_matrix_to_list(Grid) = List,
           not member('@', List ). 
 
 final(_) => printf("\n There are some @ in the map!\n").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 				
-
+ 
 /* Describing the possible actions ==> for the planner */
 %action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) 
 
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-
-    Action_Cost = 1,
-    Action = down_move,
-    position_c_XY( [X,Y], Grid ), %% take the position
-     
-    [Row, _ ] = [Grid.length , Grid[1].length ],
-
-    (X < Row  ,  (Grid[X+1,Y]=='*' ; Grid[X+1,Y]=='@')  ),
-     println(xxy2=[X,Y]),
-    %if( ground(X) && ground(Y) ) then
-    %printf("\n Aterrados OK \n")
-    %end,
-    
-     println(xyOK=[X,Y]),
-     println(grid=Grid),
-     %trace,
-     Grid[ X , Y] = '*',    %%%%%?????  
-     println(xxxy2=[X,Y]),
-     
-     Grid[X+1 ,Y] = 'c',       
-   
-     println(xxxxy2=[X,Y]),
-     %notrace,  
-     println(grid=Grid),
-     
-     New_Grid = Grid,
-     printf("\n down_move = OK").     
-
 
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % println(action2=$action(Grid, New_Grid, Action, Action_Cost )),
      /** UP **/
-     
+     Grid_TEMP = copy_term(Grid),
      Action_Cost = 1,
      Action = up_move,
      position_c_XY( [X,Y], Grid ), %% take the position
      %%% CONDITIONS
+     % println(gridXY2=Grid[X,Y]),
      (X > 1 , (Grid[X-1,Y] == '*' ; Grid[X-1,Y]=='@') ),
      %% ACTIONS
-          Grid[X,Y] = '*' ,			
-          Grid[X-1,Y] = 'c',   		
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X-1,Y] := 'c',   		
      
-     println(xy1=[X,Y]),
      %% updating the New_grid
-     New_Grid = Grid,
-     printf("\n up_move = OK").     
+     New_Grid = Grid_TEMP .     
 
+
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % nl,
+    Grid_TEMP = copy_term(Grid),
+    %% FROM HAKAN ....
+    % println(action1=$action(Grid, New_Grid, Action, Action_Cost )),
+    Action_Cost = 1,
+    Action = down_move,
+%    println(action=Action),
+    position_c_XY( [X,Y], Grid ), %% take the position
+    % println(gridXY1=Grid[X,Y]),
+    [Row, _ ] = [Grid.length , Grid[1].length ],
+
+    (X < Row  ,  (Grid[X+1,Y]=='*' ; Grid[X+1,Y]=='@')),
+    %if( ground(X) && ground(Y) ) then
+    %printf("\n Aterrados OK \n")
+    %end,
+     Grid_TEMP[ X , Y] := '*',   
+     Grid_TEMP[X+1 ,Y] := 'c',       
+   
+     New_Grid = Grid_TEMP .
 		
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
-
+    % println(action3=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
     Action_Cost = 1,
     Action = left_move,
     position_c_XY( [X,Y], Grid ), %% take the position
+    % println(gridXY3=Grid[X,Y]),    
+    (Y > 1  ,  (Grid[X,Y-1]=='*' ; Grid[X,Y-1]=='@') ),
+        Grid_TEMP[X,Y] := '*',			
+	    Grid_TEMP[X,Y-1] := 'c',       
 
-   (Y > 1  ,  (Grid[X,Y-1]=='*' ; Grid[X,Y-1]=='@') ),
-        Grid[X,Y] = '*',			
-	    Grid[X,Y-1] = 'c',       
-
-    println(xy3=[X,Y]),
-
-     New_Grid = Grid.   		
+     New_Grid = Grid_TEMP . 		
      
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
-
+    % println(action4=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
     Action_Cost = 1,
     Action = right_move,
     position_c_XY( [X,Y], Grid ), %% take the position
-
+    % println(gridXY4=Grid[X,Y]),    
     [_, Col] = [Grid.length , Grid[1].length ],
-    
-   (Y < Col  ,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
-        Grid[X,Y] = '*',			
-	    Grid[X,Y+1] = 'c',       
 
-    println(xy4=[X,Y]),
+       (Y < Col  ,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
+        Grid_TEMP[X,Y] := '*',			
+	    Grid_TEMP[X,Y+1] := 'c',       
 
-    New_Grid = Grid.  
+    New_Grid = Grid_TEMP .  
 	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	/**** Rows and coluns in extremities of the grid ******/
-	/** upper line **/	
-	action(Grid, New_Grid, Action, Action_Cost ) ?=>
-
+/**** Rows and coluns in extremities of the grid ******/
+/** upper line **/	
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % println(action5=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
     Action_Cost = 1,
     Action = up_move_UPPER,
     position_c_XY( [X,Y], Grid ), %% take the position
-
+    % println(gridXY5=Grid[X,Y]),    
     (X == 1  ,  (Grid[X+1,Y]=='*' ; Grid[X+1,Y]=='@') ),
-        Grid[X,Y] = '*',			
-	    Grid[X+1,Y] = 'c',       
-    New_Grid = Grid.
+        Grid_TEMP[X,Y] := '*',			
+	    Grid_TEMP[X+1,Y] := 'c',       
+
+    New_Grid = Grid_TEMP .
 
 /** lower line **/
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
-
+    % println(action6=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
     Action_Cost = 1,
     Action = down_move_LOWER,
     position_c_XY( [X,Y], Grid ), %% take the position
+    % println(gridXY6=Grid[X,Y]),    
     [Row, _] = [Grid.length , Grid[1].length ],
 
-    (X == Row  ,  (Grid[X-1,Y]=='*' ; Grid[X-1,Y]=='@')  ),
-      Grid[X,Y] = '*',			
-	    Grid[X-1,Y] = 'c',       
-    New_Grid = Grid.
+    (X == Row  ,  (Grid[X-1,Y]=='*' ; Grid[X-1,Y]=='@')),
+      Grid_TEMP[X,Y] := '*',			
+	  Grid_TEMP[X-1,Y] := 'c',       
 
+    New_Grid = Grid_TEMP .
 
+%%%% LEFTMOST col
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
-
+    % println(action7=$action(Grid, New_Grid, Action, Action_Cost )),
     Action_Cost = 1,
+    Grid_TEMP = copy_term(Grid),
     Action = down_move_LEFTMOST,
     position_c_XY( [X,Y], Grid ), %% take the position
+    % println(gridXY7=Grid[X,Y]),    
+    (Y == 1,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
+        Grid_TEMP[X,Y] := '*',			
+	    Grid_TEMP[X,Y+1] := 'c',       
 
-    (Y == 1,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')  ),
-        Grid[X,Y] = '*',			
-	    Grid[X,Y+1] = 'c',       
-    New_Grid = Grid.
+    New_Grid = Grid_TEMP .
 
-
+%% RIGHTMOST col 
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
-
+    % println(action8=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
     Action_Cost = 1,
     Action = down_move_RIGHTMOST,
     position_c_XY( [X,Y], Grid ), %% take the position
+    % println(gridXY8=Grid[X,Y]),    
     [ _, Col] = [Grid.length , Grid[1].length ],
 
-    (Y == Col  ,  (Grid[X,Y-1]=='*' ; Grid[X,Y-1]=='@')  ),
-        Grid[X,Y] = '*',			
-	    Grid[X,Y-1] = 'c',       
-    New_Grid = Grid.
+    (Y == Col  ,  (Grid[X,Y-1]=='*' ; Grid[X,Y-1]=='@')),
+        Grid_TEMP[X,Y] := '*',
+	    Grid_TEMP[X,Y-1] := 'c',       
 
-/*
+    New_Grid = Grid_TEMP .
 
-action( _ , _ ,  _ , _ ) =>
-       printf("\n Any movement was possible in this step --- call HOUSTON").
-*/	 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_States([], _) => printf("\n================================ \n").
+print_States([A|L_Action], Grid) ?=>
 
+		Grid_TEMP = copy_term(Grid),
+		position_c_XY( [X,Y], Grid ),
+        if (A == up_move)
+        then
+          %writeln(up_move),
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X-1,Y] := 'c'
+        elseif (A == down_move)
+        then
+          %%writeln(up_move),
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X+1,Y] := 'c'
+		elseif (A == right_move)
+        then
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X,Y+1] := 'c'
+        elseif (A == left_move)
+        then
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X,Y-1] := 'c'
+        end,  
+          
+        New_Grid = Grid_TEMP,
+        print_map( New_Grid ), 
+        print_States(L_Action , New_Grid).
+%left_move,left_move,right_move,right_move,down_move,right_move,right_move,right_move,up_move,up_move]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* Get position XY in a grid from a cell with 'c' */
 position_c_XY( [X,Y], Map ) =>
   L = Map.length,
@@ -271,10 +296,9 @@ read_Map_2(File_NAME) = Arr_2D
           
       printf("\n Array: %w\n List:%w \n", Arr_2D, List ).
      
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
-%% printing mapa ....
+%% printing the GRID ....
 print_map( M ) =>
  L = M.length,
  C = M[1].length,
