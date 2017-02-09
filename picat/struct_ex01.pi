@@ -1,0 +1,27 @@
+%=============================================================%
+main =>
+   X1 = $carro($marca(fiat, palio), $cor(azul), 2007),
+   X2 = $carro($marca(toyota, ethios), $cor(prata), 2017),
+   X3 = $carro($marca(honda, fit), $cor(branco), 2017),
+   L = [X1, X2, X3],
+   println(dado_completo = X1), 
+   println(aridade = arity(X1)),
+   println(nome_da_estrutura = name(X1)),
+   %% println(todos_os_dados = L),
+   %% BUSCA DOS CARROS NOVOS
+   foreach (X in L) 
+           novo_17(X) 
+   end.
+
+
+novo_17( carro( marca(X, W), Y, Ano) ) ?=>
+    Ano >= 2017,
+    printf("\n Marca: %w || Modelo: %w || Cor: %w", X, W, Y),
+    printf("\n EH UM CARRO NOVO >= 2017").
+               
+novo_17( carro( marca(X, W), cor(Y), Ano) ) =>
+   Ano < 2017,
+   printf("\n Marca: %w || Modelo: %w || Cor: %w",  X, W, Y),
+   printf("\n NAO EH UM CARRO NOVO, ANO: %w", Ano). 
+              
+%=============================================================%
