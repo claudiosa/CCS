@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  3 FEB 2017 11:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  9 FEB 2017 10:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**video_aula_01_PICAT.tex
-(./video_aula_01_PICAT.tex
+**video_aula_02_PICAT.tex
+(./video_aula_02_PICAT.tex
 LaTeX2e <2016/03/31> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
@@ -1173,569 +1173,201 @@ File: lstlang3.sty 2015/06/04 1.6 listings language file
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 85.
+(hyperref)                removing `\\' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 85.
+(hyperref)                removing `\begingroup' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\medskipamount' on input line 85.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 85.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
+(hyperref)                removing `\%' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\%' on input line 85.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
+(hyperref)                removing `\#' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\#' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
+(hyperref)                removing `\&' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\&' on input line 85.
+(hyperref)                removing `\textunderscore' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textunderscore' on input line 85.
+(hyperref)                removing `\_' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\_' on input line 85.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
+(hyperref)                removing `\~' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\~' on input line 85.
+(hyperref)                removing `\textasciitilde' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textasciitilde' on input line 85.
+(hyperref)                removing `\\' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 85.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
+(hyperref)                removing `\Hy@tempa' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 85.
+(hyperref)                removing `\Hy@tempa' on input line 82.
 
+(./video_aula_02_PICAT.aux)
+\openout1 = `video_aula_02_PICAT.aux'.
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\%' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\#' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\&' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textunderscore' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\_' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\~' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textasciitilde' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\%' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\#' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\&' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textunderscore' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\_' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\~' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textasciitilde' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 85.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 85.
-
-(./video_aula_01_PICAT.aux)
-\openout1 = `video_aula_01_PICAT.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1802,7 +1434,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box82
-Package hyperref Info: Link coloring OFF on input line 94.
+Package hyperref Info: Link coloring OFF on input line 91.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1812,56 +1444,56 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count182
 )
-LaTeX Info: Redefining \ref on input line 94.
-LaTeX Info: Redefining \pageref on input line 94.
-LaTeX Info: Redefining \nameref on input line 94.
+LaTeX Info: Redefining \ref on input line 91.
+LaTeX Info: Redefining \pageref on input line 91.
+LaTeX Info: Redefining \nameref on input line 91.
 
-(./video_aula_01_PICAT.out) (./video_aula_01_PICAT.out)
+(./video_aula_02_PICAT.out) (./video_aula_02_PICAT.out)
 \@outlinefile=\write6
-\openout6 = `video_aula_01_PICAT.out'.
+\openout6 = `video_aula_02_PICAT.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 94.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 94.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 91.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 94.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 94.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 94.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 94.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 94.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 94.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 94.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 94.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 94.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 94.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 94.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 94.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 94.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 94.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 94.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 94.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 94.
+(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 94.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 94.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 94.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 91.
 
 (/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dicti
 onary/translator-basic-dictionary-English.dict
@@ -1887,42 +1519,39 @@ Dictionary: translator-numbers-dictionary, Language: English
 tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 94.
+LaTeX Info: Redefining \includegraphics on input line 91.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count183
- (./video_aula_01_PICAT.nav)
+ (./video_aula_02_PICAT.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 98.
+(Font)              size <20.74> substituted on input line 95.
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 98.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 95.
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 98.
+LaTeX Font Info:    Try loading font information for U+msa on input line 95.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 98.
+LaTeX Font Info:    Try loading font information for U+msb on input line 95.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 98.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 95.
 
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \vbox (29.95564pt too high) detected at line 98
- []
-
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 98.
+(Font)              size <5> substituted on input line 95.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1937,10 +1566,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-\openout4 = `video_aula_01_PICAT.vrb'.
+\openout4 = `video_aula_02_PICAT.vrb'.
 
 
-(./video_aula_01_PICAT.vrb)
+(./video_aula_02_PICAT.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1953,9 +1582,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [2
 
 ]
-\openout4 = `video_aula_01_PICAT.vrb'.
+\openout4 = `video_aula_02_PICAT.vrb'.
 
- (./video_aula_01_PICAT.vrb) (./video_aula_01_PICAT.toc)
+ (./video_aula_02_PICAT.vrb) (./video_aula_02_PICAT.toc)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1980,6 +1609,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [4
 
 ]
+<figures/tipos_dados_picat_traduzido.jpg, id=72, 242.40562pt x 191.21437pt>
+File: figures/tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
+
+<use figures/tipos_dados_picat_traduzido.jpg>
+Package pdftex.def Info: figures/tipos_dados_picat_traduzido.jpg used on input 
+line 162.
+(pdftex.def)             Requested size: 192.29817pt x 151.69666pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1991,7 +1628,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [5
 
-]
+ <./figures/tipos_dados_picat_traduzido.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2004,6 +1641,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [6
 
 ]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 234.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2027,6 +1667,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [8
 
+
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -2039,12 +1680,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [9
 
+
 ]
-
-LaTeX Warning: Command \' invalid in math mode on input line 270.
-
-Missing character: There is no é in font cmss10!
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2057,9 +1694,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [10
 
 ]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <7> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 277.
- (../regras_ex_02.pi)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2083,7 +1717,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [12
 
-
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -2096,16 +1729,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [13
 
-
 ]
-<figures/tipos_dados_picat_traduzido.jpg, id=145, 242.40562pt x 191.21437pt>
-File: figures/tipos_dados_picat_traduzido.jpg Graphic file (type jpg)
-
-<use figures/tipos_dados_picat_traduzido.jpg>
-Package pdftex.def Info: figures/tipos_dados_picat_traduzido.jpg used on input 
-line 292.
-(pdftex.def)             Requested size: 192.29817pt x 151.69666pt.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2117,7 +1741,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [14
 
- <./figures/tipos_dados_picat_traduzido.jpg>]
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2141,7 +1765,47 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [16
 
-] (../estrutura_if_then_ex01.pi)
+]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 422.
+ (../struct_ex01.pi
+Overfull \hbox (0.73074pt too wide) in paragraph at lines 1--2
+[][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (0.73074pt too wide) in paragraph at lines 27--422
+[][][][][][][][][][][] 
+ []
+
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 422.
+
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 422.
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 422.
+
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 422.
+
+(../array_example01.pi
+Overfull \hbox (0.73074pt too wide) in paragraph at lines 1--2
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (5.82954pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+ []
+
+)
+Overfull \hbox (0.73074pt too wide) in paragraph at lines 43--422
+[][][][][][][][][][][] 
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2153,7 +1817,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [17
 
-] (../media_2_reais.pi)
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2164,6 +1828,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [18
+
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2177,6 +1842,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [19
 
+
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -2189,13 +1855,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [20
 
-] <figures/meu_logo_picat.pdf, id=187, 198.7425pt x 85.31876pt>
-File: figures/meu_logo_picat.pdf Graphic file (type pdf)
 
-<use figures/meu_logo_picat.pdf>
-Package pdftex.def Info: figures/meu_logo_picat.pdf used on input line 400.
-(pdftex.def)             Requested size: 255.47214pt x 109.66579pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2207,56 +1868,158 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [21
 
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[22
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[23
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[24
+
+
+] Excluding 'comment' comment.
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[25
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[26
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[27
+
+] <figures/meu_logo_picat.pdf, id=203, 170.6375pt x 85.31876pt>
+File: figures/meu_logo_picat.pdf Graphic file (type pdf)
+
+<use figures/meu_logo_picat.pdf>
+Package pdftex.def Info: figures/meu_logo_picat.pdf used on input line 521.
+(pdftex.def)             Requested size: 219.34476pt x 109.66579pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[28
+
  <./figures/meu_logo_picat.pdf>]
 \tf@nav=\write7
-\openout7 = `video_aula_01_PICAT.nav'.
+\openout7 = `video_aula_02_PICAT.nav'.
 
 \tf@toc=\write8
-\openout8 = `video_aula_01_PICAT.toc'.
+\openout8 = `video_aula_02_PICAT.toc'.
 
 \tf@snm=\write9
-\openout9 = `video_aula_01_PICAT.snm'.
+\openout9 = `video_aula_02_PICAT.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
- (./video_aula_01_PICAT.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 402.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
-Package rerunfilecheck Info: File `video_aula_01_PICAT.out' has not changed.
-(rerunfilecheck)             Checksum: 7FAC1CCAA5FBE0689464994DB64DCA3F;436.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 523.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 523.
+ (./video_aula_02_PICAT.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 523.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 523.
 
+
+Package rerunfilecheck Warning: File `video_aula_02_PICAT.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `video_aula_02_PICAT.out':
+(rerunfilecheck)             Before: 26105157EF673A0DA2B386BEAE9B5A5C;173
+(rerunfilecheck)             After:  25261DBA33A6B2DC20552FD64D41AC02;334.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 402.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 523.
  ) 
 Here is how much of TeX's memory you used:
- 20967 strings out of 493013
- 378187 string characters out of 6139317
- 540382 words of memory out of 5000000
- 23934 multiletter control sequences out of 15000+600000
- 23331 words of font info for 62 fonts, out of 8000000 for 9000
+ 21042 strings out of 493013
+ 379456 string characters out of 6139317
+ 546382 words of memory out of 5000000
+ 23999 multiletter control sequences out of 15000+600000
+ 23634 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,17n,51p,470b,1276s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,17n,51p,470b,1294s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symb
-ols/msam5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1000.pfb><
-/usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texm
-f-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/cm-super/sfss0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
-uper/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.p
-fb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss2074.pfb></usr/share/
-texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/font
-s/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/public/
-cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt09
-00.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on video_aula_01_PICAT.pdf (21 pages, 319590 bytes).
+/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam5.pfb><
+/usr/share/texmf-dist/fonts/type1/public/cm-super/sfit1000.pfb></usr/share/texm
+f-dist/fonts/type1/public/cm-super/sfsi0700.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/cm-super/sfsi1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
+uper/sfss0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0700.p
+fb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/
+texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/font
+s/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/
+cm-super/sfss2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx10
+00.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on video_aula_02_PICAT.pdf (28 pages, 340054 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 230 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 

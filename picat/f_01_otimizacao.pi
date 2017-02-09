@@ -1,5 +1,6 @@
  %import cp.  
 import mip.
+%%%% INSTALL IT BEFORE ...# aptitude install glpk-utils 
 
 main ?=> 
      time(modelo) .
@@ -10,10 +11,9 @@ main => nl,
 modelo =>
     X :: 0.0 .. 20.0,
     Y :: -4.0 .. 20.0,
-
-     %Y #=  pow(X,2) , %%% + (16*X) - (64 + 16),
     
-     Y #= (X*X) + (16*X) - (64 + 16),
+    %%% Y #= (X**2) + (16*X) - (64 + 16),
+    Y #= (X*2) + (16*X) - (64 + 16),
 
      solve($[max(Y)] , [X,Y] ),
     

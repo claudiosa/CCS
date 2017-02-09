@@ -1,0 +1,43 @@
+%=============================================================%
+import os.
+import util.
+import math.
+
+main ?=> Status = command("clear") ,
+ printf("====================================== %d OK", Status),
+ Matriz = f_Array_2D(), % funcao sem argumentos "()" obrigado
+ printf("\n====================================== \n"),
+ printf("\n Soma dos elementos: %d\n", f_soma_2D( Matriz )),
+ print_matriz(Matriz),    
+ printf("\n====================================== \n")
+ .
+main =>  printf("\n Algo errado nas chamadas acima !!!").
+
+%%----------------------------------------------------------
+f_Array_2D() = Vetor =>
+	new_array(3,2) = Vetor,
+	Vetor = { {3,4} , {5,6} , {7,8} },
+	printf("\n Primeira linha: %w", first(Vetor) ),
+	printf("\n Ultima linha: %w",  last(Vetor) ),
+	printf("\n Total de linhas: %i",  length(Vetor) ).
+
+%%----------------------------------------------------------
+f_soma_2D( M ) = Soma => 
+   L = M.length,  %% Num. de linhas
+   Soma := 0,
+   foreach(I in 1  .. L)
+     Soma := Soma + sum( M[I] ) %% sum: APENAS PARA VETOR 1D
+   end.   
+%%----------------------------------------------------------
+%% Imprimindo uma Matriz
+print_matriz( M ) =>
+ L = M.length,  %% Num. de linhas
+ C = M[1].length,  %% Num. de colunas
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     end,
+     nl
+   end.
+%=============================================================%

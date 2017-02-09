@@ -1,4 +1,5 @@
   import mip.
+%%%%%%%%% PLEASE INSTALLL IT # aptitude install glpk-utils 
 
     main =>
         M={{0,3,2,3,0,0,0,0},
