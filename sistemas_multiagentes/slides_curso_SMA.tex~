@@ -175,11 +175,28 @@
 
 
 
+\section{Introdução aos SMAs}
+\begin{frame}
+
+    \frametitle{Características aos SMAs}
+    \begin{itemize}
+    \pause
+      \item Projeto de agente
+\pause
+      \item Ambiente
+      ..... cap 1
+    
+    \end{itemize}
+\end{frame}
 
 
 
 
-\section{Motivação aos SMAs}
+
+
+
+
+\subsection{Motivação aos SMAs}
 \begin{frame}
 
     \frametitle{Motivação I}
@@ -210,6 +227,96 @@ desenvolvimento de SMA com qualidade industrial.
     
     \end{itemize}
 \end{frame}
+
+
+
+
+\section{Agentes Racionais}
+\begin{frame}
+
+    \frametitle{Características aos SMAs}
+    \begin{itemize}
+    \pause
+      \item 
+\pause
+      \item cap 2
+    
+    \end{itemize}
+\end{frame}
+
+
+\section{Estratégias de Jogos}
+\begin{frame}
+
+    \frametitle{Teoria de Jogos}
+    \begin{itemize}
+    \pause
+      \item 
+\pause
+      \item cap 3
+    
+    \end{itemize}
+\end{frame}
+
+
+\section{Coordenação}
+\begin{frame}
+
+    \frametitle{Coordenação}
+    \begin{itemize}
+    \pause
+      \item 
+\pause
+      \item cap 4
+    
+    \end{itemize}
+\end{frame}
+
+
+\section{Projetos de SMAs}
+\begin{frame}
+
+    \frametitle{Mecanismos de Projetos}
+    \begin{itemize}
+    \pause
+      \item 
+\pause
+      \item cap 6
+    
+    \end{itemize}
+\end{frame}
+
+
+
+
+\section{Implementação de SMAs}
+\begin{frame}
+
+    \frametitle{Implementação de Agentes}
+    \begin{itemize}
+    \pause
+      \item 
+\pause
+      \item xxxxxxxxxxxx
+    
+    \end{itemize}
+\end{frame}
+
+
+
+\section{Aprendizagem}
+\begin{frame}
+
+    \frametitle{Aprendizagem}
+    \begin{itemize}
+    \pause
+      \item 
+\pause
+      \item cap 7
+    
+    \end{itemize}
+\end{frame}
+
 
 
 
