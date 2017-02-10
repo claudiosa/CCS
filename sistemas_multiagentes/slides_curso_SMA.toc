@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.36pt}
+\beamer@endinputifotherversion {3.33pt}
 \select@language {brazilian}
 \beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{O Curso}{4}{0}{1}
@@ -7,9 +7,14 @@
 \beamer@subsectionintoc {1}{4}{Din\IeC {\^a}mica}{7}{0}{1}
 \beamer@sectionintoc {2}{Introdu\IeC {\c c}\IeC {\~a}o aos SMAs}{8}{0}{2}
 \beamer@subsectionintoc {2}{1}{Motiva\IeC {\c c}\IeC {\~a}o aos SMAs}{11}{0}{2}
+\beamer@subsectionintoc {2}{2}{Os Elementos de SMAs}{16}{0}{2}
 \beamer@sectionintoc {3}{Agentes Racionais}{17}{0}{3}
-\beamer@sectionintoc {4}{Estrat\IeC {\'e}gias de Jogos}{20}{0}{4}
-\beamer@sectionintoc {5}{Coordena\IeC {\c c}\IeC {\~a}o}{23}{0}{5}
-\beamer@sectionintoc {6}{Projetos de SMAs}{26}{0}{6}
-\beamer@sectionintoc {7}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}{29}{0}{7}
-\beamer@sectionintoc {8}{Conclus\IeC {\~a}o}{32}{0}{8}
+\beamer@subsectionintoc {3}{1}{Agentes Racionais}{20}{0}{3}
+\beamer@sectionintoc {4}{Estrat\IeC {\'e}gias de Jogos}{23}{0}{4}
+\beamer@sectionintoc {5}{Coordena\IeC {\c c}\IeC {\~a}o}{26}{0}{5}
+\beamer@subsectionintoc {5}{1}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}{29}{0}{5}
+\beamer@sectionintoc {6}{Teoria de Jogos Aplicado a SMA}{31}{0}{6}
+\beamer@sectionintoc {7}{Projetos de SMAs}{34}{0}{7}
+\beamer@sectionintoc {8}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}{37}{0}{8}
+\beamer@sectionintoc {9}{Aprendizagem}{40}{0}{9}
+\beamer@sectionintoc {10}{Conclus\IeC {\~a}o}{43}{0}{10}
