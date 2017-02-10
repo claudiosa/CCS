@@ -76,7 +76,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title[Picat]{\fontsize{20}{30}\selectfont \textcolor{black}{PICAT: uma Linguagem Multiparadigma}}
+\title[Picat]{\fontsize{20}{30}\selectfont \textcolor{black}{PICAT e seus Tipos de Dados}}
 
 \author[CCS]{Claudio Cesar de Sá\\
      {\small \url{claudio.sa@udesc.br}}}
@@ -108,10 +108,9 @@ Universidade do Estado de Santa Catarina}
   \item Referências 
   \item Estes slides e outros:\\
    \url{https://github.com/claudiosa/CCS/tree/master/picat/slides_picat}
-  \item \textbf{\textcolor{red}{Pré-requisitos: aula 01 de PICAT, noções de lógica, LPs $\Rightarrow$ muitos vídeos bons!} }
+  \item \textbf{\textcolor{red}{Pré-requisitos: aula 01 de PICAT, noções de lógica, LPs $\Rightarrow$ muitos vídeos e bons!} }
   
-  \item Os exemplos aqui apresentados foram executados diretamente na console 
-  interativa do PICAT.
+  \item Os exemplos aqui apresentados foram executados diretamente na console   interativa do PICAT.
   
 \end{itemize}
 
@@ -138,15 +137,14 @@ Universidade do Estado de Santa Catarina}
 
   \item Tipos de dados $\neq  $ estruturas de dados
 
-\item Lembrar que: predicados apresentam valores  V (\texttt{yes}) ou F (\texttt{no}) e funções retorna um valor
-  \item \textit{Funções} lembram as LPs clássicas
-  \item \textit{Predicados }análogo a LPO, Prolog e seus derivados
+\item Lembrar que: predicados apresentam valores  V (\texttt{yes}) ou F (\texttt{no}) e funções retornam valores
+
+  \item \textit{Funções} em PICAT são análogas as funções das LPs clássicas
+
+  \item \textit{Predicados} análogo a LPO, a Prolog e seus derivados
  \end{itemize}
 
 \end{frame}
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tipos de Dados}
@@ -171,7 +169,9 @@ Universidade do Estado de Santa Catarina}
    \begin{itemize}
      \item Em PICAT começam por letras MAIÚSCULAS. Ex: Velocidade, TEMPO, etc
      \item Como na matemática, armazenam valores, outras variáveis, estruturas complexas, etc
+
      \item Diferente das outras LPs: não possuem endereço de memória fixo
+
      \item A variável está instanciada (\textit{bound}) ou está livre (\textit{free})
      \item Uma vez instanciada, permanece com um determinado valor na chamada corrente
      
@@ -192,6 +192,8 @@ Universidade do Estado de Santa Catarina}
     \item \texttt{X = 34, println(xzinho = X), X := 17, println(xzinho = X).}
     \item Mas \texttt{X = 34,  X = 17, println(xzinho = X).}\\ logo
     \texttt{X = 34} é diferente de \texttt{X := 34}
+
+    
     \item Assim, cuidar em PICAT no caso de:
     
     \begin{itemize}
@@ -200,8 +202,8 @@ Universidade do Estado de Santa Catarina}
       \item \texttt{\textbf{==}} é a comparação entre dois termos
       
     \end{itemize}
-  
-  \item Predicado útil: \texttt{bind\_vars({X,Y,Z}, 56.789 )}\\
+   
+  \item Predicado útil: \texttt{bind\_vars(\{X,Y,Z\}, 56.789 )}\\
   X = 56.789000000000001\\
   Y = 56.789000000000001\\
   Z = 56.789000000000001\\
@@ -213,9 +215,10 @@ Universidade do Estado de Santa Catarina}
   yes\\
   
   \textcolor{red}{$\Rightarrow $ Caso X se encontre unificado (venha com um casamento de padrão), e se  deseje alguma modificação a partir de X. Então realiza-se uma cópia do   mesmo para uma variável temporária Y, e modifica-se Y.}
+  
 
 \item Pode-se utilizar também o \texttt{bind\_vars}:\\
-X = 321.01, bind\_vars({Y}, X), Y:= Y + 321.\\
+X = 321.01, bind\_vars(\{Y\}, X), Y:= Y + 321.\\
 X = 321.009999999999991\\
 Y = 642.009999999999991\\
 yes
@@ -279,6 +282,7 @@ yes -- nos dois casos eram \textit{true}\\
      \item \texttt{atom\_chars('x') = X} 
      \item \texttt{chr(68) = Valor}
      \item \texttt{ord('D') = Valor} -- inverso da anterior
+     \pause
      \item \texttt{digit(1)} $\equiv$ \textit{no} e \texttt{digit('1')} $\equiv$ \textit{yes}
      \item \texttt{length(udesc) = X}
      \item \texttt{len(udesc) = X}
@@ -349,7 +353,7 @@ yes -- nos dois casos eram \textit{true}\\
           \item Em breve uma aula sobre construir funções e predicados sobre listas 
           \item Há uma  quantidade de funções e predicados sobre listas embutidos (prontos para uso)
            \end{itemize}
-           
+          
              
       
        \item[Strings:] uma lista de carácteres\\
@@ -362,6 +366,8 @@ yes -- nos dois casos eram \textit{true}\\
        \item Predicado: \texttt{string(X)}
       \end{itemize}        
       
+        
+      
        \item[Estrutura:] um modo de organizar dados heterogêneos em um único termo. 
        \begin{itemize}
          \item Uma estrutura tem o formato \texttt{\$est($t_1, t_2, ..., t_n$)},
@@ -373,8 +379,8 @@ yes -- nos dois casos eram \textit{true}\\
    
     \end{description}
      
-     Execute: \textcolor{blue}{struct\_ex01.pi}\\
-     \lstinputlisting{../struct_ex01.pi}    
+     Execute: \textcolor{blue}{struct\_example01.pi}\\
+     \lstinputlisting{../struct_example01.pi}    
      
      \newpage
      
@@ -394,12 +400,11 @@ yes -- nos dois casos eram \textit{true}\\
   \item Análogo aos vetores de outras linguagens com uma notação e funções bem fáceis de usar. Exemplo \texttt{Vetor[7]} acessa a 7a. posição deste vetor unidimensional
              
   \item Para criar um array:\\
-       \textbf{\textcolor{red}{\texttt{new\_array($D_1, …, D_n$) = Vetor}}} onde $D_1, …, D_n$ especificam as dimensões do mesmo. Atualmente, $n \le 10$ (mais do que suficiente) 
+       \textbf{\textcolor{red}{\texttt{new\_array($D_1, …, D_n$) = Vetor}}} onde $D_1, …, D_n$ especificam as dimensões do mesmo. Atualmente, $n \le 10$ (matrizes de  10 dimensões $\Rightarrow $ mais do que suficiente!) 
              
     \item Como sua implementação tem origem das listas, é de se esperar que: $Listas \Leftrightarrow Vetores$           
     
- \item Logo, há muitas funções e predicados que facilitam o tratamento
-    com vetores
+ \item Logo, há muitas funções e predicados de listas  que facilitam o tratamento  com vetores
     
   \item Mas, \textcolor{red}{algumas estão prontas apenas para vetores unidimensionais}. Cuidado aqui. Veja o exemplo para superar estas dificuldades.  
             
@@ -409,7 +414,8 @@ yes -- nos dois casos eram \textit{true}\\
            
 %%%%%% CODE           
 
-         Execute: \textcolor{blue}{array\_example01.pi}\\  
+         Execute: \textcolor{blue}{array\_example01.pi}\\ 
+         \newpage 
          \lstinputlisting{../array_example01.pi}  
 
    \begin{description}        
@@ -454,15 +460,15 @@ yes -- nos dois casos eram \textit{true}\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Conclusão}
+\section{Conclusões}
 \begin{frame}
-    \frametitle{Conclusão}
+    \frametitle{Conclusões}
     \begin{itemize}
     \item Os principais tipos de dados foram apresentados
-    
+      \pause 
     \item Apresentamos o uso de predicados e funções destes TDs, 
     e extensões. Exemplo: uso da função \texttt{sum-1D} para \texttt{sum-2D}
-    
+      \pause 
     \item Próximo vídeo: laços, predicados e funções
 
     %\item Uso muito bom quanto a: Planejamento, Programação por Restrição e PD (diretamente)

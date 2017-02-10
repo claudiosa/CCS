@@ -97,7 +97,7 @@ Universidade do Estado de Santa Catarina}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{Objetivos desta Vídeo-Aula -- 02}
+\frametitle{Objetivos desta Vídeoaula -- 02}
 
 \begin{itemize}
   \item Contexto dos Tipos de Dados (TD)
@@ -110,8 +110,8 @@ Universidade do Estado de Santa Catarina}
    \url{https://github.com/claudiosa/CCS/tree/master/picat/slides_picat}
   \item \textbf{\textcolor{red}{Pré-requisitos: aula 01 de PICAT, noções de lógica, LPs $\Rightarrow$ muitos vídeos e bons!} }
   
-  \item Os exemplos aqui apresentados foram executados diretamente na console   interativa do PICAT.
-  
+  \item Os exemplos aqui apresentados foram executados diretamente na console interativa do PICAT.
+  \item Ferramentas: Linux Manjaro, PICAT, SimpleScreenRecorder
 \end{itemize}
 
 \end{frame}
@@ -192,6 +192,8 @@ Universidade do Estado de Santa Catarina}
     \item \texttt{X = 34, println(xzinho = X), X := 17, println(xzinho = X).}
     \item Mas \texttt{X = 34,  X = 17, println(xzinho = X).}\\ logo
     \texttt{X = 34} é diferente de \texttt{X := 34}
+
+    
     \item Assim, cuidar em PICAT no caso de:
     
     \begin{itemize}
@@ -200,7 +202,7 @@ Universidade do Estado de Santa Catarina}
       \item \texttt{\textbf{==}} é a comparação entre dois termos
       
     \end{itemize}
-  
+   
   \item Predicado útil: \texttt{bind\_vars(\{X,Y,Z\}, 56.789 )}\\
   X = 56.789000000000001\\
   Y = 56.789000000000001\\
@@ -213,6 +215,7 @@ Universidade do Estado de Santa Catarina}
   yes\\
   
   \textcolor{red}{$\Rightarrow $ Caso X se encontre unificado (venha com um casamento de padrão), e se  deseje alguma modificação a partir de X. Então realiza-se uma cópia do   mesmo para uma variável temporária Y, e modifica-se Y.}
+  
 
 \item Pode-se utilizar também o \texttt{bind\_vars}:\\
 X = 321.01, bind\_vars(\{Y\}, X), Y:= Y + 321.\\
@@ -279,6 +282,7 @@ yes -- nos dois casos eram \textit{true}\\
      \item \texttt{atom\_chars('x') = X} 
      \item \texttt{chr(68) = Valor}
      \item \texttt{ord('D') = Valor} -- inverso da anterior
+     \pause
      \item \texttt{digit(1)} $\equiv$ \textit{no} e \texttt{digit('1')} $\equiv$ \textit{yes}
      \item \texttt{length(udesc) = X}
      \item \texttt{len(udesc) = X}
@@ -349,7 +353,7 @@ yes -- nos dois casos eram \textit{true}\\
           \item Em breve uma aula sobre construir funções e predicados sobre listas 
           \item Há uma  quantidade de funções e predicados sobre listas embutidos (prontos para uso)
            \end{itemize}
-           
+          
              
       
        \item[Strings:] uma lista de carácteres\\
@@ -362,6 +366,8 @@ yes -- nos dois casos eram \textit{true}\\
        \item Predicado: \texttt{string(X)}
       \end{itemize}        
       
+        
+      
        \item[Estrutura:] um modo de organizar dados heterogêneos em um único termo. 
        \begin{itemize}
          \item Uma estrutura tem o formato \texttt{\$est($t_1, t_2, ..., t_n$)},
@@ -373,8 +379,8 @@ yes -- nos dois casos eram \textit{true}\\
    
     \end{description}
      
-     Execute: \textcolor{blue}{struct\_ex01.pi}\\
-     \lstinputlisting{../struct_ex01.pi}    
+     Execute: \textcolor{blue}{struct\_example01.pi}\\
+     \lstinputlisting{../struct_example01.pi}    
      
      \newpage
      
@@ -408,7 +414,8 @@ yes -- nos dois casos eram \textit{true}\\
            
 %%%%%% CODE           
 
-         Execute: \textcolor{blue}{array\_example01.pi}\\  
+         Execute: \textcolor{blue}{array\_example01.pi}\\ 
+         \newpage 
          \lstinputlisting{../array_example01.pi}  
 
    \begin{description}        
@@ -453,15 +460,15 @@ yes -- nos dois casos eram \textit{true}\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Conclusão}
+\section{Conclusões}
 \begin{frame}
-    \frametitle{Conclusão}
+    \frametitle{Conclusões}
     \begin{itemize}
     \item Os principais tipos de dados foram apresentados
-    
+      \pause 
     \item Apresentamos o uso de predicados e funções destes TDs, 
     e extensões. Exemplo: uso da função \texttt{sum-1D} para \texttt{sum-2D}
-    
+      \pause 
     \item Próximo vídeo: laços, predicados e funções
 
     %\item Uso muito bom quanto a: Planejamento, Programação por Restrição e PD (diretamente)

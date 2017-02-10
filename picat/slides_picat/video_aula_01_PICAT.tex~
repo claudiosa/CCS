@@ -191,15 +191,17 @@ Universidade do Estado de Santa Catarina}
  \begin{description}
    
  
- \item [\textbf{P}:] \textit{Pattern-matching}:  Utiliza o conceito de casamento padrão da LPO
+ \item [\textbf{P}:] \textit{Pattern-matching}:  Utiliza o conceito de \textit{casamento padrão}
+ equivalente aos conceitos de \textit{unificação} da LPO
  
- \item [\textbf{I}:] \textit{Intuitive}: oferece atribuições e laços de repetições análogo as outras linguagens de programação
+ \item [\textbf{I}:] \textit{Intuitive}: oferece estruturas de decisão, atribuição e 
+ laços de repetição, etc, análogo as outras linguagens de programação
  
-  \item [\textbf{C}:] \textit{Constraints}: suporta a programação por restrições
+  \item [\textbf{C}:] \textit{Constraints}: suporta a Programação por Restrições (PR)
  
      \item [\textbf{A}:] \textit{Actors}: suporte as chamadas a eventos, os atores (futuro gráfico) 
  
-  \item [\textbf{T}:] \textit{Tabling}: implementa a técnica de \textit{memoization}, com soluções imediatas para problemas de Programação Dinâmica.
+  \item [\textbf{T}:] \textit{Tabling}: implementa a técnica de \textit{memoization}, com soluções imediatas para problemas de Programação Dinâmica (PD).
    
   
 \end{description}
@@ -216,7 +218,7 @@ Universidade do Estado de Santa Catarina}
     \item Baixar a versão desejada de \url{http://picat-lang.org/download.html}
    \item Descompactar. Em geral em \textbf{/usr/local/Picat/}
     \item Criar um link simbólico (linux) ou atalhos (Windows):\\ 
-   \texttt{ln -s /usr/local/Picat/picat  /usr/bin/picat}
+   \texttt{ln -s /usr/local/Picat/picat   \hspace{1cm}   /usr/bin/picat}
     \item Se quiser adicionar (opcional) uma variável de ambiente:\\
           \texttt{PICATPATH=/usr/local/Picat/}\\
           \texttt{export PICATPATH}
@@ -225,6 +227,8 @@ Universidade do Estado de Santa Catarina}
 
    \item Finalmente, tenha um editor de código de programa.\\
      Sugestão: \textit{geany} ou \textit{sublime}
+     
+    \item Escolha a sintaxe da linguagem \textit{Erlang} 
     
   \end{itemize}
 
