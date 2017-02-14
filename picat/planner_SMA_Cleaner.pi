@@ -16,7 +16,7 @@ main ?=>
     T1 = current_time(),
 %    write(map2=Map),
 
-    N_Total_Agents = 2,
+    N_Total_Agents := 2,
     Current_Agent = 1, %%% action of the first agent
     %action([Current_Agent,Grid, ], 
 
@@ -59,30 +59,23 @@ final(_) => printf("\n There are some @ in the map!\n").
 %action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) 
 
 %%% FOR MAS multiagent system
-
-
 action([Current_Agent, Grid,  N_Total_Agents], 
        [Next_Agent, New_Grid, N_Total_Agents],
         Action, Action_Cost ) ?=>
    
      pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
      %%% easy to extend or almost
-   
-     /** conditions to : move UP **/
-      Grid_TEMP = copy_term(Grid),
+     Grid_TEMP = copy_term(Grid),
      
-     %%% CONDITIONS to act
-     % println(gridXY2=Grid[X,Y]),
+     %%% CONDITIONS to act ...   to : move UP 
+   
      (X > 1 , (Grid[X-1,Y] == '*' ; Grid[X-1,Y]=='@') ),
      %% ACTIONS
           Grid_TEMP[X,Y] := '*' ,			
-          Grid_TEMP[X-1,Y] := 'c',   		
+          Grid_TEMP[X-1,Y] := Current_Agent,   		
           
      %%% POST CONDITIDIONS
      Action_Cost = 1,
-   
-     %%% some trick work   
-    
      Action = (Current_Agent , up_move), %% action up_move done by Current Agent
      % Once that the final plan is a list of actions performed by
      %% updating the Next_agent
@@ -90,125 +83,100 @@ action([Current_Agent, Grid,  N_Total_Agents],
      %% updating the New_grid
      New_Grid = Grid_TEMP .     
 
-
 %%%% Falta arrumar os passos acima ..... nas 3 proximas regras
 
 
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % nl,
-    Grid_TEMP = copy_term(Grid),
+action([Current_Agent, Grid,  N_Total_Agents], 
+       [Next_Agent, New_Grid, N_Total_Agents],
+        Action, Action_Cost ) ?=>
+        
+    %% Getting data    
+     Grid_TEMP = copy_term(Grid),
+     pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
+
     %% FROM HAKAN ....
-    % println(action1=$action(Grid, New_Grid, Action, Action_Cost )),
-    Action_Cost = 1,
-    Action = down_move,
-%    println(action=Action),
-    position_c_XY( [X,Y], Grid ), %% take the position
-    % println(gridXY1=Grid[X,Y]),
     [Row, _ ] = [Grid.length , Grid[1].length ],
 
+    %%% CONDITIONS
     (X < Row  ,  (Grid[X+1,Y]=='*' ; Grid[X+1,Y]=='@')),
     %if( ground(X) && ground(Y) ) then
     %printf("\n Aterrados OK \n")
     %end,
      Grid_TEMP[ X , Y] := '*',   
-     Grid_TEMP[X+1 ,Y] := 'c',       
-   
+     Grid_TEMP[X+1 ,Y] := Current_Agent,       
+     
+     %%% POST CONDITIDIONS
+     Action_Cost = 1,
+     Action = (Current_Agent , down_move), %% action up_move done by Current Agent
+     % Once that the final plan is a list of actions performed by
+     %% updating the Next_agent
+     Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
+     %% updating the New_grid
+      
      New_Grid = Grid_TEMP .
 		
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % println(action3=$action(Grid, New_Grid, Action, Action_Cost )),
-    Grid_TEMP = copy_term(Grid),
-    Action_Cost = 1,
-    Action = left_move,
-    position_c_XY( [X,Y], Grid ), %% take the position
-    % println(gridXY3=Grid[X,Y]),    
+action([Current_Agent, Grid,  N_Total_Agents], 
+       [Next_Agent, New_Grid, N_Total_Agents],
+        Action, Action_Cost ) ?=>
+        
+    %% getting data
+     pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
+        
+     Grid_TEMP = copy_term(Grid),
+    
+    
+    % CONDITIONS
     (Y > 1  ,  (Grid[X,Y-1]=='*' ; Grid[X,Y-1]=='@') ),
         Grid_TEMP[X,Y] := '*',			
-	    Grid_TEMP[X,Y-1] := 'c',       
+	    Grid_TEMP[X,Y-1] := Current_Agent,       
 
+%%% POST CONDITIDIONS
+     Action_Cost = 1,
+
+     Action = (Current_Agent , left_move), %% action up_move done by Current Agent
+     % Once that the final plan is a list of actions performed by
+     %% updating the Next_agent
+     Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
+     %% updating the New_grid
      New_Grid = Grid_TEMP . 		
      
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % println(action4=$action(Grid, New_Grid, Action, Action_Cost )),
-    Grid_TEMP = copy_term(Grid),
-    Action_Cost = 1,
-    Action = right_move,
-    position_c_XY( [X,Y], Grid ), %% take the position
+action([Current_Agent, Grid,  N_Total_Agents], 
+       [Next_Agent, New_Grid, N_Total_Agents],
+        Action, Action_Cost ) ?=>
+    
+    %% getting data
+     pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
+     Grid_TEMP = copy_term(Grid),
+    
     % println(gridXY4=Grid[X,Y]),    
     [_, Col] = [Grid.length , Grid[1].length ],
 
+
+     %%% CONDITIDIONS
        (Y < Col  ,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
         Grid_TEMP[X,Y] := '*',			
-	    Grid_TEMP[X,Y+1] := 'c',       
+	    Grid_TEMP[X,Y+1] := Current_Agent,       
 
-    New_Grid = Grid_TEMP .  
+
+    %%% POST CONDITIDIONS
+     Action_Cost = 1,
+    
+    Action = (Current_Agent, right_move ),
+     %% action XXXXXXXXX done by Current Agent
+     % Once that the final plan is a list of actions performed by
+     %% updating the Next_agent
+     Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
+     %% updating the New_grid
+     
+     New_Grid = Grid_TEMP .  
+
+
+
+
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NAO FORAM USADAS ... poderiam ser removidas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-/**** Rows and coluns in extremities of the grid ******/
-/** upper line **/	
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % println(action5=$action(Grid, New_Grid, Action, Action_Cost )),
-    Grid_TEMP = copy_term(Grid),
-    Action_Cost = 1,
-    Action = up_move_UPPER,
-    position_c_XY( [X,Y], Grid ), %% take the position
-    % println(gridXY5=Grid[X,Y]),    
-    (X == 1  ,  (Grid[X+1,Y]=='*' ; Grid[X+1,Y]=='@') ),
-        Grid_TEMP[X,Y] := '*',			
-	    Grid_TEMP[X+1,Y] := 'c',       
-
-    New_Grid = Grid_TEMP .
-
-/** lower line **/
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % println(action6=$action(Grid, New_Grid, Action, Action_Cost )),
-    Grid_TEMP = copy_term(Grid),
-    Action_Cost = 1,
-    Action = down_move_LOWER,
-    position_c_XY( [X,Y], Grid ), %% take the position
-    % println(gridXY6=Grid[X,Y]),    
-    [Row, _] = [Grid.length , Grid[1].length ],
-
-    (X == Row  ,  (Grid[X-1,Y]=='*' ; Grid[X-1,Y]=='@')),
-      Grid_TEMP[X,Y] := '*',			
-	  Grid_TEMP[X-1,Y] := 'c',       
-
-    New_Grid = Grid_TEMP .
-
-%%%% LEFTMOST col
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % println(action7=$action(Grid, New_Grid, Action, Action_Cost )),
-    Action_Cost = 1,
-    Grid_TEMP = copy_term(Grid),
-    Action = down_move_LEFTMOST,
-    position_c_XY( [X,Y], Grid ), %% take the position
-    % println(gridXY7=Grid[X,Y]),    
-    (Y == 1,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
-        Grid_TEMP[X,Y] := '*',			
-	    Grid_TEMP[X,Y+1] := 'c',       
-
-    New_Grid = Grid_TEMP .
-
-%% RIGHTMOST col 
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % println(action8=$action(Grid, New_Grid, Action, Action_Cost )),
-    Grid_TEMP = copy_term(Grid),
-    Action_Cost = 1,
-    Action = down_move_RIGHTMOST,
-    position_c_XY( [X,Y], Grid ), %% take the position
-    % println(gridXY8=Grid[X,Y]),    
-    [ _, Col] = [Grid.length , Grid[1].length ],
-
-    (Y == Col  ,  (Grid[X,Y-1]=='*' ; Grid[X,Y-1]=='@')),
-        Grid_TEMP[X,Y] := '*',
-	    Grid_TEMP[X,Y-1] := 'c',       
-
-    New_Grid = Grid_TEMP .
-
-%%% ATEH AQUI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% FEITA .....
