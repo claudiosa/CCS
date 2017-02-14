@@ -8,28 +8,29 @@ import planner.
 main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
-   %%% Map = read_Map_1("MAP_02.txt") , %%% TEM 2 AGENTES AQUI
-    nl,
-    
-    Map = {{*, #, #, *, 2, *}, 
-           {*, @, 1, #, #, @},
-           {*, #, *, @, *, *}}
-    ,
-    
+   Map = read_Map_1("MAP_02.txt") , %%% we have  2 AGENTS HERE
+   println(map=Map),
+  /* 
+     nl,
+     Map = {{*, #, #, *, 2, *}, 
+            {*, @, 1, #, #, @},
+            {*, #, *, @, *, *}}
+    */
     printf("\n The Initial Grid or Map"),            
     print_map( Map ), nl,
        
     T1 = current_time(),
 %    write(map2=Map),
 
-    N_Total_Agents = 2,
+    N_Total_Agents = 3,
     Current_Agent = 1, %%% action of the first agent
-    %action([Current_Agent,Grid, ], 
-    println(current_agent = Current_Agent ),
+   
+    println(start_agent = Current_Agent ),
     println(n_agents = N_Total_Agents  ),
    
-    %time(best_plan_unbounded([Current_Agent, Map, N_Total_Agents] , Plan)), %%% CPU TIME
-    plan( [Current_Agent, Map, N_Total_Agents] , Plan, _),
+    time(best_plan_unbounded([Current_Agent, Map, N_Total_Agents] , Plan)), %%% CPU TIME
+   % plan( [Current_Agent, Map, N_Total_Agents] , Plan, _),
+   
     T2 = current_time(), 
     print_map( Map ), %%% INITIAL MAP AGAIN
     
@@ -55,10 +56,12 @@ main =>  printf("\n Something Wrong !!!").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 /*** check the '@' absent ****/
-final( Grid ) =>
+
+final([ _ , Grid, _ ] ) =>
           % println(final=Grid),
           array_matrix_to_list(Grid) = List,
-          not member('@', List ). 
+          not member('@', List ).
+          %printf("\n The final map was reached!\n"). 
 
 final(_) => printf("\n There are some @ in the map!\n").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,11 +71,11 @@ final(_) => printf("\n There are some @ in the map!\n").
 
 %%% FOR MAS multiagent system
 %% UP: movement
-action([Current_Agent, Grid,  N_Total_Agents], 
-       [Next_Agent, New_Grid, N_Total_Agents],
-        Action, Action_Cost ) ?=>
+action([Current_Agent, Grid,  N_Total_Agents],
+       S2,
+       Action, Action_Cost ) ?=>
    
-     println(up_grid = Grid  ),
+     % println(up_grid = Grid  ),
      pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
      %%% easy to extend or almost
      Grid_TEMP = copy_term(Grid),
@@ -90,15 +93,16 @@ action([Current_Agent, Grid,  N_Total_Agents],
      %% updating the Next_agent
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
      %% updating the New_grid
-     New_Grid = Grid_TEMP .     
+     New_Grid = Grid_TEMP,
+     S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
 
 %% DOWN: movement
 action([Current_Agent, Grid,  N_Total_Agents], 
-       [Next_Agent, New_Grid, N_Total_Agents],
-        Action, Action_Cost ) ?=>
+       S2,
+       Action, Action_Cost ) ?=>
         
     %% Getting data  
-     println(down_grid = Grid  ),  
+     
      Grid_TEMP = copy_term(Grid),
      pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
 
@@ -113,7 +117,7 @@ action([Current_Agent, Grid,  N_Total_Agents],
      Grid_TEMP[ X , Y] := '*',   
      Grid_TEMP[X+1 ,Y] := Current_Agent,       
      
-     %%% POST CONDITIDIONS
+     %%% POST CONDITIONS
      Action_Cost = 1,
      Action = (Current_Agent , down_move), %% action up_move done by Current Agent
      % Once that the final plan is a list of actions performed by
@@ -121,14 +125,19 @@ action([Current_Agent, Grid,  N_Total_Agents],
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
      %% updating the New_grid
       
-     New_Grid = Grid_TEMP .
-		
+     New_Grid = Grid_TEMP ,
+     S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
+
+%% LEFT: movement
 action([Current_Agent, Grid,  N_Total_Agents], 
-       [Next_Agent, New_Grid, N_Total_Agents],
+        S2,
         Action, Action_Cost ) ?=>
-        
+      
+   % 	println($action3([Current_Agent, Grid,  N_Total_Agents], 
+   %    [Next_Agent, New_Grid, N_Total_Agents],
+   %     Action, Action_Cost )),    
     %% getting data
-    println(left_grid = Grid  ),  
+    %%println(left_grid = Grid  ),  
     pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
         
      Grid_TEMP = copy_term(Grid),
@@ -140,32 +149,35 @@ action([Current_Agent, Grid,  N_Total_Agents],
 
 %%% POST CONDITIDIONS
      Action_Cost = 1,
-
      Action = (Current_Agent , left_move), %% action up_move done by Current Agent
      % Once that the final plan is a list of actions performed by
      %% updating the Next_agent
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
      %% updating the New_grid
-     New_Grid = Grid_TEMP . 		
-     
+     New_Grid = Grid_TEMP ,
+     S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
+
+%% RIGHT: movement
 action([Current_Agent, Grid,  N_Total_Agents], 
+       S2,
+       Action, Action_Cost ) ?=>
+    /*
+    	println($action4([Current_Agent, Grid,  N_Total_Agents], 
        [Next_Agent, New_Grid, N_Total_Agents],
-        Action, Action_Cost ) ?=>
-    
+        Action, Action_Cost )),
+     */
     %% getting data
-    println(right_grid = Grid  ),  
+   
      pos_Current_Agent_XY(Current_Agent, [X,Y], Grid ), %% take the position
      Grid_TEMP = copy_term(Grid),
     
     % println(gridXY4=Grid[X,Y]),    
     [_, Col] = [Grid.length , Grid[1].length ],
 
-
      %%% CONDITIDIONS
-       (Y < Col  ,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
-        Grid_TEMP[X,Y] := '*',			
-	    Grid_TEMP[X,Y+1] := Current_Agent,       
-
+      (Y < Col  ,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
+      Grid_TEMP[X,Y] := '*',			
+      Grid_TEMP[X,Y+1] := Current_Agent,       
 
     %%% POST CONDITIDIONS
      Action_Cost = 1,
@@ -177,11 +189,8 @@ action([Current_Agent, Grid,  N_Total_Agents],
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
      %% updating the New_grid
      
-     New_Grid = Grid_TEMP .  
-
-
-
-
+     New_Grid = Grid_TEMP ,
+     S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NAO FORAM USADAS ... poderiam ser removidas
@@ -220,14 +229,12 @@ print_States([ (Agent,Action) |L_Action], Grid) ?=>
         end,  
           
         New_Grid = Grid_TEMP,
-        
+        printf("\n Agent: %d ====>", Agent),
         print_map( New_Grid ), 
         print_States(L_Action , New_Grid).
-        
-%left_move,left_move,right_move,right_move,down_move,right_move,right_move,right_move,up_move,up_move]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%% UMA HEURISTICA AQUI .....
 f_which_the_next(Current_Agent , N_Total_Agents) = Next_Agent =>
       if(Current_Agent >= N_Total_Agents)
       then 
@@ -239,26 +246,28 @@ f_which_the_next(Current_Agent , N_Total_Agents) = Next_Agent =>
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-/* Get position XY in a grid from a cell with 'c' */
- pos_Current_Agent_XY( Agent, [X,Y],  Map ) =>
+/* Get position XY in a grid from a cell of AGENT */
+ pos_Current_Agent_XY( Agent, [X,Y],  Map ) ?=>
   L = Map.length,
   C = Map[1].length,
-   
+ %% writeln(map = Map),
+ %%%% Picat> to_integer('2') = X, integer(X). 
+ %%% DUE FILE readings some checking are necessary
    foreach(I in 1..L , J in 1..C)
-	   if (Map[I,J] == Agent) then  
+   	if ( digit(Map[I,J]) || number(Map[I,J]) ) then %% test only if a digit such '3'
+	   if ( to_int(Map[I,J]) == Agent ) then  
 			 X = I,
 			 Y = J
 			end   %% END INNER IF 
-
+		  end  
 	   end %% END  FOREACH
 	 ,
-	
 	 if( var(X) || var(Y) ) then
-	 printf("The c was not found: %d")
+	 printf("The AGENT %d was not found ....", Agent)
 	 end	%% END  IF
 	 .
 	  
-%position_c_XY( _ , _) => printf("\n Problem in XY position function \n").
+position_c_XY( _ , _, _) => printf("\n Problem in XY position function \n").
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -310,7 +319,6 @@ read_Map_2(File_NAME) = Arr_2D
       printf("\n Array: %w\n List:%w \n", Arr_2D, List ).
      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-
 %% printing the GRID ....
 print_map( M ) =>
  L = M.length,
