@@ -1,3 +1,14 @@
+
+/*
+There is a grid M x N in file. FILES MAP_0xxxxx
+In this file some cells are allowed to walk into them,  represented by '*'
+other cells are not allow like the wall in this maze, represented
+by '#'
+Some agents, numbered from 1 up to N, are dispersed in this grid.
+Some foods represented by '@' for them are also in this grid.
+The goal is a grid whitout '@' such a final state.
+Only agents, * and # 
+*/
 import os.
 import util.
 import math.
@@ -7,8 +18,10 @@ import planner.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=>
    Status = command("clear") ,
-   printf("====================================== %d OK", Status),
-   Map = read_Map_1("MAP_02.txt") , %%% we have  2 AGENTS HERE
+   printf("====================================== %d OK\n", Status),
+   Map = read_Map_1("MAP_01.txt") ,  %%% we have  3 AGENTS HERE
+%% Map = read_Map_1("MAP_02.txt") ,  %%% we have  3 AGENTS HERE
+
    println(map=Map),
   /* 
      nl,
@@ -39,13 +52,11 @@ main ?=>
     Total := length(Plan) ,
     Num_Movts := (Total -1) ,
   
-   % printf("\n Initial Position (state): %w ", X),
-   % printf("\n Final  Position (state): %w", Y),
     printf("\n Total of states: %d", Total), 
     printf("\n Total of moviments: %w", Num_Movts),
     printf("\n CPU TIME INIC: %w  FIM: %w ", T1, T2),
     printf(" \n=========================================\n ")
-    .
+    . %% <=== the end of main.
     
 main =>  printf("\n Something Wrong !!!").
 
@@ -95,6 +106,7 @@ action([Current_Agent, Grid,  N_Total_Agents],
      %% updating the New_grid
      New_Grid = Grid_TEMP,
      S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% DOWN: movement
 action([Current_Agent, Grid,  N_Total_Agents], 
@@ -121,12 +133,14 @@ action([Current_Agent, Grid,  N_Total_Agents],
      Action_Cost = 1,
      Action = (Current_Agent , down_move), %% action up_move done by Current Agent
      % Once that the final plan is a list of actions performed by
+     
      %% updating the Next_agent
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
+     
      %% updating the New_grid
-      
      New_Grid = Grid_TEMP ,
      S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% LEFT: movement
 action([Current_Agent, Grid,  N_Total_Agents], 
@@ -151,11 +165,14 @@ action([Current_Agent, Grid,  N_Total_Agents],
      Action_Cost = 1,
      Action = (Current_Agent , left_move), %% action up_move done by Current Agent
      % Once that the final plan is a list of actions performed by
+     
      %% updating the Next_agent
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
+     
      %% updating the New_grid
      New_Grid = Grid_TEMP ,
      S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% RIGHT: movement
 action([Current_Agent, Grid,  N_Total_Agents], 
@@ -185,24 +202,22 @@ action([Current_Agent, Grid,  N_Total_Agents],
      Action = (Current_Agent, right_move ),
      %% action XXXXXXXXX done by Current Agent
      % Once that the final plan is a list of actions performed by
+     
      %% updating the Next_agent
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
-     %% updating the New_grid
      
-     New_Grid = Grid_TEMP ,
+     %% updating the New_grid
+          New_Grid = Grid_TEMP ,
      S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% NAO FORAM USADAS ... poderiam ser removidas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%% FEITA .....
 
 print_States([], _) => printf("\n================================ \n").
 print_States([ (Agent,Action) |L_Action], Grid) ?=>
 
 		Grid_TEMP = copy_term(Grid),
+        %%% get the current position of the Agent
 		pos_Current_Agent_XY(Agent, [X,Y],  Grid ),
 
         if (Action == up_move)
@@ -224,7 +239,8 @@ print_States([ (Agent,Action) |L_Action], Grid) ?=>
 
         elseif (Action == left_move)
         then
-          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X,Y
+          ] := '*' ,			
           Grid_TEMP[X,Y-1] := Agent
         end,  
           
@@ -234,7 +250,7 @@ print_States([ (Agent,Action) |L_Action], Grid) ?=>
         print_States(L_Action , New_Grid).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% UMA HEURISTICA AQUI .....
+%%%% some HEURISTICS HERE for coordenation policy
 f_which_the_next(Current_Agent , N_Total_Agents) = Next_Agent =>
       if(Current_Agent >= N_Total_Agents)
       then 
@@ -242,8 +258,7 @@ f_which_the_next(Current_Agent , N_Total_Agents) = Next_Agent =>
       else
       Next_Agent = 1 + Current_Agent
       end.
- %%% some mod solution works also       
-
+ %%% some mod solution works also       %%% a point to EXPLORE it
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* Get position XY in a grid from a cell of AGENT */
@@ -252,8 +267,9 @@ f_which_the_next(Current_Agent , N_Total_Agents) = Next_Agent =>
   C = Map[1].length,
  %% writeln(map = Map),
  %%%% Picat> to_integer('2') = X, integer(X). 
- %%% DUE FILE readings some checking are necessary
+ 
    foreach(I in 1..L , J in 1..C)
+ %%% DUE FILE readings some checking are necessary  
    	if ( digit(Map[I,J]) || number(Map[I,J]) ) then %% test only if a digit such '3'
 	   if ( to_int(Map[I,J]) == Agent ) then  
 			 X = I,
@@ -294,7 +310,7 @@ read_Map_1(File_NAME) = Arr_2D
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% READING A MAP  ....
+%% READING A GRID  .... some error
 read_Map_2(File_NAME) = Arr_2D  
     =>
       L_read = read_file_lines(File_NAME),

@@ -1,9 +1,21 @@
+
+/*
+There is a grid M x N in file. FILES MAP_0xxxxx
+In this file some cells are allowed to walk into them,  represented by '*'
+other cells are not allow like the wall in this maze, represented
+by '#'
+An agent, represented by 'c' is inside this grid, anyplace.
+Some foods represented by '@' for them are also in this grid.
+The goal is a grid whitout '@' such a final state.
+Only the c (cleaner aget) agent, * and #
+*/
 import os.
 import util.
 import math.
 import datetime.
 import planner.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=>
    Status = command("clear") ,
@@ -56,7 +68,6 @@ final(_) => printf("\n There are some @ in the map!\n").
  
 /* Describing the possible actions ==> for the planner */
 %action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) 
-
 
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
     % println(action2=$action(Grid, New_Grid, Action, Action_Cost )),
