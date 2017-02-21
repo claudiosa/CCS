@@ -72,7 +72,8 @@ Os agentes podem ser de dois tipos:
 \centering
 \includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/agent-learning.pdf}
 \caption{Arquitetura agente com aprendizagem}
-\label{ag_02}
+\label{ag_01}
 \end{figure}
     
 \end{frame}
+
