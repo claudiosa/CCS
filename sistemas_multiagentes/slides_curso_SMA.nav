@@ -1,33 +1,33 @@
-\beamer@endinputifotherversion {3.33pt}
+\beamer@endinputifotherversion {3.36pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\sectionentry {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{Introdu\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\sectionentry {1}{O Curso}{3}{O Curso}{0}}
 \headcommand {\beamer@sectionpages {1}{2}}
 \headcommand {\beamer@subsectionpages {1}{2}}
-\headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{4}{O Curso}}\headcommand {\beamer@subsectionpages {3}{3}}
-\headcommand {\slideentry {1}{1}{1}{4/4}{O Curso}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{4}{Ferramentas}}\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\slideentry {1}{1}{1}{4/4}{Ferramentas}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{5}{Ferramentas}}\headcommand {\beamer@subsectionpages {4}{4}}
-\headcommand {\slideentry {1}{2}{1}{5/5}{Ferramentas}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{5}{Avalia\IeC {\c c}\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\slideentry {1}{2}{1}{5/5}{Avalia\IeC {\c c}\IeC {\~a}o}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{6}{Avalia\IeC {\c c}\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\slideentry {1}{3}{1}{6/6}{Avalia\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{6}{Din\IeC {\^a}mica}}\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\slideentry {1}{3}{1}{6/6}{Din\IeC {\^a}mica}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{7}{Din\IeC {\^a}mica}}\headcommand {\beamer@subsectionpages {6}{6}}
-\headcommand {\slideentry {1}{4}{1}{7/7}{Din\IeC {\^a}mica}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{7}{Refer\IeC {\^e}ncias}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {1}{4}{1}{7/7}{Refer\IeC {\^e}ncias}{0}}
 \headcommand {\beamer@framepages {7}{7}}
 \headcommand {\sectionentry {2}{Introdu\IeC {\c c}\IeC {\~a}o aos SMAs}{8}{Introdu\IeC {\c c}\IeC {\~a}o aos SMAs}{0}}
 \headcommand {\beamer@sectionpages {3}{7}}
 \headcommand {\beamer@subsectionpages {7}{7}}
-\headcommand {\slideentry {2}{0}{2}{8/8}{}{0}}
+\headcommand {\slideentry {2}{0}{1}{8/8}{}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\slideentry {2}{0}{3}{9/9}{}{0}}
+\headcommand {\slideentry {2}{0}{2}{9/9}{}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {2}{0}{4}{10/10}{}{0}}
+\headcommand {\slideentry {2}{0}{3}{10/10}{}{0}}
 \headcommand {\beamer@framepages {10}{10}}
 \headcommand {\beamer@subsectionentry {0}{2}{1}{11}{Motiva\IeC {\c c}\IeC {\~a}o aos SMAs}}\headcommand {\beamer@subsectionpages {8}{10}}
 \headcommand {\slideentry {2}{1}{1}{11/11}{Motiva\IeC {\c c}\IeC {\~a}o aos SMAs}{0}}
@@ -42,59 +42,53 @@
 \headcommand {\sectionentry {3}{Agentes Racionais}{17}{Agentes Racionais}{0}}
 \headcommand {\beamer@sectionpages {8}{16}}
 \headcommand {\beamer@subsectionpages {16}{16}}
-\headcommand {\slideentry {3}{0}{2}{17/19}{}{0}}
+\headcommand {\slideentry {3}{0}{1}{17/19}{}{0}}
 \headcommand {\beamer@framepages {17}{19}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{20}{Agentes Racionais}}\headcommand {\beamer@subsectionpages {17}{19}}
-\headcommand {\slideentry {3}{1}{1}{20/20}{Agentes Racionais}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{20}{Tipos de Agentes}}\headcommand {\beamer@subsectionpages {17}{19}}
+\headcommand {\slideentry {3}{1}{1}{20/20}{Tipos de Agentes}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\slideentry {3}{1}{2}{21/21}{Agentes Racionais}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{21}{Agentes Racionais}}\headcommand {\beamer@subsectionpages {20}{20}}
+\headcommand {\slideentry {3}{2}{1}{21/21}{Agentes Racionais}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\slideentry {3}{1}{3}{22/22}{Agentes Racionais}{0}}
+\headcommand {\slideentry {3}{2}{2}{22/22}{Agentes Racionais}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\sectionentry {4}{Estrat\IeC {\'e}gias de Jogos}{23}{Estrat\IeC {\'e}gias de Jogos}{0}}
-\headcommand {\beamer@sectionpages {17}{22}}
-\headcommand {\beamer@subsectionpages {20}{22}}
-\headcommand {\slideentry {4}{0}{4}{23/25}{}{0}}
-\headcommand {\beamer@framepages {23}{25}}
-\headcommand {\sectionentry {5}{Coordena\IeC {\c c}\IeC {\~a}o}{26}{Coordena\IeC {\c c}\IeC {\~a}o}{0}}
-\headcommand {\beamer@sectionpages {23}{25}}
-\headcommand {\beamer@subsectionpages {23}{25}}
-\headcommand {\slideentry {5}{0}{5}{26/28}{}{0}}
-\headcommand {\beamer@framepages {26}{28}}
-\headcommand {\beamer@subsectionentry {0}{5}{1}{29}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}}\headcommand {\beamer@subsectionpages {26}{28}}
-\headcommand {\slideentry {5}{1}{1}{29/29}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}{0}}
-\headcommand {\beamer@framepages {29}{29}}
-\headcommand {\slideentry {5}{1}{2}{30/30}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}{0}}
+\headcommand {\slideentry {3}{2}{3}{23/23}{Agentes Racionais}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\sectionentry {4}{Estrat\IeC {\'e}gias de Jogos}{24}{Estrat\IeC {\'e}gias de Jogos}{0}}
+\headcommand {\beamer@sectionpages {17}{23}}
+\headcommand {\beamer@subsectionpages {21}{23}}
+\headcommand {\slideentry {4}{0}{1}{24/26}{}{0}}
+\headcommand {\beamer@framepages {24}{26}}
+\headcommand {\sectionentry {5}{Coordena\IeC {\c c}\IeC {\~a}o}{27}{Coordena\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@sectionpages {24}{26}}
+\headcommand {\beamer@subsectionpages {24}{26}}
+\headcommand {\slideentry {5}{0}{1}{27/29}{}{0}}
+\headcommand {\beamer@framepages {27}{29}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{30}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}}\headcommand {\beamer@subsectionpages {27}{29}}
+\headcommand {\slideentry {5}{1}{1}{30/30}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\sectionentry {6}{Teoria de Jogos Aplicado a SMA}{31}{Teoria de Jogos Aplicado a SMA}{0}}
-\headcommand {\beamer@sectionpages {26}{30}}
-\headcommand {\beamer@subsectionpages {29}{30}}
-\headcommand {\slideentry {6}{0}{3}{31/33}{}{0}}
-\headcommand {\beamer@framepages {31}{33}}
-\headcommand {\sectionentry {7}{Projetos de SMAs}{34}{Projetos de SMAs}{0}}
-\headcommand {\beamer@sectionpages {31}{33}}
-\headcommand {\beamer@subsectionpages {31}{33}}
-\headcommand {\slideentry {7}{0}{4}{34/36}{}{0}}
-\headcommand {\beamer@framepages {34}{36}}
-\headcommand {\sectionentry {8}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}{37}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}{0}}
-\headcommand {\beamer@sectionpages {34}{36}}
-\headcommand {\beamer@subsectionpages {34}{36}}
-\headcommand {\slideentry {8}{0}{5}{37/39}{}{0}}
-\headcommand {\beamer@framepages {37}{39}}
-\headcommand {\sectionentry {9}{Aprendizagem}{40}{Aprendizagem}{0}}
-\headcommand {\beamer@sectionpages {37}{39}}
-\headcommand {\beamer@subsectionpages {37}{39}}
-\headcommand {\slideentry {9}{0}{6}{40/42}{}{0}}
-\headcommand {\beamer@framepages {40}{42}}
-\headcommand {\sectionentry {10}{Conclus\IeC {\~a}o}{43}{Conclus\IeC {\~a}o}{0}}
-\headcommand {\beamer@sectionpages {40}{42}}
-\headcommand {\beamer@subsectionpages {40}{42}}
-\headcommand {\slideentry {10}{0}{7}{43/43}{}{0}}
-\headcommand {\beamer@framepages {43}{43}}
-\headcommand {\slideentry {10}{0}{8}{44/44}{}{0}}
-\headcommand {\beamer@framepages {44}{44}}
-\headcommand {\beamer@partpages {1}{44}}
-\headcommand {\beamer@subsectionpages {43}{44}}
-\headcommand {\beamer@sectionpages {43}{44}}
-\headcommand {\beamer@documentpages {44}}
-\headcommand {\def \inserttotalframenumber {28}}
+\headcommand {\slideentry {5}{1}{2}{31/31}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\sectionentry {6}{Teoria de Jogos Aplicado a SMA}{32}{Teoria de Jogos Aplicado a SMA}{0}}
+\headcommand {\beamer@sectionpages {27}{31}}
+\headcommand {\beamer@subsectionpages {30}{31}}
+\headcommand {\slideentry {6}{0}{1}{32/34}{}{0}}
+\headcommand {\beamer@framepages {32}{34}}
+\headcommand {\sectionentry {7}{Projetos de SMAs}{35}{Projetos de SMAs}{0}}
+\headcommand {\beamer@sectionpages {32}{34}}
+\headcommand {\beamer@subsectionpages {32}{34}}
+\headcommand {\slideentry {7}{0}{1}{35/37}{}{0}}
+\headcommand {\beamer@framepages {35}{37}}
+\headcommand {\beamer@subsectionentry {0}{7}{1}{38}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}}\headcommand {\beamer@subsectionpages {35}{37}}
+\headcommand {\slideentry {7}{1}{1}{38/40}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}{0}}
+\headcommand {\beamer@framepages {38}{40}}
+\headcommand {\sectionentry {8}{Conclus\IeC {\~a}o}{41}{Conclus\IeC {\~a}o}{0}}
+\headcommand {\beamer@sectionpages {35}{40}}
+\headcommand {\beamer@subsectionpages {38}{40}}
+\headcommand {\slideentry {8}{0}{1}{41/41}{}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\beamer@partpages {1}{41}}
+\headcommand {\beamer@subsectionpages {41}{41}}
+\headcommand {\beamer@sectionpages {41}{41}}
+\headcommand {\beamer@documentpages {41}}
+\headcommand {\def \inserttotalframenumber {27}}
