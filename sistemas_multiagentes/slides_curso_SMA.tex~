@@ -149,10 +149,11 @@
     \frametitle{Avaliação}
 
     \begin{itemize}
-      \item Duas provas (conceituais) -- 30\%
+      \item Duas provas (conceituais) -- 25\%
       \item Exercícios de laboratório  -- 10\%
       \item Implementação de um protótipo  -- 20\%
-      \item O artigo (resultados da implementação)  -- 40\%
+      \item Apresentação de um artigo estudado sobre SMA -- 15\%
+      \item O artigo (resultados da implementação)  -- 30\%
       \item Para o artigo: muito material será fornecido em \LaTeX ...
        
       
@@ -176,28 +177,52 @@
 
 
 \section{Introdução aos SMAs}
+
 \begin{frame}
 
-    \frametitle{Características aos SMAs}
-    \begin{itemize}
-    \pause
-      \item Projeto de agente
-\pause
-      \item Ambiente
-      ..... cap 1
+  \frametitle{Motivando aos SMAs}
     
-    \end{itemize}
+    
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/agentes_vizinhos01.jpeg}
+\caption{Observe o sentido das flechas --  e  o foco da missão}
+%\label{ag_01}
+\end{figure}
+    
+    
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Motivando aos SMAs}
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/agentes_vizinhos02.jpeg}
+%\caption{Arquitetura clássica}
+%\label{ag_01}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
 
+  \frametitle{Motivando aos SMAs}
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/agentes_vizinhos03.jpeg}
+\caption{Arquitetura clássica -- comunidade de agentes $\equiv $   SMA}
+%\label{ag_01}
+\end{figure}
+ 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsection{Motivação aos SMAs}
-\begin{frame}
+\begin{frame} [allowframebreaks=0.9]
 
     \frametitle{Motivação I}
     Projetar e construir sistemas multiagentes é uma tarefa difícil, pois:
@@ -215,22 +240,67 @@ e complexidade das interações
 
 
 \begin{frame}
+\frametitle{Esta complexidade por um DFD por agente x ações:}
+  
+  \begin{figure}[!ht]
+  \centering
+  \includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/mudando_estados01.png}
+  \caption{Complexidade via DFD de um SMA (agentes) $\times $ ações $\equiv $ um único estado}
+%\label{ag_01}
+\end{figure}
+   
+\end{frame}
+
+
+
+
+\begin{frame}
 
     \frametitle{Motivação II}
    Dois principais impedimentos técnicos, pois:
     \begin{itemize}
     \pause
-      \item Inexistência de uma metodologia sistemática para claramente especificar e estruturar aplicações SMA.
-\pause
+      \item Inexistência de uma metodologia sistemática para 
+      claramente especificar e estruturar aplicações SMA.
+     \pause
       \item Inexistência de ferramentas e ambientes de 
 desenvolvimento de SMA com qualidade industrial.
     
     \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Os Elementos de SMAs}
 
 
 
+\begin{frame}[allowframebreaks=0.9]
+
+    \frametitle{Os Elementos de SMAs}
+   
+   \begin{description}
+     \item[Projeto de Agente:] 
+     
+    \item[Ambiente:]
+          
+   \item[Percepção:]
+               
+ \item[Controle:]
+                    
+  \item[Conhecimento:]
+                          
+  \item[Comunicação:]
+          
+   \end{description}
+   
+   
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Agentes Racionais}
 \begin{frame}
 
@@ -242,6 +312,68 @@ desenvolvimento de SMA com qualidade industrial.
       \item cap 2
     
     \end{itemize}
+\end{frame}
+
+\subsection{Tipos de Agentes}
+\begin{frame}
+
+Os agentes podem ser de dois tipos:
+\begin{description}
+
+ \item[Agentes Reativos (ou reflexivos):] geralmente são agentes simples, escolhem suas ações baseados exclusivamente nas percepções que têm do ambiente. Normalmente possui representação do conhecimento implícito  no código, por não  possuirem
+  memória, não tem histórico dos fatos  e das ações que executou.
+
+  \item[Agentes Cognitivos:]  têm uma representação simbólica explícita do seu ambiente, no qual eles podem argumentar e predizer eventos futuros. São dirigidos por intenções, isto é, por metas explícitas que conduzem seu comportamento e os tornam capazes de escolher entre possíveis ações. 
+  Engloba as características: percepção, ação, comunicação, representação, 
+  motivação, deliberação, raciocínio e aprendizagem. 
+
+\end{description}
+
+\end{frame}
+
+
+\subsection{Agentes Racionais}
+
+\begin{frame}
+
+  \frametitle{Agente em seu ambiente}
+    
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/agente_ambiente_ciclo.png}
+  \caption{Ciclo do agente}
+%\label{ag_01}
+\end{figure}
+    
+\end{frame}
+
+
+
+\begin{frame}
+
+  \frametitle{Arquitetura clássica de um agente reflexivo}
+    
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.6\textwidth]{figuras/agent-reflexivo.png}
+\caption{Arquitetura clássica}
+\label{ag_01}
+\end{figure}
+    
+\end{frame}
+
+
+\begin{frame}
+
+  \frametitle{Arquitetura clássica de um agente que \textit{aprende} -- desejável}
+    
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.6\textwidth]{figuras/agent-learning.png}
+\caption{Arquitetura clássica}
+\label{ag_01}
+\end{figure}
+    
 \end{frame}
 
 
@@ -271,6 +403,54 @@ desenvolvimento de SMA com qualidade industrial.
     
     \end{itemize}
 \end{frame}
+
+\subsection{Exemplos de Coordenação SMAs}
+
+\begin{frame}
+\frametitle{Exemplo de Coordenação SMAs}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/coordenacao_agentes01.png}
+\caption{Coordenação de agentes $\equiv $   SMA}
+%\label{ag_01}
+\end{figure}
+ \end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Exemplo de Coordenação SMAs}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/coordenacao_agentes02.png}
+\caption{Coordenação de agentes $\equiv $   SMA}
+%\label{ag_01}
+\end{figure}
+ 
+\end{frame}
+
+\section{Teoria de Jogos Aplicado a SMA}
+\begin{frame}
+
+    \frametitle{Teoria de Jogos Aplicado a SMA}
+    \begin{itemize}
+    \pause
+      \item $\prod^{n}_{x=1} \neq  \prod_{x=1}^{n+1}$
+      \item  \url{https://www.codecogs.com/latex/eqneditor.php}
+      \item \url{http://www.hostmath.com/}
+      
+
+      \pause
+      \item cap 6
+    
+    \end{itemize}
+\end{frame}
+
+
 
 
 \section{Projetos de SMAs}

@@ -176,7 +176,7 @@ action([Current_Agent, Grid,  N_Total_Agents],
 
 %% RIGHT: movement
 action([Current_Agent, Grid,  N_Total_Agents], 
-       S2,
+       S2, %%% [Next_Agent, New_Grid, N_Total_Agents] ===> NOT ALLOWED
        Action, Action_Cost ) ?=>
     /*
     	println($action4([Current_Agent, Grid,  N_Total_Agents], 
@@ -207,7 +207,7 @@ action([Current_Agent, Grid,  N_Total_Agents],
      Next_Agent = f_which_the_next(Current_Agent, N_Total_Agents),
      
      %% updating the New_grid
-          New_Grid = Grid_TEMP ,
+     New_Grid = Grid_TEMP ,
      S2 = [Next_Agent, New_Grid, N_Total_Agents] .       
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -20,7 +20,7 @@ import planner.
 main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
-    Map = read_Map_1("MAP_03.txt") , 
+    Map = read_Map_1("MAP_01_c.txt") , 
     nl,
    /*
     Map =  {{*,#,#,*,@,* },
