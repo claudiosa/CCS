@@ -2,6 +2,27 @@
 
 \section{Introdução aos SMAs}
 
+
+\begin{frame}
+
+\begin{center}
+{\huge Capítulo 1 -- Contexto e Motivação aos SMAS}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+
+  \frametitle{Histórico e Contexto da IA versus IAD versus SMA}
+    
+\begin{itemize}
+  \item falta
+\end{itemize}
+
+
+\end{frame}
+
+
 \begin{frame}
 
   \frametitle{Motivando aos SMAs}
@@ -102,8 +123,11 @@ desenvolvimento de SMA com qualidade industrial.
 \begin{frame}[allowframebreaks=0.9]
 
     \frametitle{Os Elementos de SMAs}
-   
+  
+  \begin{block}{o que abordaremos neste curso:}
+  
    \begin{description}
+  
      \item[Projeto de Agente:] 
      
     \item[Ambiente:]
@@ -117,8 +141,7 @@ desenvolvimento de SMA com qualidade industrial.
   \item[Comunicação:]
           
    \end{description}
-   
+  \end{block}    
    
 \end{frame}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
