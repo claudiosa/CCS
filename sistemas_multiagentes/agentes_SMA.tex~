@@ -3,6 +3,67 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Agentes Racionais}
+
+
+\begin{frame}
+
+\begin{center}
+{\huge Capítulo 2 -- Agentes Racionais}
+\end{center}
+
+\end{frame}
+
+
+
+
+%--------------------------------------------
+\begin{frame} [allowframebreaks=0.9]
+
+    \frametitle{O que é um Agente?}
+
+\begin{block}{Qualquer entidade (humana ou artificial) que:}
+  
+  \begin{itemize}
+    \item está \textbf{imersa} ou \textbf{situada} em um ambiente (físico, virtual/simulado) 
+    \item \textbf{percebe} ou \textbf{sente} seu ambiente através de sensores (ex. câmeras, microfone, teclado, finger, ...)
+    \item \textbf{age} sobre ele através de atuadores (ex. vídeo, auto-falante, impressora, braços, ftp, ...)
+    \item \textbf{possui objetivos} próprios:
+explícitos ou implícitos
+    \item \textbf{escolhe} suas ações em função das suas percepções para atingir seus objetivos
+  
+  \end{itemize}
+  
+\end{block}
+
+\end{frame}
+%--------------------------------------------
+
+
+
+%--------------------------------------------
+\begin{frame} [allowframebreaks=0.9]
+
+    \frametitle{O que é um Agente?}
+
+\begin{block}{Qualquer entidade (humana ou artificial) que:}
+  
+    \begin{itemize}
+      \item 
+      \pause
+          \item 
+              \pause
+              \item 
+                  \pause
+                  \item 
+    \end{itemize}
+  
+\end{block}
+
+\end{frame}
+%--------------------------------------------
+
+
+
 \begin{frame}
 
     \frametitle{Características aos SMAs}
@@ -72,8 +133,7 @@ Os agentes podem ser de dois tipos:
 \centering
 \includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/agent-learning.pdf}
 \caption{Arquitetura agente com aprendizagem}
-\label{ag_01}
+\label{ag_02}
 \end{figure}
     
 \end{frame}
-
