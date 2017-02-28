@@ -17,7 +17,7 @@
 
 
 %--------------------------------------------
-\begin{frame} [allowframebreaks=0.9]
+\begin{frame} %[allowframebreaks=0.9]
 
     \frametitle{O que é um Agente?}
 
@@ -66,10 +66,9 @@ explícitos ou implícitos
  \begin{itemize}
       \item Agente Racional 
  \begin{itemize}
-        \item faz a melhor coisa possível
+        \item faz a melhor ação possível dado um conjunto de percepções
         \item segue o princípio da racionalidade:\\ 
-dada uma seqüência perceptiva, 
-o agente escolhe, segundo seus conhecimentos, 
+dada uma seqüência perceptiva, o agente escolhe, segundo seus conhecimentos, 
 as ações que melhor satisfazem seu objetivo
       \end{itemize}
 
@@ -92,15 +91,13 @@ as ações que melhor satisfazem seu objetivo
 %--------------------------------------------
 \begin{frame} [allowframebreaks=0.9]
 
-    \frametitle{Outras propriedades freqüentemente 
-associadas aos Agentes}
+    \frametitle{Outras propriedades freqüentemente associadas aos Agentes}
 
-
-  
+ 
     \begin{itemize}
       \item Autonomia:\\
 raciocínio, comportamento guiado por objetivos ou \\
-reatividade
+\textit{reatividade}
 
 \begin{itemize}
   \item Requer máquina de inferência e base de conhecimento
@@ -134,7 +131,7 @@ reatividade
     \item Personalidade
     
     \begin{itemize}
-      \item IA + modelagem de atitudes e emoções
+      \item IA + modelagem de atitudes e emoções (computação afetiva)
       \item Essencial em entretenimento digital, realidade virtual, interfaces amigáveis ... 
     \end{itemize}
     
@@ -162,7 +159,6 @@ reatividade
  
 \end{frame}
 %--------------------------------------------
-
 
 %--------------------------------------------
 \begin{frame} %[allowframebreaks=0.9]
@@ -249,7 +245,7 @@ Em geral os agentes encontram-se em  dois grupos (2 classes):
 
 \begin{frame}
 
-  \frametitle{Arquitetura clássica de um agente que \textit{aprende}}
+  \frametitle{Arquitetura clássica de um agente cognitivo (\textit{que aprende algo!}}
     
 \begin{figure}[!ht]
 \centering
@@ -334,6 +330,9 @@ Um agente pode ser visto como um \textcolor{red}{\texttt{mapeamento}}:
 Ex. jogo de xadrez $30^{100}$
     \item Nem sempre é possível, por ignorância ou questão de tempo, construir a tabela 
     \item  Não há autonomia nem flexibilidade
+    
+    \item Este \textit{infeliz} entra em pane se o conhecimento  não estiver descrito na tabela (inferior há uma regra \textit{if-then})
+    
   \end{itemize}
   
   \item Ambiente
@@ -555,5 +554,84 @@ Ex: \texttt{Se velocidade $>$ 60 então multar}
 
 
 
+\section{Construindo de Agentes Racionais}
+
+\begin{frame}%%[allowframebreaks=0.9]
+
+% \frametitle{Uma medida de eficácia para estes agentes (racionais)?}
+   \frametitle{Metodologia de desenvolvimento destes agentes racionais}
+  \begin{block}{\textbf{PEAS} = Peformance, Ambiente (\textit{Enviroment}), Ação e Sensores}
+  
+   \begin{description}
+  
+     \item[Peformance:] como ter um indicativo de sucesso
+     
+    \item[Ambiente:]  cuidado deve ser sempre 
+especificar o ambiente
+          
+   \item[Ação:] o que vai fazer?
+                          
+  \item[Sensores:] o que vai perceber?
+
+  \item[Outros:] agentes da comunidade (falta isto na construção de agentes), ou seja um SMA!
+
+          
+   \end{description}
+  \end{block}    
+   
+\end{frame}
 
 
+%--------------------------------------------
+
+
+\begin{frame} %[allowframebreaks=0.9]
+
+ \frametitle{Exemplo ao avaliar (projetar ...) SMAs}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height =.7\textheight,width=.8\textwidth]
+  {figuras/PEAS01.png}
+  \caption{Um bom exercício para reflexão -- seguem os \textit{copyrights}}
+%\label{ag_01}
+\end{figure}
+
+\end{frame}
+%--------------------------------------------
+
+%--------------------------------------------
+
+\begin{frame} %[allowframebreaks=0.9]
+
+ \frametitle{Exemplo ao avaliar (projetar ...) SMAs}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height =.7\textheight,width=.8\textwidth]
+  {figuras/PEAS02.jpg}
+  \caption{Um bom exercício para reflexão -- seguem os \textit{copyrights}}
+%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame} %[allowframebreaks=0.9]
+
+ \frametitle{Resumo do capítulo}
+
+\begin{enumerate}
+  \item Vocabulário
+  \item Tipos de agentes
+  \item Como iniciar um desenvolvimento de SMAs 
+  \item Falta: porque soluções de SMAs são atrativas
+    \item Falta: diferença de SMAs com RDPs
+    \item Falta: Coordenação etc
+        \item Falta: Planejamento etc
+    
+\end{enumerate}
+
+
+\end{frame}
