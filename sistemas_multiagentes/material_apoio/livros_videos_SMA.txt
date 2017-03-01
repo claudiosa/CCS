@@ -1,11 +1,18 @@
 
+Videos na aula
+
+https://www.youtube.com/watch?v=XJ-gO-yAwHU
+Gabriel Wurzer -- ingles claro e pausado -- 
+Vamos começar com estes videos ....
+
+
+LIVROS
 Baixar de www.bookzz.org
 
 A Concise Introduction to Multiagent Systems
 and Distributed Artificial
 Intelligence
 Nikos Vlassis
-
 
 An Introduction to Multiagent Systems
 Michael Wooldrige
@@ -16,6 +23,8 @@ Algorithmic, Game-Theoretic,
 and Logical Foundations
 Yoav Shoham
 Kevin Leyton-Brown
+faça wget www.masfoundations.org/mas.pdf
+IMPRIMIR OU COMPRAR
 
 
 Multiagent Systems

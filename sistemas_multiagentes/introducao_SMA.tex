@@ -1,5 +1,4 @@
 
-
 \section{Introdução}
 
 
@@ -136,15 +135,46 @@ dos sistemas distribuídos e concorrentes.
 e complexidade das interações
     \end{itemize}
 \end{frame}
+
+
 %--------------------------------------
 
+\begin{frame}
+\frametitle{Problemas de tabuleiro são simples?}
+  
+  \begin{figure}[!ht]
+  \centering
+  \includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/robos_tabuleiro.jpg}
+  \caption{Admita um robo indo de uma posição inicial ($S_0$) há uma final 
+  ($S_m$)}
+%\label{ag_01}
+\end{figure}
+   
+\end{frame}
+
+%----------------------------------------------------------
+
+\begin{frame}
+\frametitle{Exemplificando a complexidade por um DFD com  \textbf{um agente} 
+$\times$ \textbf{n-ações}:}
+  
+  \begin{figure}[!ht]
+  \centering
+  \includegraphics[height =.6\textheight,width=.9\textwidth]{figuras/dfd_simples_acoes.jpg}
+  \caption{Complexidade via DFD de um agente $\times $ ações $\equiv $ um estado  inicial ($S_0$) há um estado final ($S_m$)}
+%\label{ag_01}
+\end{figure}
+   
+\end{frame}
+
+%----------------------------------------------------------
 
 \begin{frame}
 \frametitle{Exemplificando a complexidade por um DFD por \textbf{agentes} $\times$ \textbf{ações}:}
   
   \begin{figure}[!ht]
   \centering
-  \includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/mudando_estados01.png}
+  \includegraphics[height =.6\textheight,width=.8\textwidth]{figuras/mudando_estados01.png}
   \caption{Complexidade via DFD de um SMA (agentes) $\times $ ações $\equiv $ um único estado}
 %\label{ag_01}
 \end{figure}
@@ -152,9 +182,36 @@ e complexidade das interações
 \end{frame}
 
 %----------------------------------------------------------
+
 \begin{frame}
 
-    \frametitle{Motivação II}
+\frametitle{Exercícios -- papel e caneta mesmo}
+   
+\begin{block}{}
+
+  \begin{itemize}
+  \item Considere que as ações sejam do tipo um deslocamento de uma célula. 8 direções ou 4?
+  \pause
+  \item Considere que o robô não vai ficar em ciclos -- passar em estados que já passou -- fácil isto? Como resolver?
+  \pause
+  
+  \item   Para as duas versões acima estime a complexidade dos mesmos em número
+  de combinações possíveis de um $S_0$ há um $S_m$.
+  \pause
+  
+   \item Introduza as dimensões do tabuleiro em seus cálculos e refaça-os
+  \end{itemize}  
+  
+\end{block}
+   
+\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}
+
+    \frametitle{Motivação II -- retomando ...}
    Dois principais impedimentos técnicos, pois:
   \begin{itemize}
   \pause
