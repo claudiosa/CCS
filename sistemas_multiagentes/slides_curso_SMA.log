@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  27 FEB 2017 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  1 MAR 2017 10:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1821,7 +1821,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agentes_vizinhos01.jpeg Graphic file (type jpg)
 
 <use figuras/agentes_vizinhos01.jpeg>
-Package pdftex.def Info: figuras/agentes_vizinhos01.jpeg used on input line 93.
+Package pdftex.def Info: figuras/agentes_vizinhos01.jpeg used on input line 92.
 
 (pdftex.def)             Requested size: 224.344pt x 146.23595pt.
 
@@ -1841,7 +1841,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agentes_vizinhos02.jpeg Graphic file (type jpg)
 
 <use figuras/agentes_vizinhos02.jpeg>
-Package pdftex.def Info: figuras/agentes_vizinhos02.jpeg used on input line 106
+Package pdftex.def Info: figuras/agentes_vizinhos02.jpeg used on input line 105
 .
 (pdftex.def)             Requested size: 224.3406pt x 146.22037pt.
 
@@ -1861,7 +1861,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agentes_vizinhos03.jpeg Graphic file (type jpg)
 
 <use figuras/agentes_vizinhos03.jpeg>
-Package pdftex.def Info: figuras/agentes_vizinhos03.jpeg used on input line 121
+Package pdftex.def Info: figuras/agentes_vizinhos03.jpeg used on input line 120
 .
 (pdftex.def)             Requested size: 224.3406pt x 146.22037pt.
 
@@ -1912,12 +1912,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [26
 
-] <figuras/mudando_estados01.png, id=294, 1190.94937pt x 764.8575pt>
-File: figuras/mudando_estados01.png Graphic file (type png)
+] <figuras/robos_tabuleiro.jpg, id=294, 1606.0pt x 1204.5pt>
+File: figuras/robos_tabuleiro.jpg Graphic file (type jpg)
 
-<use figuras/mudando_estados01.png>
-Package pdftex.def Info: figuras/mudando_estados01.png used on input line 152.
-(pdftex.def)             Requested size: 224.33829pt x 146.22308pt.
+<use figuras/robos_tabuleiro.jpg>
+Package pdftex.def Info: figuras/robos_tabuleiro.jpg used on input line 153.
+(pdftex.def)             Requested size: 224.32385pt x 146.22464pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -1930,7 +1930,18 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [27
 
- <./figuras/mudando_estados01.png>]
+ <./figuras/robos_tabuleiro.jpg>]
+<figuras/dfd_simples_acoes.jpg, id=302, 922.44624pt x 304.13625pt>
+File: figuras/dfd_simples_acoes.jpg Graphic file (type jpg)
+
+<use figuras/dfd_simples_acoes.jpg>
+Package pdftex.def Info: figuras/dfd_simples_acoes.jpg used on input line 168.
+(pdftex.def)             Requested size: 288.43265pt x 146.22505pt.
+
+Overfull \vbox (6.18048pt too high) detected at line 168
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1942,7 +1953,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [28
 
-]
+ <./figuras/dfd_simples_acoes.jpg>]
+<figuras/mudando_estados01.png, id=309, 1190.94937pt x 764.8575pt>
+File: figuras/mudando_estados01.png Graphic file (type png)
+
+<use figuras/mudando_estados01.png>
+Package pdftex.def Info: figuras/mudando_estados01.png used on input line 182.
+(pdftex.def)             Requested size: 256.3944pt x 146.22308pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1954,7 +1972,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [29
 
-]
+ <./figuras/mudando_estados01.png>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1978,13 +1996,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [31
 
-] <figuras/agente_humano.jpg, id=322, 746.01291pt x 559.50967pt>
-File: figuras/agente_humano.jpg Graphic file (type jpg)
-
-<use figuras/agente_humano.jpg>
-Package pdftex.def Info: figuras/agente_humano.jpg used on input line 219.
-(pdftex.def)             Requested size: 224.3406pt x 136.47064pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1996,10 +2008,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [32
 
- <./figuras/agente_humano.jpg>])
-\openout2 = `agentes_SMA.aux'.
-
- (./agentes_SMA.tex
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2010,8 +2019,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [33
-
-
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2025,13 +2032,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [34
 
-] <figuras/agente_situado.jpg, id=337, 746.01291pt x 559.50967pt>
-File: figuras/agente_situado.jpg Graphic file (type jpg)
-
-<use figuras/agente_situado.jpg>
-Package pdftex.def Info: figuras/agente_situado.jpg used on input line 55.
-(pdftex.def)             Requested size: 256.39577pt x 158.40327pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2043,7 +2044,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [35
 
- <./figuras/agente_situado.jpg>]
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2067,7 +2068,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [37
 
-]
+] <figuras/agente_humano.jpg, id=357, 746.01291pt x 559.50967pt>
+File: figuras/agente_humano.jpg Graphic file (type jpg)
+
+<use figuras/agente_humano.jpg>
+Package pdftex.def Info: figuras/agente_humano.jpg used on input line 276.
+(pdftex.def)             Requested size: 224.3406pt x 136.47064pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2079,8 +2086,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [38
 
+ <./figuras/agente_humano.jpg>])
+\openout2 = `agentes_SMA.aux'.
 
-]
+ (./agentes_SMA.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2093,7 +2102,88 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [39
 
 
-] <figuras/agente_policial.jpg, id=365, 808.18065pt x 559.50967pt>
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[40
+
+] <figuras/agente_situado.jpg, id=373, 746.01291pt x 559.50967pt>
+File: figuras/agente_situado.jpg Graphic file (type jpg)
+
+<use figuras/agente_situado.jpg>
+Package pdftex.def Info: figuras/agente_situado.jpg used on input line 55.
+(pdftex.def)             Requested size: 256.39577pt x 158.40327pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[41
+
+ <./figuras/agente_situado.jpg>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[42
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[43
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[44
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[45
+
+
+] <figuras/agente_policial.jpg, id=400, 808.18065pt x 559.50967pt>
 File: figuras/agente_policial.jpg Graphic file (type jpg)
 
 <use figuras/agente_policial.jpg>
@@ -2113,7 +2203,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[40
+[46
 
  <./figuras/agente_policial.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2125,7 +2215,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[41
+[47
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2137,11 +2227,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[42
+[48
 
 
 ] Excluding 'comment' comment.
-<figuras/agente_reflexivo.png, id=380, 481.8pt x 355.3275pt>
+<figuras/agente_reflexivo.png, id=417, 481.8pt x 355.3275pt>
 File: figuras/agente_reflexivo.png Graphic file (type png)
 
 <use figuras/agente_reflexivo.png>
@@ -2157,10 +2247,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[43
+[49
 
  <./figuras/agente_reflexivo.png (PNG copy)>]
-<figuras/agente_aprendizagem.pdf, id=388, 363.5181pt x 195.49034pt>
+<figuras/agente_aprendizagem.pdf, id=424, 363.5181pt x 195.49034pt>
 File: figuras/agente_aprendizagem.pdf Graphic file (type pdf)
 
 <use figuras/agente_aprendizagem.pdf>
@@ -2177,7 +2267,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[44
+[50
 
  <./figuras/agente_aprendizagem.pdf>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2189,9 +2279,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[45
+[51
 
-] <figuras/agente_generico.jpg, id=402, 763.35187pt x 411.03563pt>
+] <figuras/agente_generico.jpg, id=440, 763.35187pt x 411.03563pt>
 File: figuras/agente_generico.jpg Graphic file (type jpg)
 
 <use figuras/agente_generico.jpg>
@@ -2207,10 +2297,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[46
+[52
 
  <./figuras/agente_generico.jpg>]
-<figuras/agente_tabela.jpg, id=408, 746.01291pt x 559.50967pt>
+<figuras/agente_tabela.jpg, id=446, 746.01291pt x 559.50967pt>
 File: figuras/agente_tabela.jpg Graphic file (type jpg)
 
 <use figuras/agente_tabela.jpg>
@@ -2226,7 +2316,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[47
+[53
 
  <./figuras/agente_tabela.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2238,9 +2328,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[48
+[54
 
-] <figuras/agente_reativo.jpg, id=420, 542.025pt x 266.9975pt>
+] <figuras/agente_reativo.jpg, id=457, 542.025pt x 266.9975pt>
 File: figuras/agente_reativo.jpg Graphic file (type jpg)
 
 <use figuras/agente_reativo.jpg>
@@ -2256,7 +2346,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[49
+[55
 
  <./figuras/agente_reativo.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2268,10 +2358,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[50
+[56
 
 ]
-<figuras/agente_reativo_com_estado_interno.pdf, id=433, 569.12625pt x 284.06125
+<figuras/agente_reativo_com_estado_interno.pdf, id=471, 569.12625pt x 284.06125
 pt>
 File: figuras/agente_reativo_com_estado_interno.pdf Graphic file (type pdf)
  <use figuras/agente_reativo_com_estado_interno.pdf>
@@ -2288,7 +2378,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[51
+[57
 
  <./figuras/agente_reativo_com_estado_interno.pdf>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2300,10 +2390,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[52
+[58
 
 ]
-<figuras/agente_baseado_em_objetivo.jpg, id=456, 640.3925pt x 480.79625pt>
+<figuras/agente_baseado_em_objetivo.jpg, id=494, 640.3925pt x 480.79625pt>
 File: figuras/agente_baseado_em_objetivo.jpg Graphic file (type jpg)
 
 <use figuras/agente_baseado_em_objetivo.jpg>
@@ -2324,7 +2414,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[53
+[59
 
  <./figuras/agente_baseado_em_objetivo.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2336,9 +2426,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[54
+[60
 
-] <figuras/agente_otimizador.jpg, id=468, 778.91pt x 494.84875pt>
+] <figuras/agente_otimizador.jpg, id=505, 778.91pt x 494.84875pt>
 File: figuras/agente_otimizador.jpg Graphic file (type jpg)
 
 <use figuras/agente_otimizador.jpg>
@@ -2354,7 +2444,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[55
+[61
 
  <./figuras/agente_otimizador.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2366,9 +2456,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[56
+[62
 
-] <figuras/agentes_que_aprendem.jpg, id=480, 730.73pt x 548.0475pt>
+] <figuras/agentes_que_aprendem.jpg, id=517, 730.73pt x 548.0475pt>
 File: figuras/agentes_que_aprendem.jpg Graphic file (type jpg)
 
 <use figuras/agentes_que_aprendem.jpg>
@@ -2385,7 +2475,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[57
+[63
 
  <./figuras/agentes_que_aprendem.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2397,7 +2487,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[58
+[64
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2409,9 +2499,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[59
+[65
 
-] <figuras/PEAS01.png, id=497, 503.63156pt x 414.79968pt>
+] <figuras/PEAS01.png, id=534, 503.63156pt x 414.79968pt>
 File: figuras/PEAS01.png Graphic file (type png)
 
 <use figuras/PEAS01.png>
@@ -2431,10 +2521,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[60
+[66
 
  <./figuras/PEAS01.png>]
-<figuras/PEAS02.jpg, id=504, 640.3925pt x 480.79625pt>
+<figuras/PEAS02.jpg, id=541, 640.3925pt x 480.79625pt>
 File: figuras/PEAS02.jpg Graphic file (type jpg)
 
 <use figuras/PEAS02.jpg>
@@ -2454,7 +2544,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[61
+[67
 
  <./figuras/PEAS02.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2466,7 +2556,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[62
+[68
 
 ])
 \openout2 = `iad_rdp_SMA.aux'.
@@ -2506,7 +2596,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[63
+[69
 
 
 
@@ -2520,7 +2610,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[64
+[70
 
 ])
 \openout2 = `coordenacao_SMA.aux'.
@@ -2535,7 +2625,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[65
+[71
 
 
 
@@ -2549,9 +2639,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[66
+[72
 
-] <figuras/coordenacao_agentes01.png, id=533, 286.06876pt x 177.66376pt>
+] <figuras/coordenacao_agentes01.png, id=570, 286.06876pt x 177.66376pt>
 File: figuras/coordenacao_agentes01.png Graphic file (type png)
 
 <use figuras/coordenacao_agentes01.png>
@@ -2568,10 +2658,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[67
+[73
 
  <./figuras/coordenacao_agentes01.png>]
-<figuras/coordenacao_agentes02.png, id=540, 384.6872pt x 282.30469pt>
+<figuras/coordenacao_agentes02.png, id=578, 384.6872pt x 282.30469pt>
 File: figuras/coordenacao_agentes02.png Graphic file (type png)
 
 <use figuras/coordenacao_agentes02.png>
@@ -2588,7 +2678,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[68
+[74
 
  <./figuras/coordenacao_agentes02.png (PNG copy)>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2600,84 +2690,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[69
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[70
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[71
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[72
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[73
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[74
-
-])
-\openout2 = `projetos_SMA.aux'.
-
- (./projetos_SMA.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
 [75
-
-
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2739,7 +2752,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [80
 
-]
+])
+\openout2 = `projetos_SMA.aux'.
+
+ (./projetos_SMA.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2750,6 +2766,80 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [81
+
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[82
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[83
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[84
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[85
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[86
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[87
 
 ] Excluding 'comment' comment.)
 \openout2 = `conclusoes_SMA.aux'.
@@ -2764,7 +2854,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[82
+[88
 
 
 
@@ -2785,52 +2875,80 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 127.
 (./projetos_SMA.aux) (./conclusoes_SMA.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 127.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 127.
-Package rerunfilecheck Info: File `slides_curso_SMA.out' has not changed.
-(rerunfilecheck)             Checksum: 019C50207D7A39930AB1325E012B7F28;1360.
 
+
+Package rerunfilecheck Warning: File `slides_curso_SMA.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `slides_curso_SMA.out':
+(rerunfilecheck)             Before: 4DD41EE3E2A6FD0456DB9B0058015026;1360
+(rerunfilecheck)             After:  B1E4203F640F477C68B2D25FCBE10E08;1360.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 127.
  ) 
 Here is how much of TeX's memory you used:
- 21102 strings out of 493013
- 384042 string characters out of 6139317
+ 21136 strings out of 493013
+ 384602 string characters out of 6139317
  481382 words of memory out of 5000000
- 23866 multiletter control sequences out of 15000+600000
+ 23880 multiletter control sequences out of 15000+600000
  33126 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,17n,51p,467b,744s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msam5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
-super/sfsi0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi0900.
-pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1000.pfb></usr/share
-/texmf-dist/fonts/type1/public/cm-super/sfsi1200.pfb></usr/share/texmf-dist/fon
-ts/type1/public/cm-super/sfsi1440.pfb></usr/share/texmf-dist/fonts/type1/public
-/cm-super/sfso1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0
-500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf-dist
-/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/cm-super/sfss0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
-fss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-
-dist/fonts/type1/public/cm-super/sfss2074.pfb></usr/share/texmf-dist/fonts/type
-1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
-er/sfsx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb
-></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/te
-xmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/
-type1/public/cm-super/sftt1000.pfb>
-Output written on slides_curso_SMA.pdf (82 pages, 2480782 bytes).
+pdfTeX warning (dest): name{Outline0.9.1.83} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.6.2.71} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.6.1.70} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.2.49} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.1.45} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.2.35} has been referenced but does not e
+xist, replaced by a fixed one
+
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
+10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msam5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
+per/sfsi0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi0700.pf
+b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/t
+exmf-dist/fonts/type1/public/cm-super/sfsi1000.pfb></usr/share/texmf-dist/fonts
+/type1/public/cm-super/sfsi1200.pfb></usr/share/texmf-dist/fonts/type1/public/c
+m-super/sfsi1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso100
+0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf-dist/f
+onts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfs
+s0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr
+/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-di
+st/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/
+public/cm-super/sfss2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super
+/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><
+/usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texm
+f-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
+uper/sftt1000.pfb>
+Output written on slides_curso_SMA.pdf (88 pages, 2822125 bytes).
 PDF statistics:
- 760 PDF objects out of 1000 (max. 8388607)
- 607 compressed objects within 7 object streams
- 188 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 806 PDF objects out of 1000 (max. 8388607)
+ 644 compressed objects within 7 object streams
+ 206 named destinations out of 1000 (max. 500000)
+ 321 words of extra memory for PDF output out of 10000 (max. 10000000)
 
