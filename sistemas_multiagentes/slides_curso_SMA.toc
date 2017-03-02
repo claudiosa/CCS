@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.36pt}
+\beamer@endinputifotherversion {3.33pt}
 \select@language {brazilian}
 \beamer@sectionintoc {1}{O Curso}{4}{0}{1}
 \beamer@subsectionintoc {1}{1}{Ferramentas}{9}{0}{1}
@@ -12,12 +12,12 @@
 \beamer@subsectionintoc {3}{1}{Tipos de Agentes}{47}{0}{3}
 \beamer@subsectionintoc {3}{2}{Arquiteturas de Agentes}{51}{0}{3}
 \beamer@sectionintoc {4}{Construindo de Agentes Racionais}{65}{0}{4}
-\beamer@sectionintoc {5}{IAD $\supseteq $ RDP $\times $ SMA }{69}{0}{5}
-\beamer@sectionintoc {6}{Coordena\IeC {\c c}\IeC {\~a}o}{71}{0}{6}
-\beamer@subsectionintoc {6}{1}{Abordagens ao Planejamento Multiagente -- SMAs}{72}{0}{6}
-\beamer@subsectionintoc {6}{2}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}{73}{0}{6}
-\beamer@sectionintoc {7}{Estrat\IeC {\'e}gias de Jogos}{75}{0}{7}
-\beamer@sectionintoc {8}{Teoria de Jogos Aplicado a SMA}{78}{0}{8}
-\beamer@sectionintoc {9}{Projetos de SMAs}{81}{0}{9}
-\beamer@subsectionintoc {9}{1}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}{85}{0}{9}
-\beamer@sectionintoc {10}{Conclus\IeC {\~o}es}{88}{0}{10}
+\beamer@sectionintoc {5}{IAD $\supseteq $ RDP $\times $ SMA }{70}{0}{5}
+\beamer@sectionintoc {6}{Coordena\IeC {\c c}\IeC {\~a}o}{72}{0}{6}
+\beamer@subsectionintoc {6}{1}{Abordagens ao Planejamento Multiagente -- SMAs}{73}{0}{6}
+\beamer@subsectionintoc {6}{2}{Exemplos de Coordena\IeC {\c c}\IeC {\~a}o SMAs}{74}{0}{6}
+\beamer@sectionintoc {7}{Estrat\IeC {\'e}gias de Jogos}{76}{0}{7}
+\beamer@sectionintoc {8}{Teoria de Jogos Aplicado a SMA}{79}{0}{8}
+\beamer@sectionintoc {9}{Projetos de SMAs}{82}{0}{9}
+\beamer@subsectionintoc {9}{1}{Implementa\IeC {\c c}\IeC {\~a}o de SMAs}{86}{0}{9}
+\beamer@sectionintoc {10}{Conclus\IeC {\~o}es}{89}{0}{10}
