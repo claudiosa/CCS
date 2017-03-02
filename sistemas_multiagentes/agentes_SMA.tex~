@@ -17,7 +17,7 @@
 
 
 %--------------------------------------------
-\begin{frame} [allowframebreaks=0.9]
+\begin{frame} %[allowframebreaks=0.9]
 
     \frametitle{O que é um Agente?}
 
@@ -591,7 +591,7 @@ especificar o ambiente
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[height =.7\textheight,width=.7\textwidth]
+  \includegraphics[height =.7\textheight,width=.8\textwidth]
   {figuras/PEAS01.png}
   \caption{Um bom exercício para reflexão -- seguem os \textit{copyrights}}
 %\label{ag_01}
@@ -608,7 +608,7 @@ especificar o ambiente
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[height =.7\textheight,width=.7\textwidth]
+  \includegraphics[height =.7\textheight,width=.8\textwidth]
   {figuras/PEAS02.jpg}
   \caption{Um bom exercício para reflexão -- seguem os \textit{copyrights}}
 %\label{ag_01}
