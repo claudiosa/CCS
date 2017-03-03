@@ -1,0 +1,21 @@
+
+
+Sugestões para SEMINÁRIO
+
+
+1. Aprendizagem por Reforço (reinforcement learning)
+
+
+
+
+
+
+Sugestões para o projeto final (artigo + implementação)
+
+
+
+
+1. Aprendizagem por Reforço com um estudo de caso de um agente cognitivo IMPLEMENTADO
+
+2. PACMAN com n-agentes em um grid de 4 direções
+
