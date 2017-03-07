@@ -1,0 +1,66 @@
+Ver Git do Claudio
+profa Luciana Rita Guedes
+Monitores Gustavo (Gaspar) e Andrezza 
+Os horários dos dois monitores estão na minha página:
+
+http://www.joinville.udesc.br/portal/professores/luciana/ 
+
+
+
+Windows DEV C++ - Windows
+lista de discussao -- HOJE
+
+leandrojosebernardi2@gmail.com
+gutobastoss1104@gmail.com
+joshiklis@gmail.com
+circulotriangular@gmail.com
+dokonal.wv@gmail.com
+arthurblima1999@gmail.com
+caroltheisss@gmail.com
+gabrielgunther1@gmail.com
+diegoz3x2@gmail.com
+victorcesarmiranda@gmail.com
+maeduarda.campos@gmail.com
+danfurtado420@gmail.com
+matheusgasperinteles@hotmail.com
+ittalloauggusto@hotmail.com
+leonardo_fantoni@hotmail.com
+
+
+Dicas
+
+Instale do Google Store
+Aplicativos da linguagem C
+Veja aulas no YOUTUBE
+
+pois
+Se escuto eu me lembro
+Se vejo eu me recordo
+Se faço eu sei!
+
+logo exercite-se
+
+0 0 0 0
+0 1 1 0 = 0x2^3+1x2^2+1x2^1+0x2^0 =6
+0 1 1 1 = 7
+1 byte = 0 1 1 1 0 1 1 1
+
+698 = 6x10^2 + 9x10^1 + 8x10^0
+
+Em LAB:
+Editor de texto = GEANY
+CODIGO FONTE (codigo fonte) --> 
+COMPILADOR (executavel= tradutor) --> 
+EXECUTAVEL (a.out -- binario)
+
+
+
+
+
+
+
+
+
+
+
+
