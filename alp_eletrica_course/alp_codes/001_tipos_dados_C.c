@@ -1,28 +1,35 @@
 #include <stdio.h>
 int main()
-	{   // INICIO {
-	  int X	              ;
-	  float PI = 3.14	  ;
+	{   // INICIO { ... comentado
+	  int ANO	              ;
+	  float PI = 3.141519141519141519141519 ;
 	  char  sexo = 'M'    ; 
 	  char  nome[20] = "Isto eh uma string" ; 
 	  bool  luz = true    ;
-	  X = 2017            ;	  
+	  // ISTO EH UMA ATRIBUICAO
+	  ANO = 2017            ;	  
 // ESCRITA DE VALORES	  
-// printf("FORMATACAO DA ESCRITA", SOH as variaveis);	 
+/*
+ f : eh file = arquivo
+ stdin: standard input = teclado
+ stdout: standard output = tela
+ */
+    printf("FORMATACAO DA ESCRITA \n");	 
 	 printf(" SAIDA: \n");  // print + f = imprima no arquivo = te
-	 printf(" Int: %d  Real: %f CARACTER: %c", 
-	 X, PI, sexo );
-	 printf("\n String: %s  finally :%b ", nome, luz); 
+	 printf(" Int: %d  Real: %6.4f || %20.20f CARACTER: %c", 
+	 ANO, PI, sexo );
+	 
+	 ANO = ANO + 1; // ATRIBUICAO ... dif da MAT
+	 printf(" ANO NOVO: %d", ANO );
+	 
+	 
+	 printf("\n Cadeia STR: %s  finally :%d ", nome, luz); 
 	 printf("\n \t Profs are humans !!!! \n\n");
  return(1);
 } // fim do algoritmo
 /*
  * EDITE
  * SALVE
- * COMPILE: $ g++ 015_num_int.c 
- * EXECUTE: $ ./a.out 
- SAIDA: 
- Int: 7777  Real: 77.889999 CARACTER: #
- String: Isto eh uma string 
- 	Profs are humans !!!! 
+ * COMPILE: $ g++ nome_do_programa.c 
+ * EXECUTE: $ ./a.out  
  */ 
