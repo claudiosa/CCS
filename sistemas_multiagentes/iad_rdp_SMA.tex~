@@ -36,7 +36,7 @@
   \item Sistemas em geral são distribuídos \textbf{funcionalmente}
   \pause
   \begin{itemize}
-    \item Devido uma especificação
+    \item Devido uma especificação (a necessidade ou requisitos)
     \item Devido uma especialização
     \item Dividir e diminuir a complexidade $\rightarrow$ decompor o problema
     
@@ -56,10 +56,50 @@
 \end{frame}
 %------------------------------------------------------------------------
 
+%------------------------------------------------------------------------
+
+
+\begin{frame} %[allowframebreaks=0.9]
+
+
+\frametitle{Motivando a distribuição:}
+
+\begin{itemize}
+  \item Porque o problema é fisicamente distribuído.
+  \item Porque o problema é heterogêneo.
+  \item Porque o problema só pode ser resolvido pela integração de pontos de vista locais.
+  \item Porque precisamos de adaptação a mudanças estruturais...
+
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------
+
+
+\begin{frame} %[allowframebreaks=0.9]
+
+\frametitle{As vantagens da distribuição:}
+
+\begin{itemize}
+  \item Maior rapidez na solução dos problemas
+  \item Diminuição do \textit{overhead} de comunicação
+  \item Maior flexibilidade
+  \item Aumento da segurança -- tolerância a falhas
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------
+
+
+
+
 
 \begin{frame}
 
-  \frametitle{Motivando ao  distribuído}
+  \frametitle{Motivando ao  \textit{distribuído}}
         
 \begin{figure}[!ht]
 \centering
@@ -168,23 +208,117 @@ tradicionais
 
 
 \end{frame}
-
 %------------------------------------------------------------------------
 
 
 \begin{frame} %[allowframebreaks=0.9]
 
 
-\frametitle{xxxxxxxxxxxxxx}
+\frametitle{Ainda RDP $\times$ SMA }
 
-
-
+\begin{block}
+  
+  \begin{description}
+    \item[RDP:] 
+    \begin{itemize}
+      \item Um grupo de especialistas
+      \item Habilidades Complementares
+      \item Organização Fixa
+    \end{itemize}
+    
+    \item[SMA:]
+    
+    \begin{itemize}
+      \item Agentes podem preexistir
+      \item Organização varia em tempo de execução
+    \end{itemize}
+     
+  \end{description}
+   
+\end{block}
 
 \end{frame}
 
 %------------------------------------------------------------------------
 
 
+\begin{frame} %[allowframebreaks=0.9]
+
+\frametitle{Fechando esta relação ... RDP $\times$ SMA }
+
+\begin{block}
+  
+  \begin{description}
+    \item[RDP:] 
+    \begin{itemize}
+      \item RDP é um subconjunto de SMA
+      \item Agentes benevolentes, concebidos em conjunto
+    \end{itemize}
+    
+    \item[SMA:]
+    \begin{itemize}
+      \item SMA é base para RDP
+      \item Implementação descentralizada de várias propriedades
+    \end{itemize}
+     
+  \end{description}
+   
+\end{block}
+
+\end{frame}
+
+%------------------------------------------------------------------------
+
+%------------------------------------------------------------------------
+
+
+\begin{frame} %[allowframebreaks=0.9]
+
+\frametitle{Um Sistema Multiagente (SMA) formal}
+
+\begin{block}{Um SMA é um sistema que possui os seguintes elementos:}
+  \begin{itemize}
+    \item Um ambiente: $E$
+    \item Um conjunto de objetos: $O$
+    \item Um conjunto de Agentes: $A$ ($A\subseteq O$)
+    \item Um conjunto de relações $R$, a qual estabelece
+    conexões entre os objetos
+    \item Um conjunto de operações: $O_p$
+    \item Operadores que representam os resultados das operações em $O_p$
+     e as reações do ambiente a eles.
+       
+  \end{itemize}
+   
+\end{block}
+
+\textcolor{red}{Construa uma tupla para esta formalização}
+
+
+\end{frame}
+
+
+
+\begin{frame} %[allowframebreaks=0.9]
+
+\frametitle{Isto é:}
+
+\begin{block}{Um SMA:}
+  \begin{itemize}
+
+   \item Consiste de uma coleção de componentes autônomos, com objetivos particulares
+    \item Que se interrelacionam
+
+\begin{itemize}
+  \item De acordo com uma Organização
+  \item Interagindo, negociando  e coordenando esforços para resolver tarefas 
+  \end{itemize}  
+  \end{itemize}
+   
+\end{block}
+
+\end{frame}
+
+%%-------------------------------------------------
 \begin{frame} %[allowframebreaks=0.9]
 
 
