@@ -12,37 +12,106 @@
 \end{frame}
 
 
+%------------------------------------------------------------------------
+\begin{frame} %[allowframebreaks=0.9]
+
+
+\frametitle{O que vai ter neste capítulo}
+
+\begin{itemize}
+  \item Alguma metodologia?
+  \item Ambiente simulado: SIM (implementar)
+  
+  \item O que considerar na construção de SMAs
+  \item Perspectivas: reais e visionárias
+\end{itemize}
+
+
+\end{frame}
+
+%-----------------------------------------------------------------------------------
+
+\section{Implementação de SMAs}
 \begin{frame}
 
-    \frametitle{Mecanismos de Projetos}
+    \frametitle{Agentes: Metodologia de desenvolvimento}
     \begin{itemize}
     \pause
-      \item 
+      \item Decompõem o problema em: \\
+      percepções, ações, objetivos, ambiente e outros agentes
 \pause
-      \item cap 6
+      \item Decompõem tipo de conhecimento em:
+      \begin{itemize}
+        \item Quais são as propriedades relevantes do mundo?
+        \item Como o mundo evolui?
+        \item Como identificar os estados desejáveis do mundo?
+        \item Como interpretar suas percepções?
+        \item Quais as conseqüências de suas ações no mundo?
+        \item Como medir o sucesso de suas ações?
+        \item Como avaliar seus próprios conhecimentos?
     
+      \end{itemize}
+      
+      \item O resultado dessa decomposição indica a arquitetura e o método de resolução de problema (raciocínio)
+      
     \end{itemize}
 \end{frame}
 
+%-----------------------------------------------------------------------------------
 
-
-
-\subsection{Implementação de SMAs}
+\subsection{Simulação de Ambientes}
 \begin{frame}
 
-    \frametitle{Implementação de Agentes}
+    \frametitle{Simulação de Ambientes (todos elementos de um SMA)}
     \begin{itemize}
     \pause
-      \item 
+      \item Muitas vezes, é mais conveniente simular o ambiente (problema): \\
+     \begin{itemize}
+        \item  mais simples
+        \item  permite testes prévios
+        \item  evita riscos, etc...
+                
+        \item  genuinamente: prototipação
+      \end{itemize}
 \pause
-      \item xxxxxxxxxxxx
+      \item O ambiente (programa):
+      \begin{itemize}
+        \item recebe os agentes como entrada
+        \item fornece repetidamente a cada um deles as percepções corretas e recebe as ações
+        \item atualiza os dados do ambiente em função dessas ações e de outros processos (ex. dia-noite)
+        \item é definido por um estado inicial e uma função de atualização
+        \item deve refletir a realidade
     
+      \end{itemize}
+      
+      
     \end{itemize}
 \end{frame}
+%-----------------------------------------------------------------------------------
+
+
+
+
+%-----------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Simulação de Ambientes}
+
+     ESTRUTURAS ... ver NORVIG -- pg 34 da T
+
+\end{frame}
+%-----------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 \begin{comment}
-\section{Aprendizagem}
+\sectio{Aprendizagem}
 \begin{frame}
 
     \frametitle{Aprendizagem}
@@ -55,4 +124,3 @@
     \end{itemize}
 \end{frame}
 \end{comment}
-

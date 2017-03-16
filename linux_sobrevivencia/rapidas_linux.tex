@@ -127,8 +127,14 @@ pdfsubject=, pdfkeywords=}
 \end{comment}
 
 
+
+
+
+
 \section{As Teclas}
 
+No linux as teclas ocupam o lugar do \textit{mouse}, estas
+s\~ao \textbf{aceleradoras}
 
 \begin{description}
 
@@ -330,18 +336,31 @@ reset
 
 
 \pagebreak
-\item[\ding{248}] Listar o conteúdo de um arquivo:
+\item[\ding{248}] Mostrar o conteúdo de um arquivo texto use o comando
+\em{more}:
 \begin{verbatim}
-$ cat append.txt 
-?- append([a,b,c],[d,e], X).
-X = [a, b, c, d, e].
-.............................................
-.............................................
-?- append([a,b,c], X , [a, b, c, d, e]).
---Mais--(32%)
+$ more append.txt 
+more 001_tipos_dados_C.c 
+#include <stdio.h>
+int main()
+	{   // INICIO { ... comentado
+	  int ANO	              ;
+	  float PI = 3.141519141519141519141519 ;
+	  char  sexo = 'M'    ; 
+	  char  nome[20] = "Isto eh uma string" ; 
+	  bool  luz = true    ;
+	  // ISTO EH UMA ATRIBUICAO
+	  ANO = 2017            ;	  
+// ESCRITA DE VALORES	  
+/*
+ f : eh file = arquivo
+ stdin: standard input = teclado
+ stdout: standard output = tela
+--More--(44%)
+
 
 \end{verbatim}
-
+Obs: o comando \em{cat} também funciona para qualquer tipo de arquivo!
 
 \pagebreak
 \item[\ding{248}] Pesquisar um arquivo com um dado específico:
