@@ -62,34 +62,68 @@
 \subsection{Simulação de Ambientes}
 \begin{frame}
 
-    \frametitle{Simulação de Ambientes (todos elementos de um SMA)}
-    \begin{itemize}
-    \pause
-      \item Muitas vezes, é mais conveniente simular o ambiente (problema): \\
-     \begin{itemize}
-        \item  mais simples
-        \item  permite testes prévios
-        \item  evita riscos, etc...
-                
-        \item  genuinamente: prototipação
-      \end{itemize}
-\pause
-      \item O ambiente (programa):
-      \begin{itemize}
-        \item recebe os agentes como entrada
-        \item fornece repetidamente a cada um deles as percepções corretas e recebe as ações
-        \item atualiza os dados do ambiente em função dessas ações e de outros processos (ex. dia-noite)
-        \item é definido por um estado inicial e uma função de atualização
-        \item deve refletir a realidade
+\begin{block}{Em geral a construção do agent segue um programa tal como:}
+  
+
+  funcao simulaAmbiente (estado, funcaoAtualizacao, 
+                         agentes, final)
+repita
+	para cada agente em agentes faça
+		 Percept[agente] := pegaPercepcao(agente,estado)
+	para cada agente em agentes faça
+		 Action[agente] := Programa[agente] (Percept[agente])
+      estado := funcaoAtualizacao(acoes, agentes, estado)
+	  scores := avaliaDesempenho(scores,agente,estado) 
+	            opcional
+ateh\_final
+
+  
+ \textcolor{red}{ Cuidado para não cair em tentação e ''\textit{roubar}” \/ do ambiente a descrição do que aconteceu. Usar a memória do agente!}
+ 
+ 
+ 
+\end{block}  
     
-      \end{itemize}
-      
-      
-    \end{itemize}
+  
 \end{frame}
 %-----------------------------------------------------------------------------------
 
+\begin{frame}
+\frametitle{Desenvolvendo um agente inteligente:}
+\begin{block}{}
 
+\begin{description}
+  \item[Projeto]
+  
+  \begin{itemize}
+    \item Modelar tarefa em termos de ambiente, percepções, ações, objetivos e utilidade
+    \item Identificar o tipo de ambiente
+    \item Identificar a arquitetura de agente adequada ao ambiente e tarefa
+  \end{itemize}
+  
+  \item[Implementação]
+   
+   \begin{itemize}
+     \item O simulador de ambientes
+     \item Componentes do agente 
+     \item Testar o desempenho com diferentes instâncias do ambiente
+   \end{itemize}
+      
+\end{description}
+
+\end{block}  
+ 
+\end{frame}
+%-----------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Simulação de Ambientes}
+
+     ESTRUTURAS ... ver NORVIG -- pg 34 da T
+
+\end{frame}
+%----------
 
 
 %-----------------------------------------------------------------------------------
