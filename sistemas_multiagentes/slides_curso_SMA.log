@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  16 MAR 2017 19:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.7)  21 MAR 2017 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2249,12 +2249,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [50
 
 
-] Excluding 'comment' comment.
-<figuras/agente_reflexivo.png, id=474, 481.8pt x 355.3275pt>
+] <figuras/agente_reflexivo.png, id=474, 481.8pt x 355.3275pt>
 File: figuras/agente_reflexivo.png Graphic file (type png)
 
 <use figuras/agente_reflexivo.png>
-Package pdftex.def Info: figuras/agente_reflexivo.png used on input line 243.
+Package pdftex.def Info: figuras/agente_reflexivo.png used on input line 225.
 (pdftex.def)             Requested size: 192.29817pt x 141.81943pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2273,7 +2272,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agente_aprendizagem.pdf Graphic file (type pdf)
 
 <use figuras/agente_aprendizagem.pdf>
-Package pdftex.def Info: figuras/agente_aprendizagem.pdf used on input line 257
+Package pdftex.def Info: figuras/agente_aprendizagem.pdf used on input line 239
 .
 (pdftex.def)             Requested size: 224.34163pt x 146.22662pt.
 
@@ -2304,7 +2303,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agente_generico.jpg Graphic file (type jpg)
 
 <use figuras/agente_generico.jpg>
-Package pdftex.def Info: figuras/agente_generico.jpg used on input line 300.
+Package pdftex.def Info: figuras/agente_generico.jpg used on input line 282.
 (pdftex.def)             Requested size: 224.33656pt x 121.85028pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2323,7 +2322,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agente_tabela.jpg Graphic file (type jpg)
 
 <use figuras/agente_tabela.jpg>
-Package pdftex.def Info: figuras/agente_tabela.jpg used on input line 315.
+Package pdftex.def Info: figuras/agente_tabela.jpg used on input line 297.
 (pdftex.def)             Requested size: 224.3406pt x 146.22037pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2353,7 +2352,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agente_reativo.jpg Graphic file (type jpg)
 
 <use figuras/agente_reativo.jpg>
-Package pdftex.def Info: figuras/agente_reativo.jpg used on input line 363.
+Package pdftex.def Info: figuras/agente_reativo.jpg used on input line 345.
 (pdftex.def)             Requested size: 224.34068pt x 146.22981pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2385,7 +2384,7 @@ pt>
 File: figuras/agente_reativo_com_estado_interno.pdf Graphic file (type pdf)
  <use figuras/agente_reativo_com_estado_interno.pdf>
 Package pdftex.def Info: figuras/agente_reativo_com_estado_interno.pdf used on 
-input line 405.
+input line 387.
 (pdftex.def)             Requested size: 224.34648pt x 146.23032pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2417,10 +2416,10 @@ File: figuras/agente_baseado_em_objetivo.jpg Graphic file (type jpg)
 
 <use figuras/agente_baseado_em_objetivo.jpg>
 Package pdftex.def Info: figuras/agente_baseado_em_objetivo.jpg used on input l
-ine 449.
+ine 431.
 (pdftex.def)             Requested size: 224.33615pt x 170.59215pt.
 
-Overfull \vbox (1.54758pt too high) detected at line 449
+Overfull \vbox (1.54758pt too high) detected at line 431
  []
 
 
@@ -2451,7 +2450,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agente_otimizador.jpg Graphic file (type jpg)
 
 <use figuras/agente_otimizador.jpg>
-Package pdftex.def Info: figuras/agente_otimizador.jpg used on input line 494.
+Package pdftex.def Info: figuras/agente_otimizador.jpg used on input line 476.
 (pdftex.def)             Requested size: 224.34492pt x 146.22073pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2481,8 +2480,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/agentes_que_aprendem.jpg Graphic file (type jpg)
 
 <use figuras/agentes_que_aprendem.jpg>
-Package pdftex.def Info: figuras/agentes_que_aprendem.jpg used on input line 53
-0.
+Package pdftex.def Info: figuras/agentes_que_aprendem.jpg used on input line 51
+2.
 (pdftex.def)             Requested size: 224.33855pt x 146.22704pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2524,10 +2523,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/PEAS01.png Graphic file (type png)
 
 <use figuras/PEAS01.png>
-Package pdftex.def Info: figuras/PEAS01.png used on input line 597.
+Package pdftex.def Info: figuras/PEAS01.png used on input line 579.
 (pdftex.def)             Requested size: 256.3953pt x 170.58797pt.
 
-Overfull \vbox (1.5434pt too high) detected at line 597
+Overfull \vbox (1.5434pt too high) detected at line 579
  []
 
 
@@ -2547,10 +2546,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 File: figuras/PEAS02.jpg Graphic file (type jpg)
 
 <use figuras/PEAS02.jpg>
-Package pdftex.def Info: figuras/PEAS02.jpg used on input line 614.
+Package pdftex.def Info: figuras/PEAS02.jpg used on input line 596.
 (pdftex.def)             Requested size: 256.39674pt x 170.59215pt.
 
-Overfull \vbox (1.54758pt too high) detected at line 614
+Overfull \vbox (1.54758pt too high) detected at line 596
  []
 
 
@@ -3462,7 +3461,7 @@ er/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb
 xmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/
 type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm
 -super/sftt1000.pfb>
-Output written on slides_curso_SMA.pdf (128 pages, 4482358 bytes).
+Output written on slides_curso_SMA.pdf (128 pages, 4483017 bytes).
 PDF statistics:
  1080 PDF objects out of 1200 (max. 8388607)
  866 compressed objects within 9 object streams
