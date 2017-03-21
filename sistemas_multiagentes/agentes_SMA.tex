@@ -123,7 +123,7 @@ raciocínio, comportamento guiado por objetivos ou \\
          \begin{itemize}
           \item  Protocolos padrões de comunicação, cooperação, negociação
           \item  Raciocínio autônomo sobre crenças e confiabilidade
-          \item   Arquiteturas de interação social entre agentes
+          \item  Arquiteturas de interação social entre agentes
                       
          \end{itemize}
          
@@ -210,25 +210,7 @@ Em geral os agentes encontram-se em  dois grupos (2 classes):
 \end{description}
 
 \end{frame}
-
-\begin{comment}
-\subsection{Agentes Racionais}
-
-\begin{frame}
-
-  \frametitle{Agente em seu ambiente}
-    
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[height =.6\textheight,width=.7\textwidth]{figuras/agente_ambiente_ciclo.png}
-  \caption{Ciclo do agente}
-%\label{ag_01}
-\end{figure}
-    
-\end{frame}
-\end{comment}
-
-
+%--------------------------------------------------------------------------
 \begin{frame}
 
   \frametitle{Arquitetura clássica de um agente reflexivo}
@@ -242,7 +224,7 @@ Em geral os agentes encontram-se em  dois grupos (2 classes):
     
 \end{frame}
 
-
+%--------------------------------------------------------------------------
 \begin{frame}
 
   \frametitle{Arquitetura clássica de um agente cognitivo (\textit{que aprende algo!}}
@@ -267,12 +249,12 @@ Em geral os agentes encontram-se em  dois grupos (2 classes):
 \begin{block}{Destes 2 grupos(reflexivo e cognitivo), delinea-se algumas arquiteturas:}
   
     \begin{itemize}
-      \item Agente tabela (menos complexo)
+      \item Agente tabela (menos complexo -- mais baixo-nível $\downarrow $)
       \item Agente reativo
       \item Agente reativo com estado interno 
       \item Agente baseado em objetivos (com \textit{alguma} cognição)
       \item Agente otimizador
-      \item Agente adaptativo (mais complexo)
+      \item Agente adaptativo (mais complexo -- mais alto-nível $\uparrow $)
     \end{itemize}
   
 \end{block}
@@ -639,8 +621,15 @@ especificar o ambiente
 
 \begin{enumerate}
   \item Vocabulário
-  \item Tipos de agentes
+  \item Uma gama de agentes ...
+    \begin{itemize}
+    \item Dos reativos: os mais simples, e quando numa comunidade são todos iguais
+    \item Aos cognitivos: os mais complexos, e quando numa comunidade apresentam
+    uma metáfora social de humanos
+  \end{itemize}
+  
   \item Como iniciar um desenvolvimento de SMAs 
+  
   \item Falta: porque soluções de SMAs são atrativas
     \item Falta: diferença de SMAs com RDPs
     \item Falta: Coordenação etc
