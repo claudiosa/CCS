@@ -1,0 +1,18 @@
+Projetos práticos com o NETLOGO
+
+
+1o. Trabalho
+
+Construir um  ambiente fechado com um  ou mais agentes e os
+faça se movimentarem aleatoriamente.
+;;  
+
+
+
+2o. Trabalho
+
+Construir um agente (ou mais) em um ambiente fechado e 
+fazer este se movimentar aleatoriamente ... contudo
+com pontos de sujeira no ambiente.
+Os agentes deverão coletar esta sujeira e levar para o
+LIXAO.
