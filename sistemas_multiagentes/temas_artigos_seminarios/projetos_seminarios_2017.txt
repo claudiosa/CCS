@@ -1,12 +1,20 @@
 
 
-Sugestões para SEMINÁRIO
+ SEMINÁRIOS (Sugestões e escolhas)
 
 
-1. Aprendizagem por Reforço (reinforcement learning)
+1. Brayan Aprendizagem por Reforço (reinforcement learning)
+   Brayan ... um pequeno exemplo e trabalhe até o final.
+   Q-learning -- funciona
+    
 2. Planejamento e coordenacao de SMA (estudo de caso)
 
+3. Questoes abertas em Sistemas Distribuidos e Multi-Agentes 
+   (Gabriel Conejo)
+   
+4. Paulo Victor: sistemas imunológicos .... artigo do Cardoso
 
+5. Bruno Seixas e Laura Bassedone: artigo base Introduction to Planning in Multiagent Systems
 
 
 
@@ -19,6 +27,29 @@ Sugestões para o projeto final (artigo + implementação)
 
 2. PACMAN com n-agentes em um grid de 4 direções
     Fusao de Planos -- PICAT
+    
+3. Mundo dos Blocos -- PLANNER para N-agentes ....
+    uso do Planner em PICAT -- claudio ajuda
+    
+4. Agentes auto-organizaveis. Exemplo estudo de uma CASO
+   Exemplo: Chaves comutadoras ... como interconectar sob demanda
+   
+5. Ciclos de agentes em Multi-regioes .... 
+   Pensar a proposta da divisão territorial de n-agentes
+   
+6. Bruno Seixas e Laura Bassedone: Sistemas Multi-Agentes Reativos 
+    Modelando o Controle de Trafego Urbano ... SMA gerenciamento de 
+    transito ...
+
+7. Paulo Victor
+   
+   
+     
+       
+    
+        
+    
+    
 
 
 
