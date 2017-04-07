@@ -7,6 +7,14 @@ breed [canhotos canhoto]
 breed [destros destro]
 breed [galera pessoa]
 
+;ALGUMAS OUTRAS FUNÇÕES:
+;{sprout X ou sprout-breed X, ex: sprout-canhotos X} - Utilizada por patches para criar novos agentes.
+;É seguida de um bloco de comando e/ou atribuições para esses novos agentes, e vem por default na 
+;posição de quem chama a função:
+;ex: sprout-canhotos 5 [set color green set shape "circle"]
+;{hatch X ou hatch-breed X, ex: hatch-destros X} - Utilizada por agentes, turtles, para criar novos agentes.
+;Funciona da mesma forma que sprout.
+
 ;Adição de uma nova variável aos novos agentes.
 ;Serão utilizados para controle de direção durante a função de busca.
 ;Own é declarado com o nome plural do breed (grupo de agentes) e o nome da variável.
