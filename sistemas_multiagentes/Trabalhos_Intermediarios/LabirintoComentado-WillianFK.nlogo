@@ -209,7 +209,7 @@ to moveFDL
       ;Processo semelhante aos anteriores, mas com foco na direita e para baixo.
       if dir = 3 [
         ifelse [pcolor] of patch-at 0 -1 != blue [set heading 180 fd 1]
-          [ifelse [pcolor] of patch-at -1 -1 != blue and [pcolor] of patch-at -1 0 != blue [set heading -90 fd 1 lt 90 fd 1 ifelse [item 3 pathList] of patch-at 0 0 != 0 [set dir 2 ask patch-at 0 0 [set pcolor black set pathList (replace-item 3 pathList 1)]][ask patch-at 0 0 [set pcolor black set pathList (replace-item 3 pathList 0)]]]
+          [ifelse [pcolor] of patch-at -1 -1 != blue and [pcolor] of patch-at -1 0 != blue [set heading -90 fd 1 lt 90 fd 1 ifelse [item 3 pathList] of patch-at 0 0 = 0 [set dir 2 ask patch-at 0 0 [set pcolor black set pathList (replace-item 3 pathList 1)]][ask patch-at 0 0 [set pcolor black set pathList (replace-item 3 pathList 0)]]]
             [ifelse [pcolor] of patch-at -1 0 != blue [set heading -90 fd 1]
               [ifelse [pcolor] of patch-at -1 1 != blue and [pcolor] of patch-at 0 1 != blue [set heading 0 fd 1 lt 90 fd 1]
                 [set dir 0
