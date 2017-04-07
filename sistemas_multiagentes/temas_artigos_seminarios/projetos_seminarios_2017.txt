@@ -9,21 +9,37 @@
     
 2. Planejamento e coordenacao de SMA (estudo de caso)
 
-3. Questoes abertas em Sistemas Distribuidos e Multi-Agentes 
+3. Questoes abertas em Sistemas Distribuidos e Multi-Agentes -- Detalhar alguns estudos
+de casos
    (Gabriel Conejo)
    
 4. Paulo Victor: sistemas imunológicos .... artigo do Cardoso
+Alexandre FAVA
 
-5. Bruno Seixas e Laura Bassedone: artigo base Introduction to Planning in Multiagent Systems
+5. Bruno Seixas e Laura Bassedone: 
+artigo base Introduction to Planning in Multiagent Systems
+-- aṕs a aula de coordenacao do prof Claudio (28/abril)
+
+6. JOGOS -- William
+Após a aula de TEORIA DE JOGOS (equilibrio da John NASH)
+Ex: apos este topico "dilema do prisioseiro" 
+
+7. Guilherme e Felipe Ciacia
+
 
 
 
 Sugestões para o projeto final (artigo + implementação)
 
-
+Objetivo dos artigos: conceitos (isolados ou não) de SMA com 
+uma implementção (Netlogo, Picat, Python, Java, .......)
+sai o que nos chamamos de EXPERIMENTOS ====> Coleta de DADOS ====> 
+Conclusões Parciais ou não ....==> visa fechar o ciclo....
+no caso do conceito aprendido de SMA.
 
 
 1. Aprendizagem por Reforço com um estudo de caso de um agente cognitivo IMPLEMENTADO
+
 
 2. PACMAN com n-agentes em um grid de 4 direções
     Fusao de Planos -- PICAT
@@ -41,7 +57,8 @@ Sugestões para o projeto final (artigo + implementação)
     Modelando o Controle de Trafego Urbano ... SMA gerenciamento de 
     transito ...
 
-7. Paulo Victor
+7. SMA aplicado a Sistema Imunologico -- SIs (quais caracteristicas de SI)
+Paulo Victor
    
    
      
