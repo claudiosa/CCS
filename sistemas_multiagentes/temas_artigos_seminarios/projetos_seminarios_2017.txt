@@ -6,15 +6,16 @@
 1. Brayan Aprendizagem por Reforço (reinforcement learning)
    Brayan ... um pequeno exemplo e trabalhe até o final.
    Q-learning -- funciona
+   Acredito que um bom experimento aqui ... já derive o Trabalho FINAL
     
 2. Planejamento e coordenacao de SMA (estudo de caso)
 
 3. Questoes abertas em Sistemas Distribuidos e Multi-Agentes -- Detalhar alguns estudos
 de casos
-   (Gabriel Conejo)
+   (Gabriel Conejo -)
    
-4. Paulo Victor: sistemas imunológicos .... artigo do Cardoso
-Alexandre FAVA
+4. Paulo Victor e Alexandre FAVA: sistemas imunológicos .... artigo do Cardoso
+
 
 5. Bruno Seixas e Laura Bassedone: 
 artigo base Introduction to Planning in Multiagent Systems
@@ -24,9 +25,13 @@ artigo base Introduction to Planning in Multiagent Systems
 Após a aula de TEORIA DE JOGOS (equilibrio da John NASH)
 Ex: apos este topico "dilema do prisioseiro" 
 
-7. Guilherme e Felipe Ciacia
+7. Guilherme e Felipe Ciacia (vao mandar via email)
 
+8. Karl: Aprendizagem Evolutiva de SMAs (uso da CE em aprendizagem de MAs)
+Ex: uso de AG para uma comunidade de Agentes melhorarem seu desempenho global
 
+9. Thiago e Mateus: Principios de engenharia dos sistemas-multiagentes NATURAIS 
+Leia-se: inspirações MAs NATURAIS que são SMAs... e seu comportamento
 
 
 Sugestões para o projeto final (artigo + implementação)
@@ -52,6 +57,7 @@ no caso do conceito aprendido de SMA.
    
 5. Ciclos de agentes em Multi-regioes .... 
    Pensar a proposta da divisão territorial de n-agentes
+   Gabriel Conejo está pesquisando este tópico
    
 6. Bruno Seixas e Laura Bassedone: Sistemas Multi-Agentes Reativos 
     Modelando o Controle de Trafego Urbano ... SMA gerenciamento de 
@@ -60,7 +66,19 @@ no caso do conceito aprendido de SMA.
 7. SMA aplicado a Sistema Imunologico -- SIs (quais caracteristicas de SI)
 Paulo Victor
    
-   
+8. Karl: Aprendizagem Evolutiva de SMAs (uso da CE em aprendizagem de MAs)
+Ex: uso de AG para uma comunidade de Agentes melhorarem seu desempenho global
+UM PEQUENO EXPERIMENTO ... 
+
+9. Arquiteturas AUTO-ORGANIZAVEIS para um agente do tipo MOVEL.
+Alexandre FAVA. Parte da tese do doutorado do prof. Claudio
+Metáfora: Conexões neurais adaptativas.
+
+10. Thiago e Mateus: Principios de engenharia dos sistemas-multiagentes NATURAIS 
+Leia-se: inspirações MAs NATURAIS que são SMAs... e seu comportamento
+UM  EXPERIMENTO ... Ex: revoada das andorinhas, migração de pássaros, abelhas, etc. 
+
+
      
        
     
