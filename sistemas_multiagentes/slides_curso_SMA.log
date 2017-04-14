@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.3.16)  10 APR 2017 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.3.16)  14 APR 2017 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3101,8 +3101,18 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [108
 
 ]
-Overfull \hbox (136.93117pt too wide) in paragraph at lines 85--85
- [] 
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
+[]\T1/cmss/m/n/10 Prisioneiro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
+\T1/cmss/m/n/10 A nega
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 84--84
+[]\T1/cmss/m/n/10 Ambos con-de-na-dos
  []
 
 
@@ -3118,10 +3128,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [109
 
 ]
-Overfull \vbox (9.11986pt too high) detected at line 118
- []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3289,12 +3295,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [123
 
-] <figuras/coordenacao_agentes01.png, id=892, 286.06876pt x 177.66376pt>
+] <figuras/coordenacao_agentes01.png, id=889, 286.06876pt x 177.66376pt>
 File: figuras/coordenacao_agentes01.png Graphic file (type png)
 
 <use figuras/coordenacao_agentes01.png>
 Package pdftex.def Info: figuras/coordenacao_agentes01.png used on input line 3
-25.
+28.
 (pdftex.def)             Requested size: 224.3462pt x 146.2274pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -3309,12 +3315,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [124
 
  <./figuras/coordenacao_agentes01.png>]
-<figuras/coordenacao_agentes02.png, id=899, 384.6872pt x 282.30469pt>
+<figuras/coordenacao_agentes02.png, id=895, 384.6872pt x 282.30469pt>
 File: figuras/coordenacao_agentes02.png Graphic file (type png)
 
 <use figuras/coordenacao_agentes02.png>
 Package pdftex.def Info: figuras/coordenacao_agentes02.png used on input line 3
-39.
+42.
 (pdftex.def)             Requested size: 224.3514pt x 146.22636pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -3475,15 +3481,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 127.
 (./projetos_SMA.aux) (./conclusoes_SMA.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 127.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 127.
+Package rerunfilecheck Info: File `slides_curso_SMA.out' has not changed.
+(rerunfilecheck)             Checksum: FAB0E982ECBDCB138113F39CCC0D76E6;1876.
 
-
-Package rerunfilecheck Warning: File `slides_curso_SMA.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `slides_curso_SMA.out':
-(rerunfilecheck)             Before: ACAA0E4FC57F1E7DC4074EE39349F549;1876
-(rerunfilecheck)             After:  FAB0E982ECBDCB138113F39CCC0D76E6;1876.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -3491,62 +3491,41 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 127.
  ) 
 Here is how much of TeX's memory you used:
- 21216 strings out of 494996
- 388971 string characters out of 6180489
- 471905 words of memory out of 5000000
- 23526 multiletter control sequences out of 15000+600000
+ 21218 strings out of 494996
+ 388938 string characters out of 6180489
+ 471903 words of memory out of 5000000
+ 23535 multiletter control sequences out of 15000+600000
  33126 words of font info for 89 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  48i,17n,51p,600b,744s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Outline0.11.1.127} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.9.2.120} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.9.1.119} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.8.4.115} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.8.3.114} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.8.2.113} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.8.1.112} has been referenced but does not 
-exist, replaced by a fixed one
-
- </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1200.600pk> </home/ccs/.
-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/ccs/.texmf-var/fon
-ts/pk/ljfour/jknappen/ec/ecsi1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecsx1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
-csi0600.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk
-> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.525pk> </home/ccs/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0700.600pk> </home/ccs/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecsi1000.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecsx1000.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/
-ectt1000.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.600p
-k> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk> </home/ccs
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecso1000.600pk> </home/ccs/.texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/ccs/.texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecss0800.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecss1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0500.600
-pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0700.600pk> </home/cc
-s/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/ccs/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/ccs/.texmf-var/fonts/pk/ljfo
-ur/jknappen/ec/ecss2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam5.pf
-b>
-Output written on slides_curso_SMA.pdf (135 pages, 4478681 bytes).
+ </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1200.600pk> </home/ccs
+/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/ccs/.texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecsi1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecsx1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecsi0600.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600
+pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.525pk> </home/cc
+s/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0700.600pk> </home/ccs/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecsi1000.600pk> </home/ccs/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecsx1000.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ectt1000.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.60
+0pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk> </home/c
+cs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecso1000.600pk> </home/ccs/.texmf-var
+/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/ccs/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecss0800.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecss1440.600pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0500.6
+00pk> </home/ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0700.600pk> </home/
+ccs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/ccs/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/ccs/.texmf-var/fonts/pk/lj
+four/jknappen/ec/ecss2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam5.
+pfb>
+Output written on slides_curso_SMA.pdf (135 pages, 4480553 bytes).
 PDF statistics:
- 1835 PDF objects out of 2073 (max. 8388607)
- 912 compressed objects within 10 object streams
- 311 named destinations out of 1000 (max. 500000)
+ 1834 PDF objects out of 2073 (max. 8388607)
+ 904 compressed objects within 10 object streams
+ 304 named destinations out of 1000 (max. 500000)
  442 words of extra memory for PDF output out of 10000 (max. 10000000)
 
