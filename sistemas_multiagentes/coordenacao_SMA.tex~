@@ -31,7 +31,8 @@ Nesta ordem
     \pause
       \item SMA como um comunidade que coopera, disputa e \textit{compete} 
       \pause
-      \item Asssim uma métrica entre todos os agentes (\textit{local}) é necessária para
+      \item Asssim uma métrica entre todos os agentes (\textit{local})
+       é necessária para
       se levantar um valor \textit{global} de eficiência
     
     \end{itemize}
@@ -40,26 +41,27 @@ Nesta ordem
 
 %-----------------------------------------------------------
 
-
-
 \subsection{Teoria de Jogos Aplicado a SMA}
 \begin{frame}
 
     \frametitle{Dilema do Prisioneiro}
    
-    Houve um assassinato e existem dois suspeitos, A e B. Se não se conseguir provar quem foi o assassino, a 
-pena seria de apenas 6 meses por porte de arma.
-Se um suspeito acusa o outro e este não se defender (fica calado), então  será condenado a 10 anos.
-Se o suspeito colaborar com a polícia sairá livre.
-Se os dois se acusarem mutuamente a pena é de 5 anos para cada um.
-
+    
+\begin{quotation}
+        Houve um assassinato e existem dois suspeitos, A e B. Se não se conseguir provar quem foi o assassino, a pena seria de apenas 6 meses por porte de arma.
+Se um suspeito acusa (trair ou delatar) o outro e este não se defender (fica calado), então  será condenado a 10 anos. Assim, o traidor que colabora com a polícia sairá livre. Se os dois se acusarem mutuamente a pena é de 5 anos para cada um, pois a
+polícia não acredita em nenhum dos dois.
+    \end{quotation}
+    
+    
+    
 \begin{itemize}
   
   \item Como os suspeitos não conhecem a \textit{Teoria dos Jogos}, o normal será que se acusem mutuamente
     
   \item Os suspeitos serão interrogados em separado e não tem acesso a(s) resposta(s) do outro
 
-\item Sim, plural: rodadas ou jogadas de respostas!
+\item Sim, plural: \textit{rodadas} ou \textit{jogadas} de respostas!
 \end{itemize}
 
    
@@ -69,19 +71,20 @@ Se os dois se acusarem mutuamente a pena é de 5 anos para cada um.
 
 \begin{frame}
 
-    \frametitle{Coletando os Dados : Dilema do Prisioneiro}
+    \frametitle{Coletando os Dados: Dilema do Prisioneiro}
     
     
       \begin{center}
         \begin{tabular}{p{2cm} || p{3cm} | p{3cm}} \hline \hline
   & Prisioneiro B nega   &  Prisioneiro B delata   \\ \hline \hline
-        Prisioneiro A nega (silêncio)  &  Ambos condenados a 6 meses  & A é condenado a 10 anos e B é livre   \\ \hline 
-         Prisioneiro A delata (acusa)     & B é condenado a 10 anos e A é livre & Ambos são condenados a 5 anos \\ 
+        Prisioneiro A nega (silêncio ou não-confessa)  &  Ambos condenados a 6 meses  & A é condenado a 10 anos e B é livre   \\ \hline 
+         Prisioneiro A delata (acusa ou trai)     & B é condenado a 10 anos e A é livre & Ambos são condenados a 5 anos \\ 
          \hline \hline
         \end{tabular}
       \end{center}
 
 \end{frame}
+%-----------------------------------------------------------
 
 
 \begin{frame}
@@ -93,32 +96,35 @@ Se os dois se acusarem mutuamente a pena é de 5 anos para cada um.
       \item  Vamos supor que ambos os prisioneiros são completamente egoístas e a sua única meta é reduzir a sua própria estadia na prisão. Como prisioneiros têm duas opções:
       
       \begin{enumerate}
-         \item cooperar com o seu cúmplice e permanecer calado
+         \item cooperar com o seu cúmplice e permanecerem calados
          \item ou trair o seu cúmplice e confessar que foi o outro
        \end{enumerate}   
        
        \begin{itemize}
          \item   O resultado de cada escolha depende da escolha do cúmplice.     
-         \item Infelizmente, um não sabe o que o outro escolheu fazer. 
+         \item   Infelizmente, um não sabe o que o outro escolheu fazer. 
        \end{itemize}
-      %Incluso se pudessem falar entre si, não poderiam estar seguros de confiar mutuamente.
-      
-
-    
-    
-    
+       
+       \item Inclusive se pudessem falar entre si, não poderiam estar seguros de confiar um no outro (um diria ao outro que era melhor ficarem calados, e depois trairiam o outro)        
+       
     \end{itemize}
 
-Analisando os fatos:
-
-\begin{small}
-\begin{quotation}
-Se se esperar que o cúmplice escolha cooperar com ele e permanecer em silêncio, a opção óptima para o primeiro seria confessar, o que significaria que seria libertado imediatamente, enquanto o cúmplice terá que cumprir uma pena de 10 anos. Se espera que seu cúmplice decida confessar, a melhor opção é confessar também, já que ao menos não receberá a pena completa de 10 anos, e apenas terá que esperar 5, tal como o cúmplice. Se ambos decidirem cooperar e permanecerem em silêncio, ambos serão libertados em apenas 6 meses.
-\end{quotation}
-\end{small}
 
 \end{frame}
 
+%-----------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Analisando os fatos:}
+
+%\begin{small}
+\begin{quotation}
+Se se esperar que o cúmplice escolha cooperar com ele e permanecer em silêncio, a opção óptima para o primeiro seria confessar, o que significaria que seria libertado imediatamente, enquanto o cúmplice terá que cumprir uma pena de 10 anos. Se espera que seu cúmplice decida confessar, a melhor opção é confessar também, já que ao menos não receberá a pena completa de 10 anos, e apenas terá que esperar 5, tal como o cúmplice. Se ambos decidirem cooperar e permanecerem em silêncio, ambos serão libertados em apenas 6 meses.
+\end{quotation}
+%\end{small}
+
+
+\end{frame}
 
 %-----------------------------------------------------------
 
@@ -139,6 +145,7 @@ Se se esperar que o cúmplice escolha cooperar com ele e permanecer em silêncio
 \end{frame}
 
 
+%-----------------------------------------------------------
 
 
 \begin{frame}
@@ -177,12 +184,192 @@ A e B delatam: neste caso, é o \textit{equilíbrio dominante}.
 
 
 \end{frame}
+%-----------------------------------------------------------
 
 
+\begin{frame}
+    \frametitle{Formulação: Dilema do Prisioneiro}
+
+\begin{itemize}
+  \item $Jogadores = \{A,B\}$
+  \item Espaço de estratégia do jogo: $S_A = \{confessa, \:\: nega\}$ e  $S_B = \{confessa, \:\: nega\}$
+  \item Espaço do jogo: $S = \{ (nega, nega), (nega,confessa), (confessa, nega), (confessa, confessa) \}$
+  \item Função de utilidade: $u_i: S \rightarrow R$ onde $i \in \{A,B\}$
+  
+  \item No caso $u_A (s): S \rightarrow R$ e $u_B (s): S \rightarrow R$
+
+  \item Assim o mapeamento desta função de utilidade dos jogadores $A$ e $B$:
+  
+  \begin{itemize}
+    \item Para o jogador A:  $u_A (nega, nega) = -1$, $u_A(nega, confessa) = 0$, $u_A(confessa, nega) = -10$  e  $u_A(confessa, confessa) = -5$
+  
+    \item  Para o jogador B:  $u_B(nega, nega) = -1$, $u_B(nega, confessa) = -10$, $u_B(confessa, nega) = 0$  e  $u_B(confessa, confessa) = -5$
+    
+  \end{itemize}
+  
+\end{itemize}
+
+
+\end{frame}
 
 
 %-----------------------------------------------------------
-%-----------------------------------------------------------
+\begin{frame}
+\frametitle{Construindo uma Matriz de Ganhos:}
+
+
+  \begin{center}
+    \begin{tabular}{c||c|c}
+    \hline \hline
+               & B Nega & B Delata  \\     \hline \hline
+     A Nega\footnote{Ficar calado.}    &   (-1,-1)     &  (-10, 0)  \\     \hline 
+     A Delata\footnote{Trair o outro.}  &    (0, -10)   &  (-5,-5)   \\
+         \hline \hline
+    \end{tabular}
+  \end{center}
+
+\begin{itemize}
+  \item Sendo \textit{egoísta}, a melhor estratégia é delatar seu companheiro e este não se defender
+  
+  \item Assim, seja qual for a opção do adversário, individualmente, qualquer um se sai melhor traindo ou delatando o outro
+  
+  \item Ambos chegam individualmente a conclusão \textbf{racional}: \textit{trair}!
+  
+  \item Nesta lógica individual, as penas somam 10 anos de prisão!
+    
+  \end{itemize}
+
+
+\end{frame}
+
+%----------------------------------------------------------
+
+\begin{frame}
+\frametitle{Reflexões: Dilema do Prisioneiro}
+
+\begin{itemize}
+  \item E se os jogadores aprendessem a \textit{cooperar} após sucessivas jogadas?
+
+  \item Assim suge o \textit{princípio da reciprocidade}, onde o jogador $B$ 
+  deve cooperar com $A$ seguindo-o na sua escolha
+
+\pause 
+  \item Do livro \textit{A evolução da cooperação: o dilema do prisioneiro e a teoria de jogos} (1984),  de Robert Axelrod, tem-se a terminologia do \textit{ganha-ganha}: 
+    
+  \begin{center}
+    \begin{tabular}{c||p{3cm}|p{3cm}}
+    \hline \hline
+                & B Coopera & B Delata  \\     \hline \hline
+     A Coopera  &   ganha -- ganha     & perda substancial -- ganho substancial  \\     \hline 
+     A Delata   &    	ganho substancial -- perda substancial &  	perde -- perde   \\
+         \hline \hline
+
+    \end{tabular}
+  \end{center}
+
+\end{itemize}
+
+\end{frame}
+%----------------------------------------------------------
+
+\begin{frame}
+\frametitle{Reflexões: Dilema do Prisioneiro}
+
+\begin{itemize}
+\item Outros exemplos: corrida de bicicleta (\textit{Tour de France}, Giro na Itália, etc)  onde há um revezamento na liderança para se poupar, nem se assume a liderança isolada para não se desgastar!
+
+\item O problema da troca de malas
+
+\item \textit{The refund}: recompensa em dizer a verdade 
+
+\item ... ver outros exemplos e TODOS se identificam
+
+\item Como integrar isto a SMAs?
+\end{itemize}
+
+\end{frame}
+
+\section{Teoria de Jogos e SMA}
+
+
+\begin{frame}
+\frametitle{Correlação TJ e SMA}
+
+\begin{itemize}
+  \item Número de agentes (n): $n > 1$
+  \item Cada agente escolhe \textbf{uma estratégia} ou \textbf{uma ação}: $a_i$
+  \item Um \textbf{perfil de ações} ou  de \textbf{ações conjuntas} é definido pea tupla de ações individuais: $(a_1, a_2, ...a_n)$
+  \item Define-se uma ação de todos agentes menos do agente $i$ por: $a_{-1}$
+  \item Assim uma sequência $(a_i,a_{-1})$ indica que o agente $i$ fez uma ação, e no estado seguinte
+  todos  (ou um só, no caso de jogo de adversário) fizeram uma ação conjunta, menos o agente $i$
+  \item O jogo ocorre em estados  (discretos), com suas recompensas/punições fixas
+  
+  \item Cada agente tem uma função de avaliação, que indica a \textit{bondade} 
+  ou \textit{intencionalidade} do agente
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Correlação TJ e SMA}
+
+\begin{itemize}
+  \item O estado é observável por todos agentes
+  \item Há um \textit{conhecimento comum} e igual por todos agentes
+  \item Cada agente ao realizar uma ação $\Leftrightarrow $ jogo de \textbf{\textit{tiro-único}} (visto anteriormente)
+  \item Todos agentes escolhem as ações: simultaneamente e individualmente
+  \item Nenhum agente é informado sobre o \textbf{{\em tiro}} ou \texttt{\textit{decisão}} assumida pelos demais agentes
+  \item Resultado do jogo: \textit{\underline{depende da seleção conjunta de todas as ações}}!
+  \item Uma solução de jogo: uma predição de resultado do jogo, assumindo que todos agentes
+  são racionais em suas estratégias!
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{OK, vamos jogar!}
+
+\begin{itemize}
+  \item Cara e coroa:
+    \begin{center}
+      \begin{tabular}{c|c|c}
+                 & Cara -- B & Coroa -- B \\ \hline
+      Cara -- A   & 1, -1     &  -1, 1      \\ \hline
+      Coroa -- A   & -1, 1   & 1, -1         \\ \hline
+      \end{tabular}
+    \end{center}
+
+Tabela de penalidade (\textit{pay-off}) de um jogo \textbf{estritamente competitivo} ou \textbf{soma-zero}
+ pois $u_1(a) + u_2(a) = 0$
+\pause
+
+\item Dois carros (motorista A e motorista B) em um cruzamento, querem cruzar \textit{logo}:
+
+
+    \begin{center}
+      \begin{tabular}{c|c|c}
+                 & Avance -- B & Pare -- B \\ \hline
+      Avance -- A   & -1, -1     &  1, 0      \\ \hline
+      Pare -- A     & 0, 1   & 0, 0         \\ \hline
+      \end{tabular}
+    \end{center}
+
+
+Tabela de penalidade (\textit{pay-off}) para um jogo típico de \textbf{coordenação}. Pois
+se os dois carros desejarem avançar teremos: $u_1(a) + u_2(a) = -2$, consequentemente
+uma batida.
+
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------
+%----------------------------------------------------------
+
 %%% longe
 \section{Coordenação}
 
