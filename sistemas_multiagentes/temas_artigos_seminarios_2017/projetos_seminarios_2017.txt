@@ -30,11 +30,11 @@ Ex: apos este topico "dilema do prisioseiro"
 8. Karl: Aprendizagem Evolutiva de SMAs (uso da CE em aprendizagem de MAs)
 Ex: uso de AG para uma comunidade de Agentes melhorarem seu desempenho global
 
-9. Thiago e Mateus: Principios de engenharia dos sistemas-multiagentes NATURAIS 
+9. Thiago e Matheus: Principios de engenharia dos sistemas-multiagentes NATURAIS 
 Leia-se: inspirações MAs NATURAIS que são SMAs... e seu comportamento
 
 
-Sugestões para o projeto final (artigo + implementação)
+PROJETO FINAL (ARTIGO + IMPLEMENTAÇÃO)
 
 Objetivo dos artigos: conceitos (isolados ou não) de SMA com 
 uma implementção (Netlogo, Picat, Python, Java, .......)
@@ -74,7 +74,7 @@ UM PEQUENO EXPERIMENTO ...
 Alexandre FAVA. Parte da tese do doutorado do prof. Claudio
 Metáfora: Conexões neurais adaptativas.
 
-10. Thiago e Mateus: Principios de engenharia dos sistemas-multiagentes NATURAIS 
+10. Tiago Schoeping Reinert e Gabriel CONEJO: Principios de engenharia dos sistemas-multiagentes NATURAIS 
 Leia-se: inspirações MAs NATURAIS que são SMAs... e seu comportamento
 UM  EXPERIMENTO ... Ex: revoada das andorinhas, migração de pássaros, abelhas, etc. 
 
