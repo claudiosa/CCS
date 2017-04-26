@@ -29,11 +29,14 @@ Nesta ordem
     \frametitle{Teoria de Jogos}
     \begin{itemize}
     \pause
-      \item SMA como um comunidade que coopera, disputa e \textit{compete} 
+      \item SMA como um comunidade que coopera, \textit{compete},  negocia, etc
       \pause
-      \item Asssim uma métrica entre todos os agentes (\textit{local})
-       é necessária para
-      se levantar um valor \textit{global} de eficiência
+      \item Asssim é necessária uma métrica 
+      entre todos os agentes (\textit{local})
+        para levantar um valor \textit{global} de eficiência $\Rightarrow \Rightarrow $ Teoria de Jogos (TJ)
+        
+        \pause
+      \item TJ: uma área a parte que coopera com SMAs
     
     \end{itemize}
 \end{frame}
@@ -53,15 +56,38 @@ Se um suspeito acusa (trair ou delatar) o outro e este não se defender (fica ca
 polícia não acredita em nenhum dos dois.
     \end{quotation}
     
+
+   
+\end{frame}
     
-    
+\begin{frame}
+
+    \frametitle{Dilema do Prisioneiro}
+   
 \begin{itemize}
   
-  \item Como os suspeitos não conhecem a \textit{Teoria dos Jogos}, o normal será que se acusem mutuamente
+  \item Como os suspeitos não conhecem a \textit{Teoria dos Jogos}, o normal será que se acusem mutuamente (agentes racionais)
     
   \item Os suspeitos serão interrogados em separado e não tem acesso a(s) resposta(s) do outro
 
 \item Sim, plural: \textit{rodadas} ou \textit{jogadas} de respostas!
+
+\item Muitas \textit{rodadas} leva a pontos como
+
+\begin{itemize}
+  \item \textbf{Estratégias puras}: não mudam ao longo do jogo = \textbf{determinísticas}. Exemplo: sempre mover a peça a frente
+  
+  
+  \item Estratégias mistas: mudam ao longo do jogo 
+  
+  \item Podem olhar a última jogada sua e  de seu adversário
+  
+  \item Podem olhar o seu histórico de jogadas e  de seu adversário
+  
+  \item Nestes 3 últimos casos: complexidade $cresce^{\nearrow }$ muito
+\end{itemize}
+
+
 \end{itemize}
 
    
@@ -97,12 +123,15 @@ polícia não acredita em nenhum dos dois.
       
       \begin{enumerate}
          \item cooperar com o seu cúmplice e permanecerem calados
-         \item ou trair o seu cúmplice e confessar que foi o outro
+         \item ou trair o seu cúmplice e confessar que foi o outro (agentes racionais)
        \end{enumerate}   
        
        \begin{itemize}
          \item   O resultado de cada escolha depende da escolha do cúmplice.     
          \item   Infelizmente, um não sabe o que o outro escolheu fazer. 
+       
+         \item Eis o \textit{impasse}: é um dilema, qual a melhor jogada?
+         
        \end{itemize}
        
        \item Inclusive se pudessem falar entre si, não poderiam estar seguros de confiar um no outro (um diria ao outro que era melhor ficarem calados, e depois trairiam o outro)        
@@ -119,7 +148,7 @@ polícia não acredita em nenhum dos dois.
 
 %\begin{small}
 \begin{quotation}
-Se se esperar que o cúmplice escolha cooperar com ele e permanecer em silêncio, a opção óptima para o primeiro seria confessar, o que significaria que seria libertado imediatamente, enquanto o cúmplice terá que cumprir uma pena de 10 anos. Se espera que seu cúmplice decida confessar, a melhor opção é confessar também, já que ao menos não receberá a pena completa de 10 anos, e apenas terá que esperar 5, tal como o cúmplice. Se ambos decidirem cooperar e permanecerem em silêncio, ambos serão libertados em apenas 6 meses.
+Se  esperar que o cúmplice escolha cooperar com ele e permanecerem em silêncio, a opção ótima (individualmente) para o primeiro seria confessar, o que significaria que seria libertado imediatamente, enquanto o cúmplice terá que cumprir uma pena de 10 anos. Se espera que seu cúmplice decida confessar, a melhor opção é confessar também, já que ao menos não receberá a pena completa de 10 anos, e apenas terá que esperar 5, tal como o cúmplice. Se ambos decidirem cooperarem entre si e permanecerem em silêncio, ambos serão libertados em apenas 6 meses.
 \end{quotation}
 %\end{small}
 
@@ -132,13 +161,16 @@ Se se esperar que o cúmplice escolha cooperar com ele e permanecer em silêncio
     \frametitle{Análise: Dilema do Prisioneiro}
 
    \begin{itemize}
-     \item Confessar é uma \textit{estratégia dominante} para ambos os jogadores. Seja qual for a escolha do outro jogador, podem reduzir sempre sua sentença confessando. 
+     \item Acusar o outro (confessar que foi o outro)  é uma \textit{estratégia dominante} para ambos os jogadores. Seja qual for a escolha do outro jogador, podem reduzir sempre sua sentença acusando o outro. 
    
-  \item Por infelicidade para os prisioneiros, isto conduz a um resultado ruim, no qual ambos acusam seus companheiros e ambos recebem longas condenações. \textcolor{red}{Aqui se encontra o ponto-chave do dilema.} 
+  \item Por infelicidade para os prisioneiros, isto conduz a um resultado ruim, no qual ambos acusam seus companheiros e ambos recebem longas condenações. \textcolor{red}{Aqui se encontra o ponto-chave do dilema ou impasse} 
   
-  \item O resultado das acusações individuais produz um resultado que não é óptimo no sentido de Pareto; existe uma situação tal que a utilidade de um dos detidos poderia melhorar (ou mesmo a de ambos) sem que isto implique uma piora para o resto. 
+  \item O resultado das acusações individuais produz um resultado que não é ótimo no sentido de Pareto; existe uma situação tal que a utilidade de um dos detidos poderia melhorar (ou mesmo a de ambos) sem que isto implique uma piora para o resto. 
+  
+  \item \textit{Pareto dominante} é quando há soluções muito boas para um ou mais jogadores. Exemplo: acusar o outro é uma resultado interessante!
   
   \item Ou seja, o resultado no qual ambos os detidos não confessam (silêncio) dominam o resultado no qual os dois escolhem confessar.
+
 
    \end{itemize}
    
@@ -149,39 +181,56 @@ Se se esperar que o cúmplice escolha cooperar com ele e permanecer em silêncio
 
 
 \begin{frame}
-    \frametitle{Análise: Dilema do Prisioneiro}
+    \frametitle{Ótimo de Pareto}
 
  \begin{itemize}
   
  
-   \item Perspectiva de interesse ótimo para o grupo (i.é. dois prisioneiros), o resultado correto é que  ambos cooperassem (entre si, ficando calados).
-   Pois,  isto reduziria o tempo total de pena do grupo a um total de um ano (6 meses para cada um).
+   \item Perspectiva de interesse ótimo para o grupo (i.é. dois prisioneiros), o resultado correto é que  ambos cooperassem (entre si, ficando calados).   Pois,  isto reduziria o tempo total de pena do grupo a um total de um ano (6 meses para cada um).
 
-   \item  Qualquer outra decisão seria pior para ambos se se considerar conjuntamente.
+   \item  Qualquer outra decisão seria pior para ambos se considerar \textbf{conjuntamente}.
 
-\item Se um jogador tiver uma oportunidade para castigar o outro jogador ao confessar (delatar o outro), então um resultado cooperativo (um vai para prisão apenas?) pode manter-se.
-
-\pause
-   
-   
-\item Este jogo possui como solução do ponto de vista \textit{Ótimo de Pareto} a estratégia:
-A e B negam (ficam calados!)
+\item Se um jogador tiver uma oportunidade de castigar o outro jogador ao confessar (delatar o outro), então um resultado cooperativo (um vai para prisão apenas?) pode manter-se.
 
 \pause
    
    
-\item Este jogo possui como 
-\textit{Equilíbrios de Nash} a estratégia: 
-A e B delatam: neste caso, é o \textit{equilíbrio dominante}.
+\item Neste jogo tem como solução do ponto de vista \textit{Ótimo de Pareto} a estratégia: A e B negam (ficam calados!)
 
-\item Porquê é chamado de \textit{Equilíbrios de Nash}?
+\item Aqui  é o caso de \textit{Pareto dominado}, pois ambos jogadores prefeririam esta solução, as soluções de \textit{Pareto dominante} (agentes racionais $\Rightarrow $ querem o melhor para si!)
      
  \end{itemize}
  
+ 
+\end{frame}
+%-----------------------------------------------------------
+ 
+ 
+\begin{frame}
+    \frametitle{Equilíbrio de Nash}
+
+ \begin{itemize}
+   
+\item Este jogo possui como \textit{Equilíbrio de Nash} de estratégias: 
+\textbf{A e B delatam}! Neste caso, o \textit{equilíbrio é dominante}.
+
+\item Porquê é chamado de \textit{Equilíbrio de Nash}?
+\pause
+ 
+ \item John Nash: todo jogo tem pelo menos um equilíbrio (mas que não necessariamente domina as estratégias dominantes)
+ 
+\item \textit{Equilíbrio de Nash}: \textit{se a estratégia adotada por A é a melhor dada à estratégia adotada por B e a estratégia adotada por B é a estratégia ótima dada a adotada por A. Ou seja, nenhum dos jogadores pode aumentar seu ganho alterando, de \textbf{forma unilateral}, sua estratégia.}\\
+\textcolor{red}{Há uma fórmula iterativa para isto ....}
+\pause
+ 
+\item No exemplo, assuma que A ou B escolham trair. O que resta para o outro fazer? Trair também! 
+
+\item Ou seja, nenhum dos dois jogadores é benevolentes em sua estratégia (sim, leia-se: jogada)
  %%Apesar disso, se continuarem no seu próprio interesse egoísta, cada um dos dos prisioneiros receberá uma dura pena.
  
 % A forma iterada de este jogo (mencionada mais abaixo) oferece uma oportunidade para este tipo de castigo. Nesse jogo, se o cúmplice trai e confessa uma vez, pode-se castigá-lo traindo-o na próxima. Assim, o jogo iterado oferece uma opção de castigo que está ausente no modo clássico do jogo.
 
+ \end{itemize}
 
 \end{frame}
 %-----------------------------------------------------------
@@ -198,7 +247,7 @@ A e B delatam: neste caso, é o \textit{equilíbrio dominante}.
   
   \item No caso $u_A (s): S \rightarrow R$ e $u_B (s): S \rightarrow R$
 
-  \item Assim o mapeamento desta função de utilidade dos jogadores $A$ e $B$:
+  \item Assim o mapeamento desta \textbf{função de utilidade} dos jogadores $A$ e $B$:
   
   \begin{itemize}
     \item Para o jogador A:  $u_A (nega, nega) = -1$, $u_A(nega, confessa) = 0$, $u_A(confessa, nega) = -10$  e  $u_A(confessa, confessa) = -5$
@@ -217,8 +266,10 @@ A e B delatam: neste caso, é o \textit{equilíbrio dominante}.
 \begin{frame}
 \frametitle{Construindo uma Matriz de Ganhos:}
 
-
+\begin{table}[!ht]
+  \caption{Função Utilidade}
   \begin{center}
+  
     \begin{tabular}{c||c|c}
     \hline \hline
                & B Nega & B Delata  \\     \hline \hline
@@ -227,6 +278,11 @@ A e B delatam: neste caso, é o \textit{equilíbrio dominante}.
          \hline \hline
     \end{tabular}
   \end{center}
+
+  \label{tab_01}
+
+\end{table}
+
 
 \begin{itemize}
   \item Sendo \textit{egoísta}, a melhor estratégia é delatar seu companheiro e este não se defender
@@ -368,6 +424,35 @@ uma batida.
 \end{frame}
 
 %----------------------------------------------------------
+
+\begin{frame}
+\frametitle{Exercícios}
+
+\begin{enumerate}
+  \item Construa a função de utilidade para jogo \textbf{pedra--papel--tesoura} e justifique suas escolhas:
+  
+    \begin{center}
+      \begin{tabular}{l||c|c|c}
+                 & Pedra -- B & Papel -- B & Tesoura -- B \\ \hline \hline
+      Pedra -- A     &       &     &   \\ \hline
+      Papel -- A     &       &       &   \\ \hline
+      Tesoura -- A   &       &       &   \\ \hline \hline
+      \end{tabular}
+    \end{center}
+
+
+\item Nos 3 últimos exemplos identifique os elementos e os justifique:
+\begin{enumerate}
+    \item O que é uma estratégia em cada jogo
+    \item Há um Pareto dominante?
+    \item Qual é o Pareto ótimo?
+    \item Onde está o equilíbrio de Nash? (pode haver mais de um)
+  \end{enumerate}  
+  
+\end{enumerate}
+
+\end{frame}
+
 %----------------------------------------------------------
 
 %%% longe
