@@ -15,9 +15,14 @@ int main(){
 	   }
     // ESCRITA  DO VETOR 
     for(int i=0; i < tamanho ; i++){
-      printf("\n vetor[%d]: %d", i,  vetor[i]);
+      printf("\t vetor[%d]: %d", i,  vetor[i]);
       }
      
+ // ESCRITA  ORDEM INVERSA VETOR 
+    for(int i=(tamanho-1); i >= 0  ; i--){
+      printf("\n vetor[%d]: %d", i,  vetor[i]);
+      }
+
 
 return 0;
 }
