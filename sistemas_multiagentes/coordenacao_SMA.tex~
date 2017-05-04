@@ -386,36 +386,70 @@ Se  esperar que o cúmplice escolha cooperar com ele e permanecerem em silêncio
 \end{frame}
 
 
+
+\begin{frame}
+\frametitle{Reflexão TJ e coordenação de SMAs}
+
+\begin{itemize}
+  \item Antes de coordenação ....
+  \item SMA com a parcialidade de observação do mundo (ver figuras da introdução),
+  força que agentes racionais interajam entre si!
+  \item O que é o \textbf{conhecimento} comum (global) e o individual (local) entre os agentes $\Rightarrow $ comprometimento
+  \item \textbf{\textit{Observalidade parcial}} dos agentes $\Rightarrow $ há várias consequencias nas tomadas de decisões dos agentes
+  \item Exemplo: n-agentes com \textit{observalidade parcial} em um planejamento 
+  de suas ações leva a um problema intratável
+  \item Então a \textit{função utilidade} é uma medida ... um ponto de partida!
+  
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------
+
 \begin{frame}
 \frametitle{OK, vamos jogar!}
 
-\begin{itemize}
-  \item Cara e coroa:
+ Cara e coroa:
+
     \begin{center}
-      \begin{tabular}{c|c|c}
-                 & Cara -- B & Coroa -- B \\ \hline
+      \begin{tabular}{c||c|c}
+                 & Cara -- B & Coroa -- B \\ \hline \hline
       Cara -- A   & 1, -1     &  -1, 1      \\ \hline
-      Coroa -- A   & -1, 1   & 1, -1         \\ \hline
+      Coroa -- A   & -1, 1   & 1, -1         \\ \hline \hline
       \end{tabular}
     \end{center}
 
-Tabela de penalidade (\textit{pay-off}) de um jogo \textbf{estritamente competitivo} ou \textbf{soma-zero}
- pois $u_1(a) + u_2(a) = 0$
-\pause
+\pause 
 
-\item Dois carros (motorista A e motorista B) em um cruzamento, querem cruzar \textit{logo}:
+\begin{itemize}
+  \item Tabela de penalidade (\textit{pay-off}) de um jogo \textbf{estritamente competitivo} ou \textbf{soma-zero}
+ \item Pois $u_1(a) + u_2(a) = 0$
+\end{itemize}
 
+\end{frame}
+
+%----------------------------------------------------------
+
+\begin{frame}
+\frametitle{OK, vamos jogar!}
+
+
+
+ Dois carros (motorista A e motorista B) em um cruzamento, querem cruzar \textit{logo}:
 
     \begin{center}
-      \begin{tabular}{c|c|c}
-                 & Avance -- B & Pare -- B \\ \hline
+      \begin{tabular}{c||c|c}
+                 & Avance -- B & Pare -- B \\ \hline \hline
       Avance -- A   & -1, -1     &  1, 0      \\ \hline
-      Pare -- A     & 0, 1   & 0, 0         \\ \hline
+      Pare -- A     & 0, 1   & 0, 0         \\ \hline \hline
       \end{tabular}
     \end{center}
-
-
-Tabela de penalidade (\textit{pay-off}) para um jogo típico de \textbf{coordenação}. Pois
+    
+\pause 
+\begin{itemize}
+  \item Tabela de penalidade (\textit{pay-off}) para um jogo típico de \textbf{coordenação}. 
+  
+  \item Pois
 se os dois carros desejarem avançar teremos: $u_1(a) + u_2(a) = -2$, consequentemente
 uma batida.
 
@@ -429,7 +463,7 @@ uma batida.
 \frametitle{Exercícios}
 
 \begin{enumerate}
-  \item Construa a função de utilidade para jogo \textbf{pedra--papel--tesoura} e justifique suas escolhas:
+  \item Construa a função de utilidade para jogo \textbf{pedra--papel--tesoura} para este se torne um jogo competitivo. Justifique suas escolhas:
   
     \begin{center}
       \begin{tabular}{l||c|c|c}
@@ -455,13 +489,21 @@ uma batida.
 
 %----------------------------------------------------------
 
+
+
+
 %%% longe
 \section{Coordenação}
 
 
 \begin{frame}
 \frametitle{Coordenação}
-
+\begin{itemize}
+  \item Um tema amplo em SMA ...
+  \item Coordenação: a não obstrução entre os agentes 
+  \item ou decisões individuais dos agentes que possa levar
+  há uma boa decisão conjunta do grupo
+\end{itemize}
 
 
 \end{frame}
@@ -469,15 +511,54 @@ uma batida.
 
 %-----------------------------------------------------------
 
+\begin{frame}
+\frametitle{Coordenação}
+\begin{itemize}
+  \item Ainda ... a medida usando a TJ é o equlíbrio de Nash
+  \item Exemplo: o exemplo dos carros no cruzamento, tem DOIS (pontos) de equlíbrio de Nash
+  \item Neste caso: $u_A(para,avanca) = u_B(avanca, para)$
+  \pause
+  \item Neste sentido, em que todos agentes $n$ compartilham a mesma função de utilidade, eles serão colaborativos se:
+  $u_1(\overrightarrow{acoes}) = u_2\overrightarrow{(acoes}) = \ldots \ldots  u_n(\overrightarrow{acoes})$
+  
+  \item A notação acima é uma simplificação de: 
+  $u_i(a_i, \overrightarrow{a_{-i}})$ 
+  
+  \end{itemize}
+
+
+\end{frame}
+
 
 \subsection{Jogos de Coordenação}
 
 \begin{frame}
 \frametitle{Jogos de Coordenação}
 
-pag 23
+\begin{itemize}
+  \item Exemplo de um casal $\{Abel, Beatriz\}$ que gostam de dançar
+    \begin{center}
+      \begin{tabular}{c || c | c}
+                 & Decansar -- B & Dansar -- B \\ \hline  \hline
+      Decansar -- A   & 1, 1     &  0, 0      \\ \hline
+      Dansar -- A     & 0, 0     &  1, 1         \\ \hline
+      \end{tabular}
+    \end{center}
 
+novamente, tem-se dois equilíbrios de Nash
 
+\item Generalizando estes 2 exemplos, define-se formalmente
+ \textbf{coordenação}
+ 
+ \item \textbf{Coordenação:} \textit{é um processo no qual
+ um grupo de agentes escolhe um Pareto ótimo e um
+ equílibrio de Nash no jogo}
+ 
+ \item Compartilham a mesma função utilidade
+  (\textit{payoff function}), logo, eles  serão
+  colaborativos!
+ 
+\end{itemize}
 \end{frame}
 
 
@@ -487,7 +568,28 @@ pag 23
 \begin{frame}
 \frametitle{Convenção Social}
 
-pag 24
+\begin{itemize}
+  \item Como escolher a ação?
+  \item Infelizmente, não há tal receita que conduza ao Equilíbrio de Nash (EN)!
+  \item Assim receitas devem ser passadas aos agentes visando o EN
+
+\pause
+  \item Convenção social (ou lei social): é uma \textit{receita} que visa
+  restringir as ações  dos agentes
+  
+  \item Assim, os agentes seriam \textit{conduzidos} a terem um comportamento
+  social, visando um EN!
+  
+  \item Que \textit{receitas} seriam estas? Exemplos:
+  \pause
+  \begin{enumerate}
+    \item Agente \textbf{A} escolhe depois de \textbf{B} (afinal no par, \textbf{B} é a Beatriz)
+    \item A agente \textbf{B} é animada, sempre quer dançar!
+  \end{enumerate}
+  
+\item A partir disto, o EN é investigado dado os $n$ agentes da comunidade
+
+\end{itemize}
 
 
 \end{frame}
@@ -498,6 +600,7 @@ pag 24
 \begin{frame}
 \frametitle{Papel Social}
 
+EM 2 semanas
 pag 25
 
 

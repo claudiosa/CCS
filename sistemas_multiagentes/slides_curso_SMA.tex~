@@ -95,7 +95,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]
+\begin{frame} [allowframebreaks=0.8]
 \frametitle{Sumário}
 \tableofcontents
 \end{frame}
