@@ -42,9 +42,46 @@ Nesta ordem
 \end{frame}
 
 
+\begin{frame}
+
+    \frametitle{Contextualizando a Teoria de Jogos}
+    \begin{itemize}
+    \item SMA tem uma visão social $\Rightarrow $ o que seria bom para comunidade toda de agentes?
+    
+    \item Em TJ, como a decisão \textbf{individual} afeta coletivamente
+    \item Estabelecida as regras do jogo (\textit{mecanismo de negociação}),
+    qual é a estratégia que seria adotada pelo agente racional?
+    
+    \item Hoje: TJ via exemplo do \textit{dilema do prisioneiro},
+    identificando conceitos tais como: estratégias dominantes, de equilíbrio, equilíbrio de Nash etc.
+    
+    \end{itemize}
+\end{frame}
+
+
 %-----------------------------------------------------------
 
 \subsection{Teoria de Jogos Aplicado a SMA}
+
+\begin{frame}
+
+\frametitle{Dilema do Prisioneiro}
+
+    
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.6\textheight, width=.7\textwidth]{figuras/dilema_prisioneiros01.jpg}
+\caption{Memorize a idéia}
+%\label{ag_01}
+\end{figure}
+
+
+\end{frame}
+
+
+
+
+
 \begin{frame}
 
     \frametitle{Dilema do Prisioneiro}
@@ -207,6 +244,22 @@ Se  esperar que o cúmplice escolha cooperar com ele e permanecerem em silêncio
  
  
 \begin{frame}
+    \frametitle{John Nash}
+ 
+     
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.6\textheight, width=.7\textwidth]{figuras/john_nash01.jpg}
+%\caption{Memorize a idéia}
+%\label{ag_01}
+\end{figure}
+
+\end{frame}
+%-----------------------------------------------------------
+
+ 
+ 
+\begin{frame}
     \frametitle{Equilíbrio de Nash}
 
  \begin{itemize}
@@ -219,8 +272,11 @@ Se  esperar que o cúmplice escolha cooperar com ele e permanecerem em silêncio
  
  \item John Nash: todo jogo tem pelo menos um equilíbrio (mas que não necessariamente domina as estratégias dominantes)
  
-\item \textit{Equilíbrio de Nash}: \textit{se a estratégia adotada por A é a melhor dada à estratégia adotada por B e a estratégia adotada por B é a estratégia ótima dada a adotada por A. Ou seja, nenhum dos jogadores pode aumentar seu ganho alterando, de \textbf{forma unilateral}, sua estratégia.}\\
-\textcolor{red}{Há uma fórmula iterativa para isto ....}
+\item \textit{Equilíbrio de Nash}: \textit{se a estratégia adotada por A é a melhor dada à estratégia adotada por B e a estratégia adotada por B é a estratégia ótima dada a adotada por A. Ou seja, nenhum dos jogadores pode aumentar seu ganho alterando, de \textbf{forma unilateral}, sua estratégia.}
+
+%%  $u_i(a) \ge u_i(a_{-i}, a^*_i)$
+    
+  \item   Então o EN é um perfil de uma  ação $a$ tal que $u_i(a) \ge u_i(a_{-i}, a^*_i)$ para cada jogador $i$ e toda ação $a^*$ de $i$
 \pause
  
 \item No exemplo, assuma que A ou B escolham trair. O que resta para o outro fazer? Trair também! 
@@ -306,8 +362,7 @@ Se  esperar que o cúmplice escolha cooperar com ele e permanecerem em silêncio
 \begin{itemize}
   \item E se os jogadores aprendessem a \textit{cooperar} após sucessivas jogadas?
 
-  \item Assim suge o \textit{princípio da reciprocidade}, onde o jogador $B$ 
-  deve cooperar com $A$ seguindo-o na sua escolha
+  \item Assim suge o \textit{princípio da reciprocidade}, onde o jogador $B$   deve cooperar com $A$ seguindo-o na sua escolha
 
 \pause 
   \item Do livro \textit{A evolução da cooperação: o dilema do prisioneiro e a teoria de jogos} (1984),  de Robert Axelrod, tem-se a terminologia do \textit{ganha-ganha}: 
@@ -355,13 +410,15 @@ Se  esperar que o cúmplice escolha cooperar com ele e permanecerem em silêncio
   \item Número de agentes (n): $n > 1$
   \item Cada agente escolhe \textbf{uma estratégia} ou \textbf{uma ação}: $a_i$
   \item Um \textbf{perfil de ações} ou  de \textbf{ações conjuntas} é definido pea tupla de ações individuais: $(a_1, a_2, ...a_n)$
-  \item Define-se uma ação de todos agentes menos do agente $i$ por: $a_{-1}$
+  
+     \item Define-se uma ação de todos agentes menos do agente $i$ por: $a_{-1}$
+  
   \item Assim uma sequência $(a_i,a_{-1})$ indica que o agente $i$ fez uma ação, e no estado seguinte
   todos  (ou um só, no caso de jogo de adversário) fizeram uma ação conjunta, menos o agente $i$
+  
   \item O jogo ocorre em estados  (discretos), com suas recompensas/punições fixas
   
-  \item Cada agente tem uma função de avaliação, que indica a \textit{bondade} 
-  ou \textit{intencionalidade} do agente
+  \item Cada agente tem uma função de avaliação, que indica a \textit{bondade}   ou \textit{intencionalidade} do agente
 \end{itemize}
 
 \end{frame}
@@ -493,6 +550,8 @@ uma batida.
 
 
 %%% longe
+
+
 \section{Coordenação}
 
 
@@ -500,8 +559,8 @@ uma batida.
 \frametitle{Coordenação}
 \begin{itemize}
   \item Um tema amplo em SMA ...
-  \item Coordenação: a não obstrução entre os agentes 
-  \item ou decisões individuais dos agentes que possa levar
+  \item Coordenação $\approx $ a não obstrução entre os agentes 
+  \item ou decisões individuais dos agentes que possam levar
   há uma boa decisão conjunta do grupo
 \end{itemize}
 
@@ -529,6 +588,36 @@ uma batida.
 
 \end{frame}
 
+%-----------------------------------------------------------
+
+\begin{frame}
+\frametitle{Abordagens para  Coordenação}
+ 
+ Estruturando o tema de \textit{coordenação}, o mesmo
+ discutido segundo suas estratégias:
+
+ \begin{enumerate}
+   \item Jogos de Coordenação (fundamentação no capítulo anterior)
+   \item Convenções (função) Sociais
+   \item Papéis
+   \item Grafos de Coordenação, subdivide-se em:
+        \begin{enumerate}
+          \item Coordenação por Eliminação de Variável
+          \item Coordenação por Troca de Mensagem
+        \end{enumerate}
+   
+   
+ \end{enumerate}
+
+
+
+
+\end{frame}
+
+
+
+%-----------------------------------------------------------
+
 
 \subsection{Jogos de Coordenação}
 
@@ -550,13 +639,13 @@ novamente, tem-se dois equilíbrios de Nash
 \item Generalizando estes 2 exemplos, define-se formalmente
  \textbf{coordenação}
  
- \item \textbf{Coordenação:} \textit{é um processo no qual
- um grupo de agentes escolhe um Pareto ótimo e um
- equílibrio de Nash no jogo}
+ \item \textbf{Coordenação:} \textit{é um processo no qual  um grupo de agentes escolhe um Pareto ótimo e um equílibrio de Nash no jogo}
  
  \item Compartilham a mesma função utilidade
   (\textit{payoff function}), logo, eles  serão
   colaborativos!
+ 
+  \item \textcolor{red}{Falta terminar}
  
 \end{itemize}
 \end{frame}
@@ -589,6 +678,9 @@ novamente, tem-se dois equilíbrios de Nash
   
 \item A partir disto, o EN é investigado dado os $n$ agentes da comunidade
 
+
+  \item \textcolor{red}{Falta terminar}
+ 
 \end{itemize}
 
 
@@ -617,6 +709,12 @@ pag 25
 pag 26
 
 
+\begin{huge}
+
+\textbf{ \textcolor{red}{Falta terminar}}
+ 
+
+\end{huge}
 \end{frame}
 %-----------------------------------------------------------
 
