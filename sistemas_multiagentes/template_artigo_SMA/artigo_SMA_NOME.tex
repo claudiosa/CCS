@@ -1,0 +1,370 @@
+\documentclass[12pt,final,a4paper]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{color} %% incluido por Claudio
+\usepackage{graphicx, subfigure, url}
+\usepackage{amsmath,amsthm, amscd}
+
+\usepackage{listings,comment}
+
+\usepackage{colortbl}
+\definecolor{olive}{rgb}{0,0.6,0}
+\definecolor{brown}{rgb}{0.5,0.4,0}
+\definecolor{orange}{rgb}{1,0.65,0.2}
+
+
+\newcommand{\nrainhas}{\emph{n-rainhas }}
+\newcommand{\Nrainhas}{\emph{N-Rainhas }}
+\newcommand{\PR}{Programação por Restrições}
+
+\theoremstyle{definition}
+\hyphenation{si-mu-la-ted}
+
+%=======================================================================
+
+%\hyphenation{}
+\paperheight    297mm
+\paperwidth     210mm
+\voffset         -15mm
+\headheight      15pt %% tamanho de letra
+\headsep         5mm  %% para o início do texto
+\topmargin      005.0mm
+\oddsidemargin  -2.0mm
+\evensidemargin -2.0mm
+\textwidth      167.0mm
+\textheight     250.0mm
+\footskip       10.0mm 
+
+
+\sloppy
+
+\title{Um Estudo da \textit{Parafuseta da Rebimboca} Usando Sistemas Multiagentes}
+
+\author{SEU NOME ....\\     
+Claudio Cesar de Sá\\
+Universidade do Estado Santa Catarina -- UDESC\\
+Departamento de Ciência da Computação -- DCC\\
+Centro de Ciências Tecnológicas -- CCT\\
+Campus Universitário Prof. Avelino Marcante s/n\\
+Bloco -- F  2o. Andar -- Sala 13\\
+89.219-710 -- Joinville -- SC -- Brasil
+}
+%%%\author{ Omitido para revisão cega }
+%%% \email{seuemail@xxxxxx.com, claudio.sa@udesc.br}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+VOCES ACERTEM ... deixem por último
+
+Neste artigo a ...........
+
+\end{abstract}
+
+
+\begin{abstract}
+xxx Depois
+
+\end{abstract}
+
+
+\section{Introdução}
+\label{sec_introducao}
+
+\subsection{Mapeamento do Territ\'orio}
+
+Um objetivo recorrente  da area de Inteligência Artificial Distribuída (IAD)  é atacar problemas complexos com um paradigmas de programação distribuída e cooperativa. Em uma de suas definições, a IAD é caracterizada pela interação de diversos  agentes, visando atingir um objetivo global de maneira cooperativa e não conflitante.  A proposta é que agentes possuam um certo tipo de conhecimento e por uma interação conjunta estejam empenhados em resolver uma tarefa comum ou não.
+
+Por razões históricas, dividiu-se a IAD sob dois enfoques: Solução Distribuída de Problemas (SDP) e Sistemas Multiagentes (SMA). Cada uma dessas visões fornece um repertório específico para seus termos, levanta diferentes questões na solução de um problema e distintas maneiras de abordá-los não.
+
+As técnicas de resolverem os problemas sob a ótica da SDP e SMA tem parte de sua origem na IA clássica. Contudo, outros problemas não existentes na IA, passar a existir na IAD. Dentre estes problemas destacam-se questões de coordenação e planejamento de um sistema de SMA.
+
+Neste trabalho será focada as questões de  coordenação e planejamento de um sistema de SMA. O assunto é amplo e fértil na pesquisas de SMA. Especificamente, o planejamento se é um problema da classe NP-SPACE para o caso de um agente.  Dentre estas técnicas da IA, seguem as ferramentas de linguagens  declarativas. Estas surgiram com o objetivo
+de maximizar (otimizar) o processo de resolução dos problemas da IA clássica.
+
+
+{\Large \textcolor{red}{Aqui ... altere para o 
+contexto de seu problema}}
+
+Neste artigo, um  problema 
+
+
+%é atacado, no qual o conceito de memória e exploração de espaço de estados são
+%características desejáveis e necessárias ao agente em encontrar uma solução.
+
+{\Large \textcolor{red}{Aqui ... altere para o 
+contexto de seu problema}}
+
+O problema apresentado é o \ldots afim de  maximizar ou minimizar,  a soma do peso final de todas as células que a mesma ocupem.
+
+
+{\Large \textcolor{red}{Aqui ... altere para o contexto de seu problema}}
+
+Este artigo está organizado de acordo com: na seção \ref{sec_fundamentos}
+ uma revisão -- resumo do contexto da IAD e suas
+ motivações. Na seção \ref{sec_modelagem} segue por uma análise e modelagem
+ do problema. Na seção \ref{sec_implementacao} é discutido aspectos
+técnicos desta solução escrito na linguagem xxxxxxxxxxxxxg. Na seção \ref{sec_resultados}
+alguns testes são exibidos afim de constatar a eficiência xxxxxxxxxxxx
+
+\textcolor{red}{ Revisar aqui ....}
+
+
+\section{Fundamentação Conceitual}
+\label{sec_fundamentos}
+
+
+%%%%\section{Resolução de Problemas em Inteligência Artificial}
+
+
+\textcolor{red}{ Ao final verifiquem se o texto é pertinente ....}
+
+
+
+Diversas áreas estão associadas à Inteligência Artificial como tradução de línguas, interpretação de regras, robótica em geral,  manipulação de dados em imagens,  planejamento, reconhecimento  e outras atividades. Uma das caraterísticas destes problemas é a sua complexidade algoritmica e computacional que  crescem exponencialmente.
+Dado este fato, há uma dificuldade inerente na tarefa do desenvolvimento de algoritmos  e soluções aceitáveis. Estes aspectos se relacionam a área de tratabilidade de problemas,  os quais delineam as fronteiras dos limites dos problemas em aceitarem  soluções em um tempo razoáveis de processamento. De modo natural, este aumento na complexidade de
+problemas tratado pela IA, recebeu a atenção por uma nova área integradora das técnicas existentes até então: a Intelig\^encia Artificial Distribuída (IAD).
+
+
+\subsection{Apresentação \`{a} Intelig\^encia Artificial Distribuída}
+
+A IAD surgiu na década de 80 como uma sub-\'{a}rea da IA\ cl\'{a}ssica.
+Pesquisadores como Nils Nilsson acreditam que a IAD tenha um papel
+fundamental no entendimento da IA por razões como:
+
+\begin{itemize}
+\item  Os sistemas estão muito complicados e com muito conhecimento
+embutido. Permitindo-se uma ``quebra'' desses sistemas em partes menores, como
+entidades cooperativas,  haveria a um aumento de efici\^{e}ncia;
+
+\item  Esta decomposição promove uma estrutura
+base, que conduz a melhores testes sobre conhecimento, baseados em processos
+de raciocínio, ações e planejamento;
+
+\item  Os métodos usados em sistemas inteligentes para raciocinar sobre
+um sistema de ação, também podem ser usados em outros processos
+din\^{a}micos não-inteligentes;
+
+\item  H\'{a} um  melhor entendimento nos processos de comunicação
+entre as entidades cooperativas e até mesmo na comunicação
+homem-m\'{a}quina, tal como a linguagem natural.
+\end{itemize}
+
+Considerando as tecnologias j\'{a} sedimentadas na IA cl\'{a}ssica,
+vislumbrou-se ainda que a IAD exerceria um papel integrador neste contexto.
+A questão é  como reunir de forma harm\^{o}nica todo
+conhecimento sobre IA j\'{a} disponível.  Como  a IA j\'{a}
+dispõe de técnicas robustas dirigidas a sistemas inteligentes, mas
+específicas, a questão é  como ampliar esse potencial para
+diversos contextos. Portanto,  combinar coerentemente
+essas partes passou a ser um nicho de pesquisas em IAD \cite{durfee91a}.
+
+Alguns sistemas são naturalmente complexos e distribuídos em seus
+ambientes. Eles apresentam um ``gargalo'' (uma limitação) espacial
+e/ou temporal,  segundo uma ação de resposta a um estímulo.
+Exemplificando:  numa rede de abastecimento e distribuição
+elétrica, a ação disparada, devido  \`{a}   queda de um dos n\'{o}s,
+torna necess\'{a}ria uma visão global de toda rede, bem como local.
+H\'{a} uma necessidade de se considerar um balanceamento global da carga,
+segundo recursos disponíveis nas proximidades, sem detrimento dos
+outros pontos de distribuição de carga. De modo cooperante,
+também se necessita de uma rede de comunicação eficaz,
+levando-se em conta a inerente distribuição geogr\'{a}fica que é
+a rede de energia elétrica. Enfim, a  IAD dirige-se a questões que
+envolvem o aspecto da distribuição, da coordenação do
+conhecimento e ações em ambientes que envolvam m\'{u}ltiplas
+entidades\footnote{Oportunamente,  essas entidades s\~ao definidas como 
+{\em agentes}. Um
+conjunto de agentes pode ser visualizado como uma {\em sociedade}. Os agentes
+t\^em seus objetivos particulares, bem como a sociedade por inteira tem a sua
+meta.} \cite{draa95a}.
+
+Nesse comprometimento entre muitas entidades, surge a questão dos
+recursos em um sistema real,  onde  são inerentemente limitados.
+Esses recursos,  normalmente,  são compartilhados por mais de um
+usu\'{a}rio e/ou agente\footnote{Esse termo \'e detalhado em outras 
+seç\~oes.} \cite{turner93b}. Em uma
+interessante discussão,  R.M. Turner \cite{turner93b} conduz o problema de
+recursos compartilhados em torno das  questões ecol\'{o}gicas.
+A base é a exist\^{e}ncia de uma rede de implicações nos
+ecossistemas. Todo recurso tem uma capacidade nominal, uma quantidade
+m\'{a}xima que pode suportar, considerando uma população de
+provedores versus uma de usu\'{a}rios. H\'{a} um compromisso de busca a um
+equilíbrio, evitando assim, uma degradação sist\^{e}mica.
+
+Em uma de suas definições, a IAD é caracterizada pela interação de diversos 
+agentes, visando atingir um objetivo global de maneira
+cooperativa e não conflitante \cite{hogg91,gashu89}. A proposta é
+que agentes possuam um certo tipo de conhecimento e por uma
+interação conjunta estejam empenhados em resolver uma tarefa comum
+ou não. Nesse nível, um sistema forma uma {\em sociedade de agentes
+} \cite{berthet92}. Les Gasser \cite{gasser91a} faz refer\^{e}ncia a uma
+``comunidade'' inteligente formada por uma {\em coleção de 
+interações}, {\em coordenadas por processos baseados em conhecimento}.
+
+Esse encaminhamento de Les Gasser \cite{gasser91a} é motivado pelo fato
+ do conhecimento de uma atividade interessante em alguns domínios ser 
+ ``{\em inerentemente distribuído espacialmente}''. Essa é uma
+razão em se desejar uma intelig\^{e}ncia distribuída ou
+copi\'{a}-la por um sistema  de {\em multiagentes}\footnote{Esse termo \'e 
+traduzido e aqui adotado do original em ingl\^es  ``{\em multi-agent}''.}.
+
+\subsection{Quanto  \`{a}  Distribuição}
+
+Dentro desse aspecto de {\em distributividade} dos sistemas, L. Gasser \cite
+{gasser91a}\footnote{Essa refer\^encia \'e cl\'assica na \'area de IAD; um
+ ponto de partida para
+ conceitos e teorias.} advoga que isso leva a critérios motivadores de
+projetos no que tange a: \ldots ``{\em adaptabilidade, redução de
+custos, facilidades de desenvolvimento e manutenção, aumento de
+velocidade, necessidade de autonomia e especialização}''.
+
+Por via de regra, todo sistema é intrinsicamente distribuído (``%
+{\em All real systems are distributed}'') \cite{gashu89}. Por conseguinte, a
+modelagem de suas soluções segue essa tend\^{e}ncia de
+distributividade e conectividade entre as partes (subsistemas). Nessa linha,
+a IAD utiliza-se do conceito de agentes na negociação e coordenação das partes de um sistema. A coordenação  envolve questões
+de coer\^{e}ncia e coesividade entre as partes, com objetivo de se obter um
+comportamento desejado.
+
+Nesse ínterim, os problemas reais abordados tornaram-se mais complexos, bem como os métodos de soluções. Com isso, surge a necessidade de
+tecnologias que abordem os problemas com \^{e}nfase na cooperatividade e
+distributividade entre as possíveis soluções. Isto é, como
+integrar v\'{a}rios componentes de naturezas distintas, de modo cooperante e
+não conflitante?
+
+Evidencia-se a necessidade de acoplar harm\^{o}nicamente elementos
+(m\'{o}dulos, subsistemas, etc) de forma a cooperarem para um objetivo
+global. Esses componentes tornaram-se peças {\em ativas} nas soluç%
+ões globais. Com isso, comumente denominou-se por {\em agente} um
+m\'{o}dulo com funções específicas, que possui um conhecimento
+interno e externo, com uma possibilidade de di\'{a}logos interativos com
+outros agentes de uma vizinhança. Essa definição é melhor
+explorada ao longo do texto.
+
+Num segundo momento, surge a necessidade de se gerar um padrão
+conceitual em torno dos termos da IAD. Trata de um segmento que explora a
+cooperatividade de entidades (agentes),  inicialmente apoiada numa
+met\'{a}fora sobre a {\em interação social das pessoas}. A investiga%
+ção de  conceitos para um \'{u}nico agente e suas ações 
+envereda-se por um caminho de desconexão e descomprometimento
+sist\^{e}mico. Outras met\'{a}foras foram utilizadas, como 
+competividade comercial, pesquisa na comunidade científica, 
+Biologia,  Sociologia, etc \cite{pleiad92}. O enfoque metaf\'{o}rico desse
+capítulo é o social.
+
+Por razões hist\'{o}ricas, dividiu-se a IAD sob dois enfoques: Solução Distribuída de Problemas (SDP) e Sistemas Multiagentes (SMA). Cada uma dessas visões fornece um repert\'{o}rio específico para
+seus termos, levanta diferentes questões na solução de um
+problema e distintas maneiras de abord\'{a}-los. Contudo, essa divisão
+não é consensual, mas é um início para se delinear a IAD. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Solução Distribuída de Problemas (SDP)}
+
+Por razões de espaço e material atualizado, favor ver conjuntos de slides atualizados em:
+\url{https://github.com/claudiosa/CCS/tree/master/sistemas_multiagentes}
+
+\textcolor{red}{Tenho isto pronto .... depois colo aqui}
+
+
+\subsection{Sistemas Multiagentes (SMA)}
+
+
+Por razões de espaço e material atualizado, favor ver conjuntos de slides atualizados em:
+\url{https://github.com/claudiosa/CCS/tree/master/sistemas_multiagentes}
+
+\textcolor{red}{Tenho isto pronto .... depois colo aqui -- talvez tenhamos problemas do numero de paginas ... no maximo 12 em geral}
+
+\section{O Problema}
+\label{sec_problema}
+
+\subsection{Definição do Problema} 
+
+
+O problema aqui descrito ....
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=3.0cm,width=3.0cm,angle=0]{figuras/8QueensSolution.eps}
+\caption{ FIGURAS .....}
+\label{fig:8QueensSolution}
+\end{figure}
+
+A ordem de complexidade do problema é 
+
+
+
+\textcolor{red}{o que é o problema}
+
+\subsection{Histórico do Problema}
+
+\textcolor{red}{Como o problema já foi resolvido}
+
+
+
+\subsection{Técnicas para o Problema de XXXXXXXX}
+
+\textcolor{red}{Técnicas de como o problema já foi resolvido}
+
+
+
+{\Large \textcolor{red}{Aqui ... altere para o 
+contexto de seu problema. Revise a sua modelagem}}
+
+
+\subsection{Abordagem Feita}
+
+Estamos usando técnicas de SMAs ... pois ...
+
+
+\section{Modelagem}
+\label{sec_modelagem}
+
+Este problema tem um modelo construído segundo ....
+
+
+
+\section{Implementação e Resultados}
+\label{sec_implementacao}
+
+\subsection{Ferramenta ou Linguagem de Programação}
+
+{\Large \textcolor{red}{Aqui ... altere para o 
+contexto de seu problema}}
+
+A partir de uma 
+
+%%%%%
+\subsection{Resultados}
+
+
+{\Large \textcolor{red}{Aqui ... altere para o 
+contexto de seu problema. Qual o objetivo do 
+artigo mesmo? Retome o artigo aqui}}
+
+O experimento consistiu em implementar 
+
+
+
+\section{Conclusões}
+\label{sec:conclusao}
+
+
+{\Large \textcolor{red}{Aqui ... altere para o 
+contexto de seu problema}}
+
+
+Neste artigo foi aplicado a 
+
+
+\subsection{Trabalhos Futuro}
+
+\bibliographystyle{alpha}
+\bibliography{bibs_SMA}
+\end{document}
