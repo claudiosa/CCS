@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-bool f1_pertence_x  (int vetor[] , int x , int N);
+// tipo NOME ( ARGUMENTOS)
+bool f1_pertence_x  (int vetor[] , int x , int N) ;
 
 /* *******************************************************************/
 int main (void)
 {
    
-  int x = 17;  
+  int x = 7;  
   // vamos criar e ler a matriz0
   int vetor[] = { 3,4,5,6,7,8,9 };
   int N =  (int) sizeof(vetor)/sizeof(int);
@@ -20,10 +20,10 @@ int main (void)
   
   printf("\n Profs. are humans !!!! \n\n");
   return 0;
-}
+}// fim do MAIN
 /********************************************************************/
 bool f1_pertence_x  (int vetor[] , int x , int N)
-//bool f1_pertence_x  (int vetor[] , int x )
+//int f1_pertence_x  (int vetor[] , int x )
 {
   int i;
   //printf("Length of parameter: %d\n", sizeof(vetor));
