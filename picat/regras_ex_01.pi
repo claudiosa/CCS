@@ -1,12 +1,10 @@
 %%% FATOS ... 
 index(-) % These facts are not ordered
-homem( platao )       . % formula dizendo que plata eh um homem
-homem( socrates )     .
-homem( adao )         .
+homem   ( platao )       . % formula dizendo que plata eh um homem
+homem   ( socrates )     .
+homem   ( adao )         .
 
 main  => listar_todos.
-
-
 
 %% Uma regra da LPO: 
 %%Todos homens sao mortais :: Qx ( homem(x) --> mortal(x))
@@ -18,6 +16,6 @@ listar_todos  ?=>     %%% this rule is backtrackable
           false.
 
 listar_todos => 
-          printf("\n The End \n ")  ,
+          printf("\n The profs are humans !!! \n ")  ,
           true. %% the final rule of above
 

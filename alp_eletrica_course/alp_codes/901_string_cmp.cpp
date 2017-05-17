@@ -21,7 +21,7 @@ int main ()
    {
       printf("str2 is less than str1");
    }
-   else 
+   else //  caso = 1 
    {
       printf("str1 is equal to str2");
    }

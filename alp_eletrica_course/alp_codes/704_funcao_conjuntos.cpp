@@ -112,7 +112,7 @@ bool f1_pertence_x  (int vetor[] , int x , int N)
 		  return chave ;
 		 }	  
    }
-   return chave;
+   return chave; // falso se x nao esta no vetor
  } // fim da funcao  
 
 
