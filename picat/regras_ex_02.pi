@@ -1,7 +1,8 @@
 %%% FATOS ...  desenhe a arvore geneologica
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 index(-,-)    %% definindo FATOS
-	pai(platao, luna).
+  %%pai(PAI, FILHO)  
+	pai(platao, luna)   .
 	pai(platao, pericles).
 	pai(platao, eratostenes).
 	pai(epimenides, platao).
@@ -12,7 +13,10 @@ index(-,-)    %% definindo FATOS
 avo(X,Y) =>  pai(X,Z), pai(Z,Y).
 
 %% definindo um irmao: alguem que tenha o mesmo pai
-irmao(X,Y) => pai(Z,X), pai(Z,Y), X !== Y. 
+irmao(X,Y) => pai(Z,X), 
+              pai(Z,Y), 
+              %%X !== Y. 
+               !==(X , Y). 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% MAIS REGRAS
@@ -42,7 +46,7 @@ main ?=>         %%% ?=>  regra "backtrackavel"
  %   listar_pais,
  %   listar_avos, 
  %   avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
-    irmao(Z,W), printf("\n ==> %w  eh irmao de  %w", Z , W),
+    irmao(Z,W), printf(" \n ==> %w  eh irmao de  %w", Z , W),
     false.   
 main => true.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
