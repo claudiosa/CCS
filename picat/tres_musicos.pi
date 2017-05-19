@@ -1,4 +1,4 @@
-%% FATCS
+%% FATOS
 index(-)
     instrumento(harpa)     .
     instrumento(violoncelo).
@@ -8,25 +8,32 @@ index(-)
     dia(5).
   
 % RULE -- backtrackable by main
-musicos( L ) ?=>
-    L = [ (joao,X1,5), (antonio,X2,D2), (xico,X3,D3) ] , 
+musicos( L ) =>
+    L = [ (joao,X1,5), 
+          (antonio,X2,D2), 
+          (xico,X3,D3) ] 
+    , 
     instrumento(X1),
     instrumento(X2),
     instrumento(X3),
     (X2 !== piano),
+    %% todos instrumentos diferentes
     (X1 !== X2 , X3 !== X2 , X1 !== X3),
     dia(D3),
     dia(D2),
-    ((D2 == 3 , D3 == 5) ; (D2 == 5 , D3 == 3)),
-    (X1 !== violoncelo , X3 == piano , D3 == 3).
-%%%%%musicos( _ ) =>  printf("\n .........." ).  
+    ((D2 == 3 , D3 == 5) ; 
+     (D2 == 5 , D3 == 3)),
+    (X1 !== violoncelo , 
+    X3 == piano , D3 == 3).
+
+%musicos( _ ) =>  printf("\n Reavalie os calculos.........." ).  
     
 main ?=> %trace,
          musicos( [X,Y,Z]), 
          %notrace,
-         printf("\n Casal X: %w", X ),
-         printf("\n Casal Y: %w", Y ), 
-         printf("\n Casal Z: %w", Z ), 
+         printf("\n Musico X: %w", X ),
+         printf("\n Musico Y: %w", Y ), 
+         printf("\n Musico Z: %w", Z ), 
          false.    
 main => 
       printf("\n ..... NO MORE SOLUTIONS .....\n" ),

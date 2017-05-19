@@ -80,7 +80,9 @@ main  ?=>
     pt_origem(X),    %%%write([X]),
     pt_final(Y),
     T1 = current_time(),
-    time(best_plan_unbounded( X , Solucao)), %%% CPU TIME
+    %time(best_plan_unbounded( X , Solucao)), %%% CPU TIME
+    time(plan( X , Solucao)), %%% CPU TIME
+    
     T2 = current_time(), 
 
     write(Solucao), nl,

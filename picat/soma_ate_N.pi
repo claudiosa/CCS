@@ -9,6 +9,7 @@ main => soma_p1(7, X),
       
 /* recursividade CLASSICA -- prolog like*/
 soma_p1(0,S) ?=> S = 0.   % regra backtrackable
+soma_p1(1,S) ?=> S = 1.   % regra backtrackable
 soma_p1( N, S ) => N > 0, %%% regra recursiva
                    Ant  =  (N - 1),
                    soma_p1( Ant , Parcial ),
