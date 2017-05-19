@@ -2,10 +2,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 index(-,-)    %% definindo FATOS
   %%pai(PAI, FILHO)  
-	pai(platao, luna)   .
+	%pai(platao, luna)   .
 	pai(platao, pericles).
 	pai(platao, eratostenes).
 	pai(epimenides, platao).
+	pai(bartolomeu, epimenides).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% REGRAS: exemplos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -13,40 +14,62 @@ index(-,-)    %% definindo FATOS
 avo(X,Y) =>  pai(X,Z), pai(Z,Y).
 
 %% definindo um irmao: alguem que tenha o mesmo pai
-irmao(X,Y) => pai(Z,X), 
-              pai(Z,Y), 
+irmao(X,Y) => pai(Z,X), %%% 1o a ser avaliado
+              pai(Z,Y), %%% 2o a ser avaliado
               %%X !== Y. 
-               !==(X , Y). 
+              !==(X , Y). %%% 3o a ser avaliado
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% MAIS REGRAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 listar_pais  ?=>    %%% ?=>  regra "backtrackavel"
-    pai(X,Y) ,  
+    pai(X,Y) , %% and 
     printf("\n ==> %w  e pai de  %w", X , Y)  , 
-    false.
+    false  .
 
 listar_pais => 
     printf("\n ")  ,
     true. %% the final rule of above
           
-listar_avos  ?=>    %%% ?=>  regra "backtrackavel"
-    avo(X,Y) ,  
-    printf("\n ==> %w  e avo de  %w", X , Y)  , 
+listar_ant  ?=>    %%% ?=>  regra "backtrackavel"
+    antepassado(X,Y) ,  
+    printf("\n ==> %w  e ANTEPASSADO de  %w", X , Y)  , 
     false.
 
-listar_avos => 
+listar_ant => 
     printf("\n ")  ,
     true. %% the final rule of above          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% main ... facilidade no uso console
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-main ?=>         %%% ?=>  regra "backtrackavel"
+main ?=>   %%% ?=>  regra "backtrackavel"
  %   listar_pais,
- %   listar_avos, 
+    listar_ant, 
  %   avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
-    irmao(Z,W), printf(" \n ==> %w  eh irmao de  %w", Z , W),
+ %   irmao(Z,W), printf(" \n ==> %w  eh irmao de  %w", Z , W),
     false.   
 main => true.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/*
+1. Todo x que é pai de um y implica em x ser um antepassado
+de y
+QxQy (pai(x,y) --> antepassado(x,y))
+
+2. Todo x que é pai de um z, e z
+eh um  antepassado de y, entao x eh antepassado de y
+
+QxQyQz (pai(x,z) and antepassado(z,y) --> antepassado(x,y))
+
+EM PICAT -- clausulas de HORN (sempre apenas uma conclusao)
+*/
+antepassado(X,Y) ?=> pai(X,Y). %%%%%% ?=>  regra "backtrackavel"
+antepassado(X,Y) => pai(X,Z),
+                    antepassado(Z,Y).
+
+
+
+
+
+
+

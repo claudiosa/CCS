@@ -2,7 +2,7 @@
 %% Sol inicial: alunos
 %% Melhoramentos etc: ccs
 Enunciado do Problema: 
-http://rachacuca.com.br/logica/problemas/turistas-na-copa/turma: 2015-2
+%http://rachacuca.com.br/logica/problemas/turistas-na-copa/turma: 2015-2
 */
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -40,6 +40,7 @@ camisa(Camisa_4),
 camisa(Camisa_5),
 alldifferent([Camisa_1, Camisa_2, Camisa_3, Camisa_4, Camisa_5]),
 
+%%% Camisa_1 \== Camisa_2
 %19 Os turistas das Camisa_s amarela e vermelha estão lado a lado.
 (
 (Camisa_1==vermelhito,Camisa_2==amarelito);
@@ -75,7 +76,7 @@ Nacionalidade_3==italiano,
 
 %6 O Alemão está exatamente à esquerda do turista de Vermelho.
 (
-(Nacionalidade_1==alemao,Camisa_2==vermelhito);
+(Camisa_2==vermelhito, Nacionalidade_1==alemao);
 (Nacionalidade_2==alemao,Camisa_3==vermelhito);
 (Nacionalidade_3==alemao,Camisa_4==vermelhito);
 (Nacionalidade_4==alemao,Camisa_5==vermelhito)
