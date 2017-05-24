@@ -1,0 +1,32 @@
+
+%%% FATOS ... = Mapa
+index(-, -) 
+arco( a, b )      .
+arco( a, c )      .
+arco( c, d )      .
+arco( b, d )      .
+arco( d, e )      .
+
+% As regra da LPO agora em PICAT ... ver as formulas em LPO
+caminho_1(X,Y) ?=> arco(X,Y) .
+caminho_1(X,Y)  => arco(X,Z) ,   caminho_1(Z,Y) .
+
+%%% olhar nas figuras de sala de aula
+%%% AVALIAR ESTE PROBLEMA aqui ......
+caminho_2(X,Y) ?=> caminho_2(X,Z), arco(Z,Y)  .
+caminho_2(X,Y) => arco(X,Y) .
+
+
+
+listar_todos  ?=>     %%% this rule is backtrackable
+          caminho_2(X,Y)                         ,   %% and
+          printf("\n X: %w ---> Y: %w ", X,Y)  ,   %% and
+          false.
+
+listar_todos => 
+          printf("\n ")  ,
+          true. %% the final rule of above
+
+%% aconselhavel o ... uso do main
+main => 
+     listar_todos  .
