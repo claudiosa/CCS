@@ -34,11 +34,16 @@ for(int k = 0; k < N*N; k++)
 	 break; // INTERROMPE o LACO
 	 
 	printf ("\n DIGITE o caracter: ");
-    fflush(stdin); // quando se le caracter
+    setbuf( stdin, NULL );
+    //fflush(stdin); // quando se le caracter
+    /* OU
+     fflush(stdin);
+    __fpurge(stdin);
+    */ 
     scanf(" %c", &velha[x][y]);  	  
 	 
  /* ESCREVE O TABULEIRO  */			
-  for (i = 0; i < N; i++)
+  for (i = 0; i < N ; i++)
     {
 	 for (j = 0; j < N; j++)
 		  printf ("| %c ", velha[i][j]);
