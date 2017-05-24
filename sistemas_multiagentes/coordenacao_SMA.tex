@@ -669,8 +669,8 @@ define-se formalmente  \textbf{coordenação}
 %-----------------------------------------------------------
 \subsection{Convenção Social}
 
-\begin{frame}
-\frametitle{Convenção Social}[allowframebreaks=0.9]
+\begin{frame}[allowframebreaks=0.9]
+\frametitle{Convenção Social}
 
 \begin{itemize}
   \item Como escolher a ação?
@@ -704,37 +704,109 @@ define-se formalmente  \textbf{coordenação}
 %-----------------------------------------------------------
 
 
-\begin{frame}
-\frametitle{Convenção Social -- Comentários}[allowframebreaks=0.9]
+\begin{frame}[allowframebreaks=0.9]
+\frametitle{Convenção Social -- Comentários}
 
 \begin{itemize}
   \item Coordenação que usam CS podem se fazer uso de ordenamento dos agentes -- fácil de implementar
   
-  \item xxx
+  \item O agente $i$ faz uma divulgação (\textit{broadcasting}) de sua ação aos $n-1$ agentes, e espera   que todos os  $n-1$ agentes tenham selecionados suas ações
   
+  \item Após os $n-1$ agentes tenham decididos suas ações, o agente $i$
+  vai escolher a ação que tenha o maior equilíbrio do sistema
+  
+  \item Note que há um ordenamento fixo entre os agentes com comunicações via  primitivas, de modo que tudo seja uma ordem sincronizada sequencialmente de ações
+  
+  \item Casos clássicos de \textit{deadlocks} de BD, nem pensar!
   
 \end{itemize}
-
-
 
 \end{frame}
 
 
 
+%%%%--------------------------------------------------------------------
 %-----------------------------------------------------------
 
 \subsection{Papel Social}
 
-\begin{frame}
+\begin{frame}[allowframebreaks=0.9]
 \frametitle{Papel Social}
 
-EM 2 semanas
-pag 25
+\begin{itemize}
+  \item No caso anterior, \textbf{convenção social}, considera-se que um agente pode calcular 
+  todo EN antes de fazer uma escolha.
+  \item Sim, calcular tudo antes de agir, pode ser muito dispendioso para uma comunidade
+com um número  muito elevado de agentes
+   \item Então \textbf{reduzir} este número de possíveis ações antes de escolher/selecionar uma ação 
+   \item Sim, esta redução implica em velocidade, etc
 
+
+
+\end{itemize}
 
 \end{frame}
 
 
+%-----------------------------------------------------------------
+\begin{frame}
+\frametitle{Papel Social}
+
+\begin{itemize}
+  \item Esta redução do número de um conjunto de ações é pela atribuição de \textbf{papéis sociais}
+  \item Logo, esta  atribuição de um papel ao agente em um dado estado, deve inibir os demais agentes
+  de agirem como tal
+  \item Exemplo: futebol de robô. Um agente de papel na defesa, não jogará no  papel de ataque. 
+  
+  \item A proposta é que o jogo, terá a sua tarefa de coordenação reduzida, devido o agente atuar em um papel de um \textit{sub-jogo} (\textit{subgame})
+  
+  \item Logo o equilíbrio será mais fácil de encontrar
+
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------------------
+\begin{frame}[allowframebreaks=0.9]
+\frametitle{Esquema Básico dos Papéis Sociais}
+
+
+\begin{enumerate}
+  \item There is a fixed ordering \{1, 2, . . . , n\} of the roles. Role 1 must be assigned first, followed by role 2, etc.
+  
+\item  For each role there is a function that assigns to each agent a '\textit{potential}' that reflects how appropriate (uma maximização) that agent is for the specific role, given the current state. For example, the
+potential of a soccer robot for the role attacker can be given by its negative Euclidean distance to the ball.
+
+\item  Each agent can be assigned only one role. 
+
+\item Resumindo: ambiente observável, os papéis podem ser repetidos, e variam a cada estado
+
+\end{enumerate}
+
+\end{frame}
+
+%-----------------------------------------------------------------
+\begin{frame}[allowframebreaks=0.9]
+\frametitle{Resumindo a coordenação via \textit{papéis sociais}}
+
+\begin{itemize}
+  \item O papel 1 é definido para o agente de mais alta habilidade (max)
+
+  \item O algoritmo não é paralelo, é sequencial (começa pelo  agente $i$
+  mais hábil no papel $j$)
+
+  \item Todos $i$ agentes, em paralelo, tiveram conhecimento dos $j$ papéis disponíveis (alguns repetidos ou não)
+
+  \item A divulgação dos papéis em geral é transmitida via
+\textit{broadcasting}
+
+ \item Um algoritmo guloso na atribuição dos papéis pode ser utilizado 
+quando uma comunicação entre agentes está disponível
+  
+\end{itemize}
+
+
+\end{frame}
 
 %-----------------------------------------------------------
 \subsection{Grafos de Coordenação}
@@ -778,47 +850,7 @@ pag 28
 \end{frame}
 %-----------------------------------------------------------
 
-\section{Planejamento}
-
-
-\begin{frame}
-\frametitle{Fundamentos de Planejamento}
-
-
-
-\end{frame}
 %-----------------------------------------------------------
-
-
-\subsection{Abordagens ao Planejamento Multiagente -- SMAs}
-
-\begin{frame}
-\frametitle{Abordagens ao Planejamento de SMAs}
-
-\begin{block}{}
- 
-\begin{itemize}
-  \item Coordenação central: controla todos os subplanos
-  \item Esquemas de controle distribuído\\
-        Conhecimento parcial dos planos de outros agentes
-  \item Planejamento Global Negociado
-
-\begin{itemize}
-  \item Compartilhamento de todos os planos
-  \item Ajuste local para a realização de objetivos comuns
-
-\end{itemize}
-
-\item Modelagem Explícita da Equipe de Agentes
-\begin{itemize}
-  \item Compromissos conjuntos
-   \item Crenças, desejos e intenções comuns
-
-\end{itemize}
-\end{itemize}
-\end{block}
-
-\end{frame}
 
 %-----------------------------------------------------
 
