@@ -230,6 +230,7 @@ print_States([A|L_Action], Grid) ?=>
         New_Grid = Grid_TEMP,
         print_map( New_Grid ), 
         print_States(L_Action , New_Grid).
+
 %left_move,left_move,right_move,right_move,down_move,right_move,right_move,right_move,up_move,up_move]
 
 
