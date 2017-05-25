@@ -1,0 +1,124 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=30mm,right=30mm,top=15mm,bottom=15mm]{geometry}
+\usepackage{graphicx,url}
+\usepackage{color,comment, pifont}
+\usepackage{amssymb}
+
+
+\begin{comment}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\end{comment}
+
+\title{Lógica Matemática -- Trabalho Final -- 2013-2}
+\author{Rogério Eduardo da Silva e Claudio Cesar de Sá}
+\date{\today}
+
+\graphicspath{{/figures/}}   
+\DeclareGraphicsExtensions{{.jpg},{.png}}
+
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+
+\ding{224} Tarefa: Escolham 02 (dois) dos 3 problemas propostos abaixo.\\
+Entrega: definir data e forma com Prof. Rogério \\ 
+
+\ding{224} Implementação em SWI-Prolog ou Eclipse (www.eclipseclp.org) (ver a apostila do curso)\\
+
+\ding{224} Além dos códigos, sob forma de cometários as entradas e saídas com os testes de seus programas\\
+
+\ding{224} Os testes exaustivos no proprio código fonte vão
+demonstrar que seu programa está fazendo o que se solicita.
+
+\end{flushleft}
+
+\begin{enumerate}
+
+\item Dicas de como se resolve manualmente:\\
+\url{http://www.valdiraguilera.net/problema-de-logica-esquema.html}
+
+\item Há exemplos bem detalhados do semestre passado\\
+
+\item Use a lista da disciplina para as dúvidas ou procure
+os professores \textbf{pessoalmente}\\
+
+\item Para que o \textit{código de honra} (evitar cópias de trabalhos) seja mantido,
+troquem os nomes dos personagens das estórias abaixo, por seus nomes e/ou de suas família/amigos etc. 
+
+\end{enumerate}
+
+
+%%%\tableofcontents
+
+
+\begin{description}
+
+\newpage
+\item [Fila do Banco:] Fonte do problema proposto:   \url{http://rachacuca.com.br/logica/problemas/fila-do-banco/}(tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+{\Large \textbf{\textcolor{red}{Falta o enunciado}}}
+...........
+
+Sejam os fatos desta estória:
+\begin{enumerate}
+  \item    \textbf{\textcolor{red}{Falta o enunciado dos FATOS}}
+   
+  
+\end{enumerate}
+
+
+
+\newpage
+  \item[Passeio no Zoológico:] Fonte do problema proposto:
+  \url{http://rachacuca.com.br/logica/problemas/passeio-no-zoologico/} (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+.....
+
+{\Large    \textbf{\textcolor{red}{Falta o enunciado dos }}}
+  
+Sejam os fatos desta estória:
+  
+  \begin{enumerate}
+  \item    \textbf{\textcolor{red}{Falta o enunciado dos FATOS}}
+  \item 
+
+  \end{enumerate}  
+
+
+
+\newpage
+  \item[Esquadrilha de Aviões:] Fonte do problema proposto:
+  \url{http://rachacuca.com.br/logica/problemas/esquadrilha-de-avioes/} (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+Descubra a posição de cada um dos 5 aviões e suas anomalias, bem como seus pilotos e seus gostos pessoais.
+
+Sejam os fatos desta estória:
+\begin{enumerate}
+  \item  O avião do Cel. Milton solta fumaça vermelha.
+  \item O rádio transmissor do Ten. Walter está com problemas.
+  \item O piloto do avião que solta fumaça verde adora pescar.
+  \item O Major Rui joga futebol nos finais de semana.
+  \item O avião que solta fumaça verde está imediatamente à direita do avião que solta fumaça branca.
+  \item O piloto que bebe leite está com o altímetro desregulado.
+  \item O piloto do avião que solta fumaça preta bebe cerveja.
+  \item O praticante de natação pilota o avião que solta fumaça vermelha.
+  
+  \item  O Cap. Farfarelli está na ponta esquerda da formação.
+  \item O piloto que bebe café voa ao lado do avião que está com pane no sistema hidráulico.
+  \item O piloto que bebe cerveja voa ao lado do piloto que enfrenta problemas na bússola.
+  \item O homem que pratica equitação gosta de beber chá.
+  \item O Cap. Nascimento bebe somente água.
+  \item O Cap. Farfarelli voa ao lado do avião que solta fumaça azul.
+  \item Na formação, há um avião entre o que tem problema hidráulico e o com pane no altímetro.
+  
+ \end{enumerate}  
+ 
+\end{description}
+\end{document}

@@ -1,0 +1,101 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[a4paper,left=27mm,right=27mm,top=10mm,bottom=15mm]{geometry}
+\usepackage{graphicx,url}
+\usepackage{color,comment}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
+
+\begin{comment}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\end{comment}
+
+\title{Lógica Matemática -- Trabalho Final}
+\author{Rogério Eduardo da Silva e Claudio Cesar de Sá}
+\date{\today}
+
+\graphicspath{{/figures/}}   
+\DeclareGraphicsExtensions{{.jpg},{.png}}
+
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item Dicas de como se resolve manualmente:\\
+\url{http://www.valdiraguilera.net/problema-de-logica-esquema.html}
+\end{enumerate}
+
+
+\begin{description}
+
+\item [Amigas na Piscina] Fonte do problema proposto:   \url{http://rachacuca.com.br/logica/problemas/amigas-na-piscina/}(tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+Quatro amigas combinaram de aproveitar o dia de Sol na piscina. Elas estão lado a lado, prontas para mergulharem. Cada uma está com um maiô de uma cor e está usando um protetor solar de determinado fator de proteção (FPS).
+
+Cabe a você seguir as dicas para encontrar os gostos e as características delas.
+
+\begin{enumerate}
+  \item     Na terceira posição está a menina que gosta de Cachorros.
+  \item     Quem gosta de Peixes está em uma das pontas.
+  \item     A garota que gosta de Gatos está na primeira posição.
+  \item     Ana usa protetor solar de FPS 50.
+  \item     Na segunda posição está a menina que usa filtro solar com FPS 55.
+  \item     A garota mais nova está ao lado da que usa protetor solar de menor FPS.
+  \item    Quem gosta de suco de Morango está na quarta posição.
+  \item     A menina que gosta de suco de Maracujá está ao lado da que gosta de Pássaros.
+  \item     A menina que gosta de limonada está ao lado da que gosta de suco de Maracujá.
+  
+  \item   Quem gosta de suco de Laranja está em uma das pontas.
+  \item     A menina de maiô Azul está em algum lugar à esquerda da menina de 9 anos.
+  \item     A garota de 8 anos está na quarta posição.
+  \item     A garota de 11 anos está em uma das pontas.
+  \item     Vivian gosta de Pássaros.
+  \item     Raquel está na primeira posição.
+  \item     A menina de maiô Verde está na quarta posição.
+  \item     A menina de maiô Branco está em uma das pontas.
+   
+  
+\end{enumerate}
+
+
+
+
+  \item[Sala de Espera] Fonte do problema proposto:
+  \url{http://rachacuca.com.br/logica/problemas/sala-de-espera/} (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+  Cinco homens aguardam o antendimento com hora marcada no dentista. Cada um deles tem consulta com uma dentista diferente, num horário diferente e veio em busca de um tratamento específico.
+Siga as dicas e descubra o nome dos pacientes, qual revista cada um está lendo, o horário do atendimento e o motivo da consulta. 
+Sejam os fatos:
+  
+  \begin{enumerate}
+  \item A pessoa que veio fazer uma obturação está lendo a revista Caras.
+  \item  Quem está lendo a Veja está em algum lugar entre o Eduardo e quem está com a revista Galileu, nessa ordem.
+  \item  Quem veio ajustar o Aparelho está em algum lugar entre quem está lendo Isto É e quem veio fazer a restauração, nessa ordem.
+  \item  O paciente da Dra. Raquel está lendo a revista Galileu.
+  \item  O Álvaro é o paciente da Priscila.
+  \item  O Marcos está em algum lugar entre o paciente de camisa Amarela e o Rodrigo, nessa ordem.
+  \item  O paciente que veio fazer uma Restauração está em algum lugar entre quem veio tratar o Canal e quem veio fazer uma Obturação, nessa ordem.
+  \item A pessoa de Amarelo está em algum lugar à esquerda do paciente agendado às 10:30.
+
+    \item Quem tem consulta às 10:15 está sentado em uma das pontas.
+    \item     O primeiro paciente será atendido pela Silvia.
+    \item     O homem de camisa Azul está em algum lugar à esquerda de quem tem consulta as 11h.
+    \item     A pessoa de camisa Verde está em algum lugar entre a pessoa com camisa Vermelha e a pessoa de camisa Azul, nessa ordem.
+    \item     O quarto paciente será atendido as 10h.
+        \item  O paciente da Dra Adriana está em algum lugar entre os pacientes das doutoras Raquel e Priscila, nessa ordem.
+    \item     O paciente da Dra. Pricila está exatamente à direita de quem está com a revista Caras.
+    \item     O homem de camisa Amarela está em algum lugar entre quem está lendo Isto É e quem veio de camisa Branca, nessa ordem.
+
+  \end{enumerate}  
+\end{description}
+
+
+
+
+\end{document}
