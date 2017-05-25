@@ -1,0 +1,186 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=30mm,right=30mm,top=15mm,bottom=15mm]{geometry}
+\usepackage{graphicx,url}
+\usepackage{color,comment, pifont}
+\usepackage{amssymb}
+
+\begin{comment}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\end{comment}
+
+\title{Lógica Matemática -- Trabalho Final -- 2014-2}
+\author{Rogério Eduardo da Silva, Claudio Cesar de Sá\\
+Gabriela Nandi}
+\date{\today}
+
+\graphicspath{{/figures/}}   
+\DeclareGraphicsExtensions{{.jpg},{.png}}
+
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+
+\vspace{0.2cm}
+\ding{224} Tarefa: Implementar 02 (dois) dos  03 (três)  problemas dos problemas propostos abaixo.\\
+Entrega: \textcolor{red}{a definir data e forma com Prof. Rogério} \\ 
+
+\vspace{0.2cm}
+\ding{224} Implementação em SWI-Prolog ou Eclipse (www.eclipseclp.org) (ver a apostila do curso)\\
+
+\vspace{0.2cm}
+\ding{224} Além dos códigos, sob forma de cometários as entradas e saídas com os testes de seus programas\\
+
+\vspace{0.2cm}
+\ding{224} Os testes exaustivos no próprio código fonte vão demonstrar que seu programa está fazendo o que se solicita.
+
+\vspace{0.2cm}
+\ding{224} Alguns fontes e materiais de apoio estão em:
+ \url{https://www.dropbox.com/home/cursos/lma/exercicios_prolog} ou \\
+  \url{http://www2.joinville.udesc.br/~coca/index.php/Main/LogicaMatematica}
+
+\end{flushleft}
+
+\begin{enumerate}
+\setlength\itemsep{0.1cm}
+\item Dicas de como se resolve manualmente:\\
+\url{http://www.valdiraguilera.net/problema-de-logica-esquema.html}
+
+\item Há exemplos bem detalhados do semestre passado
+
+\item Use a lista da disciplina para as dúvidas ou procure os professores \textbf{pessoalmente}
+
+\item Para que o \textit{código de honra} (evitar cópias de trabalhos) seja mantido, troquem os nomes dos personagens das estórias abaixo, por seus nomes e/ou de suas família/amigos etc. 
+
+\end{enumerate}
+
+\newpage
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Presentes de Natal}
+
+ Fonte do problema proposto:\\
+ \url{http://rachacuca.com.br/logica/problemas/presentes-de-natal/}
+ (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+{\em 
+Descubra o que cada um dos cinco meninos quer ganhar de natal.
+\begin{enumerate}
+ %%  \item    \textbf{\textcolor{red}{Falta o enunciado dos FATOS}}
+\item	O garoto que quer ser Bombeiro mora em alguma das casas das pontas.
+\item	Quem gosta de Maracujá quer ser Médico.
+\item	Na terceira casa está o garoto que quer ser Professor.
+\item	Em uma das pontas mora o menino que quer ser Policial.
+\item	Na quinta casa está o garoto que deseja ser Bombeiro quando crescer.
+\item	O menino que gosta de suco de Laranja está em uma das pontas
+\item	O garoto que gosta de limonada está exatamente à esquerda do que gosta de suco de Morango.
+\item	Quem quer ser Médico está exatamente à direita de quem gosta de suco de Abacaxi.
+\item	Cristian gosta de suco de Limão.
+\item	O menino de 8 anos mora ao lado do que quer um Computador de presente.
+\item	O garoto que quer um Skate está exatamente à esquerda da casa do Alex.
+\item	Na casa de cor Branca mora o menino que deseja um Vídeo Game de natal.
+\item	Na primeira casa mora o garoto que quer uma Bola de presente de natal.
+\item	Quem quer uma Bicicleta mora ao lado de quem deseja um Vídeo Game de presente.
+\item	O menino mais novo mora na quinta casa.
+\item	O garoto de 10 anos está em algum lugar entre o de 7 e o de 9 anos, nessa ordem.
+\item	O garoto de 9 anos quer ser Professor quando crescer.
+\item	Pedro mora na terceira casa.
+\item	Eduardo mora exatamente à direita de Pedro.
+\item	Eduardo mora na casa de cor Verde.
+\item	A casa de cor Branca está exatamente à esquerda da casa do menino que gosta de suco de Maracujá.
+\item	A casa de cor Azul está exatamente à esquerda da casa do garoto que quer um Vídeo Game.
+\item	A primeira casa é Amarela.
+   
+\end{enumerate}
+
+Siga as dicas e encontre o nome, a idade e o suco favorito. Encontre também qual o presente que cada um deseja de natal e qual a profissão que eles desejam ter quando crescer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Passeio no Zoológico}
+
+ Fonte do problema proposto:\\
+ \url{http://rachacuca.com.br/logica/problemas/passeio-no-zoologico/}
+ (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+{\em 
+Cinco amigas estão esperando na fila para entrar no zoológico. Descubra as preferências de cada uma delas.
+\begin{enumerate}
+ %%  \item    \textbf{\textcolor{red}{Falta o enunciado dos FATOS}}
+\item   A penúltima garota da fila gosta de Biologia.
+\item	A menina de mochila Amarela está em algum lugar à esquerda da garota que gosta de Português.
+\item	A menina que gosta de História está em algum lugar entre a Joana e a menina que gosta de Geografia, nesta ordem.
+\item	A Pati está exatamente à esquerda da garota que quer ver a Girafa.
+\item	A garota que que ver a Arara está ao lado da que quer ver o Leão.
+\item	A menina da mochila Vermelha está em algum lugar à esquerda da que quer ver o Leão.
+\item	A garota que quer ver o Macaco usa uma mochila Branca.
+\item	A menina que trouxe uma Maçã está na quarta posição da fila.
+\item	A garota que gosta de Geografia vai comer Salgadinho.
+\item	A menina que trouxe Chocolate está na segunda posição.
+\item	A garota que vai comer Sanduíche gosta de Português.
+\item	A menina que gosta de suco de Morango está em uma das pontas da fila.
+\item	A menina que gosta de suco de Limão está entre a garota que quer ver o Elefante e a que gosta de suco de Maracujá, nesta ordem.
+\item	A garota da mochila Amarela gosta de tomar limonada.
+\item	A menina que gosta de História gosta de suco de Laranja.
+\item	A garota que prefere suco de Abacaxi está em uma das pontas da fila.
+\item	A menina que gosta de suco de Morango está exatamente à direita de quem gosta de suco de Maracujá.
+\item	A Renata está entre a menina que vai comer Banana e a Ana, nesta ordem.
+\item	A Jéssica ocupa a segunda posição na fila.
+\item	O suco preferido da Pati é o de Limão.
+\item	A garota que gosta de Geografia está ao lado da de mochila Azul.
+\item	A menina da mochila Vermelha está exatamente à direita da de mochila Verde.
+   
+\end{enumerate}
+
+Deduza o nome, suco, lanche, animal e matéria preferida de cada uma das cinco amigas. Elas estão aguardando numa fila para entrar no zoológico.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Amigas no Cinema}
+
+ Fonte do problema proposto:\\
+ \url{http://rachacuca.com.br/logica/problemas/amigas-no-cinema/}
+ (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+{\em 
+Descubra o nome, idade, cor favorita, estilo de filme e o nome do namorado de cada uma das cinco amigas.
+\begin{enumerate}
+ %%  \item    \textbf{\textcolor{red}{Falta o enunciado dos FATOS}}
+\item   A mulher com 26 anos está sentada ao lado da que curte filmes de Ficção.
+\item	A Lilian está sentada ao lado da quem gosta de filmes de Ação.
+\item	A que namora o Adriano não está sentada ao lado da mulher que gosta de filmes de Ficção.
+\item	Quem gosta de Comédia está sentada exatamente à esquerda da que tem 26 anos.
+\item	Quem gosta de Drama está sentada em uma das pontas.
+\item	A moça com 23 anos está sentada exatamente à direita da que curte o estilo Drama.
+\item	A Lilian está sentada exatamente à esquerda da sua amiga que gosta da cor Branca.
+\item	Quem gosta de verde está sentada em uma das pontas.
+\item	A namorada do Willian está sentada imediatamente à esquerda da sua amiga com 27 anos.
+\item	A moça que tem 22 anos está sentada exatamente à direita da namorada do Marcelo.
+\item	Quem tem 22 anos está sentada em algum lugar à direita da namorada do Willian.
+\item	A Lilian está sentada à esquerda de quem namora o Flávio.
+\item	A namorada do Adriano tem 25 anos de idade.
+\item	A Fernanda adora a cor amarela.
+\item	A Rosana está sentada na cadeira mais a direita.
+\item	A Luciana está sentada ao lado da sua amiga de 27 anos.
+\item	As garotas que curtem amarelo e vermelho estão sentadas na quarta e quinta posições, respectivamente.
+\item	Quem gosta de ver filmes de Romance não está sentada ao lado de quem curte a cor Azul.
+   
+\end{enumerate}
+
+Nesse problema temos cinco amigas que foram assistir um filminho no cinema juntas. Elas estão sentadas uma ao lado da outra e cada uma tem um gosto diferente pra filmes e cores. Além disso, elas tem idades diferentes e namoram rapazes com diferentes nomes.
+
+Sua tarefa é associar todas essas informações a partir das dicas dadas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
