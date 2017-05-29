@@ -74,13 +74,6 @@ Grau de dificuldade: médio
 Encontre os valores para\/ ``{\em a(Y)}''\/ e explique como foi o esquema de busca. Onde e porquê ocorreu
 \/ ``{\it backtraking}''?
 
-
-\item Repasse TODOS exercícios apresentados em LPO, na sala, e 
-reescreva-os em PICAT. \textcolor{red}{Não avance aos próximos exercícios sem fazer \textbf{todos} exercícios acima.}
- 
-
-
-
 \item Resolva por recursão os seguintes problemas:
 \begin{itemize}
 
@@ -100,25 +93,6 @@ reescreva-os em PICAT. \textcolor{red}{Não avance aos próximos exercícios sem
  \end{verbatim}
   Qual a sequência de invocações da função durante o cálculo de \texttt{F(5)}?
   Implemente-a em PICAT.
-
-
-\item Implemente em PICAT um programa que imprima um retângulo de (X,Y) de asteriscos,
-onde X é o número de linhas e Y é o número de colunas.
-
-
-\item Implemente em PICAT um programa que imprima um triângulo de X de asteriscos, na primeira linha,
-X-1 na linha seguinte, e assim sucessivamente, até 1 asterisco na última linha.
-
-\item Reescreva o problema acima, mas com o triângulo 
-invertido.
-
-
-\item  Implemente em PICAT um programa que imprima um triângulo de X de asteriscos, na primeira linha,
-contudo, este deverá ter um formato de um triângulo
-equilátero.
-
-\item Reescreva o problema acima, mas com o triângulo 
-equilátero invertido.
 
 
 \item Write a program in Picat to print first 50 natural numbers using recursion.
