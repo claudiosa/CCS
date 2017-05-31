@@ -1,3 +1,9 @@
+/*
+  BOM MATERIAL
+  http://www.inf.ufpr.br/cursos/ci067/Docs/NotasAula/notas-11_Fun_c_coes.html
+ */
+
+
 
 #include<stdio.h>
 #include <stdlib.h>
