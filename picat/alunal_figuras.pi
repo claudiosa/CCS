@@ -1,0 +1,60 @@
+main ?=> Status = command("clear") ,
+		printf("====================================== %d \n\n", Status),
+    %%imp_ast(20)
+		%imp_ret(5,2), 
+		%imp_triang_1(7),
+		triang_2(5),
+		nl
+    .
+main =>  printf("\n Profs are humans !!!").   
+
+
+imp_ast(0) => true. /* regra aterramento*/
+imp_ast(N) => N > 0,
+              printf("*"),
+              N_1  =  (N - 1),
+              imp_ast(N_1).
+                   
+imp_ret(0 , _ ) => true. %%% ATERRAMENTO                  
+imp_ret(Linha, Coluna) =>
+        (Linha>0, Coluna>0),
+        imp_ast(Coluna),
+        nl,
+        Aux = Linha -1,
+        imp_ret( Aux , Coluna ).
+  
+imp_triang_1(0) ?=> true. %%% ATERRAMENTO                  
+imp_triang_1(Linha) =>
+        (Linha>0),
+        imp_ast(Linha),
+        nl,
+        Aux = Linha - 1,
+        imp_triang_1( Aux ).
+
+triang_2(X) => imp_triang_2(X,0).
+
+imp_triang_2(X,Y) ?=> 
+       ==(X,Y), 
+       imp_ast(Y). %%% ATERRAMENTO                  
+imp_triang_2(X,Y) =>
+        imp_ast(Y),
+        nl,
+        Aux = Y + 1,
+        imp_triang_2(X, Aux ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
