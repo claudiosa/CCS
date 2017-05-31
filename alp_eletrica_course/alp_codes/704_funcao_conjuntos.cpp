@@ -58,14 +58,14 @@ int main (void)
   for (int i = 0; i < K; i++)
   printf(" |--> %d" , Uniao[i]);
   
-  //  
   // FAZER INTERSECAO
   // 0. CRIAR VETOR INTERSECAO ()
   int Inter[iguais]; // quantos comuns ... ja calculados
    // faca figura e comprove
   // 1. COMPARAR A com  B 
   // 2. INSERE os repetidos (pertence = true)
-  
+    
+  // para os alunos fazerem como exercicio
   
   
   
@@ -81,7 +81,8 @@ int main (void)
   int tam_AB =  (int) (sizeof(dif_AB) / sizeof(dif_AB[0]));
   int tam_BA =  (int) (sizeof(dif_BA) / sizeof(dif_BA[0]));
   // faca figura e comprove 
-  
+    
+  // para os alunos fazerem como exercicio
   
   
   
@@ -91,7 +92,7 @@ int main (void)
   int dif_SIM[(N-iguais) + (M-iguais)]; //
   int tam_SIM =  (int) (sizeof(dif_SIM) / sizeof(dif_SIM[0]));
   // REPETE o PROCEDIMENTO DA UNIAO A e B visto a acima  
-  
+  // para os alunos fazerem como exercicio
   
   
   
