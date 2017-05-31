@@ -1,11 +1,20 @@
 % Soma como predicado
 
-main => soma_p1(7, X), 
+main ?=> Status = command("clear") ,
+		printf("====================================== %d", Status),
+        soma_p1(7, X), 
         printf("\n soma_P1: %d " , X), 
         soma_p2(7, Y), 
         printf("\n soma_P2: %d " , Y), 
         printf("\n soma_f1: %d " , soma_f1(7) ),
         printf("\n soma_f2: %d " , soma_f2(7) ).   
+
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong !!!").
+
+
+
       
 /* recursividade CLASSICA -- prolog like*/
 soma_p1(0,S) ?=> S = 0.   % regra backtrackable
@@ -14,6 +23,10 @@ soma_p1( N, S ) => N > 0, %%% regra recursiva
                    Ant  =  (N - 1),
                    soma_p1( Ant , Parcial ),
                    S = (N + Parcial) . 
+
+
+
+
 
 /* simplificada */
 soma_p2(0,S) ?=> S = 0.

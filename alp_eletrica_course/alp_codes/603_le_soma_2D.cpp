@@ -12,16 +12,12 @@ int main (void)
   // vamos criar e ler a matriz
   int matriz[M][N];
   int i, j; 
-<<<<<<< HEAD
-=======
   int SOMA = 0;
   float MED_1, MED_2; // SOMA/ (MxN)
->>>>>>> b5d2ef68773a9e6aaf7e6c3ae0400ff4090520ec
   
   /* LEITURA */ 
   for (i = 0; i < M; i++)
     for (j = 0; j < N; j++)
-<<<<<<< HEAD
 			{ scanf("%d ", & matriz[i][j] );
 			 printf (" %d\t", matriz[i][j]);
 	       }
@@ -36,8 +32,7 @@ int main (void)
      } // fim do  2o. for
      
      printf("\n Profs. are humans !!!! \n\n");
-=======
-			 scanf("%d ", & matriz[i][j] );
+		 scanf("%d ", & matriz[i][j] );
 			
   /* FAZ SOMA */			
   for (i = 0; i < M; i++)
@@ -53,7 +48,6 @@ int main (void)
     MED_2 = ( float ) SOMA/(M*N); 
     printf ("SOMA = %d\t MED_1: %0.4f \t MED_2: %0.4f", SOMA ,MED_1, MED_2);
 	printf("\n Profs. are humans !!!! \n\n");
->>>>>>> b5d2ef68773a9e6aaf7e6c3ae0400ff4090520ec
 
   return 0;
 }
