@@ -1,4 +1,13 @@
 %%import os.
+import os.
+main ?=> Status = command("clear") ,
+		printf("====================================== %d\n", Status),
+        retangulo(3,4), nl,
+		retangulo(1,4), nl,
+		retangulo(4,2),
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong ... THINK and Check AGAIN!!!").
 
 cat_F ?=> command("cat retangulo.pi") = Status , 
           printf("====================================== %d", Status).
@@ -8,22 +17,20 @@ cat_F =>  printf("\n Wrong file name !!!").
 %% cp("retangulo.pi", File), printf("%s", File).
 %% list_all =>  printf("%s", "retangulo.pi").
 
-main => retangulo(3,4), nl,
-	retangulo(1,4), nl,
-	retangulo(4,1).
 
-imp_col(0) ?=>  true.
-imp_col(1) ?=>  write('*'). 
-imp_col(N2) =>  write('*'), 
+imp_ast(0) ?=>  true.
+imp_ast(1) ?=>  write('*'). 
+imp_ast(N2) =>  write('*'), 
           N1 := (N2-1), 
-          imp_col(N1).
+          imp_ast(N1).
 /**** Coluns ****/
-retangulo(X, Y ) ?=> (X==0; Y==0); 
-		(X < 1; Y < 1), 
-                write('X >= 1 , Y >= 1').
+retangulo(X, Y ) ?=>  (X==0; Y==0). %% BACK em caso de falha na parada
+retangulo(X, Y ) ?=>  (X < 1; Y < 1), %% BACK em caso de falha na parada 
+				  printf("\n X >= 1 , Y >= 1").
 
 retangulo(Linha, Coluna) =>  
-               imp_col(Coluna), 
-               nl, /* salta a linha */
-               L_N := (Linha - 1) , 
-   	       retangulo( L_N, Coluna).
+               imp_ast(Coluna), 
+                nl, /* salta a linha */
+                L_N := (Linha - 1) , 
+   	           retangulo( L_N, Coluna).
+%--------------------------------------------------------------------------%

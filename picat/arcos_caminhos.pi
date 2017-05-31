@@ -11,15 +11,15 @@ arco( d, e )      .
 caminho_1(X,Y) ?=> arco(X,Y) .
 caminho_1(X,Y)  => arco(X,Z) ,   caminho_1(Z,Y) .
 
-%%% olhar nas figuras de sala de aula
+%%% OLHAR NAS FIGURAS DE SALA DE AULA
 %%% AVALIAR ESTE PROBLEMA aqui ......
-caminho_2(X,Y) ?=> caminho_2(X,Z), arco(Z,Y)  .
 caminho_2(X,Y) => arco(X,Y) .
-
+caminho_2(X,Y) => caminho_2(X,Z), arco(Z,Y)  .
+%% EM LPO caminho_2 eh OK, em PICAT nao funciona esta recursao!
 
 
 listar_todos  ?=>     %%% this rule is backtrackable
-          caminho_2(X,Y)                         ,   %% and
+          caminho_1(X,Y)                         ,  %% and
           printf("\n X: %w ---> Y: %w ", X,Y)  ,   %% and
           false.
 
