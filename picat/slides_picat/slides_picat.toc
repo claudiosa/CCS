@@ -1,19 +1,14 @@
-\beamer@endinputifotherversion {3.36pt}
 \select@language {brazilian}
-\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{4}{0}{1}
 \beamer@sectionintoc {2}{Caracter\IeC {\'\i }sticas}{7}{0}{2}
-\beamer@sectionintoc {3}{Tipos de Dados}{17}{0}{3}
-\beamer@subsectionintoc {3}{1}{Vari\IeC {\'a}veis}{18}{0}{3}
-\beamer@subsectionintoc {3}{2}{\IeC {\'A}tomos}{19}{0}{3}
-\beamer@subsectionintoc {3}{3}{N\IeC {\'u}meros}{20}{0}{3}
-\beamer@subsectionintoc {3}{4}{Termos Compostos}{22}{0}{3}
-\beamer@subsectionintoc {3}{5}{Listas}{23}{0}{3}
-\beamer@subsectionintoc {3}{6}{Estruturas}{25}{0}{3}
-\beamer@sectionintoc {4}{Exemplos}{28}{0}{4}
-\beamer@subsectionintoc {4}{1}{Entradas e Sa\'idas}{31}{0}{4}
-\beamer@sectionintoc {5}{PICAT aplicado a l\IeC {\'o}gica -- LMA}{32}{0}{5}
-\beamer@subsectionintoc {5}{1}{Fatos}{34}{0}{5}
-\beamer@subsectionintoc {5}{2}{Regras}{40}{0}{5}
-\beamer@subsectionintoc {5}{3}{Exerc\IeC {\'\i }cios}{59}{0}{5}
-\beamer@subsectionintoc {5}{4}{Recurs\IeC {\~a}o}{61}{0}{5}
-\beamer@sectionintoc {6}{Conclus\IeC {\~a}o}{78}{0}{6}
+\beamer@subsectionintoc {2}{1}{Instala\IeC {\c c}\IeC {\~a}o}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{Usando do Picat}{9}{0}{2}
+\beamer@sectionintoc {3}{Exemplo}{10}{0}{3}
+\beamer@sectionintoc {4}{Tipos de Dados}{15}{0}{4}
+\beamer@subsectionintoc {4}{1}{Outros Detalhes}{16}{0}{4}
+\beamer@sectionintoc {5}{Conclus\IeC {\~a}o}{20}{0}{5}
+\beamer@sectionintoc {6}{Contexto dos Tipos de Dados}{23}{0}{6}
+\beamer@sectionintoc {7}{Tipos de Dados}{24}{0}{7}
+\beamer@subsectionintoc {7}{1}{Tipos Simples}{25}{0}{7}
+\beamer@subsectionintoc {7}{2}{Tipos Compostos}{37}{0}{7}
+\beamer@sectionintoc {8}{Conclus\IeC {\~o}es}{46}{0}{8}

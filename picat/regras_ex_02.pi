@@ -45,18 +45,18 @@ listar_ant =>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=>   %%% ?=>  regra "backtrackavel"
  %   listar_pais,
-    listar_ant, 
+     listar_ant, 
  %   avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
  %   irmao(Z,W), printf(" \n ==> %w  eh irmao de  %w", Z , W),
-    false.   
+     false.   
 main => true.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
-1. Todo x que é pai de um y implica em x ser um antepassado
+1. Todo x que eh pai de um y implica em x ser um antepassado
 de y
 QxQy (pai(x,y) --> antepassado(x,y))
 
-2. Todo x que é pai de um z, e z
+2. Todo x que eh pai de um z, e z
 eh um  antepassado de y, entao x eh antepassado de y
 
 QxQyQz (pai(x,z) and antepassado(z,y) --> antepassado(x,y))
@@ -64,8 +64,8 @@ QxQyQz (pai(x,z) and antepassado(z,y) --> antepassado(x,y))
 EM PICAT -- clausulas de HORN (sempre apenas uma conclusao)
 */
 antepassado(X,Y) ?=> pai(X,Y). %%%%%% ?=>  regra "backtrackavel"
-antepassado(X,Y) => pai(X,Z),
-                    antepassado(Z,Y).
+antepassado(X,Y) =>  pai(X,Z),
+                     antepassado(Z,Y).
 
 
 
