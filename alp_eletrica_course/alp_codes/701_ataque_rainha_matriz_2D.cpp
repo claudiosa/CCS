@@ -16,6 +16,7 @@ int main(void)
    
    /* 5 variáveis */
 //   scanf("%d", &N);
+   printf("\nDigite as POSICOES da Rainha e depois do REI ... 0 e 7\n ==>");
    scanf("%d %d", &x_Rainha, &y_Rainha);
    scanf("%d %d", &x_REI, &y_REI);
 /***************************************************/
@@ -44,7 +45,11 @@ int main(void)
     // 2a funcao de  imprimir a matriz ... ver se estah OK
     // 3a funcao recebe i,j da Rainha ... e preencher com 1 as diagonais e H e V
     // 4a funcao recebe i,j do Rei ... e verifcar se i,j esta nas celulas com 1 as diagonais e H e V  
-    printf("\n----------------------------------\n");
+
+    printf("\n----------------------------------");
+    printf("\n RAINHA: [%d , %d]", x_Rainha, y_Rainha);
+    printf("\n REI: [%d , %d]\n", x_REI, y_REI);
+
     return 1;  // FIM DO MAIN
     
 }
@@ -54,10 +59,10 @@ int main(void)
 void inicializa_matriz( int matriz[][N], int TAM)
 {
   int i, j; 	
-  /* inicializa com 0 toda matriz */ 
+  /* INICIALIZA COM 0 TODA MATRIZ */ 
   for (i = 0; i < TAM; i++)
     for (j = 0; j < TAM; j++)
-			 matriz[i][j] = 0;
+		  matriz[i][j] = 0;
    return;
  }  
  
@@ -82,7 +87,7 @@ int posicao_legal_do_REI(int  matriz[][N], int TAM, int row, int col)
         return (0); // nao mexe no tabuleiro
    else
    {
-    matriz[row][col] = 8; // UMA MARCA AO REI
+    matriz[row][col] = 2; // UMA MARCA AO REI
     return (1);
    }
  }    
