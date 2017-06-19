@@ -1,9 +1,10 @@
 main ?=> Status = command("clear") ,
 		printf("====================================== %d \n\n", Status),
-    %%imp_ast(20)
+        %%imp_ast(20)
 		%imp_ret(5,2), 
 		%imp_triang_1(7),
-		triang_2(5),
+		triang_2(5),nl,
+		triang_3(17),
 		nl
     .
 main =>  printf("\n Profs are humans !!!").   
@@ -15,6 +16,12 @@ imp_ast(N) => N > 0,
               N_1  =  (N - 1),
               imp_ast(N_1).
                    
+imp_spc(0) => true. %aterramento
+imp_spc(N) => N>0,
+			  printf(" "),
+			  Aux = (N - 1),
+			  imp_spc(Aux).
+			                     
 imp_ret(0 , _ ) => true. %%% ATERRAMENTO                  
 imp_ret(Linha, Coluna) =>
         (Linha>0, Coluna>0),
@@ -43,7 +50,21 @@ imp_triang_2(X,Y) =>
         imp_triang_2(X, Aux ).
 
 
+/******************************************/
 
+imp_tri_C(Linha, Cont) ?=>
+         Linha >0 ,
+        imp_spc(Cont),
+        imp_ast(Linha),
+        imp_spc(Cont),
+        nl,
+        Aux1 = Linha - 2,
+        Aux2 = Cont + 1,
+        imp_tri_C(Aux1, Aux2).
+imp_tri_C(_, _) =>  printf("\n\n Fim do ISOCELES !!!").  
+
+triang_3(X) => imp_tri_C(X,0).
+/******************************************/
 
 
 
