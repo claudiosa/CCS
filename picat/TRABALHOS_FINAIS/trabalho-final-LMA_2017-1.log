@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.21)  18 JUN 2017 23:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.21)  20 JUN 2017 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -575,36 +575,36 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 26.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 42.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 48.
 
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 42.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 81.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (11.54036pt too wide) in paragraph at lines 153--154
+Overfull \hbox (11.54036pt too wide) in paragraph at lines 155--156
 []\T1/cmr/m/n/12 Alguns ou-tros Pro-logs: $\T1/cmtt/m/n/12 http : / / www . the
 freecountry . com / compilers / prolog .
  []
 
 
-Overfull \hbox (2.0802pt too wide) in paragraph at lines 155--156
+Overfull \hbox (2.0802pt too wide) in paragraph at lines 157--158
 []\T1/cmr/m/n/12 Prolog on-line: $\T1/cmtt/m/n/12 http : / / www . tutorialspoi
 nt . com / execute _ prolog _ online .
  []
 
 
-Overfull \hbox (0.76483pt too wide) in paragraph at lines 157--158
+Overfull \hbox (0.76483pt too wide) in paragraph at lines 159--160
 []\T1/cmr/m/n/12 PICAT on-line: $\T1/cmtt/m/n/12 http : / / picat . retina . uf
 sc . br / picat . html$\T1/cmr/m/n/12 . Sim-ples-mente:
  []
@@ -614,18 +614,18 @@ sc . br / picat . html$\T1/cmr/m/n/12 . Sim-ples-mente:
 \openout4 = `trabalho-final-LMA_2017-1.toc'.
 
  [4]
-Overfull \hbox (4.5536pt too wide) in paragraph at lines 181--186
+Overfull \hbox (4.5536pt too wide) in paragraph at lines 183--188
 \T1/cmtt/m/n/12 https : / / rachacuca . com . br / logica / problemas / campeon
 ato-[]de-[]boliche/$ \T1/cmr/m/n/12 (tem a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--186
+Underfull \hbox (badness 10000) in paragraph at lines 183--188
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 194--198
+Underfull \hbox (badness 10000) in paragraph at lines 196--200
 
  []
 
@@ -633,7 +633,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--198
 File: figuras/exercicio_logica_01.jpg Graphic file (type jpg)
 
 <use figuras/exercicio_logica_01.jpg>
-Package pdftex.def Info: figuras/exercicio_logica_01.jpg used on input line 222
+Package pdftex.def Info: figuras/exercicio_logica_01.jpg used on input line 231
 .
 (pdftex.def)             Requested size: 404.08932pt x 279.75415pt.
  [7 <./figuras/exercicio_logica_01.jpg>]
@@ -658,7 +658,7 @@ t/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/cm-super/sfrm2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
 sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></
 usr/share/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on trabalho-final-LMA_2017-1.pdf (7 pages, 347024 bytes).
+Output written on trabalho-final-LMA_2017-1.pdf (7 pages, 347518 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
