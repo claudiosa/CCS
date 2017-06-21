@@ -6,6 +6,7 @@ int main( void )
 	 int N1, N2; 
      char OP;
      float RES = 0.0;
+     printf("\n Digite DOIS operandos N1 e N2\n e uma operacao {+, -, / ou /} : ");
      scanf("%d %d %c", &N1, &N2, &OP);
      printf("\n LEU:\t %d\t %d\t %c: ", N1, N2, OP);
      switch(OP)
