@@ -6,27 +6,29 @@ main ?=>
 
 main => printf("\n HOUSTON ... Something Wrong !!!").
 
-%%% SEMPRE VERDADE ...
+%%% SEMPRE VERDADE ... o predicado abaixo NUNCA falha
 repita ?=>  true.
 repita => repita.
 
 menu ?=>
      repita,
      %%% pode ser incluido a limpeza de TELA AQUI ....
-     printf("\n Entre uma opcao de 0 a 2 \n 0: para sair\n Digite: "), 
-     Query = read_int(),
-     Query >= 0,
-     Query < 3,
-     opcao(Query),
+     printf("\n Entre uma opcao de 0 a 3 \n 0: para sair\n Digite: "), 
+     Opcao_INT = read_int(),
+     Opcao_INT >= 0,
+     Opcao_INT < 4,
+     opcao(Opcao_INT),
      false
      .
      
-menu => printf("\n  ALGO ERRADO nas opcoes ou na leitura ...").
+menu => 
+    printf("\n ALGO ERRADO nas opcoes ou na leitura ... \n NUNCA esta mensagem deve aparecer!").
 /************ AS OPCOES ***************/
 opcao(0) => write('.......SAINDO.........'), 
             nl, 
             halt. %% exit
-opcao(1) => write('Option 1').
-opcao(2) => write('Option 2').
-      
+opcao(1) => write('Option 1 ... voce completa aqui').
+opcao(2) => write('Option 2 ... voce completa aqui').
+opcao(3) => write('Option 3 ... voce completa aqui').      
         	
+/* Muitos detalhes sobre recursao neste exemplo */
