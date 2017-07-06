@@ -1,0 +1,105 @@
+% ALUNOS: Filipe Ramos e Gustavo Alvise
+%TURMA: A - Rogerio
+%
+%EXERCÍCIO 3 DO TRABALHO FINAL DE LMA
+
+main ?=> 
+	Limpar = command("clear"),
+	printf("Exercicio resolvido pelos alunos Filipe Ramos e Gustavo Alvise, da turma A (professor Rogerio) de LMA 2017-1\n\n"),
+	menu.
+
+main => printf("\n ERRO!").
+
+repita ?=>  true.
+repita => repita.
+
+menu ?=>
+     repita,
+     printf(" Entre uma opcao de 0 a 2\n 1: para ver as formulas implementadas de complemento_2016_2.pdf (p. 26-27)\n 2: para ver a solucao da figura 1 (parte 2 do exercicio)\n 0: para sair\n Digite: "), 
+     Query = read_int(),
+     Query >= 0,
+     Query < 3,
+     opcao(Query),
+     false.
+     
+menu => printf("\n  ALGO ERRADO nas opcoes ou na leitura ...").
+
+opcao(0) => halt.
+opcao(1) => Limpar = command("clear"),ex1.
+opcao(2) => Limpar = command("clear"),ex2.
+
+
+%%% primeira parte do exercicio, abaixo
+ex1 =>     printf(" Entre uma opcao de 0 a 7 -- cada numero, a partir do 1, eh um exercicio\n 0: para voltar\n Digite: "),
+               Nquery = read_int(),
+               Nquery >= 0,
+               Nquery < 8,
+               nopcao(Nquery).
+
+nopcao(0) => Limpar = command("clear").
+nopcao(1) => if not(pessoa(X),not(gosta(X,_))) then printf("\n Todas as pessoas gostam de outra pessoa\n\n") end.
+nopcao(2) => if gosta1(X,Y) then printf("\n Existe uma pessoa de quem todas as outras pessoas gostam\n\n") end.
+nopcao(3) => if (frequenta(joao,ia);frequenta(joao,pe)) then printf("\n O Joao frequenta a cadeira de IA ou PE (pode frequentar as duas) \n\n") end.
+nopcao(4) => if (frequenta(rui,ia),not(frequenta(rui,pe))) then printf("\n O Rui frequenta ou a cadeira de IA ou a cadeira de PE(somente uma das duas) \n\n") end.
+nopcao(5) => if count_all(irma1(ana,X)) <= 1 then printf("\n A Ana tem no maximo uma irma\n\n") end.
+nopcao(6) => if count_all(irma1(ana,X)) == 1 then printf("\n A Ana tem exactamente uma irma\n\n") end.
+nopcao(7) => if count_all(irma2(ana,X)) >= 2 then printf("\n A Ana tem pelo menos duas irmas\n\n") end.
+
+index(-)
+pessoa(marcela).
+pessoa(janaina).
+pessoa(marcelo).
+
+index(-,-)
+gosta(marcelo,marcela).
+gosta(marcela,janaina).
+gosta(janaina,marcela).
+
+gosta1(A,B) => pessoa(A),pessoa(B),A!=B.
+
+index(-,-)
+frequenta(joao,ia).
+frequenta(joao,pe).
+frequenta(rui,ia).
+
+index(-,-)
+irma1(ana,maria).
+index(-,-)
+irma2(ana,maria).
+irma2(ana,paula).
+irma2(ana,natalia).
+
+
+%%% segunda parte do exercicio, abaixo
+index(-)
+nacao(cuba).
+nacao(usa).
+
+index(-,-)
+inimigopolitico(cuba,usa).
+inimigopolitico(ira,usa).
+
+index(-,-)
+guerra(coreia,usa).
+
+index(-)
+americano(west).
+
+index(-)
+missil(m1).
+
+index(-)
+bomba(granada).
+
+index(-,-)
+possui(cuba,m1).
+
+criminoso(X) => americano(X),arma(Y),nacao(Z),hostil(Z),vende(X,Z,Y),X!=Y,Y!=Z,X!=Z.
+
+hostil(X) => guerra(X,usa);inimigopolitico(X,usa).
+
+arma(X) => missil(X);bomba(X).
+
+vende(west,cuba,X) => possui(cuba,X),missil(X).
+
+ex2 => criminoso(west),printf(" West eh criminoso!\n\n").
