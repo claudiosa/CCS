@@ -4,7 +4,8 @@ int main () {
    int S = 0; // variavel para guardar a soma
    int N; // ate N
    printf(" Digite um inteiro N MAIOR que 0 :");
-   scanf("%d", &N );
+  // scanf("%d", &N );
+   N = 10; // fins de DDD 
    /* do loop execution */
    for(int cont = 0 ; cont <= N; cont ++)
    // cont ++  <=> cont = cont + 1
