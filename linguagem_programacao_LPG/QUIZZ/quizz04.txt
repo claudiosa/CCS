@@ -1,0 +1,29 @@
+QUIZZ 04
+26/10
+
+
+1. Qual o nome do ponteiros para o arquivo padrão de entrada e  saída da linguagem C?
+
+2. Quais os tipos de arquivos que existem?
+   
+3. Como se atribui a indicação de um ponteiro há um arquivo?
+
+4. Qual a função que abre um arquivo? E a função que fecha?
+
+5. Como se testa a abertura e fechamento de um arquivo?
+
+6. Como se constroi um ciclo com o "while" para realizar a leitura
+e escrita até o final de arquivo
+
+7. (vale mais) Seja um ponteiro "fpt" para um arquivo. Seja uma estrutura X de 60 bytes, com os campos NOME, IDADE, PESO. Escreva
+os comandos para:
+
+	a. Escrever estes campos em um arquivo TEXTO
+	b. Escrever 10 vezes este registro X em arquivo BINARIO
+	c. Repita os itens a) e b) para leituras
+
+
+
+
+
+

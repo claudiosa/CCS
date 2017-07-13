@@ -1,0 +1,124 @@
+\documentclass[10pt]{beamer} 
+\usetheme[pageofpages=of,% String used between the current page and the
+          % total page count.
+          alternativetitlepage=true,% Use the fancy title page.
+          %titlepagelogo=coca,% Logo for the first page.
+          titleline=true
+          ]{Torino}
+%\usetheme{Frankfurt}
+\usecolortheme{chameleon}
+
+\usepackage{graphicx,hyperref,url}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuges,brazilian]{babel}
+%%%\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subfigure}
+%\usepackage{subcaption}
+\usepackage{latexsym}
+\usepackage{amssymb, amsmath}
+\usepackage{multicol}
+\usepackage{pifont}%,bbding}%%,dingbat} %%% ver manual de simbolos
+\usepackage[final]{listings}
+\usepackage{comment}
+%\usepackage{sansmathaccent}
+%\pdfmapfile{+sansmathaccent.map}
+
+\definecolor{azulclaro}{rgb}{0.9,0.9,0.9}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+%\newcommand{\minizinc}{MiniZinc}
+
+\lstset{ 
+  %  label={pgm_ex01},
+    backgroundcolor=\color{azulclaro}, 
+    language=C, %%Miranda,%%Perl,%%%Python, %%Mercury,
+    showstringspaces=false,
+    basicstyle=\bf\scriptsize\ttfamily,
+%%      basicstyle= \footnotesize %%% TESTAR
+%%      keywordstyle=\bfseries\color{green!40!black},
+    keywordstyle=\textbf{\color{mygreen}}, 
+    otherkeywords={*, \%, array, constraint, solve, output,  show, "/\", satisfy, set, of, if, then, elseif, float, search},
+%%  keywordstyle=\color{blue},       % keyword style
+%%    commentstyle=\itshape\color{purple!40!black},
+      commentstyle=\color{orange},    % comment style
+      identifierstyle=\color{blue},
+      stringstyle=\color{orange},
+      stringstyle=\color{mymauve},
+      numbers=left,  % where to put the line-numbers; possible values are (none, left, right)
+      numbersep=5pt,   % how far the line-numbers are from the code
+      numberstyle=\tiny\color{magenta},
+      keepspaces=true      
+    % %caption={LEGENDA no source PASCAL ficou OK},
+}
+
+
+\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/picat}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%Global Background must be put in preamble
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{amarelinho.pdf}}
+%%% \begin{frame}[allowframebreaks=0.8]
+
+% The log drawn in the upper right corner.
+
+%\logo{\centering
+%\includegraphics[height=0.050\paperheight]{figuras/logo_SBPO_Peixe.png}
+%%\hspace{9.6cm}
+%\includegraphics[height=0.027\paperheight]{figuras/logo_udesc_horizontal.jpg}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title[EDA]{\fontsize{20}{30}\selectfont \textcolor{black}{Estrutura de Dados}}
+
+\author[]{Claudio Cesar de Sá\\
+     {\small \url{claudio.sa@udesc.br}}}
+
+\institute[UDESC]{
+    Departamento de Ci\^encia da Computa\c{c}\~ao \\
+    Centro de Ci\^encias e Tecnol\'ogias\\
+   Universidade do Estado de Santa Catarina}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} [allowframebreaks=0.8]
+\frametitle{Sumário}
+\tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Agradecimentos}
+
+Vários autores e colaboradores ...
+\begin{itemize}
+  \item Alessandro Ferreira Leite -- ???
+  \item Lucas Hermman Negri -- IFMS
+  \item Gilmário -- UDESC
+  \item Ao Google Images ... 
+  
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{pilha_EDA} % cap 0
+
+\end{document}

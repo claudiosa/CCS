@@ -1,0 +1,56 @@
+I. PARTE
+Seja PARTES codigo abaixo:
+
+Dado:
+    int x = 999;
+    1. Como se imprime o ENDERECO da variavel x?
+        
+    Seja:    
+    int * ptr_x;
+    ptr_x = & x;
+    2. Como se imprime o ENDERECO da variavel
+        x via ponteiro?
+    3. Como se imprime o CONTEUDO da variavel
+        x via ponteiro?
+================================================
+    Seja (TUDO COM PONTEIROS):
+    for(i=0 ; i < 10; i++)
+     scanf(" %d", &array[i]);
+    
+    4. Crie um ponteiro,  pt_array, para array
+    5. Imprima o conteúdo de cada elemento do array
+    6. Adicione o ponteiro por um e imprima o
+       seu conteudo ... por 10 vezes.
+    7. Crie um novo ponteiro pt_AUX que receba o
+       endereço do pt_array (ponteiro de ponteiro).
+================================================
+II PARTE
+   1. A função "fabs" ... qual o seu uso?
+   2. O que é "cast" de tipos de dados?
+   3. Como fazer um "loop" infinito em C?
+   4. O que ocorre int x = 4/8? Quanto vale x?
+   5. Qual o nome da biblioteca de funções matemáticas?
+   6. Qual o nome da constante do numero PI lá definida?
+   7. Para compilar é g++ ou gcc?  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+        
+    
+        
+    
