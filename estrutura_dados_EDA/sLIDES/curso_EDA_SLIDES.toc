@@ -1,0 +1,3 @@
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Pilha}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{Introdu\IeC {\c c}\IeC {\~a}o}{5}{0}{1}

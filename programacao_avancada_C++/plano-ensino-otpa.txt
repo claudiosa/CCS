@@ -1,0 +1,168 @@
+OTPA001 - TÓPICOS EM PROGRAMAÇÃO AVANÇADA 
+
+Ementa
+Fundamentos matemáticos. Programação e linguagens. Estruturas de dados. 
+Sistemas de Arquivos. Algoritmos de buscas em Strings. Recursividade. 
+Ordenação. Busca exaustiva. Método guloso. Divisão-e-conquista. 
+Programação dinâmica. Grafos. Programação com Backtracking. 
+Implementação de soluções diversas para ampla variedade de problemas. 
+
+Objetivo Geral
+
+Prover ao estudante um arcabouço de resolução de problemas computacionais do tipo desafios de
+programação.
+
+Objetivo Especificos
+- Aprender os fundamentos de uma linguagem de programação utilizada nas competições da
+  Maratona de Programação
+- Retomar os fundamentos teóricos sobre os conteúdos da ementa proposta
+- Aprender a realizar implementações destes problemas na linguagem apresentada
+
+
+Conteúdo Programático (Atividades de aula)
+
+
+Apresentação da Disciplina 
+
+Exercícios em laboratório - 2a. Parte
+
+Atendimento as dúvidas
+
+Seminários entre professores e alunos
+
+Correção das listas de exercício - via URIONLINE
+
+
+
+
+Fundamentos da Linguagem C++ -- Revisão
+ 
+A Biblioteca STL 
+
+Apresentações:
+Fundamentos matemáticos. Programação e linguagens. Estruturas de dados. 
+Sistemas de Arquivos. Algoritmos de buscas em Strings. Recursividade. 
+Ordenação. Busca exaustiva. Método guloso. Divisão-e-conquista. 
+Programação dinâmica. Grafos. Programação com Backtracking. 
+Implementação de soluções diversas para ampla variedade de problemas. 
+
+
+
+
+
+
+
+
+
+Metodologia 
+
+ Aulas expositivas sobre um conteúdo  na parte da manhã e as
+ experimentações de laboratório via sitios de resolução de problemas.
+ Aulas expositivas seguidas de discussão do aprendizado
+ Aprendizado será avaliado no mesmo dia -- período vespertino
+ 
+
+
+Avaliacao:
+
+ +/- 7 listas de exercício: 60%
+ Pontos da maratona: bônus -- 20 de agosto
+ Prova competição final: 20%
+ Seminários: 20%
+
+Bibliografia Basica:
+
+S. Skiena e M. Revilla, Programming Challenges: The Programming Contest Training Manual,
+Springer-Verlag, 2003
+
+Algorithms for programmers ideas and source code
+J ¨org Arndt - arndt@jjj.de
+Disponivel ONLINE http://www.jjj.de/fxt/fxtbook.pdf
+
+
+Algoritmos - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
+Editora: ED CAMPUS 
+
+
+Bibliografia Complementar:
+
+S. Skiena, The Algorithm Design Manual, Telos/Springer-Verlag, 1998.
+
+R. Sedgewick, Algorithms in C++, Addison-Wesley, 1992.
+
+J. O’Rourke, Computational Geometry in C, Cambrigde University Press, 1998.
+
+Udi Manber, Introduction to Algorithms: A Creative Approach, Addison-Wesley, 1989.
+
+Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein,Introduction to Algorithms, MIT Press, 2001.
+
+https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/
+
+https://github.com/claudiosa/CCS/tree/master/C++
+
+Algoritmos - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
+Editora: ED CAMPUS 
+
+YOUTUBE -- vídeo aulas -- 
+
+
+Observações:
+
+1. Regras 
+2. 
+
+Seminários:
+
+Renan: Teoria dos números -- 
+Regis: Tratamento de String
+Tiago: Geometria Computacional
+Guilherme: Grafo - Arvores e Grafos em Acíclicos
+Leonardo: Union-Find Disjoint Sets
+Rafael: PD
+Bruno: Busca Gulosa
+Robson:
+Devair:
+Rafael:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

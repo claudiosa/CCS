@@ -1,0 +1,160 @@
+
+
+
+\section{Projetos de SMAs}
+
+\begin{frame}
+
+\begin{center}
+{\huge Capítulo 5 -- Projetos de SMAS}
+\end{center}
+
+\end{frame}
+
+
+%------------------------------------------------------------------------
+\begin{frame} %[allowframebreaks=0.9]
+
+
+\frametitle{O que vai ter neste capítulo}
+
+\begin{itemize}
+  \item Alguma metodologia?
+  \item Ambiente simulado: SIM (implementar)
+  
+  \item O que considerar na construção de SMAs
+  \item Perspectivas: reais e visionárias
+\end{itemize}
+
+
+\end{frame}
+
+%-----------------------------------------------------------------------------------
+
+\section{Implementação de SMAs}
+\begin{frame}
+
+    \frametitle{Agentes: Metodologia de desenvolvimento}
+    \begin{itemize}
+    \pause
+      \item Decompõem o problema em: \\
+      percepções, ações, objetivos, ambiente e outros agentes
+\pause
+      \item Decompõem tipo de conhecimento em:
+      \begin{itemize}
+        \item Quais são as propriedades relevantes do mundo?
+        \item Como o mundo evolui?
+        \item Como identificar os estados desejáveis do mundo?
+        \item Como interpretar suas percepções?
+        \item Quais as conseqüências de suas ações no mundo?
+        \item Como medir o sucesso de suas ações?
+        \item Como avaliar seus próprios conhecimentos?
+    
+      \end{itemize}
+      
+      \item O resultado dessa decomposição indica a arquitetura e o método de resolução de problema (raciocínio)
+      
+    \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------------
+
+\subsection{Simulação de Ambientes}
+\begin{frame}
+
+\begin{block}{Em geral a construção do agent segue um programa tal como:}
+  
+
+  funcao simulaAmbiente (estado, funcaoAtualizacao, 
+                         agentes, final)
+repita
+	para cada agente em agentes faça
+		 Percept[agente] := pegaPercepcao(agente,estado)
+	para cada agente em agentes faça
+		 Action[agente] := Programa[agente] (Percept[agente])
+      estado := funcaoAtualizacao(acoes, agentes, estado)
+	  scores := avaliaDesempenho(scores,agente,estado) 
+	            opcional
+ateh\_final
+
+  
+ \textcolor{red}{ Cuidado para não cair em tentação e ''\textit{roubar}” \/ do ambiente a descrição do que aconteceu. Usar a memória do agente!}
+ 
+ 
+ 
+\end{block}  
+    
+  
+\end{frame}
+%-----------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Desenvolvendo um agente inteligente:}
+\begin{block}{}
+
+\begin{description}
+  \item[Projeto]
+  
+  \begin{itemize}
+    \item Modelar tarefa em termos de ambiente, percepções, ações, objetivos e utilidade
+    \item Identificar o tipo de ambiente
+    \item Identificar a arquitetura de agente adequada ao ambiente e tarefa
+  \end{itemize}
+  
+  \item[Implementação]
+   
+   \begin{itemize}
+     \item O simulador de ambientes
+     \item Componentes do agente 
+     \item Testar o desempenho com diferentes instâncias do ambiente
+   \end{itemize}
+      
+\end{description}
+
+\end{block}  
+ 
+\end{frame}
+%-----------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Simulação de Ambientes}
+
+     ESTRUTURAS ... ver NORVIG -- pg 34 da T
+
+\end{frame}
+%----------
+
+
+%-----------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Simulação de Ambientes}
+
+     ESTRUTURAS ... ver NORVIG -- pg 34 da T
+
+\end{frame}
+%-----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+\begin{comment}
+\sectio{Aprendizagem}
+\begin{frame}
+
+    \frametitle{Aprendizagem}
+    \begin{itemize}
+    \pause
+      \item 
+\pause
+      \item cap 7
+    
+    \end{itemize}
+\end{frame}
+\end{comment}
