@@ -1,5 +1,0 @@
-Descr.: Este programa calcula a media entre tres notas:
-
-Digite a primeira nota: Digite a segunda nota: Digite a terceira nota: 
-
-A media entre as notas digitadas = 4.0
