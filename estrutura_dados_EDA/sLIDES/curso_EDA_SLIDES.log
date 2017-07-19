@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.21)  13 JUL 2017 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.26)  19 JUL 2017 16:59
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **curso_EDA_SLIDES.tex
 (./curso_EDA_SLIDES.tex
@@ -449,13 +449,19 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2013/03/28
+
+(/usr/share/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
 )))
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
-(/usr/share/texmf-dist/tex/latex/beamer/translator/translator.sty
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator.sty
 Package: translator 2010/06/12 ver 1.10
 
-(/usr/share/texmf-dist/tex/latex/beamer/translator/translator-language-mappings
-.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator-language-map
+pings.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
 \beamer@argscount=\count127
@@ -608,18 +614,20 @@ Package: amsthm 2015/03/04 v2.20.2
 \c@theorem=\count153
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
-(/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemedefault.sty
-(/usr/share/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemedefault.sty)
-
-(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemedefault.st
-y)
-(/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemedefault.st
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/theme/beamerthemedefault.st
 y
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/font/beamerfontthemedefault
+.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemedefau
+lt.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/inner/beamerinnerthemedefau
+lt.sty
 \beamer@dima=\dimen186
 \beamer@dimb=\dimen187
 )
-(/usr/share/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemedefault.st
-y))) (/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeTorino.sty
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/outer/beamerouterthemedefau
+lt.sty)))
+(/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeTorino.sty
 (/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemefancy.sty
 \beamer@fancy@lineup=\skip57
 \beamer@fancy@linemid=\skip58
@@ -1116,7 +1124,8 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 (/usr/share/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write5
 
-Excluding comment 'comment')
+Excluding comment 'comment'){/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+{/usr/share/texmf-dist/fonts/map/dvips/sansmathaccent/sansmathaccent.map}
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -1125,201 +1134,201 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 81.
+(hyperref)                removing `\\' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 81.
+(hyperref)                removing `\begingroup' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 81.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 81.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 81.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 81.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 81.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 81.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\%' on input line 81.
+(hyperref)                removing `\%' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 81.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 81.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 81.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\#' on input line 81.
+(hyperref)                removing `\#' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 81.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 81.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\&' on input line 81.
+(hyperref)                removing `\&' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textunderscore' on input line 81.
+(hyperref)                removing `\textunderscore' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\_' on input line 81.
+(hyperref)                removing `\_' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 81.
+(hyperref)                removing `\catcode' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 81.
+(hyperref)                removing `\active' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 81.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 81.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\~' on input line 81.
+(hyperref)                removing `\~' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textasciitilde' on input line 81.
+(hyperref)                removing `\textasciitilde' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 81.
+(hyperref)                removing `\<let>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 81.
+(hyperref)                removing `\\' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 81.
+(hyperref)                removing `\csname\endcsname' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 81.
+(hyperref)                removing `\Hy@tempa' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 81.
+(hyperref)                removing `\<def>-command' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 81.
+(hyperref)                removing `\Hy@tempa' on input line 82.
 
-(./curso_EDA_SLIDES.aux (./pilha_EDA.aux))
+(./curso_EDA_SLIDES.aux (./pilhas_EDA.aux) (./arvores_EDA.aux))
 \openout1 = `curso_EDA_SLIDES.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1386,7 +1395,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box82
-Package hyperref Info: Link coloring OFF on input line 90.
+Package hyperref Info: Link coloring OFF on input line 91.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1396,115 +1405,137 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count183
 )
-LaTeX Info: Redefining \ref on input line 90.
-LaTeX Info: Redefining \pageref on input line 90.
-LaTeX Info: Redefining \nameref on input line 90.
+LaTeX Info: Redefining \ref on input line 91.
+LaTeX Info: Redefining \pageref on input line 91.
+LaTeX Info: Redefining \nameref on input line 91.
 
 (./curso_EDA_SLIDES.out) (./curso_EDA_SLIDES.out)
 \@outlinefile=\write6
 \openout6 = `curso_EDA_SLIDES.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 90.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 90.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 91.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 90.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 90.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 90.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 90.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 90.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 90.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 90.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 90.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 90.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 90.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 90.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 90.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 90.
+(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 90.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 90.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 90.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 91.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 91.
+LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
+(Font)              `pureletters' in the math version `normal' on input line 91
+.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 91
+.
+LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
+(Font)              `pureletters' in the math version `bold' on input line 91.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 9
+1.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 91.
 
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dicti
-onary/translator-basic-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-basic-
+dictionary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-bibliograph
-y-dictionary/translator-bibliography-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-biblio
+graphy-dictionary/translator-bibliography-dictionary-English.dict
 Dictionary: translator-bibliography-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-environment
--dictionary/translator-environment-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-enviro
+nment-dictionary/translator-environment-dictionary-English.dict
 Dictionary: translator-environment-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-months-dict
-ionary/translator-months-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-months
+-dictionary/translator-months-dictionary-English.dict
 Dictionary: translator-months-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-numbers-dic
-tionary/translator-numbers-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-number
+s-dictionary/translator-numbers-dictionary-English.dict
 Dictionary: translator-numbers-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-theorem-dic
-tionary/translator-theorem-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-theore
+m-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 90.
+LaTeX Info: Redefining \includegraphics on input line 91.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count184
 
-No file curso_EDA_SLIDES.nav.
+(./curso_EDA_SLIDES.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 94.
+(Font)              size <20.74> substituted on input line 95.
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 94.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 95.
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 94.
+LaTeX Font Info:    Try loading font information for U+msa on input line 95.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 94.
+LaTeX Font Info:    Try loading font information for U+msb on input line 95.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 94.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 95.
 
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 95.
+
+(/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 94.
+(Font)              size <5> substituted on input line 95.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1518,9 +1549,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-No file curso_EDA_SLIDES.toc.
-
+] (./curso_EDA_SLIDES.toc)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1548,9 +1577,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [3
 
 ]
-\openout2 = `pilha_EDA.aux'.
+\openout2 = `pilhas_EDA.aux'.
 
- (./pilha_EDA.tex
+ (./pilhas_EDA.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1752,6 +1781,832 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [19
 
 ])
+\openout2 = `arvores_EDA.aux'.
+
+ (./arvores_EDA.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[20
+
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[21
+
+] <figs/fig_arvores/arvore.pdf, id=186, 518.93875pt x 463.7325pt>
+File: figs/fig_arvores/arvore.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/arvore.pdf>
+Package pdftex.def Info: figs/fig_arvores/arvore.pdf used on input line 45.
+(pdftex.def)             Requested size: 180.67499pt x 161.4526pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[22
+
+ <./figs/fig_arvores/arvore.pdf>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[23
+
+]
+<figs/fig_arvores/arvore_binaria_de_busca.pdf, id=199, 644.4075pt x 475.7775pt>
+File: figs/fig_arvores/arvore_binaria_de_busca.pdf Graphic file (type pdf)
+<use figs/fig_arvores/arvore_binaria_de_busca.pdf>
+Package pdftex.def Info: figs/fig_arvores/arvore_binaria_de_busca.pdf used on i
+nput line 65.
+(pdftex.def)             Requested size: 216.81pt x 160.07793pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[24
+
+ <./figs/fig_arvores/arvore_binaria_de_busca.pdf>]
+<figs/fig_arvores/no.pdf, id=215, 698.61pt x 321.2pt>
+File: figs/fig_arvores/no.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/no.pdf>
+Package pdftex.def Info: figs/fig_arvores/no.pdf used on input line 76.
+(pdftex.def)             Requested size: 289.07999pt x 132.90833pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[25
+
+ <./figs/fig_arvores/no.pdf>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[26
+
+]
+
+LaTeX Warning: Citation `cormen' on page 27 undefined on input line 104.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[27
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[28
+
+] <figs/fig_arvores/insercao_1.pdf, id=249, 644.4075pt x 475.7775pt>
+File: figs/fig_arvores/insercao_1.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/insercao_1.pdf>
+Package pdftex.def Info: figs/fig_arvores/insercao_1.pdf used on input line 136
+.
+(pdftex.def)             Requested size: 216.81pt x 160.07793pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[29
+
+ <./figs/fig_arvores/insercao_1.pdf>]
+<figs/fig_arvores/insercao_2.pdf, id=265, 644.4075pt x 475.7775pt>
+File: figs/fig_arvores/insercao_2.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/insercao_2.pdf>
+Package pdftex.def Info: figs/fig_arvores/insercao_2.pdf used on input line 146
+.
+(pdftex.def)             Requested size: 216.81pt x 160.07793pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[30
+
+ <./figs/fig_arvores/insercao_2.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[31
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[32
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[33
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[34
+
+] <figs/fig_arvores/altura1.pdf, id=302, 665.48625pt x 516.93124pt>
+File: figs/fig_arvores/altura1.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/altura1.pdf>
+Package pdftex.def Info: figs/fig_arvores/altura1.pdf used on input line 217.
+(pdftex.def)             Requested size: 216.81pt x 168.41081pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[35
+
+ <./figs/fig_arvores/altura1.pdf>]
+<figs/fig_arvores/altura2.pdf, id=311, 665.48625pt x 516.93124pt>
+File: figs/fig_arvores/altura2.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/altura2.pdf>
+Package pdftex.def Info: figs/fig_arvores/altura2.pdf used on input line 228.
+(pdftex.def)             Requested size: 216.81pt x 168.41081pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[36
+
+ <./figs/fig_arvores/altura2.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[37
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[38
+
+]
+<figs/fig_arvores/Balanceamento_Arvore.pdf, id=338, 497.86pt x 450.68375pt>
+File: figs/fig_arvores/Balanceamento_Arvore.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Balanceamento_Arvore.pdf>
+Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore.pdf used on inpu
+t line 258.
+(pdftex.def)             Requested size: 216.81pt x 196.2659pt.
+
+Overfull \vbox (2.22133pt too high) detected at line 258
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[39
+
+ <./figs/fig_arvores/Balanceamento_Arvore.pdf>]
+<figs/fig_arvores/Arvore_Desbalanceada.pdf, id=361, 497.86pt x 450.68375pt>
+File: figs/fig_arvores/Arvore_Desbalanceada.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Arvore_Desbalanceada.pdf>
+Package pdftex.def Info: figs/fig_arvores/Arvore_Desbalanceada.pdf used on inpu
+t line 267.
+(pdftex.def)             Requested size: 216.81pt x 196.2659pt.
+
+Overfull \vbox (2.22133pt too high) detected at line 267
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[40
+
+ <./figs/fig_arvores/Arvore_Desbalanceada.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[41
+
+]
+<figs/fig_arvores/Balanceamento_Arvore2.pdf, id=389, 291.0875pt x 349.305pt>
+File: figs/fig_arvores/Balanceamento_Arvore2.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Balanceamento_Arvore2.pdf>
+Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore2.pdf used on inp
+ut line 300.
+(pdftex.def)             Requested size: 158.99377pt x 190.79651pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[42
+
+ <./figs/fig_arvores/Balanceamento_Arvore2.pdf>]
+<figs/fig_arvores/Balanceamento_Arvore3.pdf, id=412, 447.6725pt x 294.09875pt>
+File: figs/fig_arvores/Balanceamento_Arvore3.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Balanceamento_Arvore3.pdf>
+Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore3.pdf used on inp
+ut line 309.
+(pdftex.def)             Requested size: 252.94499pt x 166.17506pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[43
+
+ <./figs/fig_arvores/Balanceamento_Arvore3.pdf>]
+<figs/fig_arvores/Balanceamento_Arvore4.pdf, id=437, 289.08pt x 331.2375pt>
+File: figs/fig_arvores/Balanceamento_Arvore4.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Balanceamento_Arvore4.pdf>
+Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore4.pdf used on inp
+ut line 318.
+(pdftex.def)             Requested size: 158.99377pt x 182.17612pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[44
+
+ <./figs/fig_arvores/Balanceamento_Arvore4.pdf>]
+<figs/fig_arvores/Balanceamento_Arvore5.pdf, id=460, 288.07625pt x 317.185pt>
+File: figs/fig_arvores/Balanceamento_Arvore5.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Balanceamento_Arvore5.pdf>
+Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore5.pdf used on inp
+ut line 327.
+(pdftex.def)             Requested size: 158.99377pt x 175.06694pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[45
+
+ <./figs/fig_arvores/Balanceamento_Arvore5.pdf>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[46
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[47
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[48
+
+]
+
+LaTeX Warning: Citation `tarjan' on page 49 undefined on input line 382.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[49
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[50
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[51
+
+] <figs/fig_arvores/Espalhamento.pdf, id=514, 600.2425pt x 416.55624pt>
+File: figs/fig_arvores/Espalhamento.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Espalhamento.pdf>
+Package pdftex.def Info: figs/fig_arvores/Espalhamento.pdf used on input line 4
+13.
+(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[52
+
+ <./figs/fig_arvores/Espalhamento.pdf>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[53
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[54
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[55
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[56
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[57
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[58
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[59
+
+] <figs/fig_arvores/Zig.pdf, id=567, 748.7975pt x 392.46625pt>
+File: figs/fig_arvores/Zig.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Zig.pdf>
+Package pdftex.def Info: figs/fig_arvores/Zig.pdf used on input line 505.
+(pdftex.def)             Requested size: 325.215pt x 170.45195pt.
+
+Overfull \hbox (4.7213pt too wide) in paragraph at lines 505--505
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[60
+
+ <./figs/fig_arvores/Zig.pdf>]
+<figs/fig_arvores/Zig-Zig.pdf, id=583, 740.7675pt x 461.725pt>
+File: figs/fig_arvores/Zig-Zig.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Zig-Zig.pdf>
+Package pdftex.def Info: figs/fig_arvores/Zig-Zig.pdf used on input line 514.
+(pdftex.def)             Requested size: 289.07999pt x 180.18475pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[61
+
+ <./figs/fig_arvores/Zig-Zig.pdf>]
+<figs/fig_arvores/Zig-Zag.pdf, id=607, 740.7675pt x 461.725pt>
+File: figs/fig_arvores/Zig-Zag.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Zig-Zag.pdf>
+Package pdftex.def Info: figs/fig_arvores/Zig-Zag.pdf used on input line 523.
+(pdftex.def)             Requested size: 289.07999pt x 180.18475pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[62
+
+ <./figs/fig_arvores/Zig-Zag.pdf>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[63
+
+] <figs/fig_arvores/Top-Down1.pdf, id=635, 600.2425pt x 416.55624pt>
+File: figs/fig_arvores/Top-Down1.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Top-Down1.pdf>
+Package pdftex.def Info: figs/fig_arvores/Top-Down1.pdf used on input line 544.
+
+(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[64
+
+ <./figs/fig_arvores/Top-Down1.pdf>]
+<figs/fig_arvores/Top-Down2.pdf, id=651, 600.2425pt x 416.55624pt>
+File: figs/fig_arvores/Top-Down2.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Top-Down2.pdf>
+Package pdftex.def Info: figs/fig_arvores/Top-Down2.pdf used on input line 553.
+
+(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[65
+
+ <./figs/fig_arvores/Top-Down2.pdf>]
+<figs/fig_arvores/Top-Down3.pdf, id=667, 600.2425pt x 416.55624pt>
+File: figs/fig_arvores/Top-Down3.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Top-Down3.pdf>
+Package pdftex.def Info: figs/fig_arvores/Top-Down3.pdf used on input line 562.
+
+(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[66
+
+ <./figs/fig_arvores/Top-Down3.pdf>]
+<figs/fig_arvores/Top-Down4.pdf, id=683, 600.2425pt x 416.55624pt>
+File: figs/fig_arvores/Top-Down4.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Top-Down4.pdf>
+Package pdftex.def Info: figs/fig_arvores/Top-Down4.pdf used on input line 571.
+
+(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[67
+
+ <./figs/fig_arvores/Top-Down4.pdf>]
+<figs/fig_arvores/Top-Down5.pdf, id=701, 600.2425pt x 416.55624pt>
+File: figs/fig_arvores/Top-Down5.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Top-Down5.pdf>
+Package pdftex.def Info: figs/fig_arvores/Top-Down5.pdf used on input line 580.
+
+(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[68
+
+ <./figs/fig_arvores/Top-Down5.pdf>]
+<figs/fig_arvores/Top-Down6.pdf, id=717, 600.2425pt x 416.55624pt>
+File: figs/fig_arvores/Top-Down6.pdf Graphic file (type pdf)
+
+<use figs/fig_arvores/Top-Down6.pdf>
+Package pdftex.def Info: figs/fig_arvores/Top-Down6.pdf used on input line 589.
+
+(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[69
+
+ <./figs/fig_arvores/Top-Down6.pdf>] Excluding 'comment' comment.)
 \tf@nav=\write7
 \openout7 = `curso_EDA_SLIDES.nav'.
 
@@ -1761,45 +2616,68 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `curso_EDA_SLIDES.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
- (./curso_EDA_SLIDES.aux (./pilha_EDA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
-Package rerunfilecheck Info: File `curso_EDA_SLIDES.out' has not changed.
-(rerunfilecheck)             Checksum: D7D7BFB2B8C6CBCAF26F21BDF68D7DDC;105.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 126.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 126.
 
+(./curso_EDA_SLIDES.aux (./pilhas_EDA.aux) (./arvores_EDA.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 126.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 126.
+
+
+Package rerunfilecheck Warning: File `curso_EDA_SLIDES.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `curso_EDA_SLIDES.out':
+(rerunfilecheck)             Before: 2DDD836B80B74E0441E3823B3BA097FD;465
+(rerunfilecheck)             After:  41739691F4BBC1A8A345ED157D9137A2;465.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 21115 strings out of 493013
- 380431 string characters out of 6139317
- 500396 words of memory out of 5000000
- 24100 multiletter control sequences out of 15000+600000
- 23329 words of font info for 62 fonts, out of 8000000 for 9000
+ 21715 strings out of 493013
+ 392003 string characters out of 6139317
+ 502380 words of memory out of 5000000
+ 24520 multiletter control sequences out of 15000+600000
+ 22832 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,17n,51p,853b,1319s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msam5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
-si0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1000.pfb></us
-r/share/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texmf-d
-ist/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf-dist/fonts/type1
-/public/cm-super/sfss0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
-r/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb>
-</usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/tex
-mf-dist/fonts/type1/public/cm-super/sfss2074.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.
-pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on curso_EDA_SLIDES.pdf (19 pages, 230066 bytes).
+ 56i,17n,55p,853b,1321s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Outline0.4.3.48} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.4.2.45} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.4.1.40} has been referenced but does not e
+xist, replaced by a fixed one
+
+ </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss10.600pk> </home/c
+cs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/ccs/.t
+exlive/texmf-var/fonts/pk/ljfour/public/cm/cmsy9.600pk> </home/ccs/.texlive/tex
+mf-var/fonts/pk/ljfour/public/cm/cmss9.600pk> </home/ccs/.texlive/texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ectt0800.525pk> </home/ccs/.texlive/texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecsi1000.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecsx1000.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecsi0900.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecss0900.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecss1200.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/public/amsfonts/s
+ymbols/msam5.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/e
+css1440.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss05
+00.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0700.60
+0pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> 
+</home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </hom
+e/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss2074.600pk></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmssi9.pfb>
+Output written on curso_EDA_SLIDES.pdf (69 pages, 619954 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 59 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1283 PDF objects out of 1440 (max. 8388607)
+ 662 compressed objects within 7 object streams
+ 150 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

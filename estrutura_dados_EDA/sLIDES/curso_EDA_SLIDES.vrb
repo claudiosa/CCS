@@ -1,11 +1,14 @@
-\frametitle{Implementação de Pilha com Vetor}
-\begin{lstlisting}[language=C]
-/**
- * Verifica se a pilha p esta vazia
- */
-int empty(Pilha *p)
-{
-   return (p->t == -1);
-}
+\frametitle{Árvore de Espalhamento - Remoção}
+\begin{verbatim}
+REMOVE(RAIZ, CHAVE) {
+    RAIZ = ESPALHAMENTO(RAIZ, CHAVE)
 
-\end{lstlisting}
+    SE RAIZ->DIR ENTÃO
+        AUX = ESPALHAMENTO(RAIZ->DIR, CHAVE)
+        AUX->ESQ = RAIZ->ESQ
+    SENÃO
+        AUX = RAIZ->ESQ
+
+    return AUX
+}
+\end{verbatim}
