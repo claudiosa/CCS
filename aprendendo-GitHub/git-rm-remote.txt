@@ -1,0 +1,12 @@
+Removendo diretorios ...
+
+1. Primeiro certifique-se que o seu repositório está sincronizado com o repositório remoto: 
+$ git pull origin master, (supondo que o branch seja master).
+
+2. Então remova a pasta localmente: $ git rm -r XXX YYY ZZZ.
+
+3. Agora faça um commit das modificações: $ git commit -m "Remove pastas XXX YYY ZZZ"
+
+4. Sincronize com repositório remoto: $ git push origin master
+
+5. Após essas mudanças o repositório remoto deve estar sem as pastas XXX, YYY e ZZZ

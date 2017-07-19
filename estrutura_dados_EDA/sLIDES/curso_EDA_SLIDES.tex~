@@ -22,10 +22,8 @@
 \usepackage{pifont}%,bbding}%%,dingbat} %%% ver manual de simbolos
 \usepackage[final]{listings}
 \usepackage{comment}
-\usepackage{sansmathaccent}
-\pdfmapfile{+sansmathaccent.map}
-
-
+%\usepackage{sansmathaccent}
+%\pdfmapfile{+sansmathaccent.map}
 
 \definecolor{azulclaro}{rgb}{0.9,0.9,0.9}
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -34,12 +32,12 @@
 \definecolor{darkgray}{rgb}{.4,.4,.4}
 \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
 
-\newcommand{\minizinc}{MiniZinc}
+%\newcommand{\minizinc}{MiniZinc}
 
 \lstset{ 
   %  label={pgm_ex01},
     backgroundcolor=\color{azulclaro}, 
-    language=erlang, %%Miranda,%%Perl,%%%Python, %%Mercury,
+    language=C, %%Miranda,%%Perl,%%%Python, %%Mercury,
     showstringspaces=false,
     basicstyle=\bf\scriptsize\ttfamily,
 %%      basicstyle= \footnotesize %%% TESTAR
@@ -77,7 +75,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title[SMA]{\fontsize{20}{30}\selectfont \textcolor{black}{Sistemas Multiagentes}}
+\title[EDA]{\fontsize{20}{30}\selectfont \textcolor{black}{Estrutura de Dados}}
 
 \author[]{Claudio Cesar de Sá\\
      {\small \url{claudio.sa@udesc.br}}}
@@ -107,7 +105,7 @@
 \begin{frame}[fragile]
 \frametitle{Agradecimentos}
 
-Vários autores ...
+Vários autores e colaboradores ...
 \begin{itemize}
   \item Alessandro Ferreira Leite -- ???
   \item Lucas Hermman Negri -- IFMS

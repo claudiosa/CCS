@@ -1,3 +1,9 @@
 \select@language {brazilian}
 \beamer@sectionintoc {1}{Pilha}{4}{0}{1}
 \beamer@subsectionintoc {1}{1}{Introdu\IeC {\c c}\IeC {\~a}o}{5}{0}{1}
+\beamer@sectionintoc {2}{\IeC {\'A}rvores}{20}{0}{2}
+\beamer@sectionintoc {3}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{23}{0}{3}
+\beamer@sectionintoc {4}{Balanceamento}{33}{0}{4}
+\beamer@subsectionintoc {4}{1}{Rota\IeC {\c c}\IeC {\~o}es}{41}{0}{4}
+\beamer@subsectionintoc {4}{2}{\IeC {\'A}rvores AVL}{46}{0}{4}
+\beamer@subsectionintoc {4}{3}{\IeC {\'A}rvore de Espalhamento}{49}{0}{4}
