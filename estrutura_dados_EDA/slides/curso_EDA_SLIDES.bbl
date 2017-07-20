@@ -1,0 +1,13 @@
+\begin{thebibliography}{CSRL01}
+
+\bibitem[CSRL01]{cormen}
+Thomas~H. Cormen, Clifford Stein, Ronald~L. Rivest, and Charles~E. Leiserson.
+\newblock {\em Introduction to Algorithms}.
+\newblock McGraw-Hill Higher Education, 2nd edition, 2001.
+
+\bibitem[ST85]{tarjan}
+Daniel~Dominic Sleator and Robert~Endre Tarjan.
+\newblock Self-adjusting binary search trees.
+\newblock {\em J. ACM}, 32(3):652--686, July 1985.
+
+\end{thebibliography}

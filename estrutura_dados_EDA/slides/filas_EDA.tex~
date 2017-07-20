@@ -1,35 +1,26 @@
-\documentclass[xcolor=dvipsnames]{beamer}
-
-\usepackage[latin1]{inputenc}
-\usepackage{color}
-\usepackage[brazilian]{babel}
-\usepackage{graphicx}
-\usepackage[ruled,linesnumbered,portugues]{algorithm2e}
-\usepackage{setspace}
-\usepackage{listings}
-\usepackage{natbib}
-\usepackage{hyperref}
-
-
-\usepackage{listings}
-%\usecolortheme[named=Orange]{structure} 
-\setbeamertemplate{blocks}[rounded][shadow=true] 
-\useoutertheme{infolines} 
-\usepackage{beamerthemeshadow}
-
-
-\author{Alessandro Ferreira Leite}
-\date{09/04/2012}
-\title{Estrutura de Dados \\ Estrutura de dados Linear: Fila} 
-
-\begin{document}
-
-\begin{frame}[plain]
-  \titlepage
-\end{frame}
-
 
 \section{Filas}
+
+
+\begin{frame}
+\begin{center}
+{\Large Capítulo xxxxx -- Filas}
+
+Pontos fundamentais a serem cobertos:
+
+\begin{enumerate}
+  \item 
+  \item 
+  \item 
+\end{enumerate}
+
+\end{center}
+
+\end{frame}
+%--------------------
+
+
+
   \begin{frame}{Introdução}    
 		\begin{itemize}
 			\item Assim como a estrutura de dados Pilha, Fila é outra estrutura de dados bastante utilizada em computação.
@@ -52,7 +43,7 @@
 \end{itemize}
 \begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_elementos.png}				
+			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_elementos.png}				
 				\caption{Exemplo de representação de fila.}	
 				\label{fig:fila-representacao}
 			\end{figure} 
@@ -60,7 +51,7 @@
 	\item Após a retirada de um elemento (\textit{primeiro}) temos:
 	\begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_retirada.png}				
+			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_retirada.png}				
 				\caption{Representação de uma fila após a remoção do elemento ``A''.}	
 			\end{figure} 
 \end{itemize}
@@ -72,7 +63,7 @@
 	\item Após a inclusão de dois elementos temos:
 	\begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_inclusao.png}				
+			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_inclusao.png}				
 				\caption{Representação de uma fila após a inclusão de dois elementos ``D'' e ``E''.}	
 			\end{figure} 
 \end{itemize}
@@ -179,7 +170,7 @@ void libera(Fila* f);
 \begin{frame}{Implementação de Fila com Vetor}	
 	\begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_remove_dois_elementos.png}				
+				%\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_remove_dois_elementos.png}				
 				\caption{Fila após retirar dois elementos.}	
 	\end{figure} 	
 	\begin{itemize}
@@ -309,5 +300,3 @@ int main(void)
 		\item Wirth, N. (1989). Algoritmos e Estrutura de dados. LTC, pp. 151-165.
 	\end{enumerate}
 \end{frame}
-
-\end{document}
