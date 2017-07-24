@@ -1,3 +1,5 @@
+%!TEX root = curso_EDA_SLIDES.tex
+
 %\title{Estrutura de Dados \\ Estrutura de dados Linear: Lista} 
 
 \section{Listas}
@@ -54,29 +56,29 @@ Pontos fundamentais a serem cobertos:
 			\end{figure} 
 \end{frame}
 
-\begin{frame}[fragile]{Representação}
+\begin{frame}[fragile,c]{Representação}
 \begin{itemize}
 	\item Para exemplificar a implementação em C, vamos considerar que o conteúdo armazenado na lista é do tipo inteiro.
 	\item A estrutura da lista possui a seguinte representação:	
 \end{itemize}
-\begin{verbatim}
+\begin{lstlisting}[language=C]
   struct lista{
     int cursor;
     int elemento[N];
   }
   typedef struct lista Lista;
-\end{verbatim}
+\end{lstlisting}
 \begin{itemize}
 	\item Trata-se de uma estrutura heterogênea constituída de membros distintos entre si. Os membros são as variáveis \alert{\textit{cursor}}, que serve para armazenar a quantidade de elementos da lista e o vetor \alert{\textit{elemento}} de inteiros que armazena os nós da lista.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Representação}
+\begin{frame}[fragile,c]{Representação}
 \begin{itemize}
 	\item Para atribuirmos um valor a algum membro da lista devemos utilizar a seguinte notação:
 
 \small	
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 Lista->elemento[0] = 1 - atribui o valor 1 ao primeiro elemento da lista.
 Lista->elemento[n-1] = 4 - atribui o valor 4 ao ultimo elemento da lista.
 \end{lstlisting}
@@ -87,7 +89,7 @@ Lista->elemento[n-1] = 4 - atribui o valor 4 ao ultimo elemento da lista.
   \begin{itemize}
 	  \item As operações básicas que devem ser implementadas em uma estrutura do tipo Lista são:		
   \end{itemize}
-  \begin{table}[ht]
+  \begin{table}[!htpb]
 			  \centering
 						\begin{tabular}{l|l}
 						    \hline \textbf{Operação} & \textbf{Descrição} \\
@@ -106,7 +108,7 @@ Lista->elemento[n-1] = 4 - atribui o valor 4 ao ultimo elemento da lista.
 			\begin{itemize}
 				\item Além das operações básicas, temos as operações ``auxiliares''. São elas:
 			\end{itemize}
-			\begin{table}[ht]
+			\begin{table}[!htpb]
 			  \centering
 						\begin{tabular}{l|l}
 						    \hline \textbf{Operação} & \textbf{Descrição} \\						    
@@ -121,10 +123,10 @@ Lista->elemento[n-1] = 4 - atribui o valor 4 ao ultimo elemento da lista.
 
 \begin{frame}[fragile,plain]{Interface do Tipo Lista}
 \footnotesize
-\begin{lstlisting}
-/* Aloca dinamicamente a estrutura lista, inicializando seus
- * campos e retorna seu ponteiro. A lista depois de criada
- * terah tamanho igual a zero.*/
+\begin{lstlisting}[language=C]
+/* Aloca dinamicamente a estrutura lista, inicializando 
+ * seus campos e retorna seu ponteiro. A lista depois 
+ * de criada terah tamanho igual a zero.*/
 Lista* criar(void);
 
 /* Insere o elemento e no final da lista l, desde que,
@@ -162,13 +164,13 @@ void imprimir(Lista* l);
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Função de Criação}
+\begin{frame}[fragile,c]{Função de Criação}
 	\begin{itemize}
 		\item A função que cria uma lista, deve criar e retornar uma lista vazia;
 		\item A função deve atribuir o valor zero ao tamanho da lista, ou seja, fazer $l->cursor = 0$, como podemos ver no código abaixo.
 		\item A complexidade de tempo para criar a lista é constante, ou seja, $O(1)$.
 	\end{itemize}
-\begin{verbatim}
+\begin{lstlisting}[language=C]
 /*
  * Aloca dinamicamente a estrutura lista, inicializando seus
  * campos e retorna seu ponteiro. A lista depois de criada
@@ -179,17 +181,17 @@ Lista* criar(void){
   l->cursor = 0;
   return l;
 }
-\end{verbatim}
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Função de Inserção}  
+\begin{frame}[fragile,c]{Função de Inserção}  
 	\begin{itemize}
 		\item A inserção de qualquer elemento ocorre no final da lista, desde que a lista não esteja cheia.
 		\item Com isso, para inserir um elemento basta atribuirmos o valor ao elemento cujo índice é o valor referenciado pelo campo \textit{cursor}, e incrementar o valor do cursor, ou seja fazer $l->elemento[l->cursor++] = valor$, como podemos verificar no código abaixo, a uma complexidade de tempo constante, $O(1)$.
 	\end{itemize}
 
 \footnotesize
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 /*
  * Insere o elemento e no final da lista l, desde que,
  * a lista nao esteja cheia.
@@ -204,14 +206,14 @@ void inserir(Lista* l, int e){
 \end{lstlisting}	
 \end{frame}
 
-\begin{frame}[fragile]{Função de Remoção} 
+\begin{frame}[fragile,c]{Função de Remoção} 
 	\begin{itemize}
 		\item Para remover um elemento da lista, primeiro precisamos verificar se ele está na lista, para assim removê-lo, e deslocar os seus sucessores, quando o elemento removido não for o último.
 		\item A complexidade de tempo da função de remoção é $O(n)$, pois é necessário movimentar os $n$ elementos para remover um elemento e ajustar a lista.
 	\end{itemize}
 	
 \footnotesize
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 /* remove um elemento da lista */
 void remover(Lista* l, int e){     
   int i, d = pesquisar(l,e);
@@ -233,7 +235,7 @@ void remover(Lista* l, int e){
 	\end{itemize}
 
 \footnotesize
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 int pesquisar(Lista* l, int e){
   if (l == NULL)
     return;
@@ -253,7 +255,7 @@ int pesquisar(Lista* l, int e){
 		\item A complexidade de tempo da função de impressão é $O(n)$, pois no pior caso, quando lista estiver cheia, é necessário percorrer os $n$ elementos da lista.
 	\end{itemize}
 	
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 /*Apresenta os elementos da lista l. */
 void imprimir(Lista* l){
  int i;
@@ -264,9 +266,9 @@ void imprimir(Lista* l){
 \end{lstlisting}	
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo de Uso da Lista}
+\begin{frame}[fragile,c]{Exemplo de Uso da Lista}
 \footnotesize
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 #include <stdio.h>
 #include "list.h"
 

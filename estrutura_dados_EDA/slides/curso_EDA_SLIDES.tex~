@@ -7,12 +7,17 @@
           ]{Torino}
 %\usetheme{Frankfurt}
 
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
 \usecolortheme{chameleon}
 
 \usepackage{graphicx,hyperref,url}
 \usepackage[utf8]{inputenc}
+% \usepackage[latin1]{inputenc}
+% \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[portuges,brazilian]{babel}
+\usepackage{lmodern}
 
 \usepackage{caption}
 \usepackage{subfigure}
@@ -24,6 +29,7 @@
 \usepackage[final]{listings}
 \usepackage{comment}
 \usepackage{sansmathaccent}
+\usepackage{qtree}
 \pdfmapfile{+sansmathaccent.map}
 
 \definecolor{azulclaro}{rgb}{0.9,0.9,0.9}
@@ -35,32 +41,46 @@
 
 %\newcommand{\minizinc}{MiniZinc}
 
-\lstset{ 
-  %  label={pgm_ex01},
-    backgroundcolor=\color{azulclaro}, 
-    language=C, %%Miranda,%%Perl,%%%Python, %%Mercury,
-    showstringspaces=false,
-    basicstyle=\bf\scriptsize\ttfamily,
-%%      basicstyle= \footnotesize %%% TESTAR
-%%      keywordstyle=\bfseries\color{green!40!black},
-    keywordstyle=\textbf{\color{mygreen}}, 
-    otherkeywords={*, \%, array, constraint, solve, output,  show, "/\", satisfy, set, of, if, then, elseif, float, search},
-%%  keywordstyle=\color{blue},       % keyword style
-%%    commentstyle=\itshape\color{purple!40!black},
-      commentstyle=\color{orange},    % comment style
-      identifierstyle=\color{blue},
-      stringstyle=\color{orange},
-      stringstyle=\color{mymauve},
-      numbers=left,  % where to put the line-numbers; possible values are (none, left, right)
-      numbersep=5pt,   % how far the line-numbers are from the code
-      numberstyle=\tiny\color{magenta},
-      keepspaces=true      
-    % %caption={LEGENDA no source PASCAL ficou OK},
-}
+% (TODO) review
+% \lstset{ 
+%   %  label={pgm_ex01},
+%     backgroundcolor=\color{azulclaro}, 
+%     language=C, %%Miranda,%%Perl,%%%Python, %%Mercury,
+%     showstringspaces=false,
+%     basicstyle=\bf\scriptsize\ttfamily,
+% %%      basicstyle= \footnotesize %%% TESTAR
+% %%      keywordstyle=\bfseries\color{green!40!black},
+%     keywordstyle=\textbf{\color{mygreen}}, 
+%     otherkeywords={*, \%, array, constraint, solve, output,  show, "/\", satisfy, set, of, if, then, elseif, float, search},
+% %%  keywordstyle=\color{blue},       % keyword style
+% %%    commentstyle=\itshape\color{purple!40!black},
+%       commentstyle=\color{orange},    % comment style
+%       identifierstyle=\color{blue},
+%       stringstyle=\color{orange},
+%       stringstyle=\color{mymauve},
+%       numbers=left,  % where to put the line-numbers; possible values are (none, left, right)
+%       numbersep=5pt,   % how far the line-numbers are from the code
+%       numberstyle=\tiny\color{magenta},
+%       keepspaces=true      
+%     % %caption={LEGENDA no source PASCAL ficou OK},
+% }
+\graphicspath
+{%
+	% {/home/ccs/Dropbox/figs_genericas/}%
+	% {figuras/}%
+	% {/home/ccs/Dropbox/CCS/picat/}%
+	{figs/fig_arvores/}%
+	{figs/fig_filas/}%
+	{figs/fig_hash/}%
+	{figs/fig_listas/}%
+	{figs/fig_pilhas/}%
+}%
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
 
 
-\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}{/home/ccs/Dropbox/CCS/picat}}
-\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+
 %Global Background must be put in preamble
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{amarelinho.pdf}}
 %%% \begin{frame}[allowframebreaks=0.8]
@@ -75,11 +95,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \title[EDA]{\fontsize{20}{30}\selectfont \textcolor{black}{Estrutura de Dados}}
 
-\author[]{Claudio Cesar de Sá\\
-     {\small \url{claudio.sa@udesc.br}}}
+\author[]{Claudio Cesar de Sá, Alessandro Ferreira Leite,
+Lucas Hermman Negri, Gilmário Barbosa}
+%\\     {\small \url{claudio.sa@udesc.br}}
 
 \institute[UDESC]{
     Departamento de Ci\^encia da Computa\c{c}\~ao \\
@@ -108,9 +128,9 @@
 
 Vários autores e colaboradores ...
 \begin{itemize}
-  \item Alessandro Ferreira Leite -- ???
-  \item Lucas Hermman Negri -- IFMS
-  \item Gilmário -- UDESC
+ % \item Alessandro Ferreira Leite --
+ % \item Lucas Hermman Negri -- IFMS
+ % \item Gilmário Barbosa -- UDESC
   \item Ao Google Images ... 
   
 \end{itemize}
@@ -120,7 +140,15 @@ Vários autores e colaboradores ...
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{orientacoes_gerais_EDA}
 \include{pilhas_EDA} % cap 0
+\include{filas_EDA} % cap 0
+\include{listas_EDA} % cap 0
+\include{recursao_EDA} % cap 0
 \include{arvores_EDA} % cap 0
+\include{hash_EDA} % cap 0
 
+\bibliographystyle{plain}
+\bibliography{refs_EDA}
+ 
 \end{document}

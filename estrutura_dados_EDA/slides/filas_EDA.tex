@@ -1,27 +1,40 @@
-
+%!TEX root = curso_EDA_SLIDES.tex
+%!TeX spellcheck = pt_BR
 \section{Filas}
 
-
 \begin{frame}
+
 \begin{center}
 {\Large Capítulo xxxxx -- Filas}
-
-Pontos fundamentais a serem cobertos:
-
-\begin{enumerate}
-  \item 
-  \item 
-  \item 
-\end{enumerate}
-
 \end{center}
 
-\end{frame}
-%--------------------
+\begin{columns}
+\begin{column}{.4\textwidth}
+\centering
+Pontos fundamentais a serem cobertos:
+  \begin{enumerate}
+  \item Contexto e motivação
+  \item Definição
+  \item Implementações
+  \item Exercícios 
+\end{enumerate}  
 
+\end{column}
+\begin{column}{.6\textwidth}
+\centering
+\includegraphics[height=4cm, width=7cm]{figs/fig_filas/fila_pessoas.jpeg}
+%\hspace{+0.25cm}
+%\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
+\end{column}
+\end{columns}
+
+
+\end{frame}
+%-----------------------------------------------------------------------
 
 
   \begin{frame}{Introdução}    
+
 		\begin{itemize}
 			\item Assim como a estrutura de dados Pilha, Fila é outra estrutura de dados bastante utilizada em computação.
 			\item Um exemplo é a implementação de uma fila de impressão.
@@ -29,6 +42,8 @@ Pontos fundamentais a serem cobertos:
 			\item A maneira mais simples é tratar todas as requisições com a mesma prioridade e imprimir os documentos na ordem em que foram submetidos - o primeiro submetido é o primeiro a ser impresso.
 		\end{itemize}
   \end{frame}
+
+%-----------------------------------------------------------------------
   
 \begin{frame}{Fila}
      \begin{block}{Definição}
@@ -36,26 +51,28 @@ Pontos fundamentais a serem cobertos:
      \end{block}          
 \end{frame}
 
+%-----------------------------------------------------------------------
+
 \begin{frame}{Representação}
 \begin{itemize}
 	\item Os nós de uma fila são armazenados em endereços contínuos.	
-	\item A Figura \ref{fig:fila-representacao} temos a representação de uma fila com três elementos.
+	\item A Figura~\ref{fig:fila-representacao} ilustra uma fila com três elementos.
 \end{itemize}
 \begin{figure}[ht]
 				\centering
-			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_elementos.png}				
-				\caption{Exemplo de representação de fila.}	
-				\label{fig:fila-representacao}
+				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_elementos}
+				\caption{Exemplo de representação de fila.}\label{fig:fila-representacao}
 			\end{figure} 
 \begin{itemize}
 	\item Após a retirada de um elemento (\textit{primeiro}) temos:
 	\begin{figure}[ht]
 				\centering
-			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_retirada.png}				
+				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_retirada}
 				\caption{Representação de uma fila após a remoção do elemento ``A''.}	
 			\end{figure} 
 \end{itemize}
 \end{frame}
+%-----------------------------------------------------------------------
 
 
 \begin{frame}{Representação}
@@ -63,7 +80,7 @@ Pontos fundamentais a serem cobertos:
 	\item Após a inclusão de dois elementos temos:
 	\begin{figure}[ht]
 				\centering
-			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_inclusao.png}				
+				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_inclusao}
 				\caption{Representação de uma fila após a inclusão de dois elementos ``D'' e ``E''.}	
 			\end{figure} 
 \end{itemize}
@@ -75,7 +92,7 @@ Pontos fundamentais a serem cobertos:
 \begin{frame}[fragile]{Representação}
 \begin{itemize}
 	\item Em uma fila, o \alert{primeiro} elemento inserido é o primeiro a ser removido.
-	\item Por essa razão, uma fila é chamada \textbf{\alert{fifo(\textit{first-in first-out})}} - primeiro que entra é o primeiro a sair - ao contrário de uma pilha que é \alert{lifo} (\textit{last-in, first-out})
+	\item Por essa razão, uma fila é chamada \textbf{\alert{fifo(\textit{first-in first-out})}} -- primeiro que entra é o primeiro a sair -- ao contrário de uma pilha que é \alert{lifo} (\textit{last-in, first-out})
 	\item Para exemplificar a implementação em C, vamos considerar que o conteúdo armazenado na fila é do tipo inteiro.
 	\item A estrutura de fila possui a seguinte representação:	
 \end{itemize}
@@ -87,6 +104,7 @@ Pontos fundamentais a serem cobertos:
   }
   typedef struct fila Fila;
 \end{lstlisting}
+
 \begin{itemize}
 	\item Trata-se de uma estrutura heterogênea constituída de membros distintos entre si. Os membros são as variáveis \alert{\textit{ini}} e \alert{\textit{fim}}, que serve para armazenar respectivamente, o início e o fim da fila e o vetor \alert{\textit{elemento}} de inteiros que armazena os itens da fila.
 \end{itemize}
@@ -162,7 +180,7 @@ void libera(Fila* f);
 	\end{itemize}
 	\begin{figure}[ht]
 				\centering
-				%\includegraphics[width=.6\textwidth]{01-img/filas/fila_insercao_quatro_elementos.png}				
+				\includegraphics[width=.6\textwidth]{fila_insercao_quatro_elementos}
 				\caption{Fila após inserção de quatro elementos.}	
 	\end{figure} 	
 \end{frame}
@@ -170,7 +188,7 @@ void libera(Fila* f);
 \begin{frame}{Implementação de Fila com Vetor}	
 	\begin{figure}[ht]
 				\centering
-				%\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_remove_dois_elementos.png}				
+				\includegraphics[width=.6\textwidth]{exemplo_fila_remove_dois_elementos}
 				\caption{Fila após retirar dois elementos.}	
 	\end{figure} 	
 	\begin{itemize}
@@ -207,7 +225,8 @@ Fila* criar(void)
    f->n = 0;
    f->ini = 0;
    return f;
-}\end{lstlisting}
+}
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Função de Inserção}  
@@ -269,7 +288,9 @@ int retira(Fila* f)
 %\end{frame}
 
 \begin{frame}[fragile]{Exemplo de Uso da Fila}
-\footnotesize
+
+\begin{footnotesize}
+
 \begin{lstlisting}[language=C]
 #define N 10
 #include <stdio.h>
@@ -291,12 +312,16 @@ int main(void)
     system("pause");    
 }
 \end{lstlisting}
+\end{footnotesize}
 \end{frame} 
 
 
 \begin{frame}{Referências}
+	
 	\begin{enumerate}
 		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). Estruturas de Dados Usando C. MAKRON Books, pp. 207-250.
 		\item Wirth, N. (1989). Algoritmos e Estrutura de dados. LTC, pp. 151-165.
+	
 	\end{enumerate}
+	
 \end{frame}

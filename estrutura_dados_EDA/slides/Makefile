@@ -5,26 +5,19 @@ all: $(FILE).pdf
 
 .PHONY: clean
 
+
+clean_latex:
+	rm -f *.acn *.alg *.aux *.bbl *.blg *.brf *.fls *.glsdefs *.glo *.ilg *.ind *.ist *.lof *.log *.lol *.lot *.maf *.mtc* *.nav *.out *.snm *.spl *.synctex.* *.toc *.upa *.upb *.vrb 2> /dev/null
+	@find . -name "*.fdb_latexmk" -exec rm -rf {} \;
+
 clean:
-	rm -rf *.blg 
-	rm -rf *.out 
-	rm -rf *.bbl 
-	rm -rf *.log
-	rm -rf *.ind
-	rm -rf *.ilg
-	rm -rf *.lot
-	rm -rf *.lof
-	rm -rf *.ind
-	rm -rf *.idx
-	rm -rf *.aux
-	rm -rf *.toc
-	rm -f ${FILE}.pdf
+	make clean_latex
+#	rm -f ${FILE}.pdf
 
 # *.bib *.sty
 $(FILE).pdf: *.tex 
 	pdflatex -shell-escape $(FILE).tex
-	#pdflatex -shell-escape $(FILE).tex
-	#makeindex $(FILE)
-	#bibtex $(FILE)
-	#pdflatex -shell-escape $(FILE).tex
-	#pdflatex -shell-escape $(FILE).tex
+	bibtex $(FILE)
+	pdflatex -shell-escape $(FILE).tex
+	pdflatex -shell-escape $(FILE).tex
+	make clean_latex

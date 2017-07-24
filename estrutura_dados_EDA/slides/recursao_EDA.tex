@@ -1,3 +1,4 @@
+%!TEX root = curso_EDA_SLIDES.tex
 
 \section{Recursão}
 
@@ -76,8 +77,6 @@ public static void main(String args)
 \end{lstlisting}
 \end{frame}
 
-%referencia = http://users.matrix.com.br/elton/UNISUL/08%20-%20An%E1lise%20de%20Algoritmos/trabalho2/
-
 
 \begin{frame}[fragile]{Recursão}
 \begin{enumerate}
@@ -135,8 +134,8 @@ public static void main(String args)
 \end{frame}
 
 \begin{frame}[fragile]{Eficiência da Recursão}
-\tiny{
-\begin{lstlisting}
+% \tiny{
+\begin{lstlisting}[language=C]
 
   int fibonacci(int n) {				
     if (n <= 2)
@@ -154,7 +153,7 @@ public static void main(String args)
   }
 }
 \end{lstlisting}
-}
+% }
 \end{frame}
 
 \begin{frame}[fragile]{Eficiência da Recursão}
@@ -204,7 +203,7 @@ Fibonacci(6) = 8\\
 
 
 \begin{frame}[fragile,plain]{Eficiência da Recursão}
-\%%Tree [.f(6) [.f(5) [.f(4) [.f(3) f(2) f(1) ] f(2) ] [.f(3) f(2) f(1) ] ] [.f(4) [.f(3) f(2) f(1) ] f(2) ] ] 
+\Tree [.f(6) [.f(5) [.f(4) [.f(3) f(2) f(1) ] f(2) ] [.f(3) f(2) f(1) ] ] [.f(4) [.f(3) f(2) f(1) ] f(2) ] ] 
 
 \begin{center} Padrão de chamada de função/método recursivo \textit{fibonacci}. \end{center}
 \end{frame}
@@ -217,7 +216,7 @@ Fibonacci(6) = 8\\
 	\item Diferente do cálculo que faríamos manualmente.
 \end{enumerate}
 
-%\Tree [.f(6) [.f(5) [.\textcolor{red}{f(4)} [.\textcolor{blue}{f(3)} \textcolor{green}{f(2)} f(1) ] \textcolor{green}{f(2)} ] [.\textcolor{blue}{f(3)} \textcolor{green}{f(2)} f(1) ] ] [.\textcolor{red}{f(4)} [.\textcolor{blue}{f(3)} \textcolor{green}{f(2)} f(1) ] \textcolor{green}{f(2)} ] ] 
+\Tree [.f(6) [.f(5) [.\textcolor{red}{f(4)} [.\textcolor{blue}{f(3)} \textcolor{green}{f(2)} f(1) ] \textcolor{green}{f(2)} ] [.\textcolor{blue}{f(3)} \textcolor{green}{f(2)} f(1) ] ] [.\textcolor{red}{f(4)} [.\textcolor{blue}{f(3)} \textcolor{green}{f(2)} f(1) ] \textcolor{green}{f(2)} ] ] 
 \end{frame}
 
 \begin{frame}[fragile,plain]{Em resumo...}

@@ -6,27 +6,13 @@
 
 \begin{frame}[c]{\Large Capítulo xxxxx -- Pilha}
 
-
-\begin{columns}
-\begin{column}{.5\textwidth}
-\centering
 Pontos fundamentais a serem cobertos:
-  \begin{enumerate}
-  \item Contexto e motivação
-  \item Definição
-  \item Implementações
-  \item Exercícios 
-\end{enumerate}  
 
-\end{column}
-\begin{column}{.5\textwidth}
-\centering
-\includegraphics[height=5cm, width=3.5cm]{figs/fig_pilhas/pilha_livro.jpeg}
-%\hspace{+0.25cm}
-%\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
-\end{column}
-\end{columns}
-
+\begin{enumerate}
+  \item 
+  \item 
+  \item 
+\end{enumerate}
 \end{frame}
 %--------------------
 
