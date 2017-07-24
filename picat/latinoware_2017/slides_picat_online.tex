@@ -1,6 +1,5 @@
 \documentclass[brazil]{beamer}
 %\usepackage[latin1]{inputenc}
-\usepackage[utf8]{inputenc}
 \usepackage{beamerthemesplit}
 
 \usepackage{graphicx,hyperref,url}
@@ -10,7 +9,7 @@
 %%%\usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{subfigure}
-%\usepackage{subcaption}
+
 \usepackage{latexsym}
 \usepackage{amssymb, amsmath}
 \usepackage{multicol}
@@ -392,16 +391,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title[Picat]{\fontsize{20}{30}\selectfont \textcolor{black}{Um Ambiente On-line para Linguagem PICAT}}
-
-%Claudio Cesar de Sá, Rogério Eduardo da Silva,
-%João Herique Faes Battisti, Paulo Victor de Aguiar \\
-%joaobattisti@gmail.com, pavaguiar@gmail.com, claudio.sa@udesc.br
-
-%\institute[UDESC]{
-%    Departamento de Ci\^encia da Computa\c{c}\~ao \\
-%    Centro de Ci\^encias e Tecnol\'ogias\\
-%Universidade do Estado de Santa Catarina}
+\title[Picat]{\fontsize{15}{20}\selectfont \textcolor{black}{Um Ambiente (\textit{on-line}) de Programação  para Linguagem PICAT}}
 
 %\title{Aplicações de PDI (INE5401)}
 \author{Alexandre Gonçalves Silva\footnote{Departamento Informática e Estatística -- Universidade Federal de Santa Catarina -- UFSC}, Claudio Cesar de Sá\footnote{Departamento de Ciência da Computação -- Universidade do Estado de Santa Catarina -- UDESC}, Lucas Hermman Negri\footnote{Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul -- IFMS}}
@@ -417,7 +407,6 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \begin{frame}[fragile]
 \frametitle{Sumário da Apresentação}
@@ -436,10 +425,10 @@
     \frametitle{Objetivos do Trabalho}
 
     \begin{itemize}
-      \item 
-      \item 
-      \item 
-      \item 
+      \item Apresentar a Linguagem PICAT
+      \item PICAT e suas contribuições
+      \item Finalmene, um  ambiente WEB de programação para PICAT
+%      \item Um editor para PICAT na WEB
     \end{itemize}
 \end{frame}
 
@@ -460,7 +449,59 @@
 
       \item Sua atual versão é a 2.1 (visitado em \today)
 
+      \item Sua sítio: \url{http://picat-lang.org/}
+      
+      \item Uma \textbf{linguagem multiparadigma}
     \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Características de PICAT}
+
+\begin{frame}
+    \frametitle{O que é multiparadigma?}
+
+    \begin{itemize}
+      \item Imperativo -- Procedural
+      \item Funcional
+      \item \underline{Lógico}
+      \item Uma boa \textit{mistura} de: Haskell, Prolog e Python
+
+    \end{itemize}
+
+\end{frame}
+%-------------------------------------------------------------
+\begin{frame}
+    \frametitle{Algumas Características:}
+
+    \begin{itemize}
+    
+      \item Sintaxe $\Rightarrow $ elegância do código
+      \item Velocidade de execução
+      \item Portabilidade (todas plataformas)
+      \item Extensão há outras ferramentas
+      
+    \end{itemize}
+\end{frame}
+%-------------------------------------------------------------
+\begin{frame}
+    \frametitle{Anacrônico de \textbf{P.I.C.A.T.}}
+  
+ \begin{description}
+   
+ 
+ \item [\textbf{P}:] \textit{Pattern-matching}:  Utiliza o conceito de \textit{casamento padrão}
+ equivalente aos conceitos de \textit{unificação} da LPO
+ 
+ \item [\textbf{I}:] \textit{Intuitive}: oferece estruturas de decisão, atribuição e 
+ laços de repetição, etc, análogo as outras linguagens de programação
+\item [\textbf{C}:] \textit{Constraints}: suporta a Programação por Restrições (PR)
+ 
+     \item [\textbf{A}:] \textit{Actors}: suporte as chamadas a eventos, os atores (futuro gráfico) 
+ 
+  \item [\textbf{T}:] \textit{Tabling}: implementa a técnica de \textit{memoization}, com soluções imediatas para problemas de Programação Dinâmica (PD).
+   
+  
+\end{description}
 \end{frame}
 
 

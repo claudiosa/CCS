@@ -1,10 +1,11 @@
-
+%!TEX root = curso_EDA_SLIDES.tex
+%!TeX spellcheck = pt_BR
 \section{Filas}
 
 
 \begin{frame}
 \begin{center}
-{\Large CapÌtulo xxxxx -- Filas}
+{\Large Cap√≠tulo xxxxx -- Filas}
 
 Pontos fundamentais a serem cobertos:
 
@@ -21,63 +22,62 @@ Pontos fundamentais a serem cobertos:
 
 
 
-  \begin{frame}{IntroduÁ„o}    
+  \begin{frame}{Introdu√ß√£o}    
 		\begin{itemize}
-			\item Assim como a estrutura de dados Pilha, Fila È outra estrutura de dados bastante utilizada em computaÁ„o.
-			\item Um exemplo È a implementaÁ„o de uma fila de impress„o.
-			\item Se uma impressora È compartilhada por v·rias m·quinas, normalmente adota-se uma estratÈgia para determinar a ordem de impress„o dos documentos.
-			\item A maneira mais simples È tratar todas as requisiÁıes com a mesma prioridade e imprimir os documentos na ordem em que foram submetidos - o primeiro submetido È o primeiro a ser impresso.
+			\item Assim como a estrutura de dados Pilha, Fila √© outra estrutura de dados bastante utilizada em computa√ß√£o.
+			\item Um exemplo √© a implementa√ß√£o de uma fila de impress√£o.
+			\item Se uma impressora √© compartilhada por v√°rias m√°quinas, normalmente adota-se uma estrat√©gia para determinar a ordem de impress√£o dos documentos.
+			\item A maneira mais simples √© tratar todas as requisi√ß√µes com a mesma prioridade e imprimir os documentos na ordem em que foram submetidos - o primeiro submetido √© o primeiro a ser impresso.
 		\end{itemize}
   \end{frame}
   
 \begin{frame}{Fila}
-     \begin{block}{DefiniÁ„o}
-       Um conjunto ordenado de itens a partir do qual podem-se eliminar itens numa extremidade (chamada de \alert{inÌcio} da fila) e no qual podem-se inserir itens na outra extremidade (chamada \alert{final} da fila).
+     \begin{block}{Defini√ß√£o}
+       Um conjunto ordenado de itens a partir do qual podem-se eliminar itens numa extremidade (chamada de \alert{in√≠cio} da fila) e no qual podem-se inserir itens na outra extremidade (chamada \alert{final} da fila).
      \end{block}          
 \end{frame}
 
-\begin{frame}{RepresentaÁ„o}
+\begin{frame}{Representa√ß√£o}
 \begin{itemize}
-	\item Os nÛs de uma fila s„o armazenados em endereÁos contÌnuos.	
-	\item A Figura \ref{fig:fila-representacao} temos a representaÁ„o de uma fila com trÍs elementos.
+	\item Os n√≥s de uma fila s√£o armazenados em endere√ßos cont√≠nuos.	
+	\item A Figura~\ref{fig:fila-representacao} ilustra uma fila com tr√™s elementos.
 \end{itemize}
 \begin{figure}[ht]
 				\centering
-			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_elementos.png}				
-				\caption{Exemplo de representaÁ„o de fila.}	
-				\label{fig:fila-representacao}
+				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_elementos}
+				\caption{Exemplo de representa√ß√£o de fila.}\label{fig:fila-representacao}
 			\end{figure} 
 \begin{itemize}
-	\item ApÛs a retirada de um elemento (\textit{primeiro}) temos:
+	\item Ap√≥s a retirada de um elemento (\textit{primeiro}) temos:
 	\begin{figure}[ht]
 				\centering
-			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_retirada.png}				
-				\caption{RepresentaÁ„o de uma fila apÛs a remoÁ„o do elemento ``A''.}	
+				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_retirada}
+				\caption{Representa√ß√£o de uma fila ap√≥s a remo√ß√£o do elemento ``A''.}	
 			\end{figure} 
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{RepresentaÁ„o}
+\begin{frame}{Representa√ß√£o}
 \begin{itemize}
-	\item ApÛs a inclus„o de dois elementos temos:
+	\item Ap√≥s a inclus√£o de dois elementos temos:
 	\begin{figure}[ht]
 				\centering
-			%	\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_tres_inclusao.png}				
-				\caption{RepresentaÁ„o de uma fila apÛs a inclus„o de dois elementos ``D'' e ``E''.}	
+				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_inclusao}
+				\caption{Representa√ß√£o de uma fila ap√≥s a inclus√£o de dois elementos ``D'' e ``E''.}	
 			\end{figure} 
 \end{itemize}
 \begin{itemize}
-	\item Como podemos observar, a operaÁ„o de inclus„o e retirada de um item da fila incorre na mudanÁa do endereÁo do ponteiro que informa onde È o inÌcio e o tÈrmino da fila.
+	\item Como podemos observar, a opera√ß√£o de inclus√£o e retirada de um item da fila incorre na mudan√ßa do endere√ßo do ponteiro que informa onde √© o in√≠cio e o t√©rmino da fila.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{RepresentaÁ„o}
+\begin{frame}[fragile]{Representa√ß√£o}
 \begin{itemize}
-	\item Em uma fila, o \alert{primeiro} elemento inserido È o primeiro a ser removido.
-	\item Por essa raz„o, uma fila È chamada \textbf{\alert{fifo(\textit{first-in first-out})}} - primeiro que entra È o primeiro a sair - ao contr·rio de uma pilha que È \alert{lifo} (\textit{last-in, first-out})
-	\item Para exemplificar a implementaÁ„o em C, vamos considerar que o conte˙do armazenado na fila È do tipo inteiro.
-	\item A estrutura de fila possui a seguinte representaÁ„o:	
+	\item Em uma fila, o \alert{primeiro} elemento inserido √© o primeiro a ser removido.
+	\item Por essa raz√£o, uma fila √© chamada \textbf{\alert{fifo(\textit{first-in first-out})}} -- primeiro que entra √© o primeiro a sair -- ao contr√°rio de uma pilha que √© \alert{lifo} (\textit{last-in, first-out})
+	\item Para exemplificar a implementa√ß√£o em C, vamos considerar que o conte√∫do armazenado na fila √© do tipo inteiro.
+	\item A estrutura de fila possui a seguinte representa√ß√£o:	
 \end{itemize}
 \footnotesize
 \begin{lstlisting}[language=C]
@@ -88,41 +88,41 @@ Pontos fundamentais a serem cobertos:
   typedef struct fila Fila;
 \end{lstlisting}
 \begin{itemize}
-	\item Trata-se de uma estrutura heterogÍnea constituÌda de membros distintos entre si. Os membros s„o as vari·veis \alert{\textit{ini}} e \alert{\textit{fim}}, que serve para armazenar respectivamente, o inÌcio e o fim da fila e o vetor \alert{\textit{elemento}} de inteiros que armazena os itens da fila.
+	\item Trata-se de uma estrutura heterog√™nea constitu√≠da de membros distintos entre si. Os membros s√£o as vari√°veis \alert{\textit{ini}} e \alert{\textit{fim}}, que serve para armazenar respectivamente, o in√≠cio e o fim da fila e o vetor \alert{\textit{elemento}} de inteiros que armazena os itens da fila.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{OperaÁıes Primitivas}
+\begin{frame}{Opera√ß√µes Primitivas}
   \begin{itemize}
-	  \item As operaÁıes b·sicas que devem ser implementadas em uma estrutura do tipo Fila s„o:		
+	  \item As opera√ß√µes b√°sicas que devem ser implementadas em uma estrutura do tipo Fila s√£o:		
   \end{itemize}
   \begin{table}[ht]
 			  \centering
 						\begin{tabular}{l|l}
-						    \hline \textbf{OperaÁ„o} & \textbf{DescriÁ„o} \\
+						    \hline \textbf{Opera√ß√£o} & \textbf{Descri√ß√£o} \\
 						    \hline criar() & aloca dinamicamente a estrutura da fila.\\
 						    \hline insere(f,e) & adiciona um novo elemento \textit{(e)}, no final da fila \textit{f}.\\
-						    \hline retira(f) & remove o elemento do inÌcio da fila \textit{f}.\\						   
+						    \hline retira(f) & remove o elemento do in√≠cio da fila \textit{f}.\\						   
 						    %\hline pesquisar(f,e) & pesquisa o elemento \textit{e} na fila \textit{f}.\\
 						    \hline 
 						\end{tabular}
-						\caption{OperaÁıes b·sicas da estrutura de dados fila.}
+						\caption{Opera√ß√µes b√°sicas da estrutura de dados fila.}
 				\end{table}
 \end{frame}
  
-\begin{frame}{OperaÁıes auxiliares}   
+\begin{frame}{Opera√ß√µes auxiliares}   
 			\begin{itemize}
-				\item AlÈm das operaÁıes b·sicas, temos as operaÁıes ``auxiliares''. S„o elas:
+				\item Al√©m das opera√ß√µes b√°sicas, temos as opera√ß√µes ``auxiliares''. S√£o elas:
 			\end{itemize}
 			\begin{table}[ht]
 			  \centering
 						\begin{tabular}{l|l}
-						    \hline \textbf{OperaÁ„o} & \textbf{DescriÁ„o} \\						    
-						    \hline vazia(f) & informa se a fila est· ou n„o vazia.\\
-						    \hline libera(f) & destrÛi a estrutura, e assim libera toda a memÛria alocada.\\
+						    \hline \textbf{Opera√ß√£o} & \textbf{Descri√ß√£o} \\						    
+						    \hline vazia(f) & informa se a fila est√° ou n√£o vazia.\\
+						    \hline libera(f) & destr√≥i a estrutura, e assim libera toda a mem√≥ria alocada.\\
 						    \hline 
 						\end{tabular}
-						\caption{OperaÁıes auxiliares da estrutura de dados fila.}
+						\caption{Opera√ß√µes auxiliares da estrutura de dados fila.}
 				\end{table}
   \end{frame}
 
@@ -133,73 +133,73 @@ Pontos fundamentais a serem cobertos:
 typedef struct fila Fila;
 /* Aloca dinamicamente a estrutura Fila, inicializando seus
  * campos e retorna seu ponteiro. A fila depois de criada
- * estar· vazia.*/
+ * estarah vazia.*/
 Fila* criar(void);
 
 /* Insere o elemento e no final da fila f, desde que,
- * a fila n„o esteja cheia.*/
+ * a fila nao esteja cheia.*/
 void insere(Fila* f, int e);
 
-/* Retira o elemento do inÌcio da fila, e fornece o 
+/* Retira o elemento do inicio da fila, e fornece o 
  * valor do elemento retirado como retorno, desde que a fila
- * n„o esteja vazia*/
+ * nao esteja vazia*/
 int retira(Fila* f);
 
-/*Verifica se a fila f est· vazia*/
+/*Verifica se a fila f estah vazia*/
 int vazia(Fila* f);
 
-/*Libera a memÛria alocada pela fila f*/
+/*Libera a memoria alocada pela fila f*/
 void libera(Fila* f);
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{ImplementaÁ„o de Fila com Vetor}
+\begin{frame}{Implementa√ß√£o de Fila com Vetor}
 	\begin{itemize}
-		\item Assim como nos casos da pilha e lista, a implementaÁ„o de fila ser· feita usando um vetor para armazenar os elementos.
-		\item Isso implica, que devemos fixar o n˙mero m·ximo de elementos na fila.
-		\item O processo de inserÁ„o e remoÁ„o em extremidades opostas far· a fila ``andar'' no vetor.
-		\item Por exemplo, se inserirmos os elementos 8, 7, 4, 3 e depois retiramos dois elementos, a fila n„o estar· mais nas posiÁıes iniciais do vetor.
+		\item Assim como nos casos da pilha e lista, a implementa√ß√£o de fila ser√° feita usando um vetor para armazenar os elementos.
+		\item Isso implica, que devemos fixar o n√∫mero m√°ximo de elementos na fila.
+		\item O processo de inser√ß√£o e remo√ß√£o em extremidades opostas far√° a fila ``andar'' no vetor.
+		\item Por exemplo, se inserirmos os elementos 8, 7, 4, 3 e depois retiramos dois elementos, a fila n√£o estar√° mais nas posi√ß√µes iniciais do vetor.
 	\end{itemize}
 	\begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{01-img/filas/fila_insercao_quatro_elementos.png}				
-				\caption{Fila apÛs inserÁ„o de quatro elementos.}	
+				\includegraphics[width=.6\textwidth]{fila_insercao_quatro_elementos}
+				\caption{Fila ap√≥s inser√ß√£o de quatro elementos.}	
 	\end{figure} 	
 \end{frame}
 
-\begin{frame}{ImplementaÁ„o de Fila com Vetor}	
+\begin{frame}{Implementa√ß√£o de Fila com Vetor}	
 	\begin{figure}[ht]
 				\centering
-				%\includegraphics[width=.6\textwidth]{01-img/filas/exemplo_fila_remove_dois_elementos.png}				
-				\caption{Fila apÛs retirar dois elementos.}	
+				\includegraphics[width=.6\textwidth]{exemplo_fila_remove_dois_elementos}
+				\caption{Fila ap√≥s retirar dois elementos.}	
 	\end{figure} 	
 	\begin{itemize}
-		\item Com essa estratÈgia, È f·cil observar que, em um dado instante, a parte ocupada pelo vetor pode chegar a ˙ltima posiÁ„o.
-		\item Uma soluÁ„o seria ao remover um elemento da fila, deslocar a fila inteira no sentido do inÌcio do vetor.
-		\item Entretanto, essa mÈtodo È bastante ineficiente, pois cada retirada implica em deslocar cada elemento restante da fila. Se uma fila tiver 500 ou 1000 elementos, evidentemente esse seria um preÁo muito alto a pagar.		
+		\item Com essa estrat√©gia, √© f√°cil observar que, em um dado instante, a parte ocupada pelo vetor pode chegar a √∫ltima posi√ß√£o.
+		\item Uma solu√ß√£o seria ao remover um elemento da fila, deslocar a fila inteira no sentido do in√≠cio do vetor.
+		\item Entretanto, essa m√©todo √© bastante ineficiente, pois cada retirada implica em deslocar cada elemento restante da fila. Se uma fila tiver 500 ou 1000 elementos, evidentemente esse seria um pre√ßo muito alto a pagar.		
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{ImplementaÁ„o de Fila com Vetor}		
+\begin{frame}{Implementa√ß√£o de Fila com Vetor}		
 	\begin{itemize}		
-		\item Para reaproveitar as primeira posiÁıes do vetor sem implementar uma ``re-arrumaÁ„o'' dos elementos, podemos incrementar as posiÁıes do vetor de forma ``circular''.
-		\item Para essa implementaÁ„o, os Ìndices do vetor s„o incrementados de maneira que seus valores progridam ``circularmente''. 
-		\item Dessa forma, se temos 100 posiÁıes no vetor, os Ìndices assumem os seguintes valores:
+		\item Para reaproveitar as primeira posi√ß√µes do vetor sem implementar uma ``re-arruma√ß√£o'' dos elementos, podemos incrementar as posi√ß√µes do vetor de forma ``circular''.
+		\item Para essa implementa√ß√£o, os √≠ndices do vetor s√£o incrementados de maneira que seus valores progridam ``circularmente''. 
+		\item Dessa forma, se temos 100 posi√ß√µes no vetor, os √≠ndices assumem os seguintes valores:
 		$$0, 1, 2, 3, \cdots, 98, 99, 0, 1, 2, 3, \cdots, 98, 99, \cdots$$
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{FunÁ„o de CriaÁ„o}
+\begin{frame}[fragile]{Fun√ß√£o de Cria√ß√£o}
 	\begin{itemize}
-		\item A funÁ„o que cria uma fila, deve criar e retornar o ponteiro de uma fila vazia;
-		\item A funÁ„o deve informar onde È o inÌcio da fila, ou seja, fazer $f->ini = 0$, como podemos ver no cÛdigo abaixo.
-		\item A complexidade de tempo para criar a fila È constante, ou seja, $O(1)$.
+		\item A fun√ß√£o que cria uma fila, deve criar e retornar o ponteiro de uma fila vazia;
+		\item A fun√ß√£o deve informar onde √© o in√≠cio da fila, ou seja, fazer $f->ini = 0$, como podemos ver no c√≥digo abaixo.
+		\item A complexidade de tempo para criar a fila √© constante, ou seja, $O(1)$.
 	\end{itemize}
 \small	
 \begin{lstlisting}[language=C]
 /* Aloca dinamicamente a estrutura Fila, inicializando seus
  * campos e retorna seu ponteiro. A fila depois de criada
- * estar· vazia.
+ * estarah vazia.
  */
 Fila* criar(void)
 {
@@ -210,11 +210,11 @@ Fila* criar(void)
 }\end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{FunÁ„o de InserÁ„o}  
+\begin{frame}[fragile]{Fun√ß√£o de Inser√ß√£o}  
 	\begin{itemize}
-		\item Para inserir um elemento na fila, usamos a prÛxima posiÁ„o livre do vetor, indicada por \alert{n}.
-		\item Devemos assegurar que h· espaÁo para inserÁ„o do novo elemento no vetor, haja vista se tratar de um vetor com capacidade limitada. 
-		\item A complexidade de tempo para inserir um elemento na fila È constante, ou seja, $O(1)$.
+		\item Para inserir um elemento na fila, usamos a pr√≥xima posi√ß√£o livre do vetor, indicada por \alert{n}.
+		\item Devemos assegurar que h√° espa√ßo para inser√ß√£o do novo elemento no vetor, haja vista se tratar de um vetor com capacidade limitada. 
+		\item A complexidade de tempo para inserir um elemento na fila √© constante, ou seja, $O(1)$.
 	\end{itemize}
 \footnotesize
 \begin{lstlisting}[language=C]
@@ -233,11 +233,11 @@ void insere(Fila* f, int e)
 \end{lstlisting}	
 \end{frame}
 
-\begin{frame}[fragile]{FunÁ„o de RemoÁ„o} 
+\begin{frame}[fragile]{Fun√ß√£o de Remo√ß√£o} 
 	\begin{itemize}
-		\item A funÁ„o para retirar o elemento do inÌcio da fila fornece o valor do elemento retirado como retorno.
-		\item Para remover um elemento, devemos verificar se a fila est· ou n„o vazia.
-		\item A complexidade de tempo para remover um elemento da fila È constante, ou seja, $O(1)$.
+		\item A fun√ß√£o para retirar o elemento do in√≠cio da fila fornece o valor do elemento retirado como retorno.
+		\item Para remover um elemento, devemos verificar se a fila est√° ou n√£o vazia.
+		\item A complexidade de tempo para remover um elemento da fila √© constante, ou seja, $O(1)$.
 	\end{itemize}
 	
 \footnotesize
@@ -257,10 +257,10 @@ int retira(Fila* f)
 \end{lstlisting}	
 \end{frame} 
 
-%\begin{frame}[fragile]{FunÁ„o de Pesquisa} 
+%\begin{frame}[fragile]{Fun√ß√£o de Pesquisa} 
 %	\begin{itemize}
-%		\item Para pesquisar um elemento qualquer na lista È necess·rio compar·-lo com os elementos existentes, utilizando alguns dos algoritmos de busca conhecidos;
-%		\item A complexidade de tempo dessa funÁ„o depende do algoritmo de busca implementado. Se utilizarmos a busca seq¸encial, a complexidade da funÁ„o ser· $O(n)$. No entanto, È possÌvel baix·-lo para $O(n\log n)$, utilizando alguns dos algoritmos mais refinados.
+%		\item Para pesquisar um elemento qualquer na lista √© necess√°rio compar√°-lo com os elementos existentes, utilizando alguns dos algoritmos de busca conhecidos;
+%		\item A complexidade de tempo dessa fun√ß√£o depende do algoritmo de busca implementado. Se utilizarmos a busca seq√ºencial, a complexidade da fun√ß√£o ser√° $O(n)$. No entanto, √© poss√≠vel baix√°-lo para $O(n\log n)$, utilizando alguns dos algoritmos mais refinados.
 %\end{itemize}
 %
 %\footnotesize
@@ -294,7 +294,7 @@ int main(void)
 \end{frame} 
 
 
-\begin{frame}{ReferÍncias}
+\begin{frame}{Refer√™ncias}
 	\begin{enumerate}
 		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). Estruturas de Dados Usando C. MAKRON Books, pp. 207-250.
 		\item Wirth, N. (1989). Algoritmos e Estrutura de dados. LTC, pp. 151-165.
