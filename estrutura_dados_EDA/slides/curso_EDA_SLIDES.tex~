@@ -5,18 +5,16 @@
           %titlepagelogo=coca,% Logo for the first page.
           titleline=true
           ]{Torino}
+
 %\usetheme{Frankfurt}
+%\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+%\usecolortheme{chameleon}
 
-\setbeamertemplate{caption}[numbered]{}% Number float-like environments
-
-\usecolortheme{chameleon}
-
-\usepackage{graphicx,hyperref,url}
 \usepackage[utf8]{inputenc}
 % \usepackage[latin1]{inputenc}
-% \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[portuges,brazilian]{babel}
+\usepackage{graphicx,hyperref,url}
 \usepackage{lmodern}
 
 \usepackage{caption}
@@ -25,8 +23,9 @@
 \usepackage{latexsym}
 \usepackage{amssymb, amsmath}
 \usepackage{multicol}
-\usepackage{pifont}%,bbding}%%,dingbat} %%% ver manual de simbolos
-\usepackage[final]{listings}
+\usepackage{pifont} 
+%%%,bbding}%%,dingbat} %%% ver manual de simbolos
+\usepackage{listings}
 \usepackage{comment}
 \usepackage{sansmathaccent}
 \usepackage{qtree}
@@ -78,9 +77,6 @@
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
 
-
-
-
 %Global Background must be put in preamble
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{amarelinho.pdf}}
 %%% \begin{frame}[allowframebreaks=0.8]
@@ -116,7 +112,7 @@ Lucas Hermman Negri, Gilmário Barbosa}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame} [allowframebreaks=0.8]
+\begin{frame} [allowframebreaks=0.7]
 \frametitle{Sumário}
 \tableofcontents
 \end{frame}
@@ -131,7 +127,7 @@ Vários autores e colaboradores ...
  % \item Alessandro Ferreira Leite --
  % \item Lucas Hermman Negri -- IFMS
  % \item Gilmário Barbosa -- UDESC
-  \item Ao Google Images ... 
+ \item Ao Google Images ... 
   
 \end{itemize}
 
