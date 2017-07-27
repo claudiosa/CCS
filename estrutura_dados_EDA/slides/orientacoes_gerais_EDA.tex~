@@ -18,7 +18,7 @@
 \item \emph{\textbf{Carga horária:}} 72 horas-aula 
 \textcolor{red}{$\bullet$}~Teóricas: 36 \textcolor{red}{$\bullet$}~Práticas: 36
 \item \emph{\textbf{Curso:}} BCC
-\item \emph{\textbf{Requisitos:}} LPG, Linux, LMA, conhecimento da linguagem C
+\item \emph{\textbf{Requisitos:}} LPG, Linux, LMA,
 \item \emph{\textbf{Período:}} 2º semestre de 2017
 \item \emph{\textbf{Horários:}}
   \begin{itemize}
@@ -51,14 +51,21 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 \begin{itemize}
 \item \emph{\textbf{Geral:}} 
  
- \textcolor{red}{FALTANDO}
 
 \newpage
 \item \emph{\textbf{Específicos:}} 
 
   \begin{itemize}
-  \item  \textcolor{red}{FALTANDO}
-  \item  
+  \item Descrever o histórico e quadro atual da Inteligência Artificial -- Moderna. 
+  \item Compreender a noção de Teoria de Problemas, computabilidade e complexidade na ótica de IA e IAD.
+  \item Diferencia IAD (orientação a divisão de problemas) versus SMA (orientação a 
+  coordenação de agentes)
+  \item  Conhecer diferentes arquiteturas de agentes
+  \item   Modelar problemas computacionais através de aplicação de agentes.
+  \item   Descrever o processo de tomada de decisão e aprendizagem computacional baseado em 
+  Estrutura de Dados.
+  \item   Conceber, projetar e construir sistemas computacionais capazes de aplicar sistemas 
+  multiagentes como técnica de resolução.
   
   \end{itemize}
 
@@ -74,7 +81,7 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 
 
     \begin{itemize}
-      \item  \textcolor{red}{FALTANDO}
+      \item 
       
     \end{itemize}
 \end{frame}
@@ -170,11 +177,7 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 \textbf{Básica:} 
 \begin{itemize}
 
-\item  \textcolor{red}{FALTANDO}
-\item  \textcolor{red}{FALTANDO}
-\item  \textcolor{red}{FALTANDO}
-\item  \textcolor{red}{FALTANDO}
-\item  \textcolor{red}{FALTANDO}
+\item 
 
 \item \url{https://github.com/claudiosa/CCS/tree/master/estrutura_dados_EDA}
 
@@ -183,9 +186,9 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 \textbf{Complementar:}
 
 \begin{itemize}
-\item  \textcolor{red}{FALTANDO}
-\item  \textcolor{red}{FALTANDO}
-\item  \textcolor{red}{FALTANDO}
+\item 
+
+
 \end{itemize}
 
 \end{frame}
