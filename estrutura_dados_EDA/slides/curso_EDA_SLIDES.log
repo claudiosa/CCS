@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.26)  25 JUL 2017 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.7.28)  29 JUL 2017 21:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **curso_EDA_SLIDES.tex
 (./curso_EDA_SLIDES.tex
-LaTeX2e <2017/01/01> patch level 3
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2017/01/23 v3.41 A class for typesetting presentations
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -109,7 +109,7 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -457,11 +457,11 @@ Package: sansmathaccent 2013/03/28
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )))
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator.sty
+(/usr/share/texmf-dist/tex/latex/beamer/translator/translator.sty
 Package: translator 2010/06/12 ver 1.10
 
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator-language-map
-pings.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/translator/translator-language-mappings
+.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
 \beamer@argscount=\count127
@@ -614,20 +614,18 @@ Package: amsthm 2015/03/04 v2.20.2
 \c@theorem=\count153
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/theme/beamerthemedefault.st
+(/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemedefault.sty
+(/usr/share/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemedefault.sty)
+
+(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemedefault.st
+y)
+(/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemedefault.st
 y
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/font/beamerfontthemedefault
-.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemedefau
-lt.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/inner/beamerinnerthemedefau
-lt.sty
 \beamer@dima=\dimen186
 \beamer@dimb=\dimen187
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/outer/beamerouterthemedefau
-lt.sty)))
-(/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeTorino.sty
+(/usr/share/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemedefault.st
+y))) (/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeTorino.sty
 (/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemefancy.sty
 \beamer@fancy@lineup=\skip57
 \beamer@fancy@linemid=\skip58
@@ -965,23 +963,23 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2017/02/22 v2.0g Standard LaTeX package
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
 (/usr/share/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2017/02/22 v2.0g Standard LaTeX file
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/share/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2016/04/23 3.9r The Babel package
+Package: babel 2017/05/19 3.10 The Babel package
 
 (/usr/share/texmf-dist/tex/generic/babel-portuges/portuges.ldf
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2016/04/23 3.9r Babel common definitions
+File: babel.def 2017/05/19 3.10 Babel common definitions
 \babel@savecnt=\count154
 \U@D=\dimen188
-LaTeX Info: Redefining \textlatin on input line 1448.
+LaTeX Info: Redefining \textlatin on input line 1648.
 )
 Package babel Info: Making " an active character on input line 145.
 )
@@ -1071,7 +1069,7 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
 (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
+Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \c@tracingmulticols=\count160
 \mult@box=\box53
 \multicol@leftmargin=\dimen198
@@ -1314,21 +1312,21 @@ uplicates ignored
 (./arvores_EDA.aux) (./hash_EDA.aux))
 \openout1 = `curso_EDA_SLIDES.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 108.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
@@ -1399,7 +1397,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box105
-Package hyperref Info: Link coloring OFF on input line 107.
+Package hyperref Info: Link coloring OFF on input line 108.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1409,143 +1407,143 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count188
 )
-LaTeX Info: Redefining \ref on input line 107.
-LaTeX Info: Redefining \pageref on input line 107.
-LaTeX Info: Redefining \nameref on input line 107.
+LaTeX Info: Redefining \ref on input line 108.
+LaTeX Info: Redefining \pageref on input line 108.
+LaTeX Info: Redefining \nameref on input line 108.
 
 (./curso_EDA_SLIDES.out) (./curso_EDA_SLIDES.out)
 \@outlinefile=\write6
 \openout6 = `curso_EDA_SLIDES.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 107.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 108.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/bx/n on input line 107.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/bx/n on input line 108.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 107.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 108.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 107.
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 108.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 107.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 107.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 108.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 107.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 107.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 107.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 108.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 107.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 107.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 107.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 108.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 107.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 107.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 107.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 108.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 107.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 107.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 108.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 107.
+(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 108.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 107.
+(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmr/bx/n on input line 107.
+(Font)                  OT1/lmss/bx/n --> T1/lmr/bx/n on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/bx/n --> T1/lmss/bx/n on input line 107.
+(Font)                  T1/lmss/bx/n --> T1/lmss/bx/n on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 107.
+(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 107.
+(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 108.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/bx/n on input line 107.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/bx/n on input line 108.
 
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-basic-
-dictionary/translator-basic-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dicti
+onary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-biblio
-graphy-dictionary/translator-bibliography-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-bibliograph
+y-dictionary/translator-bibliography-dictionary-English.dict
 Dictionary: translator-bibliography-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-enviro
-nment-dictionary/translator-environment-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-environment
+-dictionary/translator-environment-dictionary-English.dict
 Dictionary: translator-environment-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-months
--dictionary/translator-months-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-months-dict
+ionary/translator-months-dictionary-English.dict
 Dictionary: translator-months-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-number
-s-dictionary/translator-numbers-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-numbers-dic
+tionary/translator-numbers-dictionary-English.dict
 Dictionary: translator-numbers-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-theore
-m-dictionary/translator-theorem-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-theorem-dic
+tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 107.
+LaTeX Info: Redefining \includegraphics on input line 108.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count189
-
-(./curso_EDA_SLIDES.nav)
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 111
+ (./curso_EDA_SLIDES.nav)
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 112
 .
- (/usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
+
+(/usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 111.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 112.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 111
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 112
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 111
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 112
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 111.
+(Font)              <10> on input line 112.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 111.
+(Font)              <7> on input line 112.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 111.
-LaTeX Font Info:    Try loading font information for U+msa on input line 111.
+(Font)              <5> on input line 112.
+LaTeX Font Info:    Try loading font information for U+msa on input line 112.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 111.
+LaTeX Font Info:    Try loading font information for U+msb on input line 112.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 111.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 112.
 
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 111.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 112.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 111.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 112.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 111.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 112.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -1679,7 +1677,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [9
 
 
-]
+] <figs/fig_gerais/capa_livro_made_easy.jpeg, id=225, 220.825pt x 285.065pt>
+File: figs/fig_gerais/capa_livro_made_easy.jpeg Graphic file (type jpg)
+
+<use figs/fig_gerais/capa_livro_made_easy.jpeg>
+Package pdftex.def Info: figs/fig_gerais/capa_livro_made_easy.jpeg used on inpu
+t line 90.
+(pdftex.def)             Requested size: 142.27097pt x 170.71408pt.
+
+<figs/fig_gerais/capa_livro_program_design_C.jpeg, id=226, 218.8175pt x 218.817
+5pt>
+File: figs/fig_gerais/capa_livro_program_design_C.jpeg Graphic file (type jpg)
+ <use figs/fig_gerais/capa_livro_program_design_C.jpeg>
+Package pdftex.def Info: figs/fig_gerais/capa_livro_program_design_C.jpeg used 
+on input line 90.
+(pdftex.def)             Requested size: 142.2664pt x 170.71701pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1691,7 +1704,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [10
 
-]
+ <./figs/fig_gerais/capa_livro_made_easy.jpeg> <./figs/fig_gerais/capa_livro_pr
+ogram_design_C.jpeg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1727,8 +1741,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [13
 
-
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1741,6 +1757,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [14
 
 ]
+Overfull \vbox (11.0pt too high) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1750,29 +1769,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[15
-
-])
-\openout2 = `ponteiros_EDA.aux'.
-
- (./ponteiros_EDA.tex
-<figs/fig_ponteiros/null-pointer.png, id=269, 649.42625pt x 501.875pt>
-File: figs/fig_ponteiros/null-pointer.png Graphic file (type png)
-
-<use figs/fig_ponteiros/null-pointer.png>
-Package pdftex.def Info: figs/fig_ponteiros/null-pointer.png used on input line
- 42.
-(pdftex.def)             Requested size: 199.16971pt x 170.71947pt.
-
-Overfull \hbox (6.87154pt too wide) in paragraph at lines 42--42
-[][]  
- []
-
-
-Overfull \vbox (30.49117pt too high) detected at line 42
- []
-
-
+[15]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1784,17 +1781,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [16
 
-
-
- <./figs/fig_ponteiros/null-pointer.png (PNG copy)>]
-<figs/fig_ponteiros/hierarq_pointer.png, id=274, 553.06625pt x 377.41pt>
-File: figs/fig_ponteiros/hierarq_pointer.png Graphic file (type png)
-
-<use figs/fig_ponteiros/hierarq_pointer.png>
-Package pdftex.def Info: figs/fig_ponteiros/hierarq_pointer.png used on input l
-ine 59.
-(pdftex.def)             Requested size: 142.2579pt x 142.25977pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1806,18 +1793,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [17
 
- <./figs/fig_ponteiros/hierarq_pointer.png (PNG copy)>])
-\openout2 = `pilhas_EDA.aux'.
 
- (./pilhas_EDA.tex
-<figs/fig_pilhas/pilha_livro.jpeg, id=280, 278.03876pt x 182.6825pt>
-File: figs/fig_pilhas/pilha_livro.jpeg Graphic file (type jpg)
-
-<use figs/fig_pilhas/pilha_livro.jpeg>
-Package pdftex.def Info: figs/fig_pilhas/pilha_livro.jpeg used on input line 30
-.
-(pdftex.def)             Requested size: 99.58476pt x 142.27155pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1829,9 +1806,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [18
 
-
-
- <./figs/fig_pilhas/pilha_livro.jpeg>]
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1843,7 +1818,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [19
 
-]
+])
+\openout2 = `ponteiros_EDA.aux'.
+
+ (./ponteiros_EDA.tex
+<figs/fig_ponteiros/nulo-pointer.png, id=280, 649.42625pt x 501.875pt>
+File: figs/fig_ponteiros/nulo-pointer.png Graphic file (type png)
+
+<use figs/fig_ponteiros/nulo-pointer.png>
+Package pdftex.def Info: figs/fig_ponteiros/nulo-pointer.png used on input line
+ 40.
+(pdftex.def)             Requested size: 199.16971pt x 170.71947pt.
+
+Overfull \hbox (6.87154pt too wide) in paragraph at lines 40--40
+[][]  
+ []
+
+
+Overfull \vbox (30.49117pt too high) detected at line 40
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1855,7 +1850,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [20
 
-]
+
+
+ <./figs/fig_ponteiros/nulo-pointer.png (PNG copy)>]
+<figs/fig_ponteiros/hierarq_pointer.png, id=285, 553.06625pt x 377.41pt>
+File: figs/fig_ponteiros/hierarq_pointer.png Graphic file (type png)
+
+<use figs/fig_ponteiros/hierarq_pointer.png>
+Package pdftex.def Info: figs/fig_ponteiros/hierarq_pointer.png used on input l
+ine 57.
+(pdftex.def)             Requested size: 142.2579pt x 142.25977pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1867,41 +1872,31 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [21
 
+ <./figs/fig_ponteiros/hierarq_pointer.png (PNG copy)>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+) (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
+LaTeX Font Info:    Try loading font information for OMS+lmss on input line 9.
+LaTeX Font Info:    No file OMSlmss.fd. on input line 9.
+
+
+LaTeX Font Warning: Font shape `OMS/lmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textasteriskcentered' on input line 9.
+
+) [22
+
+] (./curso_EDA_SLIDES.vrb) [23
+
 ]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
+\openout4 = `curso_EDA_SLIDES.vrb'.
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[22
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[23
-
-] <figs/fig_pilhas/pilha.png, id=311, 374.39874pt x 385.44pt>
-File: figs/fig_pilhas/pilha.png Graphic file (type png)
-
-<use figs/fig_pilhas/pilha.png>
-Package pdftex.def Info: figs/fig_pilhas/pilha.png used on input line 92.
-(pdftex.def)             Requested size: 192.29817pt x 197.97156pt.
-
-Overfull \vbox (3.76822pt too high) detected at line 92
- []
-
-
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1913,7 +1908,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [24
 
- <./figs/fig_pilhas/pilha.png>]
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -1926,34 +1921,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [25
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
-LaTeX Font Info:    Try loading font information for OMS+lmss on input line 3.
-LaTeX Font Info:    No file OMSlmss.fd. on input line 3.
-
-
-LaTeX Font Warning: Font shape `OMS/lmss/m/it' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textasteriskcentered' on input line 3.
-
-
-Overfull \hbox (3.5096pt too wide) in paragraph at lines 5--6
-[][][][][][][][][][][][][][][] 
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
  []
 
 
-LaTeX Font Warning: Font shape `OMS/lmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textasteriskcentered' on input line 7.
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
 
-) [26
+[26
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1980,14 +1957,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [28
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb
-Overfull \hbox (15.50972pt too wide) in paragraph at lines 15--16
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2000,9 +1969,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [29
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2015,9 +1981,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [30
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2030,9 +1993,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [31
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2056,23 +2016,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [33
 
-])
-\openout2 = `filas_EDA.aux'.
-
- (./filas_EDA.tex
-<figs/fig_filas/fila_pessoas.jpeg, id=368, 1272.755pt x 574.145pt>
-File: figs/fig_filas/fila_pessoas.jpeg Graphic file (type jpg)
-
-<use figs/fig_filas/fila_pessoas.jpeg>
-Package pdftex.def Info: figs/fig_filas/fila_pessoas.jpeg used on input line 32
-.
-(pdftex.def)             Requested size: 199.15878pt x 113.81071pt.
-
-Overfull \hbox (6.86061pt too wide) in paragraph at lines 32--32
- [][] 
- []
-
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2084,9 +2028,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [34
 
+]
+<figs/fig_ponteiros/representacao-memoria.png, id=359, 385.44pt x 96.36pt>
+File: figs/fig_ponteiros/representacao-memoria.png Graphic file (type png)
 
+<use figs/fig_ponteiros/representacao-memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao-memoria.png used on i
+nput line 141.
+(pdftex.def)             Requested size: 160.24684pt x 40.06068pt.
 
- <./figs/fig_filas/fila_pessoas.jpeg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2098,7 +2048,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [35
 
-]
+ <./figs/fig_ponteiros/representacao-memoria.png>]
+File: figs/fig_ponteiros/representacao-memoria.png Graphic file (type png)
+
+<use figs/fig_ponteiros/representacao-memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao-memoria.png used on i
+nput line 141.
+(pdftex.def)             Requested size: 160.24684pt x 40.06068pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2111,20 +2068,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [36
 
 ]
-<figs/fig_filas/exemplo_fila_tres_elementos.png, id=384, 399.4925pt x 86.3225pt
->
-File: figs/fig_filas/exemplo_fila_tres_elementos.png Graphic file (type png)
- <use figs/fig_filas/exemplo_fila_tres_elementos.png>
-Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_elementos.png used on
- input line 74.
-(pdftex.def)             Requested size: 192.29817pt x 41.55154pt.
-
-<figs/fig_filas/exemplo_fila_tres_retirada.png, id=385, 399.4925pt x 86.3225pt>
-File: figs/fig_filas/exemplo_fila_tres_retirada.png Graphic file (type png)
-<use figs/fig_filas/exemplo_fila_tres_retirada.png>
-Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_retirada.png used on 
-input line 74.
-(pdftex.def)             Requested size: 192.29817pt x 41.55154pt.
+File: figs/fig_ponteiros/representacao-memoria.png Graphic file (type png)
+ <use figs/fig_ponteiros/representacao-memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao-memoria.png used on i
+nput line 141.
+(pdftex.def)             Requested size: 160.24684pt x 40.06068pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -2137,43 +2085,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [37
 
- <./figs/fig_filas/exemplo_fila_tres_elementos.png> <./figs/fig_filas/exemplo_f
-ila_tres_retirada.png>]
-<figs/fig_filas/exemplo_fila_tres_inclusao.png, id=393, 399.4925pt x 86.3225pt>
-File: figs/fig_filas/exemplo_fila_tres_inclusao.png Graphic file (type png)
-<use figs/fig_filas/exemplo_fila_tres_inclusao.png>
-Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_inclusao.png used on 
-input line 90.
-(pdftex.def)             Requested size: 192.29817pt x 41.55154pt.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
+]
+<figs/fig_ponteiros/exemplo-representacao-ponteiro.png, id=376, 197.73875pt x 2
+05.76875pt>
+File: figs/fig_ponteiros/exemplo-representacao-ponteiro.png Graphic file (type 
+png)
+ <use figs/fig_ponteiros/exemplo-representacao-ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/exemplo-representacao-ponteiro.png 
+used on input line 155.
+(pdftex.def)             Requested size: 96.14908pt x 100.05518pt.
 
 [38
 
- <./figs/fig_filas/exemplo_fila_tres_inclusao.png>]
-\openout4 = `curso_EDA_SLIDES.vrb'.
+ <./figs/fig_ponteiros/exemplo-representacao-ponteiro.png>]
+File: figs/fig_ponteiros/exemplo-representacao-ponteiro.png Graphic file (type 
+png)
 
- (./curso_EDA_SLIDES.vrb
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 18.
-)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[39
+<use figs/fig_ponteiros/exemplo-representacao-ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/exemplo-representacao-ponteiro.png 
+used on input line 155.
+(pdftex.def)             Requested size: 96.14908pt x 100.05518pt.
+ [39
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2200,20 +2132,18 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [41
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
 
- (./curso_EDA_SLIDES.vrb) [42
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[42
 
 ]
-<figs/fig_filas/fila_insercao_quatro_elementos.png, id=421, 399.4925pt x 80.3pt
->
-File: figs/fig_filas/fila_insercao_quatro_elementos.png Graphic file (type png)
-
- <use figs/fig_filas/fila_insercao_quatro_elementos.png>
-Package pdftex.def Info: figs/fig_filas/fila_insercao_quatro_elementos.png used
- on input line 186.
-(pdftex.def)             Requested size: 192.29817pt x 38.6526pt.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2225,16 +2155,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [43
 
- <./figs/fig_filas/fila_insercao_quatro_elementos.png>]
-<figs/fig_filas/exemplo_fila_remove_dois_elementos.png, id=428, 399.4925pt x 80
-.3pt>
-File: figs/fig_filas/exemplo_fila_remove_dois_elementos.png Graphic file (type 
-png)
- <use figs/fig_filas/exemplo_fila_remove_dois_elementos.png>
-Package pdftex.def Info: figs/fig_filas/exemplo_fila_remove_dois_elementos.png 
-used on input line 199.
-(pdftex.def)             Requested size: 192.29817pt x 38.6526pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2246,7 +2167,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [44
 
- <./figs/fig_filas/exemplo_fila_remove_dois_elementos.png>]
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2259,14 +2180,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [45
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb
-Overfull \hbox (6.95558pt too wide) in paragraph at lines 9--10
-[][][][][][][][][][][][][][][][][][] 
- []
-
-)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2279,12 +2192,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [46
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 13.
-)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2311,10 +2218,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [48
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2326,7 +2230,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [49
 
-]
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2338,10 +2242,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [50
 
-])
-\openout2 = `listas_EDA.aux'.
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./listas_EDA.tex
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2353,9 +2257,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [51
 
-
-
 ]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2367,7 +2272,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [52
 
-]
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2379,14 +2284,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [53
 
-] <figs/fig_listas/lista-linear.png, id=486, 456.70625pt x 84.315pt>
-File: figs/fig_listas/lista-linear.png Graphic file (type png)
-
-<use figs/fig_listas/lista-linear.png>
-Package pdftex.def Info: figs/fig_listas/lista-linear.png used on input line 57
-.
-(pdftex.def)             Requested size: 192.29817pt x 35.50081pt.
-
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2398,10 +2296,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [54
 
- <./figs/fig_listas/lista-linear.png>]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2416,17 +2311,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb
-Overfull \hbox (97.76604pt too wide) in paragraph at lines 7--8
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (97.76604pt too wide) in paragraph at lines 8--9
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-)
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2438,7 +2323,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [56
 
-]
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2451,6 +2336,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [57
 
 ]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+
+LaTeX Font Warning: Font shape `OMS/lmss/m/it' undefined
+(Font)              using `OMS/lmss/m/n' instead
+(Font)              for symbol `textasteriskcentered' on input line 3.
+
+)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2463,36 +2357,55 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [58
 
 ]
+<figs/fig_ponteiros/memoria-atribuicao-a.png, id=486, 152.57pt x 140.525pt>
+File: figs/fig_ponteiros/memoria-atribuicao-a.png Graphic file (type png)
+
+<use figs/fig_ponteiros/memoria-atribuicao-a.png>
+Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-a.png used on in
+put line 253.
+(pdftex.def)             Requested size: 85.35913pt x 78.6227pt.
+
+<figs/fig_ponteiros/memoria-atribuicao-p.png, id=487, 149.55875pt x 136.51pt>
+File: figs/fig_ponteiros/memoria-atribuicao-p.png Graphic file (type png)
+
+<use figs/fig_ponteiros/memoria-atribuicao-p.png>
+Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-p.png used on in
+put line 253.
+(pdftex.def)             Requested size: 85.35913pt x 77.91356pt.
+
+<figs/fig_ponteiros/memoria-atribuicao-pa.png, id=489, 149.55875pt x 136.51pt>
+File: figs/fig_ponteiros/memoria-atribuicao-pa.png Graphic file (type png)
+
+<use figs/fig_ponteiros/memoria-atribuicao-pa.png>
+Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-pa.png used on i
+nput line 253.
+(pdftex.def)             Requested size: 128.19551pt x 117.01929pt.
+
+Overfull \vbox (7.99544pt too high) detected at line 253
+ []
+
+[59
+
+ <./figs/fig_ponteiros/memoria-atribuicao-a.png> <./figs/fig_ponteiros/memoria-
+atribuicao-p.png> <./figs/fig_ponteiros/memoria-atribuicao-pa.png>]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb) [59
 
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[60
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb
-Overfull \hbox (39.50996pt too wide) in paragraph at lines 9--10
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (27.50984pt too wide) in paragraph at lines 10--11
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
+(./curso_EDA_SLIDES.vrb
+<figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png, id=497, 185.69376pt x 205.
+76875pt>
+File: figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png Graphic file (type png
 )
+ <use figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png use
+d on input line 19.
+(pdftex.def)             Requested size: 86.53358pt x 95.88869pt.
+) [60
+
+ <./figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2504,10 +2417,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [61
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2519,10 +2429,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [62
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2534,10 +2441,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [63
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2549,10 +2453,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [64
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2564,10 +2465,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [65
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2580,6 +2478,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [66
 
 ]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2591,10 +2492,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [67
 
-])
-\openout2 = `recursao_EDA.aux'.
-
- (./recursao_EDA.tex
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2606,12 +2504,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [68
 
-
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2623,10 +2516,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [69
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2638,10 +2528,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [70
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2668,10 +2555,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [72
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2683,10 +2567,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [73
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2698,10 +2579,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [74
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2713,10 +2591,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [75
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2728,10 +2603,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [76
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2743,10 +2615,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [77
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2758,10 +2627,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [78
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2773,26 +2639,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [79
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb) [80
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb) [81
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
-
-(./curso_EDA_SLIDES.vrb) [82
-
-])
-\openout2 = `arvores_EDA.aux'.
-
- (./arvores_EDA.tex
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2802,11 +2649,53 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[83
+[80
+
+] (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
 
 
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[81
 
 ]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[82
+
+]
+<figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png, id=620, 163.61125
+pt x 145.54375pt>
+File: figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png Graphic file 
+(type png)
+
+<use figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao_grafica_valor_ponteir
+o.png used on input line 346.
+(pdftex.def)             Requested size: 128.19551pt x 114.03888pt.
+ [83
+
+ <./figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+Overfull \hbox (75.51033pt too wide) in paragraph at lines 3--4
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2818,13 +2707,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [84
 
-] <figs/fig_arvores/arvore.pdf, id=648, 518.93875pt x 463.7325pt>
-File: figs/fig_arvores/arvore.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/arvore.pdf>
-Package pdftex.def Info: figs/fig_arvores/arvore.pdf used on input line 45.
-(pdftex.def)             Requested size: 180.67499pt x 161.4526pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2836,7 +2719,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [85
 
- <./figs/fig_arvores/arvore.pdf>]
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2849,13 +2732,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [86
 
 ]
-<figs/fig_arvores/arvore_binaria_de_busca.pdf, id=662, 644.4075pt x 475.7775pt>
-File: figs/fig_arvores/arvore_binaria_de_busca.pdf Graphic file (type pdf)
-<use figs/fig_arvores/arvore_binaria_de_busca.pdf>
-Package pdftex.def Info: figs/fig_arvores/arvore_binaria_de_busca.pdf used on i
-nput line 65.
-(pdftex.def)             Requested size: 216.81pt x 160.07793pt.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2867,14 +2743,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [87
 
- <./figs/fig_arvores/arvore_binaria_de_busca.pdf>]
-<figs/fig_arvores/no.pdf, id=678, 698.61pt x 321.2pt>
-File: figs/fig_arvores/no.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/no.pdf>
-Package pdftex.def Info: figs/fig_arvores/no.pdf used on input line 76.
-(pdftex.def)             Requested size: 289.07999pt x 132.90833pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2886,7 +2755,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [88
 
- <./figs/fig_arvores/no.pdf>]
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2899,25 +2768,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [89
 
 ]
-
-LaTeX Warning: Citation `cormen' on page 90 undefined on input line 104.
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[90
-
-]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb)
+ (./curso_EDA_SLIDES.vrb) [90
+
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2929,14 +2784,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [91
 
-] <figs/fig_arvores/insercao_1.pdf, id=710, 644.4075pt x 475.7775pt>
-File: figs/fig_arvores/insercao_1.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/insercao_1.pdf>
-Package pdftex.def Info: figs/fig_arvores/insercao_1.pdf used on input line 136
-.
-(pdftex.def)             Requested size: 216.81pt x 160.07793pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2948,15 +2796,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [92
 
- <./figs/fig_arvores/insercao_1.pdf>]
-<figs/fig_arvores/insercao_2.pdf, id=727, 644.4075pt x 475.7775pt>
-File: figs/fig_arvores/insercao_2.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/insercao_2.pdf>
-Package pdftex.def Info: figs/fig_arvores/insercao_2.pdf used on input line 146
-.
-(pdftex.def)             Requested size: 216.81pt x 160.07793pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -2968,10 +2808,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [93
 
- <./figs/fig_arvores/insercao_2.pdf>]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3008,9 +2845,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [96
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3022,122 +2856,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [97
 
-] <figs/fig_arvores/altura1.pdf, id=763, 665.48625pt x 516.93124pt>
-File: figs/fig_arvores/altura1.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/altura1.pdf>
-Package pdftex.def Info: figs/fig_arvores/altura1.pdf used on input line 217.
-(pdftex.def)             Requested size: 216.81pt x 168.41081pt.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[98
-
- <./figs/fig_arvores/altura1.pdf>]
-<figs/fig_arvores/altura2.pdf, id=772, 665.48625pt x 516.93124pt>
-File: figs/fig_arvores/altura2.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/altura2.pdf>
-Package pdftex.def Info: figs/fig_arvores/altura2.pdf used on input line 228.
-(pdftex.def)             Requested size: 216.81pt x 168.41081pt.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[99
-
- <./figs/fig_arvores/altura2.pdf>]
+]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[100
+ (./curso_EDA_SLIDES.vrb) [98
 
 ]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[101
-
-]
-<figs/fig_arvores/Balanceamento_Arvore.pdf, id=798, 497.86pt x 450.68375pt>
-File: figs/fig_arvores/Balanceamento_Arvore.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Balanceamento_Arvore.pdf>
-Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore.pdf used on inpu
-t line 258.
-(pdftex.def)             Requested size: 216.81pt x 196.2659pt.
-
-Overfull \vbox (2.06256pt too high) detected at line 258
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[102
-
- <./figs/fig_arvores/Balanceamento_Arvore.pdf>]
-<figs/fig_arvores/Arvore_Desbalanceada.pdf, id=821, 497.86pt x 450.68375pt>
-File: figs/fig_arvores/Arvore_Desbalanceada.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Arvore_Desbalanceada.pdf>
-Package pdftex.def Info: figs/fig_arvores/Arvore_Desbalanceada.pdf used on inpu
-t line 267.
-(pdftex.def)             Requested size: 216.81pt x 196.2659pt.
-
-Overfull \vbox (2.06256pt too high) detected at line 267
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[103
-
- <./figs/fig_arvores/Arvore_Desbalanceada.pdf>]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb)
+ (./curso_EDA_SLIDES.vrb) [99
+
+]
+(./curso_EDA_SLIDES.vrb) [100
+
+] (./curso_EDA_SLIDES.vrb) [101
+
+]
+(./curso_EDA_SLIDES.vrb) [102
+
+] (./curso_EDA_SLIDES.vrb) [103
+
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3150,14 +2889,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [104
 
 ]
-<figs/fig_arvores/Balanceamento_Arvore2.pdf, id=849, 291.0875pt x 349.305pt>
-File: figs/fig_arvores/Balanceamento_Arvore2.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Balanceamento_Arvore2.pdf>
-Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore2.pdf used on inp
-ut line 300.
-(pdftex.def)             Requested size: 158.99377pt x 190.79651pt.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3169,15 +2900,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [105
 
- <./figs/fig_arvores/Balanceamento_Arvore2.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore3.pdf, id=873, 447.6725pt x 294.09875pt>
-File: figs/fig_arvores/Balanceamento_Arvore3.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Balanceamento_Arvore3.pdf>
-Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore3.pdf used on inp
-ut line 309.
-(pdftex.def)             Requested size: 252.94499pt x 166.17506pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3189,15 +2912,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [106
 
- <./figs/fig_arvores/Balanceamento_Arvore3.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore4.pdf, id=896, 289.08pt x 331.2375pt>
-File: figs/fig_arvores/Balanceamento_Arvore4.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Balanceamento_Arvore4.pdf>
-Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore4.pdf used on inp
-ut line 318.
-(pdftex.def)             Requested size: 158.99377pt x 182.17612pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3209,14 +2924,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [107
 
- <./figs/fig_arvores/Balanceamento_Arvore4.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore5.pdf, id=919, 288.07625pt x 317.185pt>
-File: figs/fig_arvores/Balanceamento_Arvore5.pdf Graphic file (type pdf)
+]
+<figs/fig_ponteiros/indirecao-simples.png, id=749, 213.79875pt x 40.15pt>
+File: figs/fig_ponteiros/indirecao-simples.png Graphic file (type png)
 
-<use figs/fig_arvores/Balanceamento_Arvore5.pdf>
-Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore5.pdf used on inp
-ut line 327.
-(pdftex.def)             Requested size: 158.99377pt x 175.06694pt.
+<use figs/fig_ponteiros/indirecao-simples.png>
+Package pdftex.def Info: figs/fig_ponteiros/indirecao-simples.png used on input
+ line 475.
+(pdftex.def)             Requested size: 192.29817pt x 36.11198pt.
+
+<figs/fig_ponteiros/indirecao-multipla.png, id=750, 333.245pt x 40.15pt>
+File: figs/fig_ponteiros/indirecao-multipla.png Graphic file (type png)
+
+<use figs/fig_ponteiros/indirecao-multipla.png>
+Package pdftex.def Info: figs/fig_ponteiros/indirecao-multipla.png used on inpu
+t line 475.
+(pdftex.def)             Requested size: 192.29817pt x 23.16876pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -3229,7 +2952,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [108
 
- <./figs/fig_arvores/Balanceamento_Arvore5.pdf>]
+ <./figs/fig_ponteiros/indirecao-simples.png> <./figs/fig_ponteiros/indirecao-m
+ultipla.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3241,10 +2968,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [109
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3256,10 +2980,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [110
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3271,11 +2992,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [111
 
-]
-
-LaTeX Warning: Citation `tarjan' on page 112 undefined on input line 382.
-
-
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3288,6 +3005,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [112
 
 ]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3300,6 +3020,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [113
 
 ]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3311,14 +3034,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [114
 
-] <figs/fig_arvores/Espalhamento.pdf, id=971, 600.2425pt x 416.55624pt>
-File: figs/fig_arvores/Espalhamento.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Espalhamento.pdf>
-Package pdftex.def Info: figs/fig_arvores/Espalhamento.pdf used on input line 4
-13.
-(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
-
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3330,7 +3046,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [115
 
- <./figs/fig_arvores/Espalhamento.pdf>]
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3343,6 +3059,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [116
 
 ]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3354,10 +3073,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [117
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3369,10 +3085,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [118
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3384,10 +3097,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [119
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3400,6 +3110,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [120
 
 ]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3411,7 +3124,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [121
 
-]
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3423,18 +3136,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [122
 
-] <figs/fig_arvores/Zig.pdf, id=1025, 748.7975pt x 392.46625pt>
-File: figs/fig_arvores/Zig.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Zig.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig.pdf used on input line 505.
-(pdftex.def)             Requested size: 325.215pt x 170.45195pt.
-
-Overfull \hbox (4.7213pt too wide) in paragraph at lines 505--505
- [] 
- []
-
-
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3446,14 +3148,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [123
 
- <./figs/fig_arvores/Zig.pdf>]
-<figs/fig_arvores/Zig-Zig.pdf, id=1041, 740.7675pt x 461.725pt>
-File: figs/fig_arvores/Zig-Zig.pdf Graphic file (type pdf)
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
 
-<use figs/fig_arvores/Zig-Zig.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig-Zig.pdf used on input line 514.
-(pdftex.def)             Requested size: 289.07999pt x 180.18475pt.
-
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3465,14 +3163,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [124
 
- <./figs/fig_arvores/Zig-Zig.pdf>]
-<figs/fig_arvores/Zig-Zag.pdf, id=1064, 740.7675pt x 461.725pt>
-File: figs/fig_arvores/Zig-Zag.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Zig-Zag.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig-Zag.pdf used on input line 523.
-(pdftex.def)             Requested size: 289.07999pt x 180.18475pt.
-
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3484,7 +3175,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [125
 
- <./figs/fig_arvores/Zig-Zag.pdf>]
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3496,14 +3190,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [126
 
-] <figs/fig_arvores/Top-Down1.pdf, id=1092, 600.2425pt x 416.55624pt>
-File: figs/fig_arvores/Top-Down1.pdf Graphic file (type pdf)
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
 
-<use figs/fig_arvores/Top-Down1.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down1.pdf used on input line 544.
-
-(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
-
+ (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3515,15 +3205,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [127
 
- <./figs/fig_arvores/Top-Down1.pdf>]
-<figs/fig_arvores/Top-Down2.pdf, id=1109, 600.2425pt x 416.55624pt>
-File: figs/fig_arvores/Top-Down2.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Top-Down2.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down2.pdf used on input line 553.
-
-(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3535,15 +3217,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [128
 
- <./figs/fig_arvores/Top-Down2.pdf>]
-<figs/fig_arvores/Top-Down3.pdf, id=1126, 600.2425pt x 416.55624pt>
-File: figs/fig_arvores/Top-Down3.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Top-Down3.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down3.pdf used on input line 562.
-
-(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3555,15 +3229,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [129
 
- <./figs/fig_arvores/Top-Down3.pdf>]
-<figs/fig_arvores/Top-Down4.pdf, id=1142, 600.2425pt x 416.55624pt>
-File: figs/fig_arvores/Top-Down4.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Top-Down4.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down4.pdf used on input line 571.
-
-(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3575,15 +3241,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [130
 
- <./figs/fig_arvores/Top-Down4.pdf>]
-<figs/fig_arvores/Top-Down5.pdf, id=1158, 600.2425pt x 416.55624pt>
-File: figs/fig_arvores/Top-Down5.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Top-Down5.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down5.pdf used on input line 580.
-
-(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3595,15 +3253,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [131
 
- <./figs/fig_arvores/Top-Down5.pdf>]
-<figs/fig_arvores/Top-Down6.pdf, id=1174, 600.2425pt x 416.55624pt>
-File: figs/fig_arvores/Top-Down6.pdf Graphic file (type pdf)
-
-<use figs/fig_arvores/Top-Down6.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down6.pdf used on input line 589.
-
-(pdftex.def)             Requested size: 252.94499pt x 175.53719pt.
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3615,11 +3265,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [132
 
- <./figs/fig_arvores/Top-Down6.pdf>] Excluding 'comment' comment.)
-\openout2 = `hash_EDA.aux'.
-
-
-(./hash_EDA.tex
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3630,8 +3276,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [133
-
-
 
 ]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -3646,186 +3290,54 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [134
 
 ]
+<figs/fig_ponteiros/alocacao_esquematica_memoria.png, id=890, 228.855pt x 332.2
+4126pt>
+File: figs/fig_ponteiros/alocacao_esquematica_memoria.png Graphic file (type pn
+g)
+ <use figs/fig_ponteiros/alocacao_esquematica_memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/alocacao_esquematica_memoria.png us
+ed on input line 614.
+(pdftex.def)             Requested size: 128.19551pt x 186.11465pt.
+ [135
 
-LaTeX Warning: Citation `cormen' on page 135 undefined on input line 44.
+ <./figs/fig_ponteiros/alocacao_esquematica_memoria.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[135
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
+ (./curso_EDA_SLIDES.vrb)
 [136
 
-] <figs/fig_hash/endereco_direto.pdf, id=1208, 294.09875pt x 305.14pt>
-File: figs/fig_hash/endereco_direto.pdf Graphic file (type pdf)
+] (./curso_EDA_SLIDES.vrb) [137
 
-<use figs/fig_hash/endereco_direto.pdf>
-Package pdftex.def Info: figs/fig_hash/endereco_direto.pdf used on input line 6
-6.
-(pdftex.def)             Requested size: 162.6075pt x 168.71216pt.
+] (./curso_EDA_SLIDES.vrb) [138
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
+]
+(./curso_EDA_SLIDES.vrb) [139
 
+] (./curso_EDA_SLIDES.vrb) [140
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[137
-
- <./figs/fig_hash/endereco_direto.pdf>]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[138
+]
+(./curso_EDA_SLIDES.vrb) [141
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
+ (./curso_EDA_SLIDES.vrb) [142
 
+]
+(./curso_EDA_SLIDES.vrb) [143
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
+] (./curso_EDA_SLIDES.vrb) [144
 
-[139
+]
+(./curso_EDA_SLIDES.vrb) [145
+
+] (./curso_EDA_SLIDES.vrb) [146
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[140
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[141
-
-] <figs/fig_hash/tabela_hash_1.pdf, id=1244, 294.09875pt x 305.14pt>
-File: figs/fig_hash/tabela_hash_1.pdf Graphic file (type pdf)
-
-<use figs/fig_hash/tabela_hash_1.pdf>
-Package pdftex.def Info: figs/fig_hash/tabela_hash_1.pdf used on input line 119
-.
-(pdftex.def)             Requested size: 162.6075pt x 168.71216pt.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[142
-
- <./figs/fig_hash/tabela_hash_1.pdf>]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[143
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[144
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[145
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[146
-
-]
+(./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3837,7 +3349,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [147
 
-]
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3849,11 +3361,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [148
 
-]
-
-LaTeX Warning: Citation `cormen' on page 149 undefined on input line 195.
-
-
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3865,10 +3373,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [149
 
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+] (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3881,18 +3386,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [150
 
 ]
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[151
-
-]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
  (./curso_EDA_SLIDES.vrb)
@@ -3905,9 +3398,34 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
+[151
+
+])
+\openout2 = `pilhas_EDA.aux'.
+
+ (./pilhas_EDA.tex
+<figs/fig_pilhas/pilha_livro.jpeg, id=980, 278.03876pt x 182.6825pt>
+File: figs/fig_pilhas/pilha_livro.jpeg Graphic file (type jpg)
+
+<use figs/fig_pilhas/pilha_livro.jpeg>
+Package pdftex.def Info: figs/fig_pilhas/pilha_livro.jpeg used on input line 30
+.
+(pdftex.def)             Requested size: 99.58476pt x 142.27155pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
 [152
 
-]
+
+
+ <./figs/fig_pilhas/pilha_livro.jpeg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3932,9 +3450,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [154
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3947,9 +3462,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [155
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -3973,13 +3485,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [157
 
-] <figs/fig_hash/encadeamento.pdf, id=1335, 386.44376pt x 254.9525pt>
-File: figs/fig_hash/encadeamento.pdf Graphic file (type pdf)
+] <figs/fig_pilhas/pilha.png, id=1012, 374.39874pt x 385.44pt>
+File: figs/fig_pilhas/pilha.png Graphic file (type png)
 
-<use figs/fig_hash/encadeamento.pdf>
-Package pdftex.def Info: figs/fig_hash/encadeamento.pdf used on input line 303.
+<use figs/fig_pilhas/pilha.png>
+Package pdftex.def Info: figs/fig_pilhas/pilha.png used on input line 92.
+(pdftex.def)             Requested size: 192.29817pt x 197.97156pt.
 
-(pdftex.def)             Requested size: 252.94499pt x 166.87643pt.
+Overfull \vbox (3.76822pt too high) detected at line 92
+ []
+
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
@@ -3992,10 +3507,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [158
 
- <./figs/fig_hash/encadeamento.pdf>]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
+ <./figs/fig_pilhas/pilha.png>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -4010,22 +3522,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb)
-Underfull \hbox (badness 10000) has occurred while \output is active
-[][]
+ (./curso_EDA_SLIDES.vrb
+Overfull \hbox (3.5096pt too wide) in paragraph at lines 5--6
+[][][][][][][][][][][][][][][] 
  []
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[160
+) [160
 
 ]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -4049,13 +3553,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [162
 
-] <figs/fig_hash/aberto.pdf, id=1370, 180.675pt x 318.18875pt>
-File: figs/fig_hash/aberto.pdf Graphic file (type pdf)
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
 
-<use figs/fig_hash/aberto.pdf>
-Package pdftex.def Info: figs/fig_hash/aberto.pdf used on input line 357.
-(pdftex.def)             Requested size: 90.3375pt x 159.09398pt.
+ (./curso_EDA_SLIDES.vrb
+Overfull \hbox (15.50972pt too wide) in paragraph at lines 15--16
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
 
+)
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -4067,7 +3573,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [163
 
- <./figs/fig_hash/aberto.pdf>]
+]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
  (./curso_EDA_SLIDES.vrb)
@@ -4124,7 +3630,23 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [167
 
-]
+])
+\openout2 = `filas_EDA.aux'.
+
+ (./filas_EDA.tex
+<figs/fig_filas/fila_pessoas.jpeg, id=1065, 1272.755pt x 574.145pt>
+File: figs/fig_filas/fila_pessoas.jpeg Graphic file (type jpg)
+
+<use figs/fig_filas/fila_pessoas.jpeg>
+Package pdftex.def Info: figs/fig_filas/fila_pessoas.jpeg used on input line 32
+.
+(pdftex.def)             Requested size: 199.15878pt x 113.81071pt.
+
+Overfull \hbox (6.86061pt too wide) in paragraph at lines 32--32
+ [][] 
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 [][]
  []
@@ -4135,6 +3657,1046 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [168
+
+
+
+ <./figs/fig_filas/fila_pessoas.jpeg>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[169
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[170
+
+]
+<figs/fig_filas/exemplo_fila_tres_elementos.png, id=1082, 399.4925pt x 86.3225p
+t>
+File: figs/fig_filas/exemplo_fila_tres_elementos.png Graphic file (type png)
+ <use figs/fig_filas/exemplo_fila_tres_elementos.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_elementos.png used on
+ input line 74.
+(pdftex.def)             Requested size: 192.29817pt x 41.55154pt.
+
+<figs/fig_filas/exemplo_fila_tres_retirada.png, id=1083, 399.4925pt x 86.3225pt
+>
+File: figs/fig_filas/exemplo_fila_tres_retirada.png Graphic file (type png)
+ <use figs/fig_filas/exemplo_fila_tres_retirada.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_retirada.png used on 
+input line 74.
+(pdftex.def)             Requested size: 192.29817pt x 41.55154pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[171
+
+ <./figs/fig_filas/exemplo_fila_tres_elementos.png> <./figs/fig_filas/exemplo_f
+ila_tres_retirada.png>]
+<figs/fig_filas/exemplo_fila_tres_inclusao.png, id=1090, 399.4925pt x 86.3225pt
+>
+File: figs/fig_filas/exemplo_fila_tres_inclusao.png Graphic file (type png)
+ <use figs/fig_filas/exemplo_fila_tres_inclusao.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_inclusao.png used on 
+input line 90.
+(pdftex.def)             Requested size: 192.29817pt x 41.55154pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[172
+
+ <./figs/fig_filas/exemplo_fila_tres_inclusao.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 18.
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[173
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[174
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[175
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [176
+
+]
+<figs/fig_filas/fila_insercao_quatro_elementos.png, id=1120, 399.4925pt x 80.3p
+t>
+File: figs/fig_filas/fila_insercao_quatro_elementos.png Graphic file (type png)
+
+ <use figs/fig_filas/fila_insercao_quatro_elementos.png>
+Package pdftex.def Info: figs/fig_filas/fila_insercao_quatro_elementos.png used
+ on input line 186.
+(pdftex.def)             Requested size: 192.29817pt x 38.6526pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[177
+
+ <./figs/fig_filas/fila_insercao_quatro_elementos.png>]
+<figs/fig_filas/exemplo_fila_remove_dois_elementos.png, id=1126, 399.4925pt x 8
+0.3pt>
+File: figs/fig_filas/exemplo_fila_remove_dois_elementos.png Graphic file (type 
+png)
+ <use figs/fig_filas/exemplo_fila_remove_dois_elementos.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_remove_dois_elementos.png 
+used on input line 199.
+(pdftex.def)             Requested size: 192.29817pt x 38.6526pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[178
+
+ <./figs/fig_filas/exemplo_fila_remove_dois_elementos.png>]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[179
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+Overfull \hbox (6.95558pt too wide) in paragraph at lines 9--10
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[180
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 13.
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[181
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[182
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[183
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[184
+
+])
+\openout2 = `listas_EDA.aux'.
+
+ (./listas_EDA.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[185
+
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[186
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[187
+
+] <figs/fig_listas/lista-linear.png, id=1183, 456.70625pt x 84.315pt>
+File: figs/fig_listas/lista-linear.png Graphic file (type png)
+
+<use figs/fig_listas/lista-linear.png>
+Package pdftex.def Info: figs/fig_listas/lista-linear.png used on input line 57
+.
+(pdftex.def)             Requested size: 192.29817pt x 35.50081pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[188
+
+ <./figs/fig_listas/lista-linear.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[189
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+Overfull \hbox (97.76604pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (97.76604pt too wide) in paragraph at lines 8--9
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[190
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[191
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[192
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [193
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[194
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+Overfull \hbox (39.50996pt too wide) in paragraph at lines 9--10
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.50984pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[195
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[196
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[197
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[198
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[199
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[200
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[201
+
+])
+\openout2 = `recursao_EDA.aux'.
+
+
+No file recursao_EDA.tex.
+\openout2 = `arvores_EDA.aux'.
+
+No file arvores_EDA.tex.
+\openout2 = `hash_EDA.aux'.
+
+(./hash_EDA.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[202
+
+
+
+
+
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[203
+
+]
+
+LaTeX Warning: Citation `cormen' on page 204 undefined on input line 44.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[204
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[205
+
+] <figs/fig_hash/endereco_direto.pdf, id=1276, 294.09875pt x 305.14pt>
+File: figs/fig_hash/endereco_direto.pdf Graphic file (type pdf)
+
+<use figs/fig_hash/endereco_direto.pdf>
+Package pdftex.def Info: figs/fig_hash/endereco_direto.pdf used on input line 6
+6.
+(pdftex.def)             Requested size: 162.6075pt x 168.71216pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[206
+
+ <./figs/fig_hash/endereco_direto.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[207
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[208
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[209
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[210
+
+] <figs/fig_hash/tabela_hash_1.pdf, id=1311, 294.09875pt x 305.14pt>
+File: figs/fig_hash/tabela_hash_1.pdf Graphic file (type pdf)
+
+<use figs/fig_hash/tabela_hash_1.pdf>
+Package pdftex.def Info: figs/fig_hash/tabela_hash_1.pdf used on input line 119
+.
+(pdftex.def)             Requested size: 162.6075pt x 168.71216pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[211
+
+ <./figs/fig_hash/tabela_hash_1.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[212
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[213
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[214
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[215
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[216
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[217
+
+]
+
+LaTeX Warning: Citation `cormen' on page 218 undefined on input line 195.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[218
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[219
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[220
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[221
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[222
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[223
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[224
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[225
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[226
+
+] <figs/fig_hash/encadeamento.pdf, id=1402, 386.44376pt x 254.9525pt>
+File: figs/fig_hash/encadeamento.pdf Graphic file (type pdf)
+
+<use figs/fig_hash/encadeamento.pdf>
+Package pdftex.def Info: figs/fig_hash/encadeamento.pdf used on input line 303.
+
+(pdftex.def)             Requested size: 252.94499pt x 166.87643pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[227
+
+ <./figs/fig_hash/encadeamento.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[228
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[229
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[230
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[231
+
+] <figs/fig_hash/aberto.pdf, id=1437, 180.675pt x 318.18875pt>
+File: figs/fig_hash/aberto.pdf Graphic file (type pdf)
+
+<use figs/fig_hash/aberto.pdf>
+Package pdftex.def Info: figs/fig_hash/aberto.pdf used on input line 357.
+(pdftex.def)             Requested size: 90.3375pt x 159.09398pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[232
+
+ <./figs/fig_hash/aberto.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[233
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[234
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[235
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[236
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[237
 
 ])
 No file curso_EDA_SLIDES.bbl.
@@ -4147,15 +4709,15 @@ No file curso_EDA_SLIDES.bbl.
 \tf@snm=\write9
 \openout9 = `curso_EDA_SLIDES.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 152.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
 (./curso_EDA_SLIDES.aux (./orientacoes_gerais_EDA.aux) (./ponteiros_EDA.aux)
 (./pilhas_EDA.aux) (./filas_EDA.aux) (./listas_EDA.aux) (./recursao_EDA.aux)
 (./arvores_EDA.aux) (./hash_EDA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 152.
 Package rerunfilecheck Info: File `curso_EDA_SLIDES.out' has not changed.
-(rerunfilecheck)             Checksum: 17EE4A79FE6F83DB77B43D58C45BE982;1742.
+(rerunfilecheck)             Checksum: 36612D73CBC18F5E4F34F9E043B723BD;1625.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -4165,20 +4727,20 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 23038 strings out of 493013
- 411116 string characters out of 6139317
- 527508 words of memory out of 5000000
- 25434 multiletter control sequences out of 15000+600000
+ 23237 strings out of 492995
+ 413547 string characters out of 6138756
+ 525482 words of memory out of 5000000
+ 25406 multiletter control sequences out of 15000+600000
  85860 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,17n,65p,853b,1434s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dis
-t/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-d
+ 56i,17n,65p,853b,1415s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.
+enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/ty
+hare/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pf
 b></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/
@@ -4191,10 +4753,10 @@ t/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 exmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr
 /share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam5.pfb>
-Output written on curso_EDA_SLIDES.pdf (168 pages, 1152538 bytes).
+Output written on curso_EDA_SLIDES.pdf (237 pages, 887775 bytes).
 PDF statistics:
- 1573 PDF objects out of 1728 (max. 8388607)
- 1258 compressed objects within 13 object streams
- 367 named destinations out of 1000 (max. 500000)
- 457 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1671 PDF objects out of 1728 (max. 8388607)
+ 1353 compressed objects within 14 object streams
+ 503 named destinations out of 1000 (max. 500000)
+ 386 words of extra memory for PDF output out of 10000 (max. 10000000)
 
