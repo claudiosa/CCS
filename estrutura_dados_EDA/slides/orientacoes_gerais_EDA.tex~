@@ -18,7 +18,7 @@
 \item \emph{\textbf{Carga horária:}} 72 horas-aula 
 \textcolor{red}{$\bullet$}~Teóricas: 36 \textcolor{red}{$\bullet$}~Práticas: 36
 \item \emph{\textbf{Curso:}} BCC
-\item \emph{\textbf{Requisitos:}} LPG, Linux, sólidos conhecimentos da linguagem C -- há um documento específico sobre isto
+\item \emph{\textbf{Requisitos:}} LPG, Linux, LMA, conhecimento da linguagem C
 \item \emph{\textbf{Período:}} 2º semestre de 2017
 \item \emph{\textbf{Horários:}}
   \begin{itemize}
@@ -51,14 +51,16 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 \begin{itemize}
 \item \emph{\textbf{Geral:}} 
  
- \textcolor{red}{Há um documento específico sobre isto $=$ Plano de Ensino}
-
+ \textcolor{red}{FALTANDO}
 
 \newpage
 \item \emph{\textbf{Específicos:}} 
 
-    \textcolor{red}{Há um documento específico sobre isto $=$ Plano de Ensino}
-
+  \begin{itemize}
+  \item  \textcolor{red}{FALTANDO}
+  \item  
+  
+  \end{itemize}
 
 \end{itemize}
 
@@ -91,7 +93,10 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 \begin{frame}
 \frametitle{Conteúdo programático}
 
-   \textcolor{red}{Há um documento específico sobre isto $=$ Plano de Ensino}
+    \begin{itemize}
+      \item  \textcolor{red}{FALTANDO}
+      
+    \end{itemize}
     
 \end{frame}
 
@@ -100,30 +105,36 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 \begin{frame}
 \frametitle{Bibliografia UDESC}
 
-    \textcolor{red}{Há um documento específico sobre isto $=$ Plano de Ensino}
+    \begin{itemize}
+     
+      \item  \textcolor{red}{FALTANDO}
       
- \end{frame}
+    \end{itemize}
+    
+\end{frame}
 
 %-----------------------------------------------
 
 \begin{frame}
 \frametitle{Conteúdo programático}
 
- \textcolor{red}{Há um documento específico sobre isto $=$ Plano de Ensino}
 
+    \begin{itemize}
+      \item  \textcolor{red}{FALTANDO}
+      
+    \end{itemize}
 \end{frame}
 ---------------------------
 
 \subsection{Ferramentas}
 \begin{frame}
 
-    \frametitle{Ferramentas ... nesta ordem}
+    \frametitle{Ferramentas}
 
     \begin{itemize}
-          \item Linux 
       \item Linguagem C
       \item Codeblock
-
+      \item Linux
       % \url{http://ccl.northwestern.edu/netlogo/docs/} (escondido in WEB)
       
     \end{itemize}
@@ -139,7 +150,8 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 
 \textbf{Metodologia:} \\
 
-\textit{As aulas serão expositivas e práticas. A cada novo assunto tratado, exemplos  são demonstrados utilizando ferramentas computacionais adequadas para consolidar os conceitos 
+\textit{As aulas serão expositivas e práticas. A cada novo assunto tratado, exemplos 
+ são demonstrados utilizando ferramentas computacionais adequadas para consolidar os conceitos 
  tratados. 
  }
 
@@ -148,27 +160,25 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
     \textbf{Avaliação}
 
     \begin{itemize}
-    \item Três provas -- $\approx$  90\%\\
+    \item Tres provas -- $\approx$  90\%\\
       
 	\quad \textcolor{red}{$\bullet$}~$P_1$: xx/set\\
 	\quad \textcolor{red}{$\bullet$}~$P_2$: yy/out\\
-	\quad \textcolor{red}{$\bullet$}~$P_F$: zz/nov\\(provão: todo conteúdo)
+	\quad \textcolor{red}{$\bullet$}~$P_2$: zz/nov\\(provão: todo conteúdo)
 
 
       \item Exercícios de laboratório  -- $\approx$ \%
       
+     %  \item O artigo (resultados da implementação)  -- $\approx$ 30\%
+
+%      \item Para o artigo: muito material será fornecido em \LaTeX ...
+
+ %     \item Apresentação de um artigo estudado sobre SMA -- $\approx$ 15\%
  
-      \item Presença e participação: 75\% é o mínimo obrigatório
-      para a UDESC. Quem quiser faltar por razões diversas,
-       ou assuntos específicos, trate pessoalmente com o professor.
-       
-       \item Há um monitor
-       
-       \item Há uma lista de discussão: avisos e dúvidas gerais
-       
+      \item Presença e participação
       
       \item Média para aprovação: 6,0 (seis)\\
-      Nota maior ou igual a 6,0, repito a mesma no Exame Final. Caso contrário, regras da UDESC se aplica.
+      Nota maior ou igual a 6,0, repito a mesma no Exame Final. Caso contrário, regras da UDESC
       
     \end{itemize}
 
@@ -204,14 +214,23 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 \textbf{Básica:} 
 \begin{itemize}
 
-\item   \textcolor{red}{Há um documento específico sobre isto $=$ Plano de Ensino}
-
+\item  \textcolor{red}{FALTANDO}
+\item  \textcolor{red}{FALTANDO}
+\item  \textcolor{red}{FALTANDO}
+\item  \textcolor{red}{FALTANDO}
+\item  \textcolor{red}{FALTANDO}
 
 \item \url{https://github.com/claudiosa/CCS/tree/master/estrutura_dados_EDA}
 
 \end{itemize}
 
+\textbf{Complementar:}
 
+\begin{itemize}
+\item  \textcolor{red}{FALTANDO}
+\item  \textcolor{red}{FALTANDO}
+\item  \textcolor{red}{FALTANDO}
+\end{itemize}
 
 \end{frame}
 
