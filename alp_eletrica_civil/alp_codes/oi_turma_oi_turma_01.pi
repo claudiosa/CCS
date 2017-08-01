@@ -1,0 +1,3 @@
+%% my first code in Picat
+main   =>
+	printf("\n  Oi turma de ALP\n ").
