@@ -1,8 +1,0 @@
-%% reading a integer in Picat
-main =>
-	printf("\n  >> Oi Turma de ALP << \n "),
-	printf("\n  Digite um número inteiro:  "),
-	%X = read_int(stdin),
-	X = read_int(),
-	printf("\n  Voce digitou: %d ", X),
-	printf("\n  >> THE END <<\n ").
