@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.26)  20 JUL 2017 18:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.7.31)  31 JUL 2017 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **slides_picat_online.tex
 (./slides_picat_online.tex
-LaTeX2e <2017/01/01> patch level 3
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2017/01/23 v3.41 A class for typesetting presentations
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -109,7 +109,7 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -955,23 +955,23 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2017/02/22 v2.0g Standard LaTeX package
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
 (/usr/share/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2017/02/22 v2.0g Standard LaTeX file
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/share/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2016/04/23 3.9r The Babel package
+Package: babel 2017/05/19 3.10 The Babel package
 
 (/usr/share/texmf-dist/tex/generic/babel-portuges/portuges.ldf
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2016/04/23 3.9r Babel common definitions
+File: babel.def 2017/05/19 3.10 Babel common definitions
 \babel@savecnt=\count154
 \U@D=\dimen188
-LaTeX Info: Redefining \textlatin on input line 1448.
+LaTeX Info: Redefining \textlatin on input line 1648.
 )
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
@@ -1030,7 +1030,7 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
 (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
+Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \c@tracingmulticols=\count160
 \mult@box=\box53
 \multicol@leftmargin=\dimen198
@@ -1124,7 +1124,7 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 
 (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2017/02/22 v2.0g Standard LaTeX package
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
 (textcomp)               4 = 5 + \texteuro
@@ -1294,114 +1294,31 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\long' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@todo' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@ospec' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@argscount' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\long' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@todo' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@ospec' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@argscount' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\long' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@todo' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@ospec' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beamer@argscount' on input line 397.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 397.
-
-(./slides_picat_online.aux)
+Excluding 'comment' comment. (./slides_picat_online.aux)
 \openout1 = `slides_picat_online.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 403.
-LaTeX Font Info:    ... okay on input line 403.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 403.
-LaTeX Font Info:    ... okay on input line 403.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 403.
-LaTeX Font Info:    ... okay on input line 403.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 403.
-LaTeX Font Info:    ... okay on input line 403.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 403.
-LaTeX Font Info:    ... okay on input line 403.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 403.
-LaTeX Font Info:    ... okay on input line 403.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 403.
-LaTeX Font Info:    ... okay on input line 403.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 403.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 403.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 414.
+LaTeX Font Info:    ... okay on input line 414.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 414.
+LaTeX Font Info:    ... okay on input line 414.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 414.
+LaTeX Font Info:    ... okay on input line 414.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 414.
+LaTeX Font Info:    ... okay on input line 414.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 414.
+LaTeX Font Info:    ... okay on input line 414.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 414.
+LaTeX Font Info:    ... okay on input line 414.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 414.
+LaTeX Font Info:    ... okay on input line 414.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 414.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 414.
 
- (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 403.
+LaTeX Font Info:    ... okay on input line 414.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1468,7 +1385,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box82
-Package hyperref Info: Link coloring OFF on input line 403.
+Package hyperref Info: Link coloring OFF on input line 414.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1478,72 +1395,72 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count183
 )
-LaTeX Info: Redefining \ref on input line 403.
-LaTeX Info: Redefining \pageref on input line 403.
-LaTeX Info: Redefining \nameref on input line 403.
+LaTeX Info: Redefining \ref on input line 414.
+LaTeX Info: Redefining \pageref on input line 414.
+LaTeX Info: Redefining \nameref on input line 414.
 
 (./slides_picat_online.out) (./slides_picat_online.out)
 \@outlinefile=\write6
 \openout6 = `slides_picat_online.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 403.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 414.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 403.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 414.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 403.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 403.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 414.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 403.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 403.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 403.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 414.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 403.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 403.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 403.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 414.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 403.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 403.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 403.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 414.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 403.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 403.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 414.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 403.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 414.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 403.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 403.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 403.
+(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 403.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 403.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 403.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 403.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 414.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 414.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 40
-3.
+(Font)              `pureletters' in the math version `normal' on input line 41
+4.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 40
-3.
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 41
+4.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 403.
+(Font)              `pureletters' in the math version `bold' on input line 414.
 
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 4
-03.
+14.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 403.
+ut line 414.
 
 (/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-basic-
 dictionary/translator-basic-dictionary-English.dict
@@ -1593,7 +1510,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 m-dictionary/translator-theorem-dictionary-Portuguese.dict
 Dictionary: translator-theorem-dictionary, Language: portuguese 
 )
-LaTeX Info: Redefining \includegraphics on input line 403.
+LaTeX Info: Redefining \includegraphics on input line 414.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
@@ -1601,420 +1518,54 @@ Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count184
 
 (./slides_picat_online.nav)
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 403.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 414.
 
  (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 403.
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 403.
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for U+lasy on input line 403.
-
-(/usr/share/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 403.
-
-(/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
-thkerncmss.
-)
-Overfull \hbox (71.54225pt too wide) in paragraph at lines 403--403
-[][]\T1/cmss/m/n/9 Departamento 
- []
-
-
-Overfull \hbox (10.4419pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 In- 
- []
-
-
-Overfull \hbox (13.43419pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 for- 
- []
-
-
-Overfull \hbox (14.87135pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 má- 
- []
-
-
-Overfull \hbox (14.10071pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 tica 
- []
-
-
-Overfull \hbox (4.11012pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 e 
- []
-
-
-Overfull \hbox (12.18173pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Es- 
- []
-
-
-Overfull \hbox (10.8654pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ta- 
- []
-
-
-Overfull \hbox (12.1748pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 tís- 
- []
-
-
-Overfull \hbox (14.10071pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 tica 
- []
-
-
-Overfull \hbox (4.62387pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 -- 
- []
-
-
-Overfull \hbox (16.42653pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Uni- 
- []
-
-
-Overfull \hbox (14.61449pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ver- 
- []
-
-
-Overfull \hbox (8.83534pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 si- 
- []
-
-
-Overfull \hbox (18.1067pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 dade 
- []
-
-
-Overfull \hbox (12.23311pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Fe- 
- []
-
-
-Overfull \hbox (11.96931pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 de- 
- []
-
-
-Overfull \hbox (9.81009pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ral 
- []
-
-
-Overfull \hbox (8.88673pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 de 
- []
-
-
-Overfull \hbox (22.14043pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Santa 
- []
-
-
-Overfull \hbox (13.4342pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Ca- 
- []
-
-
-Overfull \hbox (10.8654pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ta- 
- []
-
-
-Overfull \hbox (14.5867pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 rina 
- []
-
-
-Overfull \hbox (4.62387pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 -- 
- []
-
-
-Overfull \hbox (22.70274pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 UFSC|  
- []
-
-
-Overfull \hbox (71.54225pt too wide) in paragraph at lines 403--403
-[][]\T1/cmss/m/n/9 Departamento 
- []
-
-
-Overfull \hbox (8.88673pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 de 
- []
-
-
-Overfull \hbox (11.19864pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Ci- 
- []
-
-
-Overfull \hbox (11.96931pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ên- 
- []
-
-
-Overfull \hbox (10.76125pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 cia 
- []
-
-
-Overfull \hbox (9.21997pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 da 
- []
-
-
-Overfull \hbox (20.96013pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Com- 
- []
-
-
-Overfull \hbox (12.6358pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 pu- 
- []
-
-
-Overfull \hbox (10.8654pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ta- 
- []
-
-
-Overfull \hbox (13.17732pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ção 
- []
-
-
-Overfull \hbox (4.62387pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 -- 
- []
-
-
-Overfull \hbox (16.42653pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Uni- 
- []
-
-
-Overfull \hbox (14.61449pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ver- 
- []
-
-
-Overfull \hbox (8.83534pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 si- 
- []
-
-
-Overfull \hbox (18.1067pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 dade 
- []
-
-
-Overfull \hbox (9.40048pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 do 
- []
-
-
-Overfull \hbox (12.18173pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Es- 
- []
-
-
-Overfull \hbox (17.1833pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 tado 
- []
-
-
-Overfull \hbox (8.88673pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 de 
- []
-
-
-Overfull \hbox (22.14043pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Santa 
- []
-
-
-Overfull \hbox (13.4342pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Ca- 
- []
-
-
-Overfull \hbox (10.8654pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ta- 
- []
-
-
-Overfull \hbox (14.5867pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 rina 
- []
-
-
-Overfull \hbox (4.62387pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 -- 
- []
-
-
-Overfull \hbox (29.6455pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 UDESC|  
- []
-
-
-Overfull \hbox (49.1769pt too wide) in paragraph at lines 403--403
-[][]\T1/cmss/m/n/9 Instituto 
- []
-
-
-Overfull \hbox (12.23311pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Fe- 
- []
-
-
-Overfull \hbox (11.96931pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 de- 
- []
-
-
-Overfull \hbox (9.81009pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ral 
- []
-
-
-Overfull \hbox (8.88673pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 de 
- []
-
-
-Overfull \hbox (18.18999pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Edu- 
- []
-
-
-Overfull \hbox (11.63603pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ca- 
- []
-
-
-Overfull \hbox (15.74614pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ção, 
- []
-
-
-Overfull \hbox (11.19864pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Ci- 
- []
-
-
-Overfull \hbox (11.96931pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 ên- 
- []
-
-
-Overfull \hbox (10.76125pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 cia 
- []
-
-
-Overfull \hbox (4.11012pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 e 
- []
-
-
-Overfull \hbox (16.85004pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Tec- 
- []
-
-
-Overfull \hbox (12.48306pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 no- 
- []
-
-
-Overfull \hbox (9.91425pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 lo- 
- []
-
-
-Overfull \hbox (11.27502pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 gia 
- []
-
-
-Overfull \hbox (8.88673pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 de 
- []
-
-
-Overfull \hbox (20.48805pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Mato 
- []
-
-
-Overfull \hbox (25.66176pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Grosso 
- []
-
-
-Overfull \hbox (9.40048pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 do 
- []
-
-
-Overfull \hbox (12.12204pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 Sul 
- []
-
-
-Overfull \hbox (4.62387pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 -- 
- []
-
-
-Overfull \hbox (21.099pt too wide) in paragraph at lines 403--403
-\T1/cmss/m/n/9 IFMS|  
- []
-
-
-Overfull \hbox (128.10385pt too wide) in paragraph at lines 403--403
+Overfull \hbox (951.91866pt too wide) in paragraph at lines 414--414
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <15> not available
-(Font)              size <14.4> substituted on input line 407.
+(Font)              size <14.4> substituted on input line 418.
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/it' in size <15> not available
-(Font)              size <14.4> substituted on input line 407.
+(Font)              size <14.4> substituted on input line 418.
 
+LaTeX Font Info:    Try loading font information for U+msa on input line 418.
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 418.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 418.
+
+(/usr/share/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 418.
+
+(/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
 
 LaTeX Font Warning: Font shape `T1/cmss/bx/n' in size <4> not available
-(Font)              size <5> substituted on input line 407.
+(Font)              size <5> substituted on input line 418.
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 407.
+(Font)              size <5> substituted on input line 418.
 
 
-Overfull \hbox (128.10385pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
@@ -2025,75 +1576,75 @@ Overfull \hbox (128.10385pt too wide) has occurred while \output is active
 
 
 (./slides_picat_online.vrb) (./slides_picat_online.toc)
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [2
 
 ]
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [3
 
 ]
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [4
 
 ]
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [5
 
 ]
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [6
 
 ]
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [7
 
-] <figures/ambiente.pdf, id=247, 456.86409pt x 267.89374pt>
+] <figures/ambiente.pdf, id=246, 456.86409pt x 267.89374pt>
 File: figures/ambiente.pdf Graphic file (type pdf)
 
 <use figures/ambiente.pdf>
-Package pdftex.def Info: figures/ambiente.pdf used on input line 528.
+Package pdftex.def Info: figures/ambiente.pdf used on input line 539.
 (pdftex.def)             Requested size: 273.9493pt x 160.64346pt.
 
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [8
 
  <./figures/ambiente.pdf>]
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [9
 
-] <figures/func-upload.pdf, id=412, 473.33943pt x 275.08179pt>
+] <figures/func-upload.pdf, id=411, 473.33943pt x 275.08179pt>
 File: figures/func-upload.pdf Graphic file (type pdf)
 
 <use figures/func-upload.pdf>
-Package pdftex.def Info: figures/func-upload.pdf used on input line 571.
+Package pdftex.def Info: figures/func-upload.pdf used on input line 582.
 (pdftex.def)             Requested size: 273.9493pt x 159.21175pt.
 
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
@@ -2111,20 +1662,20 @@ LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 23.
 (/usr/share/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ))
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [11
 
-] <figures/func-download.pdf, id=665, 382.55673pt x 227.62677pt>
+] <figures/func-download.pdf, id=664, 382.55673pt x 227.62677pt>
 File: figures/func-download.pdf Graphic file (type pdf)
 
 <use figures/func-download.pdf>
-Package pdftex.def Info: figures/func-download.pdf used on input line 622.
+Package pdftex.def Info: figures/func-download.pdf used on input line 633.
 (pdftex.def)             Requested size: 273.9493pt x 163.01239pt.
 
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
@@ -2134,20 +1685,20 @@ Overfull \hbox (137.71016pt too wide) has occurred while \output is active
 \openout4 = `slides_picat_online.vrb'.
 
  (./slides_picat_online.vrb)
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [13
 
-] <figures/func-select.pdf, id=813, 505.24611pt x 272.87076pt>
+] <figures/func-select.pdf, id=812, 505.24611pt x 272.87076pt>
 File: figures/func-select.pdf Graphic file (type pdf)
 
 <use figures/func-select.pdf>
-Package pdftex.def Info: figures/func-select.pdf used on input line 678.
+Package pdftex.def Info: figures/func-select.pdf used on input line 689.
 (pdftex.def)             Requested size: 273.9493pt x 147.96007pt.
 
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
@@ -2157,20 +1708,20 @@ Overfull \hbox (137.71016pt too wide) has occurred while \output is active
 \openout4 = `slides_picat_online.vrb'.
 
  (./slides_picat_online.vrb)
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [15
 
-] <figures/func-run.pdf, id=1022, 467.9924pt x 310.13268pt>
+] <figures/func-run.pdf, id=1021, 467.9924pt x 310.13268pt>
 File: figures/func-run.pdf Graphic file (type pdf)
 
 <use figures/func-run.pdf>
-Package pdftex.def Info: figures/func-run.pdf used on input line 718.
+Package pdftex.def Info: figures/func-run.pdf used on input line 729.
 (pdftex.def)             Requested size: 273.9493pt x 181.54755pt.
 
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
@@ -2183,7 +1734,7 @@ Overfull \hbox (137.71016pt too wide) has occurred while \output is active
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ))
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
@@ -2193,31 +1744,73 @@ Overfull \hbox (137.71016pt too wide) has occurred while \output is active
 \openout4 = `slides_picat_online.vrb'.
 
  (./slides_picat_online.vrb)
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [18
 
-] <figures/resultado.png, id=1408, 943.525pt x 677.53125pt>
+] <figures/resultado.png, id=1407, 943.525pt x 677.53125pt>
 File: figures/resultado.png Graphic file (type png)
 
 <use figures/resultado.png>
-Package pdftex.def Info: figures/resultado.png used on input line 788.
+Package pdftex.def Info: figures/resultado.png used on input line 799.
 (pdftex.def)             Requested size: 273.9493pt x 196.7168pt.
 
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [19
 
  <./figures/resultado.png>]
-Overfull \hbox (137.71016pt too wide) has occurred while \output is active
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
  [][]  \T1/cmtt/m/n/6 ([])  
  []
 
 [20
+
+]
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
+ [][]  \T1/cmtt/m/n/6 ([])  
+ []
+
+[21
+
+]
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
+ [][]  \T1/cmtt/m/n/6 ([])  
+ []
+
+[22
+
+]
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
+ [][]  \T1/cmtt/m/n/6 ([])  
+ []
+
+[23
+
+]
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
+ [][]  \T1/cmtt/m/n/6 ([])  
+ []
+
+[24
+
+]
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
+ [][]  \T1/cmtt/m/n/6 ([])  
+ []
+
+[25
+
+]
+Overfull \hbox (951.91866pt too wide) has occurred while \output is active
+ [][]  \T1/cmtt/m/n/6 ([])  
+ []
+
+[26
 
 ]
 \tf@nav=\write7
@@ -2229,11 +1822,11 @@ Overfull \hbox (137.71016pt too wide) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `slides_picat_online.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 810.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 810.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 834.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 834.
  (./slides_picat_online.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 810.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 810.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 834.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 834.
 Package rerunfilecheck Info: File `slides_picat_online.out' has not changed.
 (rerunfilecheck)             Checksum: A0462A4F55C81AB100664E03BF63F6D0;246.
 
@@ -2243,34 +1836,31 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 23157 strings out of 493013
- 415225 string characters out of 6139317
- 668144 words of memory out of 5000000
- 26052 multiletter control sequences out of 15000+600000
- 29854 words of font info for 85 fonts, out of 8000000 for 9000
+ 23172 strings out of 492995
+ 415124 string characters out of 6138756
+ 670330 words of memory out of 5000000
+ 26071 multiletter control sequences out of 15000+600000
+ 27026 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,23n,64p,1072b,2190s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.450pk> </
-home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/
-ccs/.texlive/texmf-var/fonts/pk/ljfour/public/amsfonts/symbols/msam7.514pk> </h
-ome/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk> </home/c
-cs/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmsy10.657pk> </home/ccs/.texli
-ve/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1095.600pk> </home/ccs/.texlive/te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1095.600pk> </home/ccs/.texlive/texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/ccs/.texlive/texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecsx0800.600pk> </home/ccs/.texlive/texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecsx0600.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecss0500.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/j
-knappen/ec/ectt0800.450pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecss0900.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecss0600.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss
-0800.600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.
-600pk> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1440.600pk
-> </home/ccs/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1440.600pk>
-Output written on slides_picat_online.pdf (20 pages, 689155 bytes).
+ 56i,16n,64p,1072b,2190s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/
+texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/symbols/msam7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
+sfsi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1440.pfb></
+usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf
+-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
+per/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0600.pf
+b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0800.pfb></usr/share/t
+exmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts
+/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/public/c
+m-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt100
+0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on slides_picat_online.pdf (26 pages, 836800 bytes).
 PDF statistics:
- 1917 PDF objects out of 2073 (max. 8388607)
- 1168 compressed objects within 12 object streams
- 46 named destinations out of 1000 (max. 500000)
+ 1685 PDF objects out of 1728 (max. 8388607)
+ 1298 compressed objects within 13 object streams
+ 58 named destinations out of 1000 (max. 500000)
  125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

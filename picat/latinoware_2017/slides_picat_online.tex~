@@ -394,22 +394,11 @@
 \title[Picat]{\fontsize{15}{20}\selectfont \textcolor{black}{Um Ambiente (\textit{on-line}) de Programação  para Linguagem PICAT}}
 
 %\title{Aplicações de PDI (INE5401)}
-\author{Alexandre Gonçalves Silva\inst{1} \and 
-Claudio Cesar de Sá \inst{2} \and 
-Lucas Hermman Negri \inst{3}}
-\institute{\inst{1} Departamento Informática e Estatística -- Universidade Federal de Santa Catarina -- UFSC 
-\and
-\inst{2} Departamento de Ciência da Computação -- Universidade do Estado de Santa Catarina -- UDESC
-\and
-\inst{3}Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul -- IFMS}
-\date{\today}
+\author{Alexandre Gonçalves Silva\footnote{Departamento Informática e Estatística -- Universidade Federal de Santa Catarina -- UFSC}, Claudio Cesar de Sá\footnote{Departamento de Ciência da Computação -- Universidade do Estado de Santa Catarina -- UDESC}, Lucas Hermman Negri\footnote{Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul -- IFMS}}
+\institute{}
+\date{15 de julho de 2017}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
-\author{Alexandre Gonçalves Silva\footnote{Departamento Informática e Estatística -- Universidade Federal de Santa Catarina -- UFSC}, Claudio Cesar de Sá\footnote{Departamento de Ciência da Computação -- Universidade do Estado de Santa Catarina -- UDESC}, Lucas Hermman Negri\footnote{Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul -- IFMS}}
-\end{comment}
-
-
 
 \begin{document}
 
