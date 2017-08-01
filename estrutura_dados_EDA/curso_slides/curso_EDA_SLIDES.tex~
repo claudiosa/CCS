@@ -75,7 +75,7 @@
 	{figs/fig_listas/}%
 	{figs/fig_pilhas/}%
 }%
-
+ -- UFSC,
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
 
 %Global Background must be put in preamble
