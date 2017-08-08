@@ -69,13 +69,14 @@
 	% {figuras/}%
 	% {/home/ccs/Dropbox/CCS/picat/}%
 	{figs/fig_ponteiros/}%
+		{figs/fig_recursao/}%
 	{figs/fig_arvores/}%
 	{figs/fig_filas/}%
 	{figs/fig_hash/}%
 	{figs/fig_listas/}%
 	{figs/fig_pilhas/}%
 }%
- -- UFSC,
+ 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
 
 %Global Background must be put in preamble
