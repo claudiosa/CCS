@@ -309,8 +309,10 @@ Pontos fundamentais a serem cobertos:
       \item Podemos incrementar um ponteiro através da adição regular ou pelo operador de incremento (++).
       \item Incrementar um ponteiro acarreta na movimentação do mesmo para o próximo tipo apontado.
       \item Se \textbf{pa} é um ponteiro para inteiro com valor 200, depois de executada a instrução: \textbf{pa++}, o valor de \textbf{pa} será 202 e não 201.
+      \item \textcolor{red}{Cuidar com o compilador e arquitetura em questão: 16, 32, 64 ou 128 bits}
       \item Com isso, cada vez que incrementamos \textbf{pa} ele apontará para o próximo tipo apontado.
-      \item O mesmo é verdadeiro para o operador de decremento. 
+      \item O mesmo é verdadeiro para o operador de decremento (--)
+      \item Cuidar ainda: associatividade  (esq $\Leftrightarrow$ dir) e precedência (ver manual da linguagem) $\Rightarrow$ fazer os exercícios e ir anotando as respostas
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -356,10 +358,14 @@ Pontos fundamentais a serem cobertos:
 \end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Chamada por referência}  
+\begin{frame}[c]{Chamadas por valor  $\times$ referência}  
   \begin{itemize}
     \item A passagem de argumentos para funções em C são feitas por valor (``chamada por valor'').
-    \item Na passagem de parâmetro por valor a função chamada \alert{não pode alterar} uma variável da função chamadora.
+    \item Na passagem de parâmetro por valor a função chamada \alert{não pode alterar} uma variável da função que fez a chamada.
+    \item Sim, a chamada por valor cópia protege  o conteúdo
+    \item Mas, muitas vezes a duplicação do valor da variável deve ser evitado, ai precisamos
+    da chamada por referência.
+    \item Uso de ponteiros
   \end{itemize}
 \end{frame}
 
@@ -446,6 +452,16 @@ void troca(int *x, int *y) {
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile,plain,c]{Exemplos de programas com matrizes}
+
+
+\lstinputlisting{../codes/ponteiros/exemplo03_P.cpp}
+\pause
+\textcolor{red}{Vários elementos neste código}
+
+\end{frame}
+
+
 \begin{frame}[fragile,plain,c]{Exemplo de programas com matrizes}
 \begin{lstlisting}[language=C]
 /*imprime os valores da matriz*/
@@ -478,12 +494,12 @@ main(){
 
 \subsection{Indireção Múltipla}
 \begin{frame}[c]{Indireção múltipla}
-\begin{block}{O que é indireção múltipla?}
+\begin{block}{O que é \textit{indireção} múltipla?}
   \begin{itemize}[<+->]
-    \item Indireção múltipla ou ponteiro de ponteiros é quando temos um ponteiro apontando para outro ponteiro que aponta para o valor final.
+    \item \textit{Indireção múltipla} ou \textbf{ponteiro de ponteiros} é quando temos um ponteiro apontando para outro ponteiro que aponta para o valor final.
     \item O valor normal de um ponteiro é o endereço de uma variável que contém o valor desejado.
     \item No caso de um ponteiro para um ponteiro, o primeiro contém o endereço do segundo que aponta para a variável que contém o valor desejado.
-    \item A indireção múltipla pode ser levada a qualquer dimensão desejada. 
+    \item A \textit{indireção múltipla} pode ser levada a qualquer dimensão desejada. 
   \end{itemize}
 \end{block}    
 \end{frame}

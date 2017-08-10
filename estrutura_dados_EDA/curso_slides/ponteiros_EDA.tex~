@@ -92,11 +92,11 @@ Pontos fundamentais a serem cobertos:
 \end{frame}
 
 
-\begin{frame}[allowframebreaks=0.9]
+\begin{frame}[c,fragile]%[allowframebreaks=0.9]
 
 \frametitle{Reflexões Iniciais sobre Ponteiros}
 
-  \begin{itemize}
+  \begin{itemize}[<+->]
    \item O operador \& era conhecido 
     \item O operador \texttt{*} (\textbf{estrela} -- afinal é uma estrela em C) era quase desconhecido
     \item Este  último é como um catálogo telefônico, acessa um conteúdo de um assinante via uma página específica
