@@ -462,6 +462,17 @@ void troca(int *x, int *y) {
 \end{frame}
 
 
+\begin{frame}[fragile,plain,c]{Exemplos de programas com matrizes}
+
+
+\lstinputlisting{../codes/ponteiros/exemplo04_P.cpp}
+\pause
+\textcolor{red}{Pergunta de aluno do  laboratório}
+
+\end{frame}
+
+
+
 \begin{frame}[fragile,plain,c]{Exemplo de programas com matrizes}
 \begin{lstlisting}[language=C]
 /*imprime os valores da matriz*/
@@ -469,7 +480,7 @@ main(){
    int nums [5] = {100,200,90,20,10};
    int d;
    for(d = 0; d < 5; d++)
-     printf("%d\n", nums[d]);
+   printf("%d\n", nums[d]);
 }
 
 /*usa ponteiros para imprimir os valores da matriz*/
@@ -491,6 +502,32 @@ main(){
     \item Assim, a expressão \textbf{*(nums + d)} não significa avançar 3 \textit{bytes}, além \textit{nums} e sim 3 elementos da matriz.
   \end{itemize}
 \end{frame}
+
+
+
+
+\begin{frame}[fragile,plain,c]{Cuidados}  
+
+\begin{verbatim}
+
+int vetor[10];
+int *ponteiro, i;
+ponteiro = &i;
+
+/* as operacoes a seguir sao invalidas */
+vetor = vetor + 2; /* ERRADO: vetor nao eh variavel */
+vetor++;           /* ERRADO: vetor nao eh variavel */
+vetor = ponteiro;  /* ERRADO: vetor nao eh variavel */
+
+/* as operacoes abaixo sao validas */
+
+ponteiro = vetor;   /* CERTO: ponteiro eh variavel */
+ponteiro = vetor+2; /* CERTO: ponteiro eh variavel */
+\end{verbatim}
+
+
+\end{frame}
+
 
 \subsection{Indireção Múltipla}
 \begin{frame}[c]{Indireção múltipla}
