@@ -1,14 +1,19 @@
-\documentclass[10pt]{beamer} 
-\usetheme[pageofpages=of,% String used between the current page and the
-          % total page count.
-          alternativetitlepage=true,% Use the fancy title page.
-          %titlepagelogo=coca,% Logo for the first page.
-          titleline=true
-          ]{Torino}
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{beaver} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
 
-%\usetheme{Frankfurt}
-%\setbeamertemplate{caption}[numbered]{}% Number float-like environments
-%\usecolortheme{chameleon}
 
 \usepackage[utf8]{inputenc}
 % \usepackage[latin1]{inputenc}
@@ -70,7 +75,7 @@
 	% {figuras/}%
 	% {/home/ccs/Dropbox/CCS/picat/}%
 	{figs/fig_ponteiros/}%
-		{figs/fig_recursao/}%
+	{figs/fig_recursao/}%
 	{figs/fig_arvores/}%
 	{figs/fig_filas/}%
 	{figs/fig_hash/}%
@@ -105,6 +110,15 @@ Lucas Hermman Negri, Gilmário Barbosa}
     Centro de Ci\^encias e Tecnol\'ogias\\
    Universidade do Estado de Santa Catarina}
 
+\date{\today}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Onde estamos ...}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}

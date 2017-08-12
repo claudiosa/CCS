@@ -8,7 +8,7 @@ int main(void)
    //  char *lista = "Ola como vai?"; ... HUM ...
    char *pt;
    pt = vetor; //mais saudavel => pt = &vetor[0];
-
+   // valido para char apenas
    system("clear");
    printf("O tamanho de \"%s\" e %d caracteres.\n", vetor, strtam( pt ));
    printf("\n ... Acabou ....");
