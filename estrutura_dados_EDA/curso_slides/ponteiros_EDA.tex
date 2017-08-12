@@ -307,11 +307,14 @@ Pontos fundamentais a serem cobertos:
     \item \textbf{Incremento/Decremento}:
     \begin{itemize}[<+->]
       \item Podemos incrementar um ponteiro através da adição regular ou pelo operador de incremento (++).
-      \item Incrementar um ponteiro acarreta na movimentação do mesmo para o próximo tipo apontado.
-      \item Se \textbf{pa} é um ponteiro para inteiro com valor 200, depois de executada a instrução: \textbf{pa++}, o valor de \textbf{pa} será 202 e não 201.
-      \item \textcolor{red}{Cuidar com o compilador e arquitetura em questão: 16, 32, 64 ou 128 bits}
+      \item Incrementar um ponteiro implica na movimentação do mesmo para o próximo tipo apontado.
+     
+      \item Se \textbf{pa} é um ponteiro para inteiro tem no seu conteúdo o valor 200 (um endereço), depois de executada a instrução, \textbf{pa++}, o valor de \textbf{pa} será o endereço 204 (compiladores onde um inteiro é 4 bytes) e não 201.
+     
+      \item \textcolor{red}{Logo, cuidar com o compilador e arquitetura em questão: 16, 32, 64 ou 128 bits}
+    
       \item Com isso, cada vez que incrementamos \textbf{pa} ele apontará para o próximo tipo apontado.
-      \item O mesmo é verdadeiro para o operador de decremento (--)
+      \item O mesmo é verdadeiro para o operador de decremento (- -)
       \item Cuidar ainda: associatividade  (esq $\Leftrightarrow$ dir) e precedência (ver manual da linguagem) $\Rightarrow$ fazer os exercícios e ir anotando as respostas
     \end{itemize}
   \end{itemize}
@@ -470,6 +473,25 @@ void troca(int *x, int *y) {
 \textcolor{red}{Pergunta de aluno do  laboratório}
 
 \end{frame}
+
+
+
+\begin{frame}[fragile,plain,c]{Exemplos de programas com matrizes}
+
+\lstinputlisting{../codes/ponteiros/exemplo05_P.cpp}
+\textcolor{red}{Dúvida de aula ... qual a saída do código acima?}
+
+\pause
+
+\begin{lstlisting}[language=C]
+[ccs@gerzat ponteiros]$ ./a.out 
+9 8 7 99 88 77 1 2 3 
+ ... Acabou ....
+\end{lstlisting}
+
+\end{frame}
+
+
 
 
 
