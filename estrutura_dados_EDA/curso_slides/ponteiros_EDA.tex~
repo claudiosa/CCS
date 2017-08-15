@@ -476,6 +476,25 @@ void troca(int *x, int *y) {
 
 
 
+\begin{frame}[fragile,plain,c]{Exemplos de programas com matrizes}
+
+\lstinputlisting{../codes/ponteiros/exemplo05_P.cpp}
+\textcolor{red}{Dúvida de aula ... qual a saída do código acima?}
+
+\pause
+
+\begin{lstlisting}[language=C]
+[ccs@gerzat ponteiros]$ ./a.out 
+9 8 7 99 88 77 1 2 3 
+ ... Acabou ....
+\end{lstlisting}
+
+\end{frame}
+
+
+
+
+
 \begin{frame}[fragile,plain,c]{Exemplo de programas com matrizes}
 \begin{lstlisting}[language=C]
 /*imprime os valores da matriz*/
