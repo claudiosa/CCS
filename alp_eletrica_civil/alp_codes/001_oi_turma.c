@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-int main()
-	{
-	printf("\n  Oi turma de ALP\n ");
-	printf("\n  Wellcome .... 2017 \n ");
+ int main() //obrigatoria 
+	{ // bloco de inicio
+	printf( " \n  Oi turma de ALP" );
+	printf("\n  Wellcome .... 2017");
 	printf("\n  ACERTEI .... \n ");
-	return(1);
-	}
+	return 1 ;
+	} // fecha o bloco 
