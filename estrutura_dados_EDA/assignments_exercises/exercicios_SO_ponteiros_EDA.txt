@@ -136,8 +136,10 @@ abcd1234EFGH
 
 $    
     
+16. Verifique a diferença entre o "malloc" e "calloc". Comprove SE o calloc pode inicializar diretamente
+    um vetor e o "malloc" nao.
     
-	    
+17.	    
 	    
 	  HERE A FEW TIPS TO REMEMBER TO AVOID CONFUSION WITH POINTERS:
 	  
