@@ -51,6 +51,7 @@ e retorna a posição em que a sub-cadeia aparece em cadeia.
 6.  Escreva um programa que procure em uma matriz elementos que sejam ao mesmo tempo o maior da linha e o menor coluna. 
     As dimensões da matriz e seus dados devem vir de um arquivo texto.
     (Este problema seria um classico para prova -- BOCA)
+    Fortemente recomendado ==> várias interpretações ==> dúvidas
     
 7.  Pointers and arrays
     a) Define variables named jack and jill that are of type pointer-to-int.
@@ -83,11 +84,13 @@ e retorna a posição em que a sub-cadeia aparece em cadeia.
 
    Usando individualmente cada ponteiro, totalize o número de 1's  
    nesta matriz. Veja, temos 10 ponteiros acima.
+   Contudo, este é um clássico de ponteiro para ponteiro
+   (ponteiros com dupla referência)
    
 11. Write a C function to sort an array of ten integer values in ascending order.
 The function will accept two arguments -- a pointer that points to the array and the array size. 
 The function returns a pointer that points to the sorted array. 
-Prototipo: int *sortAsc(int *p, int size);  
+Prototipo: int * sortAsc(int *p, int size);  
 
 12. Explain the error:
 char c = 'A';
