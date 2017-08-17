@@ -1,6 +1,7 @@
 /*
 malloc() : Allocates requested size of bytes and returns a pointer first byte of allocated space
 calloc() : Allocates space for an array elements, initializes to zero and then returns a pointer to memory
+           (the block initializes the allocates memory to all bits zero.)
 free(): deallocate the previously allocated space
 realloc() : Change the size of previously allocated space 
  */
