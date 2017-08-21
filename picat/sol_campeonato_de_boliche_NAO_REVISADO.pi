@@ -1,0 +1,301 @@
+/* Saída:
+CPU time 1.604 seconds.
+
+Equipe 1:
+amarelo peraltas arthur 0 27 420
+Equipe 2:
+vermelho fenix adriano 1 23 410
+Equipe 3:
+branco catorzebiz lucas 3 25 400
+Equipe 4:
+verde tratores rogerio 4 26 390
+Equipe 5:
+azul supinos filipe 2 24 380
+*/
+
+
+index(-)
+uniforme(amarelo).
+uniforme(azul).
+uniforme(branco).
+uniforme(verde).
+uniforme(vermelho).
+
+index(-)
+equipe(catorzebiz).
+equipe(fenix).
+equipe(peraltas).
+equipe(supinos).
+equipe(tratores).
+
+index(-)
+capitao(arthur).
+capitao(filipe).
+capitao(rogerio).
+capitao(adriano).
+capitao(lucas).
+
+index(-)
+strikes(0).
+strikes(1).
+strikes(2).
+strikes(3).
+strikes(4).
+
+index(-)
+idade(23).
+idade(24).
+idade(25).
+idade(26).
+idade(27).
+
+index(-)
+pontuacao(380).
+pontuacao(390).
+pontuacao(400).
+pontuacao(410).
+pontuacao(420).
+
+boliche((U1, E1, C1, S1, I1, P1),
+        (U2, E2, C2, S2, I2, P2),
+        (U3, E3, C3, S3, I3, P3),
+        (U4, E4, C4, S4, I4, P4),
+        (U5, E5, C5, S5, I5, P5)) ?=>
+
+uniforme(U1),uniforme(U2),uniforme(U3),uniforme(U4),uniforme(U5),
+all_different([U1, U2, U3, U4, U5]),
+
+
+% A equipe de Branco está exatamente à esquerda da equipe de Verde.
+
+(
+(U1==branco, U2==verde);
+(U2==branco, U3==verde);
+(U3==branco, U4==verde);
+(U4==branco, U5==verde)
+),
+
+% As equipes verde e azul estão lado a lado.
+
+(
+(U1==verde, U2==azul);
+(U2==verde, U3==azul);
+(U3==verde, U4==azul);
+(U4==verde, U5==azul);
+(U2==verde, U1==azul);
+(U3==verde, U2==azul);
+(U4==verde, U3==azul);
+(U5==verde, U4==azul)
+),
+
+pontuacao(P1),pontuacao(P2),pontuacao(P3),pontuacao(P4),pontuacao(P5),
+all_different([P1, P2, P3, P4, P5]),
+
+% A equipe com 390 pontos está exatamente à esquerda da equipe Azul.
+
+P2==410,
+
+% Na segunda posição está a equipe com 410 pontos.
+
+(
+(P1==390, U2==azul);
+(P2==390, U3==azul);
+(P3==390, U4==azul);
+(P4==390, U5==azul)
+),
+
+strikes(S1),strikes(S2),strikes(S3),strikes(S4),strikes(S5),
+all_different([S1, S2, S3, S4, S5]),
+
+% A equipe com 4 strikes está exatamente à esquerda da que tem 380 pontos.
+
+(
+(S1==4, P2==380);
+(S2==4, P3==380);
+(S3==4, P4==380);
+(S4==4, P5==380)
+),
+
+capitao(C1),capitao(C2),capitao(C3),capitao(C4),capitao(C5),
+all_different([C1, C2, C3, C4, C5]),
+
+% A equipe de filipe está na quinta posição.
+
+C5==filipe,
+
+% lucas está na equipe que tem 400 pontos.
+
+(
+(C1==lucas, P1==400);
+(C2==lucas, P2==400);
+(C3==lucas, P3==400);
+(C4==lucas, P4==400);
+(C5==lucas, P5==400)
+),
+
+idade(I1),idade(I2),idade(I3),idade(I4),idade(I5),
+all_different([I1, I2, I3, I4, I5]),
+
+% Na terceira posição está a equipe do capitão de 25 anos.
+
+I3==25,
+
+% O capitão de 26 anos está na equipe que tem 390 pontos.
+
+(
+(I1==26, P1==390);
+(I2==26, P2==390);
+(I3==26, P3==390);
+(I4==26, P4==390);
+(I5==26, P5==390)
+),
+
+% lucas está exatamente à direita da equipe do capitão mais novo.
+
+(
+(I1==23, C2==lucas);
+(I2==23, C3==lucas);
+(I3==23, C4==lucas);
+(I4==23, C5==lucas)
+),
+
+% A equipe com 390 pontos está exatamente à direita da equipe que fez 3 strikes.
+
+(
+(S1==3, P2==390);
+(S2==3, P3==390);
+(S3==3, P4==390);
+(S4==3, P5==390)
+),
+
+% Os Peraltas ainda não fizeram Strike.
+
+equipe(E1),equipe(E2),equipe(E3),equipe(E4),equipe(E5),
+all_different([E1, E2, E3, E4, E5]),
+
+(
+(E1==peraltas, S1==0);
+(E2==peraltas, S2==0);
+(E3==peraltas, S3==0);
+(E4==peraltas, S4==0);
+(E5==peraltas, S5==0)
+),
+
+% A equipe do rogerio está exatamente à direita da equipe do lucas.
+
+(
+(C1==lucas, C2==rogerio);
+(C2==lucas, C3==rogerio);
+(C3==lucas, C4==rogerio);
+(C4==lucas, C5==rogerio)
+),
+
+% adriano é o capitão da equipe Fenix.
+
+(
+(E1==fenix, C1==adriano);
+(E2==fenix, C2==adriano);
+(E3==fenix, C3==adriano);
+(E4==fenix, C4==adriano);
+(E5==fenix, C5==adriano)
+),
+
+
+% A equipe com 1 strike está exatamente à esquerda da equipe 14 Biz.
+
+(
+(S1==1, E2==catorzebiz);
+(S2==1, E3==catorzebiz);
+(S3==1, E4==catorzebiz);
+(S4==1, E5==catorzebiz)
+),
+
+% O capitão mais novo está na equipe de uniforme Vermelho.
+
+(
+(I1==23, U1==vermelho);
+(I2==23, U2==vermelho);
+(I3==23, U3==vermelho);
+(I4==23, U4==vermelho);
+(I5==23, U5==vermelho)
+),
+
+% A equipe Fenix está ao lado da equipe que fez 3 strikes.
+
+(
+(E1==fenix, S2==3);
+(E2==fenix, S3==3);
+(E3==fenix, S4==3);
+(E4==fenix, S5==3);
+(E2==fenix, S1==3);
+(E3==fenix, S2==3);
+(E4==fenix, S3==3);
+(E5==fenix, S4==3)
+),
+
+% A equipe que fez 1 strike está ao lado da equipe que tem 400 pontos.
+
+(
+(P1==400, S2==1);
+(P2==400, S3==1);
+(P3==400, S4==1);
+(P4==400, S5==1);
+(P2==400, S1==1);
+(P3==400, S2==1);
+(P4==400, S3==1);
+(P5==400, S4==1)
+),
+
+% Os Tratores estão ao lado da equipe que fez 2 strikes.
+
+(
+(E1==tratores, S2==2);
+(E2==tratores, S3==2);
+(E3==tratores, S4==2);
+(E4==tratores, S5==2);
+(E2==tratores, S1==2);
+(E3==tratores, S2==2);
+(E4==tratores, S3==2);
+(E5==tratores, S4==2)
+),
+
+
+% A equipe Vermelha está em algum lugar entre a equipe do capitão mais velho e a equipe com mais Strikes, nessa ordem.
+
+(
+(I1==27, S3==4, (U2==vermelho));
+(I1==27, S4==4, (U2==vermelho;U3==vermelho));
+(I1==27, S5==4, (U2==vermelho;U3==vermelho;U4==vermelho));
+(I2==27, S4==4, (U3==vermelho));
+(I2==27, S5==4, (U3==vermelho;U4==vermelho));
+(I3==27, S5==4, (U4==vermelho))
+).
+%,printf("\n UFA CHEGUEI ....").
+
+main ?=> time(
+        boliche((U1, E1, C1, S1, I1, P1),
+        (U2, E2, C2, S2, I2, P2),
+        (U3, E3, C3, S3, I3, P3),
+        (U4, E4, C4, S4, I4, P4),
+        (U5, E5, C5, S5, I5, P5))
+        ),
+
+        printf("Equipe 1:\n"),
+        printf("%w %w %w %w %w %w\n", U1, E1, C1, S1, I1, P1),
+        printf("Equipe 2:\n"),
+        printf("%w %w %w %w %w %w\n", U2, E2, C2, S2, I2, P2),
+        printf("Equipe 3:\n"),
+        printf("%w %w %w %w %w %w\n", U3, E3, C3, S3, I3, P3),
+        printf("Equipe 4:\n"),
+        printf("%w %w %w %w %w %w\n", U4, E4, C4, S4, I4, P4),
+        printf("Equipe 5:\n"),
+        printf("%w %w %w %w %w %w\n", U5, E5, C5, S5, I5, P5).
+        %,false.
+%main => true.
+
+
+
+all_different([]) ?=> true.
+	all_different([H|T]) => not(member(H,T)),
+						   all_different(T).
+						   
