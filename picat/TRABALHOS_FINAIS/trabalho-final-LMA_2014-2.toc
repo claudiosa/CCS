@@ -1,3 +1,0 @@
-\select@language {brazilian}
-\contentsline {section}{\numberline {1}Teste de QI de Einstein}{3}
-\contentsline {section}{\numberline {2}Resolu\IeC {\c c}\IeC {\~o}es de Ano Novo}{4}
