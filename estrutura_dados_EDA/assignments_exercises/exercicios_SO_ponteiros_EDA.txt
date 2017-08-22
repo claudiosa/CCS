@@ -27,6 +27,9 @@ troca (p, q);
 
 Exercicios -- TODOS USANDO PONTEIROS e FUNCOES 
 
+OBS: Construa  programas completos para que possam se compilados, 
+exibindo no minimo 3 casos de testes a sua escolha (AUTENTICIDADE)
+
 1. Verifique que a troca de valores de variáveis discutida acima se poderia ser 
 obtida por meio de uma macro do pré-processador:
 #define troca (X, Y) { int t = X; X = Y; Y = t; }
@@ -40,7 +43,7 @@ void troca (int *i, int *j) {
 
 2. Um ponteiro pode ser usado para dizer a uma função onde ela deve depositar o resultado de seus cálculos. Escreva uma função hm que converta minutos em horas-e-minutos. A função recebe um inteiro mnts e os endereços de duas variáveis inteiras, digamos h e m, e atribui valores a essas variáveis de modo que m seja menor que 60 e que 60*h + m seja igual a mnts.   Escreva também uma função main que use a função hm.
 
-3. Escreva uma função mm que receba um vetor inteiro v[0..n-1] e os endereços de duas variáveis inteiras, digamos min e max, e deposite nessas variáveis o valor de um elemento mínimo e o valor de um elemento máximo do vetor.   Escreva também uma função main que use a função mm.
+3. Escreva uma função f_MAIOR_MENOR que receba um vetor inteiro v[0..n-1] e os endereços de duas variáveis inteiras, digamos min e max, e deposite nessas variáveis o valor de um elemento mínimo e o valor de um elemento máximo do vetor.   Escreva também uma função main que use a função f_MAIOR_MENOR.
 
 4. Faça uma função que verifique se a expressão apontada por substr está presente na cadeia apontada por str. A função possui o protótipo abaixo:
 int posicao(char *substr, char *str);
