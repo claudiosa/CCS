@@ -1,3 +1,4 @@
+\beamer@endinputifotherversion {3.36pt}
 \select@language {brazilian}
 \beamer@sectionintoc {1}{Objetivos}{3}{0}{1}
 \beamer@sectionintoc {2}{Introdu\IeC {\c c}\IeC {\~a}o}{4}{0}{2}
