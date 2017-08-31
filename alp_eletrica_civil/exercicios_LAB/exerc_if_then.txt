@@ -1,5 +1,5 @@
 
-ALP 2016-1 (aula 30/03/16)
+ALP -- Exercicios IF-THEN-ELSE
 
 1. Faça um programa que receba três inteiros e diga qual deles 
    é o maior e qual o menor.
@@ -7,8 +7,8 @@ ALP 2016-1 (aula 30/03/16)
 
 2. Escreva um programa em C que recebe um inteiro 
    e diga se é par ou ímpar.
-    Use o operador matemático % (resto da divisão ou módulo) 
-    e o teste condicional if. 
+   Use o operador matemático % (resto da divisão ou módulo) 
+   e o teste condicional if. 
 
 3. Escreva um programa que pergunte o raio de uma 
    circunferência, e em seguida mostre o diâmetro, 
@@ -20,14 +20,14 @@ ALP 2016-1 (aula 30/03/16)
    sangue ou não. Use alguns dos operadores lógicos OU (||) e E (&&).
    
 5. Repita o exercício anterior, contudo, quem pode doar sangue
-são apenas os homens. Então leia o sexo: char sexo;
+   são apenas os homens. Então leia o sexo: char sexo;
    logo: if( idade .....
 
 6. Escreva um programa que pergunte o dia, 
-mês e o ano do aniversário de uma pessoa 
-e diga se a data é válida ou não. Caso não seja, 
-diga o motivo. Suponha que todos os meses tem 
-31 dias e que estejamos no ano de 2013.
+   mês e o ano do aniversário de uma pessoa 
+   e diga se a data é válida ou não. Caso não seja, 
+   diga o motivo. Suponha que todos os meses tem 
+   31 dias e que estejamos no ano de 2013.
 
 7. Dado duas datas, dia_1, mes_1, ano_1 e  
    dia_2, mes_2, ano_2, diga qual delas é anterior 
