@@ -154,7 +154,7 @@ Pontos fundamentais a serem cobertos:
 \begin{frame}[fragile,plain]{Interface do Tipo Pilha -- Típica}
 \begin{lstlisting}[language=C]
 /* Definicao da estrutura */
-typedef struct pilha { .... } Pilha;
+typedef struct { DEFINA O SEU MODELO AQUI }  Pilha;
 
 /*Aloca dinamicamente ou estaticamente a estrutura pilha, 
   inicializando seus campos e retorna seu ponteiro.*/
@@ -214,9 +214,9 @@ int empty(Pilha *p);
 				\item A pilha está vazia se topo = -1.
 				\item Cheia se topo = N - 1.
 				\item Para desempilhar um elemento da pilha, não vazia,
-				 basta $$x = vet[topo--]$$.
+				 basta $$x = vet[topo--]$$ \textcolor{red}{(recupera valor do topo e depois decrementa)} 
 				\item Para empilhar um elemento na pilha, em uma pilha não cheia, 
-				basta $$vet[t++] = e$$.  
+				basta $$vet[++t] = e$$   \textcolor{red}{(soma antes e depois insere)}
 			\end{enumerate}
 	\end{itemize}
 \end{frame}

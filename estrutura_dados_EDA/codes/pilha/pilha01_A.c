@@ -4,7 +4,7 @@
 
 
 #define MAX 50
-typedef struct stack
+typedef struct
 	{
 	   int topo ;
 	   char entradas[MAX];
@@ -19,7 +19,7 @@ void pop (char *x, tipo_pilha * P);
 
 int main(void)
 {
-    tipo_pilha  PILHA; 
+    tipo_pilha  PILHA; // criar uma pilha estatica
 	tipo_pilha  *pt_pilha; /* criar por referencia 
 	para nao duplicar os dados .... */
 	pt_pilha = &PILHA; 
@@ -35,7 +35,8 @@ int main(void)
 // USO DO PUSH
 void carrega_pilha (  tipo_pilha * P )
 {
-	char vetor[]= "QUALQUER COISA AQUI";
+	//char vetor[]= "QUALQUER COISA AQUI";
+	char vetor[]= "aABCz";
 	int i, tam_vetor = (int)sizeof(vetor);
 	printf("\n QTIDADE DE OBJETOS:::%d", tam_vetor );
 	/*  se o tamanho da pilha for maior que tam_vetor ....
@@ -51,7 +52,7 @@ void carrega_pilha (  tipo_pilha * P )
 void imprime_pilha ( tipo_pilha * P )
 { // usando pop
   char x; /* ou char *pt */
-  printf("\n   mostra_pilha \n");
+  printf("\n\n   MOSTRA_PILHA:");
    while ( P -> topo >= 0 ) // cuidar onde a pilha se inicializa
     {
      pop ( &x , P );

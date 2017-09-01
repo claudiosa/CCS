@@ -3,7 +3,7 @@
 
 // ALOCACAO SEMI-ESTATICA
 // EM ESTUDO
-typedef struct stack
+typedef struct 
 	{
 	  int topo ;
 	  int tam_MAX;
@@ -98,5 +98,4 @@ void destroi_pilha ( tipo_pilha * P )
 	 printf("\n Pilha INEXISTENTE\n"); 	 
     
  } 
-
 /**************************************************/
