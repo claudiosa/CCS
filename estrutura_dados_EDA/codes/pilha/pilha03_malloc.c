@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 // ALOCACAO ESTATICA
-typedef struct stack
+// se DUVIDAS -> https://www.ime.usp.br/~pf/algoritmos/aulas/footnotes/typedef.html
+typedef struct
 	{
 	  int topo ;
 	  int tam_MAX;  // vira de uma STRING DADA 
@@ -22,7 +23,7 @@ void destroi_pilha ( tipo_pilha * P );
 int main(void)
 {
 	system("clear"); // CUIDADO
-    tipo_pilha  PILHA; 
+    tipo_pilha  PILHA;  // PILHA ESTATICA--FISICA
 	tipo_pilha  *pt_pilha; /* criar por referencia 
 	e nao duplicar os dados.... */
 	pt_pilha = &PILHA; 
@@ -48,7 +49,7 @@ int main(void)
 // le algo e define o tam_MAX da pilha ... 
 char * le_entrada_pilha (  tipo_pilha * P )
 {   // alternativa eh LER e IMEDIATAMENTE CRIAR A PILHA
-	char vetor[]= ".XXX."; // QUALQUER COISA AQUI.";
+	char vetor[]= "aXXXz"; // QUALQUER COISA AQUI.";
 	char *pt_vetor;
 	int tam_vetor = (int)sizeof(vetor);
 	
@@ -62,6 +63,7 @@ char * le_entrada_pilha (  tipo_pilha * P )
 // conteudo de pt_vetor .... usando push em X
 void carrega_pilha ( char *pt_vetor , tipo_pilha * P )
 {		
+	printf("\n \n   CARREGA_PILHA (usando push):");
 	for(int i=0; i < (P -> tam_MAX) ; i++)
 	{    
 		push ( *pt_vetor ,  P );
@@ -73,7 +75,7 @@ void carrega_pilha ( char *pt_vetor , tipo_pilha * P )
 void imprime_pilha ( tipo_pilha * P )
 { 
   char x; /* ou char *pt */
-  printf("\n   MOSTRA_PILHA (usando pop): \n");
+  printf("\n \n   MOSTRA_PILHA (usando pop):");
    while ( P -> topo >= 0 ) // cuidar onde a pilha se inicializa
     {
      pop ( &x , P );

@@ -1,14 +1,15 @@
 all: saida.exe
 
-saida.exe: pilha00_A.o pilha01_A.o
-	g++ -o saida.exe pilha00_A.o pilha01_A.o
-
-pilha00.o: pilha00_A.cpp
-	g++ -c pilha00_A.cpp
+saida.exe: pilha03_malloc.o pilha04_malloc.o
+	gcc -Wall -o saida.exe pilha03_malloc.o pilha04_malloc.o
 
 
-pilha01.o: pilha01_A.cpp
-	g++ -c pilha01_A.cpp
+pilha03_malloc.o: pilha03_malloc.c
+	gcc -Wall -c pilha03_malloc.c
+
+
+pilha04_malloc.o: pilha04_malloc.c
+	gcc -Wall -c pilha04_malloc.c
 
 clean:
-	rm pilha00_A.o pilha01_A.o saida.exe
+	rm pilha04_malloc.o pilha03_malloc.o saida.exe

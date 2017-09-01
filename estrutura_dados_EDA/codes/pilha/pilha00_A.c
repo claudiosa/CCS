@@ -2,7 +2,7 @@
 #define MAX 50
 
 // ALOCACAO ESTATICA
-typedef struct stack
+typedef struct
 	{
 	  int topo ;
 	  char entradas[MAX];
@@ -26,8 +26,7 @@ void push(char x, tipo_pilha * P)
      getchar();
      return;
     }
-  /* ou seja ... entrada[1] vai ter o 1o. elemento
-     empilhado... estamos perdendo entrada[0]... */
+  
     ++ (P -> topo); // cuidar ... ja se esta incrementando
     P -> entradas[ P -> topo ] = x;
     printf("\nPUSH:: %c, TOPO:: %d", P->entradas[P->topo ],P->topo);
@@ -72,5 +71,6 @@ int pilha_vazia  (tipo_pilha * P)
 }
 
 void inicializa_pilha ( tipo_pilha * P)
-{ P -> topo = -1 ; } // comece em 0 se for o caso
+{ P -> topo = -1 ; 
+} // comece em 0 se for o caso
 /**************************************************/

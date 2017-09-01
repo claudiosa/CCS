@@ -55,14 +55,15 @@ Pontos fundamentais a serem cobertos:
    \frametitle{Aplicações}
 
 
-\begin{block}{Alguns exercícios serão sobre estes:}
+\begin{block}{Alguns exercícios são clássicos (e devemos implementá-los):}
 
    \begin{itemize}
      \item Balanceamento de símbolos. Exemplo: \texttt{([aaa])}
      \item Conversão da notação infixa para pós-fixa
+     \item Conversão da notação infixa para in-fixa
      \item Avaliação de uma expressão pós-fixa. Exemplo: \texttt{2 3 +}
      \item Implementações de chamadas de funções (inclusive as chamadas recursivas de funções)
-     \item Encontrar spans
+  %% \item Encontrar spans
      \item Armazenamento de páginas visitadas no  navegador em uma dada janela (botão \textbf{back})
      \item Sequência de comandos de um editor de texto, e depois aplique  o \textit{undo}, ou \texttt{crtl-z}
      \item Casamento de \textit{tags} in HTML e XML
@@ -150,13 +151,14 @@ Pontos fundamentais a serem cobertos:
 				\end{table}
   \end{frame}
   
-\begin{frame}[fragile,plain]{Interface do Tipo Pilha}
+\begin{frame}[fragile,plain]{Interface do Tipo Pilha -- Típica}
 \begin{lstlisting}[language=C]
 /* Definicao da estrutura */
-typedef struct pilha Pilha;
-/*Aloca dinamicamente a estrutura pilha, inicializando
- *seus campos e retorna seu ponteiro.*/
-Pilha* create(void);
+typedef struct pilha { .... } Pilha;
+
+/*Aloca dinamicamente ou estaticamente a estrutura pilha, 
+  inicializando seus campos e retorna seu ponteiro.*/
+Pilha * create(void);
 
 /*Insere o elemento e na pilha p.*/
 void push(Pilha *p, int e);
@@ -166,7 +168,6 @@ int pop(Pilha *p);
 
 /*Informa se a pilha p esta ou nao vazia.*/
 int empty(Pilha *p);
-
 \end{lstlisting}
 \end{frame}
 
@@ -291,7 +292,7 @@ int empty(Pilha *p)
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{Exemplo de uso}
+\begin{frame}{Exemplos de Uso}
 \begin{itemize}
 	\item Na área computacional existem diversas aplicações de pilhas. 
 	\item Alguns exemplos são: caminhamento em árvores, chamadas de sub-rotinas por um compilador ou pelo sistema operacional, inversão de uma lista, avaliar expressões, entre outras.
@@ -309,16 +310,20 @@ int empty(Pilha *p)
 %	\end{itemize}
 %\end{frame}
 %
-%\begin{frame}[fragile]{Exercícios}
-%	\begin{enumerate}
-%		\item Escreva uma função que inverta a ordem das letras de cada palavra de uma sentença, preservando a ordem das palavras. Suponha que as palavras da sentença são separadas por espaços. A aplicação da operação à sentença \textbf{AMU MEGASNEM ATERCES}, por exemplo, deve produzir \textbf{UMA MENSAGEM SECRETA}.
-%		\item Implemente uma função que receba uma pilha como parâmetro e retorne o valor armazenado em seu topo, restaurando o conteúdo da pilha. Essa função deve obedecer ao protótipo: 
-%		\begin{verbatim}
-%		   char topo(Pilha* p);
-%		\end{verbatim} 
-%		\item Implemente uma função que receba duas pilhas, $p_1, p_2$, e passe todos os elementos da pilha $p_2$ para o topo da pilha $p_1$. Essa função deve obedecer ao protótipo: 
-%		\begin{verbatim}
-%		   void concatena(Pilha* p1, Pilha* p2);
-%		\end{verbatim} 
-%	\end{enumerate}
-%\end{frame}
+\begin{frame}[fragile]{Exercícios}
+	\begin{enumerate}
+	
+	\item Os exercícios propostos no início deste capítulo (slide inicial)
+	
+	
+		\item Escreva uma função que inverta a ordem das letras de cada palavra de uma sentença, preservando a ordem das palavras. Suponha que as palavras da sentença são separadas por espaços. A aplicação da operação à sentença \textbf{AMU MEGASNEM ATERCES}, por exemplo, deve produzir \textbf{UMA MENSAGEM SECRETA}.
+		\item Implemente uma função que receba uma pilha como parâmetro e retorne o valor armazenado em seu topo, restaurando o conteúdo da pilha. Essa função deve obedecer ao protótipo: 
+		\begin{verbatim}
+		   char topo(Pilha* p);
+		\end{verbatim} 
+		\item Implemente uma função que receba duas pilhas, $p_1, p_2$, e passe todos os elementos da pilha $p_2$ para o topo da pilha $p_1$. Essa função deve obedecer ao protótipo: 
+		\begin{verbatim}
+		   void concatena(Pilha* p1, Pilha* p2);
+		\end{verbatim} 
+	\end{enumerate}
+\end{frame}
