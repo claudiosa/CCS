@@ -31,7 +31,9 @@ int main(void)
 	
     // le uma entrada
     char *  pt_entrada = "aXXXz"; // VEM DA APLICACAO
-	//pt_entrada  =  le_uma_entrada ( );
+
+//	  pt_entrada  =  le_uma_entrada ( );
+//    printf("===> \n %s \n" , pt_entrada); // OK
     
     tipo_pilha * pt_P = inicializa_pilha ( );
 	//Cria e aloca pilha ... mas sem dados
