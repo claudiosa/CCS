@@ -11,4 +11,4 @@ pilha06_realloc.o: pilha06_realloc.c
 	gcc -Wall -c pilha06_realloc.c
 
 clean:
-	rm pilha05_realloc.o pilha06_realloc saida.exe
+	rm pilha05_realloc.o pilha06_realloc.o saida.exe
