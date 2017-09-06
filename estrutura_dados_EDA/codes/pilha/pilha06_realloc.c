@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// ALOCACAO SEMI-ESTATICA
+// ALOCACAO DINAMICA
 // EM ESTUDO
 typedef struct 
 	{
@@ -30,7 +30,7 @@ void aumenta_pilha(tipo_pilha * P)
 {
  P -> tam_MAX = (P -> tam_MAX) * 2; // uma heuristica aqui
  P -> entradas = (char *) realloc(P -> entradas, (P -> tam_MAX) * sizeof(char) );
- printf(" *2 "); // apenas para ver  esta chamada
+ printf(" ** "); // apenas para ver  esta chamada
 } 
 
 
