@@ -47,6 +47,11 @@ ALP -- Exercicios IF-THEN-ELSE
    dia_2, mes_2, ano_2, diga quantos dias aproximadamente se passaram
    entre estas duas datas?
    Considere 1 mes igual a 30 dias e 1 ano igual a 365 dias.
+   
+10. Dado 3 valores, verifique se os mesmos podem formar um triângulo
+
+11. Dado 3 valores que formam um triângulo, identifique qual tipo de triângulo
+    que os mesmos formam.
 
    
    
