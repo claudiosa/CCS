@@ -154,7 +154,7 @@ Vários autores e colaboradores ...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{orientacoes_gerais_EDA}
-%\include{ponteiros_EDA}
+\include{ponteiros_EDA}
 \include{pilha_EDA} % cap 0
 
 %\include{filas_EDA} % cap 0

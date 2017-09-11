@@ -14,3 +14,4 @@
 \beamer@sectionintoc {7}{Exemplos Completos: Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{197}{0}{7}
 \beamer@sectionintoc {8}{Pilha}{207}{0}{8}
 \beamer@subsectionintoc {8}{1}{Introdu\IeC {\c c}\IeC {\~a}o}{209}{0}{8}
+\beamer@sectionintoc {9}{Filas}{228}{0}{9}
