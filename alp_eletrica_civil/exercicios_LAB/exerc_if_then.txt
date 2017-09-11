@@ -33,3 +33,23 @@ ALP -- Exercicios IF-THEN-ELSE
    dia_2, mes_2, ano_2, diga qual delas é anterior 
    a outra. Ex: 07 06 2011  01 08 2010
    A maior eh 07 06 2011
+   
+8. Dada duas horas em SEGUNDOS, identifique a maior e a menor,
+   e calcule  a diferença entre  elas em Horas, Minutos e Segundos
+   Exemplo 1:  3675 e 3685
+   R: 0 horas 0 minutos 10 segundos (fácil)
+   Exemplo 2: 1575 e 8765
+   R: .... ?
+   Dica: veja a diferença e reaplique a ideia da conversao de segundos
+         para Horas, Min e Segundos
+
+9. Dado duas datas, dia_1, mes_1, ano_1 e  
+   dia_2, mes_2, ano_2, diga quantos dias aproximadamente se passaram
+   entre estas duas datas?
+   Considere 1 mes igual a 30 dias e 1 ano igual a 365 dias.
+
+   
+   
+   
+   
+   
