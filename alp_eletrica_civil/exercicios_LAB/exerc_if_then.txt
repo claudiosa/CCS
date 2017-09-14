@@ -56,7 +56,10 @@ ALP -- Exercicios IF-THEN-ELSE
 12. Considere a data que voce nasceu, faça um programa que diga há 
     quantos dias de   vida voce vive?
 
-13. 
+13. USANDO O SWITCH
+    Faça um programa que informe o mês de acordo com um
+    número informado pelo usuário, e tenha por extenso o mês
+    Exemplo: Entrada: 4. Saída: Abril
 
    
    
