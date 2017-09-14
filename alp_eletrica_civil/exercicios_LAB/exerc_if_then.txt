@@ -52,6 +52,11 @@ ALP -- Exercicios IF-THEN-ELSE
 
 11. Dado 3 valores que formam um triângulo, identifique qual tipo de triângulo
     que os mesmos formam.
+    
+12. Considere a data que voce nasceu, faça um programa que diga há 
+    quantos dias de   vida voce vive?
+
+13. 
 
    
    
