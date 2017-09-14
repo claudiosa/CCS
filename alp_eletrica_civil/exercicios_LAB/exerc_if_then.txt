@@ -60,6 +60,15 @@ ALP -- Exercicios IF-THEN-ELSE
     Faça um programa que informe o mês de acordo com um
     número informado pelo usuário, e tenha por extenso o mês
     Exemplo: Entrada: 4. Saída: Abril
+    Entradas válidas de 1 a 12
+    Inválidas: diferente das válidas
+    
+14. Análogo ao anterior
+    Construa um programa para verificar o dia da semana a fim de exemplificar a utilização do switch…case.
+    O usuário vai digitar um número (1 a 7) 
+    e o programa vai retornar o dia da semana equivalente ao número (1: DOMINGO, ... 7: SABADO)
+    Entradas válidas de 1 a 7
+    Inválidas: diferente das válidas
 
    
    
