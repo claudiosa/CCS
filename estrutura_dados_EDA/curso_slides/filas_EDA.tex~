@@ -5,7 +5,7 @@
 \begin{frame}
 
 \begin{center}
-{\Large Capítulo xxxxx -- Filas}
+{\Large Capítulo 03 -- Filas}
 \end{center}
 
 \begin{columns}
@@ -20,12 +20,14 @@ Pontos fundamentais a serem cobertos:
 \end{enumerate}  
 
 \end{column}
+
 \begin{column}{.6\textwidth}
 \centering
 \includegraphics[height=4cm, width=7cm]{figs/fig_filas/fila_pessoas.jpeg}
 %\hspace{+0.25cm}
 %\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
 \end{column}
+
 \end{columns}
 
 
@@ -36,58 +38,129 @@ Pontos fundamentais a serem cobertos:
   \begin{frame}{Introdução}    
 
 		\begin{itemize}
-			\item Assim como a estrutura de dados Pilha, Fila é outra estrutura de dados bastante utilizada em computação.
+			\item Assim como a estrutura de dados Pilha, Fila é outra estrutura de dados 
+			bastante utilizada em computação.
 			\item Um exemplo é a implementação de uma fila de impressão.
-			\item Se uma impressora é compartilhada por várias máquinas, normalmente adota-se uma estratégia para determinar a ordem de impressão dos documentos.
-			\item A maneira mais simples é tratar todas as requisições com a mesma prioridade e imprimir os documentos na ordem em que foram submetidos - o primeiro submetido é o primeiro a ser impresso.
+			\item Se uma impressora é compartilhada por várias máquinas, 
+			normalmente adota-se uma estratégia para determinar a ordem de impressão dos documentos.
+			\item A maneira mais simples é tratar todas as requisições 
+			com a mesma prioridade e imprimir os documentos na ordem em que 
+			foram submetidos -- o primeiro submetido é o primeiro a ser impresso.
 		\end{itemize}
   \end{frame}
 
 %-----------------------------------------------------------------------
   
 \begin{frame}{Fila}
+     \begin{block}{Aplicações}
+
+\begin{enumerate}
+  \item Escalonamento de processos na CPU (processos com a mesma prioridade)
+        os quais são executados em ordem de chegada
+  \item Simulação de filas no mundo real tais como: filas em banco, compra de tickets, etc
+  
+  \item Multi-programação
+  \item Transferência assíncrona de dados (IO de arquivos, pipe, sockets)
+  \item Fila de espera em um \textit{call-center}      
+  \item Encontrar número de atendentes em supermercados e caixas bancários dado uma
+  demanda de pessoas na sala de espera
+  
+\end{enumerate}
+     \end{block}          
+\end{frame}
+
+
+%-----------------------------------------------------------------------
+  
+\begin{frame}{Fila}
+     \begin{block}{Aplicações Indiretas}
+
+\begin{enumerate}
+  \item Estrutura de dados auxiliares em algoritmos
+  \item Componente de outras estruturas
+\end{enumerate}
+     \end{block}          
+\end{frame}
+
+%-----------------------------------------------------------------------
+  
+\begin{frame}{Fila}
      \begin{block}{Definição}
-       Um conjunto ordenado de itens a partir do qual podem-se eliminar itens numa extremidade (chamada de \alert{início} da fila) e no qual podem-se inserir itens na outra extremidade (chamada \alert{final} da fila).
+       Um conjunto ordenado de itens a partir do qual podem-se eliminar 
+       itens numa extremidade (chamada de \alert{início} da fila) e
+        no qual podem-se inserir itens na outra extremidade 
+        (chamada \alert{final} da fila).
      \end{block}          
 \end{frame}
 
 %-----------------------------------------------------------------------
 
 \begin{frame}{Representação}
+
 \begin{itemize}
 	\item Os nós de uma fila são armazenados em endereços contínuos.	
 	\item A Figura~\ref{fig:fila-representacao} ilustra uma fila com três elementos.
 \end{itemize}
-\begin{figure}[ht]
+
+\begin{figure}[ht!]
 				\centering
-				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_elementos}
-				\caption{Exemplo de representação de fila.}\label{fig:fila-representacao}
+				\includegraphics[width=.6\textwidth]{figs/fig_filas/exemplo_fila_tres_elementos.png}
+				\caption{Exemplo de representação de fila.}
+				\label{fig:fila-representacao}
 			\end{figure} 
+
 \begin{itemize}
 	\item Após a retirada de um elemento (\textit{primeiro}) temos:
-	\begin{figure}[ht]
-				\centering
-				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_retirada}
-				\caption{Representação de uma fila após a remoção do elemento ``A''.}	
-			\end{figure} 
+
 \end{itemize}
-\end{frame}
+
+	\begin{figure}[hb!]
+					\centering
+				\includegraphics[width=.6\textwidth]{figs/fig_filas/exemplo_fila_tres_retirada.png}
+				\caption{Representação de uma fila após a remoção do elemento ``A''.}	
+	\end{figure} 
+
+ \end{frame}
 %-----------------------------------------------------------------------
 
+\begin{frame}{Implementações}
 
+\begin{block}{Quais as estruturas usadas por filas?}
+  \begin{itemize}
+    \item Baseada num vetor simples -- limitada
+    \item Baseada num vetor circular simples -- limitada
+    \item Baseada num vetor circular dinâmico -- \textbf{i}limitada
+    \item Baseada numa lista encadeada (depois de listas)
+    
+  \end{itemize}
+\end{block}
+
+\end{frame}
+
+
+%------------------------------------
 \begin{frame}{Representação}
 \begin{itemize}
 	\item Após a inclusão de dois elementos temos:
 	\begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{exemplo_fila_tres_inclusao}
+				\includegraphics[width=.6\textwidth]{figs/fig_filas/exemplo_fila_tres_inclusao.png}
 				\caption{Representação de uma fila após a inclusão de dois elementos ``D'' e ``E''.}	
 			\end{figure} 
 \end{itemize}
+
 \begin{itemize}
+
 	\item Como podemos observar, a operação de inclusão e retirada de um item da fila incorre na mudança do endereço do ponteiro que informa onde é o início e o término da fila.
 \end{itemize}
+
 \end{frame}
+
+
+
+
+
+
 
 \begin{frame}[fragile]{Representação}
 \begin{itemize}
@@ -106,9 +179,12 @@ Pontos fundamentais a serem cobertos:
 \end{lstlisting}
 
 \begin{itemize}
-	\item Trata-se de uma estrutura heterogênea constituída de membros distintos entre si. Os membros são as variáveis \alert{\textit{ini}} e \alert{\textit{fim}}, que serve para armazenar respectivamente, o início e o fim da fila e o vetor \alert{\textit{elemento}} de inteiros que armazena os itens da fila.
+	\item Trata-se de uma estrutura heterogênea constituída de membros distintos entre si.
+	 Os membros são as variáveis \alert{\textit{ini}} e \alert{\textit{fim}}, que serve para armazenar respectivamente, o início e o fim da fila e o vetor \alert{\textit{elemento}} 
+	 de inteiros que armazena os itens da fila.
 \end{itemize}
 \end{frame}
+
 
 \begin{frame}{Operações Primitivas}
   \begin{itemize}
@@ -180,7 +256,7 @@ void libera(Fila* f);
 	\end{itemize}
 	\begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{fila_insercao_quatro_elementos}
+				\includegraphics[width=.6\textwidth]{fila_insercao_quatro_elementos.png}
 				\caption{Fila após inserção de quatro elementos.}	
 	\end{figure} 	
 \end{frame}
@@ -188,7 +264,7 @@ void libera(Fila* f);
 \begin{frame}{Implementação de Fila com Vetor}	
 	\begin{figure}[ht]
 				\centering
-				\includegraphics[width=.6\textwidth]{exemplo_fila_remove_dois_elementos}
+				\includegraphics[width=.6\textwidth]{exemplo_fila_remove_dois_elementos.png}
 				\caption{Fila após retirar dois elementos.}	
 	\end{figure} 	
 	\begin{itemize}
@@ -206,6 +282,34 @@ void libera(Fila* f);
 		$$0, 1, 2, 3, \cdots, 98, 99, 0, 1, 2, 3, \cdots, 98, 99, \cdots$$
 	\end{itemize}
 \end{frame}
+
+
+
+%-----------------------------
+
+\begin{frame}{Porquê um vetor circular?}
+
+\begin{block}{Reflexões}
+  \begin{itemize}
+    \item Tamanho fixo -- muito interessante para maioria dos problemas
+    \item Velocidade
+    \item Fácil de manipular
+    
+    
+  \end{itemize}
+\end{block}
+
+\end{frame}
+
+
+%-----------------------------
+
+
+
+
+
+
+
 
 \begin{frame}[fragile]{Função de Criação}
 	\begin{itemize}
@@ -298,7 +402,7 @@ int retira(Fila* f)
 
 int main(void)
 {
-    Fila* f = criar();
+    Fila * f = criar();
     
     int i;
     for (i = 0; i < N; i++)
@@ -314,6 +418,21 @@ int main(void)
 \end{lstlisting}
 \end{footnotesize}
 \end{frame} 
+
+
+\begin{frame}{Exercícios}
+	
+	\begin{enumerate}
+	\item
+	\item
+	\item
+	
+	\end{enumerate}
+	
+\end{frame}
+
+
+
 
 
 \begin{frame}{Referências}

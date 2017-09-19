@@ -137,25 +137,6 @@ Pontos fundamentais a serem cobertos:
 
 \end{frame}
 
-%-----------------------------
-
-\begin{frame}{Porquê um vetor circular?}
-
-\begin{block}{Reflexões}
-  \begin{itemize}
-    \item Tamanho fixo -- muito interessante para maioria dos problemas
-    \item ....
-    \item ....
-    \item 
-    
-  \end{itemize}
-\end{block}
-
-\end{frame}
-
-
-%-----------------------------
-
 
 %------------------------------------
 \begin{frame}{Representação}
@@ -302,11 +283,67 @@ void libera(Fila* f);
 	\end{itemize}
 \end{frame}
 
+
+
+%-----------------------------
+
+\begin{frame}{Porquê um \textit{vetor circular}?}
+
+\begin{block}{Reflexões}
+  \begin{itemize}
+    \item Tamanho fixo -- muito interessante para maioria dos problemas
+    \item Velocidade
+    \item Fácil de manipular
+    \item \textit{Circular} é a manipulação!
+    
+    
+  \end{itemize}
+\end{block}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{\textit{Vetor} Circular: Explicações}
+
+\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=.8\textwidth,height=.6\textheight]{figs/fig_filas/fila_circular_explicacao_01.jpg}
+		%	\caption{Exemplo de representação de fila.}
+			%	\label{fig:fila-representacao}
+			\end{figure} 
+
+\end{frame}
+
+\begin{frame}{\textit{Vetor} Circular: Explicações}
+
+\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=.5\textwidth]{figs/fig_filas/fila_circular_simples.png}
+		\caption{Notação aqui empregada}
+			%	\label{fig:fila-representacao}
+			\end{figure} 
+\end{frame}
+
+
+\begin{frame}{\textit{Vetor} Circular: Explicações}
+
+\begin{figure}[ht!]
+	\centering
+		\includegraphics[width=.8\textwidth,height=5cm]{figs/fig_filas/fila_circular_explicacao_02.jpg}
+		%	\caption{Exemplo de representação de fila.}
+			%	\label{fig:fila-representacao}
+			\end{figure} 
+\end{frame}
+
+
 \begin{frame}[fragile]{Função de Criação}
 	\begin{itemize}
-		\item A função que cria uma fila, deve criar e retornar o ponteiro de uma fila vazia;
-		\item A função deve informar onde é o início da fila, ou seja, fazer $f->ini = 0$, como podemos ver no código abaixo.
-		\item A complexidade de tempo para criar a fila é constante, ou seja, $O(1)$.
+		\item A função que cria uma fila, deve criar e retornar o ponteiro de uma fila vazia
+
+		\item A função deve informar onde é o início da fila, ou seja, fazer \texttt{f->ini = 0}, 
+		como podemos ver no código abaixo
+		
+		\item A complexidade de tempo para criar a fila é constante, ou seja, $O(1)$
 	\end{itemize}
 \small	
 \begin{lstlisting}[language=C]
@@ -317,8 +354,8 @@ void libera(Fila* f);
 Fila* criar(void)
 {
    Fila* f = malloc(sizeof(Fila));
-   f->n = 0;
-   f->ini = 0;
+   f->n = 0; // quantidade CORRENTE elementos
+   f->ini = 0; // inicio
    return f;
 }
 \end{lstlisting}
@@ -326,9 +363,12 @@ Fila* criar(void)
 
 \begin{frame}[fragile]{Função de Inserção}  
 	\begin{itemize}
-		\item Para inserir um elemento na fila, usamos a próxima posição livre do vetor, indicada por \alert{n}.
-		\item Devemos assegurar que há espaço para inserção do novo elemento no vetor, haja vista se tratar de um vetor com capacidade limitada. 
-		\item A complexidade de tempo para inserir um elemento na fila é constante, ou seja, $O(1)$.
+		\item Para inserir um elemento na fila, usamos a próxima posição 
+		livre do vetor, indicada por \alert{n}.
+		\item Devemos assegurar que há espaço para inserção do novo 
+		elemento no vetor, haja vista se tratar de um vetor com capacidade limitada. 
+		\item A complexidade de tempo para inserir um elemento na fila 
+		é constante, ou seja, $O(1)$.
 	\end{itemize}
 \footnotesize
 \begin{lstlisting}[language=C]
@@ -337,8 +377,8 @@ void insere(Fila* f, int e)
 {
   int fim;
   if (f->n == N){
-     printf("Fila cheia!\n");
-  }else{
+     printf("Fila cheia!\n"); }
+  else{
      fim = (f->ini + f->n) % N;
      f->elementos[fim] = e;  
      f->n++;
@@ -349,9 +389,13 @@ void insere(Fila* f, int e)
 
 \begin{frame}[fragile]{Função de Remoção} 
 	\begin{itemize}
-		\item A função para retirar o elemento do início da fila fornece o valor do elemento retirado como retorno.
-		\item Para remover um elemento, devemos verificar se a fila está ou não vazia.
-		\item A complexidade de tempo para remover um elemento da fila é constante, ou seja, $O(1)$.
+		\item A função para retirar o elemento do 
+		início da fila fornece o valor do elemento retirado 
+		como retorno.
+		\item Para remover um elemento, devemos verificar se 
+		a fila está ou não vazia.
+		\item A complexidade de tempo para remover 
+		um elemento da fila é constante, ou seja, $O(1)$.
 	\end{itemize}
 	
 \footnotesize
@@ -359,7 +403,7 @@ void insere(Fila* f, int e)
 int retira(Fila* f)
 {
   int e;
-  if (vazia(f))
+  if ( vazia(f) )
     printf("Fila vazia!\n");
   else{
     e = f->elementos[f->ini];
@@ -389,7 +433,7 @@ int retira(Fila* f)
 \begin{lstlisting}[language=C]
 #define N 10
 #include <stdio.h>
-#include "fila.h"
+#include "fila.h"  // TDA.h
 
 int main(void)
 {
@@ -397,14 +441,13 @@ int main(void)
     
     int i;
     for (i = 0; i < N; i++)
-      insere(f,i * 2);
+      insere(f, i * 2);
       
     printf("\nElementos removidos: ");
       
     for (i = 0; i < N/2; i++)
      printf("%d ", retira(f)); 
                
-    system("pause");    
 }
 \end{lstlisting}
 \end{footnotesize}
@@ -429,8 +472,9 @@ int main(void)
 \begin{frame}{Referências}
 	
 	\begin{enumerate}
-		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). Estruturas de Dados Usando C. MAKRON Books, pp. 207-250.
-		\item Wirth, N. (1989). Algoritmos e Estrutura de dados. LTC, pp. 151-165.
+		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). 
+		\textit{Estruturas de Dados Usando C}. MAKRON Books, pp. 207-250.
+		\item Wirth, N. (1989). \textit{Algoritmos e Estrutura de Dados}. LTC, pp. 151-165.
 	
 	\end{enumerate}
 	

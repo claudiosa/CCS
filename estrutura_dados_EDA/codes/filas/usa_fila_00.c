@@ -8,7 +8,7 @@
     int  rear ;	  		/*  or last */
     int  capacidade ; 		 	
 	 //char entradas[ MAX_FILA ];
-	 char * entrada ;	
+	 char * entrada ;	// malloc
 };
 // e ainda
 typedef  struct STRUCT_FILA  fila ;
@@ -40,14 +40,18 @@ int  main(void)
 		    }
 
 		puts("\n FIM das CHEGADAS \n====================================\n");
-			
+		//TESTES
+		//chegada ( '$' , pt_FILA );	
+		//chegada ( '#' , pt_FILA );	
 
 		while ( fila_vazia  ( pt_FILA) != true )
 			{
-				printf("....\t => %c ", partida ( pt_FILA ));
+				printf("\t => %c|%d", partida ( pt_FILA ), tamanho_fila( pt_FILA ) );
             }
 		puts("\n FIM das PARTIDAS \n====================================");
-			
+		//TESTES
+		//printf("....\t => %c ", partida ( pt_FILA ));
+		//printf("....\t => %c ", partida ( pt_FILA ));	
 
 	exclui_fila( pt_FILA ); 
    return 1;			

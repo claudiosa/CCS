@@ -5,7 +5,7 @@
 \begin{lstlisting}[language=C]
 #define N 10
 #include <stdio.h>
-#include "fila.h"
+#include "fila.h"  // TDA.h
 
 int main(void)
 {
@@ -13,14 +13,13 @@ int main(void)
 
     int i;
     for (i = 0; i < N; i++)
-      insere(f,i * 2);
+      insere(f, i * 2);
 
     printf("\nElementos removidos: ");
 
     for (i = 0; i < N/2; i++)
      printf("%d ", retira(f));
 
-    system("pause");
 }
 \end{lstlisting}
 \end{footnotesize}
