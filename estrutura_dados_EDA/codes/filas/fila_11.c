@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h> // bool no C
 
+// AUMENTANDO DINAMICAMENTE O TAMANHO
+
  struct STRUCT_FILA
   {
     int  front ;  		/*  or first */
@@ -45,6 +47,7 @@ fila * cria_fila (  int C )
 	return(FILA);
 }
 
+
 bool fila_vazia  ( fila * F )
 { /* estarah vazia se o  for menor que 0...
 	  entao retorna TRUE ou 1 */
@@ -54,6 +57,7 @@ bool fila_vazia  ( fila * F )
     return false; 	
 }
 
+
 bool fila_cheia  ( fila * F )
 { /* estarah cheia se o capacidade for >= ao maximo permitido...
 	 ou se o ULTIMO + 1 for igual ao PRIMEIRO */
@@ -61,6 +65,7 @@ bool fila_cheia  ( fila * F )
        return true; // FILA CHEIA
     else
        return false; // TEM LUGAR	
+ //(( F -> count) >= MAX_FILA );
  }
 
 
@@ -72,33 +77,34 @@ int tamanho_fila ( fila * F )
 	  ) ;
  }
 
+
 // INSERIR NA FILA enqueue
 void chegada ( char x, fila * F )
 {
 	if ( fila_cheia ( F ))
 	/* voltando 1 ou true se estiver estah cheia */
 	{ 
-	  printf("\n A FILA ESTAH CHEIA ");
-	  getchar();
-      //exit();	  
+	  aumentando_fila( F );
 	}
-  /* NOVO FINAL DA FILA: incrementa fila (+1) e modulo C */
-  /* Incrementa ao final da fila ... sentido:
-      0:1:2... :N-2:N-1:0:1:2.... */
-	   
-	else
-	{	
+
+// REFAZER AQUI
+
+  /* incrementa fila adiciona mais um no final... */
 	 F -> rear =  ((F -> rear) + 1) % F -> capacidade  ;
 	 F -> entrada [ F -> rear ] = x;
 	 if( F-> front == -1) // so na 1a. VEZ
 	 	F-> front = F -> rear ; // FILA ESTAVA VAZIA
-     
+   
+
+===> ACERTAR LOCAIS NA FILA ... NOVA X ANTERIOR
+===> algo trabalhoso
+
      // comente se for caso
 	 printf("\nFRONT: %c : %d || REAR: %c : %d", 
 	 	F->entrada[F->front], F->front,
 	 	F->entrada[F->rear], F->rear);
      
-   }
+   
 	 return;
   } /* fim da funcao de chegada */
 
@@ -125,19 +131,20 @@ char  partida ( fila * F )
     	 (F -> front) = (F -> rear) = -1;
         else
         {
-	   /* Pega o proximo da fila ... sentido de 0:1:2... :N-2:N-1:0:1:2.... */
+	   /* atualiza novo noh-cabeca ou o proximo da fila */
 	    F -> front =  ((F -> front) + 1) % F -> capacidade  ; 
 	    }
       return retorno; 	  
     }   	
-  }  /* fim da funcao chegada */
+  } 
+ /* fim da funcao chegada */
 
 void exclui_fila( fila *F)
   {
   	if(F) {
        if( F -> entrada )
-       	free( F -> entrada ); // uma parte
-       free( F ); // no inteiro
+       	free( F -> entrada );
+       free( F );
        }
      else
         {
