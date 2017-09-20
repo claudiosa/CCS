@@ -10,18 +10,18 @@ int main (void) {
    int cont=0;
    // variavel para guardar a soma
   
-   /* do loop execution */
+   /* LACO DE EXECUCAO .... */
    //for(volta = 0 ; volta < N; volta ++)
    printf("\n Digite a sua idade :"); 
    scanf("%d", &idade );
     while(  idade != 0  )
   // for( ; idade != 0 ; )
    {
-	  S = S + idade;
-      printf("\n IDADE: %d \t S:%d\t V:%d", idade, S, cont);
-      printf("\n Digite a sua idade :"); 
-	  scanf("%d", &idade );
-      cont++;
+    S = S + idade;
+    printf("\n IDADE: %d \t S:%d\t V:%d", idade, S, cont);
+    printf("\n Digite a sua idade :"); 
+    scanf("%d", &idade );
+    cont++;
    }; 
    // FIM DO BLOCO ou fim do FOR
  
