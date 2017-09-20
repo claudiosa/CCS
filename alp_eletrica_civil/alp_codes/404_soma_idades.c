@@ -11,11 +11,11 @@ int main (void) {
    // variavel para guardar a soma
   
    /* LACO DE EXECUCAO .... */
-   //for(volta = 0 ; volta < N; volta ++)
+   // ANTES ERA ASSIM .... for(volta = 0 ; volta < N; volta ++)
    printf("\n Digite a sua idade :"); 
    scanf("%d", &idade );
-    while(  idade != 0  )
-  // for( ; idade != 0 ; )
+   while(  idade != 0  )
+  // OU ..... for( ; idade != 0 ; )
    {
     S = S + idade;
     printf("\n IDADE: %d \t S:%d\t V:%d", idade, S, cont);
