@@ -4,7 +4,7 @@
 
 \section{Pilha}
 
-\begin{frame}[c]{\Large Capítulo xxxxx -- Pilha}
+\begin{frame}[c]{\Large Capítulo 02 -- Pilha}
 
 
 \begin{columns}
@@ -36,22 +36,64 @@ Pontos fundamentais a serem cobertos:
 
   \begin{frame}{Introdução}    
 		\begin{itemize}
-			\item Uma das estruturas de dados mais simples.
-			\item É a estrutura de dados mais utilizada em programação.
-			\item É uma metáfora emprestada do mundo real, que a computação utiliza para resolver muitos problemas de forma simplificada.
+			\item Uma das estruturas de dados mais simples
+			\item Embora seja uma das estrutura de dados mais utilizadas em programação
+			\item A pilha se \textit{fortalece} quando combinada dentro de outras estruturas
+			\begin{itemize}
+			  \item Uso de pilhas na sequência de visita a nós de uma árvore
+			  \item Dentro de outras estruturas como filas (depois)
+			\end{itemize}
+			
+			\item Há uma metáfora emprestada do mundo real, que a 
+			computação utiliza pilhas 
+			para resolver muitos problemas de forma simplificada.
 		\end{itemize}
   \end{frame}
   
+  
+   \begin{frame}
+   \frametitle{Aplicações}
+
+
+\begin{block}{Alguns exercícios são clássicos (e devemos implementá-los):}
+
+   \begin{itemize}
+     \item Balanceamento de símbolos. Exemplo: \texttt{([aaa])}
+     \item Conversão da notação infixa para pós-fixa
+     \item Conversão da notação infixa para in-fixa
+     \item Avaliação de uma expressão pós-fixa. Exemplo: \texttt{2 3 +}
+     \item Implementações de chamadas de funções (inclusive as chamadas recursivas de funções)
+  %% \item Encontrar spans
+     \item Armazenamento de páginas visitadas no  navegador em uma dada janela (botão \textbf{back})
+     \item Sequência de comandos de um editor de texto, e depois aplique  o \textit{undo}, ou \texttt{crtl-z}
+     \item Casamento de \textit{tags} in HTML e XML
+     \item As teclas $\uparrow $ e $\downarrow $ na console ou terminal do Linux, duas pilhas neste caso!
+     
+   \end{itemize}
+
+\end{block}
+  
+  
+  
+  \end{frame}
+  
+  
+  
+  
    \begin{frame}{Definição}
      \begin{block}{Definição}
-       Um conjunto ordenado de itens no qual novos itens podem ser inseridos e a partir do qual podem ser eliminados em uma extremidade denominada \alert{topo} da pilha.
+       Um conjunto ordenado de itens no qual novos itens podem ser 
+       inseridos e a partir do qual podem ser eliminados em uma 
+       extremidade denominada \alert{topo} da pilha.
      \end{block}
      \pause
      \begin{block}{Definição}
-       Uma seqüência de objetos, todos do mesmo tipo, sujeita às seguintes regras de comportamento:       
+       Uma seqüência de objetos, todos do mesmo tipo, sujeita às
+        seguintes regras de comportamento:       
 				\begin{enumerate}
 					\item Sempre que solicitado a remoção de um elemento, o elemento removido é o último da seqüência.
-					\item Sempre que solicitado a inserção de um novo elemento, o objeto é inserido no fim da seqüência (\alert{topo}).
+					\item Sempre que solicitado a inserção de um novo elemento, 
+					       o objeto é inserido no fim da seqüência (\alert{topo}).
 				\end{enumerate}
      \end{block}  
    \end{frame}
@@ -62,8 +104,9 @@ Pontos fundamentais a serem cobertos:
 				\item Em uma pilha, cada novo elemento é inserido no topo.
 				\item Os elementos da pilha só podem ser retirado na ordem inversa à ordem em que foram inseridos				
 					\begin{itemize}
-						\item O primeiro que sai é o último que entrou.
-						\item Por essa razão, uma pilha é dita uma estrutura do tipo: \alert{LIFO}(\textit{last-in, first} ou UEPS último a entrar é o primeiro a sair.)
+						\item O primeiro que sai é o último que entrou (\textit{clássico})
+						\item Por essa razão, uma pilha é dita uma estrutura 
+						do tipo: \alert{LIFO}(\textit{last-in, first} ou UEPS último a entrar é o primeiro a sair.)
 					\end{itemize}
 			\end{itemize}
   \end{frame}
@@ -108,13 +151,14 @@ Pontos fundamentais a serem cobertos:
 				\end{table}
   \end{frame}
   
-\begin{frame}[fragile,plain]{Interface do Tipo Pilha}
+\begin{frame}[fragile,plain]{Interface do Tipo Pilha -- Típica}
 \begin{lstlisting}[language=C]
 /* Definicao da estrutura */
-typedef struct pilha Pilha;
-/*Aloca dinamicamente a estrutura pilha, inicializando
- *seus campos e retorna seu ponteiro.*/
-Pilha* create(void);
+typedef struct { DEFINA O SEU MODELO AQUI }  Pilha;
+
+/*Aloca dinamicamente ou estaticamente a estrutura pilha, 
+  inicializando seus campos e retorna seu ponteiro.*/
+Pilha * create(void);
 
 /*Insere o elemento e na pilha p.*/
 void push(Pilha *p, int e);
@@ -124,13 +168,36 @@ int pop(Pilha *p);
 
 /*Informa se a pilha p esta ou nao vazia.*/
 int empty(Pilha *p);
-
 \end{lstlisting}
 \end{frame}
 
+
+
+\begin{frame}
+\frametitle{Implementações} 
+
+
+\begin{enumerate}
+
+  \item Baseada em um simples vetor
+    \item Baseada em um vetor dinâmico
+      \item Baseada em lista encadeada
+      \pause
+      \item mas todas usam ponteiros!
+
+
+\end{enumerate}
+
+
+\end{frame}
+
+
 \begin{frame}{Implementação de Pilha com Vetor}  
 	\begin{itemize}
-		\item Normalmente as aplicações que precisam de uma estrutura pilha, é comum saber de antemão o número máximo de elementos que precisam estar armazenados simultaneamente na pilha.
+		\item Normalmente as aplicações que precisam de uma 
+		estrutura pilha, é comum saber de antemão o número 
+		máximo de elementos que precisam estar armazenados 
+		simultaneamente na pilha.
 		\item Essa estrutura de pilha tem um limite conhecido.
 		\item Os elementos são armazenados em um vetor.
 		\item Essa implementação é mais simples.
@@ -146,8 +213,10 @@ int empty(Pilha *p);
 				\item A parte ocupada pela pilha é vet[0 .. topo - 1].
 				\item A pilha está vazia se topo = -1.
 				\item Cheia se topo = N - 1.
-				\item Para desempilhar um elemento da pilha, não vazia, basta $$x = vet[topo--]$$.
-				\item Para empilhar um elemento na pilha, em uma pilha não cheia, basta $$vet[t++] = e$$.  
+				\item Para desempilhar um elemento da pilha, não vazia,
+				 basta $$x = vet[topo--]$$ \textcolor{red}{(recupera valor do topo e depois decrementa)} 
+				\item Para empilhar um elemento na pilha, em uma pilha não cheia, 
+				basta $$vet[++t] = e$$   \textcolor{red}{(soma antes e depois insere)}
 			\end{enumerate}
 	\end{itemize}
 \end{frame}
@@ -160,13 +229,13 @@ int empty(Pilha *p);
 
 /*Define a estrutura da pilha*/
 struct pilha{
-  int topo; /* indica o topo da pilha */
-  int elementos[N]; /* elementos da pilha*/
+  int topo;            /* indica o topo da pilha */
+  int elementos[N];   /* elementos da pilha*/
 };
 
 Pilha* create(void){
-  Pilha* p = (Pilha*) malloc(sizeof(Pilha));
-  p->topo = -1; /* inicializa a pilha com 0 elementos */
+  Pilha* p = (Pilha * ) malloc(sizeof(Pilha));
+  p->topo = -1;     /* inicializa a pilha com 0 elementos */
   return p;
 }	
 	\end{lstlisting}  
@@ -223,7 +292,7 @@ int empty(Pilha *p)
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{Exemplo de uso}
+\begin{frame}{Exemplos de Uso}
 \begin{itemize}
 	\item Na área computacional existem diversas aplicações de pilhas. 
 	\item Alguns exemplos são: caminhamento em árvores, chamadas de sub-rotinas por um compilador ou pelo sistema operacional, inversão de uma lista, avaliar expressões, entre outras.
@@ -241,16 +310,20 @@ int empty(Pilha *p)
 %	\end{itemize}
 %\end{frame}
 %
-%\begin{frame}[fragile]{Exercícios}
-%	\begin{enumerate}
-%		\item Escreva uma função que inverta a ordem das letras de cada palavra de uma sentença, preservando a ordem das palavras. Suponha que as palavras da sentença são separadas por espaços. A aplicação da operação à sentença \textbf{AMU MEGASNEM ATERCES}, por exemplo, deve produzir \textbf{UMA MENSAGEM SECRETA}.
-%		\item Implemente uma função que receba uma pilha como parâmetro e retorne o valor armazenado em seu topo, restaurando o conteúdo da pilha. Essa função deve obedecer ao protótipo: 
-%		\begin{verbatim}
-%		   char topo(Pilha* p);
-%		\end{verbatim} 
-%		\item Implemente uma função que receba duas pilhas, $p_1, p_2$, e passe todos os elementos da pilha $p_2$ para o topo da pilha $p_1$. Essa função deve obedecer ao protótipo: 
-%		\begin{verbatim}
-%		   void concatena(Pilha* p1, Pilha* p2);
-%		\end{verbatim} 
-%	\end{enumerate}
-%\end{frame}
+\begin{frame}[fragile]{Exercícios}
+	\begin{enumerate}
+	
+	\item Os exercícios propostos no início deste capítulo (slide inicial)
+	
+	
+		\item Escreva uma função que inverta a ordem das letras de cada palavra de uma sentença, preservando a ordem das palavras. Suponha que as palavras da sentença são separadas por espaços. A aplicação da operação à sentença \textbf{AMU MEGASNEM ATERCES}, por exemplo, deve produzir \textbf{UMA MENSAGEM SECRETA}.
+		\item Implemente uma função que receba uma pilha como parâmetro e retorne o valor armazenado em seu topo, restaurando o conteúdo da pilha. Essa função deve obedecer ao protótipo: 
+		\begin{verbatim}
+		   char topo(Pilha* p);
+		\end{verbatim} 
+		\item Implemente uma função que receba duas pilhas, $p_1, p_2$, e passe todos os elementos da pilha $p_2$ para o topo da pilha $p_1$. Essa função deve obedecer ao protótipo: 
+		\begin{verbatim}
+		   void concatena(Pilha* p1, Pilha* p2);
+		\end{verbatim} 
+	\end{enumerate}
+\end{frame}

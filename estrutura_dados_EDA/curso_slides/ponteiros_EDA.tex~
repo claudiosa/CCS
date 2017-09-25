@@ -476,7 +476,9 @@ void troca(int *x, int *y) {
 
 
 
-\begin{frame}[fragile,plain,c]{Exemplos de programas com matrizes}
+\begin{frame}[fragile,plain,c]
+
+\frametitle{Exemplos de programas com matrizes}
 
 \lstinputlisting{../codes/ponteiros/exemplo05_P.cpp}
 \textcolor{red}{Dúvida de aula ... qual a saída do código acima?}
@@ -605,8 +607,38 @@ int main(void) {
 \end{frame}
 
 
+\section{Funções que retornam Ponteiros}
+
+\begin{frame}[fragile,c]
+\frametitle{Ponteiros no  Retorno de Funções}
+  \begin{itemize}[<+->]
+   \item Este caso está presente em quase todas funções da linguagem C
+   \item Como ponteiros e vetores são praticamente a mesma coisa,
+   a existência de funções que retornam um ponteiro, é presente na linguagem C
+   \item Sim, pois ai não a cópia de valor no retorno, e sim
+   o ponteiro que indica tal endereço de início
+   \item Funções de vetores de carácteres: \texttt{strcmp}, etc
+   
+
+   \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks=0.9, c]
+\frametitle{Exemplo}
+   
+\lstinputlisting{../codes/ponteiros/exemplo06_P.cpp}
+
+\end{frame}
+
+
+%--------------------------------------------------------------
+
 \section{Ponteiro para Funções}
-\begin{frame}[fragile,c]{Ponteiro para funções}
+\begin{frame}[fragile,c]
+\frametitle{Ponteiro para Funções}
+
   \begin{itemize}[<+->]
     \item Um recurso muito poderoso da linguagem C, é o ponteiro para função.
     \item Embora uma função não seja uma variável, ela tem uma posição física na memória que pode ser atribuída a um ponteiro. Exemplo:
@@ -627,40 +659,57 @@ declara uma função do tipo \textbf{int}. Nesse exemplo, estamos declarando que
 \end{lstlisting}
 \end{itemize}
 \end{frame}
-
-\begin{frame}[fragile,c]{Ponteiro para funções}
+%------------------------------------------
+\begin{frame}[fragile,c]
+\frametitle{Ponteiro para Funções}
 \begin{itemize}[<+->]
   \item A declaração anterior é possível e válida, porque quando compilamos uma função, o código-fonte é transformado em código-objeto e um ponto de entrada é estabelecido. 
   \item Quando é feita uma chamada à função, enquanto o programa está sendo executado, é efetuado uma chamada em linguagem de máquina para esse ponto de entrada.
   \item Portanto, se um ponteiro contém o endereço do ponto de entrada de uma função, então ele pode ser usado para chamar essa função.
+
+\item Resumindo: \texttt{func} pode funcionar como um sinônimo para \texttt{printf}
+
   \item Dessa forma, ao executarmos a instrução:
 \begin{lstlisting}[language=C]
 (*func)("\%d\n", 1);
-\end{lstlisting} estamos executando a função \textbf{printf}, logo, será apresentado na saída, o valor 1.
+\end{lstlisting} 
+estamos executando a função \textbf{printf}, logo, será apresentado na saída o valor \texttt{1}.
 \end{itemize}
 \end{frame}
-
-\begin{frame}[fragile,c]{Ponteiro para funções}
+%------------------------------------------
+\begin{frame}[fragile,c]
+\frametitle{Ponteiro para Funções}
 \begin{itemize}[<+->]
   \item O endereço de uma função é obtido usando o nome da função sem parênteses ou argumentos. 
   \item Observe que não colocamos parênteses junto ao nome da função. Se eles estiverem presentes como em:  
+  
 \begin{lstlisting}[language=C]
 func = printf();
 \end{lstlisting}, estaríamos atribuindo a \textit{\textbf{func}} o valor retornado pela função e não o endereço dela.
   \item \alert{O nome de uma função desacompanhado de parênteses é o endereço dela.}  
+
 \end{itemize}
+
 \end{frame}
 
 %\imageframe{question}
+%------------------------------------------
+\begin{frame}[fragile,c]
+\frametitle{Ponteiro para Funções}
 
-\begin{frame}[fragile,c]{Ponteiro para funções}  
   \begin{itemize}[<+->]
-    \item Nesse exemplo,nada é obtido e bastante confusão é introduzida. Porém, há momentos em que é vantajoso passar funções arbitrárias para procedimentos, ou manter uma matriz de funções.
-    \item Por exemplo, escolher o melhor algoritmo para resolver um problema.
-  \end{itemize}
-\end{frame}
+    \item Nesse exemplo, nada é obtido e bastante confusão é introduzida. Porém, há momentos em que é vantajoso passar funções arbitrárias para procedimentos, ou manter uma matriz de funções.
 
-\begin{frame}[fragile,c]{Ponteiro para funções}  
+    \item Por exemplo, escolher o melhor algoritmo para resolver um problema.
+    
+    \item Um primeiro passo para o conceito de \textit{funções genéricas} (ora \textit{anônimas})
+    
+  \end{itemize}
+
+\end{frame}
+%------------------------------------------
+\begin{frame}[fragile,c]
+\frametitle{Ponteiro para Funções}
 \begin{lstlisting}[language=C]
 /**
  * Ordena o vetor v de tamanho n, utilizando 
@@ -672,27 +721,81 @@ void ordenar(int v[], int n,
    (*algOrdenacao)(v,n);     
 }
 \end{lstlisting}  
+
+
+\begin{itemize}
+  \item  \textbf{\textcolor{red}{O exemplo acima é um caso clássico discutido na literatura, leia sobre ele!}}
+  
+  \item Vamos há um exemplo original e completo para fixarmos 
+  o aprendizado
+
+\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile,c]{Ponteiro para funções}  
+%------------------------------------------
+\begin{frame}[allowframebreaks=0.9, c]
+
+\frametitle{Exemplo completo: ponteiro para funções}
+
+\lstinputlisting{../codes/ponteiros/exemplo07_P.cpp}
+\textcolor{red}{Quanto há uma saída:}
+\end{frame}
+
+%--------------------------------------------------------
+\begin{frame}[fragile, c]
+
+\frametitle{Uma saída:}
+\begin{block}{}
+\begin{small}
+SAIDAS:   0.75 : 25\\
+ENDERECOS: 632178e3 = 632178e3\\ 
+ENDERECOS: 9f06eac8 : 632178e3\\ 
+ENDERECOS: 6321792e = 6321792e\\ 
+ENDERECOS: 9f06ead0 : 6321792e\\ 
+ ... Acabou ....\\
+\end{small}
+\end{block}
+\end{frame}
+%--------------------------------------------------------
+
+
+
+
+
+
+
+%-------------------------------------------
+\begin{frame}[fragile,c]
+\frametitle{Ponteiro para Funções}
 \begin{itemize}
   \item Em resumo podemos:  
     \begin{enumerate}
-      \item Declarar um ponteiro para uma função.
-      \item Atribuir o endereço de uma função a um ponteiro.
-      \item Chamar a função através do ponteiro para ela.
+      \item Passar endereços de variáveis como parâmetros
+      \item Passar ponteiros como parâmetros
+      \item Retornar um ponteiro de uma função
+
+      \item Declarar um ponteiro para uma função
+
+      \item Atribuir o endereço de uma função a um ponteiro
+
+      \item Chamar a função através do ponteiro para ela
+
     \end{enumerate}
+
   \item Mas não podemos:  
+
     \begin{enumerate}
       \item Incrementar ou decrementar ponteiros para funções.
       \item Incrementar ou decrementar nomes de funções.
     \end{enumerate} 
+
 \end{itemize}
+
 \end{frame}
 
-
-\section{Alocação dinâmica}
-\begin{frame}[c]{Alocação dinâmica}
+%-------------------------------------------------------
+\section{Alocação Dinâmica}
+\begin{frame}[c]{Alocação Dinâmica}
   \begin{itemize}[<+->]
     \item Na declaração de um vetor visto até agora é necessário conhecer e informar o número de elementos do vetor.
     \item Esse pré-dimensionamento é um fator limitante, pois, nos obriga a conhecer de antemão a quantidade de elementos do vetor.
@@ -778,3 +881,97 @@ free(v);
     \end{tabular}
   \end{table} 
 \end{frame}
+
+\section{Exemplos Completos: Alocação Dinâmica}
+
+%------------------------------------------
+\begin{frame}[allowframebreaks=0.9, c]
+
+\frametitle{Exemplo 01 completo: AD -- \textit{malloc}}
+
+\lstinputlisting{../codes/ponteiros/exemplo08_P.cpp}
+\pause
+\textcolor{red}{Quanto há uma saída:}
+\end{frame}
+
+%--------------------------------------------------------
+\begin{frame}[fragile, c]
+
+\frametitle{Uma saída:}
+\begin{block}{}
+\begin{itemize}
+  \item Laboratório $\Rightarrow $ voce
+  \item Para o exemplo acima, gere um arquivo texto com 1000 inteiros, por exemplo
+  \item Modifique o exemplo do professor, digamos, calcule
+  a média no lugar de uma simples soma
+  \item Crie um ponteiro para  função média 
+    \item Confira onde foram alocadas estas variáveis
+  \item Verifique os resultados
+  \item Valide o seu aprendizado com o texto acima 
+
+\end{itemize}
+\end{block}
+\end{frame}
+%--------------------------------------------------------
+
+
+%------------------------------------------
+\begin{frame}[allowframebreaks=0.9, c]
+
+\frametitle{Exemplo 01 completo: AD -- \textit{calloc}}
+
+\lstinputlisting{../codes/ponteiros/exemplo09_P.cpp}
+\pause
+\textcolor{red}{Quanto há uma saída:}
+\end{frame}
+
+%--------------------------------------------------------
+\begin{frame}[fragile, c]
+
+\frametitle{Uma saída:}
+\begin{block}{}
+\begin{itemize}
+  \item Laboratório $\Rightarrow $ voce
+  \item Para o exemplo acima, gere um arquivo texto com 1000 inteiros, por exemplo
+  \item Modifique o exemplo do professor, digamos, calcule
+  a média no lugar de uma simples soma
+  \item Crie um ponteiro para  função média 
+    \item Confira onde foram alocadas estas variáveis
+  \item Verifique os resultados
+  \item Valide o seu aprendizado com o texto acima 
+
+\end{itemize}
+\end{block}
+\end{frame}
+%--------------------------------------------------------
+
+
+%------------------------------------------
+\begin{frame}[allowframebreaks=0.9, c]
+
+\frametitle{Exemplo 01 completo: AD -- \textit{realloc}}
+
+\lstinputlisting{../codes/ponteiros/exemplo10_P.cpp}
+\pause
+\textcolor{red}{Quanto há uma saída:}
+\end{frame}
+
+%--------------------------------------------------------
+\begin{frame}[fragile, c]
+
+\frametitle{Uma saída:}
+\begin{block}{}
+\begin{itemize}
+  \item Laboratório $\Rightarrow $ voce
+  \item Para o exemplo acima, gere um arquivo texto com 1000 inteiros, por exemplo
+  \item Modifique o exemplo do professor, digamos, calcule
+  a média no lugar de uma simples soma
+  \item Crie um ponteiro para  função média 
+    \item Confira onde foram alocadas estas variáveis
+  \item Verifique os resultados
+  \item Valide o seu aprendizado com o texto acima 
+
+\end{itemize}
+\end{block}
+\end{frame}
+%--------------------------------------------------------
