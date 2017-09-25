@@ -79,6 +79,29 @@
    18. Construa um sistema de menu que combine a estrutura switch-case
        dentro de um do .... while()
        
+       
+   19. Leia um valor N e sequencialmente os N números do teclado ou de um 
+       arquivo (by linux console).
+       Desta sequencia dos N numeros, faça:
+       a) Imprima o valor medio
+       b) Imprima o maior valor
+       c) Imprima o menor valor
+       e agora
+       d) Imprima a posicao do maior valor
+       e) Imprima a posicao do menor valor
+       
+    20. Leia um valor N e sequencialmente os N números do teclado ou de um 
+       arquivo (by linux console).
+       Imprima como saida ... toda vez que existirem 2 números de sequência
+       inteiras 
+       Exemplo:
+       5
+       2 4 5 7 0
+       neste caso a saida será
+       4 e 5
+       o detalhe é que isto pode se repetir.
+           
+           
    
    
    
