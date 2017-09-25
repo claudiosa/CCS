@@ -5,36 +5,25 @@
 \section{Listas}
 
 \begin{frame}
-
 \begin{center}
-{\Large Capítulo 05 -- Listas}
+{\Large Capítulo xxxxx -- Listas}
 
-\begin{columns}
-\begin{column}{.5\textwidth}
-\centering
 Pontos fundamentais a serem cobertos:
-  \begin{enumerate}
-  \item Contexto e motivação
-  \item Definição
-  \item Implementações
-  \item Exercícios 
-\end{enumerate}  
 
-\end{column}
-\begin{column}{.5\textwidth}
-\centering
-%\includegraphics[height=5cm, width=3.5cm]{figs/fig_pilhas/pilha_livro.jpeg}
-%\hspace{+0.25cm}
-%\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
-\end{column}
-\end{columns}
+\begin{enumerate}
+  \item 
+  \item 
+  \item 
+\end{enumerate}
+
+\end{center}
 
 \end{frame}
 %--------------------
 
 
 
-\section{Listas Lineares Estáticas}
+\section{Lista Lineares Estáticas}
   \begin{frame}{Introdução}    
 		\begin{itemize}
 			\item Uma seqüência de nós ou elementos dispostos em uma ordem estritamente linear.
@@ -42,8 +31,7 @@ Pontos fundamentais a serem cobertos:
 			\item Pode ser implementada de várias maneiras			
 				\begin{enumerate}
 					\item Em um vetor
-					\item Em uma estrutura que tem um vetor de tamanho fixo e uma 
-					variável para armazenar o tamanho da lista.
+					\item Em uma estrutura que tem um vetor de tamanho fixo e uma variável para armazenar o tamanho da lista.
 				\end{enumerate}
 		\end{itemize}
   \end{frame}
@@ -58,16 +46,12 @@ Pontos fundamentais a serem cobertos:
 \begin{frame}{Representação}
 \begin{itemize}
 	\item Os nós de uma lista são armazenados em endereços contínuos.
-	\item A relação de ordem é representada pelo fato de que se o endereço do 
-	nó $x_i$ é conhecido, então o endereço do nó $x_{i+1}$ também pode ser determinado. 	
-	\item A Figura \ref{fig:lista-linear-repre} apresenta a representação de
-	 uma lista linear de $n$ nós, com endereços representados por $k$
+	\item A relação de ordem é representada pelo fato de que se o endereço do nó $x_i$ é conhecido, então o endereço do nó $x_{i+1}$ também pode ser determinado. 	
+	\item A Figura \ref{fig:lista-linear-repre} apresenta a representação de uma lista linear de $n$ nós, com endereços representados por $k$
 \end{itemize}
-
-\begin{figure}[hb]
+\begin{figure}[ht]
 	\centering
-		\includegraphics[width=.6\textwidth]{figs/fig_listas/lista-linear.png}			
-			\caption{Exemplo de representação de lista.}	
+		\includegraphics[width=.6\textwidth]{figs/fig_listas/lista-linear.png}				\caption{Exemplo de representação de lista.}	
 				\label{fig:lista-linear-repre}
 			\end{figure} 
 \end{frame}
@@ -203,8 +187,7 @@ Lista* criar(void){
 \begin{frame}[fragile,c]{Função de Inserção}  
 	\begin{itemize}
 		\item A inserção de qualquer elemento ocorre no final da lista, desde que a lista não esteja cheia.
-		\item Com isso, para inserir um elemento basta atribuirmos o valor ao elemento cujo índice é o valor referenciado pelo campo \textit{cursor}, e incrementar o valor do cursor, ou seja fazer 
-		\texttt{l->elemento[l->cursor++] = valor}, como podemos verificar no código abaixo, a uma complexidade de tempo constante, $O(1)$.
+		\item Com isso, para inserir um elemento basta atribuirmos o valor ao elemento cujo índice é o valor referenciado pelo campo \textit{cursor}, e incrementar o valor do cursor, ou seja fazer $l->elemento[l->cursor++] = valor$, como podemos verificar no código abaixo, a uma complexidade de tempo constante, $O(1)$.
 	\end{itemize}
 
 \footnotesize
@@ -267,11 +250,9 @@ int pesquisar(Lista* l, int e){
 \end{frame}
 
 \begin{frame}[fragile]{Função de Impressão}
-
 \begin{itemize}
 		\item A impressão da lista ocorre através da apresentação de todos os elementos compreendidos entre o intervalo: $[0.. l->cursor]$.
 		\item A complexidade de tempo da função de impressão é $O(n)$, pois no pior caso, quando lista estiver cheia, é necessário percorrer os $n$ elementos da lista.
-	
 	\end{itemize}
 	
 \begin{lstlisting}[language=C]
@@ -286,16 +267,17 @@ void imprimir(Lista* l){
 \end{frame}
 
 \begin{frame}[fragile,c]{Exemplo de Uso da Lista}
-
+\footnotesize
 \begin{lstlisting}[language=C]
-\#include <stdio.h>
-\#include "list.h"
+#include <stdio.h>
+#include "list.h"
+
 int main(void)
 {
     Lista* l = criar();
     int i, j = 4;
     
-    /* Inserir 5 elementos na lista */
+    /* Inseri 5 elementos na lista */
     for (i = 0; i < 5; i++)
       inserir(l,j * i);
     
@@ -307,7 +289,6 @@ int main(void)
     imprimir(l);        
 }
 \end{lstlisting}
-
 \end{frame} 
 
 

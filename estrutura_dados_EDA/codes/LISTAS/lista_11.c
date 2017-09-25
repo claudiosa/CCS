@@ -88,13 +88,13 @@ int ins_fim_lista(char *pt_DADO, noh_tipo ** L)
 		
 		novo_no = cria_no ();   /* CRIA ==> ALOCA */
 		novo_no  -> pt_nome = pt_DADO;
-		novo_no -> next = NULL; /* INSTANCIA  inicialmente o ultimo */
-		aux -> next = novo_no; // modifica em L 
+		novo_no -> next = NULL; /* INSTANCIA  inicialmente como ultimo */
+		aux -> next = novo_no; // atualiza o ultimo em L 
         // novo_no e o ultimo nao perde L
 		return 22;
 	}
 }	
-// insere SIMPLIFICADO
+// insere SIMPLIFICADO sem os codigos de retorno
 void ins_fim_lista_2(char *pt_DADO,  noh_tipo **L )
  {
    /* vai ser inserido no final da lista */
