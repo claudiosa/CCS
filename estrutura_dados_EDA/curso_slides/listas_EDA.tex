@@ -1,6 +1,3 @@
-%!TEX root = curso_EDA_SLIDES.tex
-
-%\title{Estrutura de Dados \\ Estrutura de dados Linear: Lista} 
 
 \section{Listas}
 
@@ -8,6 +5,7 @@
 
 \begin{center}
 {\Large Capítulo 05 -- Listas}
+\end{center}
 
 \begin{columns}
 \begin{column}{.5\textwidth}
@@ -23,18 +21,19 @@ Pontos fundamentais a serem cobertos:
 \end{column}
 \begin{column}{.5\textwidth}
 \centering
-%\includegraphics[height=5cm, width=3.5cm]{figs/fig_pilhas/pilha_livro.jpeg}
+\includegraphics[height=5cm, width=3.5cm]{figs/fig_listas/ilustra_lista.jpg}
 %\hspace{+0.25cm}
 %\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
 \end{column}
 \end{columns}
+
 
 \end{frame}
 %--------------------
 
 
 
-\section{Listas Lineares Estáticas}
+\subsection{Listas Lineares}
   \begin{frame}{Introdução}    
 		\begin{itemize}
 			\item Uma seqüência de nós ou elementos dispostos em uma ordem estritamente linear.
@@ -43,7 +42,8 @@ Pontos fundamentais a serem cobertos:
 				\begin{enumerate}
 					\item Em um vetor
 					\item Em uma estrutura que tem um vetor de tamanho fixo e uma 
-					variável para armazenar o tamanho da lista.
+					variável para armazenar o tamanho da lista
+					\item Conjunto de nós criados e ligados dinâmicamente (abordagem aqui adotada)
 				\end{enumerate}
 		\end{itemize}
   \end{frame}
@@ -313,6 +313,13 @@ int main(void)
 
 \begin{frame}{Referências}
 	\begin{enumerate}
+	
+		
+		\item Karumanchi, Narashimha (2017). 
+		\textit{Data Structures and Algorithms Made Easy -- Data Structures and Algorithms
+		and Puzzles}.  CareerMonk.com
+
+	
 		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). Estruturas de Dados Usando C. MAKRON Books, pp. 207-250.
 		\item Wirth, N. (1989). Algoritmos e Estrutura de dados. LTC, pp. 151-165.
 	\end{enumerate}

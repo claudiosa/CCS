@@ -1,5 +1,6 @@
 %!TEX root = curso_EDA_SLIDES.tex
 %!TeX spellcheck = pt_BR
+
 \section{Filas}
 
 \begin{frame}
@@ -59,7 +60,7 @@ Pontos fundamentais a serem cobertos:
         os quais são executados em ordem de chegada
   \item Simulação de filas no mundo real tais como: filas em banco, compra de tickets, etc
   
-  \item Multi-programação
+  \item Multi-programação (\textit{time-sharing})
   \item Transferência assíncrona de dados (IO de arquivos, pipe, sockets)
   \item Fila de espera em um \textit{call-center}      
   \item Encontrar número de atendentes em supermercados e caixas bancários dado uma
@@ -128,7 +129,7 @@ Pontos fundamentais a serem cobertos:
 \begin{block}{Quais as estruturas usadas por filas?}
   \begin{itemize}
     \item Baseada num vetor simples -- limitada
-    \item Baseada num vetor circular simples -- limitada
+    \item Baseada num vetor circular simples -- limitada -- igualmente poderosa
     \item Baseada num vetor circular dinâmico -- \textbf{i}limitada
     \item Baseada numa lista encadeada (depois de listas)
     
@@ -151,36 +152,47 @@ Pontos fundamentais a serem cobertos:
 
 \begin{itemize}
 
-	\item Como podemos observar, a operação de inclusão e retirada de um item da fila incorre na mudança do endereço do ponteiro que informa onde é o início e o término da fila.
+	\item Como podemos observar, a operação de inclusão e retirada de um item da fila 
+	incorre na mudança do endereço do ponteiro que informa onde é o início e o término da fila.
 \end{itemize}
 
 \end{frame}
 
 
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Representação}
 \begin{itemize}
 	\item Em uma fila, o \alert{primeiro} elemento inserido é o primeiro a ser removido.
-	\item Por essa razão, uma fila é chamada \textbf{\alert{fifo(\textit{first-in first-out})}} -- primeiro que entra é o primeiro a sair -- ao contrário de uma pilha que é \alert{lifo} (\textit{last-in, first-out})
-	\item Para exemplificar a implementação em C, vamos considerar que o conteúdo armazenado na fila é do tipo inteiro.
+	\item Por essa razão, uma fila é chamada \textbf{\alert{fifo (\textit{first-in first-out})}} -- primeiro que entra é o primeiro a sair -- ao contrário de uma pilha que é \alert{lifo} (\textit{last-in, first-out})
+	\item Para exemplificar a implementação em C, vamos considerar que o 
+	conteúdo armazenado na fila é do tipo inteiro.
+	\item Nos exemplos do prof é um outro tipo de dado
 	\item A estrutura de fila possui a seguinte representação:	
 \end{itemize}
 \footnotesize
 \begin{lstlisting}[language=C]
   struct fila{
     int elemento[N];
-    int ini, n;
-  }
-  typedef struct fila Fila;
+    int ini;
+    int n; // quantos tem na fila
+  };
+  
+typedef struct fila Fila;
 \end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Representação}
 
 \begin{itemize}
-	\item Trata-se de uma estrutura heterogênea constituída de membros distintos entre si.
-	 Os membros são as variáveis \alert{\textit{ini}} e \alert{\textit{fim}}, que serve para armazenar respectivamente, o início e o fim da fila e o vetor \alert{\textit{elemento}} 
+	\item Trata-se de uma estrutura heterogênea constituída de 
+	membros distintos entre si.
+	 
+	 \item Os membros são as variáveis \alert{\textit{ini}} e \alert{\textit{fim}},
+	  que serve para armazenar respectivamente, o início e o fim da fila e o
+	   vetor \alert{\textit{elemento}} 
 	 de inteiros que armazena os itens da fila.
 \end{itemize}
 \end{frame}
@@ -192,35 +204,42 @@ Pontos fundamentais a serem cobertos:
   \end{itemize}
   \begin{table}[ht]
 			  \centering
-						\begin{tabular}{l|l}
-						    \hline \textbf{Operação} & \textbf{Descrição} \\
-						    \hline criar() & aloca dinamicamente a estrutura da fila.\\
-						    \hline insere(f,e) & adiciona um novo elemento \textit{(e)}, no final da fila \textit{f}.\\
-						    \hline retira(f) & remove o elemento do início da fila \textit{f}.\\						   
-						    %\hline pesquisar(f,e) & pesquisa o elemento \textit{e} na fila \textit{f}.\\
+						\begin{tabular}{l||l}
+						    \hline \hline 
+						    \textbf{Operação} & \textbf{Descrição} \\
+						    \hline \hline 
+						    criar() & aloca dinamicamente a estrutura da fila.\\
 						    \hline 
+						    insere(f,e) & adiciona um novo elemento \textit{(e)}, no final da fila \textit{f}.\\
+						    \hline 
+						    retira(f) & remove o elemento do início da fila \textit{f}.\\						   
+						    %\hline pesquisar(f,e) & pesquisa o elemento \textit{e} na fila \textit{f}.\\
+						    \hline \hline 
 						\end{tabular}
 						\caption{Operações básicas da estrutura de dados fila.}
 				\end{table}
 \end{frame}
+ %----------------------------------------------------
  
-\begin{frame}{Operações auxiliares}   
+\begin{frame}{Operações Auxiliares}   
 			\begin{itemize}
-				\item Além das operações básicas, temos as operações ``auxiliares''. São elas:
+				\item Além das operações básicas, temos as operações ``\textit{auxiliares}''. São elas:
 			\end{itemize}
 			\begin{table}[ht]
 			  \centering
-						\begin{tabular}{l|l}
-						    \hline \textbf{Operação} & \textbf{Descrição} \\						    
-						    \hline vazia(f) & informa se a fila está ou não vazia.\\
+						\begin{tabular}{l||l}
+						    \hline  \hline 
+						    \textbf{Operação} & \textbf{Descrição} \\						    
+						    \hline  \hline 
+						    vazia(f) & informa se a fila está ou não vazia.\\
 						    \hline libera(f) & destrói a estrutura, e assim libera toda a memória alocada.\\
-						    \hline 
+						    \hline \hline 
 						\end{tabular}
 						\caption{Operações auxiliares da estrutura de dados fila.}
 				\end{table}
   \end{frame}
 
-
+%----------------------------------------------------
 \begin{frame}[fragile,plain]{Interface do Tipo Fila}
 \footnotesize
 \begin{lstlisting}[language=C]
@@ -245,19 +264,59 @@ int vazia(Fila* f);
 /*Libera a memoria alocada pela fila f*/
 void libera(Fila* f);
 \end{lstlisting}
+
 \end{frame}
+
+
+%----------------------------------------------------
+\begin{frame}{Reflexão -- Pausa}
+
+\begin{block}{}
+ \begin{itemize}
+   \item Como em pilhas, e se estas estruturas puderem
+ser reutilizadas em diversos tipos de problemas?
+
+  \item Ou seja, o reuso das mesmas estruturas de dados
+  em problemas diferentes!
+%  \pause
+  
+  \item O que é isto?
+ % \pause
+  
+  \item Bem-vindos ao Tipos Abstractos de Dados (TAD ou TDA)
+  
+  %\pause
+
+  \item Coloque as declarações de funções em um arquivo \texttt{.h} (Veja stdio.h)
+  \item Coloque as funções em arquivos \texttt{.c}
+  \item Deixe os arquivos \texttt{.o} para serem \textit{linkeditados} 
+  no código relocável!
+  %\pause
+  \item Basicamente fizemos isto com o \textit{Makefile}
+ 
+ \end{itemize}
+ 
+\end{block}
+ 
+\end{frame}
+
+%----------------------------------------------------
+
 
 \begin{frame}{Implementação de Fila com Vetor}
 	\begin{itemize}
-		\item Assim como nos casos da pilha e lista, a implementação de fila será feita usando um vetor para armazenar os elementos.
+		\item Assim como nos casos da pilha e lista, a 
+		implementação de fila será feita usando um vetor para armazenar os elementos.
 		\item Isso implica, que devemos fixar o número máximo de elementos na fila.
-		\item O processo de inserção e remoção em extremidades opostas fará a fila ``andar'' no vetor.
-		\item Por exemplo, se inserirmos os elementos 8, 7, 4, 3 e depois retiramos dois elementos, a fila não estará mais nas posições iniciais do vetor.
+		\item O processo de inserção e remoção em extremidades opostas fará a fila ``\textit{andar}'' no vetor.
+		\item Por exemplo, se inserirmos os elementos 8, 7, 4, 3 e
+		 depois retiramos dois elementos, a fila não estará mais nas
+		  posições iniciais do vetor.
 	\end{itemize}
 	\begin{figure}[ht]
 				\centering
 				\includegraphics[width=.6\textwidth]{fila_insercao_quatro_elementos.png}
-				\caption{Fila após inserção de quatro elementos.}	
+				\caption{Fila após inserção de quatro elementos (um erro na figura \texttt{4/3})}	
 	\end{figure} 	
 \end{frame}
 
@@ -268,16 +327,20 @@ void libera(Fila* f);
 				\caption{Fila após retirar dois elementos.}	
 	\end{figure} 	
 	\begin{itemize}
-		\item Com essa estratégia, é fácil observar que, em um dado instante, a parte ocupada pelo vetor pode chegar a última posição.
-		\item Uma solução seria ao remover um elemento da fila, deslocar a fila inteira no sentido do início do vetor.
-		\item Entretanto, essa método é bastante ineficiente, pois cada retirada implica em deslocar cada elemento restante da fila. Se uma fila tiver 500 ou 1000 elementos, evidentemente esse seria um preço muito alto a pagar.		
+		\item Com essa estratégia, é fácil observar que, em um dado instante, a parte 
+		ocupada pelo vetor pode chegar a última posição.
+		\item Uma solução seria ao remover um elemento da fila, deslocar a fila inteira 
+		no sentido do início do vetor.
+		\item Entretanto, essa método é bastante ineficiente, pois cada retirada implica 
+		em deslocar cada elemento restante da fila. Se uma fila tiver 500 ou 1000 elementos, 
+		evidentemente esse seria um preço muito alto a pagar.		
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Implementação de Fila com Vetor}		
 	\begin{itemize}		
-		\item Para reaproveitar as primeira posições do vetor sem implementar uma ``re-arrumação'' dos elementos, podemos incrementar as posições do vetor de forma ``circular''.
-		\item Para essa implementação, os índices do vetor são incrementados de maneira que seus valores progridam ``circularmente''. 
+		\item Para reaproveitar as primeira posições do vetor sem implementar uma ``\textit{re-arrumação}'' dos elementos, podemos incrementar as posições do vetor de forma ``\textit{circular}''.
+		\item Para essa implementação, os índices do vetor são incrementados de maneira que seus valores progridam ``\textit{circularmente}''. 
 		\item Dessa forma, se temos 100 posições no vetor, os índices assumem os seguintes valores:
 		$$0, 1, 2, 3, \cdots, 98, 99, 0, 1, 2, 3, \cdots, 98, 99, \cdots$$
 	\end{itemize}
@@ -295,6 +358,9 @@ void libera(Fila* f);
     \item Velocidade
     \item Fácil de manipular
     \item \textit{Circular} é a manipulação!
+    \item Calcule $f(i+1)$ dado que a cabeça ou fim de estivessem
+    na posição $i$ em um vetor de $N$ posições (adote a convenção no sentido-horário)
+    \item Cálculo com papel e caneta mesmo!
     
     
   \end{itemize}
@@ -343,7 +409,8 @@ void libera(Fila* f);
 		\item A função deve informar onde é o início da fila, ou seja, fazer \texttt{f->ini = 0}, 
 		como podemos ver no código abaixo
 		
-		\item A complexidade de tempo para criar a fila é constante, ou seja, $O(1)$
+		\item A complexidade de tempo para criar a fila é constante, 
+		ou seja, $O(1)$
 	\end{itemize}
 \small	
 \begin{lstlisting}[language=C]
@@ -457,9 +524,28 @@ int main(void)
 \begin{frame}{Exercícios}
 	
 	\begin{enumerate}
-	\item
-	\item
-	\item
+	\item Implemente um esquema de uma fila usando duas pilhas
+	
+	\item Encontrar o maior sub-conjunto de uma janela $w$ para um vetor circular
+	$N$. Basicamente, preencher o vetor inteiro, posicionar inicio em fim de fila,
+	tal que a diferença seja $w$. Rotacione com acionamentos de 
+	chegadas e partidas, até encontrar a maior soma neste vetor. Ou seja,
+  \texttt{$\mid $rear - front| = w $\mid $}. 
+  Função: \texttt{abs(rear - front) = w}
+	 
+%%	\item Desafio: $w$  
+	 
+	\item Construa uma função que copie uma fila, para uma nova fila invertida.
+	
+	\item Faça uma simulação aleatória de chegadas e partidas em uma fila,
+	tal que a cada passo exiba as mensagens de fila cheia, fila vazia,
+	número de elementos corrente na fila. Faça isto para um número considerável
+	de simulações. Este exercício é a base na simulação de sistemas de filas.
+	
+	\item Implemente um sistema de fila com prioridades (será um dos projetos)
+	
+	
+	
 	
 	\end{enumerate}
 	
@@ -472,9 +558,18 @@ int main(void)
 \begin{frame}{Referências}
 	
 	\begin{enumerate}
+	
+		\item Karumanchi, Narashimha (2017). 
+		\textit{Data Structures and Algorithms Made Easy -- Data Structures and Algorithms
+		and Puzzles}.  CareerMonk.com
+
 		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). 
 		\textit{Estruturas de Dados Usando C}. MAKRON Books, pp. 207-250.
-		\item Wirth, N. (1989). \textit{Algoritmos e Estrutura de Dados}. LTC, pp. 151-165.
+
+		\item Wirth, N. (1989). \textit{Algoritmos e Estrutura de Dados}. 
+		LTC, pp. 151-165.
+	
+	
 	
 	\end{enumerate}
 	

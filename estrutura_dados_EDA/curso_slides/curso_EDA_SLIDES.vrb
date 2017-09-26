@@ -1,25 +1,23 @@
-\frametitle{Exemplo de Uso da Fila}
-
-\begin{footnotesize}
+\frametitle{Exemplo de Uso da Lista}
 
 \begin{lstlisting}[language=C]
-#define N 10
-#include <stdio.h>
-#include "fila.h"  // TDA.h
-
+\#include <stdio.h>
+\#include "list.h"
 int main(void)
 {
-    Fila * f = criar();
+    Lista* l = criar();
+    int i, j = 4;
 
-    int i;
-    for (i = 0; i < N; i++)
-      insere(f, i * 2);
+    /* Inserir 5 elementos na lista */
+    for (i = 0; i < 5; i++)
+      inserir(l,j * i);
 
-    printf("\nElementos removidos: ");
-
-    for (i = 0; i < N/2; i++)
-     printf("%d ", retira(f));
-
+    /* Apresenta os elementos inseridos na lista*/
+    imprimir(l);
+    /* Remove o segundo elemento da lista*/
+    remover(l,j);
+    /* Apresenta os elementos da lista */
+    imprimir(l);
 }
 \end{lstlisting}
-\end{footnotesize}
+
