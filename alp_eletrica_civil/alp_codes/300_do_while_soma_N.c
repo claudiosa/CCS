@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 int main (void) {
 
    /* local variable definition */
@@ -7,10 +9,11 @@ int main (void) {
    printf(" Digite um inteiro MAIOR que 0 :");
    scanf("%d", &N );
    i = N;
+   system("clear"); // LIMPA
    /* do loop execution */
    do {
        S = S + i;
-       printf("\n  ==>CONT i: %d \t S:%d", i, S);
+       printf("\n  ==>\t CONT i: %d \t S:%d", i, S);
        i = i - 1;
 	         
    //} while( i <= N );
