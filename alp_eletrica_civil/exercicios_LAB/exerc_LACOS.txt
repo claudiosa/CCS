@@ -26,29 +26,28 @@
   9. Faça um programa onde o usuário digita 30 valores e imprima a 
      soma destes valores na tela.
 
-    10. Implementar a tabela ASCII -- em formatos CHAR, DEC e HEX
+ 10. Implementar a tabela ASCII -- em formatos CHAR, DEC e HEX
          0 a 255
     
-
-	11. Escreva um programa em C que recebe um inteiro 'n' do usuário e calcula o produto 
-	     dos números pares e o produtos dos números ímpares, de 1 até n.
+ 11. Escreva um programa em C que recebe um inteiro 'n' do usuário e calcula o produto 
+	dos números pares e o produtos dos números ímpares, de 1 até n.
 	
-	12. Faça um programa em C que recebe um inteiro do usuário e calcula seu fatorial.
+ 12. Faça um programa em C que recebe um inteiro do usuário e calcula seu fatorial.
 	O fatorial de 'n' é dado por:
 	n*(n-1)*(n-2)...*3*2*1
 	e é representado por n!
 	
-	13. Crie um aplicativo bancário em C que pede o valor do depósito inicial, o valor do investimento mensal e o número de meses que o dinheiro vai ficar rendendo na poupança.
+ 13. Crie um aplicativo bancário em C que pede o valor do depósito inicial, o valor do investimento mensal e o número de meses que o dinheiro vai ficar rendendo na poupança.
 	Após isso, calcule o lucro obtido, sabendo que o juros da poupança é de 0,5%.
 	
-	14. Crie um programa em C que peça um número inteiro ao usuário, e imprima a seguinte tabela::
+ 14. Crie um programa em C que peça um número inteiro ao usuário, e imprima a seguinte tabela::
 	1
 	2 4
 	3 6 9
 	4 8 12 16
 	...
 	
-	15. Escreva um programa que peça um númer 'n' ao usuário, e que gere um novo n de acordo com a seguinte regra:
+ 15. Escreva um programa que peça um númer 'n' ao usuário, e que gere um novo n de acordo com a seguinte regra:
 	
 	• se n é par, n = n / 2
 	• se n é impar, n = 3 * n + 1
@@ -56,10 +55,10 @@
 	• O programa deve parar quando x tiver o valor igual a 1. Por exemplo, para n = 13, a saída será:
 	40 -> 20 -> 10 -> 5 -> 16 -> ˜8 -> 4 -> 2 -> 1
 	
-	16. Desafio dos números de FIbonacci
+ 16. Desafio dos números de FIbonacci
 	Crie um aplicativo em C que peça um número inteiro ao usuário - 'n' - e exiba o n-ésimo termo da série de Fibonacci, sabendo que o primeiro termo é 0, o segundo é 1 e o próximo número é sempre a soma dos dois anteriores.
 	
-	17. Desafio do diamante de asteriscos:
+ 17. Desafio do diamante de asteriscos:
 	Escreva um aplicativo em C que peça um número inteiro ímpar ao usuário e desenhe um diamante no seguinte formato:
 	
 	    *
@@ -76,11 +75,11 @@
 	Nesse caso, o número é 9, pois há 9 colunas e 9 asteriscos na linha central.
 	
 
-   18. Construa um sistema de menu que combine a estrutura switch-case
+  18. Construa um sistema de menu que combine a estrutura switch-case
        dentro de um do .... while()
        
        
-   19. Leia um valor N e sequencialmente os N números do teclado ou de um 
+  19. Leia um valor N e sequencialmente os N números do teclado ou de um 
        arquivo (by linux console).
        Desta sequencia dos N numeros, faça:
        a) Imprima o valor medio
@@ -90,7 +89,7 @@
        d) Imprima a posicao do maior valor
        e) Imprima a posicao do menor valor
        
-    20. Leia um valor N e sequencialmente os N números do teclado ou de um 
+  20. Leia um valor N e sequencialmente os N números do teclado ou de um 
        arquivo (by linux console).
        Imprima como saida ... toda vez que existirem 2 números de sequência
        inteiras 
