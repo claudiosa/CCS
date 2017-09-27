@@ -10,4 +10,4 @@ usa_fila_01.o: usa_fila_01.c
 	gcc -Wall -c usa_fila_01.c
 
 clean:
-	rm *.o *.exe *.out
+	rm *.o *.exe a.out
