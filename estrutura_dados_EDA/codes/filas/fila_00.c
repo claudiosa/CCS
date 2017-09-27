@@ -17,14 +17,14 @@ typedef  struct STRUCT_FILA  fila ;
 	bool  fila_vazia  ( fila * F);
 	int tamanho_fila ( fila * F );
 
-fila * cria_fila (  int C )
+fila * cria_fila ( int C )
 { 	
 	fila * FILA = malloc(sizeof (struct STRUCT_FILA));
 	//(typedef fila) ); devia ter funcionado
 	FILA -> capacidade = C ; // veio do parametro
 	FILA -> front = -1 ;
 	FILA -> rear = -1 ;
-	// cuidar na entrada o tipo da fila
+	// CUIDAR NA ENTRADA O TIPO DA FILA
 	FILA -> entrada = malloc(FILA -> capacidade * sizeof(char) );
 	if(FILA -> entrada == NULL)
 	{
@@ -32,14 +32,14 @@ fila * cria_fila (  int C )
 	  getchar();
 	  exit(0);	
 	}
+
 	/*
 	PARA FINS DE ESTUDO 
 	printf("\n FILA -> capacidade : %ld" , sizeof(FILA -> capacidade ));
 	printf("\n FILA -> front : %ld" , sizeof(FILA -> front ));
 	printf("\n FILA -> rear : %ld" , sizeof(FILA -> rear ));
-	printf("\n VARIAVEL entrada %d\n", FILA -> capacidade );
+	printf("\n VARIAVEL capacidade %d\n", FILA -> capacidade );
 	printf("\n CONTEUDO entrada %ld\n", sizeof(FILA -> entrada ));
-
 	printf("\n TOTAL : %ld\n" , sizeof(*FILA));
 	*/
 	return(FILA);
@@ -63,13 +63,18 @@ bool fila_cheia  ( fila * F )
        return false; // TEM LUGAR	
  }
 
-
-int tamanho_fila ( fila * F )
- {  // Faca o desenho e calculo aqui
-	return ( 
-	  (F -> capacidade - F-> front + F-> rear)
-	    % F -> capacidade 
-	  ) ;
+int tamanho_fila ( fila * F ) // quantos tem no momento
+ { // Faca o desenho e calculo aqui ...
+   // e encontre outras expressoes para esta formula
+  if( fila_vazia ( F ) )	
+  return 0;
+  if( fila_cheia ( F ) )	
+  return F -> capacidade;
+  else
+  {	 // PRECISA SER MELHORADO
+   int tam = (F -> capacidade - F-> front + F-> rear + 1) % F -> capacidade ;	     
+   return ( tam ) ;
+  }
  }
 
 // INSERIR NA FILA enqueue
@@ -85,8 +90,7 @@ void chegada ( char x, fila * F )
   /* NOVO FINAL DA FILA: incrementa fila (+1) e modulo C */
   /* Incrementa ao final da fila ... sentido:
       0:1:2... :N-2:N-1:0:1:2.... */
-	   
-	else
+   else
 	{	
 	 F -> rear =  ((F -> rear) + 1) % F -> capacidade  ;
 	 F -> entrada [ F -> rear ] = x;
@@ -94,7 +98,7 @@ void chegada ( char x, fila * F )
 	 	F-> front = F -> rear ; // FILA ESTAVA VAZIA
      
      // comente se for caso
-	 printf("\nFRONT: %c : %d || REAR: %c : %d", 
+	 printf("\nFRONT: %c | POS: %d || REAR: %c | POS: %d", 
 	 	F->entrada[F->front], F->front,
 	 	F->entrada[F->rear], F->rear);
      
@@ -120,8 +124,8 @@ char  partida ( fila * F )
 	 printf("\nFRONT: %c : %d || REAR: %c : %d", 
 	 	F->entrada[F->front], F->front,
 	 	F->entrada[F->rear], F->rear);
-    
-        if((F -> front) == (F -> rear)) // fila so tinha UM elemento
+        // fila SO tinha UM elemento
+        if((F -> front) == (F -> rear)) 
     	 (F -> front) = (F -> rear) = -1;
         else
         {
@@ -132,7 +136,7 @@ char  partida ( fila * F )
     }   	
   }  /* fim da funcao chegada */
 
-void exclui_fila( fila *F)
+void destroi_fila( fila *F)
   {
   	if(F) {
        if( F -> entrada )
@@ -141,7 +145,27 @@ void exclui_fila( fila *F)
        }
      else
         {
-     printf("\n PILHA NAO LIBERADA\n" );
+     printf("\n FILA NAO LIBERADA\n" );
      }
-    printf("\n PILHA  LIBERADA OK\n" );
+    printf("\n FILA LIBERADA OK\n" );
   }
+
+
+/*
+MELHORAR ...
+void mostra_FILA()
+{
+    int i;
+    if(isEmpty()) printf(" \n Empty Queue\n");
+    else
+    {
+        printf("\n Front -> %d ",front);
+        printf("\n Carac -> ");
+        for( i = front; i!=rear; i=(i+1)%SIZE) {
+            printf("%c ",items[i]);
+        }
+        printf("%d ",items[i]);
+        printf("\n Rear -> %d \n",rear);
+    }
+}
+*/
