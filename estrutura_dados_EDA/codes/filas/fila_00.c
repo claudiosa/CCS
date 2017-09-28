@@ -1,21 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h> // bool no C
+#include "fila_00.h"
 
- struct STRUCT_FILA
-  {
-    int  front ;  		/*  or first */
-    int  rear ;	  		/*  or last */
-    int  capacidade ; 		 	
-	//char entradas[ MAX_FILA ];
-	char * entrada ;	
-};
-// e ainda
-typedef  struct STRUCT_FILA  fila ;
-// usados antes da definicao
-	bool  fila_cheia  ( fila * F);
-	bool  fila_vazia  ( fila * F);
-	int tamanho_fila ( fila * F );
+// CONSTRUA AS FUNCOES AQUI ...
 
 fila * cria_fila ( int C )
 { 	
@@ -72,7 +60,8 @@ int tamanho_fila ( fila * F ) // quantos tem no momento
   return F -> capacidade;
   else
   {	 // PRECISA SER MELHORADO
-   int tam = (F -> capacidade - F-> front + F-> rear + 1) % F -> capacidade ;	     
+    //(F-> rear - F-> front + 1) : Veja a figura
+   int tam = (F -> capacidade + (F-> rear - F-> front + 1)) % F -> capacidade ;	     
    return ( tam ) ;
   }
  }
@@ -151,21 +140,22 @@ void destroi_fila( fila *F)
   }
 
 
-/*
-MELHORAR ...
-void mostra_FILA()
+void mostra_fila( fila *F )
 {
     int i;
-    if(isEmpty()) printf(" \n Empty Queue\n");
+    if( fila_vazia(F) ) 
+        printf("\n Fila Vazia\n");
     else
-    {
-        printf("\n Front -> %d ",front);
-        printf("\n Carac -> ");
-        for( i = front; i!=rear; i=(i+1)%SIZE) {
-            printf("%c ",items[i]);
-        }
-        printf("%d ",items[i]);
-        printf("\n Rear -> %d \n",rear);
+    {puts("\n FILA SE ENCONTRA ASSIM .....");
+     printf("\n Front ou cabeca : %d ", F -> front);
+     printf("\t Rear ou ultimo :  %d ", F-> rear);
+     printf("\n CONTEUDO da FILA : ");
+     for(i = F ->front ; i != F -> rear ; i = (i+1) % F->capacidade ) 
+     {
+       printf("%c ", F->entrada[i]);
+     }
+     printf("%c ", F->entrada[i] ); // ultimo
+     
     }
 }
-*/
+
