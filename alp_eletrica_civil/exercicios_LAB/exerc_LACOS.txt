@@ -56,7 +56,7 @@
 	40 -> 20 -> 10 -> 5 -> 16 -> ˜8 -> 4 -> 2 -> 1
 	
  16. Desafio dos números de FIbonacci
-	Crie um aplicativo em C que peça um número inteiro ao usuário - 'n' - e exiba o n-ésimo termo da série de Fibonacci, sabendo que o primeiro termo é 0, o segundo é 1 e o próximo número é sempre a soma dos dois anteriores.
+	Crie um aplicativo em C que peça um número inteiro ao usuário - 'n' - e exiba o n-ésimo termo da série de Fibonacci,     sabendo que o primeiro termo é 0, o segundo é 1 e o próximo número é sempre a soma dos dois anteriores.
 	
  17. Desafio do diamante de asteriscos:
 	Escreva um aplicativo em C que peça um número inteiro ímpar ao usuário e desenhe um diamante no seguinte formato:
@@ -71,14 +71,13 @@
 	   ***
 	    *
 	
-	
+
 	Nesse caso, o número é 9, pois há 9 colunas e 9 asteriscos na linha central.
 	
 
   18. Construa um sistema de menu que combine a estrutura switch-case
        dentro de um do .... while()
-       
-       
+              
   19. Leia um valor N e sequencialmente os N números do teclado ou de um 
        arquivo (by linux console).
        Desta sequencia dos N numeros, faça:
@@ -99,9 +98,8 @@
        neste caso a saida será
        4 e 5
        o detalhe é que isto pode se repetir.
-           
-           
-   21. Seja a parábola dada pela fórmula y(x) = -3x^2 + 100x + 10.
+
+21. Seja a parábola dada pela fórmula y(x) = -3x^2 + 100x + 10.
        Faça um programa que calcule a área definida no intervalo de 0 a 30,
        para esta parábola. Faça o cálculo pelos métodos do retângulo e trapézio.
        Suponha um DELTA x = 0,1 e  0,01. Verifique a diferença deste cálculo
@@ -110,4 +108,16 @@
    http://aulasdematematica.com.br/wolframwidgets.php?t=grafico#t
    
    
-   	
+   22. Leia um valor N e sequencialmente os N números do teclado ou de um 
+       arquivo (by linux console). Em
+       https://raw.githubusercontent.com/claudiosa/CCS/master/alp_eletrica_civil/alp_codes/1000.txt
+       voce pode baixar este arquivo de teste. 
+       Desta sequencia dos N numeros, faça:
+       a) Imprima o maior número PAR
+       b) Imprima o menor número IMPAR
+       e agora
+       c) A soma dos números PARES
+       e) O produto dos ímpares, aplicando módulo 3 a cada iteração.
+          Isto é: PI = (PI * Num_IMPAR) % 3
+	  
+/* ===================================================================================================== */
