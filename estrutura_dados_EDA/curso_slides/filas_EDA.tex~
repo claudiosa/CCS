@@ -129,7 +129,7 @@ Pontos fundamentais a serem cobertos:
 \begin{block}{Quais as estruturas usadas por filas?}
   \begin{itemize}
     \item Baseada num vetor simples -- limitada
-    \item Baseada num vetor circular simples -- limitada
+    \item Baseada num vetor circular simples -- limitada -- igualmente poderosa
     \item Baseada num vetor circular dinâmico -- \textbf{i}limitada
     \item Baseada numa lista encadeada (depois de listas)
     
@@ -164,7 +164,7 @@ Pontos fundamentais a serem cobertos:
 \begin{frame}[fragile]{Representação}
 \begin{itemize}
 	\item Em uma fila, o \alert{primeiro} elemento inserido é o primeiro a ser removido.
-	\item Por essa razão, uma fila é chamada \textbf{\alert{fifo(\textit{first-in first-out})}} -- primeiro que entra é o primeiro a sair -- ao contrário de uma pilha que é \alert{lifo} (\textit{last-in, first-out})
+	\item Por essa razão, uma fila é chamada \textbf{\alert{fifo (\textit{first-in first-out})}} -- primeiro que entra é o primeiro a sair -- ao contrário de uma pilha que é \alert{lifo} (\textit{last-in, first-out})
 	\item Para exemplificar a implementação em C, vamos considerar que o 
 	conteúdo armazenado na fila é do tipo inteiro.
 	\item Nos exemplos do prof é um outro tipo de dado
@@ -174,13 +174,21 @@ Pontos fundamentais a serem cobertos:
 \begin{lstlisting}[language=C]
   struct fila{
     int elemento[N];
-    int ini, n;
-  }
-  typedef struct fila Fila;
+    int ini;
+    int n; // quantos tem na fila
+  };
+  
+typedef struct fila Fila;
 \end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Representação}
 
 \begin{itemize}
-	\item Trata-se de uma estrutura heterogênea constituída de membros distintos entre si.
+	\item Trata-se de uma estrutura heterogênea constituída de 
+	membros distintos entre si.
 	 
 	 \item Os membros são as variáveis \alert{\textit{ini}} e \alert{\textit{fim}},
 	  que serve para armazenar respectivamente, o início e o fim da fila e o
@@ -196,35 +204,42 @@ Pontos fundamentais a serem cobertos:
   \end{itemize}
   \begin{table}[ht]
 			  \centering
-						\begin{tabular}{l|l}
-						    \hline \textbf{Operação} & \textbf{Descrição} \\
-						    \hline criar() & aloca dinamicamente a estrutura da fila.\\
-						    \hline insere(f,e) & adiciona um novo elemento \textit{(e)}, no final da fila \textit{f}.\\
-						    \hline retira(f) & remove o elemento do início da fila \textit{f}.\\						   
-						    %\hline pesquisar(f,e) & pesquisa o elemento \textit{e} na fila \textit{f}.\\
+						\begin{tabular}{l||l}
+						    \hline \hline 
+						    \textbf{Operação} & \textbf{Descrição} \\
+						    \hline \hline 
+						    criar() & aloca dinamicamente a estrutura da fila.\\
 						    \hline 
+						    insere(f,e) & adiciona um novo elemento \textit{(e)}, no final da fila \textit{f}.\\
+						    \hline 
+						    retira(f) & remove o elemento do início da fila \textit{f}.\\						   
+						    %\hline pesquisar(f,e) & pesquisa o elemento \textit{e} na fila \textit{f}.\\
+						    \hline \hline 
 						\end{tabular}
 						\caption{Operações básicas da estrutura de dados fila.}
 				\end{table}
 \end{frame}
+ %----------------------------------------------------
  
-\begin{frame}{Operações auxiliares}   
+\begin{frame}{Operações Auxiliares}   
 			\begin{itemize}
 				\item Além das operações básicas, temos as operações ``\textit{auxiliares}''. São elas:
 			\end{itemize}
 			\begin{table}[ht]
 			  \centering
-						\begin{tabular}{l|l}
-						    \hline \textbf{Operação} & \textbf{Descrição} \\						    
-						    \hline vazia(f) & informa se a fila está ou não vazia.\\
+						\begin{tabular}{l||l}
+						    \hline  \hline 
+						    \textbf{Operação} & \textbf{Descrição} \\						    
+						    \hline  \hline 
+						    vazia(f) & informa se a fila está ou não vazia.\\
 						    \hline libera(f) & destrói a estrutura, e assim libera toda a memória alocada.\\
-						    \hline 
+						    \hline \hline 
 						\end{tabular}
 						\caption{Operações auxiliares da estrutura de dados fila.}
 				\end{table}
   \end{frame}
 
-
+%----------------------------------------------------
 \begin{frame}[fragile,plain]{Interface do Tipo Fila}
 \footnotesize
 \begin{lstlisting}[language=C]
@@ -249,7 +264,44 @@ int vazia(Fila* f);
 /*Libera a memoria alocada pela fila f*/
 void libera(Fila* f);
 \end{lstlisting}
+
 \end{frame}
+
+
+%----------------------------------------------------
+\begin{frame}{Reflexão -- Pausa}
+
+\begin{block}{}
+ \begin{itemize}
+   \item Como em pilhas, e se estas estruturas puderem
+ser reutilizadas em diversos tipos de problemas?
+
+  \item Ou seja, o reuso das mesmas estruturas de dados
+  em problemas diferentes!
+%  \pause
+  
+  \item O que é isto?
+ % \pause
+  
+  \item Bem-vindos ao Tipos Abstractos de Dados (TAD ou TDA)
+  
+  %\pause
+
+  \item Coloque as declarações de funções em um arquivo \texttt{.h} (Veja stdio.h)
+  \item Coloque as funções em arquivos \texttt{.c}
+  \item Deixe os arquivos \texttt{.o} para serem \textit{linkeditados} 
+  no código relocável!
+  %\pause
+  \item Basicamente fizemos isto com o \textit{Makefile}
+ 
+ \end{itemize}
+ 
+\end{block}
+ 
+\end{frame}
+
+%----------------------------------------------------
+
 
 \begin{frame}{Implementação de Fila com Vetor}
 	\begin{itemize}
@@ -264,7 +316,7 @@ void libera(Fila* f);
 	\begin{figure}[ht]
 				\centering
 				\includegraphics[width=.6\textwidth]{fila_insercao_quatro_elementos.png}
-				\caption{Fila após inserção de quatro elementos.}	
+				\caption{Fila após inserção de quatro elementos (um erro na figura \texttt{4/3})}	
 	\end{figure} 	
 \end{frame}
 
@@ -511,18 +563,11 @@ int main(void)
 		\textit{Data Structures and Algorithms Made Easy -- Data Structures and Algorithms
 		and Puzzles}.  CareerMonk.com
 
-
-
 		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). 
 		\textit{Estruturas de Dados Usando C}. MAKRON Books, pp. 207-250.
 
-		\item Wirth, N. (1989). \textit{Algoritmos e Estrutura de Dados}. LTC, pp. 151-165.
-	
-		\item Karumanchi, Narashimha (2017). 
-		\textit{Data Structures and Algorithms Made Easy -- Data Structures and Algorithms
-		and Puzzles}.  CareerMonk.com
-		
-		
+		\item Wirth, N. (1989). \textit{Algoritmos e Estrutura de Dados}. 
+		LTC, pp. 151-165.
 	
 	
 	

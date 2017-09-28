@@ -23,13 +23,15 @@
 		//	printf("\n Chegando : "); 
 		//	scanf("%c%*c", &UM_CHAR);
         //	UM_CHAR = getchar();
-		UM_CHAR =  'A' + i;	
+		UM_CHAR =  'A' + i;	// adicionando um caracter 
         chegada ( UM_CHAR , pt_FILA );
-		printf("\n Quantos na fila: %d || lido: %c", tamanho_fila(pt_FILA), UM_CHAR);
+		// printf("\n Quantos na fila: %d || lido: %c", tamanho_fila(pt_FILA), UM_CHAR);
+
 		i++;
 		}
 	
-		printf("\n Quantos na fila: %d || lido: %c", tamanho_fila(pt_FILA), UM_CHAR);
+		// printf("\n Quantos na fila: %d || lido: %c", tamanho_fila(pt_FILA), UM_CHAR);
+		mostra_fila(pt_FILA);
 		puts("\n FIM das CHEGADAS \n====================================\n");
 		//TESTES
 		//chegada ( '$' , pt_FILA );	
