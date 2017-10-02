@@ -1,25 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h> // bool no C
-#define N 20
-
-// DEFINICAO DO NO de lista
-struct NO_struct
-  {
-    char nome[N]; // aqui uma outra struct
-    struct NO_struct *next; 
-  };
-
-typedef struct NO_struct  noh_tipo;
-
-
-noh_tipo * cria_no(void);
-void ins_lista(char x_nome[], noh_tipo *L);
-void insere_lista(char x_nome[], noh_tipo *L);
-//int is_empty( noh_tipo *L );
-void imp_lista(noh_tipo *L);
-
+#include "lista_00.h"
 
 // UMA PRIMITIVA -- generica a qualquer momento
 noh_tipo * cria_no(void)
@@ -36,8 +15,7 @@ noh_tipo * cria_no(void)
 	return(new_node);
 }
 
-// IMPRIME A LISTA
-// vem o endereco original
+// IMPRIME A LISTA vem apenas o endereco original
 void imp_lista(noh_tipo *L)
 { 
   puts("\n imp_lista: \n");
@@ -87,8 +65,6 @@ void insere_lista(char x_nome[], noh_tipo *L)
 	L -> next = novo_no; // modifica em L 
 	return ;
 	}
-
-
 
 // erradp
 int is_empty( noh_tipo *L )

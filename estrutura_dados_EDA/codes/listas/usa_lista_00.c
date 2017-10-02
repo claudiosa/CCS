@@ -1,44 +1,51 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h> // bool no C
-#define N 20
-
-struct NO_struct
-	{
-	  char nome[N]; // aqui uma outra struct
-	  struct NO_struct *next; 
-	};
-
-typedef struct NO_struct  noh_tipo;
-
-noh_tipo * cria_no(void);
-void ins_lista(char x_nome[], noh_tipo *L);
-void insere_lista(char x_nome[], noh_tipo *L);
-void imp_lista(noh_tipo *L);
-
+#include "lista_00.h"
 
 int main(void)
-{
+{  
+	system("clear");
+	//char *entrada = NULL;
+   char entrada [33];
+	int i=0, N_NOMES;
+	/*
    char *vetor_INPUT[] = 
 		  {"joao", "pedro henrique", 
 		   "anita", "maria luiza"};
     int Q = 4; 
-    //(int)sizeof(vetor_INPUT)
-    printf("\n VETOR %d elmentos\n", Q);		
+    */
+    //printf("\n VETOR %d elmentos\n", Q);		
 	/** cria uma lista **/
     noh_tipo * L;
-    L = cria_no(); // vazia
+    L = cria_no(); // UM NOH COMPLETO FOI CRIADO
     printf("ENDERECOS: %p %p\n" , L -> next , L);
     printf("\n INICIAL: %s", L  -> nome );
-    strcpy( L -> nome , "CABECA");
-        printf("\n DEPOIS: %s", L  -> nome );
+    strcpy( L -> nome , "CABECA DE LISTA" );
+    printf("\n DEPOIS: %s", L  -> nome );
     
     // APLICACAO
-	for(int i=0; i < Q; i++ )	
-	{
-	  insere_lista( vetor_INPUT[i] , L );
-	  printf("\n %d: %s ", i, vetor_INPUT[i] );    
+	//for(int i=0; i < Q; i++ )	
+   
+   //  while ((getline( &entrada, &len, stdin)) != -1)
+  printf("\n QT. NOMES (int):"); 
+  __fpurge(stdin);  
+  fscanf(stdin, "%d", &N_NOMES);  
+ //fflush(stdin); 
+ //scanf("%22[^\n]s" , entrada ) != EOF )	
+//while(fscanf(stdin,"%[a-z A-Z]s\n" , entrada ) != EOF )	
+   while(i < N_NOMES)
+	{ 
+ 	  printf("\n NOME: ");	
+	  __fpurge(stdin);	
+	  fgets(entrada , sizeof(entrada), stdin);
+ 	  //fscanf(stdin, "%[^\n]s", entrada);
+ 	  //scanf("%[a-z A-Z]s", entrada );
+	  //insere_lista( vetor_INPUT[i] , L );
+	  
+	  printf("\n LIDO : %s",  entrada );
+	  insere_lista( entrada , L );
+	  //printf("\n : %s : %ld",  entrada , len);    
+	  //printf("\n %d: %s ", i, vetor_INPUT[i] );    
+	  //setbuf(stdin, NULL);
+	  i++;
     };
 		
 	//printf("fim: %p %p\n", L->next, 	ancora->next );

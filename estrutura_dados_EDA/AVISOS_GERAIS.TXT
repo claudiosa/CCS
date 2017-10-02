@@ -2,9 +2,14 @@
 Avisos
 
 
-* tem prova sobre filas dia 05/out 
+* tem prova sobre filas dia 05/out  -- 2 a 3 problemas
 * lab sobre filas dias 28/set e 03/out (dias finais antes da prova)
-* Assunto: Listas em 10 e 12/out
+* Tem 3 problemas sobre filas desde 5a feira ...
+* 2 trabalhos de filas: DEQUEUE e FILAS com prioridades => nao definidas
+  mas serao via run codes
+*
+* Assunto: Listas em 10 e 12/out (feriado ?)
 * Prova dia 17 ou 19 out --> listas
+* Ha muito ainda em listas
 
 

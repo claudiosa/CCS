@@ -1,22 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h> // bool no C
 
-struct NO_struct
-	{
-	  //char nome[N]; // aqui uma outra struct
-	  char *pt_nome;
-	  struct NO_struct *next; 
-	};
-
-typedef struct NO_struct  noh_tipo;
-
-noh_tipo * cria_no(void);
-int  ins_fim_lista  (char *pt_ENTRADA, noh_tipo **L);
-void ins_inic_lista (char *pt_ENTRADA, noh_tipo **L);
-void ins_fim_lista_2(char *pt_ENTRADA, noh_tipo **L);
-void imp_lista(noh_tipo *L);
+#include "lista_11.h"
 
 
 int main(void)
@@ -51,6 +34,8 @@ int main(void)
 	//printf("fim: %p %p\n", L->next, 	ancora->next );
 	imp_lista( L );
 	// falta destruir lista
+   destroi_lista( &L );
+
 	puts("\n... SUCESSO...");
 
 return 1;
