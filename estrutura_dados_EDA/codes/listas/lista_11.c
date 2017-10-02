@@ -1,24 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h> // bool no C
+#include "lista_11.h"
 
-
-// DEFINICAO DO NO de lista
-struct NO_struct
-  {
-    //char nome[N]; // aqui uma outra struct
-    char *pt_nome;
-    struct NO_struct *next; 
-  };
-
-typedef struct NO_struct  noh_tipo;
-
-noh_tipo * cria_no(void);
-int ins_fim_lista(char *pt_nome, noh_tipo **L);
-void ins_fim_lista_2(char *pt_DADO , noh_tipo **L);
-void imp_lista(noh_tipo *L);
-void ins_inic_lista(char *pt_nome, noh_tipo ** head);
 
 // UMA PRIMITIVA -- generica a qualquer momento
 noh_tipo * cria_no(void)
@@ -43,10 +24,10 @@ void imp_lista(noh_tipo *L)
   int i=1;
  // printf("\n %d o. Noh:::  NOME: %s", i , ( L -> nome));
   do {
-	  printf("\n %do. NO  NOME: %s", i , ( L -> pt_nome));
+	  printf("\n %do. Noh  NOME: %s", i , ( L -> pt_nome));
 	  L = L -> next;
       i++;
-	} while( L  != NULL );
+	} while( L != NULL );
 	//while(L -> next != NULL);
 	
 	return;
@@ -131,9 +112,40 @@ int is_empty( noh_tipo *L )
 	}
 
 /* se eh o ultimo */
-int is_last( noh_tipo *p )
+int is_last( noh_tipo *L )
 {
-	return( p->next == NULL );
+	return( L->next == NULL );
 }
+
+void destroi_lista( noh_tipo **L )
+  {s
+   if( (*L) != NULL )
+  	 { int i=1;
+  	   noh_tipo  * aux , *prox;
+  	   aux =(*L);
+	  	  while( aux -> next != NULL ) 
+	  	  {
+		  	prox = aux -> next;
+		  	//free( aux ->  pt_nome );  NAO .....
+		  	free(aux); // AQUI LIBERA TUDO 
+		  	aux = prox;
+		  	//puts(".");
+	      	i++;
+		  } ;
+		      
+       free( aux ); // PARA O ULTIMO NO
+       printf("\n Total de nosh liberados: %d ", i );
+       printf("\n LISTA LIBERADA OK\n " );
+
+       return;
+       }
+
+     else
+     {
+        printf("\n LISTA VAZIA ... NADA a LIBERAR \n" );
+        return;
+     }
+    
+  }
 
 /******* fim ******/
