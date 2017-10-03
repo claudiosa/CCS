@@ -20,7 +20,7 @@ noh_tipo * cria_no(void)
 // vem o endereco original
 void imp_lista(noh_tipo *L)
 { 
-  puts("\n IMP LISTA: \n");
+  puts("\n IMPRIME LISTA: \n ============================");
   int i=1;
  // printf("\n %d o. Noh:::  NOME: %s", i , ( L -> nome));
   do {
@@ -118,7 +118,7 @@ int is_last( noh_tipo *L )
 }
 
 void destroi_lista( noh_tipo **L )
-  {s
+  {
    if( (*L) != NULL )
   	 { int i=1;
   	   noh_tipo  * aux , *prox;
@@ -147,5 +147,69 @@ void destroi_lista( noh_tipo **L )
      }
     
   }
+
+
+// 
+int comprimento_lista( noh_tipo **L )
+  {
+   if( (*L) == NULL )
+   return 0;
+  
+    int i=1; // UM NO
+  	   noh_tipo  * aux , *prox;
+  	   aux =(*L);
+	  	  while( aux -> next != NULL ) 
+	  	  {
+		  	prox = aux -> next;
+		  	aux = prox;
+		  	//puts(".");
+	      	i++;
+		  } ;
+		      
+     // da para fazer sem *prox  
+       //printf("\n Comprimento da lista: %d ", i );
+  
+       return i;
+         
+  }
+
+
+bool exclui_n_esimo_lista( int n, noh_tipo **L )
+  {
+   if( n > comprimento_lista( L ) || n < 1)
+   {
+	  printf("\n Erro na exclusao .... posicao INVALIDA!");
+	  getchar();
+	  return false;
+	}
+	
+    int i=1; // UM NO
+  	noh_tipo  * corrente , *anterior;
+  	corrente = anterior = (*L);
+
+	if( n == 1) // caso do 1o. da lista
+   	{
+	  printf("\n NOH: %d => EXCLUINDO NOME: %s", i, ( corrente -> pt_nome));
+      (*L) = corrente -> next;
+      free(corrente);
+      return true;
+	}
+	// OS DEMAIS ... CREIO QUE PODE SER MELHORADO
+    while( i < n ) // avancar ate o no em questao
+	 {
+	   anterior = corrente;
+	   corrente = corrente -> next ; // avanca
+	    i++;
+	 } ;
+		      
+    anterior -> next = corrente -> next ;
+	printf("\n NOH: %d => EXCLUINDO NOME: %s", i, ( corrente -> pt_nome));
+    
+    free(corrente);
+    return true;
+         
+  }
+
+ // construa o insercao na N-esima posicao .... 
 
 /******* fim ******/
