@@ -3,17 +3,23 @@ Exercícios de Vetores e Matrizes
 ATENÇÃO : basicamente  "todos" exercicios da seção de 
           laços de repetição, podem ser refeitos agora
 	  com vetores 1D e 2D.
-
-
+	  Assim refaça alguns de laços ... mas agora com VETORES!
 
 1. Crie um programa em C que tenha um vetor A com 
-   de 100 números inteiros quaisquer, e um vetor B com 5 números, 
-   digamos 1, 2, 3,  4 e 5. Seu programa deve dizer 
+   de 1000 números inteiros quaisquer, e um vetor B com 5 números quaisquer, 
+   digamos 1, 2, 3, 4 e 5. Seu programa deve dizer 
    quantos números de 1 a 5 estão presentes no vetor A.
-
+   Resumindo com um exemplo minúsculo:
+   Digamos: A = { 2, 3, 4, 5, 6, 1, 2, 3, 3, 3, 3, 2}
+     vetor  B = { 2, 3} // APENAS 2 numeros ...
+     crie o vetor C, tal que a saida seja:
+     C = {3, 6}  pois o 2 apareceu 3 X em A e 
+                      o 3 apareceu 6 X em A.
+		      
+   Exercicio interessante: precisa de 2 for aninhados.... dificuldade média.     
+ 
 2. Dado um vetor um vetor A de números inteiros quaisquer,
    indique se o mesmo é um palíndromo ou não.
-
 
 3. Crie um programa em C que peça 100 números, armazene eles em um vetor e diga 
    qual elemento é o maior, e seu valor.
