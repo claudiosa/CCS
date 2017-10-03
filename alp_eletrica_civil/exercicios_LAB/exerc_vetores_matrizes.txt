@@ -1,0 +1,35 @@
+Exercícios de Vetores e Matrizes
+
+* Crie um programa em C que tenha um vetor A com 
+	de 100 números inteiros quaisquer,
+	e um vetor B com 5 números, digamos 1, 2, 3,  4 e 5.
+	Seu programa deve dizer quantos números de 1 a 5 estão presentes
+	no vetor A.
+
+* Dado um vetor um vetor A de números inteiros quaisquer,
+indique se o mesmo é um palíndromo ou não.
+
+
+* Crie um programa em C que peça 100 números, armazene eles em um vetor e diga 
+   qual elemento é o maior, e seu valor.
+
+* Crie um programa em C que peça 100 números, armazene eles em um vetor e diga
+  qual elemento é o menor, e seu valor.
+
+* Crie um programa em C que peça 100 números, armazene eles em um
+  vetor e diga qual elemento é o maior, qual é o menor e que seus valores.
+
+* Crie um aplicativo em C que peça um número inicial ao usuário, uma razão e calcule os termos de uma P.A (Progressão Aritmética), armazenando esses valores em um vetor de tamanho 100.
+
+* Crie um aplicativo em C que peça um número inicial ao usuário, uma razão e calcule os termos de uma P.G (Progressão Geométrica), armazenando esses valores em um vetor de tamanho 100.
+
+* Escreve um programa que sorteio, aleatoriamente, 100 números e armazene estes em um vetor.
+Em seguida, o usuário digita um número e seu programa em C deve acusar se o número digitado está no vetor ou não. Se estiver, diga a posição que está.
+
+* Criando um tabuleiro de Jogo da Velha
+Crie um tabuleiro de jogo da velha, usando uma matrizes de caracteres (char) 3x3, onde o usuário pede o número da linha (1 até 3) e o da coluna (1 até 3). A cada vez que o usuário entrar com esses dados, colocar um 'X' ou 'O' no local selecionado.
+
+
+* Como criar um programa que verifica se o número é palíndromo
+Número palíndromo é aquele que, se lido de trás para frente e de frete para trás, é o mesmo.
+Exemplos: 2112, 666, 2442 etc
