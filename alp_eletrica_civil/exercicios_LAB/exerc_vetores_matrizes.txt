@@ -21,14 +21,14 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
 2. Dado um vetor um vetor A de números inteiros quaisquer,
    indique se o mesmo é um palíndromo ou não.
 
-3. Crie um programa em C que peça 100 números, armazene eles em um vetor e diga 
-   qual elemento é o maior, e seu valor.
+3. Crie um programa em C que peça 1000 números, armazene eles em um vetor e diga 
+   qual elemento é o maior, e seu valor médio.
 
-4. Crie um programa em C que peça 100 números, armazene eles em um vetor e diga
-   qual elemento é o menor, e seu valor.
+4. Crie um programa em C que peça 1000 números, armazene eles em um vetor e diga
+   qual elemento é o menor, e o valor do produto % 999 (para não crescer muito ....).
 
-5. Crie um programa em C que peça 100 números, armazene eles em um
-   vetor e diga qual elemento é o maior, qual é o menor e que seus valores.
+5. Crie um programa em C que peça 1000 números, armazene eles em um
+   vetor e diga qual elemento é o maior, qual é o menor e seus respectivos valores.
 
 6. Crie um aplicativo em C que peça um número inicial ao usuário, 
     uma razão e calcule os termos de uma P.A. (Progressão Aritmética),
