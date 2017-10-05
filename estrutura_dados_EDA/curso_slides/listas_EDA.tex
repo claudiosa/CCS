@@ -185,28 +185,42 @@ void imprimir(Lista* l);
 \end{frame}
 %----------------------------------------------------------------------------------------------------------
 
-\begin{frame}{Implementação da Lista}
-\begin{itemize}
-	\item A utilização de vetores para implementar a lista traz algumas vantagens como:	
-	\begin{enumerate}
-		\item Os elementos são armazenados em posições contíguas da memória;
-		\item Economia de memória, pois os ponteiros para o próximo elemento da lista são explícitos.
-	\end{enumerate}
-		\item No entanto, as desvantagens são:		
-		\begin{enumerate}
-			\item Custo de inserir/remover elementos da lista;
-			\item Limitação da quantidade de elementos da lista.
-		\end{enumerate}
-\end{itemize}
+\begin{frame}{Implementação das Listas de Tamanho Fixo}
+
+A utilização de vetores para implementar a lista traz algumas vantagens como:	
+  \begin{enumerate}
+	\item Os elementos são armazenados em posições contíguas da memória
+	\item Basta ver a estrutura, internamente é um vetor
+	\item Economia de memória, pois os ponteiros para o próximo elemento da lista são explícitos
+	\item Há um índice de acesso direto e o {\em cursor} para indicar o último elemento
+\end{enumerate}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}{Implementação das Listas de Tamanho Fixo}
+
+No entanto, as desvantagens são:		
+  \begin{enumerate}
+\item Custo de inserir/remover elementos da lista 
+\pause
+\item Neste caso se refere ao deslocamento células a frente no caso de inserção
+\item ou  deslocamento células para trás no caso de remoção
+\item Finalmente: limitação da quantidade de elementos da lista
+\item Este é ponto ... tamanho fixo!
+\item Aqui, usamos alocação dinâmica, mas todos conceitos aqui são complementares
+\end{enumerate}
+
 \end{frame}
 %----------------------------------------------------------------------------------------------------------
 
 \begin{frame}[fragile,c]{Função de Criação}
 	\begin{itemize}
-		\item A função que cria uma lista, deve criar e retornar uma lista vazia;
-		\item A função deve atribuir o valor zero ao tamanho da lista, ou seja, fazer $l->cursor = 0$, como podemos ver no código abaixo.
-		\item A complexidade de tempo para criar a lista é constante, ou seja, $O(1)$.
+	\item A função que cria uma lista, deve criar e retornar uma lista vazia;
+	\item A função deve atribuir o valor zero ao tamanho da lista, ou seja, fazer $l->cursor = 0$, como podemos ver no código abaixo.
+	\item A complexidade de tempo para criar a lista é constante, ou seja, $O(1)$.
 	\end{itemize}
+	
 \begin{lstlisting}[language=C]
 /*
  * Aloca dinamicamente a estrutura lista, inicializando seus
@@ -244,6 +258,7 @@ void inserir(Lista* l, int e){
 }
 \end{lstlisting}	
 \end{frame}
+%----------------------------------------------------------------------------------------------------------
 
 \begin{frame}[fragile,c]{Função de Remoção} 
 	\begin{itemize}
@@ -266,6 +281,7 @@ void remover(Lista* l, int e){
 }
 \end{lstlisting}	
 \end{frame} 
+%----------------------------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]{Função de Pesquisa} 
 	\begin{itemize}
@@ -287,6 +303,7 @@ int pesquisar(Lista* l, int e){
 }
 \end{lstlisting}
 \end{frame}
+%----------------------------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]{Função de Impressão}
 
@@ -306,6 +323,7 @@ void imprimir(Lista* l){
 }
 \end{lstlisting}	
 \end{frame}
+%----------------------------------------------------------------------------------------------------------
 
 \begin{frame}[fragile,c]{Exemplo de Uso da Lista}
 
@@ -332,17 +350,16 @@ int main(void)
 
 \end{frame} 
 
+%----------------------------------------------------------------------------------------------------------
 
 \begin{frame}{Referências}
 	\begin{enumerate}
-	
-		
-		\item Karumanchi, Narashimha (2017). 
-		\textit{Data Structures and Algorithms Made Easy -- Data Structures and Algorithms
+	\item Karumanchi, Narashimha (2017). 
+	\textit{Data Structures and Algorithms Made Easy -- Data Structures and Algorithms
 		and Puzzles}.  CareerMonk.com
 
-	
-		\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). Estruturas de Dados Usando C. MAKRON Books, pp. 207-250.
-		\item Wirth, N. (1989). Algoritmos e Estrutura de dados. LTC, pp. 151-165.
+\item Tenenbaum, A. M., Langsam, Y., and Augestein, M. J. (1995). Estruturas de Dados Usando C. MAKRON Books, pp. 207-250.
+\item Wirth, N. (1989). Algoritmos e Estrutura de dados. LTC, pp. 151-165.
 	\end{enumerate}
 \end{frame}
+%----------------------------------------------------------------------------------------------------------
