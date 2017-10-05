@@ -31,7 +31,7 @@ Pontos fundamentais a serem cobertos:
 \end{frame}
 %----------------------------------------------------------------------------------------------------------
 
-\subsection{Listas Lineares}
+%% \subsection{Listas Lineares}
   \begin{frame}{Introdução}    
 		\begin{itemize}
 			\item Uma seqüência de nós ou elementos dispostos em uma ordem estritamente linear.
@@ -41,12 +41,42 @@ Pontos fundamentais a serem cobertos:
 					\item Em um vetor
 					\item Em uma estrutura que tem um vetor de tamanho fixo e uma 
 					variável para armazenar o tamanho da lista
-					\item Conjunto de nós criados e ligados dinâmicamente (abordagem aqui adotada)
+					\item Conjunto de nós criados e ligados dinâmicamente (abordagem aqui adotada nos códigos apresentados)
 					\pause
 					\item As duas implementações iniciais são exercícios de disciplinas anteriores.
 				\end{enumerate}
 		\end{itemize}
   \end{frame}
+
+%----------------------------------------------------------------------------------------------------------
+  \begin{frame}{Motivação}    
+	\begin{enumerate}
+	\item Talvez a estrutura de dados mais importante
+	\item Generaliza Pilhas e Filas
+	\item Utilizada em várias outras estruturas como grafos e árvores
+	\pause
+	\item Os exemplos em código apresentados, utilizam extensivamente 
+	endereçamentos de memória (ponteiros e ponteiros para ponteiros) e alocações dinãmicas
+	de memória
+	\item Contudo, para fins conceitual usaremos uma lista {\em rígida} nestes slides
+	\end{enumerate}
+	
+  \end{frame}
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}{Aplicações}    
+	\begin{enumerate}
+	\item 
+	\pause
+	\item 
+	\end{enumerate}
+	
+  \end{frame}
+%----------------------------------------------------------------------------------------------------------
+
+
+
+
+
 %----------------------------------------------------------------------------------------------------------  
 \begin{frame}{Definição}
      \begin{block}{Definição}
@@ -59,6 +89,10 @@ Pontos fundamentais a serem cobertos:
        \end{itemize}
      \end{block}     
 \end{frame}
+%----------------------------------------------------------------------------------------------------------
+
+
+
 %----------------------------------------------------------------------------------------------------------
 \begin{frame}{Representação}
 \begin{itemize}
@@ -103,7 +137,7 @@ Pontos fundamentais a serem cobertos:
 
 \begin{frame}[fragile,c]{Representação Estática -- Tamanho Fixo}
 \begin{itemize}
-	
+
  \item Para atribuirmos um valor a algum membro da lista devemos utilizar a seguinte notação:
 
 \small	
@@ -154,6 +188,7 @@ Lista->elemento[n-1] = 4 //atribui o valor 4 ao ultimo elemento da lista.
 \caption{Operações auxiliares da estrutura de dados lista.}
 \end{table}
  \end{frame}
+ 
 %----------------------------------------------------------------------------------------------------------
 
 \begin{frame}[fragile,plain]{Interface do Tipo Lista}
@@ -284,10 +319,10 @@ void remover(Lista* l, int e){
 %----------------------------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]{Função de Pesquisa} 
-	\begin{itemize}
-		\item Para pesquisar um elemento qualquer na lista é necessário compará-lo com os elementos existentes, utilizando alguns dos algoritmos de busca conhecidos;
-		\item A complexidade de tempo dessa função depende do algoritmo de busca implementado. Se utilizarmos a busca seqüencial, a complexidade da função será $O(n)$. No entanto, é possível baixá-lo para $O(n\log n)$.
-	\end{itemize}
+   \begin{itemize}
+	\item Para pesquisar um elemento qualquer na lista é necessário compará-lo com os elementos existentes, utilizando alguns dos algoritmos de busca conhecidos;
+	\item A complexidade de tempo dessa função depende do algoritmo de busca implementado. Se utilizarmos a busca seqüencial, a complexidade da função será $O(n)$. No entanto, é possível baixá-lo para $O(n\log n)$.
+ \end{itemize}
 
 \footnotesize
 \begin{lstlisting}[language=C]
@@ -308,13 +343,17 @@ int pesquisar(Lista* l, int e){
 \begin{frame}[fragile]{Função de Impressão}
 
 \begin{itemize}
-		\item A impressão da lista ocorre através da apresentação de todos os elementos compreendidos entre o intervalo: $[0.. l->cursor]$.
-		\item A complexidade de tempo da função de impressão é $O(n)$, pois no pior caso, quando lista estiver cheia, é necessário percorrer os $n$ elementos da lista.
-	
-	\end{itemize}
+
+\item A impressão da lista ocorre através da apresentação de todos os elementos compreendidos entre o intervalo: 
+  $[0 .. l->cursor]$.
+
+\item A complexidade de tempo da função de impressão é $O(n)$, pois no 
+  pior caso, quando lista estiver cheia, é necessário percorrer 
+  os $n$ elementos da lista.
+\end{itemize}
 	
 \begin{lstlisting}[language=C]
-/*Apresenta os elementos da lista l. */
+/* Apresenta os elementos da lista l. */
 void imprimir(Lista* l){
  int i;
  for(i = 0; i < l->cursor; i++)
