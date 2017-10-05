@@ -1,15 +1,18 @@
 
-Avisos
+Avisos -- Leiam todos ... é o Roadmap do curso:
 
 
-* tem prova sobre filas dia 05/out  -- 2 a 3 problemas
+* 
+* tem prova sobre filas dia 05/out  -- 2 a 3 problemas (os dois fáceis todos devem fazer)
 * lab sobre filas dias 28/set e 03/out (dias finais antes da prova)
-* Tem 3 problemas sobre filas desde 5a feira ...
-* 2 trabalhos de filas: DEQUEUE e FILAS com prioridades => nao definidas
-  mas serao via run codes
+* Tem 3 problemas sobre filas desde 5a feira ...para fins de exercícios
+* 2 trabalhos de filas: DEQUEUE e FILAS com prioridades => nao definidos pois há listas ainda
 *
-* Assunto: Listas em 10 e 12/out (feriado ?)
+* Assunto: Listas em 10 e 12/out (feriado -- sem aula)
 * Prova dia 17 ou 19 out --> listas
-* Ha muito ainda em listas
-
+* Ha muita implementação sobre em listas ... muitos problemas
+* Ainda há uma prova sobre listas e outra sobre árvores (pelo menos a parte introdutória)
+* 9/novembro sem aula -- terá um trabalho aqui ....
+* 
+*
 
