@@ -30,8 +30,28 @@ Pontos fundamentais a serem cobertos:
 
 \end{frame}
 %----------------------------------------------------------------------------------------------------------
+\begin{frame}
 
-%% \subsection{Listas Lineares}
+\begin{block}{ \textcolor{red}{Atenção:} }
+
+\begin{itemize}
+  \item \textcolor{red}{Duas partes este capítulo}
+  \item   Listas com um vetor de tamanho fixo internamente
+  \item  Listas estruturadas em nós alocados dinamicamente
+  \item  Conceitualmente, equivalentes!
+  \item  Implementações discutidas: alocação dinâmica!
+  \item  Aqui justifica-se o estudo extensivo de ponteiros no início do curso
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+%----------------------------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------------------------
+
+\subsection{Listas -- Tamanho Limitado}
   \begin{frame}{Introdução}    
 		\begin{itemize}
 			\item Uma seqüência de nós ou elementos dispostos em uma ordem estritamente linear.
@@ -73,7 +93,17 @@ Pontos fundamentais a serem cobertos:
   \end{frame}
 %----------------------------------------------------------------------------------------------------------
 
+\begin{frame}
+\frametitle{Exemplo de Uso}
+\begin{figure}[!hb]
+	\centering
+		\includegraphics[height=0.30\paperheight, width=0.55\paperwidth]{figs/fig_listas/lista_matriz_adjacencia}			
+			\caption{Uso de lista para representar matriz de adjacência}	
+%%				\label{fig:lista-linear-repre}
+			\end{figure} 
 
+  \end{frame}
+%----------------------------------------------------------------------------------------------------------
 
 
 
@@ -240,7 +270,9 @@ No entanto, as desvantagens são:
 \item Custo de inserir/remover elementos da lista 
 \pause
 \item Neste caso se refere ao deslocamento células a frente no caso de inserção
+\pause
 \item ou  deslocamento células para trás no caso de remoção
+\pause
 \item Finalmente: limitação da quantidade de elementos da lista
 \item Este é ponto ... tamanho fixo!
 \item Aqui, usamos alocação dinâmica, mas todos conceitos aqui são complementares
@@ -390,6 +422,179 @@ int main(void)
 \end{frame} 
 
 %----------------------------------------------------------------------------------------------------------
+
+\subsection{Listas -- Tamanho Ilimitado}
+
+\begin{frame}
+\frametitle{Listas \textit{Ilimitadas}}
+\begin{block}{Complemento}
+
+\begin{itemize}
+  \item Nesta parte vamos discutir as listas \textit{ilimitadas}
+  \item Crescem ou não dinâmicamente de acordo com a disponibilidade de memória
+  \item O usuário controla a memória etc
+  \item Todos conceitos vistos anteriormente, são aqui preservados
+\end{itemize}
+
+\end{block}
+
+\end{frame} 
+
+
+
+%----------------------------------------------------------------------------------------------------------
+%[allowframebreaks=0.9]
+
+\begin{frame}%%[allowframebreaks=0.98]
+\frametitle{Incluindo um nó no início da lista}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.6\textwidth]{figs/fig_listas/lista-linear}
+%%\includegraphics[height=0.50\paperheight, width=0.5\paperwidth]{figs/fig_listas/lista-linear}
+	\end{figure} 
+
+\begin{figure}[!hb]
+	\centering
+		\includegraphics[height=0.50\paperheight, width=0.5\paperwidth]{figs/fig_listas/insere_inicio}			
+			\caption{Incluir um nó no início da lista}	
+%%				\label{fig:lista-linear-repre}
+			\end{figure} 
+
+
+\end{frame} 
+%----------------------------------------------------------------------------------------------------------
+%[allowframebreaks=0.9]
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Incluindo um nó numa posição da  lista}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/insere_posicao}						
+			\caption{Incluir um nó numa posição da lista}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+%----------------------------------------------------------------------------------------------------------
+%[allowframebreaks=0.9]
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Excluindo o nó no início da lista -- \textit{cabeça} da lista}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/exclui_inicio}						
+			\caption{Exclui o nó no início da lista}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Excluindo um nó no  meio  da lista}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/exclui_no_meio}						
+			\caption{Exclui nó no  meio  da lista -- k-ésima posição ou por conteúdo}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Excluindo o último nó da lista}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/exclui_ultimo_no}						
+			\caption{Exclui o último nó da lista}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
+
+%----------------------------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Listas Duplamente Encadeadas}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+%%	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/exclui_ultimo_no}						
+			\caption{Listas Duplamente Encadeadas}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Listas Circulares}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+%%	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/exclui_ultimo_no}						
+			\caption{Listas Circulares}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
+%ss------------------------------------------------------
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Exercícios}
+
+\begin{block}{Aqui esta \textit{lista} é grande ... }
+
+\begin{itemize}
+  \item Inverter a lista
+  \item \textit{Merge} de duas listas
+  \item 
+  \item 
+  \item 
+  \item 
+  
+  
+  
+\end{itemize}
+
+
+\end{block}
+
+
+\end{frame} 
+
+%%%%%%%%%%%------------------------------------------------------
+
+
+
+
 
 \begin{frame}{Referências}
 	\begin{enumerate}
