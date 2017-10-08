@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  7 OCT 2017 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  8 OCT 2017 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1602,9 +1602,9 @@ Overfull \hbox (28.01892pt too wide) in paragraph at lines 31--31
 File: figs/fig_listas/lista_matriz_adjacencia.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_matriz_adjacencia.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_matriz_adjacencia.jpg  used on i
-nput line 105. on input line 105.
+nput line 106. on input line 106.
 Package pdftex.def Info: Requested size: 200.30533pt x 81.94301pt on input line
- 105.
+ 106.
  [32
 
  <./figs/fig_listas/lista_matriz_adjacencia.jpg>] [33
@@ -1614,9 +1614,9 @@ Package pdftex.def Info: Requested size: 200.30533pt x 81.94301pt on input line
 File: figs/fig_listas/lista-linear.png Graphic file (type png)
 <use figs/fig_listas/lista-linear.png>
 Package pdftex.def Info: figs/fig_listas/lista-linear.png  used on input line 1
-42. on input line 142.
+43. on input line 143.
 Package pdftex.def Info: Requested size: 205.37926pt x 37.91565pt on input line
- 142.
+ 143.
  [34
 
  <./figs/fig_listas/lista-linear.png>]
@@ -1699,69 +1699,173 @@ Overfull \hbox (47.5276pt too wide) in paragraph at lines 9--10
 ] [51
 
 ]
-File: figs/fig_listas/lista-linear.png Graphic file (type png)
-<use figs/fig_listas/lista-linear.png>
-Package pdftex.def Info: figs/fig_listas/lista-linear.png  used on input line 4
-65. on input line 465.
-Package pdftex.def Info: Requested size: 205.37926pt x 37.91565pt on input line
- 465.
-<figs/fig_listas/insere_inicio.jpg, id=439, 3248.135pt x 1642.135pt>
-File: figs/fig_listas/insere_inicio.jpg Graphic file (type jpg)
-<use figs/fig_listas/insere_inicio.jpg>
-Package pdftex.def Info: figs/fig_listas/insere_inicio.jpg  used on input line 
-465. on input line 465.
-Package pdftex.def Info: Requested size: 182.09256pt x 136.56026pt on input lin
-e 465.
+<figs/fig_listas/lista_SE_struct.jpg, id=439, 169.1118pt x 53.4798pt>
+File: figs/fig_listas/lista_SE_struct.jpg Graphic file (type jpg)
+<use figs/fig_listas/lista_SE_struct.jpg>
+Package pdftex.def Info: figs/fig_listas/lista_SE_struct.jpg  used on input lin
+e 462. on input line 462.
+Package pdftex.def Info: Requested size: 309.59798pt x 150.26138pt on input lin
+e 462.
  [52
 
- <./figs/fig_listas/insere_inicio.jpg>]
-<figs/fig_listas/insere_posicao.jpg, id=446, 3103.595pt x 1822.81pt>
-File: figs/fig_listas/insere_posicao.jpg Graphic file (type jpg)
-<use figs/fig_listas/insere_posicao.jpg>
-Package pdftex.def Info: figs/fig_listas/insere_posicao.jpg  used on input line
- 481. on input line 481.
-Package pdftex.def Info: Requested size: 254.92265pt x 136.56578pt on input lin
-e 481.
+ <./figs/fig_listas/lista_SE_struct.jpg>]
+<figs/fig_listas/lista_encadeada02.jpg, id=446, 879.285pt x 610.53094pt>
+File: figs/fig_listas/lista_encadeada02.jpg Graphic file (type jpg)
+<use figs/fig_listas/lista_encadeada02.jpg>
+Package pdftex.def Info: figs/fig_listas/lista_encadeada02.jpg  used on input l
+ine 474. on input line 474.
+Package pdftex.def Info: Requested size: 309.56563pt x 150.22884pt on input lin
+e 474.
  [53
 
- <./figs/fig_listas/insere_posicao.jpg>]
-<figs/fig_listas/exclui_inicio.jpg, id=453, 3047.385pt x 1473.505pt>
-File: figs/fig_listas/exclui_inicio.jpg Graphic file (type jpg)
-<use figs/fig_listas/exclui_inicio.jpg>
-Package pdftex.def Info: figs/fig_listas/exclui_inicio.jpg  used on input line 
-497. on input line 497.
-Package pdftex.def Info: Requested size: 254.9091pt x 136.56688pt on input line
- 497.
+ <./figs/fig_listas/lista_encadeada02.jpg>]
+Overfull \vbox (26.76068pt too high) detected at line 501
+ []
 
 [54
 
+]
+<figs/fig_listas/compara_implementacao_listas.jpg, id=459, 3392.675pt x 939.51p
+t>
+File: figs/fig_listas/compara_implementacao_listas.jpg Graphic file (type jpg)
+<use figs/fig_listas/compara_implementacao_listas.jpg>
+Package pdftex.def Info: figs/fig_listas/compara_implementacao_listas.jpg  used
+ on input line 515. on input line 515.
+Package pdftex.def Info: Requested size: 291.35022pt x 152.96245pt on input lin
+e 515.
+ [55
+
+ <./figs/fig_listas/compara_implementacao_listas.jpg>]
+<figs/fig_listas/lista_encadeada01.png, id=467, 416.30531pt x 152.06813pt>
+File: figs/fig_listas/lista_encadeada01.png Graphic file (type png)
+<use figs/fig_listas/lista_encadeada01.png>
+Package pdftex.def Info: figs/fig_listas/lista_encadeada01.png  used on input l
+ine 536. on input line 536.
+Package pdftex.def Info: Requested size: 182.095pt x 81.94617pt on input line 5
+36.
+<figs/fig_listas/insere_inicio.jpg, id=468, 3248.135pt x 1642.135pt>
+File: figs/fig_listas/insere_inicio.jpg Graphic file (type jpg)
+<use figs/fig_listas/insere_inicio.jpg>
+Package pdftex.def Info: figs/fig_listas/insere_inicio.jpg  used on input line 
+536. on input line 536.
+Package pdftex.def Info: Requested size: 182.09256pt x 136.56026pt on input lin
+e 536.
+
+Overfull \vbox (40.56493pt too high) detected at line 536
+ []
+
+[56
+
+ <./figs/fig_listas/lista_encadeada01.png> <./figs/fig_listas/insere_inicio.jpg
+>]
+<figs/fig_listas/insere_posicao.jpg, id=475, 3103.595pt x 1822.81pt>
+File: figs/fig_listas/insere_posicao.jpg Graphic file (type jpg)
+<use figs/fig_listas/insere_posicao.jpg>
+Package pdftex.def Info: figs/fig_listas/insere_posicao.jpg  used on input line
+ 552. on input line 552.
+Package pdftex.def Info: Requested size: 254.92265pt x 136.56578pt on input lin
+e 552.
+ [57
+
+ <./figs/fig_listas/insere_posicao.jpg>]
+<figs/fig_listas/exclui_inicio.jpg, id=482, 3047.385pt x 1473.505pt>
+File: figs/fig_listas/exclui_inicio.jpg Graphic file (type jpg)
+<use figs/fig_listas/exclui_inicio.jpg>
+Package pdftex.def Info: figs/fig_listas/exclui_inicio.jpg  used on input line 
+568. on input line 568.
+Package pdftex.def Info: Requested size: 254.9091pt x 136.56688pt on input line
+ 568.
+ [58
+
  <./figs/fig_listas/exclui_inicio.jpg>]
-<figs/fig_listas/exclui_no_meio.jpg, id=460, 3328.435pt x 1401.235pt>
+<figs/fig_listas/exclui_no_meio.jpg, id=489, 3328.435pt x 1401.235pt>
 File: figs/fig_listas/exclui_no_meio.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_no_meio.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_no_meio.jpg  used on input line
- 513. on input line 513.
+ 584. on input line 584.
 Package pdftex.def Info: Requested size: 254.90378pt x 136.56107pt on input lin
-e 513.
- [55
+e 584.
+ [59
 
  <./figs/fig_listas/exclui_no_meio.jpg>]
-<figs/fig_listas/exclui_ultimo_no.jpg, id=468, 3248.135pt x 1533.73pt>
+<figs/fig_listas/exclui_ultimo_no.jpg, id=496, 3248.135pt x 1533.73pt>
 File: figs/fig_listas/exclui_ultimo_no.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_ultimo_no.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_ultimo_no.jpg  used on input li
-ne 529. on input line 529.
+ne 600. on input line 600.
 Package pdftex.def Info: Requested size: 254.89986pt x 136.55536pt on input lin
-e 529.
- [56
+e 600.
+ [60
 
- <./figs/fig_listas/exclui_ultimo_no.jpg>] [57
+ <./figs/fig_listas/exclui_ultimo_no.jpg>]
+<figs/fig_listas/lista_DE_01.png, id=503, 602.25pt x 150.5625pt>
+File: figs/fig_listas/lista_DE_01.png Graphic file (type png)
+<use figs/fig_listas/lista_DE_01.png>
+Package pdftex.def Info: figs/fig_listas/lista_DE_01.png  used on input line 62
+3. on input line 623.
+Package pdftex.def Info: Requested size: 291.36491pt x 122.91985pt on input lin
+e 623.
+ [61
 
-] [58
+ <./figs/fig_listas/lista_DE_01.png>]
+<figs/fig_listas/insercao_LDE.jpg, id=512, 2565.585pt x 2356.805pt>
+File: figs/fig_listas/insercao_LDE.jpg Graphic file (type jpg)
+<use figs/fig_listas/insercao_LDE.jpg>
+Package pdftex.def Info: figs/fig_listas/insercao_LDE.jpg  used on input line 6
+39. on input line 639.
+Package pdftex.def Info: Requested size: 280.41443pt x 177.50795pt on input lin
+e 639.
 
-] [59
+Overfull \vbox (4.56645pt too high) detected at line 639
+ []
 
-] [60
+[62
+
+ <./figs/fig_listas/insercao_LDE.jpg>]
+<figs/fig_listas/lista_circular.png, id=519, 531.9875pt x 95.35625pt>
+File: figs/fig_listas/lista_circular.png Graphic file (type png)
+<use figs/fig_listas/lista_circular.png>
+Package pdftex.def Info: figs/fig_listas/lista_circular.png  used on input line
+ 657. on input line 657.
+Package pdftex.def Info: Requested size: 327.78325pt x 81.94801pt on input line
+ 657.
+ [63
+
+ <./figs/fig_listas/lista_circular.png>]
+<figs/fig_listas/exclui_1o_no_lista_circular.jpg, id=527, 3071.475pt x 2252.415
+pt>
+File: figs/fig_listas/exclui_1o_no_lista_circular.jpg Graphic file (type jpg)
+<use figs/fig_listas/exclui_1o_no_lista_circular.jpg>
+Package pdftex.def Info: figs/fig_listas/exclui_1o_no_lista_circular.jpg  used 
+on input line 670. on input line 670.
+Package pdftex.def Info: Requested size: 243.98895pt x 177.5161pt on input line
+ 670.
+ [64
+
+ <./figs/fig_listas/exclui_1o_no_lista_circular.jpg>]
+<figs/fig_listas/unrolled_listas.jpg, id=534, 3151.775pt x 1172.38pt>
+File: figs/fig_listas/unrolled_listas.jpg Graphic file (type jpg)
+<use figs/fig_listas/unrolled_listas.jpg>
+Package pdftex.def Info: figs/fig_listas/unrolled_listas.jpg  used on input lin
+e 687. on input line 687.
+Package pdftex.def Info: Requested size: 327.74802pt x 163.88162pt on input lin
+e 687.
+ [65
+
+ <./figs/fig_listas/unrolled_listas.jpg>]
+<figs/fig_listas/skipped_listas.jpg, id=541, 3288.285pt x 1365.1pt>
+File: figs/fig_listas/skipped_listas.jpg Graphic file (type jpg)
+<use figs/fig_listas/skipped_listas.jpg>
+Package pdftex.def Info: figs/fig_listas/skipped_listas.jpg  used on input line
+ 703. on input line 703.
+Package pdftex.def Info: Requested size: 254.88963pt x 136.55965pt on input lin
+e 703.
+ [66
+
+ <./figs/fig_listas/skipped_listas.jpg>]
+[67
+
+] [68
 
 ])
 No file curso_EDA_SLIDES.bbl.
@@ -1783,10 +1887,10 @@ Package rerunfilecheck Info: File `curso_EDA_SLIDES.out' has not changed.
 (rerunfilecheck)             Checksum: D86E8F6B7E944AB5EE0CB079AE6A91FE;505.
  ) 
 Here is how much of TeX's memory you used:
- 22133 strings out of 492990
- 398935 string characters out of 6138688
+ 22215 strings out of 492990
+ 401111 string characters out of 6138688
  524053 words of memory out of 5000000
- 24939 multiletter control sequences out of 15000+600000
+ 24995 multiletter control sequences out of 15000+600000
  90887 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,69p,802b,1327s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1804,10 +1908,10 @@ t/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 /lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share
 /texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/
 public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on curso_EDA_SLIDES.pdf (60 pages, 1227697 bytes).
+Output written on curso_EDA_SLIDES.pdf (68 pages, 2652874 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 477 compressed objects within 5 object streams
- 130 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 654 PDF objects out of 1000 (max. 8388607)
+ 523 compressed objects within 6 object streams
+ 146 named destinations out of 1000 (max. 500000)
+ 267 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -41,6 +41,7 @@ Pontos fundamentais a serem cobertos:
   \item  Conceitualmente, equivalentes!
   \item  Implementações discutidas: alocação dinâmica!
   \item  Aqui justifica-se o estudo extensivo de ponteiros no início do curso
+  \item  A terminologia aqui adotada é proveniente de vários livros e do professor! 
 \end{itemize}
 
 \end{block}
@@ -426,7 +427,7 @@ int main(void)
 \subsection{Listas -- Tamanho Ilimitado}
 
 \begin{frame}
-\frametitle{Listas \textit{Ilimitadas}}
+\frametitle{Listas \textit{Ilimitadas}  (ou \textit{Listas Encadeadas})}
 \begin{block}{Complemento}
 
 \begin{itemize}
@@ -434,25 +435,95 @@ int main(void)
   \item Crescem ou não dinâmicamente de acordo com a disponibilidade de memória
   \item O usuário controla a memória etc
   \item Todos conceitos vistos anteriormente, são aqui preservados
+  \item .... 
 \end{itemize}
 
 \end{block}
 
 \end{frame} 
 
+%---------------------------------------------------------------------------------------------------------
+%[allowframebreaks=0.9]
 
+
+\begin{frame}%%[allowframebreaks=0.98]
+\frametitle{Estrutura clássica  da implementação dessas listas}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height=0.550\paperheight, width=0.85\paperwidth]{figs/fig_listas/lista_SE_struct}
+\caption{Lista Simplesmente Encadeada -- LSE}
+	\end{figure} 
+	
+\begin{center}
+	\textcolor{red}{Conceitualmente, nada foi modificada em relação ao que se tinha anteriormente!}
+	\end{center}
+
+\end{frame} 
+
+%%%%
+\begin{frame}%%[allowframebreaks=0.98]
+\frametitle{\textit{Espalhadas} pela memória principal ... não contíguas!}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height=0.550\paperheight, width=0.85\paperwidth]{figs/fig_listas/lista_encadeada02}
+\caption{Lista Simplesmente Encadeada -- LSE}
+	\end{figure} 
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%%[allowframebreaks=0.98]
+\frametitle{\textit{Truques}  destas Implementações de Listas}
+
+\begin{block}{Observações:}
+\begin{itemize}
+  \item Ao contrário do que foi visto, estas estruturas são alocadas
+  dinamicamente na MP;
+  \item Idem quanto as remoções e a sua liberação de área;
+  \item O ponto é que facilmente pode se perder o ponteiro de início de lista
+  se o mesmo entrar no cálculo ou numa operação de lista;
+  \item Logo, vamos passar apenas o seu endereço afim de preservá-lo na função 
+   principal
+   \item Uma proteção (\textit{blindagem}) deste ponteiro cabeça de lista
+   \item Ou seja, passando apenas o seu endereço para as funções, estas terão que receber
+   como um ponteiro de ponteiro!
+   \item Sim, pois virá o endereço de um ponteiro que tem o início de lista, logo,
+ uma estrutura de nó com um   ponteiro de ponteiro é agora interessante.
+ \item Veja as implementações  e as estude com cuidado!
+ \item Faça um desenho!
+    
+\end{itemize}
+\end{block}
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%%[allowframebreaks=0.98]
+\frametitle{Complexidade de Implementações de Listas}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height=0.560\paperheight, width=0.8\paperwidth]{figs/fig_listas/compara_implementacao_listas}
+%%\includegraphics[height=0.50\paperheight, width=0.5\paperwidth]{figs/fig_listas/lista-linear}
+\caption{Comparativo da complexidade quanto as implementações}
+	\end{figure} 
+
+\end{frame} 
 
 %----------------------------------------------------------------------------------------------------------
 %[allowframebreaks=0.9]
 
 \begin{frame}%%[allowframebreaks=0.98]
 \frametitle{Incluindo um nó no início da lista}
-
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=.6\textwidth]{figs/fig_listas/lista-linear}
-%%\includegraphics[height=0.50\paperheight, width=0.5\paperwidth]{figs/fig_listas/lista-linear}
+	\includegraphics[height=0.30\paperheight, width=0.5\paperwidth]{figs/fig_listas/lista_encadeada01}
 	\end{figure} 
+
 
 \begin{figure}[!hb]
 	\centering
@@ -536,17 +607,39 @@ int main(void)
 
 \begin{frame}%%%[allowframebreaks=0.98]
 
-\frametitle{Listas Duplamente Encadeadas}
+\frametitle{Listas Duplamente Encadeadas -- LDE}
 
 \begin{figure}[!hb]
 	\centering
-%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
-%%	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/exclui_ultimo_no}						
-			\caption{Listas Duplamente Encadeadas}	
+\includegraphics[height=0.450\paperheight, width=0.8\paperwidth]{figs/fig_listas/lista_DE_01.png}						
+			\caption{Listas Duplamente Encadeadas -- LDE}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\begin{itemize}
+  \item Para onde estão apontando  o primeiro e o último  ponteiro ?
+  \item Podem ser circulares?
+\end{itemize}
+\end{frame} 
+
+
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Inserindo um nó em listas duplamente encadeadas -- LDE}
+
+\begin{figure}[!hb]
+	\centering
+
+	\includegraphics[height=0.650\paperheight, width=0.77\paperwidth]{figs/fig_listas/insercao_LDE}						
+			\caption{Incluindo um nó numa LDE}	
 %%				\label{fig:lista-linear-repre}
 		\end{figure} 
 
 \end{frame} 
+%----------------------------------------------------------------------------------------------------------
+%[allowframebreaks=0.9]
+
 
 %----------------------------------------------------------------------------------------------------------
 
@@ -556,15 +649,59 @@ int main(void)
 
 \begin{figure}[!hb]
 	\centering
-%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
-%%	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/exclui_ultimo_no}						
+\includegraphics[height=0.30\paperheight, width=0.9\paperwidth]{figs/fig_listas/lista_circular.png}						
 			\caption{Listas Circulares}	
 %%				\label{fig:lista-linear-repre}
 		\end{figure} 
 
 \end{frame} 
 
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Excluindo o nó \textit{cabeça} de lista}
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[height=0.650\paperheight, width=0.67\paperwidth]{figs/fig_listas/exclui_1o_no_lista_circular}						
+			\caption{Exclui o nó do início da lista}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Listas Blocadas ou Encapsuladas -- \textit{enrolled}}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+	\includegraphics[height=0.60\paperheight, width=0.9\paperwidth]{figs/fig_listas/unrolled_listas.jpg}						
+			\caption{Listas Encapsuladas}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
 %ss------------------------------------------------------
+
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Listas \textit{Niveladas} -- \textit{skiped}}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+	\includegraphics[height=0.50\paperheight, width=0.7\paperwidth]{figs/fig_listas/skipped_listas.jpg}						
+			\caption{Listas Niveladas}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
 
 \begin{frame}%%%[allowframebreaks=0.98]
 
@@ -575,7 +712,7 @@ int main(void)
 \begin{itemize}
   \item Inverter a lista
   \item \textit{Merge} de duas listas
-  \item 
+  \item Concatenar duas listas simples
   \item 
   \item 
   \item 
