@@ -3,20 +3,21 @@
 #include <stdlib.h>
 
 int main(void){
-	 int n, i, j, chave = 1;
+	 int N, i, j, chave = 1;
 	 printf("\n Numero de elementos  do vetor (N>=1): "); 
-	 scanf("%d" , &n);
-     int vetor[n] ;
+	 scanf("%d" , & N);
+     int vetor[ N ] ;
      
      // ACRESCENTAR FOR para LEITURA E ESCRITA
-      for(i=0; i < n ;  i++ ){
+      for(i=0; i < N ;  i++ ){
 	   printf("\n Entrada de vetor[%d] : " , i);  
        scanf("%d" , &vetor[i]); // le 
        printf("\t Leu vetor[%d]: %d", i,  vetor[i]); // escreve
       }
      //-------------------------------------------------------------
-          
-     for(i=0 , j= (n-1) ; (abs(i-j) >= 1 && i < j) ;  i++, j-- )
+        
+ //for(i=0 , j= (n-1) ; (abs(i-j) >= 1 && i < j) ;  i++, j-- )
+   for(i=0 , j= (N-1) ; (j-i) >= 1 ;  i++, j-- )
      { 
        if(vetor[i] != vetor[j]) 
        {
@@ -31,7 +32,7 @@ int main(void){
      // printf("\n FECHA COM => I: %d \tJ: %d", i,j);   
      if( chave == 1 )
      {
-		if( (n % 2) == 0) // comprimento par ou impar
+		if( (N % 2) == 0) // comprimento par ou impar
 		 { printf("\n O vetor ... eh palindromo PAR ....\n");	 
 		 }
 		 else
