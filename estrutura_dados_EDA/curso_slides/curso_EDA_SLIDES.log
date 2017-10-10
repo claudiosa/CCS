@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  8 OCT 2017 18:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  10 OCT 2017 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1286,7 +1286,8 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) (./curso_EDA_SLIDES.aux
-(./orientacoes_gerais_EDA.aux) (./listas_EDA.aux))
+(./orientacoes_gerais_EDA.aux) (./ponteiros_EDA.aux) (./pilhas_EDA.aux)
+(./filas_EDA.aux) (./listas_EDA.aux))
 \openout1 = `curso_EDA_SLIDES.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
@@ -1427,16 +1428,23 @@ Package caption Info: End \AtBeginDocument code.
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./curso_EDA_SLIDES.toc) [
 2
 
+] [3
+
+
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb) [3
+ (./curso_EDA_SLIDES.vrb) [4
 
 ]
 \openout2 = `orientacoes_gerais_EDA.aux'.
 
  (./orientacoes_gerais_EDA.tex
-(./curso_EDA_SLIDES.toc) [4
+(./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 3
+ []
+
+[5
 
 
 ]
@@ -1493,24 +1501,24 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 34.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 34.
- [5
-
-] [6
+ [6
 
 ] [7
 
 ] [8
 
+] [9
+
 
 ]
-<figs/fig_gerais/capa_livro_made_easy.jpeg, id=150, 220.825pt x 285.065pt>
+<figs/fig_gerais/capa_livro_made_easy.jpeg, id=227, 220.825pt x 285.065pt>
 File: figs/fig_gerais/capa_livro_made_easy.jpeg Graphic file (type jpg)
 <use figs/fig_gerais/capa_livro_made_easy.jpeg>
 Package pdftex.def Info: figs/fig_gerais/capa_livro_made_easy.jpeg  used on inp
 ut line 89. on input line 89.
 Package pdftex.def Info: Requested size: 142.27097pt x 170.71408pt on input lin
 e 89.
-<figs/fig_gerais/capa_livro_program_design_C.jpeg, id=151, 218.8175pt x 218.817
+<figs/fig_gerais/capa_livro_program_design_C.jpeg, id=228, 218.8175pt x 218.817
 5pt>
 File: figs/fig_gerais/capa_livro_program_design_C.jpeg Graphic file (type jpg)
 <use figs/fig_gerais/capa_livro_program_design_C.jpeg>
@@ -1518,114 +1526,1146 @@ Package pdftex.def Info: figs/fig_gerais/capa_livro_program_design_C.jpeg  used
  on input line 89. on input line 89.
 Package pdftex.def Info: Requested size: 142.2664pt x 170.71701pt on input line
  89.
- [9
+ [10
 
  <./figs/fig_gerais/capa_livro_made_easy.jpeg> <./figs/fig_gerais/capa_livro_pr
-ogram_design_C.jpeg>] [10
-
-] [11
+ogram_design_C.jpeg>] [11
 
 ] [12
+
+] [13
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13
+ [14
 
 ]
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
- [14]
+ [15]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 183.
 
-[15
-
-] [16
-
+[16
 
 ] [17
 
 
 ] [18
 
-] [19
 
+] [19
 
 ] [20
 
 
 ] [21
 
+
 ] [22
+
+] [23
+
+])
+\openout2 = `ponteiros_EDA.aux'.
+
+ (./ponteiros_EDA.tex
+(./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 2
+ []
+
+[24
+
+
+
+]
+<figs/fig_ponteiros/nulo-pointer.png, id=351, 649.42625pt x 501.875pt>
+File: figs/fig_ponteiros/nulo-pointer.png Graphic file (type png)
+<use figs/fig_ponteiros/nulo-pointer.png>
+Package pdftex.def Info: figs/fig_ponteiros/nulo-pointer.png  used on input lin
+e 42. on input line 42.
+Package pdftex.def Info: Requested size: 199.16971pt x 170.71947pt on input lin
+e 42.
+
+Overfull \vbox (61.1461pt too high) detected at line 42
+ []
+
+[25
+
+ <./figs/fig_ponteiros/nulo-pointer.png (PNG copy)>]
+<figs/fig_ponteiros/hierarq_pointer.png, id=359, 553.06625pt x 377.41pt>
+File: figs/fig_ponteiros/hierarq_pointer.png Graphic file (type png)
+<use figs/fig_ponteiros/hierarq_pointer.png>
+Package pdftex.def Info: figs/fig_ponteiros/hierarq_pointer.png  used on input 
+line 59. on input line 59.
+Package pdftex.def Info: Requested size: 142.2579pt x 142.25977pt on input line
+ 59.
+ [26
+
+ <./figs/fig_ponteiros/hierarq_pointer.png (PNG copy)>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3.
+
+(../codes/ponteiros/exemplo01_P.cpp)) [27
+
+] (./curso_EDA_SLIDES.vrb
+(../codes/ponteiros/exemplo01_P.cpp)) [28
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+(../codes/ponteiros/exemplo02_P.cpp)) [29
+
+] (./curso_EDA_SLIDES.vrb
+(../codes/ponteiros/exemplo02_P.cpp)) [30
+
+] (./curso_EDA_SLIDES.vrb
+(../codes/ponteiros/exemplo02_P.cpp)) [31
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [32
+
+]
+(./curso_EDA_SLIDES.vrb) [33
+
+] (./curso_EDA_SLIDES.vrb) [34
+
+]
+(./curso_EDA_SLIDES.vrb) [35
+
+] (./curso_EDA_SLIDES.vrb) [36
+
+]
+(./curso_EDA_SLIDES.vrb) [37
+
+] (./curso_EDA_SLIDES.vrb) [38
+
+]
+(./curso_EDA_SLIDES.vrb) [39
+
+] (./curso_EDA_SLIDES.vrb) [40
+
+]
+(./curso_EDA_SLIDES.vrb) [41
+
+] (./curso_EDA_SLIDES.vrb) [42
+
+]
+(./curso_EDA_SLIDES.vrb) [43
+
+] [44
+
+] [45
+
+] [46
+
+] [47
+
+] [48
+
+] [49
+
+] [50
+
+] [51
+
+] [52
+
+]
+[53
+
+] [54
+
+]
+<figs/fig_ponteiros/representacao-memoria.png, id=536, 385.44pt x 96.36pt>
+File: figs/fig_ponteiros/representacao-memoria.png Graphic file (type png)
+<use figs/fig_ponteiros/representacao-memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao-memoria.png  used on 
+input line 163. on input line 163.
+Package pdftex.def Info: Requested size: 171.14764pt x 42.78668pt on input line
+ 163.
+ [55
+
+ <./figs/fig_ponteiros/representacao-memoria.png>]
+File: figs/fig_ponteiros/representacao-memoria.png Graphic file (type png)
+<use figs/fig_ponteiros/representacao-memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao-memoria.png  used on 
+input line 163. on input line 163.
+Package pdftex.def Info: Requested size: 171.14764pt x 42.78668pt on input line
+ 163.
+ [56
+
+]
+File: figs/fig_ponteiros/representacao-memoria.png Graphic file (type png)
+<use figs/fig_ponteiros/representacao-memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao-memoria.png  used on 
+input line 163. on input line 163.
+Package pdftex.def Info: Requested size: 171.14764pt x 42.78668pt on input line
+ 163.
+ [57
+
+]
+<figs/fig_ponteiros/exemplo-representacao-ponteiro.png, id=556, 197.73875pt x 2
+05.76875pt>
+File: figs/fig_ponteiros/exemplo-representacao-ponteiro.png Graphic file (type 
+png)
+<use figs/fig_ponteiros/exemplo-representacao-ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/exemplo-representacao-ponteiro.png 
+ used on input line 178. on input line 178.
+Package pdftex.def Info: Requested size: 102.68962pt x 106.85907pt on input lin
+e 178.
+
+[58
+
+ <./figs/fig_ponteiros/exemplo-representacao-ponteiro.png>]
+File: figs/fig_ponteiros/exemplo-representacao-ponteiro.png Graphic file (type 
+png)
+<use figs/fig_ponteiros/exemplo-representacao-ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/exemplo-representacao-ponteiro.png 
+ used on input line 178. on input line 178.
+Package pdftex.def Info: Requested size: 102.68962pt x 106.85907pt on input lin
+e 178.
+ [59
+
+] [60
+
+]
+[61
+
+] [62
+
+] [63
+
+] [64
+
+] [65
+
+] [66
+
+] [67
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [68
+
+]
+(./curso_EDA_SLIDES.vrb) [69
+
+] (./curso_EDA_SLIDES.vrb) [70
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [71
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [72
+
+]
+(./curso_EDA_SLIDES.vrb) [73
+
+] (./curso_EDA_SLIDES.vrb) [74
+
+]
+(./curso_EDA_SLIDES.vrb) [75
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [76
+
+]
+(./curso_EDA_SLIDES.vrb) [77
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [78
+
+]
+<figs/fig_ponteiros/memoria-atribuicao-a.png, id=685, 152.57pt x 140.525pt>
+File: figs/fig_ponteiros/memoria-atribuicao-a.png Graphic file (type png)
+<use figs/fig_ponteiros/memoria-atribuicao-a.png>
+Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-a.png  used on i
+nput line 277. on input line 277.
+Package pdftex.def Info: Requested size: 85.35913pt x 78.6227pt on input line 2
+77.
+<figs/fig_ponteiros/memoria-atribuicao-p.png, id=686, 149.55875pt x 136.51pt>
+File: figs/fig_ponteiros/memoria-atribuicao-p.png Graphic file (type png)
+<use figs/fig_ponteiros/memoria-atribuicao-p.png>
+Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-p.png  used on i
+nput line 277. on input line 277.
+Package pdftex.def Info: Requested size: 85.35913pt x 77.91356pt on input line 
+277.
+<figs/fig_ponteiros/memoria-atribuicao-pa.png, id=688, 149.55875pt x 136.51pt>
+File: figs/fig_ponteiros/memoria-atribuicao-pa.png Graphic file (type png)
+<use figs/fig_ponteiros/memoria-atribuicao-pa.png>
+Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-pa.png  used on 
+input line 277. on input line 277.
+Package pdftex.def Info: Requested size: 136.91603pt x 124.97832pt on input lin
+e 277.
+
+Overfull \vbox (13.26375pt too high) detected at line 277
+ []
+
+[79
+
+ <./figs/fig_ponteiros/memoria-atribuicao-a.png> <./figs/fig_ponteiros/memoria-
+atribuicao-p.png> <./figs/fig_ponteiros/memoria-atribuicao-pa.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb
+<figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png, id=698, 185.69376pt x 205.
+76875pt>
+File: figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png Graphic file (type png
+)
+<use figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png  us
+ed on input line 21. on input line 21.
+Package pdftex.def Info: Requested size: 92.42003pt x 102.41315pt on input line
+ 21.
+) [80
+
+ <./figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [81
+
+] (./curso_EDA_SLIDES.vrb) [82
+
+]
+(./curso_EDA_SLIDES.vrb) [83
+
+] (./curso_EDA_SLIDES.vrb) [84
+
+]
+(./curso_EDA_SLIDES.vrb) [85
+
+] (./curso_EDA_SLIDES.vrb) [86
+
+]
+(./curso_EDA_SLIDES.vrb) [87
+
+] (./curso_EDA_SLIDES.vrb) [88
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [89
+
+] (./curso_EDA_SLIDES.vrb) [90
+
+]
+(./curso_EDA_SLIDES.vrb) [91
+
+] (./curso_EDA_SLIDES.vrb) [92
+
+]
+(./curso_EDA_SLIDES.vrb) [93
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [94
+
+]
+(./curso_EDA_SLIDES.vrb) [95
+
+] (./curso_EDA_SLIDES.vrb) [96
+
+]
+(./curso_EDA_SLIDES.vrb) [97
+
+] (./curso_EDA_SLIDES.vrb) [98
+
+]
+(./curso_EDA_SLIDES.vrb) [99
+
+] (./curso_EDA_SLIDES.vrb) [100
+
+]
+(./curso_EDA_SLIDES.vrb) [101
+
+] (./curso_EDA_SLIDES.vrb) [102
+
+]
+(./curso_EDA_SLIDES.vrb) [103
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 373.
+ [104
+
+]
+<figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png, id=854, 163.61125
+pt x 145.54375pt>
+File: figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png Graphic file 
+(type png)
+<use figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png>
+Package pdftex.def Info: figs/fig_ponteiros/representacao_grafica_valor_ponteir
+o.png  used on input line 381. on input line 381.
+Package pdftex.def Info: Requested size: 136.91603pt x 121.79619pt on input lin
+e 381.
+ [105
+
+ <./figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [106
+
+] [107
+
+] [108
+
+] [109
+
+]
+[110
+
+] [111
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [112
+
+] [113
+
+] (./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 446
+ []
+
+[114
+
+] [115
+
+] [116
+
+] [117
+
+] [118
+
+] [119
+
+] [120
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb
+(../codes/ponteiros/exemplo03_P.cpp
+Overfull \hbox (25.62755pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][] 
+ []
+
+))
+Overfull \vbox (25.54184pt too high) detected at line 465
+ []
+
+[121
+
+] (./curso_EDA_SLIDES.vrb (../codes/ponteiros/exemplo03_P.cpp
+Overfull \hbox (25.62755pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][] 
+ []
+
+))
+Overfull \vbox (25.54184pt too high) detected at line 465
+ []
+
+[122
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb (../codes/ponteiros/exemplo04_P.cpp)) [123
+
+]
+(./curso_EDA_SLIDES.vrb (../codes/ponteiros/exemplo04_P.cpp)) [124
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb (../codes/ponteiros/exemplo05_P.cpp)) [125
+
+]
+(./curso_EDA_SLIDES.vrb (../codes/ponteiros/exemplo05_P.cpp)) [126
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [127
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [128
+
+]
+(./curso_EDA_SLIDES.vrb) [129
+
+] (./curso_EDA_SLIDES.vrb) [130
+
+]
+(./curso_EDA_SLIDES.vrb) [131
+
+] (./curso_EDA_SLIDES.vrb) [132
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [133
+
+] [134
+
+] [135
+
+] [136
+
+] [137
+
+]
+<figs/fig_ponteiros/indirecao-simples.png, id=1062, 213.79875pt x 40.15pt>
+File: figs/fig_ponteiros/indirecao-simples.png Graphic file (type png)
+<use figs/fig_ponteiros/indirecao-simples.png>
+Package pdftex.def Info: figs/fig_ponteiros/indirecao-simples.png  used on inpu
+t line 580. on input line 580.
+Package pdftex.def Info: Requested size: 205.37926pt x 38.56866pt on input line
+ 580.
+<figs/fig_ponteiros/indirecao-multipla.png, id=1063, 333.245pt x 40.15pt>
+File: figs/fig_ponteiros/indirecao-multipla.png Graphic file (type png)
+<use figs/fig_ponteiros/indirecao-multipla.png>
+Package pdftex.def Info: figs/fig_ponteiros/indirecao-multipla.png  used on inp
+ut line 580. on input line 580.
+Package pdftex.def Info: Requested size: 205.37926pt x 24.74509pt on input line
+ 580.
+ [138
+
+ <./figs/fig_ponteiros/indirecao-simples.png> <./figs/fig_ponteiros/indirecao-m
+ultipla.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [139
+
+] (./curso_EDA_SLIDES.vrb) [140
+
+]
+(./curso_EDA_SLIDES.vrb) [141
+
+] (./curso_EDA_SLIDES.vrb) [142
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [143
+
+] (./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 610
+ []
+
+[144
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [145
+
+] (./curso_EDA_SLIDES.vrb) [146
+
+]
+(./curso_EDA_SLIDES.vrb) [147
+
+] (./curso_EDA_SLIDES.vrb) [148
+
+]
+(../codes/ponteiros/exemplo06_P.cpp) [149
+
+] [150
+
+
+] (./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 638
+ []
+
+[151
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [152
+
+] (./curso_EDA_SLIDES.vrb) [153
+
+]
+(./curso_EDA_SLIDES.vrb) [154
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [155
+
+]
+(./curso_EDA_SLIDES.vrb) [156
+
+] (./curso_EDA_SLIDES.vrb) [157
+
+]
+(./curso_EDA_SLIDES.vrb) [158
+
+] (./curso_EDA_SLIDES.vrb) [159
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [160
+
+] (./curso_EDA_SLIDES.vrb) [161
+
+]
+(./curso_EDA_SLIDES.vrb) [162
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [163
+
+]
+(./curso_EDA_SLIDES.vrb) [164
+
+] (./curso_EDA_SLIDES.vrb) [165
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [166
+
+] (../codes/ponteiros/exemplo07_P.cpp) [167
+
+]
+[168
+
+
+] [169
+
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [170
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [171
+
+]
+(./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 797
+ []
+
+[172
+
+] [173
+
+] [174
+
+] [175
+
+] [176
+
+] [177
+
+] [178
+
+] [179
+
+]
+<figs/fig_ponteiros/alocacao_esquematica_memoria.png, id=1377, 228.855pt x 332.
+24126pt>
+File: figs/fig_ponteiros/alocacao_esquematica_memoria.png Graphic file (type pn
+g)
+<use figs/fig_ponteiros/alocacao_esquematica_memoria.png>
+Package pdftex.def Info: figs/fig_ponteiros/alocacao_esquematica_memoria.png  u
+sed on input line 820. on input line 820.
+Package pdftex.def Info: Requested size: 136.91603pt x 198.77342pt on input lin
+e 820.
+ [180
+
+ <./figs/fig_ponteiros/alocacao_esquematica_memoria.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [181
+
+]
+(./curso_EDA_SLIDES.vrb) [182
+
+] (./curso_EDA_SLIDES.vrb) [183
+
+]
+(./curso_EDA_SLIDES.vrb) [184
+
+] (./curso_EDA_SLIDES.vrb) [185
+
+]
+(./curso_EDA_SLIDES.vrb) [186
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [187
+
+]
+(./curso_EDA_SLIDES.vrb) [188
+
+] (./curso_EDA_SLIDES.vrb) [189
+
+]
+(./curso_EDA_SLIDES.vrb) [190
+
+] (./curso_EDA_SLIDES.vrb) [191
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [192
+
+] (./curso_EDA_SLIDES.vrb) [193
+
+]
+(./curso_EDA_SLIDES.vrb) [194
+
+] (./curso_EDA_SLIDES.vrb) [195
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [196
+
+] (./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 885
+ []
+
+[197
+
+] (../codes/ponteiros/exemplo08_P.cpp
+Overfull \hbox (141.54845pt too wide) in paragraph at lines 2--3
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (191.94884pt too wide) in paragraph at lines 3--4
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (25.62755pt too wide) in paragraph at lines 4--5
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) [198
+
+] [199
+
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [200
+
+]
+(../codes/ponteiros/exemplo09_P.cpp
+Overfull \hbox (191.94884pt too wide) in paragraph at lines 2--3
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) [201
+
+] [202
+
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [203
+
+]
+(../codes/ponteiros/exemplo10_P.cpp) [204
+
+] [205
+
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+[206
+
+])
+\openout2 = `pilhas_EDA.aux'.
+
+ (./pilhas_EDA.tex (./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 5
+ []
+
+[207
+
+
+
+]
+<figs/fig_pilhas/pilha_livro.jpeg, id=1575, 278.03876pt x 182.6825pt>
+File: figs/fig_pilhas/pilha_livro.jpeg Graphic file (type jpg)
+<use figs/fig_pilhas/pilha_livro.jpeg>
+Package pdftex.def Info: figs/fig_pilhas/pilha_livro.jpeg  used on input line 3
+0. on input line 30.
+Package pdftex.def Info: Requested size: 99.58476pt x 142.27155pt on input line
+ 30.
+ [208
+
+ <./figs/fig_pilhas/pilha_livro.jpeg>] [209
+
+] [210
+
+] [211
+
+] [212
+
+]
+[213
+
+] [214
+
+]
+<figs/fig_pilhas/pilha.png, id=1619, 374.39874pt x 385.44pt>
+File: figs/fig_pilhas/pilha.png Graphic file (type png)
+<use figs/fig_pilhas/pilha.png>
+Package pdftex.def Info: figs/fig_pilhas/pilha.png  used on input line 131. on 
+input line 131.
+Package pdftex.def Info: Requested size: 205.37926pt x 211.4398pt on input line
+ 131.
+ [215
+
+ <./figs/fig_pilhas/pilha.png>] [216
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb)
+[217
+
+] [218
+
+] [219
+
+] [220
+
+] [221
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [222
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [223
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [224
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [225
+
+] [226
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [227
+
+])
+\openout2 = `filas_EDA.aux'.
+
+
+(./filas_EDA.tex (./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 4
+ []
+
+[228
+
+
+
+]
+<figs/fig_filas/fila_pessoas.jpeg, id=1723, 1272.755pt x 574.145pt>
+File: figs/fig_filas/fila_pessoas.jpeg Graphic file (type jpg)
+<use figs/fig_filas/fila_pessoas.jpeg>
+Package pdftex.def Info: figs/fig_filas/fila_pessoas.jpeg  used on input line 3
+5. on input line 35.
+Package pdftex.def Info: Requested size: 199.15878pt x 113.81071pt on input lin
+e 35.
+ [229
+
+ <./figs/fig_filas/fila_pessoas.jpeg>] [230
+
+] [231
+
+] [232
+
+] [233
+
+]
+<figs/fig_filas/exemplo_fila_tres_elementos.png, id=1756, 399.4925pt x 86.3225p
+t>
+File: figs/fig_filas/exemplo_fila_tres_elementos.png Graphic file (type png)
+<use figs/fig_filas/exemplo_fila_tres_elementos.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_elementos.png  used o
+n input line 123. on input line 123.
+Package pdftex.def Info: Requested size: 205.37926pt x 44.37819pt on input line
+ 123.
+<figs/fig_filas/exemplo_fila_tres_retirada.png, id=1757, 399.4925pt x 86.3225pt
+>
+File: figs/fig_filas/exemplo_fila_tres_retirada.png Graphic file (type png)
+<use figs/fig_filas/exemplo_fila_tres_retirada.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_retirada.png  used on
+ input line 123. on input line 123.
+Package pdftex.def Info: Requested size: 205.37926pt x 44.37819pt on input line
+ 123.
+
+[234
+
+ <./figs/fig_filas/exemplo_fila_tres_elementos.png> <./figs/fig_filas/exemplo_f
+ila_tres_retirada.png>] [235
+
+]
+<figs/fig_filas/exemplo_fila_tres_inclusao.png, id=1772, 399.4925pt x 86.3225pt
+>
+File: figs/fig_filas/exemplo_fila_tres_inclusao.png Graphic file (type png)
+<use figs/fig_filas/exemplo_fila_tres_inclusao.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_inclusao.png  used on
+ input line 158. on input line 158.
+Package pdftex.def Info: Requested size: 205.37926pt x 44.37819pt on input line
+ 158.
+ [236
+
+ <./figs/fig_filas/exemplo_fila_tres_inclusao.png>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [237
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [238
+
+]
+[239
+
+]
+Overfull \hbox (19.17622pt too wide) in paragraph at lines 239--239
+ [] 
+ []
+
+[240
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [241
+
+] [242
+
+]
+<figs/fig_filas/fila_insercao_quatro_elementos.png, id=1816, 399.4925pt x 80.3p
+t>
+File: figs/fig_filas/fila_insercao_quatro_elementos.png Graphic file (type png)
+
+<use figs/fig_filas/fila_insercao_quatro_elementos.png>
+Package pdftex.def Info: figs/fig_filas/fila_insercao_quatro_elementos.png  use
+d on input line 320. on input line 320.
+Package pdftex.def Info: Requested size: 205.37926pt x 41.28204pt on input line
+ 320.
+ [243
+
+ <./figs/fig_filas/fila_insercao_quatro_elementos.png>]
+<figs/fig_filas/exemplo_fila_remove_dois_elementos.png, id=1823, 399.4925pt x 8
+0.3pt>
+File: figs/fig_filas/exemplo_fila_remove_dois_elementos.png Graphic file (type 
+png)
+<use figs/fig_filas/exemplo_fila_remove_dois_elementos.png>
+Package pdftex.def Info: figs/fig_filas/exemplo_fila_remove_dois_elementos.png 
+ used on input line 337. on input line 337.
+Package pdftex.def Info: Requested size: 205.37926pt x 41.28204pt on input line
+ 337.
+ [244
+
+ <./figs/fig_filas/exemplo_fila_remove_dois_elementos.png>] [245
+
+] [246
+
+]
+<figs/fig_filas/fila_circular_explicacao_01.jpg, id=1842, 640.3925pt x 360.3462
+5pt>
+File: figs/fig_filas/fila_circular_explicacao_01.jpg Graphic file (type jpg)
+<use figs/fig_filas/fila_circular_explicacao_01.jpg>
+Package pdftex.def Info: figs/fig_filas/fila_circular_explicacao_01.jpg  used o
+n input line 380. on input line 380.
+Package pdftex.def Info: Requested size: 273.83904pt x 156.45244pt on input lin
+e 380.
+ [247
+
+ <./figs/fig_filas/fila_circular_explicacao_01.jpg>]
+<figs/fig_filas/fila_circular_simples.png, id=1850, 231.11343pt x 210.7875pt>
+File: figs/fig_filas/fila_circular_simples.png Graphic file (type png)
+<use figs/fig_filas/fila_circular_simples.png>
+Package pdftex.def Info: figs/fig_filas/fila_circular_simples.png  used on inpu
+t line 390. on input line 390.
+Package pdftex.def Info: Requested size: 171.14764pt x 156.0961pt on input line
+ 390.
+
+[248
+
+ <./figs/fig_filas/fila_circular_simples.png>]
+<figs/fig_filas/fila_circular_explicacao_02.jpg, id=1857, 259.9311pt x 113.9457
+pt>
+File: figs/fig_filas/fila_circular_explicacao_02.jpg Graphic file (type jpg)
+<use figs/fig_filas/fila_circular_explicacao_02.jpg>
+Package pdftex.def Info: figs/fig_filas/fila_circular_explicacao_02.jpg  used o
+n input line 401. on input line 401.
+Package pdftex.def Info: Requested size: 273.85982pt x 142.27353pt on input lin
+e 401.
+ [249
+
+ <./figs/fig_filas/fila_circular_explicacao_02.jpg>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [250
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [251
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [252
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [253
+
+] [254
+
+] [255
 
 ])
 \openout2 = `listas_EDA.aux'.
 
  (./listas_EDA.tex
-(./curso_EDA_SLIDES.toc) [23
+(./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 2
+ []
+
+[256
 
 
 
 ]
-<figs/fig_listas/ilustra_lista.jpg, id=260, 704.6325pt x 330.23375pt>
+<figs/fig_listas/ilustra_lista.jpg, id=1925, 704.6325pt x 330.23375pt>
 File: figs/fig_listas/ilustra_lista.jpg Graphic file (type jpg)
 <use figs/fig_listas/ilustra_lista.jpg>
 Package pdftex.def Info: figs/fig_listas/ilustra_lista.jpg  used on input line 
 31. on input line 31.
-Package pdftex.def Info: Requested size: 199.16656pt x 71.12987pt on input line
+Package pdftex.def Info: Requested size: 199.16656pt x 93.89587pt on input line
  31.
+ [257
 
-Overfull \hbox (28.01892pt too wide) in paragraph at lines 31--31
- [][] 
- []
+ <./figs/fig_listas/ilustra_lista.jpg>] [258
 
-[24
+] [259
 
- <./figs/fig_listas/ilustra_lista.jpg>] [25
+] [260
 
-] [26
-
-] [27
-
-] [28
-
-] [29
-
-] [30
+] [261
 
 ]
-[31
+[262
+
+] [263
+
+] [264
 
 ]
-<figs/fig_listas/lista_matriz_adjacencia.jpg, id=311, 602.25pt x 184.69pt>
+<figs/fig_listas/lista_matriz_adjacencia.jpg, id=1975, 602.25pt x 184.69pt>
 File: figs/fig_listas/lista_matriz_adjacencia.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_matriz_adjacencia.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_matriz_adjacencia.jpg  used on i
-nput line 106. on input line 106.
+nput line 108. on input line 108.
 Package pdftex.def Info: Requested size: 200.30533pt x 81.94301pt on input line
- 106.
- [32
+ 108.
+ [265
 
- <./figs/fig_listas/lista_matriz_adjacencia.jpg>] [33
+ <./figs/fig_listas/lista_matriz_adjacencia.jpg>]
+[266
 
 ]
-<figs/fig_listas/lista-linear.png, id=326, 456.70625pt x 84.315pt>
+<figs/fig_listas/lista-linear.png, id=1991, 456.70625pt x 84.315pt>
 File: figs/fig_listas/lista-linear.png Graphic file (type png)
 <use figs/fig_listas/lista-linear.png>
 Package pdftex.def Info: figs/fig_listas/lista-linear.png  used on input line 1
-43. on input line 143.
+45. on input line 145.
 Package pdftex.def Info: Requested size: 205.37926pt x 37.91565pt on input line
- 143.
- [34
+ 145.
+ [267
 
  <./figs/fig_listas/lista-linear.png>]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7.
-) [35
+ (./curso_EDA_SLIDES.vrb)
+[268
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
@@ -1642,230 +2682,250 @@ Overfull \hbox (47.5276pt too wide) in paragraph at lines 9--10
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [36
+) [269
 
-] [37
+] [270
 
-] [38
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb) [39
-
-] [40
-
-] [41
-
-] [42
-
-] [43
-
-] [44
+] [271
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
+ (./curso_EDA_SLIDES.vrb) [272
 
-(./curso_EDA_SLIDES.vrb) [45
+] [273
+
+] [274
+
+] [275
+
+] [276
+
+]
+[277
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb) [46
+ (./curso_EDA_SLIDES.vrb) [278
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
-
-(./curso_EDA_SLIDES.vrb) [47
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb) [48
+ (./curso_EDA_SLIDES.vrb) [279
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
 
-(./curso_EDA_SLIDES.vrb) [49
+(./curso_EDA_SLIDES.vrb) [280
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb) [50
-
-] [51
+ (./curso_EDA_SLIDES.vrb) [281
 
 ]
-<figs/fig_listas/lista_SE_struct.jpg, id=439, 169.1118pt x 53.4798pt>
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [282
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [283
+
+] [284
+
+] [285
+
+]
+<figs/fig_listas/lista_SE_struct.jpg, id=2110, 169.1118pt x 53.4798pt>
 File: figs/fig_listas/lista_SE_struct.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_SE_struct.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_SE_struct.jpg  used on input lin
-e 462. on input line 462.
+e 481. on input line 481.
 Package pdftex.def Info: Requested size: 309.59798pt x 150.26138pt on input lin
-e 462.
- [52
+e 481.
+
+[286
 
  <./figs/fig_listas/lista_SE_struct.jpg>]
-<figs/fig_listas/lista_encadeada02.jpg, id=446, 879.285pt x 610.53094pt>
+<figs/fig_listas/lista_encadeada02.jpg, id=2117, 879.285pt x 610.53094pt>
 File: figs/fig_listas/lista_encadeada02.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_encadeada02.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_encadeada02.jpg  used on input l
-ine 474. on input line 474.
+ine 493. on input line 493.
 Package pdftex.def Info: Requested size: 309.56563pt x 150.22884pt on input lin
-e 474.
- [53
+e 493.
+ [287
 
- <./figs/fig_listas/lista_encadeada02.jpg>]
-Overfull \vbox (26.76068pt too high) detected at line 501
- []
+ <./figs/fig_listas/lista_encadeada02.jpg>] [288
 
-[54
+] [289
 
 ]
-<figs/fig_listas/compara_implementacao_listas.jpg, id=459, 3392.675pt x 939.51p
-t>
+<figs/fig_listas/compara_implementacao_listas.jpg, id=2137, 3392.675pt x 939.51
+pt>
 File: figs/fig_listas/compara_implementacao_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/compara_implementacao_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/compara_implementacao_listas.jpg  used
- on input line 515. on input line 515.
+ on input line 550. on input line 550.
 Package pdftex.def Info: Requested size: 291.35022pt x 152.96245pt on input lin
-e 515.
- [55
+e 550.
+ [290
 
- <./figs/fig_listas/compara_implementacao_listas.jpg>]
-<figs/fig_listas/lista_encadeada01.png, id=467, 416.30531pt x 152.06813pt>
+ <./figs/fig_listas/compara_implementacao_listas.jpg>] [291
+
+]
+Overfull \vbox (7.73207pt too high) detected at line 604
+ []
+
+[292
+
+] [293
+
+]
+<figs/fig_listas/lista_encadeada01.png, id=2163, 416.30531pt x 152.06813pt>
 File: figs/fig_listas/lista_encadeada01.png Graphic file (type png)
 <use figs/fig_listas/lista_encadeada01.png>
 Package pdftex.def Info: figs/fig_listas/lista_encadeada01.png  used on input l
-ine 536. on input line 536.
-Package pdftex.def Info: Requested size: 182.095pt x 81.94617pt on input line 5
-36.
-<figs/fig_listas/insere_inicio.jpg, id=468, 3248.135pt x 1642.135pt>
+ine 634. on input line 634.
+Package pdftex.def Info: Requested size: 182.095pt x 81.94617pt on input line 6
+34.
+<figs/fig_listas/insere_inicio.jpg, id=2164, 3248.135pt x 1642.135pt>
 File: figs/fig_listas/insere_inicio.jpg Graphic file (type jpg)
 <use figs/fig_listas/insere_inicio.jpg>
 Package pdftex.def Info: figs/fig_listas/insere_inicio.jpg  used on input line 
-536. on input line 536.
+634. on input line 634.
 Package pdftex.def Info: Requested size: 182.09256pt x 136.56026pt on input lin
-e 536.
+e 634.
 
-Overfull \vbox (40.56493pt too high) detected at line 536
+Overfull \vbox (40.56493pt too high) detected at line 634
  []
 
-[56
+[294
 
  <./figs/fig_listas/lista_encadeada01.png> <./figs/fig_listas/insere_inicio.jpg
 >]
-<figs/fig_listas/insere_posicao.jpg, id=475, 3103.595pt x 1822.81pt>
+<figs/fig_listas/insere_posicao.jpg, id=2171, 3103.595pt x 1822.81pt>
 File: figs/fig_listas/insere_posicao.jpg Graphic file (type jpg)
 <use figs/fig_listas/insere_posicao.jpg>
 Package pdftex.def Info: figs/fig_listas/insere_posicao.jpg  used on input line
- 552. on input line 552.
+ 650. on input line 650.
 Package pdftex.def Info: Requested size: 254.92265pt x 136.56578pt on input lin
-e 552.
- [57
+e 650.
+ [295
 
  <./figs/fig_listas/insere_posicao.jpg>]
-<figs/fig_listas/exclui_inicio.jpg, id=482, 3047.385pt x 1473.505pt>
+<figs/fig_listas/exclui_inicio.jpg, id=2179, 3047.385pt x 1473.505pt>
 File: figs/fig_listas/exclui_inicio.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_inicio.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_inicio.jpg  used on input line 
-568. on input line 568.
+666. on input line 666.
 Package pdftex.def Info: Requested size: 254.9091pt x 136.56688pt on input line
- 568.
- [58
+ 666.
+ [296
 
  <./figs/fig_listas/exclui_inicio.jpg>]
-<figs/fig_listas/exclui_no_meio.jpg, id=489, 3328.435pt x 1401.235pt>
+<figs/fig_listas/exclui_no_meio.jpg, id=2186, 3328.435pt x 1401.235pt>
 File: figs/fig_listas/exclui_no_meio.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_no_meio.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_no_meio.jpg  used on input line
- 584. on input line 584.
+ 682. on input line 682.
 Package pdftex.def Info: Requested size: 254.90378pt x 136.56107pt on input lin
-e 584.
- [59
+e 682.
+ [297
 
  <./figs/fig_listas/exclui_no_meio.jpg>]
-<figs/fig_listas/exclui_ultimo_no.jpg, id=496, 3248.135pt x 1533.73pt>
+<figs/fig_listas/exclui_ultimo_no.jpg, id=2193, 3248.135pt x 1533.73pt>
 File: figs/fig_listas/exclui_ultimo_no.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_ultimo_no.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_ultimo_no.jpg  used on input li
-ne 600. on input line 600.
+ne 698. on input line 698.
 Package pdftex.def Info: Requested size: 254.89986pt x 136.55536pt on input lin
-e 600.
- [60
+e 698.
+ [298
 
  <./figs/fig_listas/exclui_ultimo_no.jpg>]
-<figs/fig_listas/lista_DE_01.png, id=503, 602.25pt x 150.5625pt>
+<figs/fig_listas/lista_DE_01.png, id=2200, 602.25pt x 150.5625pt>
 File: figs/fig_listas/lista_DE_01.png Graphic file (type png)
 <use figs/fig_listas/lista_DE_01.png>
-Package pdftex.def Info: figs/fig_listas/lista_DE_01.png  used on input line 62
-3. on input line 623.
+Package pdftex.def Info: figs/fig_listas/lista_DE_01.png  used on input line 71
+9. on input line 719.
 Package pdftex.def Info: Requested size: 291.36491pt x 122.91985pt on input lin
-e 623.
- [61
+e 719.
+ [299
 
  <./figs/fig_listas/lista_DE_01.png>]
-<figs/fig_listas/insercao_LDE.jpg, id=512, 2565.585pt x 2356.805pt>
+<figs/fig_listas/insercao_LDE.jpg, id=2208, 2565.585pt x 2356.805pt>
 File: figs/fig_listas/insercao_LDE.jpg Graphic file (type jpg)
 <use figs/fig_listas/insercao_LDE.jpg>
-Package pdftex.def Info: figs/fig_listas/insercao_LDE.jpg  used on input line 6
-39. on input line 639.
+Package pdftex.def Info: figs/fig_listas/insercao_LDE.jpg  used on input line 7
+37. on input line 737.
 Package pdftex.def Info: Requested size: 280.41443pt x 177.50795pt on input lin
-e 639.
+e 737.
 
-Overfull \vbox (4.56645pt too high) detected at line 639
+Overfull \vbox (4.56645pt too high) detected at line 737
  []
 
-[62
+[300
 
  <./figs/fig_listas/insercao_LDE.jpg>]
-<figs/fig_listas/lista_circular.png, id=519, 531.9875pt x 95.35625pt>
-File: figs/fig_listas/lista_circular.png Graphic file (type png)
-<use figs/fig_listas/lista_circular.png>
-Package pdftex.def Info: figs/fig_listas/lista_circular.png  used on input line
- 657. on input line 657.
-Package pdftex.def Info: Requested size: 327.78325pt x 81.94801pt on input line
- 657.
- [63
+<figs/fig_listas/lista_circular.jpg, id=2215, 724.7075pt x 180.675pt>
+File: figs/fig_listas/lista_circular.jpg Graphic file (type jpg)
+<use figs/fig_listas/lista_circular.jpg>
+Package pdftex.def Info: figs/fig_listas/lista_circular.jpg  used on input line
+ 755. on input line 755.
+Package pdftex.def Info: Requested size: 327.77408pt x 81.94534pt on input line
+ 755.
+ [301
 
- <./figs/fig_listas/lista_circular.png>]
-<figs/fig_listas/exclui_1o_no_lista_circular.jpg, id=527, 3071.475pt x 2252.415
-pt>
+ <./figs/fig_listas/lista_circular.jpg>]
+<figs/fig_listas/exclui_1o_no_lista_circular.jpg, id=2223, 3071.475pt x 2252.41
+5pt>
 File: figs/fig_listas/exclui_1o_no_lista_circular.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_1o_no_lista_circular.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_1o_no_lista_circular.jpg  used 
-on input line 670. on input line 670.
+on input line 768. on input line 768.
 Package pdftex.def Info: Requested size: 243.98895pt x 177.5161pt on input line
- 670.
- [64
+ 768.
+ [302
 
  <./figs/fig_listas/exclui_1o_no_lista_circular.jpg>]
-<figs/fig_listas/unrolled_listas.jpg, id=534, 3151.775pt x 1172.38pt>
+<figs/fig_listas/lista_circular_DE.jpg, id=2230, 515.526pt x 208.98074pt>
+File: figs/fig_listas/lista_circular_DE.jpg Graphic file (type jpg)
+<use figs/fig_listas/lista_circular_DE.jpg>
+Package pdftex.def Info: figs/fig_listas/lista_circular_DE.jpg  used on input l
+ine 784. on input line 784.
+Package pdftex.def Info: Requested size: 291.36713pt x 122.9149pt on input line
+ 784.
+ [303
+
+ <./figs/fig_listas/lista_circular_DE.jpg>]
+<figs/fig_listas/unrolled_listas.jpg, id=2237, 3151.775pt x 1172.38pt>
 File: figs/fig_listas/unrolled_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/unrolled_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/unrolled_listas.jpg  used on input lin
-e 687. on input line 687.
+e 799. on input line 799.
 Package pdftex.def Info: Requested size: 327.74802pt x 163.88162pt on input lin
-e 687.
- [65
+e 799.
+ [304
 
  <./figs/fig_listas/unrolled_listas.jpg>]
-<figs/fig_listas/skipped_listas.jpg, id=541, 3288.285pt x 1365.1pt>
+<figs/fig_listas/skipped_listas.jpg, id=2244, 3288.285pt x 1365.1pt>
 File: figs/fig_listas/skipped_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/skipped_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/skipped_listas.jpg  used on input line
- 703. on input line 703.
+ 815. on input line 815.
 Package pdftex.def Info: Requested size: 254.88963pt x 136.55965pt on input lin
-e 703.
- [66
+e 815.
+ [305
 
- <./figs/fig_listas/skipped_listas.jpg>]
-[67
+ <./figs/fig_listas/skipped_listas.jpg>] [306
 
-] [68
+] [307
 
 ])
 No file curso_EDA_SLIDES.bbl.
@@ -1880,38 +2940,74 @@ No file curso_EDA_SLIDES.bbl.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
-(./curso_EDA_SLIDES.aux (./orientacoes_gerais_EDA.aux) (./listas_EDA.aux))
+(./curso_EDA_SLIDES.aux (./orientacoes_gerais_EDA.aux) (./ponteiros_EDA.aux)
+(./pilhas_EDA.aux) (./filas_EDA.aux) (./listas_EDA.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
-Package rerunfilecheck Info: File `curso_EDA_SLIDES.out' has not changed.
-(rerunfilecheck)             Checksum: D86E8F6B7E944AB5EE0CB079AE6A91FE;505.
+
+
+Package rerunfilecheck Warning: File `curso_EDA_SLIDES.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `curso_EDA_SLIDES.out':
+(rerunfilecheck)             Before: C4354C86995DF251708A82E840CA9985;1132
+(rerunfilecheck)             After:  89E16363FFEEA009E1A7153D97AD7C34;1132.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 22215 strings out of 492990
- 401111 string characters out of 6138688
- 524053 words of memory out of 5000000
- 24995 multiletter control sequences out of 15000+600000
- 90887 words of font info for 78 fonts, out of 8000000 for 9000
+ 23677 strings out of 492990
+ 424610 string characters out of 6138688
+ 540053 words of memory out of 5000000
+ 25590 multiletter control sequences out of 15000+600000
+ 102288 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,69p,802b,1327s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf-d
-ist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/
-lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb><
-/usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fo
-nts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.
-pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dis
-t/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
-/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share
-/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/
-public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on curso_EDA_SLIDES.pdf (68 pages, 2652874 bytes).
+ 56i,16n,69p,802b,1556s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Outline0.10.2.283} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.10.1.258} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.1.133} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.1.43} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.1.4.21} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.1.3.18} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.1.2.15} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.1.1.13} has been referenced but does not e
+xist, replaced by a fixed one
+
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/
+fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathi
+t.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf-dis
+t/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
+/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></u
+sr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/font
+s/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pf
+b></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/
+fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
+i10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/tex
+mf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/
+share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on curso_EDA_SLIDES.pdf (307 pages, 3444039 bytes).
 PDF statistics:
- 654 PDF objects out of 1000 (max. 8388607)
- 523 compressed objects within 6 object streams
- 146 named destinations out of 1000 (max. 500000)
- 267 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2469 PDF objects out of 2487 (max. 8388607)
+ 2057 compressed objects within 21 object streams
+ 643 named destinations out of 1000 (max. 500000)
+ 473 words of extra memory for PDF output out of 10000 (max. 10000000)
 
