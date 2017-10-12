@@ -1,13 +1,12 @@
 
 #include "lista_11.h"
 
-
 int main(void)
 {
    char *vetor_INPUT[] = 
-		  {"joao paulo", "pedro henrique", 
+		  {"joao do pulo", "pedro bandeira", 
 		   "anita garibaldi", "maria luiza"};
-    int Q = 4; 
+   int Q = 4; 
     
     system("clear");
     printf("\n VETOR %d elementos\n", Q);		
@@ -31,7 +30,8 @@ int main(void)
 	{
      ins_inic_lista(vetor_INPUT[i] , &L );
     };
-	
+// PARA FINS DE TESTES ....	
+
     imp_lista( L );
     if( exclui_n_esimo_lista( 4 , &L ) )
     printf("\nExclusao com sucesso" ); 
@@ -48,21 +48,40 @@ int main(void)
     else
     printf("\nExclusao com INsucesso" );     
 
- if( exclui_n_esimo_lista( 44 , &L ) )
+    if( exclui_n_esimo_lista( 44 , &L ) )
     printf("\nExclusao com sucesso" ); 
     else
-    printf("\nExclusao com INsucesso" );     
+    printf("\nExclusao com INsucesso em 44" );     
 
-if( exclui_n_esimo_lista( 0 , &L ) )
+   if( exclui_n_esimo_lista( 0 , &L ) )
     printf("\nExclusao com sucesso" ); 
     else
-    printf("\nExclusao com INsucesso" );     
+    printf("\nExclusao com INsucesso em 0" );     
+
+    if( inclui_n_esima_lista( 2 , "inclui 2a posicao da lista", &L ))
+    printf("\n INCLUSAO 2a posicao com sucesso" ); 
+    else
+    printf("\nINCLUSAO  com INsucesso" );
+
+
+   if( inclui_n_esima_lista( 1 , "inclui 1a posicao da lista", &L ))
+    printf("\n INCLUSAO 1a posicao com sucesso" ); 
+    else
+    printf("\nINCLUSAO  com INsucesso" );
+
+    imp_lista( L );
+
+    if( exclui_o_ultimo_lista(  &L ) )
+    printf("\nExclusao do ultimo sucesso" ); 
+    else
+    printf("\nExclusao com INsucesso ULTIMO" );     
 
 
 	//printf("fim: %p %p\n", L->next, 	ancora->next );
 	imp_lista( L );
 	// falta destruir lista
     destroi_lista( &L );
+
 
 	puts("\n... SUCESSO...");
 

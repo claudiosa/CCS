@@ -23,4 +23,6 @@ void ins_fim_lista_2(char *pt_ENTRADA, noh_tipo **L);
 void destroi_lista( noh_tipo **L );
 int comprimento_lista( noh_tipo **L );
 bool exclui_n_esimo_lista( int n, noh_tipo **L );
+bool inclui_n_esima_lista( int n, char *pt_DADO, noh_tipo **L );
+bool exclui_o_ultimo_lista(  noh_tipo **header_L );
 /****************************************/
