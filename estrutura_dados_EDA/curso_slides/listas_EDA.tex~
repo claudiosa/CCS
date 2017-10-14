@@ -8,7 +8,7 @@
 \end{center}
 
 \begin{columns}
-\begin{column}{.5\textwidth}
+\begin{column}{.3\textwidth}
 \centering
 Pontos fundamentais a serem cobertos:
   \begin{enumerate}
@@ -19,9 +19,9 @@ Pontos fundamentais a serem cobertos:
 \end{enumerate}  
 
 \end{column}
-\begin{column}{.5\textwidth}
+\begin{column}{.7\textwidth}
 \centering
-\includegraphics[height=2.5cm, width=7cm]{figs/fig_listas/ilustra_lista.jpg}
+\includegraphics[height=3.3cm, width=7cm]{figs/fig_listas/ilustra_lista.jpg}
 %\hspace{+0.25cm}
 %\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
 \end{column}
@@ -39,8 +39,9 @@ Pontos fundamentais a serem cobertos:
   \item   Listas com um vetor de tamanho fixo internamente
   \item  Listas estruturadas em nós alocados dinamicamente
   \item  Conceitualmente, equivalentes!
-  \item  Implementações discutidas: alocação dinâmica!
-  \item  Aqui justifica-se o estudo extensivo de ponteiros no início do curso
+  \item  Implementações e exemplos aqui discutidas: alocação dinâmica!
+  \item  Aqui justifica-se o estudo extensivo de 
+  ponteiros no início do curso
   \item  A terminologia aqui adotada é proveniente de vários livros e do professor! 
 \end{itemize}
 
@@ -79,16 +80,17 @@ Pontos fundamentais a serem cobertos:
 	\item Os exemplos em código apresentados, utilizam extensivamente 
 	endereçamentos de memória (ponteiros e ponteiros para ponteiros) e alocações dinãmicas
 	de memória
-	\item Contudo, para fins conceitual usaremos uma lista {\em rígida} nestes slides
+	\item Contudo, para fins conceitual usaremos uma lista {\em rígida} nestes slides -- 1a. parte
 	\end{enumerate}
 	
   \end{frame}
 %----------------------------------------------------------------------------------------------------------
 \begin{frame}{Aplicações}    
 	\begin{enumerate}
-	\item 
+	\item Uso em outros algoritmos e estrutura de dados como árvores e grafos
 	\pause
-	\item 
+	\item Conceitualmente, todo estudo aqui feito é aplicado
+	aos outros paradigmas de linguagens de programação 
 	\end{enumerate}
 	
   \end{frame}
@@ -142,7 +144,7 @@ Pontos fundamentais a serem cobertos:
 			\end{figure} 
 \end{frame}
 %----------------------------------------------------------------------------------------------------------
-\begin{frame}[fragile,c]{Representação com um Vetor de Inteiros}
+\begin{frame}[fragile,c]{Representação como um Vetor de Inteiros}
 \begin{itemize}
 	\item Para exemplificar a implementações em C, vamos considerar que 
 	o conteúdo armazenado na lista é do tipo inteiro (nos códigos são {\it strings}).
@@ -158,10 +160,8 @@ Pontos fundamentais a serem cobertos:
 
 \begin{itemize}
 	\item Trata-se de uma estrutura heterogênea constituída de membros distintos entre si. 
-	\item Os membros são as variáveis \alert{\textit{cursor}}, que serve para armazenar a 
-	quantidade de elementos da lista e o vetor \alert{\textit{elemento}} de inteiros
-	que armazena os nós da lista.
-	\item Até o momento uma alocação estática
+	\item Os membros são as variáveis \alert{\textit{cursor}}, a qual  armazena a  	quantidade de elementos da lista, e o vetor \alert{\textit{elemento}} de inteiros 	que armazena os nós da lista.
+	\item Até o momento uma alocação estática -- lembra filas e pilhas
 \end{itemize}
 \end{frame}
 %----------------------------------------------------------------------------------------------------------
@@ -204,7 +204,7 @@ Lista->elemento[n-1] = 4 //atribui o valor 4 ao ultimo elemento da lista.
  
 \begin{frame}{Operações auxiliares}   
 	\begin{itemize}
-	\item Além das operações básicas, temos as operações ``auxiliares''. São elas:
+	\item Além das operações básicas, temos as operações ``\textit{auxiliares}''. São elas:
 	\end{itemize}
 	\begin{table}[!htpb]
 	  \centering
@@ -425,9 +425,28 @@ int main(void)
 %----------------------------------------------------------------------------------------------------------
 
 \subsection{Listas -- Tamanho Ilimitado}
+\begin{frame}%%[allowframebreaks=0.98]
+\frametitle{Listas Dinamicamente Encadeadas -- LE}
+
+
+\begin{block}{\textcolor{red}{Atenção:}}
+\begin{itemize}
+  \item Esta é a 2a. parte do capítulo
+  \item Os conceitos vistos com listas de \textit{arrays}, agora com
+  nós alocados dinamicamente
+  \item Acompanhe os exemplos do repositório da disciplina
+  \item Basicamente os métodos são os mesmos visto para lista com \textit{arrays}
+\end{itemize}
+\end{block}
+
+\end{frame} 
+
+
+%----------------------------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{Listas \textit{Ilimitadas}  (ou \textit{Listas Encadeadas})}
+\frametitle{Listas Encadeadas  (ora Listas \textit{Ilimitadas})}
+
 \begin{block}{Complemento}
 
 \begin{itemize}
@@ -452,7 +471,7 @@ int main(void)
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[height=0.550\paperheight, width=0.85\paperwidth]{figs/fig_listas/lista_SE_struct}
-\caption{Lista Simplesmente Encadeada -- LSE}
+\caption{Lista Simplesmente Encadeada -- LSE ou LE}
 	\end{figure} 
 	
 \begin{center}
@@ -474,26 +493,42 @@ int main(void)
 \end{frame} 
 
 %----------------------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------------------
 
-\begin{frame}%%[allowframebreaks=0.98]
+\begin{frame}%[allowframebreaks=0.8]
 \frametitle{\textit{Truques}  destas Implementações de Listas}
 
-\begin{block}{Observações:}
+
+\begin{block}{\textcolor{red}{Observações:}}
+
 \begin{itemize}
   \item Ao contrário do que foi visto, estas estruturas são alocadas
   dinamicamente na MP;
   \item Idem quanto as remoções e a sua liberação de área;
   \item O ponto é que facilmente pode se perder o ponteiro de início de lista
   se o mesmo entrar no cálculo ou numa operação de lista;
-  \item Logo, vamos passar apenas o seu endereço afim de preservá-lo na função 
-   principal
+  \item Logo, vamos passar apenas o seu endereço afim de preservá-lo na função   principal
+    
+\end{itemize}
+\end{block}
+
+\end{frame} 
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%[allowframebreaks=0.8]
+\frametitle{\textit{Truques}  destas Implementações de Listas}
+
+\begin{block}{\textcolor{red}{Observações:}}
+
+\begin{itemize}
    \item Uma proteção (\textit{blindagem}) deste ponteiro cabeça de lista
    \item Ou seja, passando apenas o seu endereço para as funções, estas terão que receber
    como um ponteiro de ponteiro!
    \item Sim, pois virá o endereço de um ponteiro que tem o início de lista, logo,
  uma estrutura de nó com um   ponteiro de ponteiro é agora interessante.
  \item Veja as implementações  e as estude com cuidado!
- \item Faça um desenho!
+ 
+ \item Faça um desenho de tudo que está escrito ... vais precisar!
     
 \end{itemize}
 \end{block}
@@ -515,7 +550,70 @@ int main(void)
 \end{frame} 
 
 %----------------------------------------------------------------------------------------------------------
-%[allowframebreaks=0.9]
+%%[allowframebreaks=0.98]
+\begin{frame}
+\frametitle{Comparativo de Implementações de Listas --
+\textit{Vetores} (dinâmicos e estáticos) $\times$ Nós Encadeados}
+
+\begin{block}{Vantagens dos Vetores (ou \textit{Arrays}):}
+\begin{itemize}
+  \item Simples e fácil de usar
+  \item Tempo de acesso constante, pois há um índice para acesso
+  de seus elementos
+  \item Se o \textit{arrays} for dinâmico, \textit{malloc} e \textit{realloc}, temos crescimento e encolhimentos adaptativos. Se e somente se forem dinâmicos!
+\end{itemize}
+\end{block}
+
+\begin{block}{Desvantagens dos Vetores (ou \textit{Arrays}):}
+\begin{itemize}
+  \item Pré-aloca uma quantidade e permanece fixa até o final
+  \item Desperdícios quando há células não utilizadas
+  \item Complexo quanto a movimentações de células ou blocos (muitas células sendo inseridas ou excluídas simultaneamente $\approx $ operação em \textit{bloco})
+\end{itemize}
+
+\end{block}
+
+\end{frame} 
+
+
+%----------------------------------------------------------------------------------------------------------
+%%[allowframebreaks=0.98]
+\begin{frame}
+\frametitle{Comparativo de Implementações de Listas --
+\textit{Vetores} (dinâmicos e estáticos) $\times$ Nós Encadeados}
+
+\begin{block}{Vantagens das listas:}
+\begin{itemize}
+  \item Crescem em tempo constante
+  \item Operações como criar, destruir, tomam tempo constante, outras operações $O(n)$, ver tabela
+  \item Não há desperdícios de memória: $alocou = usou$
+\end{itemize}
+\end{block}
+
+
+\begin{block}{Desvantagens das listas:}
+\begin{itemize}
+  \item Principal problema é o tempo de acesso as células: num vetor $O(1)$ e nas listas $O(n)$
+  \item Outro problema são os espaços contíguos: num vetor, quando alocado pode ir para uma memória \textit{cache}, e se beneficiar de mecanismos de \textit{caching} de CPUs e SOs modernos
+  \item Finalmente, algum atraso em operações mais complexas, tal 
+  como alocar um \texttt{NULL} no último ponteiro da lista
+\end{itemize}
+
+\end{block}
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}%%[allowframebreaks=0.98]
+
+\begin{center}
+{\huge Implementações de Alguns Métodos}
+\end{center}
+\end{frame} 
+
+
+%----------------------------------------------------------------------------------------------------------
 
 \begin{frame}%%[allowframebreaks=0.98]
 \frametitle{Incluindo um nó no início da lista}
@@ -600,8 +698,6 @@ int main(void)
 \end{frame} 
 
 
-%----------------------------------------------------------------------------------------------------------
-
 
 %----------------------------------------------------------------------------------------------------------
 
@@ -622,6 +718,8 @@ int main(void)
 \end{itemize}
 \end{frame} 
 
+
+%----------------------------------------------------------------------------------------------------------
 
 
 \begin{frame}%%%[allowframebreaks=0.98]
@@ -649,7 +747,7 @@ int main(void)
 
 \begin{figure}[!hb]
 	\centering
-\includegraphics[height=0.30\paperheight, width=0.9\paperwidth]{figs/fig_listas/lista_circular.png}						
+\includegraphics[height=0.30\paperheight, width=0.9\paperwidth]{figs/fig_listas/lista_circular.jpg}						
 			\caption{Listas Circulares}	
 %%				\label{fig:lista-linear-repre}
 		\end{figure} 
@@ -671,7 +769,21 @@ int main(void)
 
 %----------------------------------------------------------------------------------------------------------
 
+\begin{frame}%%%[allowframebreaks=0.98]
 
+\frametitle{Listas Mistas}
+
+\begin{figure}[!hb]
+	\centering
+%%		\includegraphics[scale=0.1]{figs/fig_listas/insere_posicao}
+	\includegraphics[height=0.450\paperheight, width=0.8\paperwidth]{figs/fig_listas/lista_circular_DE.jpg}						
+			\caption{Listas Mistas -- DE e Circular}	
+%%				\label{fig:lista-linear-repre}
+		\end{figure} 
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
 \begin{frame}%%%[allowframebreaks=0.98]
 
 \frametitle{Listas Blocadas ou Encapsuladas -- \textit{enrolled}}
