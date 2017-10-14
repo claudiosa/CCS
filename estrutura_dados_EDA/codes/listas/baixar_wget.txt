@@ -1,4 +1,8 @@
-https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/usa_lista_11.c
-https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_11.c
-https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_11.h
-https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/makefile
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/usa_lista_LSE.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LSE.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LSE.h
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/makefile_LSE
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/usa_lista_LDE.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LDE.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LDE.h
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/makefile_LDE

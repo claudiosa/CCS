@@ -1,5 +1,5 @@
 
-#include "lista_11.h"
+#include "lista_LSE.h"
 
 int main(void)
 {
@@ -11,7 +11,7 @@ int main(void)
     system("clear");
     printf("\n VETOR %d elementos\n", Q);		
 	/** cria um PONTEIRO PARA UMA lista **/
-    noh_tipo * L; 
+    NOH_tipo_LSE * L; 
     L = NULL; // aqui sim eh necessario ... VAZIA
   
     printf("ENDERECO:  %p " , L);
