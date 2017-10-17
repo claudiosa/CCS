@@ -1,0 +1,19 @@
+\select@language {brazilian}
+\beamer@sectionintoc {1}{O Curso}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{Ferramentas}{14}{0}{1}
+\beamer@subsectionintoc {1}{2}{Metodologia e avalia\IeC {\c c}\IeC {\~a}o}{16}{0}{1}
+\beamer@subsectionintoc {1}{3}{Din\IeC {\^a}mica}{19}{0}{1}
+\beamer@subsectionintoc {1}{4}{Refer\IeC {\^e}ncias}{22}{0}{1}
+\beamer@sectionintoc {2}{Ponteiros}{24}{0}{2}
+\beamer@subsectionintoc {2}{1}{Motiva\IeC {\c c}\IeC {\~a}o aos Ponteiros}{44}{0}{2}
+\beamer@sectionintoc {3}{Ponteiros e Matrizes}{114}{0}{3}
+\beamer@subsectionintoc {3}{1}{Indire\IeC {\c c}\IeC {\~a}o M\IeC {\'u}ltipla}{134}{0}{3}
+\beamer@sectionintoc {4}{Fun\IeC {\c c}\IeC {\~o}es que retornam Ponteiros}{144}{0}{4}
+\beamer@sectionintoc {5}{Ponteiro para Fun\IeC {\c c}\IeC {\~o}es}{151}{0}{5}
+\beamer@sectionintoc {6}{Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{172}{0}{6}
+\beamer@sectionintoc {7}{Exemplos Completos: Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{197}{0}{7}
+\beamer@sectionintoc {8}{Pilha}{207}{0}{8}
+\beamer@sectionintoc {9}{Filas}{228}{0}{9}
+\beamer@sectionintoc {10}{Listas}{256}{0}{10}
+\beamer@subsectionintoc {10}{1}{Listas -- Tamanho Limitado}{259}{0}{10}
+\beamer@subsectionintoc {10}{2}{Listas -- Tamanho Ilimitado}{285}{0}{10}

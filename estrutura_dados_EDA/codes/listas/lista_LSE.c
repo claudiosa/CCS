@@ -25,6 +25,8 @@ void imp_lista(NOH_tipo_LSE *L)
  // printf("\n %d o. Noh:::  NOME: %s", i , ( L -> nome));
   do {
 	  printf("\n %do. Noh  NOME: %s", i , ( L -> pt_nome));
+	  printf("\t END: %X ", (unsigned int) L ); // falta %p testar ... 
+	  //printf("distancia entre nos: %X \n", p->lista - p->lista->prox);
 	  L = L -> next;
       i++;
 	} while( L != NULL );

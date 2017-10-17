@@ -100,8 +100,21 @@ Pontos fundamentais a serem cobertos:
 \frametitle{Exemplo de Uso}
 \begin{figure}[!hb]
 	\centering
-		\includegraphics[height=0.30\paperheight, width=0.55\paperwidth]{figs/fig_listas/lista_matriz_adjacencia}			
+		\includegraphics[height=0.30\paperheight, width=0.55\paperwidth]{figs/fig_listas/lista_matriz_adj01}			
 			\caption{Uso de lista para representar matriz de adjacência}	
+%%				\label{fig:lista-linear-repre}
+			\end{figure} 
+
+  \end{frame}
+%----------------------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Exemplo de Uso}
+\begin{figure}[!hb]
+	\centering
+		\includegraphics[height=0.30\paperheight, width=0.55\paperwidth]{figs/fig_listas/lista_matriz_adj02}			
+			\caption{Matriz de adjacência -- Unidirecional}	
 %%				\label{fig:lista-linear-repre}
 			\end{figure} 
 
@@ -718,6 +731,40 @@ int main(void)
 \end{itemize}
 \end{frame} 
 
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Comparativo com as LSE ou LE}
+
+\begin{block}{Vantagens:}
+\begin{itemize}
+  \item 
+  \item 
+  \item 
+\end{itemize}
+\end{block}
+
+\begin{block}{Desvantagens:}
+\begin{itemize}
+  \item 
+  \item 
+  \item 
+\end{itemize}
+\end{block}
+\end{frame} 
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Aplicações}
+
+\begin{block}{Exemplos:}
+\begin{itemize}
+  \item 
+  \item 
+  \item 
+\end{itemize}
+\end{block}
+
+\end{frame} 
 
 %----------------------------------------------------------------------------------------------------------
 
@@ -747,22 +794,60 @@ int main(void)
 
 \begin{figure}[!hb]
 	\centering
-\includegraphics[height=0.30\paperheight, width=0.9\paperwidth]{figs/fig_listas/lista_circular.jpg}						
+\includegraphics[height=0.30\paperheight, width=0.9\paperwidth]
+{figs/fig_listas/lista_circular.jpg}						
 			\caption{Listas Circulares}	
 %%				\label{fig:lista-linear-repre}
 		\end{figure} 
 
 \end{frame} 
 
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Comparativo com as LSE ou LE}
+
+\begin{block}{Vantagens:}
+\begin{itemize}
+  \item 
+  \item 
+  \item 
+\end{itemize}
+\end{block}
+
+\begin{block}{Desvantagens:}
+\begin{itemize}
+  \item 
+  \item 
+  \item 
+\end{itemize}
+\end{block}
+\end{frame} 
+%----------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Aplicações}
+
+\begin{block}{Exemplos:}
+\begin{itemize}
+  \item 
+  \item 
+  \item 
+\end{itemize}
+\end{block}
+
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
 \begin{frame}%%%[allowframebreaks=0.98]
 
 \frametitle{Excluindo o nó \textit{cabeça} de lista}
 
 \begin{figure}[!hb]
 	\centering
-	\includegraphics[height=0.650\paperheight, width=0.67\paperwidth]{figs/fig_listas/exclui_1o_no_lista_circular}						
-			\caption{Exclui o nó do início da lista}	
-%%				\label{fig:lista-linear-repre}
+	\includegraphics[height=0.650\paperheight, width=0.67\paperwidth]
+	{figs/fig_listas/exclui_prim_no_lista_circular}						
+			\caption{Exclui primeiro nó  da lista circular -- fácil}	
+%%			\label{fig:lista-linear-repre}
 		\end{figure} 
 
 \end{frame} 

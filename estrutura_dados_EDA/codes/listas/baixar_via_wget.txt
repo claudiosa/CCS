@@ -1,3 +1,4 @@
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/curso_slides/curso_EDA_SLIDES.pdf
 https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/usa_lista_LSE.c
 https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LSE.c
 https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LSE.h
@@ -6,3 +7,7 @@ https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes
 https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LDE.c
 https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LDE.h
 https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/makefile_LDE
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/usa_lista_LCIRC.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LCIRC.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/lista_LCIRC.h
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/listas/makefile_LCIRC
