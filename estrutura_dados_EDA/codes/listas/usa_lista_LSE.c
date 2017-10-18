@@ -14,7 +14,7 @@ int main(void)
     NOH_tipo_LSE * L; 
     L = NULL; // aqui sim eh necessario ... VAZIA
   
-    printf("ENDERECO:  %p " , L);
+    printf("ENDERECOS de L:  %p : &L %p" , L , &L );
     printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );  
     // APLICACAO 1
 	for(int i=0; i < Q; i++ )	
@@ -22,9 +22,8 @@ int main(void)
      //printf("\n => %d : %d : %s", i, ins_fim_lista( vetor_INPUT[i] , &L ),     	                              vetor_INPUT[i] );
      ins_fim_lista_2( vetor_INPUT[i] , &L );
 //	 printf("\n ...inserindo...:  %d: %s" , i, vetor_INPUT[i]);
-  //   printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );
-    };
-
+     };
+    printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );
 //  APLICACAO 2
 	for(int i=0; i < Q; i++ )	
 	{
@@ -33,6 +32,8 @@ int main(void)
 // PARA FINS DE TESTES ....	
 
     imp_lista( L );
+    printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );
+/*
     if( exclui_n_esimo_lista( 4 , &L ) )
     printf("\nExclusao com sucesso" ); 
     else
@@ -79,10 +80,9 @@ int main(void)
 
 	//printf("fim: %p %p\n", L->next, 	ancora->next );
 	imp_lista( L );
+*/    
 	// falta destruir lista
     destroi_lista( &L );
-
-
 	puts("\n... SUCESSO...");
 
 return 1;
