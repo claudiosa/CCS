@@ -25,4 +25,5 @@ int comprimento_lista( NOH_tipo_LSE **L );
 bool exclui_n_esimo_lista( int n, NOH_tipo_LSE **L );
 bool inclui_n_esima_lista( int n, char *pt_DADO, NOH_tipo_LSE **L );
 bool exclui_o_ultimo_lista(  NOH_tipo_LSE **header_L );
+bool esta_vazia( NOH_tipo_LSE **L );
 /****************************************/

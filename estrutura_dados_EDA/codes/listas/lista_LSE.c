@@ -17,20 +17,19 @@ NOH_tipo_LSE * cria_no(void)
 }
 
 // IMPRIME A LISTA
-// vem o endereco original
+// vem o endereco original .... 
 void imp_lista(NOH_tipo_LSE *L)
 { 
   puts("\n IMPRIME LISTA: \n ============================");
   int i=1;
- // printf("\n %d o. Noh:::  NOME: %s", i , ( L -> nome));
+ // i ... apenas para uma saida mais cabrichada
   do {
 	  printf("\n %do. Noh  NOME: %s", i , ( L -> pt_nome));
-	  printf("\t END: %X ", (unsigned int) L ); // falta %p testar ... 
+	  printf("\t END: %p ", L ); // cuidar aqui ...
 	  //printf("distancia entre nos: %X \n", p->lista - p->lista->prox);
 	  L = L -> next;
       i++;
-	} while( L != NULL );
-	//while(L -> next != NULL);
+	} while( L != NULL );  
 	
 	return;
 }
@@ -60,7 +59,7 @@ int ins_fim_lista(char *pt_DADO, NOH_tipo_LSE ** L)
 		//strcpy( novo_no  -> nome , x_nome);
 		novo_no  -> pt_nome = pt_DADO;
 		novo_no -> next = NULL; /* INSTANCIA  inicialmente o ultimo */
-		return 11;
+		return 11; // 11 apenas para indicar que a lista era vazia
 	}	
     else
     {	
@@ -74,7 +73,7 @@ int ins_fim_lista(char *pt_DADO, NOH_tipo_LSE ** L)
 		novo_no -> next = NULL; /* INSTANCIA  inicialmente como ultimo */
 		aux -> next = novo_no; // atualiza o ultimo em L 
         // novo_no e o ultimo nao perde L
-		return 22;
+		return 22; // caso geral
 	}
 }	
 // insere SIMPLIFICADO sem os codigos de retorno
@@ -107,13 +106,13 @@ void ins_fim_lista_2(char *pt_DADO,  NOH_tipo_LSE **L )
 	}
 }
 
-// erradp
-int is_empty( NOH_tipo_LSE *L )
+// Consertado ....
+bool esta_vazia( NOH_tipo_LSE **L )
 	{
-		return( L->next == NULL );
+		return(  (*L) == NULL  );
 	}
 
-/* se eh o ultimo */
+/* se eh o ultimo  ..... MELHORAR ..... pois nao eh caso*/
 int is_last( NOH_tipo_LSE *L )
 {
 	return( L->next == NULL );
@@ -129,7 +128,7 @@ void destroi_lista( NOH_tipo_LSE **L )
 	  	  {
 		  	prox = aux -> next;
 		  	//free( aux ->  pt_nome );  NAO .....
-		  	free(aux); // AQUI LIBERA TUDO 
+		  	free(aux); // AQUI LIBERA aux
 		  	aux = prox;
 		  	//puts(".");
 	      	i++;
@@ -158,17 +157,16 @@ int comprimento_lista( NOH_tipo_LSE **L )
    return 0;
   
     int i=1; // UM NO
-  	   NOH_tipo_LSE  * aux , *prox;
+  	   NOH_tipo_LSE  * aux ;
   	   aux =(*L);
 	  	  while( aux -> next != NULL ) 
 	  	  {
-		  	prox = aux -> next;
-		  	aux = prox;
+		  	aux = aux -> next;
 		  	//puts(".");
 	      	i++;
 		  } ;
 		      
-     // da para fazer sem *prox  
+     
        //printf("\n Comprimento da lista: %d ", i );
   
        return i;
