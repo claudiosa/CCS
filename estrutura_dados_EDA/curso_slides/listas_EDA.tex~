@@ -97,11 +97,11 @@ Pontos fundamentais a serem cobertos:
 %----------------------------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{Exemplo de Uso}
+\frametitle{Exemplo de Uso -- Matriz Adjacência -- Completa}
 \begin{figure}[!hb]
 	\centering
-		\includegraphics[height=0.30\paperheight, width=0.55\paperwidth]{figs/fig_listas/lista_matriz_adj01}			
-			\caption{Uso de lista para representar matriz de adjacência}	
+		\includegraphics[height=0.40\paperheight, width=0.8\paperwidth]{figs/fig_listas/lista_matriz_adj01}			
+			\caption{Uso de lista para representar matriz de adjacência -- grafo não-orientado}	
 %%				\label{fig:lista-linear-repre}
 			\end{figure} 
 
@@ -117,6 +117,7 @@ Pontos fundamentais a serem cobertos:
 			\caption{Matriz de adjacência -- Unidirecional}	
 %%				\label{fig:lista-linear-repre}
 			\end{figure} 
+
 
   \end{frame}
 %----------------------------------------------------------------------------------------------------------

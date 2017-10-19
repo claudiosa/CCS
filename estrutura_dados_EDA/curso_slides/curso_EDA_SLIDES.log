@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.15)  16 OCT 2017 15:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  19 OCT 2017 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,11 +454,11 @@ Package: sansmathaccent 2013/03/28
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )))
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator.sty
+(/usr/share/texmf-dist/tex/latex/beamer/translator/translator.sty
 Package: translator 2010/06/12 ver 1.10
 
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator-language-map
-pings.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/translator/translator-language-mappings
+.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
 \beamer@argscount=\count126
@@ -611,33 +611,29 @@ Package: amsthm 2015/03/04 v2.20.2
 \c@theorem=\count152
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/theme/beamerthemedefault.st
+(/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemedefault.sty
+(/usr/share/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemedefault.sty)
+
+(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemedefault.st
+y)
+(/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemedefault.st
 y
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/font/beamerfontthemedefault
-.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemedefau
-lt.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/inner/beamerinnerthemedefau
-lt.sty
 \beamer@dima=\dimen185
 \beamer@dimb=\dimen186
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/outer/beamerouterthemedefau
-lt.sty)))
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/theme/beamerthemeMadrid.sty
+(/usr/share/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemedefault.st
+y))) (/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeMadrid.sty
+(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemewhale.sty)
 
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemewhale
-.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemeorchi
-d.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/inner/beamerinnerthemeround
-ed.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/outer/beamerouterthemeinfol
-ines.sty))
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemebeave
-r.sty)
-(/usr/share/texmf-dist/tex/latex/beamer/base/themes/font/beamerfontthemeserif.s
-ty) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemeorchid.sty
+)
+(/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemerounded.st
+y)
+(/usr/share/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemeinfolines.
+sty))
+(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemebeaver.sty
+) (/usr/share/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemeserif.sty)
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks43
 \inpenc@posthook=\toks44
@@ -1397,28 +1393,28 @@ LaTeX Info: Redefining \nameref on input line 124.
 \openout6 = `curso_EDA_SLIDES.out'.
 
 
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-basic-
-dictionary/translator-basic-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dicti
+onary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-biblio
-graphy-dictionary/translator-bibliography-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-bibliograph
+y-dictionary/translator-bibliography-dictionary-English.dict
 Dictionary: translator-bibliography-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-enviro
-nment-dictionary/translator-environment-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-environment
+-dictionary/translator-environment-dictionary-English.dict
 Dictionary: translator-environment-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-months
--dictionary/translator-months-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-months-dict
+ionary/translator-months-dictionary-English.dict
 Dictionary: translator-months-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-number
-s-dictionary/translator-numbers-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-numbers-dic
+tionary/translator-numbers-dictionary-English.dict
 Dictionary: translator-numbers-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-theore
-m-dictionary/translator-theorem-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-theorem-dic
+tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -1426,8 +1422,8 @@ Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count188
-
-(./curso_EDA_SLIDES.nav) [1
+ (./curso_EDA_SLIDES.nav)
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./curso_EDA_SLIDES.toc) [
 2
@@ -1443,8 +1439,8 @@ Package caption Info: End \AtBeginDocument code.
 ]
 \openout2 = `orientacoes_gerais_EDA.aux'.
 
-
-(./orientacoes_gerais_EDA.tex (./curso_EDA_SLIDES.toc)
+ (./orientacoes_gerais_EDA.tex
+(./curso_EDA_SLIDES.toc)
 Overfull \vbox (9.38362pt too high) detected at line 3
  []
 
@@ -2880,11 +2876,11 @@ e 733.
 File: figs/fig_listas/insercao_LDE.jpg Graphic file (type jpg)
 <use figs/fig_listas/insercao_LDE.jpg>
 Package pdftex.def Info: figs/fig_listas/insercao_LDE.jpg  used on input line 7
-85. on input line 785.
+88. on input line 788.
 Package pdftex.def Info: Requested size: 280.41443pt x 177.50795pt on input lin
-e 785.
+e 788.
 
-Overfull \vbox (4.56645pt too high) detected at line 785
+Overfull \vbox (4.56645pt too high) detected at line 788
  []
 
 [303
@@ -2894,9 +2890,9 @@ Overfull \vbox (4.56645pt too high) detected at line 785
 File: figs/fig_listas/lista_circular.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_circular.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_circular.jpg  used on input line
- 804. on input line 804.
+ 807. on input line 807.
 Package pdftex.def Info: Requested size: 327.77408pt x 81.94534pt on input line
- 804.
+ 807.
  [304
 
  <./figs/fig_listas/lista_circular.jpg>] [305
@@ -2910,9 +2906,9 @@ File: figs/fig_listas/exclui_prim_no_lista_circular.jpg Graphic file (type jpg)
 
 <use figs/fig_listas/exclui_prim_no_lista_circular.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_prim_no_lista_circular.jpg  use
-d on input line 854. on input line 854.
+d on input line 865. on input line 865.
 Package pdftex.def Info: Requested size: 243.98895pt x 177.5161pt on input line
- 854.
+ 865.
  [307
 
  <./figs/fig_listas/exclui_prim_no_lista_circular.jpg>]
@@ -2920,9 +2916,9 @@ Package pdftex.def Info: Requested size: 243.98895pt x 177.5161pt on input line
 File: figs/fig_listas/lista_circular_DE.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_circular_DE.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_circular_DE.jpg  used on input l
-ine 870. on input line 870.
+ine 881. on input line 881.
 Package pdftex.def Info: Requested size: 291.36713pt x 122.9149pt on input line
- 870.
+ 881.
  [308
 
  <./figs/fig_listas/lista_circular_DE.jpg>]
@@ -2930,9 +2926,9 @@ Package pdftex.def Info: Requested size: 291.36713pt x 122.9149pt on input line
 File: figs/fig_listas/unrolled_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/unrolled_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/unrolled_listas.jpg  used on input lin
-e 885. on input line 885.
+e 896. on input line 896.
 Package pdftex.def Info: Requested size: 327.74802pt x 163.88162pt on input lin
-e 885.
+e 896.
  [309
 
  <./figs/fig_listas/unrolled_listas.jpg>]
@@ -2940,9 +2936,9 @@ e 885.
 File: figs/fig_listas/skipped_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/skipped_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/skipped_listas.jpg  used on input line
- 901. on input line 901.
+ 912. on input line 912.
 Package pdftex.def Info: Requested size: 254.88963pt x 136.55965pt on input lin
-e 901.
+e 912.
  [310
 
  <./figs/fig_listas/skipped_listas.jpg>] [311
@@ -2970,10 +2966,10 @@ Package rerunfilecheck Info: File `curso_EDA_SLIDES.out' has not changed.
 (rerunfilecheck)             Checksum: 793EB9B4B2753C1EF20E37D663885743;1132.
  ) 
 Here is how much of TeX's memory you used:
- 23694 strings out of 492990
- 425045 string characters out of 6138688
- 539798 words of memory out of 5000000
- 25604 multiletter control sequences out of 15000+600000
+ 23696 strings out of 492990
+ 424876 string characters out of 6138688
+ 540053 words of memory out of 5000000
+ 25606 multiletter control sequences out of 15000+600000
  102288 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,69p,802b,1556s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2992,7 +2988,7 @@ mri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/t
 exmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></us
 r/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on curso_EDA_SLIDES.pdf (312 pages, 3476048 bytes).
+Output written on curso_EDA_SLIDES.pdf (312 pages, 3477976 bytes).
 PDF statistics:
  2494 PDF objects out of 2984 (max. 8388607)
  2074 compressed objects within 21 object streams
