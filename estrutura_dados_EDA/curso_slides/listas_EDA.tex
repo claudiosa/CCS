@@ -738,17 +738,19 @@ int main(void)
 
 \begin{block}{Vantagens:}
 \begin{itemize}
-  \item 
-  \item 
-  \item 
+  \item Dado um determinado nó na lista, se pode navegar em ambas direções
+  \item A remoção é mais simples que a LSE, pois se tem no nó corrente
+  o endereço do nó anterior e seguinte
+  \item Se entendeste os métodos das LSE, vais entender os métodos das LDE
 \end{itemize}
 \end{block}
 
 \begin{block}{Desvantagens:}
 \begin{itemize}
-  \item 
-  \item 
-  \item 
+  \item Principal desvantagem: cada nó precisa de um ponteiro extra (para o nó prévio)
+  \item Assim, na exclusão e inserção, algumas linhas de código a mais,
+  embora mais claras de entender;
+
 \end{itemize}
 \end{block}
 \end{frame} 
@@ -759,9 +761,10 @@ int main(void)
 
 \begin{block}{Exemplos:}
 \begin{itemize}
-  \item 
-  \item 
-  \item 
+  \item Paginadores em geral
+  \item Buscas posicionais com deslocamentos em relação a origem,
+  último nó, e ainda do nó corrente
+%  \item 
 \end{itemize}
 \end{block}
 
@@ -791,13 +794,13 @@ int main(void)
 
 \begin{frame}%%%[allowframebreaks=0.98]
 
-\frametitle{Listas Circulares}
+\frametitle{Listas Circulares -- LC}
 
 \begin{figure}[!hb]
 	\centering
 \includegraphics[height=0.30\paperheight, width=0.9\paperwidth]
 {figs/fig_listas/lista_circular.jpg}						
-			\caption{Listas Circulares}	
+			\caption{Listas Circulares -- LC}	
 %%				\label{fig:lista-linear-repre}
 		\end{figure} 
 
@@ -805,21 +808,25 @@ int main(void)
 
 %----------------------------------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Comparativo com as LSE ou LE}
+\frametitle{Comparativo com as LSE e LDE}
 
 \begin{block}{Vantagens:}
 \begin{itemize}
-  \item 
-  \item 
-  \item 
+  \item Uma construção elegante
+  \item O nó inicial da lista,  cabeça, pode variar ... desloque o \textit{header}  da lista 
+  para   posição seguinte, e este mantém toda lista original (um bom problema aqui)
+  
+  \item Operações modulares em $n$ podem acelerar buscas com
+  deslocamentos sobre os nós
 \end{itemize}
 \end{block}
 
 \begin{block}{Desvantagens:}
 \begin{itemize}
-  \item 
-  \item 
-  \item 
+  \item Enquanto que LDE e LSE, o último nó é ligado a NULL, aqui não
+  \item Cuidados extras aos métodos das LC, pois um \textit{laço infinito} é provável
+  \item Um \textit{marcador extra} de fim de lista pode ser necessário em
+  algumas aplicações
 \end{itemize}
 \end{block}
 \end{frame} 
@@ -830,9 +837,9 @@ int main(void)
 
 \begin{block}{Exemplos:}
 \begin{itemize}
-  \item 
-  \item 
-  \item 
+  \item Sistemas operacionais ... escalonadores de recursos
+  \item Gerenciamento de processos em CPU. Ex: \textit{time sharing} e/ou \textit{round-robin}
+  \item Sistemas de prevenção de \textit{dead-lock}
 \end{itemize}
 \end{block}
 
@@ -848,9 +855,13 @@ int main(void)
 	\includegraphics[height=0.650\paperheight, width=0.67\paperwidth]
 	{figs/fig_listas/exclui_prim_no_lista_circular}						
 			\caption{Exclui primeiro nó  da lista circular -- fácil}	
+			
 %%			\label{fig:lista-linear-repre}
 		\end{figure} 
 
+\textbf{
+\textcolor{red}{Nas implementações está a exlcusão genérica, pois ...}
+}
 \end{frame} 
 
 %----------------------------------------------------------------------------------------------------------
