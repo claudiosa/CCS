@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  19 OCT 2017 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  23 OCT 2017 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2895,7 +2895,11 @@ Package pdftex.def Info: Requested size: 327.77408pt x 81.94534pt on input line
  807.
  [304
 
- <./figs/fig_listas/lista_circular.jpg>] [305
+ <./figs/fig_listas/lista_circular.jpg>]
+Overfull \vbox (17.13362pt too high) detected at line 833
+ []
+
+[305
 
 ] [306
 
@@ -2906,9 +2910,9 @@ File: figs/fig_listas/exclui_prim_no_lista_circular.jpg Graphic file (type jpg)
 
 <use figs/fig_listas/exclui_prim_no_lista_circular.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_prim_no_lista_circular.jpg  use
-d on input line 865. on input line 865.
+d on input line 866. on input line 866.
 Package pdftex.def Info: Requested size: 243.98895pt x 177.5161pt on input line
- 865.
+ 866.
  [307
 
  <./figs/fig_listas/exclui_prim_no_lista_circular.jpg>]
@@ -2916,19 +2920,20 @@ Package pdftex.def Info: Requested size: 243.98895pt x 177.5161pt on input line
 File: figs/fig_listas/lista_circular_DE.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_circular_DE.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_circular_DE.jpg  used on input l
-ine 881. on input line 881.
+ine 882. on input line 882.
 Package pdftex.def Info: Requested size: 291.36713pt x 122.9149pt on input line
- 881.
- [308
+ 882.
+
+[308
 
  <./figs/fig_listas/lista_circular_DE.jpg>]
 <figs/fig_listas/unrolled_listas.jpg, id=2263, 3151.775pt x 1172.38pt>
 File: figs/fig_listas/unrolled_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/unrolled_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/unrolled_listas.jpg  used on input lin
-e 896. on input line 896.
+e 897. on input line 897.
 Package pdftex.def Info: Requested size: 327.74802pt x 163.88162pt on input lin
-e 896.
+e 897.
  [309
 
  <./figs/fig_listas/unrolled_listas.jpg>]
@@ -2936,9 +2941,9 @@ e 896.
 File: figs/fig_listas/skipped_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/skipped_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/skipped_listas.jpg  used on input line
- 912. on input line 912.
+ 913. on input line 913.
 Package pdftex.def Info: Requested size: 254.88963pt x 136.55965pt on input lin
-e 912.
+e 913.
  [310
 
  <./figs/fig_listas/skipped_listas.jpg>] [311
@@ -2988,7 +2993,7 @@ mri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/t
 exmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></us
 r/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on curso_EDA_SLIDES.pdf (312 pages, 3477976 bytes).
+Output written on curso_EDA_SLIDES.pdf (312 pages, 3478174 bytes).
 PDF statistics:
  2494 PDF objects out of 2984 (max. 8388607)
  2074 compressed objects within 21 object streams
