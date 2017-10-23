@@ -33,6 +33,9 @@ int main(void)
 
     imp_lista( L );
     printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );
+    printf("\n  Recursivo 1 Compto de Lista:  %d NOSH", recurs_comp_lista_1( L ));
+    printf("\n  Recursivo 2 Compto de Lista:  %d NOSH", recurs_comp_lista_2( &L ));    
+
 /*
     if( exclui_n_esimo_lista( 4 , &L ) )
     printf("\nExclusao com sucesso" ); 

@@ -159,21 +159,44 @@ int comprimento_lista( NOH_tipo_LSE **L )
     int i=1; // UM NO
   	   NOH_tipo_LSE  * aux ;
   	   aux =(*L);
+       /*
 	  	  while( aux -> next != NULL ) 
 	  	  {
 		  	aux = aux -> next;
 		  	//puts(".");
 	      	i++;
-		  } ;
-		      
-     
+		    } ;
+		   OU SIMPLESMENTE ...... */   
+       for(aux =(*L) , i=1;
+            ( aux -> next != NULL ) ; 
+            aux = aux -> next, i++);     
        //printf("\n Comprimento da lista: %d ", i );
   
        return i;
          
   }
 
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+int recurs_comp_lista_1( NOH_tipo_LSE *L )
+  {
+   if( L == NULL )
+   return 0;
+   else
+   //return ( 1 + recurs_comp_lista_1(  L = (L-> next)  )); OU simplesmente
+   return ( 1 + recurs_comp_lista_1( L-> next )  ); 
+  }
 
+// JUNTO COM OS ALUNOS AQUI  ....
+int recurs_comp_lista_2( NOH_tipo_LSE **L )
+  {
+   if( (*L) == NULL )
+   return 0;
+   else
+   return ( 1 + recurs_comp_lista_2(  &( (*L)-> next )   ));  // falta acertar abaixo
+   //return ( 1 + recurs_comp_lista_2(    (&(*L) = &((*L)-> next))   ));
+  }
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 bool exclui_n_esimo_lista( int n, NOH_tipo_LSE **L )
   {
    if( n > comprimento_lista( L ) || n < 1)
@@ -194,8 +217,8 @@ bool exclui_n_esimo_lista( int n, NOH_tipo_LSE **L )
       free(corrente);
       return true;
 	}
-	// OS DEMAIS ... CREIO QUE PODE SER MELHORADO
-    while( i < n ) // avancar ate o no em questao
+	// OS DEMAIS ... PARA SER MELHORADO NO FUTURO
+    while( i < n ) // avancar ate o noh em questao
 	 {
 	   anterior = corrente;
 	   corrente = corrente -> next ; // avanca
@@ -203,14 +226,14 @@ bool exclui_n_esimo_lista( int n, NOH_tipo_LSE **L )
 	 } ;
 		      
     anterior -> next = corrente -> next ;
-	printf("\n NOH: %d => EXCLUINDO NOME: %s", i, ( corrente -> pt_nome));
+	  printf("\n NOH: %d => EXCLUINDO NOME: %s", i, ( corrente -> pt_nome));
     
     free(corrente);
     return true;
          
   }
 
-// REUSO DE METODOS -- BOM EXEMPLO
+// REUSO DE METODOS -- BOM EXEMPLO -- FAZER MAIS EXEMPLOS COMO ESTE ...
 bool exclui_o_ultimo_lista(  NOH_tipo_LSE **header_L )
  {
    int posicao_ultimo = comprimento_lista( &(*header_L) );
