@@ -186,15 +186,19 @@ int recurs_comp_lista_1( NOH_tipo_LSE *L )
    return ( 1 + recurs_comp_lista_1( L-> next )  ); 
   }
 
-// JUNTO COM OS ALUNOS AQUI  ....
+// com alunal  ....
 int recurs_comp_lista_2( NOH_tipo_LSE **L )
   {
    if( (*L) == NULL )
    return 0;
    else
-   return ( 1 + recurs_comp_lista_2(  &( (*L)-> next )   ));  // falta acertar abaixo
-   //return ( 1 + recurs_comp_lista_2(    (&(*L) = &((*L)-> next))   ));
-  }
+   {
+    (*L) = (*L)-> next;
+    return ( 1 + recurs_comp_lista_2( &(*L) ));
+   } 
+   // OU DIRETAMENTE algo como ....
+   //return ( 1 + recurs_comp_lista_2(  &( (*L)-> next )   )); 
+ }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 bool exclui_n_esimo_lista( int n, NOH_tipo_LSE **L )
