@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  23 OCT 2017 09:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  25 OCT 2017 00:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2951,52 +2951,54 @@ e 913.
 ] [312
 
 ])
-No file curso_EDA_SLIDES.bbl.
-\tf@nav=\write7
-\openout7 = `curso_EDA_SLIDES.nav'.
+\openout2 = `arvores_EDA.aux'.
 
-\tf@toc=\write8
-\openout8 = `curso_EDA_SLIDES.toc'.
 
-\tf@snm=\write9
-\openout9 = `curso_EDA_SLIDES.snm'.
+(./arvores_EDA.tex (./curso_EDA_SLIDES.toc)
+Overfull \vbox (9.38362pt too high) detected at line 2
+ []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
-(./curso_EDA_SLIDES.aux (./orientacoes_gerais_EDA.aux) (./ponteiros_EDA.aux)
-(./pilhas_EDA.aux) (./filas_EDA.aux) (./listas_EDA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
-Package rerunfilecheck Info: File `curso_EDA_SLIDES.out' has not changed.
-(rerunfilecheck)             Checksum: 793EB9B4B2753C1EF20E37D663885743;1132.
- ) 
+[313
+
+
+
+])
+Runaway argument?
+ \par 
+! File ended while scanning use of \frame.
+<inserted text> 
+                \par 
+l.162 \include{arvores_EDA}
+                            % cap 6
+? x
+ 
 Here is how much of TeX's memory you used:
- 23696 strings out of 492990
- 424876 string characters out of 6138688
- 540053 words of memory out of 5000000
- 25606 multiletter control sequences out of 15000+600000
+ 23687 strings out of 492990
+ 424747 string characters out of 6138688
+ 549004 words of memory out of 5000000
+ 25603 multiletter control sequences out of 15000+600000
  102288 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,69p,802b,1556s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
-t/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf-d
-ist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/
-lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb><
-/usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fo
-nts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.
-pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dis
-t/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/t
-exmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></us
-r/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on curso_EDA_SLIDES.pdf (312 pages, 3478174 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/
+fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathi
+t.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf-dis
+t/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
+/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></u
+sr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/font
+s/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pf
+b></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/
+fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
+i10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/tex
+mf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/
+share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on curso_EDA_SLIDES.pdf (313 pages, 3479567 bytes).
 PDF statistics:
- 2494 PDF objects out of 2984 (max. 8388607)
- 2074 compressed objects within 21 object streams
- 645 named destinations out of 1000 (max. 500000)
- 478 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2520 PDF objects out of 2984 (max. 8388607)
+ 2096 compressed objects within 21 object streams
+ 648 named destinations out of 1000 (max. 500000)
+ 466 words of extra memory for PDF output out of 10000 (max. 10000000)
 
