@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  25 OCT 2017 00:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  30 OCT 2017 12:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1286,7 +1286,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-(./slides_temp_arvores.aux)
+(./slides_temp_arvores.aux (./arvores_EDA.aux))
 \openout1 = `slides_temp_arvores.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
@@ -1304,7 +1304,8 @@ LaTeX Font Info:    ... okay on input line 124.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
 LaTeX Font Info:    ... okay on input line 124.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 124.
- (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -1427,44 +1428,44 @@ Package caption Info: End \AtBeginDocument code.
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 36.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 32.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 36.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 32.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 36.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 32.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 36.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 32.
+(Font)              <10.95> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 32.
+(Font)              <8> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 32.
-LaTeX Font Info:    Try loading font information for U+msa on input line 32.
+(Font)              <6> on input line 36.
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 32.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 32.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 36.
 
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
@@ -1473,46 +1474,68 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ] [3
 
 ]
-<figs/fig_arvores/arvore.pdf, id=48, pagebox=cropbox, 518.93875pt x 463.7325pt>
+<figs/fig_arvores/arvore.pdf, id=79, pagebox=cropbox, 518.93875pt x 463.7325pt>
 
 File: figs/fig_arvores/arvore.pdf Graphic file (type pdf)
 <use figs/fig_arvores/arvore.pdf>
-Package pdftex.def Info: figs/fig_arvores/arvore.pdf  used on input line 54. on
- input line 54.
+Package pdftex.def Info: figs/fig_arvores/arvore.pdf  used on input line 58. on
+ input line 58.
 Package pdftex.def Info: Requested size: 180.67499pt x 161.4526pt on input line
- 54.
+ 58.
  [4
 
  <./figs/fig_arvores/arvore.pdf>] [5
 
 ]
-<figs/fig_arvores/arvore_binaria_de_busca.pdf, id=64, pagebox=cropbox, 644.4075
-pt x 475.7775pt>
+
+pdfTeX warning: pdflatex (file ./figs/fig_arvores/rep_generica_arv00.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<figs/fig_arvores/rep_generica_arv00.pdf, id=95, pagebox=cropbox, 597.23125pt x
+ 845.1575pt>
+File: figs/fig_arvores/rep_generica_arv00.pdf Graphic file (type pdf)
+<use figs/fig_arvores/rep_generica_arv00.pdf>
+Package pdftex.def Info: figs/fig_arvores/rep_generica_arv00.pdf  used on input
+ line 79. on input line 79.
+Package pdftex.def Info: Requested size: 256.07538pt x 256.07683pt on input lin
+e 79.
+
+Overfull \vbox (77.26443pt too high) detected at line 79
+ []
+
+[6
+
+ <./figs/fig_arvores/rep_generica_arv00.pdf>] [7
+
+] [8
+
+]
+<figs/fig_arvores/arvore_binaria_de_busca.pdf, id=118, pagebox=cropbox, 644.407
+5pt x 475.7775pt>
 File: figs/fig_arvores/arvore_binaria_de_busca.pdf Graphic file (type pdf)
 <use figs/fig_arvores/arvore_binaria_de_busca.pdf>
 Package pdftex.def Info: figs/fig_arvores/arvore_binaria_de_busca.pdf  used on 
-input line 76. on input line 76.
-Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 7
-6.
- [6
+input line 121. on input line 121.
+Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 1
+21.
+ [9
 
  <./figs/fig_arvores/arvore_binaria_de_busca.pdf>]
-<figs/fig_arvores/no.pdf, id=80, pagebox=cropbox, 698.61pt x 321.2pt>
+<figs/fig_arvores/no.pdf, id=135, pagebox=cropbox, 698.61pt x 321.2pt>
 File: figs/fig_arvores/no.pdf Graphic file (type pdf)
 <use figs/fig_arvores/no.pdf>
-Package pdftex.def Info: figs/fig_arvores/no.pdf  used on input line 88. on inp
-ut line 88.
+Package pdftex.def Info: figs/fig_arvores/no.pdf  used on input line 133. on in
+put line 133.
 Package pdftex.def Info: Requested size: 289.07999pt x 132.90833pt on input lin
-e 88.
- [7
+e 133.
+ [10
 
- <./figs/fig_arvores/no.pdf>] [8
+ <./figs/fig_arvores/no.pdf>] [11
 
 ]
 
-LaTeX Warning: Citation `cormen' on page 9 undefined on input line 118.
+LaTeX Warning: Citation `cormen' on page 12 undefined on input line 163.
 
-[9
+[12
 
 ]
 \openout4 = `slides_temp_arvores.vrb'.
@@ -1522,199 +1545,185 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 2.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-Overfull \vbox (0.57109pt too high) detected at line 141
+Overfull \vbox (0.57109pt too high) detected at line 186
  []
 
-[10
+[13
 
 ]
-<figs/fig_arvores/insercao_1.pdf, id=130, pagebox=cropbox, 644.4075pt x 475.777
+<figs/fig_arvores/insercao_1.pdf, id=186, pagebox=cropbox, 644.4075pt x 475.777
 5pt>
 File: figs/fig_arvores/insercao_1.pdf Graphic file (type pdf)
 <use figs/fig_arvores/insercao_1.pdf>
-Package pdftex.def Info: figs/fig_arvores/insercao_1.pdf  used on input line 15
-2. on input line 152.
+Package pdftex.def Info: figs/fig_arvores/insercao_1.pdf  used on input line 19
+7. on input line 197.
 Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 1
-52.
- [11
+97.
+ [14
 
  <./figs/fig_arvores/insercao_1.pdf>]
-<figs/fig_arvores/insercao_2.pdf, id=147, pagebox=cropbox, 644.4075pt x 475.777
+<figs/fig_arvores/insercao_2.pdf, id=203, pagebox=cropbox, 644.4075pt x 475.777
 5pt>
 File: figs/fig_arvores/insercao_2.pdf Graphic file (type pdf)
 <use figs/fig_arvores/insercao_2.pdf>
-Package pdftex.def Info: figs/fig_arvores/insercao_2.pdf  used on input line 16
-3. on input line 163.
-Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 1
-63.
- [12
+Package pdftex.def Info: figs/fig_arvores/insercao_2.pdf  used on input line 20
+8. on input line 208.
+Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 2
+08.
+ [15
 
  <./figs/fig_arvores/insercao_2.pdf>]
 \openout4 = `slides_temp_arvores.vrb'.
 
- (./slides_temp_arvores.vrb) [13
+ (./slides_temp_arvores.vrb) [16
 
-] [14
+] [17
 
-] (./slides_temp_arvores.toc)
-[15
-
-] [16
+] [18
 
 ]
 \openout4 = `slides_temp_arvores.vrb'.
 
- (./slides_temp_arvores.vrb) [17
+ (./slides_temp_arvores.vrb)
+[19
 
 ]
-<figs/fig_arvores/altura1.pdf, id=200, pagebox=cropbox, 665.48625pt x 516.93124
+<figs/fig_arvores/altura1.pdf, id=244, pagebox=cropbox, 665.48625pt x 516.93124
 pt>
 File: figs/fig_arvores/altura1.pdf Graphic file (type pdf)
 <use figs/fig_arvores/altura1.pdf>
-Package pdftex.def Info: figs/fig_arvores/altura1.pdf  used on input line 238. 
-on input line 238.
+Package pdftex.def Info: figs/fig_arvores/altura1.pdf  used on input line 283. 
+on input line 283.
 Package pdftex.def Info: Requested size: 216.81pt x 168.41081pt on input line 2
-38.
- [18
+83.
+ [20
 
  <./figs/fig_arvores/altura1.pdf>]
-<figs/fig_arvores/altura2.pdf, id=210, pagebox=cropbox, 665.48625pt x 516.93124
+<figs/fig_arvores/altura2.pdf, id=254, pagebox=cropbox, 665.48625pt x 516.93124
 pt>
 File: figs/fig_arvores/altura2.pdf Graphic file (type pdf)
 <use figs/fig_arvores/altura2.pdf>
-Package pdftex.def Info: figs/fig_arvores/altura2.pdf  used on input line 250. 
-on input line 250.
+Package pdftex.def Info: figs/fig_arvores/altura2.pdf  used on input line 295. 
+on input line 295.
 Package pdftex.def Info: Requested size: 216.81pt x 168.41081pt on input line 2
-50.
- [19
+95.
+ [21
 
  <./figs/fig_arvores/altura2.pdf>]
 \openout4 = `slides_temp_arvores.vrb'.
 
- (./slides_temp_arvores.vrb) [20
+ (./slides_temp_arvores.vrb) [22
+
+] [23
 
 ]
-[21
-
-]
-<figs/fig_arvores/Balanceamento_Arvore.pdf, id=240, pagebox=cropbox, 497.86pt x
+<figs/fig_arvores/Balanceamento_Arvore.pdf, id=283, pagebox=cropbox, 497.86pt x
  450.68375pt>
 File: figs/fig_arvores/Balanceamento_Arvore.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore.pdf  used on inp
-ut line 283. on input line 283.
-Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 28
-3.
- [22
+ut line 328. on input line 328.
+Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 32
+8.
+ [24
 
  <./figs/fig_arvores/Balanceamento_Arvore.pdf>]
-<figs/fig_arvores/Arvore_Desbalanceada.pdf, id=264, pagebox=cropbox, 497.86pt x
+<figs/fig_arvores/Arvore_Desbalanceada.pdf, id=308, pagebox=cropbox, 497.86pt x
  450.68375pt>
 File: figs/fig_arvores/Arvore_Desbalanceada.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Arvore_Desbalanceada.pdf>
 Package pdftex.def Info: figs/fig_arvores/Arvore_Desbalanceada.pdf  used on inp
-ut line 293. on input line 293.
-Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 29
-3.
- [23
+ut line 338. on input line 338.
+Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 33
+8.
+ [25
 
  <./figs/fig_arvores/Arvore_Desbalanceada.pdf>]
 \openout4 = `slides_temp_arvores.vrb'.
 
- (./slides_temp_arvores.vrb) [24
+
+(./slides_temp_arvores.vrb) [26
 
 ]
-<figs/fig_arvores/Balanceamento_Arvore2.pdf, id=296, pagebox=cropbox, 291.0875p
+<figs/fig_arvores/Balanceamento_Arvore2.pdf, id=338, pagebox=cropbox, 291.0875p
 t x 349.305pt>
 File: figs/fig_arvores/Balanceamento_Arvore2.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore2.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore2.pdf  used on in
-put line 328. on input line 328.
+put line 373. on input line 373.
 Package pdftex.def Info: Requested size: 158.99377pt x 190.79651pt on input lin
-e 328.
- [25
+e 373.
+ [27
 
  <./figs/fig_arvores/Balanceamento_Arvore2.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore3.pdf, id=321, pagebox=cropbox, 447.6725p
+<figs/fig_arvores/Balanceamento_Arvore3.pdf, id=362, pagebox=cropbox, 447.6725p
 t x 294.09875pt>
 File: figs/fig_arvores/Balanceamento_Arvore3.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore3.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore3.pdf  used on in
-put line 338. on input line 338.
+put line 383. on input line 383.
 Package pdftex.def Info: Requested size: 252.94499pt x 166.17506pt on input lin
-e 338.
- [26
+e 383.
+ [28
 
  <./figs/fig_arvores/Balanceamento_Arvore3.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore4.pdf, id=345, pagebox=cropbox, 289.08pt 
+<figs/fig_arvores/Balanceamento_Arvore4.pdf, id=386, pagebox=cropbox, 289.08pt 
 x 331.2375pt>
 File: figs/fig_arvores/Balanceamento_Arvore4.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore4.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore4.pdf  used on in
-put line 349. on input line 349.
+put line 394. on input line 394.
 Package pdftex.def Info: Requested size: 158.99377pt x 182.17612pt on input lin
-e 349.
- [27
+e 394.
+ [29
 
  <./figs/fig_arvores/Balanceamento_Arvore4.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore5.pdf, id=369, pagebox=cropbox, 288.07625
+<figs/fig_arvores/Balanceamento_Arvore5.pdf, id=410, pagebox=cropbox, 288.07625
 pt x 317.185pt>
 File: figs/fig_arvores/Balanceamento_Arvore5.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore5.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore5.pdf  used on in
-put line 359. on input line 359.
+put line 404. on input line 404.
 Package pdftex.def Info: Requested size: 158.99377pt x 175.06694pt on input lin
-e 359.
- [28
+e 404.
+ [30
 
- <./figs/fig_arvores/Balanceamento_Arvore5.pdf>] [29
-
-]
-\openout4 = `slides_temp_arvores.vrb'.
-
- (./slides_temp_arvores.vrb) [30
+ <./figs/fig_arvores/Balanceamento_Arvore5.pdf>] [31
 
 ]
 \openout4 = `slides_temp_arvores.vrb'.
 
+ (./slides_temp_arvores.vrb) [32
 
-(./slides_temp_arvores.vrb) [31
+]
+\openout4 = `slides_temp_arvores.vrb'.
+
+ (./slides_temp_arvores.vrb) [33
 
 ]
 
-LaTeX Warning: Citation `tarjan' on page 32 undefined on input line 418.
+LaTeX Warning: Citation `tarjan' on page 34 undefined on input line 463.
 
-[32
+[34
 
-] [33
+] [35
 
-] [34
+] [36
 
 ]
-<figs/fig_arvores/Espalhamento.pdf, id=434, pagebox=cropbox, 600.2425pt x 416.5
+<figs/fig_arvores/Espalhamento.pdf, id=471, pagebox=cropbox, 600.2425pt x 416.5
 5624pt>
 File: figs/fig_arvores/Espalhamento.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Espalhamento.pdf>
 Package pdftex.def Info: figs/fig_arvores/Espalhamento.pdf  used on input line 
-452. on input line 452.
+497. on input line 497.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 452.
- [35
+e 497.
+ [37
 
- <./figs/fig_arvores/Espalhamento.pdf>] [36
+ <./figs/fig_arvores/Espalhamento.pdf>] [38
 
-] [37
-
-]
-\openout4 = `slides_temp_arvores.vrb'.
-
-
-(./slides_temp_arvores.vrb) [38
-
-]
-\openout4 = `slides_temp_arvores.vrb'.
-
- (./slides_temp_arvores.vrb) [39
+] [39
 
 ]
 \openout4 = `slides_temp_arvores.vrb'.
@@ -1722,111 +1731,122 @@ e 452.
 
 (./slides_temp_arvores.vrb) [40
 
-] [41
+]
+\openout4 = `slides_temp_arvores.vrb'.
 
-] [42
+ (./slides_temp_arvores.vrb) [41
 
 ]
-<figs/fig_arvores/Zig.pdf, id=494, pagebox=cropbox, 748.7975pt x 392.46625pt>
+\openout4 = `slides_temp_arvores.vrb'.
+
+
+(./slides_temp_arvores.vrb) [42
+
+] [43
+
+] [44
+
+]
+<figs/fig_arvores/Zig.pdf, id=532, pagebox=cropbox, 748.7975pt x 392.46625pt>
 File: figs/fig_arvores/Zig.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Zig.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig.pdf  used on input line 552. on i
-nput line 552.
+Package pdftex.def Info: figs/fig_arvores/Zig.pdf  used on input line 597. on i
+nput line 597.
 Package pdftex.def Info: Requested size: 325.215pt x 170.45195pt on input line 
-552.
- [43
+597.
+ [45
 
  <./figs/fig_arvores/Zig.pdf>]
-<figs/fig_arvores/Zig-Zig.pdf, id=512, pagebox=cropbox, 740.7675pt x 461.725pt>
+<figs/fig_arvores/Zig-Zig.pdf, id=550, pagebox=cropbox, 740.7675pt x 461.725pt>
 
 File: figs/fig_arvores/Zig-Zig.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Zig-Zig.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig-Zig.pdf  used on input line 562. 
-on input line 562.
+Package pdftex.def Info: figs/fig_arvores/Zig-Zig.pdf  used on input line 607. 
+on input line 607.
 Package pdftex.def Info: Requested size: 289.07999pt x 180.18475pt on input lin
-e 562.
+e 607.
 
-[44
+[46
 
  <./figs/fig_arvores/Zig-Zig.pdf>]
-<figs/fig_arvores/Zig-Zag.pdf, id=536, pagebox=cropbox, 740.7675pt x 461.725pt>
+<figs/fig_arvores/Zig-Zag.pdf, id=574, pagebox=cropbox, 740.7675pt x 461.725pt>
 
 File: figs/fig_arvores/Zig-Zag.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Zig-Zag.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig-Zag.pdf  used on input line 572. 
-on input line 572.
+Package pdftex.def Info: figs/fig_arvores/Zig-Zag.pdf  used on input line 617. 
+on input line 617.
 Package pdftex.def Info: Requested size: 289.07999pt x 180.18475pt on input lin
-e 572.
- [45
+e 617.
+ [47
 
  <./figs/fig_arvores/Zig-Zag.pdf>]
-[46
+[48
 
 ]
-<figs/fig_arvores/Top-Down1.pdf, id=567, pagebox=cropbox, 600.2425pt x 416.5562
+<figs/fig_arvores/Top-Down1.pdf, id=604, pagebox=cropbox, 600.2425pt x 416.5562
 4pt>
 File: figs/fig_arvores/Top-Down1.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down1.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down1.pdf  used on input line 595
-. on input line 595.
+Package pdftex.def Info: figs/fig_arvores/Top-Down1.pdf  used on input line 640
+. on input line 640.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 595.
- [47
+e 640.
+ [49
 
  <./figs/fig_arvores/Top-Down1.pdf>]
-<figs/fig_arvores/Top-Down2.pdf, id=584, pagebox=cropbox, 600.2425pt x 416.5562
+<figs/fig_arvores/Top-Down2.pdf, id=622, pagebox=cropbox, 600.2425pt x 416.5562
 4pt>
 File: figs/fig_arvores/Top-Down2.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down2.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down2.pdf  used on input line 605
-. on input line 605.
+Package pdftex.def Info: figs/fig_arvores/Top-Down2.pdf  used on input line 650
+. on input line 650.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 605.
- [48
+e 650.
+ [50
 
  <./figs/fig_arvores/Top-Down2.pdf>]
-<figs/fig_arvores/Top-Down3.pdf, id=601, pagebox=cropbox, 600.2425pt x 416.5562
+<figs/fig_arvores/Top-Down3.pdf, id=639, pagebox=cropbox, 600.2425pt x 416.5562
 4pt>
 File: figs/fig_arvores/Top-Down3.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down3.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down3.pdf  used on input line 615
-. on input line 615.
+Package pdftex.def Info: figs/fig_arvores/Top-Down3.pdf  used on input line 660
+. on input line 660.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 615.
- [49
+e 660.
+ [51
 
  <./figs/fig_arvores/Top-Down3.pdf>]
-<figs/fig_arvores/Top-Down4.pdf, id=619, pagebox=cropbox, 600.2425pt x 416.5562
+<figs/fig_arvores/Top-Down4.pdf, id=656, pagebox=cropbox, 600.2425pt x 416.5562
 4pt>
 File: figs/fig_arvores/Top-Down4.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down4.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down4.pdf  used on input line 625
-. on input line 625.
+Package pdftex.def Info: figs/fig_arvores/Top-Down4.pdf  used on input line 670
+. on input line 670.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 625.
- [50
+e 670.
+ [52
 
  <./figs/fig_arvores/Top-Down4.pdf>]
-<figs/fig_arvores/Top-Down5.pdf, id=636, pagebox=cropbox, 600.2425pt x 416.5562
+<figs/fig_arvores/Top-Down5.pdf, id=673, pagebox=cropbox, 600.2425pt x 416.5562
 4pt>
 File: figs/fig_arvores/Top-Down5.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down5.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down5.pdf  used on input line 635
-. on input line 635.
+Package pdftex.def Info: figs/fig_arvores/Top-Down5.pdf  used on input line 680
+. on input line 680.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 635.
- [51
+e 680.
+ [53
 
  <./figs/fig_arvores/Top-Down5.pdf>]
-<figs/fig_arvores/Top-Down6.pdf, id=653, pagebox=cropbox, 600.2425pt x 416.5562
+<figs/fig_arvores/Top-Down6.pdf, id=691, pagebox=cropbox, 600.2425pt x 416.5562
 4pt>
 File: figs/fig_arvores/Top-Down6.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down6.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down6.pdf  used on input line 645
-. on input line 645.
+Package pdftex.def Info: figs/fig_arvores/Top-Down6.pdf  used on input line 690
+. on input line 690.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 645.
- [52
+e 690.
+ [54
 
  <./figs/fig_arvores/Top-Down6.pdf>] Excluding 'comment' comment.)
 No file slides_temp_arvores.bbl.
@@ -1844,27 +1864,21 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
 (./slides_temp_arvores.aux (./arvores_EDA.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
+Package rerunfilecheck Info: File `slides_temp_arvores.out' has not changed.
+(rerunfilecheck)             Checksum: 3C3B73A5BC5F69F1A62A7CCDFE892EF7;389.
 
-
-Package rerunfilecheck Warning: File `slides_temp_arvores.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `slides_temp_arvores.out':
-(rerunfilecheck)             Before: 90B4E4F77588805D56847289CE85006F;45
-(rerunfilecheck)             After:  9673B772072D953F2724A1772757663C;374.
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 21490 strings out of 492990
- 392493 string characters out of 6138688
- 492051 words of memory out of 5000000
- 24342 multiletter control sequences out of 15000+600000
+ 21627 strings out of 492990
+ 394303 string characters out of 6138688
+ 492053 words of memory out of 5000000
+ 24474 multiletter control sequences out of 15000+600000
  46798 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,68p,805b,899s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,16n,69p,805b,899s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
 nts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
 enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-d
@@ -1873,10 +1887,10 @@ lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share
 /texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr
 /share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on slides_temp_arvores.pdf (52 pages, 640033 bytes).
+Output written on slides_temp_arvores.pdf (54 pages, 1520058 bytes).
 PDF statistics:
- 730 PDF objects out of 1000 (max. 8388607)
- 566 compressed objects within 6 object streams
- 111 named destinations out of 1000 (max. 500000)
- 214 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 767 PDF objects out of 1000 (max. 8388607)
+ 599 compressed objects within 6 object streams
+ 115 named destinations out of 1000 (max. 500000)
+ 259 words of extra memory for PDF output out of 10000 (max. 10000000)
 
