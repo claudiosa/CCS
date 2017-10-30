@@ -8,8 +8,8 @@
 // DEFINICAO DO NO de lista
 struct NO_struct
   {
-    //char nome[N]; // aqui uma outra struct
-    char *pt_nome;
+    //char nome[N]; //ou uma outra struct
+    char *pt_nome; // para prova simplesmente int conteudo;
     struct NO_struct *next; 
   };
 

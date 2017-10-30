@@ -9,7 +9,8 @@ estrada(camboriu  , floripa)        .
 
 % As regra da LPO agora em PICAT
 caminho(X,Y) ?=> estrada(X,Y) .
-caminho(X,Y)  => estrada(X,Z) ,   caminho(Z,Y) .
+caminho(X,Y)  => estrada(X,Z) ,  
+                 caminho(Z,Y) .
 
 listar_todos  ?=>     %%% this rule is backtrackable
           caminho(X,Y)                         ,   %% and
