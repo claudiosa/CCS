@@ -15,45 +15,61 @@
 
 int main(void)
    {
-    int seq;
+      system("clear");
+    
       const char *vetor[]= {
       "JOINVILLE","PARIS","VENEZA","BRUXELAS",
       "VANCOUVER","LONDRES","MOSCOU","LUXEMBURGO",
       "GLASCOW", "OXFORD","YORK", "AUSTIN",
       "MONTREAL" };
    
-   
-     /* criar um ponteiro de arvore .... */
-      
+      /* criar um ponteiro de arvore .... */
       BinTreeNode *pt_TREE;
-      pt_TREE = NULL; // aqui sim eh necessario ... VAZIA
+      pt_TREE = NULL; // aqui sim  interessante ... VAZIA
       
       // DADOS DA APLICACAO
-      TreeEntry  Xdados ; //, *pt_X = &Xdados;
+      TreeEntry  Xdados ; // se quiser *pt_X = &Xdados;
 
-      for ( seq = 0 ; seq < 13 ; seq++ )
+      for (int seq = 0 ; seq < 5 ; seq++ )
       {  
-// via PONTEIRO        
+// use dados via PONTEIRO        
 //     pt_X -> UM_INT = seq;  
 //     pt_X -> UM_NOME = vetor[seq];  
-// OU        
+// OU diretamente       
        strcpy(Xdados.UM_NOME , vetor[seq]);
-       Xdados . UMA_CHAVE = seq;
+       Xdados . UMA_CHAVE = rand()%100; // NUM aleatorio mesmo
        // RELEMBRANDO strcpy(Copia,Original);
 		   pt_TREE = InsertTree_BIN( pt_TREE, Xdados );
        //printf("\n %d : %x : %s", seq, pt_TREE, Xdados.UM_NOME );
+       printf(":%d : %d : %s (End: %x) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
       }
 
-    printf("\n SAIDA IN: \n");  
-		printInorder( pt_TREE );
+      // UMA BUSCA
+      BinTreeNode *consulta;
+      int ALVO;
+    
+      printf("\n Qual dado alvo: ");
+      scanf("%d", &ALVO);
+      //printf("\n ALVO: %d", ALVO);
+      consulta = TreeSearch(pt_TREE, ALVO);
+      if(consulta == NULL)
+      printf("\n NAO HA TAL ALVO OU CHAVE \n");
+      else
+      printf("\n Resposta:  %d : %s : END: %x  ",  
+        consulta -> dados.UMA_CHAVE, consulta-> dados.UM_NOME,
+        consulta );  
+   
 
+    printf("\n SAIDA IN: \n");  
+    printInorder( pt_TREE );
+
+/*
     printf("\n SAIDA PRE: \n");  
     printPreorder( pt_TREE );
     
-  //  Inorder( TREE );
-  //  Postorder( TREE );
-
-
+    printf("\n SAIDA POS: \n");  
+    printPosorder( pt_TREE );
+ */   
 
 
     if ( deltree( pt_TREE ) == true)

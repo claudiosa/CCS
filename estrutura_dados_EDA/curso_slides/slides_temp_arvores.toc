@@ -1,7 +1,0 @@
-\beamer@sectionintoc {1}{\IeC {\'A}rvores}{1}{0}{1}
-\beamer@subsectionintoc {1}{1}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{8}{0}{1}
-\beamer@subsectionintoc {1}{2}{Balanceamento}{18}{0}{1}
-\beamer@subsectionintoc {1}{3}{Rota\IeC {\c c}\IeC {\~o}es}{26}{0}{1}
-\beamer@subsectionintoc {1}{4}{\IeC {\'A}rvores AVL}{31}{0}{1}
-\beamer@subsectionintoc {1}{5}{\IeC {\'A}rvore de Espalhamento}{34}{0}{1}
-\select@language {brazilian}

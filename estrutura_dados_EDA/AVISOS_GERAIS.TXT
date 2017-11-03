@@ -13,11 +13,10 @@ Avisos -- Leiam todos ... é o Roadmap do curso:
 * Listas SE, DE e Circular em 17 e 19/out
 * 3a. feira dia 24/out: aula de LAB ... dúvidas e exercícios finais
 * Ha muita implementação sobre em listas ... muitos problemas... tem alguns no run.codes
-* Prova dia 26/out --> listas LSE, LC, LDE (~25%)
-* Dia 31/out --> começamos com arvores
-* Haverá um trabalho <= 10% na nota global para novembro
-* 
-* 9/novembro sem aula -- terá um trabalho aqui de arvores....
-* Final de novembro: 21 ou 23 .. o provão final de disciplina (~20%)
-*
+* Prova dia 26/out --> listas LSE, LC, LDE (~25% ****)
+* Dia 07/NOV --> começamos com arvores
+* Haverá um trabalho de arvores<= 10% na nota global para novembro
+* 9/novembro sem aula -- terá um trabalho aqui de arvores....max 10%
+* Final de novembro: 21 ou 23 .. o provão final de disciplina (max 20%)
+
 

@@ -26,8 +26,8 @@ Pontos fundamentais a serem cobertos:
 \end{column}
 \begin{column}{.7\textwidth}
 \centering
-%\includegraphics[height=3.3cm, width=7cm]{figs/fig_listas/ilustra_lista.jpg}
-%\hspace{+0.25cm}
+\includegraphics[height=5.3cm, width=7cm]{figs/fig_arvores/arv_CAPA.jpg}
+\hspace{+0.25cm}
 %\scriptsize\textcolor{red}{[Tizio, Caio et al., Nature (2006)]}
 \end{column}
 \end{columns}
@@ -35,19 +35,22 @@ Pontos fundamentais a serem cobertos:
 
 \end{frame}
 %-----------------------------------------------------------------------------
+\subsection{Apresentação}
 
-\frame{
+\begin{frame}%[allowframebreaks=0.9, c]
+
     \frametitle{Definição}
     
     \begin{itemize}
     \item Uma árvore é uma estrutura hierárquica composta por nós e ligações entre eles
     \item Pode ser vista como um grafo acíclico
     \item Cada nó possui somente um pai e zero ou mais filhos
+    \item Muitas definições ...
     \end{itemize}
-}
+\end{frame}
 
 %---------------------------------------------------------
-\frame{
+\begin{frame}%[allowframebreaks=0.9, c]
     \frametitle{Estrutura}
     
     \begin{figure}[tbp]
@@ -55,58 +58,202 @@ Pontos fundamentais a serem cobertos:
     \centering
     \caption{Exemplo de uma árvore}
     \end{figure}
-}
-
-
-\frame{
-    \frametitle{Características}
-    
-
-
-}
-
-\frame{
-    \frametitle{Representação  Computacional de uma Arvore Genérica}
-    
-     \begin{figure}[!ht]
-     \centering
-    \includegraphics[width=9cm, height=9cm]{figs/fig_arvores/rep_generica_arv00.pdf}
-    \caption{O que há de estranho?}
-    \end{figure}
-
-    \centering
-    \textcolor{red}{O que há de estranho?}
-}
-
-
-
-
-
-
-
-
-\frame{
-    \frametitle{Aplicações}
-    
-    
-}
-
-
-
-
-
-
+\end{frame}
+%---------------------------------------------------------
 
 
 %---------------------------------------------------------
+%\begin{frame}
+ %   \frametitle{Definições}
+    
+
+
+
+
+  %  \end{frame}
+
+%---------------------------------------------------------
+\begin{frame}
+    \frametitle{Características -- Requisitos}
+    
+\begin{itemize}
+  
+  \item  Como é um nó?
+  \item  Qual o grau de um nó?
+  \item  Como devem estar estruturados os valores dos nós?
+  \item  O que é uma chave do nó?
+  \item  O que é a altura?
+  \item  Nível?
+  \item  Caminho
+  \item  ...
+\end{itemize}
+
+
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------------------
+\begin{frame}
+
+    \frametitle{Glossário -- 01}
+    
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=12cm, height=7cm]{figs/fig_arvores/glossario_arv_01.png}
+    %\caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias (AB) }}
+    \end{figure}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------------------
+\begin{frame}
+
+    \frametitle{Glossário -- 02}
+    
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=12cm, height=7cm]{figs/fig_arvores/glossario_arv_02.png}
+    %\caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias (AB) }}
+    \end{figure}
+
+\end{frame}
+%-------------------------------------------------------------------------------------------------------------
+\begin{frame}
+
+    \frametitle{Glossário -- 03}
+    
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/glossario_arv_03.png}
+    %\caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias (AB) }}
+    \end{figure}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------------------
+
+\subsection{Árvores Genéricas}
+
+\begin{frame}
+
+    \frametitle{Árvores Genéricas}
+    %%Representação  Computacional de 
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=9cm, height=5cm]{figs/fig_arvores/arv_generica01.jpg}
+    \caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias (AB) }}
+    \end{figure}
+
+\end{frame}
+%-------------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Transformando uma Árvore Genérica em Binária}
+    
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=10cm, height=5cm]{figs/fig_arvores/arv_generica02.jpg}
+    \caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias(AB)}}
+    \end{figure}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Representação  Computacional de uma Árvore Genérica}
+    
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=10cm, height=5cm]{figs/fig_arvores/arv_generica03.jpg}
+    \caption{\textcolor{red}{Felizmente há um algoritmo que transforme  Árvores Genéricas em Binárias (AB) }}
+    \end{figure}
+
+\end{frame}
+%-------------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Representação  Computacional de uma Árvore Genérica}
+    
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=10cm, height=6cm]{figs/fig_arvores/arv_generica04.png}
+   \caption{\textcolor{red}{Veja a \textit{struct} ... lembra o quê?}}
+    \end{figure}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+\subsection{Aplicações}
+
+\begin{frame}
+
+    \frametitle{Aplicações}
+
+    \begin{itemize}
+      \item  Área de compiladores: análise sintática 
+      \item  Estruturas hierárquicas em geral
+      \item  %O uso de Árvores Genéricas foi apenas para motivar as ABBs
+      \item  
+      
+    \end{itemize}    
+    
+\end{frame}
+
+
+%---------------------------------------------------------
+
+\begin{frame}
+
+\frametitle{Aplicação  de Árvores}
+
+  \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=7cm, height=5.5cm]{figs/fig_arvores/aplicacao_decision_tree.png}
+    \caption{Árvore de Decisão}
+    \end{figure}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Aplicação  de Árvores}
+
+  \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=7cm, height=5.5cm]{figs/fig_arvores/aplicacao_expression_tree.png}
+    \caption{Árvores de expressões -- binárias -- novamente}
+    \end{figure}
+
+\end{frame}
+
+%---------------------------------------------------------
+
 \subsection{Árvore Binária de Busca}
 
 \frame{
-    \frametitle{Árvore Binária de Busca - Definição}
+    \frametitle{Árvores Binárias de Buscas - ABBs}
     
+    
+    \begin{itemize}
+      \item Árvores Genéricas (AGs): foram utilizadas para motivação as ABBs
+      \item Computacionalmente, as ABBs tem um interesse maior que as AGs
+      \item Assim, se inicia com ABBs, e seus algoritmos serão adaptados as AGs
+    \end{itemize}
+    \pause
+    
+\begin{block}{Definição:}
+        
     Árvore onde cada nó possui até 2 filhos. O filho da esquerda só pode conter
     chaves menores do que a do pai, enquanto que o filho da direita só comporta chaves
     maiores do que a do pai.
+    \end{block}
+
 }
 
 %---------------------------------------------------------
