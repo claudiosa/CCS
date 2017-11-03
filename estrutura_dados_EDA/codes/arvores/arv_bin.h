@@ -30,4 +30,6 @@ BinTreeNode * cria_no_BIN(void);
 BinTreeNode * InsertTree_BIN( BinTreeNode * ,  TreeEntry );
 void printInorder(BinTreeNode * );
 void printPreorder(BinTreeNode * );
+void printPosorder(BinTreeNode * );
 bool deltree(BinTreeNode * ) ;
+BinTreeNode *TreeSearch(BinTreeNode *NOH_RAIZ, int ALVO);

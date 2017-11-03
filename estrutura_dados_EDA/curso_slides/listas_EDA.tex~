@@ -816,17 +816,18 @@ int main(void)
   \item O nó inicial da lista,  cabeça, pode variar ... desloque o \textit{header}  da lista 
   para   posição seguinte, e este mantém toda lista original (um bom problema aqui)
   
-  \item Operações modulares em $n$ podem acelerar buscas com
-  deslocamentos sobre os nós
+  \item Operações sobre o \textit{header} na lista tornam esta uma estrutura versátil!
 \end{itemize}
 \end{block}
 
 \begin{block}{Desvantagens:}
 \begin{itemize}
-  \item Enquanto que LDE e LSE, o último nó é ligado a NULL, aqui não
-  \item Cuidados extras aos métodos das LC, pois um \textit{laço infinito} é provável
+  \item Enquanto que LDE e LSE, o último nó é ligado a NULL, aqui não!
+  \item Logo, algum trabalho  em encontrar o último da lista (o \textit{tail}), e 
+  com isto fazer o uso do método
+  \item Cuidados extras aos métodos das LC, pois um \textit{laço infinito} é provável e fácil
   \item Um \textit{marcador extra} de fim de lista pode ser necessário em
-  algumas aplicações
+  algumas aplicações, afim de evitar a dificuldade levantada!
 \end{itemize}
 \end{block}
 \end{frame} 
@@ -922,9 +923,9 @@ int main(void)
   \item Inverter a lista
   \item \textit{Merge} de duas listas
   \item Concatenar duas listas simples
-  \item 
-  \item 
-  \item 
+  \item Ver exercícios do run.codes
+%  \item 
+%  \item 
   
   
   
@@ -937,6 +938,25 @@ int main(void)
 \end{frame} 
 
 %%%%%%%%%%%------------------------------------------------------
+\begin{frame}%%%[allowframebreaks=0.98]
+
+\frametitle{Conclusões}
+
+\begin{block}{}
+
+\begin{itemize}
+  \item Comprova-se a importância do (profundo) entendimento de ponteiros
+  \item Há também algoritmos recursivos que tratam listas 
+  \item Listas generalizam filas e pilhas
+  \item Há muitas variações sobre listas, haja visto a sua aplicabilidade (enorme)
+  \item Sua concepção e uso é estendida a árvores e grafos
+  \item Crie sua própria biblioteca
+  \item Siga um padrão STL do C++ (futuros maratonistas)
+   
+  
+\end{itemize}
+\end{block}
+\end{frame} 
 
 
 
