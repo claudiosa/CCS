@@ -31,5 +31,7 @@ BinTreeNode * InsertTree_BIN( BinTreeNode * ,  TreeEntry );
 void printInorder(BinTreeNode * );
 void printPreorder(BinTreeNode * );
 void printPosorder(BinTreeNode * );
-bool deltree(BinTreeNode * ) ;
+void deltree(BinTreeNode * ) ;
 BinTreeNode *TreeSearch(BinTreeNode *NOH_RAIZ, int ALVO);
+int sizeof_Tree_BIN( BinTreeNode *root);
+void deltree_TRUE(BinTreeNode ** tree);
