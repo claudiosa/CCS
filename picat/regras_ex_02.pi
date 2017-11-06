@@ -1,12 +1,3 @@
-%%% FATOS ...  desenhe a arvore geneologica
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-index(-,-)    %% definindo FATOS
-  %%pai(PAI, FILHO)  
-	%pai(platao, luna)   .
-	pai(platao, pericles).
-	pai(platao, eratostenes).
-	pai(epimenides, platao).
-	pai(bartolomeu, epimenides).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% REGRAS: exemplos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -18,7 +9,10 @@ irmao(X,Y) => pai(Z,X), %%% 1o a ser avaliado
               pai(Z,Y), %%% 2o a ser avaliado
               %%X !== Y. 
               !==(X , Y). %%% 3o a ser avaliado
-
+/*
+implemente o predicado tio(X,Y), tio_avo(X,Y), bisavo(X,Y)
+..........................................................
+*/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% MAIS REGRAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -33,8 +27,8 @@ listar_pais =>
     true. %% the final rule of above
           
 listar_ant  ?=>    %%% ?=>  regra "backtrackavel"
-    antepassado(X,Y) ,  
-    printf("\n ==> %w  e ANTEPASSADO de  %w", X , Y)  , 
+    ancestral(X,Y) ,  
+    printf("\n ==> %w  e ancestral de  %w", X , Y)  , 
     false.
 
 listar_ant => 
@@ -45,31 +39,36 @@ listar_ant =>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=>   %%% ?=>  regra "backtrackavel"
  %   listar_pais,
-     listar_ant, 
+  %   listar_ant, 
  %   avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
- %   irmao(Z,W), printf(" \n ==> %w  eh irmao de  %w", Z , W),
+     irmao(Z,W), printf(" \n ==> %w  eh irmao de  %w", Z , W),
      false.   
 main => true.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
-1. Todo x que eh pai de um y implica em x ser um antepassado
+1. Todo x que eh pai de um y implica em x ser um ancestral
 de y
-QxQy (pai(x,y) --> antepassado(x,y))
+QxQy (pai(x,y) --> ancestral(x,y))
 
 2. Todo x que eh pai de um z, e z
-eh um  antepassado de y, entao x eh antepassado de y
+eh um  ancestral de y, entao x eh ancestral de y
 
-QxQyQz (pai(x,z) and antepassado(z,y) --> antepassado(x,y))
+QxQyQz  (pai(x,z) and ancestral(z,y) --> ancestral(x,y))
 
 EM PICAT -- clausulas de HORN (sempre apenas uma conclusao)
 */
-antepassado(X,Y) ?=> pai(X,Y). %%%%%% ?=>  regra "backtrackavel"
-antepassado(X,Y) =>  pai(X,Z),
-                     antepassado(Z,Y).
+ancestral(X,Y) ?=> pai(X,Y). %%%%%% ?=>  regra "backtrackavel"
+ancestral(X,Y) =>  pai(X,Z),
+                     ancestral(Z,Y).
 
+%%% FATOS ...  desenhe a arvore geneologica
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+index(-,-)    %% definindo FATOS
+%%%%%pai(PAI, FILHO)  
+	%pai(platao, luna)   .
+	pai(platao, pericles).
+	pai(platao, eratostenes).
+	pai(epimenides, platao).
+	pai(bartolomeu, epimenides).
 
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

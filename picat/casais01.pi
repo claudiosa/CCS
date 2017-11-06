@@ -38,7 +38,7 @@ yes
 
 /* aqui comeca o codigo */
 
-import cp.
+%%%import cp.
 
 index(-) 
   prof(advogado).
@@ -66,34 +66,28 @@ main => true.
 %deduz1( [ (carlos,M1,P1), (luis,M2,P2), (paulo,M3,advogado) ] )
 % %        L = [ carlos,M1,P1, luis,M2,P2, paulo,M3,advogado ],
 */
-main => go_modelo.
+main => 
+       modelo(X),
+	   imprime_lista(X).
+    	    	
+modelo(L) =>
+    L = [ (carlos,M1,P1) , (luis,M2,P2), (paulo,M3,advogado) ],
 
-go_modelo =>
 	esposa(M1),
 	esposa(M2),
 	esposa(M3),
 	prof(P1),
 	prof(P2),
-	M3 #!= patricia, %%Patricia nao eh casada com Paulo
-	P1 #!= medico,   %%Carlos nao eh medico
-	(P2 #= medico, M2 #= maria), %%O medico eh casado com a Maria
+	M3 != patricia, %%Patricia nao eh casada com Paulo
+	P1 != medico,   %%Carlos nao eh medico
+	(P2 == medico, M2 == maria), %%O medico eh casado com a Maria
 	%% lendo o texto, P2 eh medico, pois P3 eh advogado
-	P1 #!= advogado,
-	P2 #!= advogado,
-	P1 #!= P2,
-	M1 #!= M2,
-	M1 #!= M3,
-	M2 #!= M3,
-	
-	% search
-	Variaveis = [P1,P2,M1,M2,M3],
-	solve([ff], Variaveis),
-	%% output
-        L = [ (carlos,M1,P1) , (luis,M2,P2), (paulo,M3,advogado) ],
-	% writeln(Vars)
-	%writeln(L).
-	imprime_lista(L).
-	
+	P1 != advogado,
+	P2 != advogado,
+	P1 != P2,
+	M1 != M2,
+	M1 != M3,
+	M2 != M3.
 
 % DEFINICAO DE ALLDIFERENT  
 
@@ -118,5 +112,4 @@ deduz_2( [(carlos,M1,P1), (luis,maria,medico), (paulo,M3,advogado)] ) =>
 	M3 #!= patricia,
 	P1 #!= medico,
 	P1 #!= advogado.
-
-
+*/

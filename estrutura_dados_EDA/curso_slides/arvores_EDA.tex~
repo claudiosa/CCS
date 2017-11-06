@@ -171,6 +171,19 @@ Pontos fundamentais a serem cobertos:
     \end{figure}
 
 \end{frame}
+%-------------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+
+    \frametitle{Representação  Computacional de uma Árvore Genérica}
+    
+     \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=10cm, height=6cm]{figs/fig_arvores/arv_generica04.png}
+   \caption{\textcolor{red}{Veja a \textit{struct} ... lembra o quê?}}
+    \end{figure}
+
+\end{frame}
 
 %---------------------------------------------------------
 
@@ -183,6 +196,7 @@ Pontos fundamentais a serem cobertos:
     \begin{itemize}
       \item  Área de compiladores: análise sintática 
       \item  Estruturas hierárquicas em geral
+      \item  %O uso de Árvores Genéricas foi apenas para motivar as ABBs
       \item  
       
     \end{itemize}    
@@ -223,11 +237,23 @@ Pontos fundamentais a serem cobertos:
 \subsection{Árvore Binária de Busca}
 
 \frame{
-    \frametitle{Árvore Binária de Busca - Definição}
+    \frametitle{Árvores Binárias de Buscas - ABBs}
     
+    
+    \begin{itemize}
+      \item Árvores Genéricas (AGs): foram utilizadas para motivação as ABBs
+      \item Computacionalmente, as ABBs tem um interesse maior que as AGs
+      \item Assim, se inicia com ABBs, e seus algoritmos serão adaptados as AGs
+    \end{itemize}
+    \pause
+    
+\begin{block}{Definição:}
+        
     Árvore onde cada nó possui até 2 filhos. O filho da esquerda só pode conter
     chaves menores do que a do pai, enquanto que o filho da direita só comporta chaves
     maiores do que a do pai.
+    \end{block}
+
 }
 
 %---------------------------------------------------------
