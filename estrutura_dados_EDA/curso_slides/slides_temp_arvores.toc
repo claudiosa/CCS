@@ -1,0 +1,10 @@
+\beamer@sectionintoc {1}{\IeC {\'A}rvores}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Apresenta\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{9}{0}{1}
+\beamer@subsectionintoc {1}{3}{Aplica\IeC {\c c}\IeC {\~o}es}{13}{0}{1}
+\beamer@subsectionintoc {1}{4}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{16}{0}{1}
+\beamer@subsectionintoc {1}{5}{Balanceamento}{27}{0}{1}
+\beamer@subsectionintoc {1}{6}{Rota\IeC {\c c}\IeC {\~o}es}{35}{0}{1}
+\beamer@subsectionintoc {1}{7}{\IeC {\'A}rvores AVL}{40}{0}{1}
+\beamer@subsectionintoc {1}{8}{\IeC {\'A}rvore de Espalhamento}{43}{0}{1}
+\select@language {brazilian}

@@ -314,9 +314,9 @@ Pontos fundamentais a serem cobertos:
 \frametitle{Árvore Binária de Busca - Inserção}
 \begin{verbatim}
 INSERÇÃO(ARVORE, ITEM) {
-    SE ITEM->CHAVE = ARVORE->CHAVE
-        ARVORE->ITEM = ITEM
-        return
+    SE ARVORE->CHAVE == NULO
+       ARVORE->ITEM = ITEM
+       return      //e SE CHAVE jah existente?
 
     SE ITEM->CHAVE < ARVORE->CHAVE
         SE ARVORE->ESQ = NULO ENTÃO
@@ -375,7 +375,7 @@ BUSCA(ARVORE, CHAVE) {
 
 %---------------------------------------------------------
 \frame{
-    \frametitle{Árvore Binária de Busca - Remoção}
+    \frametitle{Árvore Binária de Busca -- Remoção}
     
     A remoção de um nó se enquadra em um dos seguintes casos:
     
@@ -385,7 +385,7 @@ BUSCA(ARVORE, CHAVE) {
     \item Remoção de um nó com dois filhos
     \end{enumerate}
     
-    O tratamento de cada caso foi apresentado em sala de aula.
+   %% O tratamento de cada caso foi apresentado em sala de aula.
 }
 
 %---------------------------------------------------------

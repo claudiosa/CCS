@@ -11,9 +11,9 @@ int main(void)
       "MACAU","LONDRES","MOSCOU","MUNIQUE",
       "GLASCOW", "OXFORD","YORK", "AULNAT",
       "MONTREAL" }; // 13 cidades
-      const int chaves[] = {13, 17, 23, 33,
+      const int chaves[] = {23, 17, 13, 33,
                             //13, 17, 23, 33, // testes de duplicatas
-                            36, 77, 43, 73,
+                            11, 77, 43, 31,
                             37, 87, 47, 79, 90}; // 13 chaves
    
       /* criar um ponteiro de arvore .... */
@@ -45,7 +45,8 @@ int main(void)
       //printf("\t lido ALVO: %d", ALVO);
       for (int seq = 0 ; seq < K ; seq++ ) // automatizando
       {  
-      consulta = TreeSearch(pt_TREE, chaves[seq]);
+      //consulta = TreeSearch(pt_TREE, chaves[seq]); // OU
+      consulta = TreeSearch_ITERATIVO(pt_TREE, chaves[seq]);
       if(consulta == NULL)
       printf("\n NAO HA TAL ALVO -- CHAVE NA ABB \n");
       else

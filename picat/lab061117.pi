@@ -1,0 +1,5 @@
+
+main => nl, ast(5).
+
+ast(1)  ?=> printf("* ").
+ast(N)  => printf("* ") , ast(N-1).
