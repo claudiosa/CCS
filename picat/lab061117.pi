@@ -1,5 +1,7 @@
 
-main => nl, ast(5).
+main => nl, ast(5), nl.
 
 ast(1)  ?=> printf("* ").
 ast(N)  => printf("* ") , ast(N-1).
+
+/* CONSTRUA O RETANGULO, O TRIANGULO etc */
