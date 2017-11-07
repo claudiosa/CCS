@@ -1,7 +1,19 @@
 
-main => nl, ast(5), nl.
+main => nl, quad(5), nl.
 
-ast(1)  ?=> printf("* ").
-ast(N)  => printf("* ") , ast(N-1).
+ast(1) ?=> printf("* ").
+ast(N) => printf("* ") , ast(N-1).
 
 /* CONSTRUA O RETANGULO, O TRIANGULO etc */
+
+%% aux(Linhas, Colunas)
+quad(N)   => aux(N,N).
+aux(1,N)  ?=> ast(N).
+aux(N,Kte)   =>  (N > 1), ast(Kte), nl , aux((N-1), Kte).
+
+/*
+OPCIONAL aqui ....
+%aux(X, Y ) ?=>  (X==0; Y==0) %% BACK em caso de falha na parada
+%aux(X, Y ) ?=>  (X < 1; Y < 1), %% BACK em caso de falha na parada 
+				  %printf("\n X >= 1 , Y >= 1").
+*/				  
