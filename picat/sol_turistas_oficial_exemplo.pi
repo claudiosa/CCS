@@ -60,7 +60,7 @@ nacional_do_turista(Nacionalidade_5),
 alldifferent([Nacionalidade_1, Nacionalidade_2, Nacionalidade_3, Nacionalidade_4, Nacionalidade_5]),
 
 %10 O Italiano está na terceira posição.
-Nacionalidade_3==italiano,
+==(Nacionalidade_3,italiano),
 
 
 %13 O turista de Verde está em algum lugar entre o Espanhol e o turista de Branco, nessa ordem.
