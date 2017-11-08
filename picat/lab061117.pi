@@ -1,5 +1,5 @@
 
-main => nl, quad(5), nl.
+main => nl, quad(7), nl.
 
 ast(1) ?=> printf("* ").
 ast(N) => printf("* ") , ast(N-1).
@@ -9,7 +9,10 @@ ast(N) => printf("* ") , ast(N-1).
 %% aux(Linhas, Colunas)
 quad(N)   => aux(N,N).
 aux(1,N)  ?=> ast(N).
-aux(N,Kte)   =>  (N > 1), ast(Kte), nl , aux((N-1), Kte).
+aux(N,Kte)   =>  (N > 1), ast(Kte), 
+                 nl , 
+                 aux((N-1), Kte).
+
 
 /*
 OPCIONAL aqui ....

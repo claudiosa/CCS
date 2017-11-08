@@ -16,7 +16,7 @@ musicos( L ) =>
     instrumento(X1),
     instrumento(X2),
     instrumento(X3),
-    (X2 !== piano),
+    !== (X2 , piano),
     %% todos instrumentos diferentes
     (X1 !== X2 , X3 !== X2 , X1 !== X3),
     dia(D3),
