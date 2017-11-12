@@ -63,14 +63,35 @@ Pontos fundamentais a serem cobertos:
 
 
 %---------------------------------------------------------
-%\begin{frame}
- %   \frametitle{Definições}
+\begin{frame}
+    \frametitle{\textit{Roadmap} para estudo}
     
+\begin{block}{mantendo um \textit{foco}:}
+
+\begin{enumerate}
+  \item Conceitos de árvores genéricas etc ... 
+    \item Árvores Binárias
+  \item Árvore Binária de Busca
+   \item Árvore AVL (iniciais dos nomes:  \textit{Georgii Adelson-Velsky et Evguenii Landis (en), 
+   qui l'ont publié en 1962 sous le titre An Algorithm for the Organization of Information})
+   \item Projeto 10\% : 
+   \begin{itemize}
+     \item  Implemente uma AVL;
+    \item   Leia um conjunto de dados numéricos contidos no arquivo fornecido (um valor por linha: string, int, float, char), inserindo-os sequencialmente na AVL implementada;
+    \item   Imprima o percurso (valores dos nós) em pré-ordem, em-ordem e pós-ordem, além da altura da árvore
+    \item Com a altura dará para ver se a AVL está OK!
+   \end{itemize}
+  
+  \item Vídeos bem legais no Youtube da UNIVEST
+  
+\end{enumerate}
+
+
+\end{block}
 
 
 
-
-  %  \end{frame}
+    \end{frame}
 
 %---------------------------------------------------------
 \begin{frame}
@@ -84,8 +105,8 @@ Pontos fundamentais a serem cobertos:
   \item  O que é uma chave do nó?
   \item  O que é a altura?
   \item  Nível?
-  \item  Caminho
-  \item  ...
+  \item  Caminhos
+
 \end{itemize}
 
 
@@ -195,9 +216,11 @@ Pontos fundamentais a serem cobertos:
 
     \begin{itemize}
       \item  Área de compiladores: análise sintática 
-      \item  Estruturas hierárquicas em geral
-      \item  %O uso de Árvores Genéricas foi apenas para motivar as ABBs
-      \item  
+      \item  Buscas com complexidade na ordem de: $O(\log n)$ 
+     % \item  O uso de Árvores Genéricas foi apenas para motivar as ABBs
+      \item  Na área de IA para construção de árvores de decisão: mineração de dados (\textit{big data})
+      \item  Organização de taxonomias de conhecimento
+      \item  Estruturas hierárquicas em geral      
       
     \end{itemize}    
     
@@ -287,7 +310,7 @@ Pontos fundamentais a serem cobertos:
     \begin{itemize}
     \item Inserção
     \item Busca
-    \item Remoção
+    \item Remoção -- faltando
     \end{itemize}
     \end{block}
     
@@ -383,8 +406,9 @@ BUSCA(ARVORE, CHAVE) {
     \item Remoção de um nó folha (nenhum filho)
     \item Remoção de um nó com somente um filho
     \item Remoção de um nó com dois filhos
+    \item  \textcolor{red}{Faltam as figuras ainda ....}
     \end{enumerate}
-    
+
    %% O tratamento de cada caso foi apresentado em sala de aula.
 }
 

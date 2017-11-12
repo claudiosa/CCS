@@ -353,7 +353,93 @@ INSERÇÃO(ARVORE, ITEM) {
             INSERÇÃO(ARVORE->DIR, ITEM)
 }
 \end{verbatim}
+\begin{itemize}
+  \item 
+ \textcolor{red}{Futuro: rever este pseudo-código}
+  \item Vá ao fonte implementado -- insere nó
+
+\end{itemize}
+
 \end{frame}
+
+
+\section{Percorrendo Árvores Binárias}
+\begin{frame}
+  \frametitle{Percorrendo Árvores Binárias}
+
+
+\begin{itemize}
+  \item Uma operação muito comum é percorrer uma árvore binária, o que significa passar por todos os nós, pelo menos uma vez.
+
+ \item  O conceito de visitar significa executar uma operação com a informação armazenada no nó, por exemplo, imprimir seu conteúdo. 
+
+ \item Na operação de percorrer a árvore pode-se passar por alguns nós mais de uma vez, sem porém visitá-los.
+
+ \item Uma árvore é uma estrutura não seqüêncial, diferentemente de uma lista, por exemplo. Não existe ordem natural para percorrer árvores e portanto podemos escolher diferentes maneiras de percorrê-las. 
+
+ \item  Iremos estudar três métodos para percorrer árvores. 
+
+ \item Todos estes três métodos podem ser definidos recursivamente e se baseiam em \textbf{três operações básicas}: visitar a raiz, percorrer a subárvore da esquerda e percorrer a subárvore da direita. 
+
+ \item A única diferença entre estes métodos é a ordem em que estas operações são executadas.
+\end{itemize}
+
+\end{frame}
+%---------------------------------------------------------
+
+\begin{frame}
+  
+  \frametitle{Percurso em pré-ordem}
+  
+O primeiro método, conhecido como percurso em pré-ordem, implica em executar recursivamente os três passos na seguinte ordem: 
+ 
+\begin{enumerate}
+  \item Visitar a raiz (imprimir esta);
+ \item Percorrer a subárvore da esquerda em pré-ordem;
+ \item Percorre a subárvore da direita em pré-ordem.
+
+\end{enumerate}
+
+\end{frame}
+%---------------------------------------------------------
+
+
+\begin{frame}
+  \frametitle{Exemplo em pré-ordem}
+  
+%%% preorder transversal
+%%%binary_tree_traversal.png
+
+\end{frame}
+%---------------------------------------------------------
+
+
+\begin{frame}
+  \frametitle{Resumo das estratégias}
+  
+%%% preorder transversal
+%%%binary_tree_traversal.png
+
+\end{frame}
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+
+
+\begin{frame}
+  \frametitle{Resumo das estratégias}
+  
+%%% preorder transversal
+%%%binary_tree_traversal.png
+
+\end{frame}
+
+%---------------------------------------------------------
+
+
+%---------------------------------------------------------
+
+
 
 %---------------------------------------------------------
 \frame{
@@ -406,7 +492,7 @@ BUSCA(ARVORE, CHAVE) {
     \item Remoção de um nó folha (nenhum filho)
     \item Remoção de um nó com somente um filho
     \item Remoção de um nó com dois filhos
-    \item  \textcolor{red}{Faltam as figuras ainda ....}
+    \item  \textcolor{red}{Faltam as figuras ainda .... vários slides}
     \end{enumerate}
 
    %% O tratamento de cada caso foi apresentado em sala de aula.
@@ -439,6 +525,7 @@ ALTURA(ARVORE) {
     return maior(A1, A2) + 1
 }
 \end{verbatim}
+
 \end{frame}
 
 %---------------------------------------------------------
@@ -685,8 +772,7 @@ e remoções e quando a localidade de informação não é importante
     \frametitle{Operações Básicas}
     
     \begin{itemize}
-    \item Uma árvore de espalhamento é uma árvore binária de busca válida,
-    logo operações como os percursos (pré-em-pós) são idênticas as operações
+    \item Uma árvore de espalhamento é uma árvore binária de busca válida,  logo operações como os percursos (pré, em e pós ordem) são idênticas as operações
     em uma ABB
     \item As operações de inserção, busca e remoção podem ser definidas com base
     na operação de espalhamento

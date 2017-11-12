@@ -1,6 +1,6 @@
  // Definicao de arv_bin011.h
 #include "arv_bin.h"
-#define K 5
+#define K 7
 
 int main(void)
    {
@@ -11,11 +11,11 @@ int main(void)
       "MACAU","LONDRES","MOSCOU","MUNIQUE",
       "GLASCOW", "OXFORD","YORK", "AULNAT",
       "MONTREAL" }; // 13 cidades
-      const int chaves[] = {23, 17, 13, 33,
+      const int chaves[] = {30, 20, 40, 10,
                             //13, 17, 23, 33, // testes de duplicatas
-                            11, 77, 43, 31,
+                            25, 35, 50, 31,
                             37, 87, 47, 79, 90}; // 13 chaves
-   
+       // ver figura do prof
       /* criar um ponteiro de arvore .... */
       BinTreeNode *pt_TREE;
       pt_TREE = NULL; // aqui sim  interessante ... VAZIA
@@ -23,7 +23,8 @@ int main(void)
       // DADOS DA APLICACAO
       TreeEntry  Xdados ; // se quiser *pt_X = &Xdados;
       // adicionando DADOS a arvore
-      for (int seq = 0 ; seq < K ; seq++ )
+      int seq;
+      for (seq = 0 ; seq < K ; seq++ )
       {  
 // uso dados via PONTEIRO        
 //     pt_X -> UM_INT = seq;  
@@ -43,7 +44,8 @@ int main(void)
       //printf("\n Qual dado alvo: ");
       //scanf("%d", &ALVO);
       //printf("\t lido ALVO: %d", ALVO);
-      for (int seq = 0 ; seq < K ; seq++ ) // automatizando
+/*
+      for (seq = 0 ; seq < K ; seq++ ) // automatizando
       {  
       //consulta = TreeSearch(pt_TREE, chaves[seq]); // OU
       consulta = TreeSearch_ITERATIVO(pt_TREE, chaves[seq]);
@@ -54,18 +56,20 @@ int main(void)
         consulta -> dados.UMA_CHAVE, consulta-> dados.UM_NOME,
         consulta );  
       }
-    
+  */  
     printf("\n NUMERO DE NOSH: %d", sizeof_Tree_BIN( pt_TREE) ); 
-    printf("\n SAIDA IN: \n");  
-    printInorder( pt_TREE );
 
-/*
+
     printf("\n SAIDA PRE: \n");  
     printPreorder( pt_TREE );
+
+    printf("\n SAIDA IN: \n");  
+    printInorder( pt_TREE );
     
     printf("\n SAIDA POS: \n");  
     printPosorder( pt_TREE );
- 
+
+/* 
 if ( deltree( pt_TREE ) == true)
     printf("\n ARVORE LIBERADA OK \n");  
     else 
@@ -76,7 +80,7 @@ if ( deltree( pt_TREE ) == true)
     //deltree( pt_TREE );
     deltree_TRUE( &pt_TREE );
     //pt_TREE  = NULL;  
-    printf("\n NUMERO DE NOSH: %d", sizeof_Tree_BIN( pt_TREE) ); 
+    printf("\n NUMERO DE NOSH: %d\n", sizeof_Tree_BIN( pt_TREE) ); 
 	
 return 1;
    }
