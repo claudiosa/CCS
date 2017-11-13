@@ -32,8 +32,11 @@ void printInorder(BinTreeNode * );
 void printPreorder(BinTreeNode * );
 void printPosorder(BinTreeNode * );
 void deltree(BinTreeNode * ) ;
+void deltree_TRUE(BinTreeNode ** tree);
 BinTreeNode *TreeSearch(BinTreeNode *NOH_RAIZ, int ALVO);
 BinTreeNode *TreeSearch_ITERATIVO(BinTreeNode *NOH_RAIZ, int ALVO);
 int sizeof_Tree_BIN( BinTreeNode *root);
-void deltree_TRUE(BinTreeNode ** tree);
+
 BinTreeNode *remove_NOH_BIN (BinTreeNode *, int ALVO) ;
+int altura_Tree_BIN( BinTreeNode *root);
+int maior (int x, int y);

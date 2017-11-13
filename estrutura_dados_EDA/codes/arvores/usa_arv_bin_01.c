@@ -35,7 +35,9 @@ int main(void)
        // Xdados . UMA_CHAVE = rand()%100; // NUM aleatorio mesmo
        pt_TREE = InsertTree_BIN( pt_TREE, Xdados );
        
-       printf(":%d : %d : %s (End: %x) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
+       printf("\n INSERINDO :%d : %d : %s (End: %x) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
+       printf("\n Agora a altura corrente  eh: %d :", altura_Tree_BIN(  pt_TREE) ); 
+       
       }// fim da entrada
 
       // UMA BUSCA
@@ -44,7 +46,7 @@ int main(void)
       //printf("\n Qual dado alvo: ");
       //scanf("%d", &ALVO);
       //printf("\t lido ALVO: %d", ALVO);
-/*
+/*    OK
       for (seq = 0 ; seq < K ; seq++ ) // automatizando
       {  
       //consulta = TreeSearch(pt_TREE, chaves[seq]); // OU
@@ -58,17 +60,17 @@ int main(void)
       }
   */  
     printf("\n NUMERO DE NOSH: %d", sizeof_Tree_BIN( pt_TREE) ); 
-
+    getchar();
 
     printf("\n SAIDA PRE: \n");  
     printPreorder( pt_TREE );
-
+    getchar();
     printf("\n SAIDA IN: \n");  
     printInorder( pt_TREE );
-    
+    getchar();
     printf("\n SAIDA POS: \n");  
     printPosorder( pt_TREE );
-
+    
 /* 
 if ( deltree( pt_TREE ) == true)
     printf("\n ARVORE LIBERADA OK \n");  
