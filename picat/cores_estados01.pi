@@ -17,7 +17,7 @@ main => listar_todos.
 
 listar_todos ?=>     %%% this rule is backtrackable
          pintar_sul ,    %% and
-         fail.
+         false.
 
 listar_todos => 
           printf("\n**************************\n ") ,
