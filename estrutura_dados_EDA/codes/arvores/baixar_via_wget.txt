@@ -1,0 +1,5 @@
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/curso_slides/curso_EDA_SLIDES.pdf
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/arvores/arv_bin.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/arvores/arv_bin.h
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/arvores/usa_arv_bin_01.c
+https://raw.githubusercontent.com/claudiosa/CCS/master/estrutura_dados_EDA/codes/arvores/makefile

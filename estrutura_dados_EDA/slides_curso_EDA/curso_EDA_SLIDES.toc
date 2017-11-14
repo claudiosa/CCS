@@ -22,7 +22,11 @@
 \beamer@subsectionintoc {11}{2}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{324}{0}{11}
 \beamer@subsectionintoc {11}{3}{Aplica\IeC {\c c}\IeC {\~o}es}{328}{0}{11}
 \beamer@subsectionintoc {11}{4}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{331}{0}{11}
-\beamer@subsectionintoc {11}{5}{Balanceamento}{342}{0}{11}
-\beamer@subsectionintoc {11}{6}{Rota\IeC {\c c}\IeC {\~o}es}{350}{0}{11}
-\beamer@subsectionintoc {11}{7}{\IeC {\'A}rvores AVL}{355}{0}{11}
-\beamer@subsectionintoc {11}{8}{\IeC {\'A}rvore de Espalhamento}{358}{0}{11}
+\beamer@subsectionintoc {11}{5}{Inser\IeC {\c c}\IeC {\~a}o}{340}{0}{11}
+\beamer@subsectionintoc {11}{6}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{344}{0}{11}
+\beamer@subsectionintoc {11}{7}{Buscas em ABB}{352}{0}{11}
+\beamer@subsectionintoc {11}{8}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{353}{0}{11}
+\beamer@subsectionintoc {11}{9}{Balanceamento}{358}{0}{11}
+\beamer@subsectionintoc {11}{10}{Rota\IeC {\c c}\IeC {\~o}es}{366}{0}{11}
+\beamer@subsectionintoc {11}{11}{\IeC {\'A}rvores AVL}{371}{0}{11}
+\beamer@subsectionintoc {11}{12}{\IeC {\'A}rvore de Espalhamento}{374}{0}{11}
