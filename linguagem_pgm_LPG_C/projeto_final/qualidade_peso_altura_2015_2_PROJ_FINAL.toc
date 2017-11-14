@@ -1,0 +1,11 @@
+\select@language {brazilian}
+\contentsline {section}{\numberline {1}Sistema de \IeC {\'I}ndice de Massa Corporal}{2}
+\contentsline {subsection}{\numberline {1.1}Requisitos T\IeC {\'e}cnicos}{2}
+\contentsline {subsection}{\numberline {1.2}Requisitos Operacionais}{2}
+\contentsline {subsection}{\numberline {1.3}Procedimento de Entrega}{3}
+\contentsline {section}{\numberline {2}Sistema de Entregar}{4}
+\contentsline {subsection}{\numberline {2.1}Prazo de Entrega}{4}
+\contentsline {section}{\numberline {3}Avalia\IeC {\c c}\IeC {\~a}o dos Projetos}{5}
+\contentsline {subsection}{\numberline {3.1}Um Guia Global}{5}
+\contentsline {subsection}{\numberline {3.2}Detalhando Alguns Crit\IeC {\'e}rios da Avalia\IeC {\c c}\IeC {\~a}o (nota)}{5}
+\contentsline {subsection}{\numberline {3.3}Especificando Outros}{6}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  7 NOV 2017 11:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.10)  14 NOV 2017 11:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1280,6 +1280,12 @@ File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 \qroofy=\count180
 \@qrscratchbox=\box103
 )
+(/usr/share/texmf-dist/tex/latex/wasysym/wasysym.sty
+Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
+\symwasy=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
+)
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -1498,6 +1504,11 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 34.
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
+LaTeX Font Info:    Try loading font information for U+wasy on input line 34.
+
+(/usr/share/texmf-dist/tex/latex/wasysym/uwasy.fd
+File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
+)
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 34.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1583,7 +1594,7 @@ Overfull \vbox (133.91281pt too high) detected at line 2
 
 
 ]
-<figs/fig_ponteiros/nulo-pointer.png, id=430, 649.42625pt x 501.875pt>
+<figs/fig_ponteiros/nulo-pointer.png, id=426, 649.42625pt x 501.875pt>
 File: figs/fig_ponteiros/nulo-pointer.png Graphic file (type png)
 <use figs/fig_ponteiros/nulo-pointer.png>
 Package pdftex.def Info: figs/fig_ponteiros/nulo-pointer.png  used on input lin
@@ -1597,7 +1608,7 @@ Overfull \vbox (61.1461pt too high) detected at line 42
 [26
 
  <./figs/fig_ponteiros/nulo-pointer.png (PNG copy)>]
-<figs/fig_ponteiros/hierarq_pointer.png, id=437, 553.06625pt x 377.41pt>
+<figs/fig_ponteiros/hierarq_pointer.png, id=433, 553.06625pt x 377.41pt>
 File: figs/fig_ponteiros/hierarq_pointer.png Graphic file (type png)
 <use figs/fig_ponteiros/hierarq_pointer.png>
 Package pdftex.def Info: figs/fig_ponteiros/hierarq_pointer.png  used on input 
@@ -1687,7 +1698,7 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
 ] [55
 
 ]
-<figs/fig_ponteiros/representacao-memoria.png, id=616, 385.44pt x 96.36pt>
+<figs/fig_ponteiros/representacao-memoria.png, id=611, 385.44pt x 96.36pt>
 File: figs/fig_ponteiros/representacao-memoria.png Graphic file (type png)
 <use figs/fig_ponteiros/representacao-memoria.png>
 Package pdftex.def Info: figs/fig_ponteiros/representacao-memoria.png  used on 
@@ -1715,7 +1726,7 @@ Package pdftex.def Info: Requested size: 171.14764pt x 42.78668pt on input line
  [58
 
 ]
-<figs/fig_ponteiros/exemplo-representacao-ponteiro.png, id=635, 197.73875pt x 2
+<figs/fig_ponteiros/exemplo-representacao-ponteiro.png, id=630, 197.73875pt x 2
 05.76875pt>
 File: figs/fig_ponteiros/exemplo-representacao-ponteiro.png Graphic file (type 
 png)
@@ -1797,21 +1808,21 @@ e 178.
  (./curso_EDA_SLIDES.vrb) [79
 
 ]
-<figs/fig_ponteiros/memoria-atribuicao-a.png, id=765, 152.57pt x 140.525pt>
+<figs/fig_ponteiros/memoria-atribuicao-a.png, id=760, 152.57pt x 140.525pt>
 File: figs/fig_ponteiros/memoria-atribuicao-a.png Graphic file (type png)
 <use figs/fig_ponteiros/memoria-atribuicao-a.png>
 Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-a.png  used on i
 nput line 277. on input line 277.
 Package pdftex.def Info: Requested size: 85.35913pt x 78.6227pt on input line 2
 77.
-<figs/fig_ponteiros/memoria-atribuicao-p.png, id=766, 149.55875pt x 136.51pt>
+<figs/fig_ponteiros/memoria-atribuicao-p.png, id=761, 149.55875pt x 136.51pt>
 File: figs/fig_ponteiros/memoria-atribuicao-p.png Graphic file (type png)
 <use figs/fig_ponteiros/memoria-atribuicao-p.png>
 Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-p.png  used on i
 nput line 277. on input line 277.
 Package pdftex.def Info: Requested size: 85.35913pt x 77.91356pt on input line 
 277.
-<figs/fig_ponteiros/memoria-atribuicao-pa.png, id=768, 149.55875pt x 136.51pt>
+<figs/fig_ponteiros/memoria-atribuicao-pa.png, id=763, 149.55875pt x 136.51pt>
 File: figs/fig_ponteiros/memoria-atribuicao-pa.png Graphic file (type png)
 <use figs/fig_ponteiros/memoria-atribuicao-pa.png>
 Package pdftex.def Info: figs/fig_ponteiros/memoria-atribuicao-pa.png  used on 
@@ -1830,7 +1841,7 @@ atribuicao-p.png> <./figs/fig_ponteiros/memoria-atribuicao-pa.png>]
 
 
 (./curso_EDA_SLIDES.vrb
-<figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png, id=776, 185.69376pt x 205.
+<figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png, id=771, 185.69376pt x 205.
 76875pt>
 File: figs/fig_ponteiros/exemplo-atribuicao-ponteiro.png Graphic file (type png
 )
@@ -1913,7 +1924,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [105
 
 ]
-<figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png, id=932, 163.61125
+<figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png, id=927, 163.61125
 pt x 145.54375pt>
 File: figs/fig_ponteiros/representacao_grafica_valor_ponteiro.png Graphic file 
 (type png)
@@ -2048,14 +2059,14 @@ Overfull \vbox (25.54184pt too high) detected at line 465
 ] [138
 
 ]
-<figs/fig_ponteiros/indirecao-simples.png, id=1150, 213.79875pt x 40.15pt>
+<figs/fig_ponteiros/indirecao-simples.png, id=1144, 213.79875pt x 40.15pt>
 File: figs/fig_ponteiros/indirecao-simples.png Graphic file (type png)
 <use figs/fig_ponteiros/indirecao-simples.png>
 Package pdftex.def Info: figs/fig_ponteiros/indirecao-simples.png  used on inpu
 t line 580. on input line 580.
 Package pdftex.def Info: Requested size: 205.37926pt x 38.56866pt on input line
  580.
-<figs/fig_ponteiros/indirecao-multipla.png, id=1151, 333.245pt x 40.15pt>
+<figs/fig_ponteiros/indirecao-multipla.png, id=1145, 333.245pt x 40.15pt>
 File: figs/fig_ponteiros/indirecao-multipla.png Graphic file (type png)
 <use figs/fig_ponteiros/indirecao-multipla.png>
 Package pdftex.def Info: figs/fig_ponteiros/indirecao-multipla.png  used on inp
@@ -2207,7 +2218,7 @@ Overfull \vbox (133.91281pt too high) detected at line 797
 ] [180
 
 ]
-<figs/fig_ponteiros/alocacao_esquematica_memoria.png, id=1492, 228.855pt x 332.
+<figs/fig_ponteiros/alocacao_esquematica_memoria.png, id=1486, 228.855pt x 332.
 24126pt>
 File: figs/fig_ponteiros/alocacao_esquematica_memoria.png Graphic file (type pn
 g)
@@ -2349,7 +2360,7 @@ Overfull \vbox (133.91281pt too high) detected at line 5
 
 
 ]
-<figs/fig_pilhas/pilha_livro.jpeg, id=1708, 278.03876pt x 182.6825pt>
+<figs/fig_pilhas/pilha_livro.jpeg, id=1702, 278.03876pt x 182.6825pt>
 File: figs/fig_pilhas/pilha_livro.jpeg Graphic file (type jpg)
 <use figs/fig_pilhas/pilha_livro.jpeg>
 Package pdftex.def Info: figs/fig_pilhas/pilha_livro.jpeg  used on input line 3
@@ -2372,7 +2383,7 @@ Package pdftex.def Info: Requested size: 99.58476pt x 142.27155pt on input line
 ] [215
 
 ]
-<figs/fig_pilhas/pilha.png, id=1752, 374.39874pt x 385.44pt>
+<figs/fig_pilhas/pilha.png, id=1746, 374.39874pt x 385.44pt>
 File: figs/fig_pilhas/pilha.png Graphic file (type png)
 <use figs/fig_pilhas/pilha.png>
 Package pdftex.def Info: figs/fig_pilhas/pilha.png  used on input line 131. on 
@@ -2439,7 +2450,7 @@ Overfull \vbox (133.91281pt too high) detected at line 4
 
 
 ]
-<figs/fig_filas/fila_pessoas.jpeg, id=1866, 1272.755pt x 574.145pt>
+<figs/fig_filas/fila_pessoas.jpeg, id=1860, 1272.755pt x 574.145pt>
 File: figs/fig_filas/fila_pessoas.jpeg Graphic file (type jpg)
 <use figs/fig_filas/fila_pessoas.jpeg>
 Package pdftex.def Info: figs/fig_filas/fila_pessoas.jpeg  used on input line 3
@@ -2457,7 +2468,7 @@ e 35.
 ] [234
 
 ]
-<figs/fig_filas/exemplo_fila_tres_elementos.png, id=1898, 399.4925pt x 86.3225p
+<figs/fig_filas/exemplo_fila_tres_elementos.png, id=1892, 399.4925pt x 86.3225p
 t>
 File: figs/fig_filas/exemplo_fila_tres_elementos.png Graphic file (type png)
 <use figs/fig_filas/exemplo_fila_tres_elementos.png>
@@ -2465,7 +2476,7 @@ Package pdftex.def Info: figs/fig_filas/exemplo_fila_tres_elementos.png  used o
 n input line 123. on input line 123.
 Package pdftex.def Info: Requested size: 205.37926pt x 44.37819pt on input line
  123.
-<figs/fig_filas/exemplo_fila_tres_retirada.png, id=1899, 399.4925pt x 86.3225pt
+<figs/fig_filas/exemplo_fila_tres_retirada.png, id=1893, 399.4925pt x 86.3225pt
 >
 File: figs/fig_filas/exemplo_fila_tres_retirada.png Graphic file (type png)
 <use figs/fig_filas/exemplo_fila_tres_retirada.png>
@@ -2480,7 +2491,7 @@ Package pdftex.def Info: Requested size: 205.37926pt x 44.37819pt on input line
 ila_tres_retirada.png>] [236
 
 ]
-<figs/fig_filas/exemplo_fila_tres_inclusao.png, id=1915, 399.4925pt x 86.3225pt
+<figs/fig_filas/exemplo_fila_tres_inclusao.png, id=1909, 399.4925pt x 86.3225pt
 >
 File: figs/fig_filas/exemplo_fila_tres_inclusao.png Graphic file (type png)
 <use figs/fig_filas/exemplo_fila_tres_inclusao.png>
@@ -2518,7 +2529,7 @@ Overfull \hbox (19.17622pt too wide) in paragraph at lines 239--239
 ] [243
 
 ]
-<figs/fig_filas/fila_insercao_quatro_elementos.png, id=1958, 399.4925pt x 80.3p
+<figs/fig_filas/fila_insercao_quatro_elementos.png, id=1952, 399.4925pt x 80.3p
 t>
 File: figs/fig_filas/fila_insercao_quatro_elementos.png Graphic file (type png)
 
@@ -2530,7 +2541,7 @@ Package pdftex.def Info: Requested size: 205.37926pt x 41.28204pt on input line
  [244
 
  <./figs/fig_filas/fila_insercao_quatro_elementos.png>]
-<figs/fig_filas/exemplo_fila_remove_dois_elementos.png, id=1965, 399.4925pt x 8
+<figs/fig_filas/exemplo_fila_remove_dois_elementos.png, id=1959, 399.4925pt x 8
 0.3pt>
 File: figs/fig_filas/exemplo_fila_remove_dois_elementos.png Graphic file (type 
 png)
@@ -2546,7 +2557,7 @@ Package pdftex.def Info: Requested size: 205.37926pt x 41.28204pt on input line
 ] [247
 
 ]
-<figs/fig_filas/fila_circular_explicacao_01.jpg, id=1985, 640.3925pt x 360.3462
+<figs/fig_filas/fila_circular_explicacao_01.jpg, id=1979, 640.3925pt x 360.3462
 5pt>
 File: figs/fig_filas/fila_circular_explicacao_01.jpg Graphic file (type jpg)
 <use figs/fig_filas/fila_circular_explicacao_01.jpg>
@@ -2557,7 +2568,7 @@ e 380.
  [248
 
  <./figs/fig_filas/fila_circular_explicacao_01.jpg>]
-<figs/fig_filas/fila_circular_simples.png, id=1992, 231.11343pt x 210.7875pt>
+<figs/fig_filas/fila_circular_simples.png, id=1986, 231.11343pt x 210.7875pt>
 File: figs/fig_filas/fila_circular_simples.png Graphic file (type png)
 <use figs/fig_filas/fila_circular_simples.png>
 Package pdftex.def Info: figs/fig_filas/fila_circular_simples.png  used on inpu
@@ -2568,7 +2579,7 @@ Package pdftex.def Info: Requested size: 171.14764pt x 156.0961pt on input line
 [249
 
  <./figs/fig_filas/fila_circular_simples.png>]
-<figs/fig_filas/fila_circular_explicacao_02.jpg, id=1999, 259.9311pt x 113.9457
+<figs/fig_filas/fila_circular_explicacao_02.jpg, id=1993, 259.9311pt x 113.9457
 pt>
 File: figs/fig_filas/fila_circular_explicacao_02.jpg Graphic file (type jpg)
 <use figs/fig_filas/fila_circular_explicacao_02.jpg>
@@ -2617,7 +2628,7 @@ Overfull \vbox (133.91281pt too high) detected at line 2
 
 
 ]
-<figs/fig_listas/ilustra_lista.jpg, id=2076, 704.6325pt x 330.23375pt>
+<figs/fig_listas/ilustra_lista.jpg, id=2070, 704.6325pt x 330.23375pt>
 File: figs/fig_listas/ilustra_lista.jpg Graphic file (type jpg)
 <use figs/fig_listas/ilustra_lista.jpg>
 Package pdftex.def Info: figs/fig_listas/ilustra_lista.jpg  used on input line 
@@ -2642,7 +2653,7 @@ Package pdftex.def Info: Requested size: 199.16656pt x 93.89587pt on input line
 ] [265
 
 ]
-<figs/fig_listas/lista_matriz_adj01.png, id=2127, 461.47406pt x 109.1578pt>
+<figs/fig_listas/lista_matriz_adj01.png, id=2120, 461.47406pt x 109.1578pt>
 File: figs/fig_listas/lista_matriz_adj01.png Graphic file (type png)
 <use figs/fig_listas/lista_matriz_adj01.png>
 Package pdftex.def Info: figs/fig_listas/lista_matriz_adj01.png  used on input 
@@ -2652,7 +2663,7 @@ e 108.
  [266
 
  <./figs/fig_listas/lista_matriz_adj01.png>]
-<figs/fig_listas/lista_matriz_adj02.png, id=2135, 674.52pt x 247.92625pt>
+<figs/fig_listas/lista_matriz_adj02.png, id=2128, 674.52pt x 247.92625pt>
 File: figs/fig_listas/lista_matriz_adj02.png Graphic file (type png)
 <use figs/fig_listas/lista_matriz_adj02.png>
 Package pdftex.def Info: figs/fig_listas/lista_matriz_adj02.png  used on input 
@@ -2664,7 +2675,7 @@ Package pdftex.def Info: Requested size: 200.29909pt x 81.94453pt on input line
  <./figs/fig_listas/lista_matriz_adj02.png>] [268
 
 ]
-<figs/fig_listas/lista-linear.png, id=2151, 456.70625pt x 84.315pt>
+<figs/fig_listas/lista-linear.png, id=2144, 456.70625pt x 84.315pt>
 File: figs/fig_listas/lista-linear.png Graphic file (type png)
 <use figs/fig_listas/lista-linear.png>
 Package pdftex.def Info: figs/fig_listas/lista-linear.png  used on input line 1
@@ -2752,7 +2763,7 @@ Overfull \hbox (47.5276pt too wide) in paragraph at lines 9--10
 ] [287
 
 ]
-<figs/fig_listas/lista_SE_struct.jpg, id=2270, 169.1118pt x 53.4798pt>
+<figs/fig_listas/lista_SE_struct.jpg, id=2262, 169.1118pt x 53.4798pt>
 File: figs/fig_listas/lista_SE_struct.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_SE_struct.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_SE_struct.jpg  used on input lin
@@ -2763,7 +2774,7 @@ e 495.
 [288
 
  <./figs/fig_listas/lista_SE_struct.jpg>]
-<figs/fig_listas/lista_encadeada02.jpg, id=2277, 879.285pt x 610.53094pt>
+<figs/fig_listas/lista_encadeada02.jpg, id=2269, 879.285pt x 610.53094pt>
 File: figs/fig_listas/lista_encadeada02.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_encadeada02.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_encadeada02.jpg  used on input l
@@ -2777,7 +2788,7 @@ e 507.
 ] [291
 
 ]
-<figs/fig_listas/compara_implementacao_listas.jpg, id=2298, 3392.675pt x 939.51
+<figs/fig_listas/compara_implementacao_listas.jpg, id=2290, 3392.675pt x 939.51
 pt>
 File: figs/fig_listas/compara_implementacao_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/compara_implementacao_listas.jpg>
@@ -2798,14 +2809,14 @@ Overfull \vbox (7.73207pt too high) detected at line 618
 ] [295
 
 ]
-<figs/fig_listas/lista_encadeada01.png, id=2324, 416.30531pt x 152.06813pt>
+<figs/fig_listas/lista_encadeada01.png, id=2316, 416.30531pt x 152.06813pt>
 File: figs/fig_listas/lista_encadeada01.png Graphic file (type png)
 <use figs/fig_listas/lista_encadeada01.png>
 Package pdftex.def Info: figs/fig_listas/lista_encadeada01.png  used on input l
 ine 648. on input line 648.
 Package pdftex.def Info: Requested size: 182.095pt x 81.94617pt on input line 6
 48.
-<figs/fig_listas/insere_inicio.jpg, id=2325, 3248.135pt x 1642.135pt>
+<figs/fig_listas/insere_inicio.jpg, id=2317, 3248.135pt x 1642.135pt>
 File: figs/fig_listas/insere_inicio.jpg Graphic file (type jpg)
 <use figs/fig_listas/insere_inicio.jpg>
 Package pdftex.def Info: figs/fig_listas/insere_inicio.jpg  used on input line 
@@ -2820,7 +2831,7 @@ Overfull \vbox (40.56493pt too high) detected at line 648
 
  <./figs/fig_listas/lista_encadeada01.png> <./figs/fig_listas/insere_inicio.jpg
 >]
-<figs/fig_listas/insere_posicao.jpg, id=2332, 3103.595pt x 1822.81pt>
+<figs/fig_listas/insere_posicao.jpg, id=2324, 3103.595pt x 1822.81pt>
 File: figs/fig_listas/insere_posicao.jpg Graphic file (type jpg)
 <use figs/fig_listas/insere_posicao.jpg>
 Package pdftex.def Info: figs/fig_listas/insere_posicao.jpg  used on input line
@@ -2830,7 +2841,7 @@ e 664.
  [297
 
  <./figs/fig_listas/insere_posicao.jpg>]
-<figs/fig_listas/exclui_inicio.jpg, id=2339, 3047.385pt x 1473.505pt>
+<figs/fig_listas/exclui_inicio.jpg, id=2331, 3047.385pt x 1473.505pt>
 File: figs/fig_listas/exclui_inicio.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_inicio.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_inicio.jpg  used on input line 
@@ -2840,7 +2851,7 @@ Package pdftex.def Info: Requested size: 254.9091pt x 136.56688pt on input line
  [298
 
  <./figs/fig_listas/exclui_inicio.jpg>]
-<figs/fig_listas/exclui_no_meio.jpg, id=2346, 3328.435pt x 1401.235pt>
+<figs/fig_listas/exclui_no_meio.jpg, id=2338, 3328.435pt x 1401.235pt>
 File: figs/fig_listas/exclui_no_meio.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_no_meio.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_no_meio.jpg  used on input line
@@ -2850,7 +2861,7 @@ e 696.
  [299
 
  <./figs/fig_listas/exclui_no_meio.jpg>]
-<figs/fig_listas/exclui_ultimo_no.jpg, id=2353, 3248.135pt x 1533.73pt>
+<figs/fig_listas/exclui_ultimo_no.jpg, id=2345, 3248.135pt x 1533.73pt>
 File: figs/fig_listas/exclui_ultimo_no.jpg Graphic file (type jpg)
 <use figs/fig_listas/exclui_ultimo_no.jpg>
 Package pdftex.def Info: figs/fig_listas/exclui_ultimo_no.jpg  used on input li
@@ -2860,7 +2871,7 @@ e 712.
  [300
 
  <./figs/fig_listas/exclui_ultimo_no.jpg>]
-<figs/fig_listas/lista_DE_01.png, id=2360, 602.25pt x 150.5625pt>
+<figs/fig_listas/lista_DE_01.png, id=2352, 602.25pt x 150.5625pt>
 File: figs/fig_listas/lista_DE_01.png Graphic file (type png)
 <use figs/fig_listas/lista_DE_01.png>
 Package pdftex.def Info: figs/fig_listas/lista_DE_01.png  used on input line 73
@@ -2875,7 +2886,7 @@ e 733.
 ] [303
 
 ]
-<figs/fig_listas/insercao_LDE.jpg, id=2381, 2565.585pt x 2356.805pt>
+<figs/fig_listas/insercao_LDE.jpg, id=2373, 2565.585pt x 2356.805pt>
 File: figs/fig_listas/insercao_LDE.jpg Graphic file (type jpg)
 <use figs/fig_listas/insercao_LDE.jpg>
 Package pdftex.def Info: figs/fig_listas/insercao_LDE.jpg  used on input line 7
@@ -2889,7 +2900,7 @@ Overfull \vbox (4.56645pt too high) detected at line 788
 [304
 
  <./figs/fig_listas/insercao_LDE.jpg>]
-<figs/fig_listas/lista_circular.jpg, id=2388, 724.7075pt x 180.675pt>
+<figs/fig_listas/lista_circular.jpg, id=2380, 724.7075pt x 180.675pt>
 File: figs/fig_listas/lista_circular.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_circular.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_circular.jpg  used on input line
@@ -2907,7 +2918,7 @@ Overfull \vbox (17.13362pt too high) detected at line 833
 ] [307
 
 ]
-<figs/fig_listas/exclui_prim_no_lista_circular.jpg, id=2408, 3071.475pt x 2252.
+<figs/fig_listas/exclui_prim_no_lista_circular.jpg, id=2400, 3071.475pt x 2252.
 415pt>
 File: figs/fig_listas/exclui_prim_no_lista_circular.jpg Graphic file (type jpg)
 
@@ -2919,7 +2930,7 @@ Package pdftex.def Info: Requested size: 243.98895pt x 177.5161pt on input line
  [308
 
  <./figs/fig_listas/exclui_prim_no_lista_circular.jpg>]
-<figs/fig_listas/lista_circular_DE.jpg, id=2415, 515.526pt x 208.98074pt>
+<figs/fig_listas/lista_circular_DE.jpg, id=2407, 515.526pt x 208.98074pt>
 File: figs/fig_listas/lista_circular_DE.jpg Graphic file (type jpg)
 <use figs/fig_listas/lista_circular_DE.jpg>
 Package pdftex.def Info: figs/fig_listas/lista_circular_DE.jpg  used on input l
@@ -2930,7 +2941,7 @@ Package pdftex.def Info: Requested size: 291.36713pt x 122.9149pt on input line
 [309
 
  <./figs/fig_listas/lista_circular_DE.jpg>]
-<figs/fig_listas/unrolled_listas.jpg, id=2422, 3151.775pt x 1172.38pt>
+<figs/fig_listas/unrolled_listas.jpg, id=2414, 3151.775pt x 1172.38pt>
 File: figs/fig_listas/unrolled_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/unrolled_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/unrolled_listas.jpg  used on input lin
@@ -2940,7 +2951,7 @@ e 897.
  [310
 
  <./figs/fig_listas/unrolled_listas.jpg>]
-<figs/fig_listas/skipped_listas.jpg, id=2430, 3288.285pt x 1365.1pt>
+<figs/fig_listas/skipped_listas.jpg, id=2422, 3288.285pt x 1365.1pt>
 File: figs/fig_listas/skipped_listas.jpg Graphic file (type jpg)
 <use figs/fig_listas/skipped_listas.jpg>
 Package pdftex.def Info: figs/fig_listas/skipped_listas.jpg  used on input line
@@ -2968,7 +2979,7 @@ Overfull \vbox (133.91281pt too high) detected at line 2
 
 
 ]
-<figs/fig_arvores/arv_CAPA.jpg, id=2487, 361.35pt x 385.44pt>
+<figs/fig_arvores/arv_CAPA.jpg, id=2480, 361.35pt x 385.44pt>
 File: figs/fig_arvores/arv_CAPA.jpg Graphic file (type jpg)
 <use figs/fig_arvores/arv_CAPA.jpg>
 Package pdftex.def Info: figs/fig_arvores/arv_CAPA.jpg  used on input line 36. 
@@ -2980,7 +2991,7 @@ e 36.
  <./figs/fig_arvores/arv_CAPA.jpg>] [317
 
 ]
-<figs/fig_arvores/arvore.pdf, id=2501, pagebox=cropbox, 518.93875pt x 463.7325p
+<figs/fig_arvores/arvore.pdf, id=2492, pagebox=cropbox, 518.93875pt x 463.7325p
 t>
 File: figs/fig_arvores/arvore.pdf Graphic file (type pdf)
 <use figs/fig_arvores/arvore.pdf>
@@ -2999,48 +3010,51 @@ Overfull \vbox (7.19637pt too high) detected at line 94
 ] [320
 
 ]
-<figs/fig_arvores/glossario_arv_01.png, id=2524, 1039.885pt x 612.2875pt>
-File: figs/fig_arvores/glossario_arv_01.png Graphic file (type png)
-<use figs/fig_arvores/glossario_arv_01.png>
-Package pdftex.def Info: figs/fig_arvores/glossario_arv_01.png  used on input l
+<figs/fig_arvores/glossario_arv_01.jpg, id=2515, 1039.885pt x 612.2875pt>
+File: figs/fig_arvores/glossario_arv_01.jpg Graphic file (type jpg)
+<use figs/fig_arvores/glossario_arv_01.jpg>
+Package pdftex.def Info: figs/fig_arvores/glossario_arv_01.jpg  used on input l
 ine 126. on input line 126.
-Package pdftex.def Info: Requested size: 341.43356pt x 199.1686pt on input line
+Package pdftex.def Info: Requested size: 284.5174pt x 227.61725pt on input line
  126.
- [321
 
- <./figs/fig_arvores/glossario_arv_01.png>]
-<figs/fig_arvores/glossario_arv_02.png, id=2531, 1008.76875pt x 579.16376pt>
-File: figs/fig_arvores/glossario_arv_02.png Graphic file (type png)
-<use figs/fig_arvores/glossario_arv_02.png>
-Package pdftex.def Info: figs/fig_arvores/glossario_arv_02.png  used on input l
+Overfull \vbox (10.67575pt too high) detected at line 126
+ []
+
+[321
+
+ <./figs/fig_arvores/glossario_arv_01.jpg>]
+<figs/fig_arvores/glossario_arv_02.jpg, id=2522, 1008.76875pt x 579.16376pt>
+File: figs/fig_arvores/glossario_arv_02.jpg Graphic file (type jpg)
+<use figs/fig_arvores/glossario_arv_02.jpg>
+Package pdftex.def Info: figs/fig_arvores/glossario_arv_02.jpg  used on input l
 ine 139. on input line 139.
 Package pdftex.def Info: Requested size: 341.43758pt x 199.16658pt on input lin
 e 139.
  [322
 
- <./figs/fig_arvores/glossario_arv_02.png>]
-<figs/fig_arvores/glossario_arv_03.png, id=2537, 936.49875pt x 309.155pt>
-File: figs/fig_arvores/glossario_arv_03.png Graphic file (type png)
-<use figs/fig_arvores/glossario_arv_03.png>
-Package pdftex.def Info: figs/fig_arvores/glossario_arv_03.png  used on input l
+ <./figs/fig_arvores/glossario_arv_02.jpg>]
+<figs/fig_arvores/glossario_arv_03.jpg, id=2529, 936.49875pt x 309.155pt>
+File: figs/fig_arvores/glossario_arv_03.jpg Graphic file (type jpg)
+<use figs/fig_arvores/glossario_arv_03.jpg>
+Package pdftex.def Info: figs/fig_arvores/glossario_arv_03.jpg  used on input l
 ine 151. on input line 151.
 Package pdftex.def Info: Requested size: 227.62225pt x 142.26962pt on input lin
 e 151.
  [323
 
- <./figs/fig_arvores/glossario_arv_03.png>]
-<figs/fig_arvores/arv_generica01.jpg, id=2545, 691.08188pt x 411.03563pt>
+ <./figs/fig_arvores/glossario_arv_03.jpg>]
+<figs/fig_arvores/arv_generica01.jpg, id=2537, 691.08188pt x 411.03563pt>
 File: figs/fig_arvores/arv_generica01.jpg Graphic file (type jpg)
 <use figs/fig_arvores/arv_generica01.jpg>
 Package pdftex.def Info: figs/fig_arvores/arv_generica01.jpg  used on input lin
 e 167. on input line 167.
 Package pdftex.def Info: Requested size: 256.07591pt x 142.25902pt on input lin
 e 167.
-
-[324
+ [324
 
  <./figs/fig_arvores/arv_generica01.jpg>]
-<figs/fig_arvores/arv_generica02.jpg, id=2553, 691.08188pt x 411.03563pt>
+<figs/fig_arvores/arv_generica02.jpg, id=2543, 691.08188pt x 411.03563pt>
 File: figs/fig_arvores/arv_generica02.jpg Graphic file (type jpg)
 <use figs/fig_arvores/arv_generica02.jpg>
 Package pdftex.def Info: figs/fig_arvores/arv_generica02.jpg  used on input lin
@@ -3050,54 +3064,56 @@ e 180.
  [325
 
  <./figs/fig_arvores/arv_generica02.jpg>]
-<figs/fig_arvores/arv_generica03.jpg, id=2561, 433.62pt x 156.19646pt>
+<figs/fig_arvores/arv_generica03.jpg, id=2551, 433.62pt x 156.19646pt>
 File: figs/fig_arvores/arv_generica03.jpg Graphic file (type jpg)
 <use figs/fig_arvores/arv_generica03.jpg>
 Package pdftex.def Info: figs/fig_arvores/arv_generica03.jpg  used on input lin
 e 194. on input line 194.
 Package pdftex.def Info: Requested size: 284.54257pt x 142.27007pt on input lin
 e 194.
- [326
+
+[326
 
  <./figs/fig_arvores/arv_generica03.jpg>]
-<figs/fig_arvores/arv_generica04.png, id=2567, 991.705pt x 608.2725pt>
-File: figs/fig_arvores/arv_generica04.png Graphic file (type png)
-<use figs/fig_arvores/arv_generica04.png>
-Package pdftex.def Info: figs/fig_arvores/arv_generica04.png  used on input lin
+<figs/fig_arvores/arv_generica04.jpg, id=2558, 991.705pt x 608.2725pt>
+File: figs/fig_arvores/arv_generica04.jpg Graphic file (type jpg)
+<use figs/fig_arvores/arv_generica04.jpg>
+Package pdftex.def Info: figs/fig_arvores/arv_generica04.jpg  used on input lin
 e 207. on input line 207.
 Package pdftex.def Info: Requested size: 284.53038pt x 170.71423pt on input lin
 e 207.
  [327
 
- <./figs/fig_arvores/arv_generica04.png>] [328
+ <./figs/fig_arvores/arv_generica04.jpg>] [328
 
 ]
-<figs/fig_arvores/aplicacao_decision_tree.png, id=2581, 542.025pt x 381.425pt>
-File: figs/fig_arvores/aplicacao_decision_tree.png Graphic file (type png)
-<use figs/fig_arvores/aplicacao_decision_tree.png>
-Package pdftex.def Info: figs/fig_arvores/aplicacao_decision_tree.png  used on 
+<figs/fig_arvores/aplicacao_decision_tree.jpg, id=2570, 542.025pt x 381.425pt>
+File: figs/fig_arvores/aplicacao_decision_tree.jpg Graphic file (type jpg)
+<use figs/fig_arvores/aplicacao_decision_tree.jpg>
+Package pdftex.def Info: figs/fig_arvores/aplicacao_decision_tree.jpg  used on 
 input line 242. on input line 242.
 Package pdftex.def Info: Requested size: 199.1649pt x 156.49002pt on input line
  242.
  [329
 
- <./figs/fig_arvores/aplicacao_decision_tree.png>]
-<figs/fig_arvores/aplicacao_expression_tree.png, id=2587, 279.0425pt x 181.6787
+ <./figs/fig_arvores/aplicacao_decision_tree.jpg>]
+<figs/fig_arvores/aplicacao_expression_tree.jpg, id=2577, 279.0425pt x 181.6787
 6pt>
-File: figs/fig_arvores/aplicacao_expression_tree.png Graphic file (type png)
-<use figs/fig_arvores/aplicacao_expression_tree.png>
-Package pdftex.def Info: figs/fig_arvores/aplicacao_expression_tree.png  used o
+File: figs/fig_arvores/aplicacao_expression_tree.jpg Graphic file (type jpg)
+<use figs/fig_arvores/aplicacao_expression_tree.jpg>
+Package pdftex.def Info: figs/fig_arvores/aplicacao_expression_tree.jpg  used o
 n input line 256. on input line 256.
 Package pdftex.def Info: Requested size: 199.17323pt x 156.49294pt on input lin
 e 256.
- [330
 
- <./figs/fig_arvores/aplicacao_expression_tree.png>] [331
+[330
+
+ <./figs/fig_arvores/aplicacao_expression_tree.jpg>] [331
 
 ] [332
 
 ]
-<figs/fig_arvores/arvore_binaria_de_busca.pdf, id=2609, pagebox=cropbox, 644.40
+<figs/fig_arvores/arvore_binaria_de_busca.pdf, id=2596, pagebox=cropbox, 644.40
 75pt x 475.7775pt>
 File: figs/fig_arvores/arvore_binaria_de_busca.pdf Graphic file (type pdf)
 <use figs/fig_arvores/arvore_binaria_de_busca.pdf>
@@ -3105,11 +3121,10 @@ Package pdftex.def Info: figs/fig_arvores/arvore_binaria_de_busca.pdf  used on
 input line 291. on input line 291.
 Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 2
 91.
-
-[333
+ [333
 
  <./figs/fig_arvores/arvore_binaria_de_busca.pdf>]
-<figs/fig_arvores/no.pdf, id=2626, pagebox=cropbox, 698.61pt x 321.2pt>
+<figs/fig_arvores/no.pdf, id=2613, pagebox=cropbox, 698.61pt x 321.2pt>
 File: figs/fig_arvores/no.pdf Graphic file (type pdf)
 <use figs/fig_arvores/no.pdf>
 Package pdftex.def Info: figs/fig_arvores/no.pdf  used on input line 303. on in
@@ -3118,320 +3133,409 @@ Package pdftex.def Info: Requested size: 289.07999pt x 132.90833pt on input lin
 e 303.
  [334
 
- <./figs/fig_arvores/no.pdf>] [335
+ <./figs/fig_arvores/no.pdf>]
+[335
+
+] [336
 
 ]
 
-LaTeX Warning: Citation `cormen' on page 336 undefined on input line 333.
-
-[336
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb)
-Overfull \vbox (0.57109pt too high) detected at line 356
- []
+LaTeX Warning: Citation `cormen' on page 337 undefined on input line 368.
 
 [337
 
 ]
-<figs/fig_arvores/insercao_1.pdf, id=2662, pagebox=cropbox, 644.4075pt x 475.77
-75pt>
-File: figs/fig_arvores/insercao_1.pdf Graphic file (type pdf)
-<use figs/fig_arvores/insercao_1.pdf>
-Package pdftex.def Info: figs/fig_arvores/insercao_1.pdf  used on input line 36
-7. on input line 367.
-Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 3
-67.
- [338
 
- <./figs/fig_arvores/insercao_1.pdf>]
-<figs/fig_arvores/insercao_2.pdf, id=2680, pagebox=cropbox, 644.4075pt x 475.77
-75pt>
-File: figs/fig_arvores/insercao_2.pdf Graphic file (type pdf)
-<use figs/fig_arvores/insercao_2.pdf>
-Package pdftex.def Info: figs/fig_arvores/insercao_2.pdf  used on input line 37
-8. on input line 378.
-Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 3
-78.
- [339
+LaTeX Warning: Citation `cormen' on page 338 undefined on input line 368.
 
- <./figs/fig_arvores/insercao_2.pdf>]
-\openout4 = `curso_EDA_SLIDES.vrb'.
+[338
 
- (./curso_EDA_SLIDES.vrb) [340
+]
 
-] [341
+LaTeX Warning: Citation `cormen' on page 339 undefined on input line 368.
 
-] [342
+[339
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
  (./curso_EDA_SLIDES.vrb)
-[343
+Overfull \vbox (8.38765pt too high) detected at line 403
+ []
+
+[340
 
 ]
-<figs/fig_arvores/altura1.pdf, id=2722, pagebox=cropbox, 665.48625pt x 516.9312
+<figs/fig_arvores/insercao_1.pdf, id=2670, pagebox=cropbox, 644.4075pt x 475.77
+75pt>
+File: figs/fig_arvores/insercao_1.pdf Graphic file (type pdf)
+<use figs/fig_arvores/insercao_1.pdf>
+Package pdftex.def Info: figs/fig_arvores/insercao_1.pdf  used on input line 41
+3. on input line 413.
+Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 4
+13.
+ [341
+
+ <./figs/fig_arvores/insercao_1.pdf>]
+<figs/fig_arvores/insercao_2.pdf, id=2687, pagebox=cropbox, 644.4075pt x 475.77
+75pt>
+File: figs/fig_arvores/insercao_2.pdf Graphic file (type pdf)
+<use figs/fig_arvores/insercao_2.pdf>
+Package pdftex.def Info: figs/fig_arvores/insercao_2.pdf  used on input line 42
+4. on input line 424.
+Package pdftex.def Info: Requested size: 216.81pt x 160.07793pt on input line 4
+24.
+ [342
+
+ <./figs/fig_arvores/insercao_2.pdf>]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [343
+
+]
+Overfull \vbox (8.38774pt too high) detected at line 468
+ []
+
+[344
+
+] [345
+
+]
+<figs/fig_arvores/preorder_transversal.jpg, id=2723, 903.375pt x 602.25pt>
+File: figs/fig_arvores/preorder_transversal.jpg Graphic file (type jpg)
+<use figs/fig_arvores/preorder_transversal.jpg>
+Package pdftex.def Info: figs/fig_arvores/preorder_transversal.jpg  used on inp
+ut line 500. on input line 500.
+Package pdftex.def Info: Requested size: 199.17043pt x 156.48941pt on input lin
+e 500.
+ [346
+
+ <./figs/fig_arvores/preorder_transversal.jpg>] [347
+
+]
+<figs/fig_arvores/binary_tree_traversal.jpg, id=2736, 875.27pt x 584.1825pt>
+File: figs/fig_arvores/binary_tree_traversal.jpg Graphic file (type jpg)
+<use figs/fig_arvores/binary_tree_traversal.jpg>
+Package pdftex.def Info: figs/fig_arvores/binary_tree_traversal.jpg  used on in
+put line 541. on input line 541.
+Package pdftex.def Info: Requested size: 227.61826pt x 170.71892pt on input lin
+e 541.
+ [348
+
+ <./figs/fig_arvores/binary_tree_traversal.jpg>] [349
+
+] [350
+
+] [351
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [352
+
+] [353
+
+]
+<figs/fig_arvores/remove0_arvore.jpg, id=2775, 844.15375pt x 427.5975pt>
+File: figs/fig_arvores/remove0_arvore.jpg Graphic file (type jpg)
+<use figs/fig_arvores/remove0_arvore.jpg>
+Package pdftex.def Info: figs/fig_arvores/remove0_arvore.jpg  used on input lin
+e 633. on input line 633.
+Package pdftex.def Info: Requested size: 199.16188pt x 142.26247pt on input lin
+e 633.
+ [354
+
+ <./figs/fig_arvores/remove0_arvore.jpg>]
+<figs/fig_arvores/remove1_arvore.jpg, id=2782, 844.15375pt x 427.5975pt>
+File: figs/fig_arvores/remove1_arvore.jpg Graphic file (type jpg)
+<use figs/fig_arvores/remove1_arvore.jpg>
+Package pdftex.def Info: figs/fig_arvores/remove1_arvore.jpg  used on input lin
+e 650. on input line 650.
+Package pdftex.def Info: Requested size: 199.16188pt x 142.26247pt on input lin
+e 650.
+ [355
+
+ <./figs/fig_arvores/remove1_arvore.jpg>]
+<figs/fig_arvores/remove2_arvore.jpg, id=2789, 844.15375pt x 427.5975pt>
+File: figs/fig_arvores/remove2_arvore.jpg Graphic file (type jpg)
+<use figs/fig_arvores/remove2_arvore.jpg>
+Package pdftex.def Info: figs/fig_arvores/remove2_arvore.jpg  used on input lin
+e 668. on input line 668.
+Package pdftex.def Info: Requested size: 199.16188pt x 142.26247pt on input lin
+e 668.
+ [356
+
+ <./figs/fig_arvores/remove2_arvore.jpg>] [357
+
+] [358
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [359
+
+]
+<figs/fig_arvores/altura1.pdf, id=2815, pagebox=cropbox, 665.48625pt x 516.9312
 4pt>
 File: figs/fig_arvores/altura1.pdf Graphic file (type pdf)
 <use figs/fig_arvores/altura1.pdf>
-Package pdftex.def Info: figs/fig_arvores/altura1.pdf  used on input line 454. 
-on input line 454.
-Package pdftex.def Info: Requested size: 216.81pt x 168.41081pt on input line 4
-54.
- [344
+Package pdftex.def Info: figs/fig_arvores/altura1.pdf  used on input line 731. 
+on input line 731.
+Package pdftex.def Info: Requested size: 216.81pt x 168.41081pt on input line 7
+31.
+ [360
 
  <./figs/fig_arvores/altura1.pdf>]
-<figs/fig_arvores/altura2.pdf, id=2732, pagebox=cropbox, 665.48625pt x 516.9312
+<figs/fig_arvores/altura2.pdf, id=2825, pagebox=cropbox, 665.48625pt x 516.9312
 4pt>
 File: figs/fig_arvores/altura2.pdf Graphic file (type pdf)
 <use figs/fig_arvores/altura2.pdf>
-Package pdftex.def Info: figs/fig_arvores/altura2.pdf  used on input line 466. 
-on input line 466.
-Package pdftex.def Info: Requested size: 216.81pt x 168.41081pt on input line 4
-66.
- [345
+Package pdftex.def Info: figs/fig_arvores/altura2.pdf  used on input line 743. 
+on input line 743.
+Package pdftex.def Info: Requested size: 216.81pt x 168.41081pt on input line 7
+43.
+ [361
 
  <./figs/fig_arvores/altura2.pdf>]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb) [346
 
-] [347
+(./curso_EDA_SLIDES.vrb) [362
+
+] [363
 
 ]
-<figs/fig_arvores/Balanceamento_Arvore.pdf, id=2761, pagebox=cropbox, 497.86pt 
+<figs/fig_arvores/Balanceamento_Arvore.pdf, id=2855, pagebox=cropbox, 497.86pt 
 x 450.68375pt>
 File: figs/fig_arvores/Balanceamento_Arvore.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore.pdf  used on inp
-ut line 499. on input line 499.
-Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 49
-9.
- [348
+ut line 776. on input line 776.
+Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 77
+6.
+ [364
 
  <./figs/fig_arvores/Balanceamento_Arvore.pdf>]
-<figs/fig_arvores/Arvore_Desbalanceada.pdf, id=2784, pagebox=cropbox, 497.86pt 
+<figs/fig_arvores/Arvore_Desbalanceada.pdf, id=2879, pagebox=cropbox, 497.86pt 
 x 450.68375pt>
 File: figs/fig_arvores/Arvore_Desbalanceada.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Arvore_Desbalanceada.pdf>
 Package pdftex.def Info: figs/fig_arvores/Arvore_Desbalanceada.pdf  used on inp
-ut line 509. on input line 509.
-Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 50
-9.
- [349
+ut line 786. on input line 786.
+Package pdftex.def Info: Requested size: 216.81pt x 196.2659pt on input line 78
+6.
+ [365
 
  <./figs/fig_arvores/Arvore_Desbalanceada.pdf>]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
 
-(./curso_EDA_SLIDES.vrb) [350
+(./curso_EDA_SLIDES.vrb) [366
 
 ]
-<figs/fig_arvores/Balanceamento_Arvore2.pdf, id=2817, pagebox=cropbox, 291.0875
+<figs/fig_arvores/Balanceamento_Arvore2.pdf, id=2910, pagebox=cropbox, 291.0875
 pt x 349.305pt>
 File: figs/fig_arvores/Balanceamento_Arvore2.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore2.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore2.pdf  used on in
-put line 544. on input line 544.
+put line 821. on input line 821.
 Package pdftex.def Info: Requested size: 158.99377pt x 190.79651pt on input lin
-e 544.
- [351
+e 821.
+ [367
 
  <./figs/fig_arvores/Balanceamento_Arvore2.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore3.pdf, id=2841, pagebox=cropbox, 447.6725
+<figs/fig_arvores/Balanceamento_Arvore3.pdf, id=2936, pagebox=cropbox, 447.6725
 pt x 294.09875pt>
 File: figs/fig_arvores/Balanceamento_Arvore3.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore3.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore3.pdf  used on in
-put line 554. on input line 554.
+put line 831. on input line 831.
 Package pdftex.def Info: Requested size: 252.94499pt x 166.17506pt on input lin
-e 554.
- [352
+e 831.
+ [368
 
  <./figs/fig_arvores/Balanceamento_Arvore3.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore4.pdf, id=2865, pagebox=cropbox, 289.08pt
+<figs/fig_arvores/Balanceamento_Arvore4.pdf, id=2960, pagebox=cropbox, 289.08pt
  x 331.2375pt>
 File: figs/fig_arvores/Balanceamento_Arvore4.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore4.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore4.pdf  used on in
-put line 565. on input line 565.
+put line 842. on input line 842.
 Package pdftex.def Info: Requested size: 158.99377pt x 182.17612pt on input lin
-e 565.
- [353
+e 842.
+ [369
 
  <./figs/fig_arvores/Balanceamento_Arvore4.pdf>]
-<figs/fig_arvores/Balanceamento_Arvore5.pdf, id=2888, pagebox=cropbox, 288.0762
+<figs/fig_arvores/Balanceamento_Arvore5.pdf, id=2984, pagebox=cropbox, 288.0762
 5pt x 317.185pt>
 File: figs/fig_arvores/Balanceamento_Arvore5.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Balanceamento_Arvore5.pdf>
 Package pdftex.def Info: figs/fig_arvores/Balanceamento_Arvore5.pdf  used on in
-put line 575. on input line 575.
+put line 852. on input line 852.
 Package pdftex.def Info: Requested size: 158.99377pt x 175.06694pt on input lin
-e 575.
- [354
+e 852.
+ [370
 
- <./figs/fig_arvores/Balanceamento_Arvore5.pdf>] [355
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb) [356
+ <./figs/fig_arvores/Balanceamento_Arvore5.pdf>] [371
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
- (./curso_EDA_SLIDES.vrb) [357
+ (./curso_EDA_SLIDES.vrb) [372
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [373
 
 ]
 
-LaTeX Warning: Citation `tarjan' on page 358 undefined on input line 634.
+LaTeX Warning: Citation `tarjan' on page 374 undefined on input line 911.
 
-[358
+[374
 
-] [359
+] [375
 
-] [360
+] [376
 
 ]
-<figs/fig_arvores/Espalhamento.pdf, id=2951, pagebox=cropbox, 600.2425pt x 416.
+<figs/fig_arvores/Espalhamento.pdf, id=3047, pagebox=cropbox, 600.2425pt x 416.
 55624pt>
 File: figs/fig_arvores/Espalhamento.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Espalhamento.pdf>
 Package pdftex.def Info: figs/fig_arvores/Espalhamento.pdf  used on input line 
-668. on input line 668.
+945. on input line 945.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 668.
- [361
+e 945.
+ [377
 
- <./figs/fig_arvores/Espalhamento.pdf>] [362
+ <./figs/fig_arvores/Espalhamento.pdf>] [378
 
-] [363
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
-
-(./curso_EDA_SLIDES.vrb) [364
-
-]
-\openout4 = `curso_EDA_SLIDES.vrb'.
-
- (./curso_EDA_SLIDES.vrb) [365
+] [379
 
 ]
 \openout4 = `curso_EDA_SLIDES.vrb'.
 
 
-(./curso_EDA_SLIDES.vrb) [366
-
-] [367
-
-] [368
+(./curso_EDA_SLIDES.vrb) [380
 
 ]
-<figs/fig_arvores/Zig.pdf, id=3012, pagebox=cropbox, 748.7975pt x 392.46625pt>
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+ (./curso_EDA_SLIDES.vrb) [381
+
+]
+\openout4 = `curso_EDA_SLIDES.vrb'.
+
+
+(./curso_EDA_SLIDES.vrb) [382
+
+] [383
+
+] [384
+
+]
+<figs/fig_arvores/Zig.pdf, id=3107, pagebox=cropbox, 748.7975pt x 392.46625pt>
 File: figs/fig_arvores/Zig.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Zig.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig.pdf  used on input line 768. on i
-nput line 768.
+Package pdftex.def Info: figs/fig_arvores/Zig.pdf  used on input line 1044. on 
+input line 1044.
 Package pdftex.def Info: Requested size: 325.215pt x 170.45195pt on input line 
-768.
- [369
+1044.
+ [385
 
  <./figs/fig_arvores/Zig.pdf>]
-<figs/fig_arvores/Zig-Zig.pdf, id=3029, pagebox=cropbox, 740.7675pt x 461.725pt
+<figs/fig_arvores/Zig-Zig.pdf, id=3125, pagebox=cropbox, 740.7675pt x 461.725pt
 >
 File: figs/fig_arvores/Zig-Zig.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Zig-Zig.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig-Zig.pdf  used on input line 778. 
-on input line 778.
+Package pdftex.def Info: figs/fig_arvores/Zig-Zig.pdf  used on input line 1054.
+ on input line 1054.
 Package pdftex.def Info: Requested size: 289.07999pt x 180.18475pt on input lin
-e 778.
+e 1054.
 
-[370
+[386
 
  <./figs/fig_arvores/Zig-Zig.pdf>]
-<figs/fig_arvores/Zig-Zag.pdf, id=3053, pagebox=cropbox, 740.7675pt x 461.725pt
+<figs/fig_arvores/Zig-Zag.pdf, id=3149, pagebox=cropbox, 740.7675pt x 461.725pt
 >
 File: figs/fig_arvores/Zig-Zag.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Zig-Zag.pdf>
-Package pdftex.def Info: figs/fig_arvores/Zig-Zag.pdf  used on input line 788. 
-on input line 788.
+Package pdftex.def Info: figs/fig_arvores/Zig-Zag.pdf  used on input line 1064.
+ on input line 1064.
 Package pdftex.def Info: Requested size: 289.07999pt x 180.18475pt on input lin
-e 788.
- [371
+e 1064.
+ [387
 
  <./figs/fig_arvores/Zig-Zag.pdf>]
-[372
+[388
 
 ]
-<figs/fig_arvores/Top-Down1.pdf, id=3084, pagebox=cropbox, 600.2425pt x 416.556
+<figs/fig_arvores/Top-Down1.pdf, id=3179, pagebox=cropbox, 600.2425pt x 416.556
 24pt>
 File: figs/fig_arvores/Top-Down1.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down1.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down1.pdf  used on input line 811
-. on input line 811.
+Package pdftex.def Info: figs/fig_arvores/Top-Down1.pdf  used on input line 108
+7. on input line 1087.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 811.
- [373
+e 1087.
+ [389
 
  <./figs/fig_arvores/Top-Down1.pdf>]
-<figs/fig_arvores/Top-Down2.pdf, id=3102, pagebox=cropbox, 600.2425pt x 416.556
+<figs/fig_arvores/Top-Down2.pdf, id=3197, pagebox=cropbox, 600.2425pt x 416.556
 24pt>
 File: figs/fig_arvores/Top-Down2.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down2.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down2.pdf  used on input line 821
-. on input line 821.
+Package pdftex.def Info: figs/fig_arvores/Top-Down2.pdf  used on input line 109
+7. on input line 1097.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 821.
- [374
+e 1097.
+ [390
 
  <./figs/fig_arvores/Top-Down2.pdf>]
-<figs/fig_arvores/Top-Down3.pdf, id=3119, pagebox=cropbox, 600.2425pt x 416.556
+<figs/fig_arvores/Top-Down3.pdf, id=3214, pagebox=cropbox, 600.2425pt x 416.556
 24pt>
 File: figs/fig_arvores/Top-Down3.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down3.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down3.pdf  used on input line 831
-. on input line 831.
+Package pdftex.def Info: figs/fig_arvores/Top-Down3.pdf  used on input line 110
+7. on input line 1107.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 831.
- [375
+e 1107.
+ [391
 
  <./figs/fig_arvores/Top-Down3.pdf>]
-<figs/fig_arvores/Top-Down4.pdf, id=3136, pagebox=cropbox, 600.2425pt x 416.556
+<figs/fig_arvores/Top-Down4.pdf, id=3232, pagebox=cropbox, 600.2425pt x 416.556
 24pt>
 File: figs/fig_arvores/Top-Down4.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down4.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down4.pdf  used on input line 841
-. on input line 841.
+Package pdftex.def Info: figs/fig_arvores/Top-Down4.pdf  used on input line 111
+7. on input line 1117.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 841.
- [376
+e 1117.
+ [392
 
  <./figs/fig_arvores/Top-Down4.pdf>]
-<figs/fig_arvores/Top-Down5.pdf, id=3152, pagebox=cropbox, 600.2425pt x 416.556
+<figs/fig_arvores/Top-Down5.pdf, id=3249, pagebox=cropbox, 600.2425pt x 416.556
 24pt>
 File: figs/fig_arvores/Top-Down5.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down5.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down5.pdf  used on input line 851
-. on input line 851.
+Package pdftex.def Info: figs/fig_arvores/Top-Down5.pdf  used on input line 112
+7. on input line 1127.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 851.
- [377
+e 1127.
+ [393
 
  <./figs/fig_arvores/Top-Down5.pdf>]
-<figs/fig_arvores/Top-Down6.pdf, id=3169, pagebox=cropbox, 600.2425pt x 416.556
+<figs/fig_arvores/Top-Down6.pdf, id=3266, pagebox=cropbox, 600.2425pt x 416.556
 24pt>
 File: figs/fig_arvores/Top-Down6.pdf Graphic file (type pdf)
 <use figs/fig_arvores/Top-Down6.pdf>
-Package pdftex.def Info: figs/fig_arvores/Top-Down6.pdf  used on input line 861
-. on input line 861.
+Package pdftex.def Info: figs/fig_arvores/Top-Down6.pdf  used on input line 113
+7. on input line 1137.
 Package pdftex.def Info: Requested size: 252.94499pt x 175.53719pt on input lin
-e 861.
- [378
+e 1137.
+ [394
 
  <./figs/fig_arvores/Top-Down6.pdf>] Excluding 'comment' comment.)
 No file curso_EDA_SLIDES.bbl.
@@ -3457,70 +3561,31 @@ Package rerunfilecheck Warning: File `curso_EDA_SLIDES.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `curso_EDA_SLIDES.out':
-(rerunfilecheck)             Before: D98C30235BABA03CBD2385AAF604A3AA;1763
-(rerunfilecheck)             After:  49137B758850BB1A857D5286873EC5F4;1763.
+(rerunfilecheck)             Before: 49137B758850BB1A857D5286873EC5F4;1763
+(rerunfilecheck)             After:  2E6FA0FB2ED51254FB6DAF4D47A4630C;2063.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 24225 strings out of 492990
- 435609 string characters out of 6138688
- 540053 words of memory out of 5000000
- 25916 multiletter control sequences out of 15000+600000
- 102288 words of font info for 86 fonts, out of 8000000 for 9000
+ 24462 strings out of 492990
+ 438691 string characters out of 6138688
+ 541754 words of memory out of 5000000
+ 26110 multiletter control sequences out of 15000+600000
+ 103783 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,69p,802b,1556s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Outline0.11.8.356} has been referenced but does n
+pdfTeX warning (dest): name{Outline0.11.8.358} has been referenced but does n
 ot exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Outline0.11.7.353} has been referenced but does not
+pdfTeX warning (dest): name{Outline0.11.7.355} has been referenced but does not
  exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Outline0.11.6.348} has been referenced but does not
+pdfTeX warning (dest): name{Outline0.11.6.350} has been referenced but does not
  exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Outline0.11.5.340} has been referenced but does not
+pdfTeX warning (dest): name{Outline0.11.5.342} has been referenced but does not
  exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.11.4.329} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.11.3.326} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.11.2.322} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.11.1.315} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.10.2.284} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.10.1.258} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.1.133} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.2.1.43} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.1.4.21} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.1.3.18} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.1.2.15} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.1.1.13} has been referenced but does not e
-xist, replaced by a fixed one
 
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/
 fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathi
@@ -3536,11 +3601,12 @@ fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
 i10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/tex
 mf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/
-share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on curso_EDA_SLIDES.pdf (378 pages, 6226922 bytes).
+share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/
+type1/public/wasy2-ps/wasy10.pfb>
+Output written on curso_EDA_SLIDES.pdf (394 pages, 5728410 bytes).
 PDF statistics:
- 3427 PDF objects out of 3580 (max. 8388607)
- 2841 compressed objects within 29 object streams
- 802 named destinations out of 1000 (max. 500000)
- 715 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3531 PDF objects out of 3580 (max. 8388607)
+ 2923 compressed objects within 30 object streams
+ 826 named destinations out of 1000 (max. 500000)
+ 740 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,17 @@
+ 	 99 	 88 	 77 	 66 	 55 	 44 	 33 	 22 	 11 	 99 
+
+ first element: 99 (0x7ffc044bbe70) 
+ second element: 88 (0x7ffc044bbe74) 
+  third element: 77 (0x7ffc044bbe78)
+ ultimo: 99 
+
+ POSICAO: 0  99  99 	 END: 0x7ffc044bbe70
+ POSICAO: 1  88  88 	 END: 0x7ffc044bbe74
+ POSICAO: 2  77  77 	 END: 0x7ffc044bbe78
+ POSICAO: 3  66  66 	 END: 0x7ffc044bbe7c
+ POSICAO: 4  55  55 	 END: 0x7ffc044bbe80
+ POSICAO: 5  44  44 	 END: 0x7ffc044bbe84
+ POSICAO: 6  33  33 	 END: 0x7ffc044bbe88
+ POSICAO: 7  22  22 	 END: 0x7ffc044bbe8c
+ POSICAO: 8  11  11 	 END: 0x7ffc044bbe90
+ POSICAO: 9  99  99 	 END: 0x7ffc044bbe94

@@ -34,7 +34,7 @@
 \usepackage{comment}
 \usepackage{sansmathaccent}
 \usepackage{qtree}
-%\pdfmapfile{+sansmathaccent.map}
+%%%\pdfmapfile{+sansmathaccent.map}
 
 \definecolor{azulclaro}{rgb}{0.9,0.9,0.9}
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -108,7 +108,7 @@ Lucas Hermman Negri, Gilmário Barbosa}
 \institute[UDESC]{
     Departamento de Ci\^encia da Computa\c{c}\~ao \\
     Centro de Ci\^encias e Tecnol\'ogias\\
-   Universidade do Estado de Santa Catarina}
+    Universidade do Estado de Santa Catarina}
 
 \date{\today}
 

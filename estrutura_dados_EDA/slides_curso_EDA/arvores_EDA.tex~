@@ -119,7 +119,7 @@ Pontos fundamentais a serem cobertos:
     
      \begin{figure}[!ht]
      \centering
-    \includegraphics[width=12cm, height=7cm]{figs/fig_arvores/glossario_arv_01.png}
+    \includegraphics[width=10cm, height=8cm]{figs/fig_arvores/glossario_arv_01.jpg}
     %\caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias (AB) }}
     \end{figure}
 
@@ -132,7 +132,7 @@ Pontos fundamentais a serem cobertos:
     
      \begin{figure}[!ht]
      \centering
-    \includegraphics[width=12cm, height=7cm]{figs/fig_arvores/glossario_arv_02.png}
+    \includegraphics[width=12cm, height=7cm]{figs/fig_arvores/glossario_arv_02.jpg}
     %\caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias (AB) }}
     \end{figure}
 
@@ -144,7 +144,7 @@ Pontos fundamentais a serem cobertos:
     
      \begin{figure}[!ht]
      \centering
-    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/glossario_arv_03.png}
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/glossario_arv_03.jpg}
     %\caption{\textcolor{red}{Usando os problemas de árvores genéricas para apresentar Árvores Binárias (AB) }}
     \end{figure}
 
@@ -200,7 +200,7 @@ Pontos fundamentais a serem cobertos:
     
      \begin{figure}[!ht]
      \centering
-    \includegraphics[width=10cm, height=6cm]{figs/fig_arvores/arv_generica04.png}
+    \includegraphics[width=10cm, height=6cm]{figs/fig_arvores/arv_generica04.jpg}
    \caption{\textcolor{red}{Veja a \textit{struct} ... lembra o quê?}}
     \end{figure}
 
@@ -235,7 +235,7 @@ Pontos fundamentais a serem cobertos:
 
   \begin{figure}[!ht]
      \centering
-    \includegraphics[width=7cm, height=5.5cm]{figs/fig_arvores/aplicacao_decision_tree.png}
+    \includegraphics[width=7cm, height=5.5cm]{figs/fig_arvores/aplicacao_decision_tree.jpg}
     \caption{Árvore de Decisão}
     \end{figure}
 
@@ -249,7 +249,7 @@ Pontos fundamentais a serem cobertos:
 
   \begin{figure}[!ht]
      \centering
-    \includegraphics[width=7cm, height=5.5cm]{figs/fig_arvores/aplicacao_expression_tree.png}
+    \includegraphics[width=7cm, height=5.5cm]{figs/fig_arvores/aplicacao_expression_tree.jpg}
     \caption{Árvores de expressões -- binárias -- novamente}
     \end{figure}
 
@@ -309,6 +309,7 @@ Pontos fundamentais a serem cobertos:
     \begin{block}{Operações Básicas}
     \begin{itemize}
     \item Inserção
+    \item Visitas na árvore (percorrer os nós)
     \item Busca
     \item Remoção -- faltando
     \end{itemize}
@@ -333,14 +334,15 @@ Pontos fundamentais a serem cobertos:
 }
 
 %---------------------------------------------------------
+\subsection{Inserção}
 \begin{frame}[fragile]
 \frametitle{Árvore Binária de Busca - Inserção}
 \begin{verbatim}
 INSERÇÃO(ARVORE, ITEM) {
-    SE ARVORE->CHAVE == NULO
+    SE ARVORE == NULO
        ARVORE->ITEM = ITEM
-       return      //e SE CHAVE jah existente?
-
+       return     
+       
     SE ITEM->CHAVE < ARVORE->CHAVE
         SE ARVORE->ESQ = NULO ENTÃO
             ARVORE->ESQ = ARVORE(ITEM)
@@ -353,8 +355,14 @@ INSERÇÃO(ARVORE, ITEM) {
             INSERÇÃO(ARVORE->DIR, ITEM)
 }
 \end{verbatim}
-\end{frame}
+\begin{itemize}
+  \item 
+ %%\textcolor{red}{Futuro: rever este pseudo-código}
+  \item Vá ao fonte implementado -- insere nó
 
+\end{itemize}
+
+\end{frame}
 %---------------------------------------------------------
 \frame{
     \frametitle{Árvore Binária de Busca - Inserção}
@@ -376,6 +384,132 @@ INSERÇÃO(ARVORE, ITEM) {
     \caption{Exemplo de inserção da chave 20}
     \end{figure}
 }
+%---------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Exercícios -- Inserção}
+
+\begin{block}{}
+Seguindo o algoritmo acima de inserção,
+construa as árvores binárias para seguintes entradas:
+
+\begin{itemize}
+  \item $30 \rightarrow 20 \rightarrow 40 \rightarrow 10 \rightarrow 25 \rightarrow 35 \rightarrow 50$
+    \item $30 \rightarrow 40 \rightarrow 20 \rightarrow 35 \rightarrow 25 \rightarrow 10 \rightarrow 50$
+    \item $50 \rightarrow 40 \rightarrow 20 \rightarrow 35 \rightarrow 25 \rightarrow 10 \rightarrow 30$
+    \item $50 \rightarrow 25 \rightarrow 20 \rightarrow 35 \rightarrow 40 \rightarrow 10 \rightarrow 30$
+     \item $10 \rightarrow 20 \rightarrow 25 \rightarrow 30 \rightarrow 35 \rightarrow 40 \rightarrow 50$            
+     \item Que reflexões?
+   
+\end{itemize}
+\end{block}
+
+
+\end{frame}
+
+\subsection{Percorrendo Árvores Binárias}
+\begin{frame}
+  \frametitle{Percorrendo Árvores Binárias}
+
+\begin{itemize}
+  \item Uma operação muito comum é percorrer uma árvore binária, o que significa passar por todos os nós, pelo menos uma vez.
+
+ \item  O conceito de visitar significa executar uma operação com a informação armazenada no nó, por exemplo, imprimir seu conteúdo. 
+
+ \item Na operação de percorrer a árvore pode-se passar por alguns nós mais de uma vez, sem porém visitá-los.
+
+ \item Uma árvore é uma estrutura não seqüêncial, diferentemente de uma lista, por exemplo. Não existe ordem natural para percorrer árvores e portanto podemos escolher diferentes maneiras de percorrê-las. 
+
+ \item  Iremos estudar três métodos para percorrer árvores. 
+
+ \item Todos estes três métodos podem ser definidos recursivamente e se baseiam em \textbf{três operações básicas}: visitar a raiz, percorrer a subárvore da esquerda e percorrer a subárvore da direita. 
+
+ \item A única diferença entre estes métodos é a ordem em que estas operações são executadas.
+\end{itemize}
+
+\end{frame}
+%---------------------------------------------------------
+
+\begin{frame}
+  
+  \frametitle{Percurso em pré-ordem}
+  
+O primeiro método, conhecido como percurso em pré-ordem, implica em executar 
+recursivamente os três passos na seguinte ordem: 
+ 
+\begin{enumerate}
+  \item Visitar a raiz (imprimir esta);
+ \item Percorrer a subárvore da esquerda em pré-ordem;
+ \item Percorre a subárvore da direita em pré-ordem.
+
+\end{enumerate}
+
+\end{frame}
+%---------------------------------------------------------
+
+
+\begin{frame}
+  \frametitle{Exemplo em pré-ordem}
+  
+%%% preorder transversal
+%%%binary_tree_traversal.png
+ \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=7cm, height=5.5cm]{figs/fig_arvores/preorder_transversal.jpg}
+    %%%\caption{Árvores de expressões -- binárias -- novamente}
+    \end{figure}
+
+\end{frame}
+%---------------------------------------------------------
+
+%---------------------------------------------------------
+
+\begin{frame}
+  
+  \frametitle{Outros métodos:}
+  
+\begin{block}{In-ordem:}
+  De modo recursivo, execute os 3 passos que se seguem:
+\begin{enumerate}
+ \item Percorrer a subárvore da esquerda em pré-ordem;
+  \item Visitar a raiz (imprimir esta);
+ \item Percorre a subárvore da direita em pré-ordem.
+\end{enumerate}
+ \end{block}
+
+  
+\begin{block}{Pós-ordem:}
+  De modo recursivo, execute os 3 passos que se seguem:
+\begin{enumerate}
+ \item Percorrer a subárvore da esquerda em pré-ordem;
+ \item Percorre a subárvore da direita em pré-ordem;
+  \item Visitar a raiz (imprimir esta);
+\end{enumerate}
+ \end{block}
+
+\end{frame}
+%---------------------------------------------------------
+
+\begin{frame}
+  \frametitle{Resumo das estratégias}
+  
+ \begin{figure}[!ht]
+    \centering
+    \includegraphics[width=8cm, height=6cm]{figs/fig_arvores/binary_tree_traversal.jpg}
+    \caption{Resumo de \textit{transversal tree} -- percorrer árvores}
+    \end{figure}
+
+\end{frame}
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+
+
+
+%---------------------------------------------------------
+
+
+
 
 %---------------------------------------------------------
 \begin{frame}[fragile]
@@ -406,7 +540,7 @@ BUSCA(ARVORE, CHAVE) {
     \item Remoção de um nó folha (nenhum filho)
     \item Remoção de um nó com somente um filho
     \item Remoção de um nó com dois filhos
-    \item  \textcolor{red}{Faltam as figuras ainda ....}
+    \item  \textcolor{red}{Faltam as figuras ainda .... vários slides}
     \end{enumerate}
 
    %% O tratamento de cada caso foi apresentado em sala de aula.
@@ -439,6 +573,7 @@ ALTURA(ARVORE) {
     return maior(A1, A2) + 1
 }
 \end{verbatim}
+
 \end{frame}
 
 %---------------------------------------------------------
@@ -685,8 +820,7 @@ e remoções e quando a localidade de informação não é importante
     \frametitle{Operações Básicas}
     
     \begin{itemize}
-    \item Uma árvore de espalhamento é uma árvore binária de busca válida,
-    logo operações como os percursos (pré-em-pós) são idênticas as operações
+    \item Uma árvore de espalhamento é uma árvore binária de busca válida,  logo operações como os percursos (pré, em e pós ordem) são idênticas as operações
     em uma ABB
     \item As operações de inserção, busca e remoção podem ser definidas com base
     na operação de espalhamento
