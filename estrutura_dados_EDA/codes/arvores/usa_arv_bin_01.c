@@ -12,13 +12,13 @@ int main(void)
       "GLASCOW", "OXFORD","YORK", "AULNAT",
       "MONTREAL" }; // 13 cidades
       const int chaves[] = {30, 20, 40, 10,
-                            //13, 17, 23, 33, // testes de duplicatas
+                            //30, 20, 40, 10, // testes de duplicatas
                             25, 35, 50, 31,
                             37, 87, 47, 79, 90}; // 13 chaves
-       // ver figura do prof
+       // ver figura do prof de sala de aula
       /* criar um ponteiro de arvore .... */
       BinTreeNode *pt_TREE;
-      pt_TREE = NULL; // aqui sim  interessante ... VAZIA
+      pt_TREE = NULL; // aqui sim,  interessante ... VAZIA
       
       // DADOS DA APLICACAO
       TreeEntry  Xdados ; // se quiser *pt_X = &Xdados;
@@ -26,10 +26,10 @@ int main(void)
       int seq;
       for (seq = 0 ; seq < K ; seq++ )
       {  
-// uso dados via PONTEIRO        
-//     pt_X -> UM_INT = seq;  
-//     pt_X -> UM_NOME = vetor[seq];  
-// OU diretamente       
+				// uso dados via PONTEIRO        
+				//     pt_X -> UM_INT = seq;  
+				//     pt_X -> UM_NOME = vetor[seq];  
+				// OU diretamente       
        strcpy(Xdados.UM_NOME , vetor[seq]);// RELEMBRANDO strcpy(Copia,Original);
        Xdados.UMA_CHAVE = chaves[seq];
        // Xdados . UMA_CHAVE = rand()%100; // NUM aleatorio mesmo
@@ -38,10 +38,10 @@ int main(void)
        printf("\n INSERINDO :%d : %d : %s (End: %x) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
        printf("\n Agora a altura corrente  eh: %d :", altura_Tree_BIN(  pt_TREE) ); 
        
-      }// fim da entrada
+      }// fim da entrada --- enchendo a ABB
 
-      // UMA BUSCA
-      BinTreeNode *consulta;
+      // UMA BUSCA --- APLICACAO 01
+      //BinTreeNode *consulta;
       //int ALVO;
       //printf("\n Qual dado alvo: ");
       //scanf("%d", &ALVO);
@@ -62,26 +62,29 @@ int main(void)
     printf("\n NUMERO DE NOSH: %d", sizeof_Tree_BIN( pt_TREE) ); 
     getchar();
 
+// USO DA EXCLUSAO DE ALGUNS NOS --- APLICACAO 02
+    //BinTreeNode *remove_NOH_BIN (BinTreeNode *tree, int ALVO) 
+    pt_TREE = remove_NOH_BIN (pt_TREE , 20); //NAO OK AINDA
+    
     printf("\n SAIDA PRE: \n");  
     printPreorder( pt_TREE );
+    /*
     getchar();
     printf("\n SAIDA IN: \n");  
     printInorder( pt_TREE );
     getchar();
     printf("\n SAIDA POS: \n");  
     printPosorder( pt_TREE );
-    
-/* 
-if ( deltree( pt_TREE ) == true)
+    */
+
+// FINALIZANDO -- AGORA OK
+if ( deltree_TRUE ( &pt_TREE ) == (0 || 1) )
     printf("\n ARVORE LIBERADA OK \n");  
     else 
     printf("\n ARVORE NAO LIBERADA");  
-    
- */   
 
-    //deltree( pt_TREE );
-    deltree_TRUE( &pt_TREE );
-    //pt_TREE  = NULL;  
+//  deltree( pt_TREE );
+   
     printf("\n NUMERO DE NOSH: %d\n", sizeof_Tree_BIN( pt_TREE) ); 
 	
 return 1;
