@@ -212,9 +212,37 @@ Ainda relacionado as férias, eis o problema proposto a voce e sua turma:\\
 \section{Recursividade -- Exercicios}
 
 
-\textcolor{red}{AGUARDEM ....}
+Implemente em um único arquivo, os seguintes exercícios
+de recursividade:
 
+\begin{enumerate}
+\item Encontre o n-ésimo  termo da seguinte  sequência recursiva:  $1, 4, 8, 13, 19, 26,...$. 
 
+\item Encontre o n-ésimo  termo e o seguinte (ou seja, dois termos), para  sequência recursiva dada por: $2, 3, 3, 5, 10, 13, 39,...$. Dica:
+\begin{verbatim}
+2 + 1 = 3
+3 x 1 = 3
+3 + 2 = 5
+5 x 2 = 10
+10 + 3 = 13
+13 x 3 = 3
+\end{verbatim}
+
+\item  Giuseppe Peano foi uma matemático que observou que os números
+naturais podem ser obtidos por  somas recursivas, dadas por:
+$x + 0 = x$ e $x + soma(y) = soma(x + y)$. Traduza isto para 
+LPO e na sequência escreva em Picat (ou Prolog) que um dado número $N>0$ este pode ser provado como sendo um número natural. Referência: postulados aritméticos de Peano
+
+\item Aproveitando o fatorial recursivo feito em sala, implemente a seguinte soma recursiva para $n$ termos, dado um expoente  $x$.
+  $$e^x = \sum^\infty_{n=0} {x^n\over n!} =1 + x + {x^2 \over 2!} + {x^3 \over 3!} + {x^4 \over 4!}+\cdots.$$
+  em termos práticos, se x = 1, tem-se:
+$e^1 \approx 2.718281828459045...$ se $n$ for muito grande (o que pode demorar muito no seu computador)! Outro exemplo:
+$e^5 \approx 148.4131591025766...$. Então teste para $n$ pequeno como $n < 10$.
+
+\vspace{0.7cm}
+Para referência deste problema: veja \url{https://en.wikipedia.org/wiki/E_(mathematical_constant)}. Constante neperiana, fórmula deduzida por Euler, assim a constante logaritmica dos números naturais, $e$, ficou conhecida como número de Euler!
+
+\end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
