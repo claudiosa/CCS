@@ -15,7 +15,13 @@ int main(void)
                             //30, 20, 40, 10, // testes de duplicatas
                             25, 35, 50, 31,
                             37, 87, 47, 79, 90}; // 13 chaves
-       // ver figura do prof de sala de aula
+       /* ver figura do prof de sala de aula
+              30
+           /     \
+          20      40
+         /  \    /  \
+       10   25  35   50 
+        */
       /* criar um ponteiro de arvore .... */
       BinTreeNode *pt_TREE;
       pt_TREE = NULL; // aqui sim,  interessante ... VAZIA
@@ -64,7 +70,7 @@ int main(void)
 
 // USO DA EXCLUSAO DE ALGUNS NOS --- APLICACAO 02
     //BinTreeNode *remove_NOH_BIN (BinTreeNode *tree, int ALVO) 
-    pt_TREE = remove_NOH_BIN (pt_TREE , 20); //NAO OK AINDA
+    //pt_TREE = remove_NOH_BIN (pt_TREE , 20); //NAO OK AINDA
     
     printf("\n SAIDA PRE: \n");  
     printPreorder( pt_TREE );

@@ -617,7 +617,7 @@ BUSCA(ARVORE, CHAVE) {
 %---------------------------------------------------------
 \begin{frame}
 
-\frametitle{Remoção em Figuras}
+\frametitle{Remoção em Figuras -- Caso 1}
 
    \begin{figure}[!ht]
     \centering
@@ -634,12 +634,12 @@ BUSCA(ARVORE, CHAVE) {
 %---------------------------------------------------------
 \begin{frame}
 
-\frametitle{Remoção em Figuras}
+\frametitle{Remoção em Figuras  -- Caso 2}
 
    \begin{figure}[!ht]
     \centering
     \includegraphics[width=7cm, height=5cm]{figs/fig_arvores/remove1_arvore.jpg}
-    \caption{Remoção de um nó sem um dos filhos -- temp figure}
+    \caption{Remoção de um nó sem um dos filhos -- esquerda ou direita igual a \texttt{NULL}}
     \end{figure}
 
 \begin{flushleft}
@@ -652,12 +652,12 @@ BUSCA(ARVORE, CHAVE) {
 
 \begin{frame}
 
-\frametitle{Remoção em Figuras}
+\frametitle{Remoção em Figuras  -- Caso 3}
 
    \begin{figure}[!ht]
     \centering
     \includegraphics[width=7cm, height=5cm]{figs/fig_arvores/remove2_arvore.jpg}
-    \caption{Remoção de um nó com sub-árvores em ambos os lados: remova o nó 12 -- temp figure}
+    \caption{Remoção de um nó com sub-árvores em ambos os lados: remova o nó 12}
     \end{figure}
 
 \begin{flushleft}
@@ -668,7 +668,59 @@ BUSCA(ARVORE, CHAVE) {
 \end{frame}
 
 %---------------------------------------------------------
+\begin{frame}
+\frametitle{Exemplificando -- uma raiz sem um dos filhos}
 
+   \begin{figure}[!ht]
+    \centering
+    \includegraphics[keepaspectratio=true,width=12cm,height=5cm]{figs/fig_arvores/ex01_Delete_NODE.jpg}
+\caption{Quadrado \textbf{\textcolor{blue}{AZUL}} é \texttt{NULL}}
+    \end{figure}
+
+\begin{flushleft}
+\textcolor{red}{Requisito: ser uma ABB!}
+\end{flushleft}
+\end{frame}
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{frame}
+\frametitle{Exemplificando a Remoção -- uma raiz com dois filhos}
+
+   \begin{figure}[!ht]
+    \centering
+    \includegraphics[keepaspectratio=true,width=12cm,height=5cm]{figs/fig_arvores/ex02_Delete_NODE.jpg}
+   \caption{Quadrado \textbf{\textcolor{blue}{AZUL}} é \texttt{NULL}}
+    \end{figure}
+
+
+%========================================================================
+
+\begin{flushleft}
+\begin{itemize}
+  \item \textcolor{red}{A nova raiz será a menor chave à esquerda, da sub-árvore a direita
+do nó que se deseja excluir!}
+
+\item \textcolor{red}{Requisito: ser uma ABB!}
+
+\end{itemize}
+\end{flushleft}
+\end{frame}
+%---------------------------------------------------------
+\begin{frame}
+\frametitle{Ainda a Remoção}
+
+   \begin{figure}[!ht]
+    \centering
+    \includegraphics[keepaspectratio=true,width=10cm]{figs/fig_arvores/ex03_Delete_NODE.jpg}
+ \caption{A idéia vale para os dois lados: é o menor à esquerda  da sub-árvore a direita}
+    \end{figure}
+
+\begin{flushleft}
+\textcolor{red}{Requisito: ser uma ABB!}
+\end{flushleft}
+\end{frame}
+
+%---------------------------------------------------------
 
 \begin{frame}
 
@@ -677,33 +729,51 @@ BUSCA(ARVORE, CHAVE) {
 \begin{block}{}
 \begin{itemize}
   \item A remoção é a base das partes mais difíceis de ABs
-  \item Pois o próximo assunto é ...
+  \item Pois o próximo assunto é \textit{balanceamento}
+  \item Implemente este método
 \end{itemize}
 \end{block}
 
 \end{frame}
 
 
-
-
-
-
 %---------------------------------------------------------
 \subsection{Balanceamento}
 
-\frame{
+\begin{frame}
+
     \frametitle{Balanceamento}
+\begin{block}{}
+        
+   \begin{itemize}
+      \item  Uma árvore binária de busca balanceada garante operações de busca, inserção e
+    remoção com complexidade O($\log n$), onde $n$ é o número de nós, o que a torna atrativa  para diversas aplicações.
     
-    Uma árvore binária de busca balanceada garante operações de busca, inserção e
-    remoção com complexidade O($\log n$), onde $n$ é o número de nós, o que a torna atrativa
-    para diversas aplicações.
-    \\[1em]
-    Determinadas sequências de inserções ou remoções podem fazer com que uma ABB fique
-    desbalanceada, tornando suas operações O($n$).
-}
+      \item   Determinadas sequências de inserções ou remoções podem fazer com que uma ABB fique  desbalanceada, tornando suas operações O($n$). 
+
+      \item Para verificar se uma árvore (ABB) está desbalanceada é necessário
+      algumas \textbf{métricas}!
+      
+      \pause
+      \item Por exemplo: número de nós por sub-árvores, alturas, etc
+           
+
+    \end{itemize}
+    \end{block}
+    
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Cálculo da Altura}
+
+\begin{block}{}
+A altura de um nó ou da árvore é a maior profundidade de uma de 
+suas sub-árvores a esquerda ou direita. As folhas tem altura 0.\\
+ Um algoritmo é  dado por:
+\end{block}
+
 \begin{verbatim}
 ALTURA(ARVORE) {
     SE ARVORE = NULO
@@ -716,11 +786,14 @@ ALTURA(ARVORE) {
 }
 \end{verbatim}
 
+\textcolor{red}{Lembre: a raiz da árvore tem a maior altura!}
+
 \end{frame}
 
 %---------------------------------------------------------
 \begin{frame}
 \frametitle{Cálculo da Altura}
+
 
 \begin{figure}[tbp]
 \includegraphics[keepaspectratio=true,width=3in]{figs/fig_arvores/altura1}
@@ -745,6 +818,14 @@ ALTURA(ARVORE) {
 %---------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Cálculo do Fator de Balanceamento}
+
+
+\begin{block}{}
+O fator de balanceamento de uma árvore é a diferença
+entre as alturas de suas sub-árvores a esquerda ou direita.\\ 
+Um algoritmo é  dado por:
+\end{block}
+
 \begin{verbatim}
 FB(ARVORE) {
     A1 = ALTURA(ARVORE->ESQ)
@@ -759,9 +840,9 @@ FB(ARVORE) {
     \frametitle{Balanceamento}
     
     \begin{itemize}
-    \item Uma ABB está balanceada quando cada nó possui um FB igual a -1, 0 ou 1
-    \item Uma inserção ou remoção pode tornar uma árvore desbalanceada, necessitando de rotações
-    para o seu balanceamento
+    \item Uma ABB está balanceada quando cada nó possui um FB igual a \textbf{-1}, \textbf{0} ou \textbf{1}
+    \item A diferença das alturas entre dois nós no mesmo nível é um valor absoluto
+    \item Uma inserção ou remoção pode tornar uma árvore desbalanceada, necessitando de \textbf{rotações}  para o seu balanceamento
     \end{itemize}
 }
 
