@@ -28,6 +28,7 @@ typedef struct struct_treenode BinTreeNode;
 
 BinTreeNode * cria_no_BIN(void);
 BinTreeNode * InsertTree_BIN( BinTreeNode * ,  TreeEntry );
+BinTreeNode * InsertTree_ITERATIVO(BinTreeNode * , TreeEntry);
 void printInorder(BinTreeNode * );
 void printPreorder(BinTreeNode * );
 void printPosorder(BinTreeNode * );
