@@ -39,7 +39,8 @@ int main(void)
        strcpy(Xdados.UM_NOME , vetor[seq]);// RELEMBRANDO strcpy(Copia,Original);
        Xdados.UMA_CHAVE = chaves[seq];
        // Xdados . UMA_CHAVE = rand()%100; // NUM aleatorio mesmo
-       pt_TREE = InsertTree_BIN( pt_TREE, Xdados );
+       //pt_TREE = InsertTree_BIN( pt_TREE, Xdados );
+       pt_TREE =  InsertTree_ITERATIVO( pt_TREE, Xdados );
        
        printf("\n INSERINDO :%d : %d : %s (End: %x) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
        printf("\n Agora a altura corrente  eh: %d :", altura_Tree_BIN(  pt_TREE) ); 

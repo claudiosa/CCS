@@ -90,39 +90,61 @@ BinTreeNode * InsertTree_BIN(BinTreeNode *root, TreeEntry INFO )
    return root; // falhando em chave duplicada .... todo fluxo passa aqui
 }
 //======================================================//
-
-void InsertTree_ITERATIVO(BinTreeNode *NOH_RAIZ, TreeEntry INFO )
+// Feito as pressas ... meio longo ... deve ser melhorado
+BinTreeNode * InsertTree_ITERATIVO(BinTreeNode *NOH_RAIZ, TreeEntry INFO )
 { // cria um no ao chegar numa folha na arvore ...
+   if (NOH_RAIZ == NULL) // UMA UNICA VEZ
+  {
+   // cria um no ao chegar numa arvore VAZIA
+   BinTreeNode * X = cria_no_BIN(); 
+	X -> dados . UMA_CHAVE = INFO . UMA_CHAVE; 
+    strcpy( X -> dados.UM_NOME , INFO . UM_NOME);
+    X -> left  = NULL;
+	X -> right = NULL;
+    return X; // serah a raiz
+    }
   	
+  BinTreeNode * predecessor = NOH_RAIZ;
+  BinTreeNode * ancora = NOH_RAIZ; // PODERIA SER USADO um TEMP
+  // mas a raiz existente eh a MESMA
+  int link_lr; // uma chave Left Right
   while ( NOH_RAIZ!= NULL ) 
      {
       if ( INFO.UMA_CHAVE < (NOH_RAIZ -> dados.UMA_CHAVE) ) 
+      {  predecessor = NOH_RAIZ;
+		 link_lr = 1; 
       // alvo menor que o valor corrente da raiz
-         NOH_RAIZ = NOH_RAIZ->left;
+         NOH_RAIZ = NOH_RAIZ->left; // AVANCA
+       }  
        // alvo MAIOR que o valor corrente da raiz
-      if ( INFO.UMA_CHAVE > (NOH_RAIZ-> dados.UMA_CHAVE) )
-         NOH_RAIZ = NOH_RAIZ->right;
-      if ( INFO.UMA_CHAVE == (NOH_RAIZ-> dados.UMA_CHAVE) )
-         printf("CHAVE DUPLICADA");
-     
+      else if ( INFO.UMA_CHAVE > (NOH_RAIZ-> dados.UMA_CHAVE) )
+         {  predecessor = NOH_RAIZ;
+			link_lr = 2; 
+            NOH_RAIZ = NOH_RAIZ->right;
+          }
+      else if ( INFO.UMA_CHAVE == (NOH_RAIZ-> dados.UMA_CHAVE) )
+         { printf("CHAVE DUPLICADA -- jah esta na arvore");
+		   getchar();	 
+		   return ancora; 
+		  } 
+            
      } // fim do while
 
-    
+   // ALOCA E COPIA etc 
    BinTreeNode * X = cria_no_BIN(); 
 	X -> dados . UMA_CHAVE = INFO . UMA_CHAVE; 
    strcpy(X -> dados.UM_NOME , INFO . UM_NOME);
    // Tipo TreeEntry
    //printf("\n %d : %x : %s", X -> dados.UMA_CHAVE , X , X -> dados.UM_NOME );
    X -> left = X -> right = NULL;
-   NOH_RAIZ = X;
-   //printf("\n Retorno da NOVA raiz : %x ", X );
-   return ; 
+   // CONECTA O NOVO NOH AO PREDECESSOR
+   if(link_lr == 1)
+   predecessor -> left = X; // esquerda
+   else
+   predecessor -> right = X; // direita
+   
+   return ancora; // raiz original mantida
 }
-
-
-
-
-
 //======================================================//
 
 // NUMERO DE NOS -- Faca a versao iterativa
