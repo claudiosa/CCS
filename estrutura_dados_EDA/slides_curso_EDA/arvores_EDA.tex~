@@ -692,18 +692,27 @@ BUSCA(ARVORE, CHAVE) {
    \caption{Quadrado \textbf{\textcolor{blue}{AZUL}} é \texttt{NULL}}
     \end{figure}
 
+
+%========================================================================
+
 \begin{flushleft}
-\textcolor{red}{Requisito: ser uma ABB!}
+\begin{itemize}
+  \item \textcolor{red}{A nova raiz será a menor chave à esquerda, da sub-árvore a direita
+do nó que se deseja excluir!}
+
+\item \textcolor{red}{Requisito: ser uma ABB!}
+
+\end{itemize}
 \end{flushleft}
 \end{frame}
 %---------------------------------------------------------
 \begin{frame}
-\frametitle{Exemplificando a Remoção -- porém seria melhor se ...}
+\frametitle{Ainda a Remoção}
 
    \begin{figure}[!ht]
     \centering
     \includegraphics[keepaspectratio=true,width=10cm]{figs/fig_arvores/ex03_Delete_NODE.jpg}
- \caption{A idéia vale para os dois lados}
+ \caption{A idéia vale para os dois lados: é o menor à esquerda  da sub-árvore a direita}
     \end{figure}
 
 \begin{flushleft}
