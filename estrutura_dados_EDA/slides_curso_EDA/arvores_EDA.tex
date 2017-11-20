@@ -9,7 +9,8 @@
 
 Pontos fundamentais a serem cobertos:
 \begin{columns}
-\begin{column}{.3\textwidth}
+\begin{column}{.3\textwidth}mento
+
 \centering
 
   \begin{enumerate}
@@ -940,13 +941,17 @@ ROTACAO_ESQUERDA(RAIZ) {
     
     \begin{itemize}
     \item \textbf{AVL} desenvolvida por G. M. \textbf{A}delson-\textbf{V}elskii and E. M. \textbf{L}andis
+    
+    \item Critério do fator de balanceamento de $-1$ a $+1$ deve ser seguido em cada
+    nó da árvore
+    
     \item Garante o balanceamento da árvore ao realizar rotações após cada inserção ou remoção na ABB
     \end{itemize}
 \end{frame}
 
 %---------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Balanceamento - Inserção}
+\frametitle{Balanceamento -- Inserção}
 \begin{verbatim}
 BALANCEAMENTO(RAIZ) {
     SE FB(RAIZ) = -2 ENTÃO
@@ -979,6 +984,41 @@ e remoções e quando a localidade de informação não é importante
 \end{itemize}
 \end{frame}
 
+\subsection{Resumindo as Rotações para AVL}
+
+\begin{frame}
+
+\begin{block}{Rotações necessárias nas AVLs}
+
+A cada inserção há um rebalanceamento. Após uma inserção (vai valer para exclusão) os seguintes
+casos violam uma AVL. Logo, seguem os balanceamentos:
+\begin{description}
+ \item[Caso 1:] uma inserção na sub-árvore à esquerda do filho à esquerda de  \texttt{X} (simples)
+ \item[Caso 2:] uma inserção na sub-árvore à direita do filho à esquerda de  \texttt{X} (simples)
+ \item[Caso 3:] uma inserção na sub-árvore à esquerda do filho à direita de  \texttt{X} (duplas)    
+ \item[Caso 4:] uma inserção na sub-árvore à direita do filho à direita de  \texttt{X} (duplas)        
+\end{description}
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+    \frametitle{Rotação para Esquerda}
+  
+    
+    \begin{figure}[tbp]
+%%   \includegraphics[keepaspectratio=true,width=2.2in]{figs/fig_arvores/Balanceamento_Arvore5}
+    \centering
+    \end{figure}
+\end{frame}
+
+
+
+
 %---------------------------------------------------------
 \subsection{Árvore de Espalhamento}
 
@@ -986,6 +1026,7 @@ e remoções e quando a localidade de informação não é importante
     \frametitle{Árvore de Espalhamento}
     
     \begin{itemize}
+    \item Uma alternativa de melhorar os procedimentos de AVL 
     \item Reestrutura a árvore em cada operação de inserção, busca ou remoção por meio de operações de rotação
     \item Nome original: \emph{splay tree}~\cite{tarjan}. Não confundir com a Árvore N-Ária de Espalhamento (ANE) criada por professores da UDESC
     \end{itemize}

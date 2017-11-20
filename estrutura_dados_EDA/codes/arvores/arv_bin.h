@@ -36,9 +36,10 @@ int deltree(BinTreeNode * ) ;
 int deltree_TRUE(BinTreeNode ** tree);
 BinTreeNode *TreeSearch(BinTreeNode *NOH_RAIZ, int ALVO);
 BinTreeNode *TreeSearch_ITERATIVO(BinTreeNode *NOH_RAIZ, int ALVO);
-int sizeof_Tree_BIN( BinTreeNode *root);
+int num_nos_ABB( BinTreeNode *root);
 void print_NODE(BinTreeNode * node);
 
 //BinTreeNode *remove_NOH_BIN (BinTreeNode *, int ALVO) ;
-int altura_Tree_BIN( BinTreeNode *root);
+int altura_ABB( BinTreeNode *root);
+int fator_balanco_ABB( BinTreeNode *root );
 int maior (int x, int y);

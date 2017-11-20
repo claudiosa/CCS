@@ -14,21 +14,18 @@ BinTreeNode * cria_no_BIN(void)
 {
   BinTreeNode *X;
   X =  (BinTreeNode *) malloc (sizeof (BinTreeNode));
-  if ( ! X )
-   {
-    printf("\n problema de alocacao... de memoria");
-    getchar();
-    }
-      else
+  if ( ! X ) // ou X == NULL ?
+	{
+	    printf("\n problema de alocacao... de memoria");
+	    getchar();
+     }
+   else
     {
-       X -> left = NULL;
-       X -> right = NULL;
+	       X -> left = NULL;
+	       X -> right = NULL;
     }
-      return (X);
+      return ( X );
 }
-
-
-
 
 /* TreeEmpty:  TRUE if the tree is emtpy.
 
@@ -43,7 +40,6 @@ bool TreeEmtpy(BinTreeNode *root)
      else
      return false;   
 }
-
 
  /* InsertTree: insert a new node in the tree.
 Pre:   The binary search tree to which root points has been created.
@@ -99,27 +95,27 @@ BinTreeNode * InsertTree_ITERATIVO(BinTreeNode *NOH_RAIZ, TreeEntry INFO )
    BinTreeNode * X = cria_no_BIN(); 
 	X -> dados . UMA_CHAVE = INFO . UMA_CHAVE; 
     strcpy( X -> dados.UM_NOME , INFO . UM_NOME);
-    X -> left  = NULL;
-	X -> right = NULL;
-    return X; // serah a raiz
+    X -> left  = NULL;  // Aterramentos
+	X -> right = NULL;  // Aterramentos
+    return X; // serah a raiz pois estava vazia a mesmo
     }
   	
   BinTreeNode * predecessor = NOH_RAIZ;
   BinTreeNode * ancora = NOH_RAIZ; // PODERIA SER USADO um TEMP
   // mas a raiz existente eh a MESMA
-  int link_lr; // uma chave Left Right
+  char link_lr; // uma chave Left ou Right  
   while ( NOH_RAIZ!= NULL ) 
      {
       if ( INFO.UMA_CHAVE < (NOH_RAIZ -> dados.UMA_CHAVE) ) 
       {  predecessor = NOH_RAIZ;
-		 link_lr = 1; 
+		 link_lr = 'l'; 
       // alvo menor que o valor corrente da raiz
          NOH_RAIZ = NOH_RAIZ->left; // AVANCA
        }  
        // alvo MAIOR que o valor corrente da raiz
       else if ( INFO.UMA_CHAVE > (NOH_RAIZ-> dados.UMA_CHAVE) )
          {  predecessor = NOH_RAIZ;
-			link_lr = 2; 
+			link_lr = 'r'; 
             NOH_RAIZ = NOH_RAIZ->right;
           }
       else if ( INFO.UMA_CHAVE == (NOH_RAIZ-> dados.UMA_CHAVE) )
@@ -134,27 +130,25 @@ BinTreeNode * InsertTree_ITERATIVO(BinTreeNode *NOH_RAIZ, TreeEntry INFO )
    BinTreeNode * X = cria_no_BIN(); 
 	X -> dados . UMA_CHAVE = INFO . UMA_CHAVE; 
    strcpy(X -> dados.UM_NOME , INFO . UM_NOME);
-   // Tipo TreeEntry
    //printf("\n %d : %x : %s", X -> dados.UMA_CHAVE , X , X -> dados.UM_NOME );
-   X -> left = X -> right = NULL;
+   X -> left = X -> right = NULL; // Aterramento
    // CONECTA O NOVO NOH AO PREDECESSOR
-   if(link_lr == 1)
+   if(link_lr == 'l')
    predecessor -> left = X; // esquerda
-   else
+   else // 'r'
    predecessor -> right = X; // direita
    
    return ancora; // raiz original mantida
 }
 //======================================================//
-
 // NUMERO DE NOS -- Faca a versao iterativa
-int sizeof_Tree_BIN( BinTreeNode *root)
+int num_nos_ABB( BinTreeNode *root)
 {
   if (root == NULL) 
   return 0;
   
-  int qt_left = sizeof_Tree_BIN(root ->left); // sub-arv esquerda
-  int qt_right = sizeof_Tree_BIN(root ->right); // sub-arv direita
+  int qt_left = num_nos_ABB(root ->left); // sub-arv esquerda
+  int qt_right = num_nos_ABB(root ->right); // sub-arv direita
   return ( qt_left + 1 + qt_right );
 
   //return( sizeof_Tree_BIN(root ->left) + 1 +
@@ -163,20 +157,35 @@ int sizeof_Tree_BIN( BinTreeNode *root)
 
 //======================================================//
 // A MAIOR PROFUNDIDADE = ALTURA DE UNO  -- Faca a versao iterativa
-int altura_Tree_BIN( BinTreeNode *root )
+int altura_ABB( BinTreeNode *root )
 {
   if (root == NULL) 
   return -1;
  
-  int A1 = altura_Tree_BIN(root ->left);
-  int A2 = altura_Tree_BIN(root ->right);
+  int A1 = altura_ABB(root ->left);
+  int A2 = altura_ABB(root ->right);
   if (A1 > A2)
 	return (A1 + 1);
   else
 	return (A2 + 1);
   //return ( maior (A1 , A2) + 1 );
  }
+//======================================================//
 
+int fator_balanco_ABB( BinTreeNode *root )
+{
+  if (root == NULL) 
+  return -1;
+ 
+  int A1 = altura_ABB(root ->left);
+  int A2 = altura_ABB(root ->right);
+  return (A1 - A2);
+  // SE = 0 ... igual aos 2 lados
+  // SE > 0 ... lado esquerdo eh MAIOR
+  // SE < 0 ... lado direito eh MAIOR
+  
+ }
+//======================================================//
 int maior (int x, int y)
  {
 	 if(x > y)

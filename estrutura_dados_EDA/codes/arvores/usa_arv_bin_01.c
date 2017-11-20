@@ -43,8 +43,8 @@ int main(void)
        pt_TREE =  InsertTree_ITERATIVO( pt_TREE, Xdados );
        
        printf("\n INSERINDO :%d : %d : %s (End: %x) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
-       printf("\n Agora a altura corrente  eh: %d :", altura_Tree_BIN(  pt_TREE) ); 
-       
+       printf("\n Altura corrente  eh: %d :", altura_ABB( pt_TREE) ); 
+       printf("\n Fator de Balanco eh: %d :",fator_balanco_ABB( pt_TREE) ); 
       }// fim da entrada --- enchendo a ABB
 
       // UMA BUSCA --- APLICACAO 01
@@ -66,7 +66,7 @@ int main(void)
         consulta );  
       }
   */  
-    printf("\n NUMERO DE NOSH: %d", sizeof_Tree_BIN( pt_TREE) ); 
+    printf("\n NUMERO DE NOSH: %d", num_nos_ABB( pt_TREE) ); 
     getchar();
 
 // USO DA EXCLUSAO DE ALGUNS NOS --- APLICACAO 02
@@ -92,7 +92,7 @@ if ( deltree_TRUE ( &pt_TREE ) == (0 || 1) )
 
 //  deltree( pt_TREE );
    
-    printf("\n NUMERO DE NOSH: %d\n", sizeof_Tree_BIN( pt_TREE) ); 
+    printf("\n NUMERO DE NOSH: %d\n", num_nos_ABB( pt_TREE) ); 
 	
 return 1;
    }
