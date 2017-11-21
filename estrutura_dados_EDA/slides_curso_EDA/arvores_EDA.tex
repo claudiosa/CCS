@@ -609,7 +609,7 @@ BUSCA(ARVORE, CHAVE) {
     \item Remoção de um nó folha (nenhum filho)
     \item Remoção de um nó com somente um filho
     \item Remoção de um nó com dois filhos
-    \item  \textcolor{red}{Faltam as figuras ainda .... vários slides}
+   %% \item  \textcolor{red}{Faltam as figuras ainda .... vários slides}
     \end{enumerate}
 
    %% O tratamento de cada caso foi apresentado em sala de aula.
@@ -701,6 +701,9 @@ BUSCA(ARVORE, CHAVE) {
   \item \textcolor{red}{A nova raiz será a menor chave à esquerda, da sub-árvore a direita
 do nó que se deseja excluir!}
 
+%  \item \textcolor{red}{Caso seja a esquerda, a nova raiz será a menor chave à direita, 
+%  da sub-árvore a esquerda do nó que se deseja excluir!}
+
 \item \textcolor{red}{Requisito: ser uma ABB!}
 
 \end{itemize}
@@ -708,17 +711,14 @@ do nó que se deseja excluir!}
 \end{frame}
 %---------------------------------------------------------
 \begin{frame}
-\frametitle{Ainda a Remoção}
+\frametitle{Finalizando a remoção -- último exemplo}
 
    \begin{figure}[!ht]
     \centering
     \includegraphics[keepaspectratio=true,width=10cm]{figs/fig_arvores/ex03_Delete_NODE.jpg}
- \caption{A idéia vale para os dois lados: é o menor à esquerda  da sub-árvore a direita}
+ \caption{A idéia vale para os dois lados: é a menor chave à esquerda  da sub-árvore a direita!}
     \end{figure}
 
-\begin{flushleft}
-\textcolor{red}{Requisito: ser uma ABB!}
-\end{flushleft}
 \end{frame}
 
 %---------------------------------------------------------
@@ -731,7 +731,7 @@ do nó que se deseja excluir!}
 \begin{itemize}
   \item A remoção é a base das partes mais difíceis de ABs
   \item Pois o próximo assunto é \textit{balanceamento}
-  \item Implemente este método
+  \item Implemente este método, pois tem um bom grau de dificuldade!
 \end{itemize}
 \end{block}
 
@@ -822,8 +822,8 @@ ALTURA(ARVORE) {
 
 
 \begin{block}{}
-O fator de balanceamento de uma árvore é a diferença
-entre as alturas de suas sub-árvores a esquerda ou direita.\\ 
+O fator de balanceamento de uma árvore (ou nó, por definição é uma árvore) 
+é a diferença entre as alturas de suas sub-árvores a esquerda ou direita.\\ 
 Um algoritmo é  dado por:
 \end{block}
 
@@ -834,18 +834,39 @@ FB(ARVORE) {
     return A1 - A2 
 }
 \end{verbatim}
+
+\begin{center}
+\textbf{
+\textcolor{red}{Atenção: o cálculo é por nó, onde este define uma árvore recursiva!}
+}
+\end{center}
+
 \end{frame}
 
 %---------------------------------------------------------
-\frame{
+\begin{frame}
     \frametitle{Balanceamento}
+    
+    \begin{block}{}
     
     \begin{itemize}
     \item Uma ABB está balanceada quando cada nó possui um FB igual a \textbf{-1}, \textbf{0} ou \textbf{1}
     \item A diferença das alturas entre dois nós no mesmo nível é um valor absoluto
     \item Uma inserção ou remoção pode tornar uma árvore desbalanceada, necessitando de \textbf{rotações}  para o seu balanceamento
+    
+    \pause
+    \item Por convenção: $A_{esquerda} - A_{direita}$ 
+    \item Isto é: se $FB < 0$ então $A_{esquerda} < A_{direita}$
+    
+    \pause
+    \item Define-se \textit{nó de articulação} ou \textit{pivô} o nó
+    em que vão ocorrer rotações, esquerda ou a direita
     \end{itemize}
-}
+    
+    \end{block}
+    
+    
+\end{frame}
 
 %---------------------------------------------------------
 \begin{frame}
@@ -940,16 +961,64 @@ ROTACAO_ESQUERDA(RAIZ) {
     \frametitle{Árvores AVL}
     
     \begin{itemize}
+
     \item \textbf{AVL} desenvolvida por G. M. \textbf{A}delson-\textbf{V}elskii and E. M. \textbf{L}andis
     
     \item Critério do fator de balanceamento de $-1$ a $+1$ deve ser seguido em cada
     nó da árvore
     
     \item Garante o balanceamento da árvore ao realizar rotações após cada inserção ou remoção na ABB
+    
+    \item As operações são análogas a busca de um balanceamento 
+    
+    \item Relembrando: se $FB > 0$ ramo esquerdo mais longo, caso $FB < 0$ ramo direito é maior!
+    \pause
+    \item \textcolor{red}{Acompanhe as explicações de sala de aula}
     \end{itemize}
+\end{frame}
+%AVL-tree-example.jpg
+
+%---------------------------------------------------------
+
+\begin{frame}[fragile]
+  \frametitle{Exemplo de AVL e Altura}
+  
+   \begin{figure}[tbp]
+    \includegraphics[width=7cm, height=5cm]{figs/fig_arvores/AVL-tree-example.jpg}
+    \centering
+    \end{figure}
+
+ \end{frame}
+
+%---------------------------------------------------------s
+
+
+\begin{frame}[fragile]
+  \frametitle{Exemplo de AVL e FB}
+  
+   \begin{figure}[tbp]
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/AVL-tree-example_FB.jpg}
+    \centering
+    \end{figure}
+
+ \end{frame}
+
+
+%---------------------------------------------------------s
+\begin{frame}[fragile]
+  \frametitle{Estrutura do Nó -- facilidades na implementação da AVL}
+  
+   \begin{figure}[tbp]
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/AVL-data_structure.jpg}
+    \centering
+    \end{figure}
+
+\textcolor{red}{Um campo a mais: a altura corrente do nó!}
+
 \end{frame}
 
 %---------------------------------------------------------
+
 \begin{frame}[fragile]
 \frametitle{Balanceamento -- Inserção}
 \begin{verbatim}
@@ -959,7 +1028,7 @@ BALANCEAMENTO(RAIZ) {
             ROTACAO_ESQUERDA(RAIZ)
         SENÃO
             ROTACAO_DIREITA(RAIZ->DIR)
-            ROTACAO_ESQUERDA(RAIZ)
+            ROTACAO_ESQUERDA(RAIZ) 
     SENÃO SE FB(RAIZ) = 2 ENTÃO
         SE FB(RAIZ->ESQ) = 1 ENTÃO
             ROTACAO_DIREITA(RAIZ)
@@ -972,55 +1041,172 @@ BALANCEAMENTO(RAIZ) {
 
 %---------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Balanceamento - Inserção}
+\frametitle{Balanceamento -- Conclusões Parciais}
 
 \begin{itemize}
-\item Para que a árvore tenha um bom desempenho, é essencial que o balanceamento seja
+\item Para que as árvores AVL tenham um bom desempenho, é essencial que o balanceamento seja
 calculado eficientemente, isto é, sem a necessidade de percorrer toda a árvore após cada
 modificação
-\item Manter a árvore estritamente balanceada após cada modificação tem seu preço (desempenho).
-Árvores AVL são utilizadas normalmente onde o número de consultas é muito maior do que o número de inserções
-e remoções e quando a localidade de informação não é importante
+
+\item Manter a árvore estritamente balanceada após cada modificação tem seu preço (desempenho $=$ custo computacional).
+
+\item Árvores AVL são utilizadas normalmente onde o número de consultas é muito maior do que o número de inserções e remoções e quando a localidade de informação não é importante
+
+\item Estas conclusões serão verificadas no projeto final.
+
 \end{itemize}
 \end{frame}
 
-\subsection{Resumindo as Rotações para AVL}
+\subsection{Em Detalhes as Rotações para AVL}
 
 \begin{frame}
 
-\begin{block}{Rotações necessárias nas AVLs}
+\begin{block}{Resumindo as rotações necessárias nas AVLs:}
 
 A cada inserção há um rebalanceamento. Após uma inserção (vai valer para exclusão) os seguintes
-casos violam uma AVL. Logo, seguem os balanceamentos:
+casos violam uma AVL. Logo, seguem os balanceamentos necessários:
 \begin{description}
- \item[Caso 1:] uma inserção na sub-árvore à esquerda do filho à esquerda de  \texttt{X} (simples)
- \item[Caso 2:] uma inserção na sub-árvore à direita do filho à esquerda de  \texttt{X} (simples)
- \item[Caso 3:] uma inserção na sub-árvore à esquerda do filho à direita de  \texttt{X} (duplas)    
- \item[Caso 4:] uma inserção na sub-árvore à direita do filho à direita de  \texttt{X} (duplas)        
+ \item[Caso 1:] uma articulação na sub-árvore à esquerda do filho à esquerda de  \texttt{X} (simples)
+ \item[Caso 2:] uma articulação na sub-árvore à direita do filho à esquerda de  \texttt{X} (simples)
+ \item[Caso 3:] uma articulação na sub-árvore à esquerda do filho à direita de  \texttt{X} (dupla)    
+ \item[Caso 4:] uma articulação na sub-árvore à direita do filho à direita de  \texttt{X} (dupla)        
 \end{description}
-\end{block}
 
+\textbf{\textcolor{red}{Lembrar a convenção do FB!}}
+
+\end{block}
 
 \end{frame}
 
+%----------------------------------------------------------------------------
 
+\begin{frame}
+    \frametitle{Rotação para Esquerda -- LL }
+      
+ \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=9cm, height=6cm]{figs/fig_arvores/avl01LL.jpg}
+
+    \caption{Algum nó tem o lado esquerdo maior ou igual a 2, tornando-a desbalanceada. No exemplo: nó 9 }
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação para Direita -- RR }
+   
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=9cm, height=5cm]{figs/fig_arvores/avl02RR.jpg}
+
+  \caption{Alguma inserção na sub-árvore a direita, a partir do nó \texttt{X}}
+    \end{figure}
+\end{frame}
+%----------------------------------------------------------------------------
 
 
 \begin{frame}
-    \frametitle{Rotação para Esquerda}
-  
-    
-    \begin{figure}[tbp]
-%%   \includegraphics[keepaspectratio=true,width=2.2in]{figs/fig_arvores/Balanceamento_Arvore5}
-    \centering
+    \frametitle{Rotação para Direita -- RR -- Exemplo}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/avl02RR-example.jpg}
+   %%keepaspectratio=true,
+
+    \caption{Algum nó tem o lado direito com altura maior ou igual a 2, tornando-a desbalanceada. Neste exemplo, o nó \textbf{15} tem um $FB>2$. Pode ter ocorrido a inserção
+    do \texttt{15}, \texttt{19} ou \texttt{29}! }
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Esquerda--Direita -- LR}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=10cm, height=6cm]{figs/fig_arvores/avl04LR.jpg}
+   %%keepaspectratio=true,
+    \caption{Uma inserção na sub-árvore \textbf{interna} \texttt{Y} vai provocar um desbalanceamento. Neste caso, duas rotações são necessárias.}
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Esquerda--Direita -- LR -- Exemplo}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/avl05LR-example.jpg}
+   %%keepaspectratio=true,
+    \caption{A inserção do nó \texttt{7} (ou \texttt{6})  
+    gerou desbalanceamento que necessita de duas rotações.}
+    \end{figure}
+\end{frame}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Direita--Esquerda -- RL}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=10cm, height=6cm]{figs/fig_arvores/avl06RL.jpg}
+   %%keepaspectratio=true,
+    \caption{Uma inserção na sub-árvore \textbf{interna--esquerda} \texttt{Y} vai provocar um desbalanceamento. Neste caso, duas rotações são necessárias.}
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Direita--Esquerda -- RL -- Exemplo}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=9cm, height=5cm]{figs/fig_arvores/avl07RL-example.jpg}
+   %%keepaspectratio=true,
+    \caption{A inserção dos nós \texttt{5} (ou \texttt{6}) gerou 
+    um desbalanceamento que necessita de duas rotações.}
     \end{figure}
 \end{frame}
 
 
+%----------------------------------------------------------------------------
 
+\begin{frame}
+    \frametitle{Resumo das AVLs}
+   
+  \begin{block}{Finalizando AVLs}
+  
+     \begin{itemize}
+        \item Não são as mais eficazes, mas são bem didáticas (leia-se: elegância)
+        
+        \pause
+        \item Um balanceamento após cada operação de inserção e remoção, torna a ALV lenta!
 
-%---------------------------------------------------------
-\subsection{Árvore de Espalhamento}
+        \pause
+        \item Alternativas: árvores de espalhamento, Arvore B (férias)
+
+        \pause
+        \item Construa uma ABB com a seguinte entrada: $1 .. 7$ (crescente) e transforme-a numa AVL
+
+        \item Construa uma ABB com a seguinte entrada: $7 .. 1$ e transforme-a numa AVL
+        
+        \item Faça passo-a-passo para verificar se entendeste tudo!
+        
+        \item Acompanhe as explicações em aula (ou no vídeo da FUVEST, profs. Norton e Luciano)
+        
+      \end{itemize}
+      \end{block}
+
+\end{frame}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\subsection{Árvores de Espalhamento}
 
 \frame{
     \frametitle{Árvore de Espalhamento}
