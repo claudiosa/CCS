@@ -9,7 +9,8 @@
 
 Pontos fundamentais a serem cobertos:
 \begin{columns}
-\begin{column}{.3\textwidth}
+\begin{column}{.3\textwidth}mento
+
 \centering
 
   \begin{enumerate}
@@ -608,7 +609,7 @@ BUSCA(ARVORE, CHAVE) {
     \item Remoção de um nó folha (nenhum filho)
     \item Remoção de um nó com somente um filho
     \item Remoção de um nó com dois filhos
-    \item  \textcolor{red}{Faltam as figuras ainda .... vários slides}
+   %% \item  \textcolor{red}{Faltam as figuras ainda .... vários slides}
     \end{enumerate}
 
    %% O tratamento de cada caso foi apresentado em sala de aula.
@@ -700,6 +701,9 @@ BUSCA(ARVORE, CHAVE) {
   \item \textcolor{red}{A nova raiz será a menor chave à esquerda, da sub-árvore a direita
 do nó que se deseja excluir!}
 
+%  \item \textcolor{red}{Caso seja a esquerda, a nova raiz será a menor chave à direita, 
+%  da sub-árvore a esquerda do nó que se deseja excluir!}
+
 \item \textcolor{red}{Requisito: ser uma ABB!}
 
 \end{itemize}
@@ -707,17 +711,14 @@ do nó que se deseja excluir!}
 \end{frame}
 %---------------------------------------------------------
 \begin{frame}
-\frametitle{Ainda a Remoção}
+\frametitle{Finalizando a remoção -- último exemplo}
 
    \begin{figure}[!ht]
     \centering
     \includegraphics[keepaspectratio=true,width=10cm]{figs/fig_arvores/ex03_Delete_NODE.jpg}
- \caption{A idéia vale para os dois lados: é o menor à esquerda  da sub-árvore a direita}
+ \caption{A idéia vale para os dois lados: é a menor chave à esquerda  da sub-árvore a direita!}
     \end{figure}
 
-\begin{flushleft}
-\textcolor{red}{Requisito: ser uma ABB!}
-\end{flushleft}
 \end{frame}
 
 %---------------------------------------------------------
@@ -730,7 +731,7 @@ do nó que se deseja excluir!}
 \begin{itemize}
   \item A remoção é a base das partes mais difíceis de ABs
   \item Pois o próximo assunto é \textit{balanceamento}
-  \item Implemente este método
+  \item Implemente este método, pois tem um bom grau de dificuldade!
 \end{itemize}
 \end{block}
 
@@ -833,18 +834,33 @@ FB(ARVORE) {
     return A1 - A2 
 }
 \end{verbatim}
+
+\begin{center}
+\textbf{
+\textcolor{red}{Atenção: o cálculo é por nó, onde este define uma árvore recursiva!}
+}
+\end{center}
+
 \end{frame}
 
 %---------------------------------------------------------
-\frame{
+\begin{frame}
     \frametitle{Balanceamento}
+    
+    \begin{block}{}
     
     \begin{itemize}
     \item Uma ABB está balanceada quando cada nó possui um FB igual a \textbf{-1}, \textbf{0} ou \textbf{1}
     \item A diferença das alturas entre dois nós no mesmo nível é um valor absoluto
     \item Uma inserção ou remoção pode tornar uma árvore desbalanceada, necessitando de \textbf{rotações}  para o seu balanceamento
+    \item Por convenção: $A_{esquerda} - A_{direita}$ 
+    \item Isto é: se $FB < 0$ então $A_{esquerda} < A_{direita}$ 
     \end{itemize}
-}
+    
+    \end{block}
+    
+    
+\end{frame}
 
 %---------------------------------------------------------
 \begin{frame}
@@ -939,14 +955,23 @@ ROTACAO_ESQUERDA(RAIZ) {
     \frametitle{Árvores AVL}
     
     \begin{itemize}
+
     \item \textbf{AVL} desenvolvida por G. M. \textbf{A}delson-\textbf{V}elskii and E. M. \textbf{L}andis
+    
+    \item Critério do fator de balanceamento de $-1$ a $+1$ deve ser seguido em cada
+    nó da árvore
+    
     \item Garante o balanceamento da árvore ao realizar rotações após cada inserção ou remoção na ABB
+    
+    \item As operações são análogas a busca de um balanceamento 
+    
+    \item Relembrando: se $FB > 0$ ramo esquerdo mais longo, caso $FB < 0$ ramo direito é maior!
     \end{itemize}
 \end{frame}
 
 %---------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Balanceamento - Inserção}
+\frametitle{Balanceamento -- Inserção}
 \begin{verbatim}
 BALANCEAMENTO(RAIZ) {
     SE FB(RAIZ) = -2 ENTÃO
@@ -954,7 +979,7 @@ BALANCEAMENTO(RAIZ) {
             ROTACAO_ESQUERDA(RAIZ)
         SENÃO
             ROTACAO_DIREITA(RAIZ->DIR)
-            ROTACAO_ESQUERDA(RAIZ)
+            ROTACAO_ESQUERDA(RAIZ) 
     SENÃO SE FB(RAIZ) = 2 ENTÃO
         SE FB(RAIZ->ESQ) = 1 ENTÃO
             ROTACAO_DIREITA(RAIZ)
@@ -979,13 +1004,147 @@ e remoções e quando a localidade de informação não é importante
 \end{itemize}
 \end{frame}
 
-%---------------------------------------------------------
-\subsection{Árvore de Espalhamento}
+\subsection{Resumindo as Rotações para AVL}
+
+\begin{frame}
+
+\begin{block}{Resumindo as rotações necessárias nas AVLs:}
+
+A cada inserção há um rebalanceamento. Após uma inserção (vai valer para exclusão) os seguintes
+casos violam uma AVL. Logo, seguem os balanceamentos necessários:
+\begin{description}
+ \item[Caso 1:] uma inserção na sub-árvore à esquerda do filho à esquerda de  \texttt{X} (simples)
+ \item[Caso 2:] uma inserção na sub-árvore à direita do filho à esquerda de  \texttt{X} (simples)
+ \item[Caso 3:] uma inserção na sub-árvore à esquerda do filho à direita de  \texttt{X} (duplas)    
+ \item[Caso 4:] uma inserção na sub-árvore à direita do filho à direita de  \texttt{X} (duplas)        
+\end{description}
+
+\textbf{\textcolor{red}{Lembrar a convenção do FB!}}
+\end{block}
+
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação para Esquerda -- LL }
+      
+ \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=6cm]{figs/fig_arvores/avl01LL.jpg}
+
+    \caption{Algum nó tem o lado esquerdo maior ou igual a 2, tornando-a desbalanceada. No exemplo: nó 9 }
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação para Direita -- RR }
+   
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/avl02RR.jpg}
+
+  \caption{Alguma inserção na sub-árvore a direita, a partir do nó \texttt{X}}
+    \end{figure}
+\end{frame}
+%----------------------------------------------------------------------------
+
+
+\begin{frame}
+    \frametitle{Rotação para Direita -- RR -- Exemplo}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/avl02RR-example.jpg}
+   %%keepaspectratio=true,
+
+    \caption{Algum nó tem o lado direito com altura maior ou igual a 2, tornando-a desbalanceada. Neste exemplo, o nó \textbf{15} tem um $FB>2$. Pode ter ocorrido a inserção
+    do \texttt{15}, \texttt{19} ou \texttt{29}! }
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Esquerda--Direita -- LR}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=9cm, height=6cm]{figs/fig_arvores/avl04LR.jpg}
+   %%keepaspectratio=true,
+    \caption{Uma inserção na sub-árvore \textbf{interna} \texttt{Y} vai provocar um desbalanceamento. Neste caso, duas rotações são necessárias.}
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Esquerda--Direita -- LR -- Exemplo}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/avl05LR-example.jpg}
+   %%keepaspectratio=true,
+    \caption{A inserção do nó \texttt{7} (ou \texttt{6})  
+    gerou desbalanceamento que necessita de duas rotações.}
+    \end{figure}
+\end{frame}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Direita--Esquerda -- RL}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=9cm, height=6cm]{figs/fig_arvores/avl06RL.jpg}
+   %%keepaspectratio=true,
+    \caption{Uma inserção na sub-árvore \textbf{interna--esquerda} \texttt{Y} vai provocar um desbalanceamento. Neste caso, duas rotações são necessárias.}
+    \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Rotação Dupla Direita--Esquerda -- RL -- Exemplo}
+      
+   \begin{figure}[!ht]
+     \centering
+    \includegraphics[width=8cm, height=5cm]{figs/fig_arvores/avl07RL-example.jpg}
+   %%keepaspectratio=true,
+    \caption{A inserção dos nós \texttt{5} (ou \texttt{6}) gerou 
+    um desbalanceamento que necessita de duas rotações.}
+    \end{figure}
+\end{frame}
+
+
+%----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Resumo das AVLs}
+      \begin{itemize}
+        \item 
+        \item 
+        \item 
+      \end{itemize}
+
+\end{frame}
+
+
+
+%------------------------------------------------------------------------------------------------------------------
+
+
+
+\subsection{Árvores de Espalhamento}
 
 \frame{
     \frametitle{Árvore de Espalhamento}
     
     \begin{itemize}
+    \item Uma alternativa de melhorar os procedimentos de AVL 
     \item Reestrutura a árvore em cada operação de inserção, busca ou remoção por meio de operações de rotação
     \item Nome original: \emph{splay tree}~\cite{tarjan}. Não confundir com a Árvore N-Ária de Espalhamento (ANE) criada por professores da UDESC
     \end{itemize}
