@@ -20,3 +20,31 @@ Avisos -- Leiam todos ... é o Roadmap do curso:
 * Final de novembro: 21 ou 23 .. o provão final de disciplina (max 20%)
 
 
+
+Pessoal
+
+1. Ultima aula ... esta  3a. feira ... árvores AVL
+
+2. Fiz o exercicio da inserção iterativa  de ABB ... esta no Github da disciplina
+
+3. Tem várias ideias para exclusao lah ... mas nao fiz este metodo ... fica para voces, pois é um bom desafio
+
+4. Para prova de 5a feira .... vou pegar questoes do seguinte site
+https://www.thehuxley.com/  (mas a prova serah no RUNCODES este ano) o nome eh ingles, mas eh em Portugues mesmo ...
+olhem lah os problemas, de listas, filas e pilhas... e aplicacoes
+
+5. 5a. feira a prova final incluindo toda matéria ... menos arvores
+devido o tamanho dos codigos ...  procurem chegar as 15:10 hrs como
+da última vez
+
+6. Na proxima semana ... estarei avaliando os trabalhos de AVL....
+em horário de aula na minha sala ... 10% da MS
+   
+7. Em exame , MS < 6,0 ... dia 12/12 (3a feira) ...  MS >= 6,0 repito a nota como MS 
+
+Abraços
+
+ĉĉ - claudio  cesar  
+
+
+
