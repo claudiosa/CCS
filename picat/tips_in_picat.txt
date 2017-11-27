@@ -40,3 +40,60 @@ has arity 5.
 
 Cheers,
 Neng-Fa
+
+
+/*
+From Neng-Fa:
+
+The following book chapter may be helpful:
+
+http://picat-lang.org/download/picat_compared_to_prolog_haskell_python.html
+
+Picat rules are pattern-matching rules, and determinism is denoted explicitly (?=> indicates backtrackable and => indicates non-backtrackable). A Prolog clause 
+
+p(A1,...,An) :- Body.
+
+can be trivially translated into the following Picat rule:
+
+p(X1,...,Xn) ?=> X1 = A1, ..., Xn = An, Body.
+
+However, the Picat rule is not efficient because it is never indexed, and it is assumed to be backtrackable. You want to write input patterns in the head, and use => if you don't want other rules to be tried after pattern-matching succeeds. 
+
+Here is my translation of your Prolog program:
+
+likes(sam,Food) ?=>
+    indian(Food),
+    mild(Food).
+likes(sam,Food) ?=>
+    chinese(Food).
+likes(sam,Food) ?=>
+    italian(Food).
+likes(sam,Food) =>
+    Food = chips.
+
+index (+) (-)
+indian(curry).
+indian(dahl).
+indian(tandoori).
+indian(kurma).
+
+index (+) (-)
+mild(dahl).
+mild(tandoori).
+mild(kurma).
+
+index (+) (-)
+chinese(chow_mein).
+chinese(chop_suey).
+chinese(sweet_and_sour).
+
+index (+) (-)
+italian(pizza).
+italian(spaghetti).
+
+The compiler translates the facts into pattern-matching rules based on the index declarations, where + indicates that the argument is input, and - indicates that the argument is output. You can find more details about the Picat compiler in the following article:
+
+http://www.sci.brooklyn.cuny.edu/~zhou/papers/padl17.pdf
+
+Cheers,
+Neng-Fa
