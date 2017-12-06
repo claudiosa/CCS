@@ -266,7 +266,7 @@ BinTreeNode *TreeSearch_ITERATIVO(BinTreeNode *NOH_RAIZ, int ALVO)
 // ESTA quase BOM .... usando o outro por **
 int deltree(BinTreeNode * tree) 
 {
-if (tree == NULL) 
+   if (tree == NULL) 
    return 0; // true; 
    
    deltree(tree->left);
@@ -285,7 +285,9 @@ if (tree == NULL)
    return 1; // true; 
  
  }
-//*************************************
+
+// ==================================================== // 
+//**********************************  */   
 // ESTA quase BOM ....
 int deltree_TRUE(BinTreeNode ** tree) 
 {
@@ -306,7 +308,7 @@ if ((*tree) == NULL)
 void print_NODE(BinTreeNode * node)
 {
      /* print the data of node */
-     printf("\n End: %x ", node);
+     printf("\n End: %d ", node); //%x
      printf("\t CHAVE: %d :", node->dados . UMA_CHAVE);  
      printf("\t NOME: %s ", node->dados . UM_NOME);
      return;

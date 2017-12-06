@@ -1,0 +1,334 @@
+/*
+%% Solução: César Augusto Moro Fürst
+Enunciado do Problema: 
+%https://rachacuca.com.br/logica/problemas/residencial-cientistas-famosos/
+turma: 2017-2
+*/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+main ?=> 
+	 time( colecionador( L ) ),
+		printf("[ Mochila:\t|Nome:\t\t|Idade:\t|Inicio:\t|Coleciona:\t|Esporte:   ]\n"),
+		printf("[===================================================================================]\n"),
+	  imprime( L ).
+		 
+main => nl, 
+	   printf("\n ==================================================== ").   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AQUI COMEÇA O PROGRAMA ....
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+colecionador( Lista ) ?=>
+
+	Lista = [
+	 [Mochila_1, Nome_1, Idade_1, Inicio_1, Coleciona_1, Esporte_1],
+	 [Mochila_2, Nome_2, Idade_2, Inicio_2, Coleciona_2, Esporte_2],
+	 [Mochila_3, Nome_3, Idade_3, Inicio_3, Coleciona_3, Esporte_3],
+	 [Mochila_4, Nome_4, Idade_4, Inicio_4, Coleciona_4, Esporte_4],
+	 [Mochila_5, Nome_5, Idade_5, Inicio_5, Coleciona_5, Esporte_5]
+	] ,
+	  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Mochila_
+mochila(Mochila_1),
+mochila(Mochila_2),
+mochila(Mochila_3),
+mochila(Mochila_4),
+mochila(Mochila_5),
+alldifferent([Mochila_1, Mochila_2, Mochila_3, Mochila_4, Mochila_5]),
+
+%Mochila_1=='Preto  ',
+%Mochila_2=='Rosa   ',
+%Mochila_3=='Rocho  ',
+%Mochila_4=='Magenta',
+%Mochila_5=='Pinque ',
+
+%%3 Em uma das pontas está o colecionador da mochila Branca.
+
+(
+(Mochila_1=='Preto  ');
+(Mochila_5=='Preto  ')
+),
+
+%%5 Na terceira posição está o rapaz da mochila Azul.
+
+==(Mochila_3,'Rocho  '),
+
+%%9 O dono da mochila Verde está em algum lugar à direita do dono da mochila Branca.
+
+(
+(Mochila_1=='Preto  ',Mochila_2=='Pinque ');
+(Mochila_1=='Preto  ',Mochila_3=='Pinque ');
+(Mochila_1=='Preto  ',Mochila_4=='Pinque ');
+(Mochila_1=='Preto  ',Mochila_5=='Pinque ');
+(Mochila_2=='Preto  ',Mochila_3=='Pinque ');
+(Mochila_2=='Preto  ',Mochila_4=='Pinque ');
+(Mochila_2=='Preto  ',Mochila_5=='Pinque ');
+(Mochila_3=='Preto  ',Mochila_4=='Pinque ');
+(Mochila_3=='Preto  ',Mochila_5=='Pinque ');
+(Mochila_4=='Preto  ',Mochila_5=='Pinque ')
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nome_
+nome(Nome_1),
+nome(Nome_2),
+nome(Nome_3),
+nome(Nome_4),
+nome(Nome_5),
+alldifferent([Nome_1, Nome_2, Nome_3, Nome_4, Nome_5]),
+
+%%21 Marcel está na primeira posição.
+
+==(Nome_1,'Maicon  '),
+
+%%18 Evandro está na terceira posição.
+
+==(Nome_3,'Edair   '),
+
+%%6 Yuri está em uma das pontas.
+
+(
+(Nome_1=='Caio    ');
+(Nome_5=='Caio    ')
+),
+
+%%17 O dono da mochila Amarela está em algum lugar à esquerda de Fabricio.
+
+(
+(Mochila_1=='Rosa   ',Nome_2=='Fernando');
+(Mochila_1=='Rosa   ',Nome_3=='Fernando');
+(Mochila_1=='Rosa   ',Nome_4=='Fernando');
+(Mochila_1=='Rosa   ',Nome_5=='Fernando');
+(Mochila_2=='Rosa   ',Nome_3=='Fernando');
+(Mochila_2=='Rosa   ',Nome_4=='Fernando');
+(Mochila_2=='Rosa   ',Nome_5=='Fernando');
+(Mochila_3=='Rosa   ',Nome_4=='Fernando');
+(Mochila_3=='Rosa   ',Nome_5=='Fernando');
+(Mochila_4=='Rosa   ',Nome_5=='Fernando')
+),
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Inicio_
+inicio(Inicio_1),
+inicio(Inicio_2),
+inicio(Inicio_3),
+inicio(Inicio_4),
+inicio(Inicio_5),
+alldifferent([Inicio_1, Inicio_2, Inicio_3, Inicio_4, Inicio_5]),
+
+%%14 O rapaz que começo a colecionar com 20 anos está na primeira posição.
+
+==(Inicio_1,20),
+
+%%1 Na quarta posição está o colecionador que começou a colecionar com 12 anos.
+
+==(Inicio_4,12),
+
+%%2 O colecionador da mochila Verde começou com 15 anos.
+
+(
+(Mochila_1=='Pinque ',Inicio_1==15);
+(Mochila_2=='Pinque ',Inicio_2==15);
+(Mochila_3=='Pinque ',Inicio_3==15);
+(Mochila_4=='Pinque ',Inicio_4==15);
+(Mochila_5=='Pinque ',Inicio_5==15)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Coleciona_
+coleciona(Coleciona_1),
+coleciona(Coleciona_2),
+coleciona(Coleciona_3),
+coleciona(Coleciona_4),
+coleciona(Coleciona_5),
+alldifferent([Coleciona_1, Coleciona_2, Coleciona_3, Coleciona_4, Coleciona_5]),
+
+%%15 Em uma das pontas está quem coleciona Relógios.
+
+(
+(Coleciona_1=='Carros   ');
+(Coleciona_5=='Carros   ')
+),
+
+%%10 Quem coleciona Brinquedos está ao lado de quem está com a mochila Azul.
+
+(
+(Coleciona_1=='Bijuteria',Mochila_2=='Rocho  ');
+(Coleciona_2=='Bijuteria',(Mochila_1=='Rocho  ';Mochila_3=='Rocho  '));
+(Coleciona_3=='Bijuteria',(Mochila_2=='Rocho  ';Mochila_4=='Rocho  '));
+(Coleciona_4=='Bijuteria',(Mochila_3=='Rocho  ';Mochila_5=='Rocho  '));
+(Coleciona_5=='Bijuteria',Mochila_4=='Rocho  ')
+),
+
+%%20 O colecionador da mochila Branca coleciona Esculturas.
+
+(
+(Coleciona_1=='Pinturas ',Mochila_1=='Preto  ');
+(Coleciona_2=='Pinturas ',Mochila_2=='Preto  ');
+(Coleciona_3=='Pinturas ',Mochila_3=='Preto  ');
+(Coleciona_4=='Pinturas ',Mochila_4=='Preto  ');
+(Coleciona_5=='Pinturas ',Mochila_5=='Preto  ')
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Idade_
+idade(Idade_1),
+idade(Idade_2),
+idade(Idade_3),
+idade(Idade_4),
+idade(Idade_5),
+alldifferent([Idade_1, Idade_2, Idade_3, Idade_4, Idade_5]),
+
+%%7 O colecionador de 39 anos começou a colecionar com 15 anos.
+
+(
+(Idade_1==39,Inicio_1==15);
+(Idade_2==39,Inicio_2==15);
+(Idade_3==39,Inicio_3==15);
+(Idade_4==39,Inicio_4==15);
+(Idade_5==39,Inicio_5==15)
+),
+
+%%12 Quem coleciona Armas está ao lado do homem de 39 anos.
+
+(
+(Coleciona_1=='Facas    ',Idade_2==39);
+(Coleciona_2=='Facas    ',(Idade_1==39;Idade_3==39));
+(Coleciona_3=='Facas    ',(Idade_2==39;Idade_4==39));
+(Coleciona_4=='Facas    ',(Idade_3==39;Idade_5==39));
+(Coleciona_5=='Facas    ',Idade_4==39)
+),
+
+%%16 O colecionador de 35 anos começou a colecionar com 22 anos.
+
+(
+(Idade_1==35,Inicio_1==22);
+(Idade_2==35,Inicio_2==22);
+(Idade_3==35,Inicio_3==22);
+(Idade_4==35,Inicio_4==22);
+(Idade_5==35,Inicio_5==22)
+),
+
+%%19 O homem de 33 anos está exatamente à direita de quem coleciona Latas.
+
+(
+(Coleciona_1=='Ceveja   ',Idade_2==33);
+(Coleciona_2=='Ceveja   ',Idade_3==33);
+(Coleciona_3=='Ceveja   ',Idade_4==33);
+(Coleciona_4=='Ceveja   ',Idade_5==33)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Esporte_
+esporte(Esporte_1),
+esporte(Esporte_2),
+esporte(Esporte_3),
+esporte(Esporte_4),
+esporte(Esporte_5),
+alldifferent([Esporte_1, Esporte_2, Esporte_3, Esporte_4, Esporte_5]),
+
+%%11 Na primeira posição está quem gosta de Futebol.
+
+==(Esporte_1,'Futsal    '),
+
+%%8 Na quinta posição está quem gosta de Basquete.
+
+==(Esporte_5,'Ping-Pong '),
+
+%%4 Quem gosta de Vôlei começou a colecionar com 25 anos.
+
+(
+(Esporte_1=='Handbol   ',Inicio_1==25);
+(Esporte_2=='Handbol   ',Inicio_2==25);
+(Esporte_3=='Handbol   ',Inicio_3==25);
+(Esporte_4=='Handbol   ',Inicio_4==25);
+(Esporte_5=='Handbol   ',Inicio_5==25)
+),
+
+%%12 O colecionador da mochila Vermelha gosta de Tênis.
+
+(
+(Esporte_1=='Eletronico',Mochila_1=='Magenta');
+(Esporte_2=='Eletronico',Mochila_2=='Magenta');
+(Esporte_3=='Eletronico',Mochila_3=='Magenta');
+(Esporte_4=='Eletronico',Mochila_4=='Magenta');
+(Esporte_5=='Eletronico',Mochila_5=='Magenta')
+),
+
+%%13 O colecionador que gosta de Natação está exatamente à esquerda do homem mais velho.
+
+(
+(Esporte_1=='Corrida   ',Idade_2==44);
+(Esporte_2=='Corrida   ',Idade_3==44);
+(Esporte_3=='Corrida   ',Idade_4==44);
+(Esporte_4=='Corrida   ',Idade_5==44)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% quase terminandos
+printf("\n ==> Atingiu o Final do Modelo : UFA !!!! =====\n").
+
+colecionador( _ ) =>	
+	  printf("\n==> Inconsistencia no passo anterior: REVISE TUDO <== \n").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BASE DE DADOS ....
+%% TUDO ATOMO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+index(-)
+mochila( 'Rosa   ' ).
+mochila( 'Rocho  ' ).
+mochila( 'Preto  ' ).
+mochila( 'Pinque ' ).
+mochila( 'Magenta' ).
+
+index(-) 
+nome( 'Edair   ' ).
+nome( 'Fernando' ).
+nome( 'Paulo   ' ).
+nome( 'Maicon  ' ).
+nome( 'Caio    ' ).
+
+index(-)
+idade( 33 ).
+idade( 35 ).
+idade( 39 ).
+idade( 41 ).
+idade( 44 ).
+
+index(-) 
+inicio( 12 ).
+inicio( 15 ).
+inicio( 20 ).
+inicio( 22 ).
+inicio( 25 ).
+
+index(-)
+coleciona( 'Facas    ' ).
+coleciona( 'Bijuteria' ).
+coleciona( 'Pinturas ' ).
+coleciona( 'Ceveja   ' ).
+coleciona( 'Carros   ' ).
+
+index(-)
+esporte( 'Ping-Pong ' ).
+esporte( 'Futsal    ' ).
+esporte( 'Corrida   ' ).
+esporte( 'Handbol   ' ).
+esporte( 'Eletronico' ).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% apos o aluno entender varios conceitos 
+alldifferent([]) ?=> true.
+alldifferent([H|T]) => not(member(H,T)),
+					   alldifferent(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+imprime([]) ?=> true. 
+imprime([[Mochila, Nome, Idade, Inicio, Coleciona, Esporte]|T]) =>
+		printf("[ %w\t|%w\t|%w\t|%w\t\t|%w\t|%w ]\n",Mochila, Nome, Idade, Inicio, Coleciona, Esporte),
+		imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

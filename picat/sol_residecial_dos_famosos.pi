@@ -1,0 +1,371 @@
+/*
+%% Solução: César Augusto Moro Fürst
+Enunciado do Problema: 
+%https://rachacuca.com.br/logica/problemas/residencial-cientistas-famosos/
+turma: 2017-2
+*/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+main ?=> 
+	 time( predios( L ) ),
+		printf("[ Detalhe:\t|Bloco:\t\t|Arquiteto:\t|Idade:\t|Vendido:\t|Tem:\t\t   ]\n"),
+		printf("[==========================================================================================]\n"),
+	 imprime( L ).
+		 
+main => nl, 
+		 printf("====================================================\n").   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AQUI COMEÇA O PROGRAMA ....
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+predios( Lista ) ?=>
+
+	Lista = [
+		[Detalhes_1, Bloco_1, Arquiteto_1, Idade_1, Vendido_1, Tem_1],
+		[Detalhes_2, Bloco_2, Arquiteto_2, Idade_2, Vendido_2, Tem_2],
+		[Detalhes_3, Bloco_3, Arquiteto_3, Idade_3, Vendido_3, Tem_3],
+		[Detalhes_4, Bloco_4, Arquiteto_4, Idade_4, Vendido_4, Tem_4],
+		[Detalhes_5, Bloco_5, Arquiteto_5, Idade_5, Vendido_5, Tem_5]
+	] ,
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Detalhes_
+detalhes(Detalhes_1),
+detalhes(Detalhes_2),
+detalhes(Detalhes_3),
+detalhes(Detalhes_4),
+detalhes(Detalhes_5),
+alldifferent([Detalhes_1, Detalhes_2, Detalhes_3, Detalhes_4, Detalhes_5]),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Bloco_
+bloco(Bloco_1),
+bloco(Bloco_2),
+bloco(Bloco_3),
+bloco(Bloco_4),
+bloco(Bloco_5),
+alldifferent([Bloco_1, Bloco_2, Bloco_3, Bloco_4, Bloco_5]),
+
+
+%%14 Na terceira posição está o bloco Tesla.
+
+==(Bloco_3,'Senoide    '),
+
+%%23 O bloco Gauss está em uma das pontas.
+
+(
+Bloco_1=='Ipanema    ';
+Bloco_5=='Ipanema    '
+),
+
+%%16 O bloco Tesla está exatamente à esquerda do bloco Pascal.
+
+(
+(Bloco_1=='Senoide    ',Bloco_2=='Constelacao');
+(Bloco_2=='Senoide    ',Bloco_3=='Constelacao');
+(Bloco_3=='Senoide    ',Bloco_4=='Constelacao');
+(Bloco_4=='Senoide    ',Bloco_5=='Constelacao')
+),
+
+%%17 O bloco Gauss está em algum lugar à direita do prédio que tem detalhes em Vermelho.
+(
+(Detalhes_1=='Magenta',Bloco_2=='Ipanema    ');
+(Detalhes_1=='Magenta',Bloco_3=='Ipanema    ');
+(Detalhes_1=='Magenta',Bloco_4=='Ipanema    ');
+(Detalhes_1=='Magenta',Bloco_5=='Ipanema    ');
+(Detalhes_2=='Magenta',Bloco_3=='Ipanema    ');
+(Detalhes_2=='Magenta',Bloco_4=='Ipanema    ');
+(Detalhes_2=='Magenta',Bloco_5=='Ipanema    ');
+(Detalhes_3=='Magenta',Bloco_4=='Ipanema    ');
+(Detalhes_3=='Magenta',Bloco_5=='Ipanema    ');
+(Detalhes_4=='Magenta',Bloco_5=='Ipanema    ')
+),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Arquiteto_
+arquiteto(Arquiteto_1),
+arquiteto(Arquiteto_2),
+arquiteto(Arquiteto_3),
+arquiteto(Arquiteto_4),
+arquiteto(Arquiteto_5),
+alldifferent([Arquiteto_1, Arquiteto_2, Arquiteto_3, Arquiteto_4, Arquiteto_5]),
+
+
+%%13 Willian está trabalhando no quinto prédio.
+
+==(Arquiteto_5,'Layne    '),
+
+%%10 Fábio é o responsável pelo projeto do prédio com detalhes em Branco.
+
+(
+(Arquiteto_1=='Clara    ',Detalhes_1=='Preto  ');
+(Arquiteto_2=='Clara    ',Detalhes_2=='Preto  ');
+(Arquiteto_3=='Clara    ',Detalhes_3=='Preto  ');
+(Arquiteto_4=='Clara    ',Detalhes_4=='Preto  ');
+(Arquiteto_5=='Clara    ',Detalhes_5=='Preto  ')
+),
+
+%%12 O bloco Newton fica ao lado do bloco projetado por Sérgio.
+
+(
+(Bloco_1=='Grasioso   ',Arquiteto_2=='Anastasia');
+(Bloco_2=='Grasioso   ',(Arquiteto_1=='Anastasia';Arquiteto_3=='Anastasia'));
+(Bloco_3=='Grasioso   ',(Arquiteto_2=='Anastasia';Arquiteto_4=='Anastasia'));
+(Bloco_4=='Grasioso   ',(Arquiteto_3=='Anastasia';Arquiteto_5=='Anastasia'));
+(Bloco_5=='Grasioso   ',Arquiteto_4=='Anastasia')
+),
+
+
+%%21 O bloco que possuí detalhes em Branco está exatamente à esquerda do que é projetado pelo Eduardo.
+
+(
+(Detalhes_1=='Preto  ',Arquiteto_2=='Serena   ');
+(Detalhes_2=='Preto  ',Arquiteto_3=='Serena   ');
+(Detalhes_3=='Preto  ',Arquiteto_4=='Serena   ');
+(Detalhes_4=='Preto  ',Arquiteto_5=='Serena   ')
+),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Idade_
+idade(Idade_1),
+idade(Idade_2),
+idade(Idade_3),
+idade(Idade_4),
+idade(Idade_5),
+alldifferent([Idade_1, Idade_2, Idade_3, Idade_4, Idade_5]),
+
+
+%%5 O prédio do arquiteto de 56 anos está exatamente à esquerda do prédio do arquiteto de 45 anos.
+
+(
+(Idade_1==56,Idade_2==45);
+(Idade_2==56,Idade_3==45);
+(Idade_3==56,Idade_4==45);
+(Idade_4==56,Idade_5==45)
+),
+
+%%9 O arquiteto de 51 anos está trabalhando no detalhes de uma das pontas.
+(
+==(Idade_1,51);
+==(Idade_5,51)
+),
+
+%%20 O prédio projetado pelo arquiteto mais velho está em algum lugar à direita do prédio que tem detalhes em Azul.
+
+(
+(Detalhes_1=='Rocho  ',Idade_2==56);
+(Detalhes_1=='Rocho  ',Idade_3==56);
+(Detalhes_1=='Rocho  ',Idade_4==56);
+(Detalhes_1=='Rocho  ',Idade_5==56);
+(Detalhes_2=='Rocho  ',Idade_3==56);
+(Detalhes_2=='Rocho  ',Idade_4==56);
+(Detalhes_2=='Rocho  ',Idade_5==56);
+(Detalhes_3=='Rocho  ',Idade_4==56);
+(Detalhes_3=='Rocho  ',Idade_5==56);
+(Detalhes_4=='Rocho  ',Idade_5==56)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Vendido_
+vendido(Vendido_1),
+vendido(Vendido_2),
+vendido(Vendido_3),
+vendido(Vendido_4),
+vendido(Vendido_5),
+alldifferent([Vendido_1, Vendido_2, Vendido_3, Vendido_4, Vendido_5]),
+
+
+%%15 O prédio menos vendido está na quinta posição.
+
+==(Vendido_5,'50%'),
+
+%%6 O bloco do arquiteto de 50 anos está ao lado do que já vendeu 70%.
+
+(
+(Idade_1==50,Vendido_2=='70%');
+(Idade_2==50,(Vendido_1=='70%';Vendido_3=='70%'));
+(Idade_3==50,(Vendido_2=='70%';Vendido_4=='70%'));
+(Idade_4==50,(Vendido_3=='70%';Vendido_5=='70%'));
+(Idade_5==50,Vendido_4=='70%')
+),
+
+%%8 O prédio mais vendido está exatamente à esquerda do bloco Watt.
+
+(
+(Vendido_1=='90%',Bloco_2=='Celestial  ');
+(Vendido_2=='90%',(Bloco_1=='Celestial  ';Bloco_3=='Celestial  '));
+(Vendido_3=='90%',(Bloco_2=='Celestial  ';Bloco_4=='Celestial  '));
+(Vendido_4=='90%',(Bloco_3=='Celestial  ';Bloco_5=='Celestial  '));
+(Vendido_5=='90%',Bloco_4=='Celestial  ')
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Tem_
+tem(Tem_1),
+tem(Tem_2),
+tem(Tem_3),
+tem(Tem_4),
+tem(Tem_5),
+alldifferent([Tem_1, Tem_2, Tem_3, Tem_4, Tem_5]),
+
+
+%%1 O bloco que tem Salão de Festa está em uma das pontas.
+
+(
+==(Tem_1,'Espaco Recreativo');
+==(Tem_5,'Espaco Recreativo')
+),
+
+%%2 O bloco que tem Academia está ao lado do que tem 50% das unidades vendidas.
+
+(
+(Tem_1=='Quadra Multi-uso ',Vendido_2=='50%');
+(Tem_2=='Quadra Multi-uso ',(Vendido_1=='50%';Vendido_3=='50%'));
+(Tem_3=='Quadra Multi-uso ',(Vendido_2=='50%';Vendido_4=='50%'));
+(Tem_4=='Quadra Multi-uso ',(Vendido_3=='50%';Vendido_5=='50%'));
+(Tem_5=='Quadra Multi-uso ',Vendido_4=='50%')
+),
+
+%%3 O arquiteto mais novo é responsável pelo bloco vizinho ao que tem Piscina.
+
+(
+(Idade_1==45,Tem_2=='Quadra Olimpica  ');
+(Idade_2==45,(Tem_1=='Quadra Olimpica  ';Tem_3=='Quadra Olimpica  '));
+(Idade_3==45,(Tem_2=='Quadra Olimpica  ';Tem_4=='Quadra Olimpica  '));
+(Idade_4==45,(Tem_3=='Quadra Olimpica  ';Tem_5=='Quadra Olimpica  '));
+(Idade_5==45,Tem_4=='Quadra Olimpica  ')
+),
+
+%%4 O bloco com Piscina tem 70% das unidades vendidas.
+
+(
+(Tem_1=='Quadra Olimpica  ',Vendido_1=='70%');
+(Tem_2=='Quadra Olimpica  ',Vendido_2=='70%');
+(Tem_3=='Quadra Olimpica  ',Vendido_3=='70%');
+(Tem_4=='Quadra Olimpica  ',Vendido_4=='70%');
+(Tem_5=='Quadra Olimpica  ',Vendido_5=='70%')
+),
+
+%%7 O bloco Watt fica ao lado do que possuí Churrasqueira.
+
+(
+(Bloco_1=='Celestial  ',Tem_2=='Area de Lazer    ');
+(Bloco_2=='Celestial  ',(Tem_1=='Area de Lazer    ';Tem_3=='Area de Lazer    '));
+(Bloco_3=='Celestial  ',(Tem_2=='Area de Lazer    ';Tem_4=='Area de Lazer    '));
+(Bloco_4=='Celestial  ',(Tem_3=='Area de Lazer    ';Tem_5=='Area de Lazer    '));
+(Bloco_5=='Celestial  ',Tem_4=='Area de Lazer    ')
+),
+
+%%11 O bloco com detalhes em Azul fica ao lado do que tem Piscina.
+
+(
+(Tem_1=='Quadra Olimpica  ',Detalhes_2=='Rocho  ');
+(Tem_2=='Quadra Olimpica  ',(Detalhes_1=='Rocho  ';Detalhes_3=='Rocho  '));
+(Tem_3=='Quadra Olimpica  ',(Detalhes_2=='Rocho  ';Detalhes_4=='Rocho  '));
+(Tem_4=='Quadra Olimpica  ',(Detalhes_3=='Rocho  ';Detalhes_5=='Rocho  '));
+(Tem_5=='Quadra Olimpica  ',Detalhes_4=='Rocho  ')
+),
+
+%%18 O prédio com Academia tem 80% das suas unidades vendidas.
+
+(
+(Tem_1=='Quadra Multi-uso ',Vendido_1=='80%');
+(Tem_2=='Quadra Multi-uso ',Vendido_2=='80%');
+(Tem_3=='Quadra Multi-uso ',Vendido_3=='80%');
+(Tem_4=='Quadra Multi-uso ',Vendido_4=='80%');
+(Tem_5=='Quadra Multi-uso ',Vendido_5=='80%')
+),
+
+%%19 O bloco com Churrasqueira está sendo projetado pelo arquiteto de 47 anos.
+
+(
+(Tem_1=='Area de Lazer    ',Idade_1==47);
+(Tem_2=='Area de Lazer    ',Idade_2==47);
+(Tem_3=='Area de Lazer    ',Idade_3==47);
+(Tem_4=='Area de Lazer    ',Idade_4==47);
+(Tem_5=='Area de Lazer    ',Idade_5==47)
+),
+
+%%22 Os prédios com detalhes em Amarelo e com Piscina são vizinhos.
+
+(
+(Tem_1=='Quadra Olimpica  ',Detalhes_2=='Rosa   ');
+(Tem_2=='Quadra Olimpica  ',(Detalhes_1=='Rosa   ';Detalhes_3=='Rosa   '));
+(Tem_3=='Quadra Olimpica  ',(Detalhes_2=='Rosa   ';Detalhes_4=='Rosa   '));
+(Tem_4=='Quadra Olimpica  ',(Detalhes_3=='Rosa   ';Detalhes_5=='Rosa   '));
+(Tem_5=='Quadra Olimpica  ',Detalhes_4=='Rosa   ')
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% quase terminandos
+printf("\n ==> Atingiu o Final do Modelo : UFA !!!! =====\n\n").
+	
+
+predios( _ ) =>	
+		printf("==> Inconsistencia no passo anterior: REVISE TUDO <== \n").
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BASE DE DADOS ....
+%% TUDO ATOMO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+index(-)
+detalhes( 'Rosa   ' ).
+detalhes( 'Rocho  ' ).
+detalhes( 'Preto  ' ).
+detalhes( 'Pinque ' ).
+detalhes( 'Magenta' ).
+
+index(-) 
+bloco( 'Ipanema    ' ).
+bloco( 'Grasioso   ' ).
+bloco( 'Constelacao' ).
+bloco( 'Senoide    ' ).
+bloco( 'Celestial  ' ).
+
+index(-) 
+arquiteto( 'Sophia   ' ).
+arquiteto( 'Serena   ' ).
+arquiteto( 'Clara    ' ).
+arquiteto( 'Anastasia' ).
+arquiteto( 'Layne    ' ).
+
+index(-)
+idade( 45 ).
+idade( 47 ).
+idade( 50 ).
+idade( 51 ).
+idade( 56 ).
+
+index(-)
+vendido( '50%' ).
+vendido( '60%' ).
+vendido( '70%' ).
+vendido( '80%' ).
+vendido( '90%' ).
+
+index(-)
+tem( 'Quadra Multi-uso ' ).
+tem( 'Area de Lazer    ' ).
+tem( 'Quadra Olimpica  ' ).
+tem( 'Espaco Recreativo' ).
+tem( 'Area Arcade      ' ).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% apos o aluno entender varios conceitos 
+alldifferent([]) ?=> true.
+alldifferent([H|T]) => not(member(H,T)),
+					   alldifferent(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+imprime([]) ?=> true. 
+imprime([[Detalhe, Bloco, Arquiteto, Idade, Vendido, Tem]|T]) =>
+		printf("[ %w \t|%w \t|%w \t|%w \t|%w \t\t|%w ]\n",Detalhe, Bloco, Arquiteto, Idade, Vendido, Tem),
+		imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

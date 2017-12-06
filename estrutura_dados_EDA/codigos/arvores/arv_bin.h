@@ -39,6 +39,12 @@ BinTreeNode *TreeSearch_ITERATIVO(BinTreeNode *NOH_RAIZ, int ALVO);
 int num_nos_ABB( BinTreeNode *root);
 void print_NODE(BinTreeNode * node);
 
+// do arquivo do exclui ....
+BinTreeNode *removeNO(BinTreeNode *raiz, int chave) ;
+BinTreeNode * minValueNode(BinTreeNode * node);
+BinTreeNode * Delete_NODE(BinTreeNode *root, int data);
+BinTreeNode *buscaNo(BinTreeNode *raiz, int ch, BinTreeNode **pai);
+
 //BinTreeNode *remove_NOH_BIN (BinTreeNode *, int ALVO) ;
 int altura_ABB( BinTreeNode *root);
 int fator_balanco_ABB( BinTreeNode *root );
