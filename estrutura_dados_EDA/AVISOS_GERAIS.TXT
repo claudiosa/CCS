@@ -46,5 +46,43 @@ Abraços
 
 ĉĉ - claudio  cesar  
 
+Pessoal
+
+
+O trabalho tem um prazo até amanha .... mas como estou "conseguindo" respirar,
+podemos marcar um 2o. deadline para 2a. feira a tarde (4/DEZEMBRO) ...
+ultimo dia para apresentação....
+
+Com relação aos arquivos de entrada.... tem
+um de 100, 500 e 1000 chaves... vi ontem em um dos trabalhos que me apresentaram....
+500 chaves o tempo de inserção é proximo a 0 segundos.
+
+Assim em
+https://github.com/claudiosa/CCS/tree/master/estrutura_dados_EDA/codes/arvores
+tem o gerador de chaves (gerador-de-chaves.c) 
+aumentem para umas 10000 chaves.
+
+para 100 chaves a altura da arvore devera ser no MAX 8 (log 100)
+para 500 chaves a altura da arvore devera ser no MAX 9 ...
+para 1000 chaves a altura da arvore devera ser no MAX 12 ....
+
+Amanha no horario tambem estou vendo os trabalhos....
+
+Lembrem de imprimir as alturas, inclusoes, e calculando as alturas, e exclusoes....
+tudo por chaves.
+
+
+cc
+
+last call
+
+Lembrei que dia 04/dez é o fechamento do diário para os Exames
+Finais ...
+Assim quem vier apresentar na 2a feira dia 04/12 será
+ das 08:30 até 10:30 hrs ... "ultima janela" para apresentacao do trabalho de AVL
+
+Quem puder apresentar amanha a tarde das 15 as 16:50 hrs agradeço
+
+obrigado
 
 
