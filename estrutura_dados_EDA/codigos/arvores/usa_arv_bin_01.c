@@ -42,7 +42,7 @@ int main(void)
        //pt_TREE = InsertTree_BIN( pt_TREE, Xdados );
        pt_TREE =  InsertTree_ITERATIVO( pt_TREE, Xdados );
        
-       printf("\n INSERINDO :%d : %d : %s (End: %x) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
+       printf("\n INSERINDO :%d : %d : %s (End: %p) \t", seq, Xdados.UMA_CHAVE, Xdados.UM_NOME, pt_TREE );
        printf("\n Altura corrente  eh: %d :", altura_ABB( pt_TREE) ); 
        printf("\n Fator de Balanco eh: %d :",fator_balanco_ABB( pt_TREE) ); 
       }// fim da entrada --- enchendo a ABB
@@ -70,9 +70,14 @@ int main(void)
     getchar();
 
 // USO DA EXCLUSAO DE ALGUNS NOS --- APLICACAO 02
-    //BinTreeNode *remove_NOH_BIN (BinTreeNode *tree, int ALVO) 
-    //pt_TREE = remove_NOH_BIN (pt_TREE , 20); //NAO OK AINDA
+    //BinTreeNode *removeNO(BinTreeNode *raiz, int chave) ; 
     
+    pt_TREE = remove_NOH_ABB (pt_TREE , 20); //
+    pt_TREE = remove_NOH_ABB (pt_TREE , 21); //NAO existe
+    pt_TREE = remove_NOH_ABB (pt_TREE , 30); //excluindo a raiz
+    printf("\n NUMERO DE NOSH: %d", num_nos_ABB( pt_TREE) ); 
+    getchar();
+
     printf("\n SAIDA PRE: \n");  
     printPreorder( pt_TREE );
     /*

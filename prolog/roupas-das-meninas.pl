@@ -17,28 +17,29 @@ Alexandra e Barbara tem 04 cores entre elas.
     menina(ale).     /* Alexandra */
     menina(babe).  	/* Barbara */
 
-    cor(azul).
-    cor(verde).
-    cor(lilaz).
-    cor(vermelho).
-    cor(amarelo).
+    cor( azul  )       .
+    cor(  verde)      .
+    cor(lilaz)      .
+    cor(vermelho)   .
+    cor(amarelo)    .
 
     tem_uma_cor(ale,azul).    /* compilador dá erro no caso de 
      tem_uma_cor    < nao aceita espaço em branco aqui>  (ale,azul).
     */
-    tem_uma_cor(babe,amarelo).
-    tem_uma_cor(rosa,verde).
+    tem_uma_cor(babe,amarelo) .
+    tem_uma_cor(rosa,verde)   .
 
-    nao_veste(babe,verde).
-    nao_veste(rosa,azul).
-    nao_veste(rosa,lilaz).
+    nao_veste(babe,verde)    .
+    nao_veste(rosa,azul)     .
+    nao_veste(rosa,lilaz)    .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
     veste( X, Cor1, Cor2) :-
 	    menina(X),
 	    cor(Cor1),
 	    cor(Cor2),
 	    tem_uma_cor(X,Cor1),
-	    /* not ===> \+ */
+	    /* not ===> \+  ou Cor1 \== Cor2 */
 	    \+(  nao_veste(X, Cor2)  ),
 	     \+(
 	        Cor1 == Cor2
@@ -47,14 +48,14 @@ Alexandra e Barbara tem 04 cores entre elas.
 	        (Cor1 == vermelho , Cor2 == amarelo)
 		     ; %%% OU
 		    (Cor2 = vermelho , Cor1 = amarelo) 
-		   ).
+		).
 		
 
 lc   :- cor(X),
 		write('COR  ===> '), 
 		write(X), 
 		nl, 
-		fail.	%%% volte atras e tente novas opcoes
+		false.	%%% volte atras e tente novas opcoes
 
 lc :- true.
 
@@ -65,7 +66,7 @@ go   :- veste(X, C1, C2),
 		write('  ===> '), 
 		write(C1), write('   '),
 		write(C2), nl, 
-		fail.	
+		false.	
 go :- true.			
 /*#######################################		
 ?- ache.

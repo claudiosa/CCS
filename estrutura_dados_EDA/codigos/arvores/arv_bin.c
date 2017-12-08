@@ -287,18 +287,18 @@ int deltree(BinTreeNode * tree)
  }
 
 // ==================================================== // 
-//**********************************  */   
 // ESTA quase BOM ....
 int deltree_TRUE(BinTreeNode ** tree) 
 {
-if ((*tree) == NULL) 
-   return 0; // true; 
+  if ( (*tree) == NULL ) 
+   { return 0; // true; 
+   }   
 
-   deltree_TRUE(&(*tree)->left);
-   deltree_TRUE(&(*tree)->right);
+   deltree_TRUE( &((*tree)->left) );
+   deltree_TRUE( &((*tree)->right) );
    // EXCLUIR O NOH CORRENTE APOS EXCLUIR AS SUB-ARVORES
    
-   free( (*tree) ); // libera folha ou espaco
+   free( *tree ); // libera folha ou espaco
    (*tree) = NULL; // efetivamente redireciona o ponteiro
    // talvez C++ ou compilador moderno ... torne isto em NULL 
    return 1; // true; 
@@ -308,7 +308,7 @@ if ((*tree) == NULL)
 void print_NODE(BinTreeNode * node)
 {
      /* print the data of node */
-     printf("\n End: %d ", node); //%x
+     //printf("\n End: %d ", node); //%x
      printf("\t CHAVE: %d :", node->dados . UMA_CHAVE);  
      printf("\t NOME: %s ", node->dados . UM_NOME);
      return;

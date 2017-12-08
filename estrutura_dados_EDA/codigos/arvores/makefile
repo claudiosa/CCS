@@ -13,4 +13,5 @@ exclui_no_ABB.o: exclui_no_ABB.c
 	gcc -Wall -c exclui_no_ABB.c
 	
 clean:
-	rm *.o *.exe a.out
+	rm *.o *.exe 
+####a.out

@@ -237,9 +237,9 @@ modelo(
         write(' => CHEGOU AO FINAL DO MODELO - LOGO HAH UMA SOLUCAO  <= ').
 
 
- % modelo(_) :-       
- %       nl,
- %       write(' .......... FIM DO PROGRAMA.  ..........').
+  modelo(_) :-       
+       nl,
+        write(' .......... FIM DO PROGRAMA.  ..........').
 
 
 
