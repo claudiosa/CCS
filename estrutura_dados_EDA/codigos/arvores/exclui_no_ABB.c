@@ -3,13 +3,17 @@
 // EXCLUSAO ... "IMPLEMENTADA "
 // FALTA ARRUMAR .................
 
-// Remove um NO em uma arvore binaria
-BinTreeNode * removeNO(BinTreeNode *raiz, int chave) {
+// Remove um NO em uma arvore binaria -- ITERATIVA
+BinTreeNode * remove_NOH_ABB(BinTreeNode *raiz, int chave) {
 	BinTreeNode *pai, *no, *p, *q;
 	pai = NULL;
+	printf("\n Buscando a chave/alvo em  remove_NOH_ABB: %d \n", chave);
 	no = buscaNo(raiz, chave, &pai);// procura o local do alvo
 	if (no == NULL) {
-		return (raiz);//se o NO não existir não existe remoção a ser feita
+		printf("\n >>>> O NOH chave (alvo)  %d   NAO EXISTE <<<< \n", chave);
+		getchar();
+		return (raiz);
+	//se o NO não existir não existe remoção a ser feita ... volte a propria raiz
 	}
 	if (!no->left || !no->right) {// verifica se o NO não passui filhos
 		if (!no->left) {//se o NO a esquesda não existir então pega o NO a direita
@@ -27,32 +31,37 @@ BinTreeNode * removeNO(BinTreeNode *raiz, int chave) {
 		}
 		if (p != no) {//verifica se o NO alvo não é o mesmo no do No a ser "promovido/substituto"
 			p->right = q->left;//pai do NO ah ser promovido herda o filho do NO ah ser promovido
-			q->left = no->left;//o filho a esquerda do NO ah ser promovido recebe o filho ah esquerda do NO a ser removido
+			q->left = no->left;//o filho a esquerda do NO ah ser promovido recebe o filho 
+			//ah esquerda do NO a ser removido
 		}
-		q->right = no->right;//o filho a direita do NO ah ser removido recebe o fliho ah direita do NO a ser removido
+		q->right = no->right;//o filho a direita do NO ah ser 
+		//removido recebe o fliho ah direita do NO a ser removido
 	}
 	if (!pai) {//verifica se o no a ser removido não é a raiz
 		free(no);//MATA o NO
+		printf("\n Remocao com sucesso ...em  remove_NOH_ABB: %d \n", chave);
 		return (q);//retorna a nova raiz
 	}
-	if (chave < pai-> dados.UMA_CHAVE) {//verifica em qual dos filhos estava o NO a ser removido
+	if (chave < pai-> dados.UMA_CHAVE) {
+		//verifica em qual dos filhos estava o NO a ser removido
 		pai->left = q;//faz com que o NO a ser promovido, seja promovido
 		free(no);//MATA o NO
 	} else {
 		pai->right = q;//faz com que o NO a ser promovido, seja promovido
 		free(no);//MATA o NO
 	}
+	printf("\n Remocao com sucesso ...em  remove_NOH_ABB: %d \n", chave);
 	return (raiz);//retorna a raiz da arvore
 }
 
 
 /*
-
-/* Given a non-empty binary search tree, return the node with minimum
+ Given a non-empty binary search tree, return the node with minimum
    key value found in that tree. Note that the entire tree does not
    need to be searched. 
    VEIO de http://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
-   * */
+ 
+ */
 BinTreeNode * minValueNode(BinTreeNode * node)
 {
    BinTreeNode * current = node;
@@ -63,7 +72,7 @@ BinTreeNode * minValueNode(BinTreeNode * node)
  
     return current;
 }
-// versao recursiva
+// versao recursiva FALTA ARRUMAR
 // VEIO DE https://helloacm.com/how-to-delete-a-node-from-a-binary-search-tree/ 
 BinTreeNode * Delete_NODE(BinTreeNode *root, int X_No) {
   if (root == NULL) {

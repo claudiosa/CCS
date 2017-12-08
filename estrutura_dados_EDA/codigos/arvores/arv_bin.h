@@ -32,15 +32,17 @@ BinTreeNode * InsertTree_ITERATIVO(BinTreeNode * , TreeEntry);
 void printInorder(BinTreeNode * );
 void printPreorder(BinTreeNode * );
 void printPosorder(BinTreeNode * );
+
 int deltree(BinTreeNode * ) ;
 int deltree_TRUE(BinTreeNode ** tree);
+
 BinTreeNode *TreeSearch(BinTreeNode *NOH_RAIZ, int ALVO);
 BinTreeNode *TreeSearch_ITERATIVO(BinTreeNode *NOH_RAIZ, int ALVO);
 int num_nos_ABB( BinTreeNode *root);
 void print_NODE(BinTreeNode * node);
 
 // do arquivo do exclui ....
-BinTreeNode *removeNO(BinTreeNode *raiz, int chave) ;
+BinTreeNode *remove_NOH_ABB(BinTreeNode *raiz, int chave) ;
 BinTreeNode * minValueNode(BinTreeNode * node);
 BinTreeNode * Delete_NODE(BinTreeNode *root, int data);
 BinTreeNode *buscaNo(BinTreeNode *raiz, int ch, BinTreeNode **pai);
