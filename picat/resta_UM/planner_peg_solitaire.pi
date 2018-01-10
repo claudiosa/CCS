@@ -1,0 +1,280 @@
+
+/*
+There is a grid M x N in file. FILES MAP_0xxxxx
+In this file some cells are allowed to walk into them,  represented by '*'
+other cells are not allow like the wall in this maze, represented
+by '#'
+An agent, represented by 'c' is inside this grid, anyplace.
+Some foods represented by '@' for them are also in this grid.
+The goal is a grid whitout '@' such a final state.
+Only the c (cleaner aget) agent, * and #
+*/
+import os.
+import util.
+import math.
+import datetime.
+import planner.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+main ?=>
+   Status = command("clear") ,
+   printf("====================================== %d OK", Status),
+    Map = read_Map_1("MAP_01.txt") ,
+    nl,
+   /*
+    Map =  {{*,#,#,*,@,* },
+            {*,*,c,*,#,* },
+            {*,#,*,@,*,* }},   
+            1  #  #  0  1  1
+            1  #  #  1  #  #
+            0  0  1  0  #  #
+    */
+    printf("\n The Initial Grid or Map"),            
+    print_map( Map ), nl,
+       
+    T1 = current_time(),
+%    write(map2=Map),
+    time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
+    T2 = current_time(), 
+    print_map( Map ), %%% INITIAL MAP AGAIN
+    
+    print_States(Plan, Map),
+    printf("\n PLAN: %w", Plan), 
+    Total := length(Plan) ,
+    Num_Movts := (Total -1) ,
+  
+   % printf("\n Initial Position (state): %w ", X),
+   % printf("\n Final  Position (state): %w", Y),
+    printf("\n Total of states: %d", Total), 
+    printf("\n Total of moviments: %w", Num_Movts),
+    printf("\n CPU TIME INIC: %w  FIM: %w ", T1, T2),
+    printf(" \n=========================================\n ")
+    .
+    
+main =>  printf("\n Something Wrong !!!").
+
+/*********** << AGENT + ACTION *************/
+%%% IN FUNCTIONS: no backtrackable rules are allowed 
+%%% Backtrackable rules only in predicates
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+/*** check the '@' absent ****/
+final( Grid ) =>
+          % println(final=Grid),
+          array_matrix_to_list(Grid) = List,
+          1 == count_X_in_L('1', List ). 
+
+final(_) => printf("\n There are some @ in the map!\n").
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+/* Describing the possible actions ==> for the planner */
+%action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) 
+
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % println(action2=$action(Grid, New_Grid, Action, Action_Cost )),
+     /** UP **/
+     Grid_TEMP = copy_term(Grid),
+     Action_Cost = 1,
+     Action = right_jump,
+     feasible_move_XY( [X,Y], Grid ), %% take a valid position 110 or 011 etc
+     %%% CONDITIONS
+     (Grid[X,Y] == '1' , Grid[X+1,Y] == '1',  Grid[X+2,Y] == '0') %110
+     %% ACTIONS
+     Grid_TEMP[X,Y] := '0' ,			
+     Grid_TEMP[X+1,Y] := '0' ,     
+     Grid_TEMP[X+2,Y] := '1',   		
+     
+     %% updating the New_grid
+     New_Grid = Grid_TEMP .     
+
+
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % nl,
+    Grid_TEMP = copy_term(Grid),
+    %% FROM HAKAN ....
+    % println(action1=$action(Grid, New_Grid, Action, Action_Cost )),
+    Action_Cost = 1,
+    Action = left_jump,
+    feasible_move_XY( [X,Y], Grid ), %% take a valid position 110 or 011 etc
+     %%% CONDITIONS
+     (Grid[X,Y] == '0' , Grid[X+1,Y] == '1',  Grid[X+2,Y] == '1') %011
+     %% ACTIONS
+     Grid_TEMP[X,Y] := '1' ,      
+     Grid_TEMP[X+1,Y] := '0' ,     
+     Grid_TEMP[X+2,Y] := '0',       
+     
+     New_Grid = Grid_TEMP .
+		
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % println(action3=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
+    Action_Cost = 1,
+    Action = 
+
+
+
+     New_Grid = Grid_TEMP . 		
+     
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % println(action4=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
+    Action_Cost = 1,
+    Action = 
+
+
+
+
+    New_Grid = Grid_TEMP .  
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% cut a lot HERE
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFAWER
+
+print_States([], _) => printf("\n================================ \n").
+print_States([A|L_Action], Grid) ?=>
+
+		Grid_TEMP = copy_term(Grid),
+		position_c_XY( [X,Y], Grid ),
+        if (A == up_move)
+        then
+          %writeln(up_move),
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X-1,Y] := 'c'
+        elseif (A == down_move)
+        then
+          %%writeln(up_move),
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X+1,Y] := 'c'
+		elseif (A == right_move)
+        then
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X,Y+1] := 'c'
+        elseif (A == left_move)
+        then
+          Grid_TEMP[X,Y] := '*' ,			
+          Grid_TEMP[X,Y-1] := 'c'
+        end,  
+          
+        New_Grid = Grid_TEMP,
+        print_map( New_Grid ), 
+        print_States(L_Action , New_Grid).
+
+%left_move,left_move,right_move,right_move,down_move,right_move,right_move,right_move,up_move,up_move]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/* Get feasible_movement in XY  grid from a cell with  VALID MOVEMENT */
+feasible_move_XY( [X,Y], Map ) =>
+  L = Map.length,
+  C = Map[1].length,
+
+  %%% foreach (E1 in D1, Cond1, …, En in Dn, Condn)
+   foreach(I in 1..L , J in 1..C,  (not var(X) && not var(Y)) ) %%% MANY WILL CHOOSEN
+	  %% (not var(X) && not var(Y)) CONDITION FOR THIS ITERATOR 
+     (if (Map[I,J] == '1' , Map[I+1,J] == '1',  Map[I+2,J] == '0') then  %110
+			 X = I,
+			 Y = J
+			end   %% END  IF INNER
+      ;
+      if (Map[I,J] == '0' , Map[I+1,J] == '1',  Map[I+2,J] == '1') then  %011
+       X = I,
+       Y = J
+      end   %% END  IF INNER
+      ;
+      if (Map[I,J] == '1' , Map[I,J-1] == '1',  Map[I,J-2] == '0') then  %down
+       X = I,
+       Y = J
+      end   %% END  IF INNER
+      ;
+      if (Map[I,J] == '0' , Map[I,J-1] == '1',  Map[I,J-2] == '1') then  %down
+       X = I,
+       Y = J
+      end   %% END  IF INNER
+      )
+
+	   end %% END  FOREACH
+	 
+   ,
+	
+	 if( var(X) || var(Y) ) then
+	 printf("NONE VALID MOVEMENT WAS DISCORVERED")
+	 end	%% END  IF
+	 .
+	  
+%feasible_move( _ , _) => printf("\n Problem in XY position function \n").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% UPDATING THE GRID=MAP
+update_MAP(N,[X,Y], Map ) = Res =>  Map[X,Y] := N,
+                                    Res := Map.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% READING A FILE  with a MAP or Grid....
+read_Map_1(File_NAME) = Arr_2D  
+    =>
+    Reader = open(File_NAME), 
+    Lines = read_int(Reader), %% dimentions of Grids
+    Cols = read_int(Reader),
+    new_array(Lines , Cols ) = Arr_2D, %% creating an array 2D
+    I = 1, 
+    while (not at_end_of_stream(Reader)) %% continuando a leitura
+        L_read := read_line(Reader),
+        delete_all( L_read, ' ') = L_aux, %% exclui ' ' do mapa
+        Arr_AUX = to_array(L_aux),   %% converte lista para array
+    %    printf("\n By Line: %w",  L_aux ),
+    %    printf("\n  By Array %d: %w", I, Arr_AUX ),
+        Arr_2D[I] := Arr_AUX ,  %% array recebe uma linha -- teste
+        I := I+1
+       end,
+    close(Reader)  .
+    %% printf("\n The Final Array: %w\n\n", Arr_2D )
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% READING A MAP  ....
+read_Map_2(File_NAME) = Arr_2D  
+    =>
+      L_read = read_file_lines(File_NAME),
+      writeln(list_read=L_read),
+      L_flatten = flatten(L_read),
+      L_aux= delete_all( L_flatten, ' ') ,  %% exclui ' ' do mapa
+      writeln(l_aux = L_aux),
+      [Lines, Cols | List] = L_aux,
+      N_rows = to_int(Lines),
+      N_cols = to_int(Cols),
+      println([N_rows , N_cols]),
+  %%% CONFERIR SE LIST estah OK
+      Arr_2D = new_array(N_rows , N_cols ) , %% cria um array 2D
+      writeln( l_Final = List ),
+      writeln(a_array = Arr_2D ),
+      
+      printf("\n Size: %d\n List:%w \n", length(List), List ),
+  %%%% PROBLEM HERE   >>> to be rewrite it  
+      Arr_2D = to_array(List)  ,   %% converte lista para array
+      writeln(a_array = Arr_2D ),
+          
+      printf("\n Array: %w\n List:%w \n", Arr_2D, List ).
+     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+%% printing the GRID ....
+print_map( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     end,
+     nl
+   end.   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
