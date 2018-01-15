@@ -1,0 +1,27 @@
+
+main=>  
+  /* foreach(I in  1 ..10, I mod 2 != 0)  
+        printf(" => %d is not a multiple of 2\n", I)  
+    end,
+   */
+    
+    printf("\n testing 1: %d", count_X_in_L( 2, [2,3,2,2] ) ),
+    printf("\n testing 2 : %d\n", count2_X_in_L( 7, [2,3,2,2] ) )
+    .
+
+%count2_X_in_L( _ , [] ) = Res =>  Res = 0.
+count2_X_in_L( _ , [] ) =  0.
+count2_X_in_L( X , [H|L] ) = Res, X == H =>  
+              Res = count2_X_in_L( X , L ) + 1 .
+count2_X_in_L( X , [H|L] ) = Res, X !== H =>  
+              Res = count2_X_in_L( X , L ) .
+
+count_X_in_L( _ , [] )  = 0.
+count_X_in_L( X , [X|L] ) = count_X_in_L( X , L ) + 1 .
+count_X_in_L( X , [H|L] ) = Res => X !== H, Res = count_X_in_L( X , L ) .
+
+/*
+count_X_in_L( X , [H|L] ) = Res => X !== H,  
+             Res = count_X_in_L( X , L ) .
+OU
+*/             
