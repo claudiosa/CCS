@@ -197,50 +197,54 @@ feasible_move_XY( [X,Y], Map ) ?=>
   %%% foreach (E1 in D1, Cond1, …, En in Dn, Condn)
   %% ,  (not var(X) && not var(Y)) 
   %% , (I+2 =< L && J+2 =< C)
-  foreach(I in 1 .. L , J in 1 .. C ) %%% MANY WILL CHOOSEN
+  foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
 	  %% (not var(X) && not var(Y)) CONDITION FOR THIS ITERATOR 
+	 % ( || ( J+2 =<C ))
     (
       % if ( Map[I,J] == '1'  ) then 
       %  printf("\n ==> (%d,%d): %w " , I, J, Map[I,J] )
       % end
       % 
        %%% VERTICAL  
-      if ( Map[I,J] == '1' && Map[I+1,J] == '1' &&  Map[I+2,J] == '0' && ( I+2 =<L ) ) then  %110
-			 Temp_1 := I,
+      if ((I+2 =<L) && Map[I,J] == '1' && Map[I+1,J] == '1' &&  Map[I+2,J] == '0' ) then  %110
+	   Temp_1 := I,
        Temp_2 := J,
        printf("\n VERTICAL 110")
 			 
-       elseif (Map[I,J] == '0' , Map[I+1,J] == '1',  Map[I+2,J] == '1', ( I+2 =<L ) ) then  %011
+       elseif ((I+2 =<L) && Map[I,J] == '0' , Map[I+1,J] == '1',  Map[I+2,J] == '1' ) then  %011
        Temp_1 := I,
        Temp_2 := J,
        printf("\n VERTICAL 011")
        
-       elseif (Map[I,J] == '1', Map[I,J+1] == '1',  Map[I,J+2] == '0',  ( J+2 =<C )) then  %down
+       elseif ((J+2 =<C) && Map[I,J] == '1', Map[I,J+1] == '1',  Map[I,J+2] == '0' ) then  %down
        Temp_1 := I,
        Temp_2 := J,
        printf("\n HORIZONTAL 110")
        
-       elseif (Map[I,J] == '0', Map[I,J+1] == '1',  Map[I,J+2] == '1' ) then  %down
+       elseif ((J+2 =<C) && Map[I,J] == '0' && Map[I,J+1] == '1' &&  Map[I,J+2] == '1') then  %down
        Temp_1 := I,
        Temp_2 := J,
        printf("\n HORIZONTAL 011")
        
        else
-        printf("\n Nenhum movimento")
+        printf("\n Nenhum movimento viavel em:"),
+        printf("\t(%d,%d): %w " , I, J, Map[I,J] ),
+        Temp_1 := L,
+        Temp_2 := C
+       
         
-       end %%%% do if ...
+       end %%%% END do if ...
       ,
-      
-      printf("\n(%d,%d): %w " , I, J, Map[I,J] ),
+           
       printf("\t foreach END")
      ) 
 	 end %% END  FOREACH
-	  ,
-	  %printf("\n APOS foerach "),
+	 ,
+	printf("\n APOS foerach "),
     X = Temp_1,
     Y = Temp_2,
-
-   printf("\n(X: %d, Y:  %d): %w  " , X, Y , Map[X,Y] ), 
+    
+   %printf("\n(X: %d, Y:  %d): %w  " , X, Y , Map[X,Y] ), 
 	 if( var(X) || var(Y) ) then
 	 printf("\n NONE VALID MOVEMENT WAS DISCORVERED")
 	 end	%% END  IF
