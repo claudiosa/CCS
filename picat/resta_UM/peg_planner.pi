@@ -1,5 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
+INITIAL STUDIES
 PEG SOLITAIRE USING THE PICAT PLANNER
 */
 import os.
@@ -12,48 +13,43 @@ import planner.
 main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
-    Map = read_Map_1("MAP_01.txt") ,
-    nl,
+   Map = read_Map_1("MAP_01.txt") ,
+   nl,
    /*
-    Map =  {{*,#,#,*,@,* },
-            {*,*,c,*,#,* },
-            {*,#,*,@,*,* }},   
-
-            M ={ 1 , # , # , 0 , 1 , 1}
-            1  #  #  1  #  #
-            0  0  1  0  #  #
-    */
+    Map = {{ 1 , # , # , 0 , 1 , 1},
+           { 1,  #,  #,  1,  #,  #},
+           { 0,  0,  1,  0,  #,  #} },
+   */
     printf("\n The Initial Grid or Map"),            
     print_map( Map ), nl,
        
     T1 = current_time(),
-%    write(map2=Map),
-    % time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
+   
+    time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
+    print_map( Map ),
     %%%%
-    feasible_move_XY( [X,Y], Map ),
-   % printf("\n TESTANDO(X: %d, Y:  %d):  " , X, Y),
-    printf("\n TESTANDO"),
+    %L_all_mov =  f_feasible_moves( Map ),
+    %printf("\n ALL MOVs  ... L_all_mov: %w  " , L_all_mov ),
+ 
     T2 = current_time(), 
     print_map( Map ), %%% INITIAL MAP AGAIN
     
-%%    print_States(Plan, Map),
-/*
     printf("\n PLAN: %w", Plan), 
     Total := length(Plan) ,
-    Num_Movts := (Total -1) ,
+    Num_Movts := (Total - 1) ,
   
    % printf("\n Initial Position (state): %w ", X),
    % printf("\n Final  Position (state): %w", Y),
     printf("\n Total of states: %d", Total), 
     printf("\n Total of moviments: %w", Num_Movts),
-*/    
+    
     printf("\n CPU TIME INIC: %w  FIM: %w ", T1, T2),
     printf(" \n=========================================\n ")
     .
     
-main =>  printf("\n Something Wrong !!!").
+main =>  printf("\n The main did  NOT finish normally !!!").
 
-/*********** << AGENT + ACTION *************/
+/*********** << ACTION >> *************/
 %%% IN FUNCTIONS: no backtrackable rules are allowed 
 %%% Backtrackable rules only in predicates
 
@@ -61,32 +57,40 @@ main =>  printf("\n Something Wrong !!!").
 
 /*** check the 1 at the end ****/
 final( Grid ) =>
-          % println(final=Grid),
+          %println(final_grid=Grid),
+          printf("\nFrom Final check:"),
+          print_map( Grid ), 
           array_matrix_to_list(Grid) = List,
-          1 == count_X_in_L( 1 , List ). 
+          %printf("final list: %w", List),
+          1 == count_X_in_L( '1' , List ). 
 
-final(_) => printf("\n There are 1 in the map!\n").
+%%%final(_) => printf("\n There are 1 in the map!\n").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 /* Describing the possible actions ==> for the planner */
-%action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) 
 
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
-    % println(action2=$action(Grid, New_Grid, Action, Action_Cost )),
-     /** UP **/
+     /** jump_right **/
+     
      Grid_TEMP = copy_term(Grid),
      Action_Cost = 1,
-     Action = right_jump,
-     feasible_move_XY( [X,Y], Grid ), %% take a valid position 110 or 011 etc
+     Action = 'jump_right',
+    %% collecting all new movements
+    L_all_mov =  f_feasible_moves( Grid ),
+    member( (Action, X, Y) , L_all_mov), %% get X and Y by pattern
+    printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
+
      %%% CONDITIONS
-     (Grid[X,Y] == 1, Grid[X, Y+1] == 1,  Grid[X, Y+2] == 0), %110
+     (Grid[X,Y] == '1', Grid[X, Y+1] == '1',  Grid[X, Y+2] == '0'), %110
      %% ACTIONS
+     %% 110 ----> 001
      Grid_TEMP[X, Y] := 0 ,			
      Grid_TEMP[X ,Y+1] := 0 ,     
      Grid_TEMP[X, Y+2] := 1,   		
      
      %% updating the New_grid
-     New_Grid = Grid_TEMP .     
+     New_Grid = Grid_TEMP,
+     printf("\n Action: %w  feasible", Action ) .     
 
 
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
@@ -95,164 +99,134 @@ action(Grid, New_Grid, Action, Action_Cost ) ?=>
     %% FROM HAKAN ....
     % println(action1=$action(Grid, New_Grid, Action, Action_Cost )),
     Action_Cost = 1,
-    Action = left_jump,
-    feasible_move_XY( [X,Y], Grid ), %% take a valid position 110 or 011 etc
+    Action = 'jump_left',
+    
+    L_all_mov =  f_feasible_moves( Grid ),
+    member( (Action, X, Y) , L_all_mov), %% get X and Y by pattern
+    printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
      %%% CONDITIONS
-     (Grid[X,Y] == 0 , Grid[X, Y+1] == 1,  Grid[X, Y+2] == 1), %011
+     %% X Y has 1 ... leftmost
+    (Grid[X,Y] == '1' , Grid[X, Y-1] == '1',  Grid[X, Y-2] == '0'), %011
+    %printf("\n passou aqui "),
+     %% 011 ----> 100
      %% ACTIONS
-     Grid_TEMP[X, Y] := 1      ,      
-     Grid_TEMP[X, Y+1] := 0    ,     
-     Grid_TEMP[X, Y+2] := 0    ,       
+     Grid_TEMP[X, Y] := 0      ,  %% the leftmost has 0    
+     Grid_TEMP[X, Y-1] := 0    ,     
+     Grid_TEMP[X, Y-2] := 1    ,       
      
-     New_Grid = Grid_TEMP .
-		
+     New_Grid = Grid_TEMP ,
+     printf("\n Action: %w  tried", Action ) .     
+
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
     % println(action3=$action(Grid, New_Grid, Action, Action_Cost )),
     Grid_TEMP = copy_term(Grid),
     Action_Cost = 1,
-    Action = up_jump,
-    feasible_move_XY( [X,Y], Grid ), %% take a valid position 110 or 011 etc
+    Action = 'jump_up',
+
+    L_all_mov =  f_feasible_moves( Grid ),
+    member( (Action, X, Y) , L_all_mov), %% get X and Y by pattern
+    printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
      %%% CONDITIONS
+     %%  (X,Y) has ONE
      %% 0    1
      %% 1 => 0 
      %% 1    0
-     (Grid[X,Y] == 0 , Grid[X+1, Y] == 1,  Grid[X+2, Y] == 1), %011
+     %% (X,Y) is the last ONE
+     (Grid[X,Y] == '1' , Grid[X+1, Y] == '1',  Grid[X+2, Y] == '0'), %011
      %% ACTIONS
-     Grid_TEMP[X,   Y] := 1  ,      
-     Grid_TEMP[X+1, Y] := 0  ,     
-     Grid_TEMP[X+2, Y] := 0  ,       
+     Grid_TEMP[X,   Y] := 0  ,      
+     Grid_TEMP[X-1, Y] := 0  ,     
+     Grid_TEMP[X-2, Y] := 1  ,       
+     %%% TAKE CARE the INDEX
      
-     New_Grid = Grid_TEMP . 		
-     
-action(Grid, New_Grid, Action, Action_Cost ) ?=>
+     New_Grid = Grid_TEMP ,
+     printf("\n Action: %w  tried ...", Action ) .     
+
+action(Grid, New_Grid, Action, Action_Cost ) =>
     % println(action4=$action(Grid, New_Grid, Action, Action_Cost )),
     Grid_TEMP = copy_term(Grid),
     Action_Cost = 1,
-    Action = down_jump,
-    feasible_move_XY( [X,Y], Grid ), %% take a valid position 110 or 011 etc
-     %%% CONDITIONS
+    Action = 'jump_down',
+ 
+    L_all_mov =  f_feasible_moves( Grid ),
+    member( (Action, X, Y) , L_all_mov), %% get X and Y by pattern
+    printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
+    %%% CONDITIONS and ACTION
      %% 1    0
      %% 1 => 0 
      %% 0    1
-     (Grid[X,Y] == 1 , Grid[X+1, Y] == 1,  Grid[X+2, Y] == 0), %011
+     (Grid[X,Y] == '1' , Grid[X+1, Y] == '1',  Grid[X+2, Y] == '0'), %011
+     %%% OK 
      %% ACTIONS
      Grid_TEMP[X,   Y] := 0     ,      
      Grid_TEMP[X+1, Y] := 0     ,     
      Grid_TEMP[X+2, Y] := 1     ,       
      
-    New_Grid = Grid_TEMP .  
+     New_Grid = Grid_TEMP ,
+     printf("\n Action: %w  tried ...", Action ) .     
+
+%action( _ , _, _ , _ ) => printf("\n NO ACTION availble").
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% cut a lot HERE
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% REFAWER
-/* DEPOIS
-
-print_States([], _) => printf("\n================================ \n").
-print_States([A|L_Action], Grid) ?=>
-
-		Grid_TEMP = copy_term(Grid),
-		position_c_XY( [X,Y], Grid ),
-        if (A == up_jump)
-        then
-          %writeln(up_move),
-          Grid_TEMP[X,Y] := '*' ,			
-          Grid_TEMP[X-1,Y] := 'c'
-        elseif (A == down_jump)
-        then
-          %%writeln(up_move),
-          Grid_TEMP[X,Y] := '*' ,			
-          Grid_TEMP[X+1,Y] := 'c'
-		elseif (A == right_jump)
-        then
-          Grid_TEMP[X,Y] := '*' ,			
-          Grid_TEMP[X,Y+1] := 'c'
-        elseif (A == left_jump)
-        then
-          Grid_TEMP[X,Y] := '*' ,			
-          Grid_TEMP[X,Y-1] := 'c'
-        end,  
-          
-        New_Grid = Grid_TEMP,
-        print_map( New_Grid ), 
-        print_States(L_Action , New_Grid).
-
-%left_move,left_move,right_move,right_move,down_move,right_move,right_move,right_move,up_move,up_move]
-
-DEPOIS ...
-*/
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-/* Get feasible_movement in XY  grid from a cell with  VALID MOVEMENT */
-feasible_move_XY( [X,Y], Map ) ?=>
+/* Get all feasible_movement in XY  grid from a cell with  VALID MOVEMENT */
+f_feasible_moves( Map ) = L_mov  =>
   L = (Map.length),
   C = (Map[1].length),
-  printf(" MAX DIM: %d x %d ", L, C),
-  
-  %% REPENSAR AQUI ...
-  %%% foreach (E1 in D1, Cond1, …, En in Dn, Condn)
-  %% ,  (not var(X) && not var(Y)) 
-  %% , (I+2 =< L && J+2 =< C)
+  %%printf(" MAX DIM: %d x %d ", L, C),
+  Aux := [],
+
   foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
     (
-      % if ( Map[I,J] == '1'  ) then 
-      %  printf("\n ==> (%d,%d): %w " , I, J, Map[I,J] )
-      % end
-      % 
-       %%% VERTICAL  
+      %%% VERTICAL  
       if ((I+2 =<L) && Map[I,J] == '1' && Map[I+1,J] == '1' &&  Map[I+2,J] == '0' ) then  %110
-	    X := I,
-        Y := J,
-        printf("\n VERTICAL 110")
-			 
+        Aux := f_insert(('jump_down',I,J), Aux)
+        % ,
+        % printf("\n VERTICAL 110")
+       
        elseif ((I+2 =<L) && Map[I,J] == '0' , Map[I+1,J] == '1',  Map[I+2,J] == '1' ) then  %011
-        X := I,
-        Y := J,
-        printf("\n VERTICAL 011")
+       %% Minor correction HERE
+        Aux := f_insert(('jump_up',I+2,J), Aux)
+        %,
+        %printf("\n VERTICAL 011")
        
        elseif ((J+2 =<C) && Map[I,J] == '1', Map[I,J+1] == '1',  Map[I,J+2] == '0' ) then  %down
-        X := I,
-        Y := J,
-        printf("\n HORIZONTAL 110")
+        Aux := f_insert(('jump_right',I,J), Aux)
+        %,
+        %printf("\n HORIZONTAL 110 --> 001")
        
        elseif ((J+2 =<C) && Map[I,J] == '0' && Map[I,J+1] == '1' &&  Map[I,J+2] == '1') then  %down
-	       X := I,
-	       Y := J,
-	       printf("\n HORIZONTAL 011")
-	       
-       else
-        printf("\n Nenhum movimento viavel em:"),
-        X := I,
-        Y := J,
-        printf("\t(%d,%d): %w " , I, J, Map[I,J] )
+       %% Minor correction HERE
+        Aux := f_insert(('jump_left',I,J+2), Aux)
+        %,
+        %printf("\n HORIZONTAL 011 --> 100")
+         
+    %   else
+    %       printf(" . ")
+    %    printf("\n None feasible  moviment in:"),
+    %    printf("\t(%d,%d): %w " , I, J, Map[I,J] )
         
        end %%%% END do if ...
-      ,
-      printf("\t foreach END")
+      % ,
+      % printf("\t foreach END")
      ) 
-	 end %% END  FOREACH
-	 ,
-	printf("\n APOS foerach "),
-    printf("\n ===> (X: %d, Y:  %d): %w  " , X, Y , Map[X,Y] ).
-
-%%attr_var(Term): This predicate is true if Term is an attributed variable. 
-   %if( var(X) || var(Y) ) then
- /*
-   if( attr_var(X) || attr_var(Y) ) then
-     printf("\n(X: %d, Y:  %d): %w  " , X, Y, Map[X,Y]),
-     printf("\n NONE VALID MOVEMENT WAS DISCORVERED")
-   else	 
-     printf("\n NENHUMA ATRIBUICAO ")
-	 end	%% END  IF
-   */	 
+   end , %% END  FOREACH
    
-	  
-feasible_move( _ , _) => printf("\n Problem in XY position function \n").
+  %% printf("\n After the foerach "),
+  %%% finally
+  L_mov := Aux .
+
+f_feasible_moves( _ ) = R => 
+      printf("\n Problem in position function f_feasible_moves \n"),
+      R := [].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -327,7 +301,19 @@ count_X_in_L( X , [X|L] ) = count_X_in_L( X , L ) + 1 .
 count_X_in_L( X , [H|L] ) = Res => X !== H, 
                             Res = count_X_in_L( X , L ) .
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+f_insert( X, L ) = R, L == []  => R=[ X ].
+f_insert( X, L ) = R, L != []  => R=[ X | L ].
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 /*
+Picat> M =[ 1 , # , # , 0 , 1 , 1], count_X_in_L(1, M) = W, write(W)
+3M = [1,#,#,0,1,1]
+W = 3
+yes
+
+
+
+
 Picat> M ={ 1 , # , # , 0 , 1 , 1}, M[5] == 1
 
 no
@@ -347,3 +333,38 @@ M = {1,#,#,0,1,1}
 yes
 */
 
+/* LATER
+
+print_States([], _) => printf("\n================================ \n").
+print_States([A|L_Action], Grid) ?=>
+
+    Grid_TEMP = copy_term(Grid),
+    position_c_XY( [X,Y], Grid ),
+        if (A == up_jump)
+        then
+          %writeln(up_move),
+          Grid_TEMP[X,Y] := '*' ,     
+          Grid_TEMP[X-1,Y] := 'c'
+        elseif (A == down_jump)
+        then
+          %%writeln(up_move),
+          Grid_TEMP[X,Y] := '*' ,     
+          Grid_TEMP[X+1,Y] := 'c'
+    elseif (A == right_jump)
+        then
+          Grid_TEMP[X,Y] := '*' ,     
+          Grid_TEMP[X,Y+1] := 'c'
+        elseif (A == left_jump)
+        then
+          Grid_TEMP[X,Y] := '*' ,     
+          Grid_TEMP[X,Y-1] := 'c'
+        end,  
+          
+        New_Grid = Grid_TEMP,
+        print_map( New_Grid ), 
+        print_States(L_Action , New_Grid).
+
+%left_move,left_move,right_move,right_move,down_move,right_move,right_move,right_move,up_move,up_move]
+
+LATER ...
+*/
