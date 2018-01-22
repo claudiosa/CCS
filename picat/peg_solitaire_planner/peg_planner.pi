@@ -5,15 +5,16 @@ PEG SOLITAIRE USING THE PICAT PLANNER
 */
 import os.
 import util.
-import math.
+%mport math.
 import datetime.
 import planner.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-main =>
+main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
-   Map = read_Map_1("MAP_01.txt") ,
+   %Map = read_Map_1("MAP_02.txt") ,
+   Map = read_Map_1("MAP_03.txt") ,
    nl,
    /*
     Map = {
@@ -46,10 +47,11 @@ main =>
     printf("\n Total of moviments: %w", Num_Movts),
     
     printf("\n CPU TIME INIC: %w  FIM: %w ", T1, T2),
+    show_solution( Map , Plan),
     printf(" \n=========================================\n ")
     .
     
-%main =>  printf("\n The main did  NOT finish normally !!!").
+main =>  printf("\n None options from main !!!").
 
 /*********** <<ACTION >> *************/
 %%% IN FUNCTIONS: no backtrackable rules are allowed 
@@ -104,15 +106,14 @@ action(Grid, New_Grid, Action, Action_Cost ) ?=>
     %% FROM HAKAN ....
     % println(action1=$action(Grid, New_Grid, Action, Action_Cost )),
     Action_Cost = 1,
-    
-    
+        
     L_all_mov := f_feasible_moves( Grid ),
     member( ('jump_left', X, Y) , L_all_mov), %% get X and Y by pattern
     Action = ('jump_left', X, Y) ,
     %printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
      %%% CONDITIONS
      %% X Y has 1 ... leftmost
-    (Grid[X,Y] == '1' , Grid[X, Y-1] == '1',  Grid[X, Y-2] == '0'), %011
+    (Grid[X,Y] == '1' , Grid[X, Y-1] == '1' , Grid[X, Y-2] == '0'), %011
     %printf("\n passou aqui "),
      %% 011 ----> 100
      %% ACTIONS
@@ -165,7 +166,7 @@ action(Grid, New_Grid, Action, Action_Cost ) =>
      %% 1    0
      %% 1 => 0 
      %% 0    1
-    (Grid[X,Y] == '1' , Grid[X+1, Y] == '1',  Grid[X+2, Y] == '0'), %011
+    (Grid[X,Y] == '1' , Grid[X+1, Y] == '1' ,  Grid[X+2, Y] == '0'), %011
      %%% OK 
      %% ACTIONS
     Grid_TEMP[X,   Y] := '0'     ,      
@@ -176,15 +177,6 @@ action(Grid, New_Grid, Action, Action_Cost ) =>
     %,
     %printf("\n Action: %w  tried ...", Action ) .     
 
-%action( _ , _, _ , _ ) => printf("\n NO ACTION availble").
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% cut a lot HERE
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -194,29 +186,26 @@ f_feasible_moves( Map ) = L_mov  =>
   C = (Map[1].length),
   %%printf(" MAX DIM: %d x %d ", L, C),
   Aux := [],
-
   foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
-    (
+   (
       %%% VERTICAL  
-      if ((I+2 =<L) , Map[I,J] == '1' , Map[I+1,J] == '1',  Map[I+2,J] == '0' ) then  %110
+     if ((I+2 =<L) , Map[I,J] == '1' , Map[I+1,J] == '1', Map[I+2,J] == '0' ) then  %110
         Aux := f_insert(('jump_down',I,J), Aux)
         % ,
         % printf("\n VERTICAL 110")
        
        elseif ((I-2 >= 1), Map[I,J] == '1' , Map[I-1,J] == '1',  Map[I-2,J] == '0' ) then  %011
-       %% Minor correction HERE
-        Aux := f_insert(('jump_up', I, J), Aux)
+       Aux := f_insert(('jump_up', I, J), Aux)
         %,
         %printf("\n VERTICAL 011")
        
-       elseif ((J+2 =<C) && Map[I,J] == '1', Map[I,J+1] == '1',  Map[I,J+2] == '0' ) then  %down
+       elseif ((J+2 =<C) , Map[I,J] == '1', Map[I,J+1] == '1',  Map[I,J+2] == '0') then  %down
         Aux := f_insert(('jump_right',I,J), Aux)
         %,
         %printf("\n HORIZONTAL 110 --> 001")
        
-       elseif ((J-2 >= 1) && Map[I,J] == '1', Map[I,J-1] == '1',  Map[I,J-2] == '0') then  %down
-       %% Minor correction HERE
-        Aux := f_insert(('jump_left', I,J), Aux)
+       elseif ((J-2 >= 1) , Map[I,J] == '1', Map[I,J-1] == '1',  Map[I,J-2] == '0') then  %down
+       Aux := f_insert(('jump_left', I,J), Aux)
         %,
         %printf("\n HORIZONTAL 011 --> 100")
          
@@ -314,66 +303,33 @@ f_insert( X, L ) = R, L == []  => R=[ X ].
 f_insert( X, L ) = R, L != []  => R=[ X | L ].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-/*
-Picat> M =[ 1 , # , # , 0 , 1 , 1], count_X_in_L(1, M) = W, write(W)
-3M = [1,#,#,0,1,1]
-W = 3
-yes
 
-
-
-
-Picat> M ={ 1 , # , # , 0 , 1 , 1}, M[5] == 1
-
-no
-
-Picat> M ={ 1 , # , # , 0 , 1 , 1}, M[5] == 1  
-M = {1,#,#,0,1,1}
-yes
-
-EMBORA
-
-Picat> M ={ 1 , # , # , 0 , 1 , 1}, M[3] == '#'
-M = {1,#,#,0,1,1}
-yes
-
-Picat> M ={ 1 , # , # , 0 , 1 , 1}, M[3] == #  
-M = {1,#,#,0,1,1}
-yes
-*/
-
-/* LATER
-
-print_States([], _) => printf("\n================================ \n").
-print_States([A|L_Action], Grid) ?=>
-
-    Grid_TEMP = copy_term(Grid),
-    position_c_XY( [X,Y], Grid ),
-        if (A == up_jump)
-        then
-          %writeln(up_move),
-          Grid_TEMP[X,Y] := '*' ,     
-          Grid_TEMP[X-1,Y] := 'c'
-        elseif (A == down_jump)
-        then
-          %%writeln(up_move),
-          Grid_TEMP[X,Y] := '*' ,     
-          Grid_TEMP[X+1,Y] := 'c'
-    elseif (A == right_jump)
-        then
-          Grid_TEMP[X,Y] := '*' ,     
-          Grid_TEMP[X,Y+1] := 'c'
-        elseif (A == left_jump)
-        then
-          Grid_TEMP[X,Y] := '*' ,     
-          Grid_TEMP[X,Y-1] := 'c'
-        end,  
-          
-        New_Grid = Grid_TEMP,
-        print_map( New_Grid ), 
-        print_States(L_Action , New_Grid).
-
-%left_move,left_move,right_move,right_move,down_move,right_move,right_move,right_move,up_move,up_move]
-
-LATER ...
-*/
+%%% FROM HAKAN   
+show_solution(InitGrid, Plan) => 
+  Grid = copy_term(InitGrid),
+  println("\nInit:"),                        
+  print_map(Grid), %% once time
+  foreach((Action,X,Y) in Plan)
+    printf("\n => Action %w from (%d,%d)", Action,X,Y),
+    %%println((Action,X,Y)),
+    if (Action == jump_right) then
+       Grid[X, Y]   := '0',
+       Grid[X ,Y+1] := '0',     
+       Grid[X, Y+2] := '1'
+    elseif (Action == jump_left) then
+       Grid[X, Y]   := '0',
+       Grid[X, Y-1] := '0',     
+       Grid[X, Y-2] := '1'
+    elseif (Action == jump_up) then
+       Grid[X,   Y] := '0',      
+       Grid[X-1, Y] := '0',     
+       Grid[X-2, Y] := '1'
+    elseif (Action == jump_down) then
+       Grid[X,   Y] := '0',      
+       Grid[X+1, Y] := '0',     
+       Grid[X+2, Y] := '1'
+    end,
+    print_map(Grid)
+  end,
+  nl.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
