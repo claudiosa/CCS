@@ -228,3 +228,109 @@ M = {1,#,#,0,1,1}
 yes
 */
 
+
+
+
+/*
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+     /** jump_right **/
+     Grid_TEMP = copy_term(Grid),
+     Action_Cost = 1,
+     
+    %% collecting all new movements
+    L_all_mov :=  f_feasible_moves( Grid ),
+    %%% CONDITIONS
+    member( (jump_right, X, Y) , L_all_mov), %% get X and Y by pattern
+    Action = (jump_right, X, Y),
+    %printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
+     %% REDUNDANT .... this conditions was done in feasible movements
+   %%%  (Grid[X,Y] == '1', Grid[X, Y+1] == '1',  Grid[X, Y+2] == '0'), %110
+     %% ACTIONS
+     %% 110 ----> 001
+     Grid_TEMP[X, Y]   := '0' ,     
+     Grid_TEMP[X ,Y+1] := '0' ,     
+     Grid_TEMP[X, Y+2] := '1',      
+     
+     %% updating the New_grid
+     New_Grid = Grid_TEMP.
+    %,
+    %printf("\n Action: %w  tried ...", Action ) .     
+
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % nl,
+    Grid_TEMP = copy_term(Grid),
+    %% FROM HAKAN ....
+    % println(action1=$action(Grid, New_Grid, Action, Action_Cost )),
+    Action_Cost = 1,
+        
+    L_all_mov := f_feasible_moves( Grid ),
+    member( (jump_left, X, Y) , L_all_mov), %% get X and Y by pattern
+    Action = (jump_left, X, Y) ,
+    %printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
+     %%% CONDITIONS
+    %% REDUNDANT .... this conditions was done in feasible movements
+   %%%  (Grid[X,Y] == '1' , Grid[X, Y-1] == '1' , Grid[X, Y-2] == '0'), %011
+    %printf("\n passou aqui "),
+     %% 011 ----> 100
+     %% ACTIONS
+     Grid_TEMP[X, Y]   := '0'    ,  %% the rightmost has 0    
+     Grid_TEMP[X, Y-1] := '0'    ,     
+     Grid_TEMP[X, Y-2] := '1'    ,       
+     
+     New_Grid = Grid_TEMP .
+    %,
+    %printf("\n Action: %w  tried ...", Action ) .     
+
+
+action(Grid, New_Grid, Action, Action_Cost ) ?=>
+    % println(action3=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
+    Action_Cost = 1,
+    
+    L_all_mov := f_feasible_moves( Grid ),
+    member( (jump_up, X, Y) , L_all_mov), %% get X and Y by pattern
+    Action = (jump_up, X, Y),
+    %printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
+     %%% CONDITIONS
+     %%  (X,Y) has ONE
+     %% 0    1
+     %% 1 => 0 
+     %% 1    0
+     %% REDUNDANT .... this conditions was done in feasible movements
+   %%% (Grid[X,Y] == '1' , Grid[X-1, Y] == '1',  Grid[X-2, Y] == '0'), %011
+     %% ACTIONS
+     Grid_TEMP[X,   Y] := '0'  ,      
+     Grid_TEMP[X-1, Y] := '0'  ,     
+     Grid_TEMP[X-2, Y] := '1'  ,       
+     %%% TAKE CARE the INDEX
+     
+     New_Grid = Grid_TEMP .
+    %,
+    %printf("\n Action: %w  tried ...", Action ) .     
+
+
+action(Grid, New_Grid, Action, Action_Cost ) =>
+    % println(action4=$action(Grid, New_Grid, Action, Action_Cost )),
+    Grid_TEMP = copy_term(Grid),
+    Action_Cost = 1,
+     
+    L_all_mov := f_feasible_moves( Grid ),
+    member( (jump_down, X, Y), L_all_mov), %% get X and Y by pattern
+    Action = (jump_down, X, Y),
+    %printf("\n JUMP: %w from %d %d ... L_all_mov: %w  ", Action, X, Y, L_all_mov),
+    %%% CONDITIONS and ACTION
+     %% 1    0
+     %% 1 => 0 
+     %% 0    1
+     %% REDUNDANT .... this conditions was done in feasible movements
+   %%% (Grid[X,Y] == '1' , Grid[X+1, Y] == '1' ,  Grid[X+2, Y] == '0'), %011
+     %%% OK 
+     %% ACTIONS
+    Grid_TEMP[X,   Y] := '0'     ,      
+    Grid_TEMP[X+1, Y] := '0'     ,     
+    Grid_TEMP[X+2, Y] := '1'     ,       
+     
+    New_Grid = Grid_TEMP .
+    %,
+    %printf("\n Action: %w  tried ...", Action ) .     
+*/
