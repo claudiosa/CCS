@@ -1,7 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
-PEG SOLITAIRE USING THE PICAT PLANNER
-the improvements  from Hakan
+PEG SOLITAIRE USING THE PICAT PLANNER -- CCS feb/2018
+The improvements and my mistakes are corrected by Hakan
+
+In the future .... explore heuristics such from a internet comment:
+They propose 3 heuristics:
+
+1 - The number of nodes are available for the next step, considering which more available next's steps, better the node.
+2 - Number of isolated peg's - as few isolated peg's better the node.
+3 - Less peg's in the board better the node.
+
+This may be not the better heuristics for this problem, but seems to be a simple approach.
+
 */
 import os. %%% for OS command
 import util. %%% some functions
@@ -13,11 +23,13 @@ import planner.
 main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
+   %% change here according your MAP or BOARD
    %Map = read_Map_1("MAP_01.txt") ,
    %Map = read_Map_1("5x5_peg.txt") , % no solution
    Map = read_Map_1("9x9_peg.txt") ,
    %Map = read_Map_1("MAP_03.txt") ,
-   /*
+   /* 
+   or
     Map = {
      "1##100",
      "1##1##",
@@ -28,7 +40,7 @@ main ?=>
     T1 = current_time(),
     printf("\n The Initial Grid or Map"),            
     print_map(Map), nl,
-    Bound = get_bound(Map), %%% a limit
+    Bound = get_bound(Map), %%% a bound of the tree search
    
     time(plan(Map,Bound,Plan)),
     % time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
@@ -52,7 +64,7 @@ main =>  printf("\n None options from main !!!").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Auxiliary functions
-% a deep estimated
+% a deep or bound  estimated for the search tree
 get_bound(Grid) = sum([1 : I in array_matrix_to_list(Grid), I=='1'])-1.   
 %% good heuristic
 %%% from HAKAN
@@ -67,8 +79,8 @@ final( Grid ) =>
           %print_map( Grid ), 
           array_matrix_to_list(Grid) = List,
           %printf("final list: %w", List),
-          %% CONDITIONS
-          1 == count_X_in_L( '1' , List ),
+          %% CONDITIONS to the finish
+          1 == count_X_in_L( '1' , List ), 
 %         Grid[5,5] == '1', %%% CHANGE IT if necessary 9x9
 %         Grid[4,4] == '1', %%% CHANGE IT if necessary 7x7
 %         Grid[3,3] == '1', %%% CHANGE IT if necessary 5x5
@@ -78,18 +90,17 @@ final( Grid ) =>
 
 %%%final(_) => printf("\n There are 1 in the map!\n").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
 /* Describing the possible actions ==> for the planner */
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% FROM HAKAN ... 1 ACTION instead 4 action as I had proposed
-%%% MUCH MUCH MORE EFICIENT
+%%% MUCH .... MUCH MORE EFICIENT
 action(Grid,New_Grid, Action, Action_Cost) ?=>
   Grid_TEMP = copy_term(Grid),
   Action_Cost = 1,
   %% only once time is calculated ... all the movements in the board
-  L_all_mov =  f_feasible_moves( Grid ),
-  member( (Action1, X, Y) , L_all_mov),
+  L_all_mov =  f_feasible_moves( Grid ), %% the heuristics can be handled HERE
+  member( (Action1, X, Y) , L_all_mov),  %% the heuristics can be handled HERE chosing a good movement
   %% take one feasible movement/action in current moment
   %% a tuple (Action1, X, Y) from L_all_mov)
   if (Action1 == jump_right)   then
@@ -151,9 +162,9 @@ f_feasible_moves( Map ) = L_mov  =>
       % printf("\t foreach END")
      ) 
    end , %% END  FOREACH
-  %% printf("\n After the foerach "),
-  %%% finally
-   L_mov = Aux .
+    %% printf("\n After the foerach "),
+    %%% finally
+    L_mov = Aux .
 
 f_feasible_moves( _ ) = R => 
       printf("\n Problem in position function f_feasible_moves \n"),
@@ -222,8 +233,8 @@ print_map( M ) =>
      end,
      nl
    end.   
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 count_X_in_L( _ , [] )  = 0.
 count_X_in_L( X , [X|L] ) = count_X_in_L( X , L ) + 1 .
 count_X_in_L( X , [H|L] ) = Res => X !== H, 
@@ -233,8 +244,7 @@ f_insert( X, L ) = R, L == []  => R=[ X ].
 f_insert( X, L ) = R, L != []  => R=[ X | L ].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%% FROM HAKAN   
+%%% FROM HAKAN  ... for pretty printing 
 show_solution(InitGrid, Plan) => 
   Grid = copy_term(InitGrid),
   println("\nInit:"),                        
@@ -259,7 +269,7 @@ show_solution(InitGrid, Plan) =>
        Grid[X+1, Y] := '0',     
        Grid[X+2, Y] := '1'
     end,
-    print_map(Grid)
+    print_map(Grid) %%%  call each good movement
   end,
   nl.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
