@@ -1,0 +1,2 @@
+http://stroustrup.com/Programming/lecture-slides.html
+http://fr.slideshare.net/SreejithSree1/stl-25264696
