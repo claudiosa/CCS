@@ -1,3 +1,0 @@
-new_map(1) = M.
-put(M,1).
-has_key(M,1).
