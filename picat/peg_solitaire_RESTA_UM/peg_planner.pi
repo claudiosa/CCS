@@ -24,9 +24,11 @@ main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
    %% change here according your MAP or BOARD
-   %Map = read_Map_1("MAP_01.txt") ,
+   %%Map = read_Map_1("MAP_01.txt") ,
    %Map = read_Map_1("5x5_peg.txt") , % no solution
-   Map = read_Map_1("9x9_peg.txt") ,
+   %Map = read_Map_1("9x9_peg.txt") ,
+   Map = read_Map_1("another_7x7_37_peg.txt"), 
+   %Map = read_Map_1("7x7_peg.txt"),
    %Map = read_Map_1("MAP_03.txt") ,
    /* 
    or
@@ -193,33 +195,7 @@ read_Map_1(File_NAME) = Arr_2D
     close(Reader)  .
     %% printf("\n The Final Array: %w\n\n", Arr_2D )
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% READING A MAP  ....
-read_Map_2(File_NAME) = Arr_2D  
-    =>
-      L_read = read_file_lines(File_NAME),
-      writeln(list_read=L_read),
-      L_flatten = flatten(L_read),
-      L_aux= delete_all( L_flatten, ' ') ,  %% exclui ' ' do mapa
-      writeln(l_aux = L_aux),
-      [Lines, Cols | List] = L_aux,
-      N_rows = to_int(Lines),
-      N_cols = to_int(Cols),
-      println([N_rows , N_cols]),
-  %%% CONFERIR SE LIST estah OK
-      Arr_2D = new_array(N_rows , N_cols ) , %% cria um array 2D
-      writeln( l_Final = List ),
-      writeln(a_array = Arr_2D ),
-      
-      printf("\n Size: %d\n List:%w \n", length(List), List ),
-  %%%% PROBLEM HERE   >>> to be rewrite it  
-      Arr_2D = to_array(List)  ,   %% converte lista para array
-      writeln(a_array = Arr_2D ),
-          
-      printf("\n Array: %w\n List:%w \n", Arr_2D, List ).
-     
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
 %% printing the GRID ....
 print_map( M ) =>
