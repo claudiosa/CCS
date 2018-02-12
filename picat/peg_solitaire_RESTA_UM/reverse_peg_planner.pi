@@ -1,16 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
+REVERSE of 
 PEG SOLITAIRE USING THE PICAT PLANNER -- CCS feb/2018
 The improvements and my mistakes are corrected by Hakan
 
-In the future .... explore heuristics such from a internet comment:
-They propose 3 heuristics:
-
-1 - The number of nodes are available for the next step, considering which more available next's steps, better the node.
-2 - Number of isolated peg's - as few isolated peg's better the node.
-3 - Less peg's in the board better the node.
-
-This may be not the better heuristics for this problem, but seems to be a simple approach.
+Goal: to generate valid scenarios for the peg solitaire
 
 */
 import os. %%% for OS command
@@ -24,12 +18,17 @@ main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
    %% change here according your MAP or BOARD
-   %Map = read_Map("3x6_peg_B.txt") ,
-   %Map = read_Map("5x5_peg.txt") , % no solution
-   %Map = read_Map("9x9_peg.txt") ,
-   Map = read_Map("another_7x7_37_peg.txt"), 
-   %Map = read_Map("7x7_peg.txt"),
-   %Map = read_Map("MAP_03.txt") ,
+   
+   %read_Map("empty_3x6_peg.txt", Lines, Cols, Map ), %% OK
+   %read_Map("empty_9x9_peg.txt", Lines, Cols, Map ), 
+   %%read_Map("empty_5x5_peg.txt", Lines, Cols, Map ), %% NO OK
+   %read_Map("empty_7x7_peg.txt", Lines, Cols, Map ), %% OK
+   read_Map("empty_another_7x7_37_peg.txt", Lines, Cols, Map ), %% OK
+   %Map = read_Map_1("9x9_peg.txt", Lines, Cols, Map ),
+   %Map = read_Map_1("another_7x7_37_peg.txt"), 
+   %Map = read_Map_1("7x7_peg.txt"),
+   %Map = read_Map_1("MAP_03.txt") ,
+    printf("\n Matrix (%w,%w): \n%w " ,  Lines, Cols, Map ),
    /* 
    or
     Map = {
@@ -44,8 +43,8 @@ main ?=>
     print_map(Map), nl,
     Bound = get_bound(Map), %%% a bound of the tree search
    
-    time(plan(Map,Bound,Plan)),
-    % time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
+   % time(plan(Map,Bound,Plan)),   %%%% NO BOUND FOR REVERSE
+    time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
  
     T2 = current_time(), 
     
@@ -79,10 +78,17 @@ get_bound(Grid) = sum([1 : I in array_matrix_to_list(Grid), I=='1'])-1.
 /*** check the 1 at the end ****/
 final( Grid ) =>
           %print_map( Grid ), 
+          %%read_Map(File_NAME, Lines, Cols, _ ),
           array_matrix_to_list(Grid) = List,
+          
           %printf("final list: %w", List),
           %% CONDITIONS to the finish
-          1 == count_X_in_L( '1' , List ), 
+          N_elem = comp_L(List),
+          N_cerquilha = count_X_in_L( '#' , List ),
+          N_1 = count_X_in_L( '1' , List ),
+          %% condition to stop
+          (N_elem - N_cerquilha - N_1) <= 2, %% two or LESS free cells
+          
 %         Grid[5,5] == '1', %%% CHANGE IT if necessary 9x9
 %         Grid[4,4] == '1', %%% CHANGE IT if necessary 7x7
 %         Grid[3,3] == '1', %%% CHANGE IT if necessary 5x5
@@ -101,26 +107,26 @@ action(Grid,New_Grid, Action, Action_Cost) ?=>
   Grid_TEMP = copy_term(Grid),
   Action_Cost = 1,
   %% only once time is calculated ... all the movements in the board
-  L_all_mov =  f_feasible_moves( Grid ), %% THE HEURISTICS MUST BE HANDLED HERE
-  member( (Action1, X, Y) , L_all_mov),  %% THE HEURISTICS CAN BE HANDLED HERE CHOSING A GOOD MOVEMENT
+  L_all_mov =  f_feasible_moves( Grid ), %% the heuristics can be handled HERE
+  member( (Action1, X, Y) , L_all_mov),  %% the heuristics can be handled HERE chosing a good movement
   %% take one feasible movement/action in current moment
   %% a tuple (Action1, X, Y) from L_all_mov)
   if (Action1 == jump_right)   then
-     Grid_TEMP[X, Y]   := '0',
-     Grid_TEMP[X ,Y+1] := '0',     
-     Grid_TEMP[X, Y+2] := '1'
+     Grid_TEMP[X, Y]   := '1',
+     Grid_TEMP[X ,Y+1] := '1',     
+     Grid_TEMP[X, Y+2] := '0'
   elseif (Action1 == jump_left) then
-     Grid_TEMP[X, Y]   := '0',
-     Grid_TEMP[X, Y-1] := '0',     
-     Grid_TEMP[X, Y-2] := '1'
+     Grid_TEMP[X, Y]   := '1',
+     Grid_TEMP[X, Y-1] := '1',     
+     Grid_TEMP[X, Y-2] := '0'
   elseif (Action1 == jump_up)   then
-     Grid_TEMP[X,   Y] := '0',      
-     Grid_TEMP[X-1, Y] := '0',     
-     Grid_TEMP[X-2, Y] := '1'
+     Grid_TEMP[X,   Y] := '1',      
+     Grid_TEMP[X-1, Y] := '1',     
+     Grid_TEMP[X-2, Y] := '0'
   elseif (Action1 == jump_down) then
-     Grid_TEMP[X,   Y] := '0',      
-     Grid_TEMP[X+1, Y] := '0',     
-     Grid_TEMP[X+2, Y] := '1'
+     Grid_TEMP[X,   Y] := '1',      
+     Grid_TEMP[X+1, Y] := '1',     
+     Grid_TEMP[X+2, Y] := '0'
   end,
   Action = (Action1, X, Y) ,
   New_Grid = Grid_TEMP.
@@ -135,22 +141,22 @@ f_feasible_moves( Map ) = L_mov  =>
   foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
    (
       %%% VERTICAL  
-     if ((I+2 =<L) , Map[I,J] == '1' , Map[I+1,J] == '1', Map[I+2,J] == '0' ) then  %110
+     if ((I+2 =<L) , Map[I,J] == '0' , Map[I+1,J] == '0', Map[I+2,J] == '1' ) then  %110
         Aux := f_insert(( jump_down ,I,J), Aux)
         % ,
         % printf("\n VERTICAL 110")
        
-       elseif ((I-2 >= 1), Map[I,J] == '1' , Map[I-1,J] == '1',  Map[I-2,J] == '0' ) then  %011
+       elseif ((I-2 >= 1), Map[I,J] == '0' , Map[I-1,J] == '0',  Map[I-2,J] == '1' ) then  %011
        Aux := f_insert(( jump_up , I,J), Aux)
         %,
         %printf("\n VERTICAL 011")
        
-       elseif ((J+2 =<C) , Map[I,J] == '1', Map[I,J+1] == '1',  Map[I,J+2] == '0') then  %down
+       elseif ((J+2 =<C) , Map[I,J] == '0', Map[I,J+1] == '0',  Map[I,J+2] == '1') then  %down
         Aux := f_insert(( jump_right ,I,J), Aux)
         %,
         %printf("\n HORIZONTAL 110 --> 001")
        
-       elseif ((J-2 >= 1) , Map[I,J] == '1', Map[I,J-1] == '1',  Map[I,J-2] == '0') then  %down
+       elseif ((J-2 >= 1) , Map[I,J] == '0', Map[I,J-1] == '0',  Map[I,J-2] == '1') then  %down
        Aux := f_insert(( jump_left , I,J), Aux)
         %,
         %printf("\n HORIZONTAL 011 --> 100")
@@ -164,7 +170,7 @@ f_feasible_moves( Map ) = L_mov  =>
       % printf("\t foreach END")
      ) 
    end , %% END  FOREACH
-    %% printf("\n After the foerach "),
+    %%printf("\n After the foerach : %w ", Aux),
     %%% finally
     L_mov = Aux .
 
@@ -176,7 +182,8 @@ f_feasible_moves( _ ) = R =>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% READING A FILE  with a MAP or Grid....
-read_Map(File_NAME) = Arr_2D  
+%read_Map_1(File_NAME) = Arr_2D  
+read_Map(File_NAME, Lines, Cols, Arr_2D  )
     =>
     Reader = open(File_NAME), 
     Lines = read_int(Reader), %% dimentions of Grids
@@ -194,8 +201,7 @@ read_Map(File_NAME) = Arr_2D
        end,
     close(Reader)  .
     %% printf("\n The Final Array: %w\n\n", Arr_2D )
-
-%% a study for ready a file in Picat is availble in reading_files.pi
+%read_Map(File_NAME, _ , _, _  ) => printf("\n Problem to read: %w\n\n", File_NAME ).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% printing the GRID ....
@@ -212,11 +218,17 @@ print_map( M ) =>
    end.   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+comp_L( [] ) = 0.
+comp_L( [_|L] ) = comp_L( L ) + 1 .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 count_X_in_L( _ , [] )  = 0.
 count_X_in_L( X , [X|L] ) = count_X_in_L( X , L ) + 1 .
 count_X_in_L( X , [H|L] ) = Res => X !== H, 
                             Res = count_X_in_L( X , L ) .
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 f_insert( X, L ) = R, L == []  => R=[ X ].
 f_insert( X, L ) = R, L != []  => R=[ X | L ].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -230,21 +242,21 @@ show_solution(InitGrid, Plan) =>
     printf("\n => Action %w from (%d,%d)", Action,X,Y),
     %%println((Action,X,Y)),
     if (Action == jump_right) then
-       Grid[X, Y]   := '0',
-       Grid[X ,Y+1] := '0',     
-       Grid[X, Y+2] := '1'
+       Grid[X, Y]   := '1',
+       Grid[X ,Y+1] := '1',     
+       Grid[X, Y+2] := '0'
     elseif (Action == jump_left) then
-       Grid[X, Y]   := '0',
-       Grid[X, Y-1] := '0',     
-       Grid[X, Y-2] := '1'
+       Grid[X, Y]   := '1',
+       Grid[X, Y-1] := '1',     
+       Grid[X, Y-2] := '0'
     elseif (Action == jump_up) then
-       Grid[X,   Y] := '0',      
-       Grid[X-1, Y] := '0',     
-       Grid[X-2, Y] := '1'
+       Grid[X,   Y] := '1',      
+       Grid[X-1, Y] := '1',     
+       Grid[X-2, Y] := '0'
     elseif (Action == jump_down) then
-       Grid[X,   Y] := '0',      
-       Grid[X+1, Y] := '0',     
-       Grid[X+2, Y] := '1'
+       Grid[X,   Y] := '1',      
+       Grid[X+1, Y] := '1',     
+       Grid[X+2, Y] := '0'
     end,
     print_map(Grid) %%%  call each good movement
   end,
