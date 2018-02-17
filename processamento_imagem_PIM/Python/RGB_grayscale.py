@@ -1,4 +1,4 @@
 from PIL import Image
-path = "Imagens/"
+path = "imagens/"
 img = Image.open(path+'nature.jpg').convert('L')
 img.save(path+'nature-PB.jpg')

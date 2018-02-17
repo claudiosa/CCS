@@ -87,8 +87,8 @@ final( Grid ) =>
           N_cerquilha = count_X_in_L( '#' , List ),
           N_1 = count_X_in_L( '1' , List ),
           %% condition to stop
-          (N_elem - N_cerquilha - N_1) <= 2, %% two or LESS free cells
-          
+          %(N_elem - N_cerquilha - N_1) <= 2, %% two or LESS free cells
+          (N_elem - N_cerquilha - N_1) < 2, %% two or LESS free cells
 %         Grid[5,5] == '1', %%% CHANGE IT if necessary 9x9
 %         Grid[4,4] == '1', %%% CHANGE IT if necessary 7x7
 %         Grid[3,3] == '1', %%% CHANGE IT if necessary 5x5
