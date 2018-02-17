@@ -69,4 +69,4 @@ scipy.misc.imsave(path+"erosao-2.png", res2)
 res3 = GeraImagem(Erode(conjunto,elemento3),imagem.shape)
 scipy.misc.imsave(path+"erosao-3.png", res3)
 
-print 'done'
+print ('done')

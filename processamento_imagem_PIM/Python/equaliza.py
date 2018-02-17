@@ -1,3 +1,8 @@
+
+from PIL import Image
+#image = Image.open('imagens/nature.jpg')
+#image.show()
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.misc
@@ -25,4 +30,7 @@ for i in range(car.shape[0]):
 	for j in range(car.shape[1]):
 		car1[i][j] = int(FDP[car[i][j]])
 		
-scipy.misc.imsave("imagens/equaliza.png",car1)
+scipy.misc.imsave("imagens/equaliza2.png",car1)
+### By CCS
+image = Image.open('imagens/equaliza2.png')
+image.show()

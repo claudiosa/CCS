@@ -58,4 +58,5 @@ scipy.misc.imsave(path+"dilatacao-2.png", res2)
 res3 = GeraImagem(Dilata(conjunto,elemento3),imagem.shape)
 scipy.misc.imsave(path+"dilatacao-3.png", res3)
 
-print 'done'
+print ('done')
+### 
