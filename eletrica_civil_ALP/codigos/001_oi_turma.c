@@ -3,7 +3,7 @@
  int main() //obrigatoria 
 	{ // bloco de inicio
 	printf( " \n  Oi turma de ALP" );
-	printf("\n  Wellcome .... 2017");
-	printf("\n  ACERTEI .... \n ");
+	printf("\n  Wellcome .... 201X");
+	printf("\n  Linguagem C => TOP ");
 	return 1 ;
 	} // fecha o bloco 
