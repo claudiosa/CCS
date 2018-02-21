@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% REGRAS: exemplos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% definindo um avo: pai do pai
+avo(X,Y) =>  pai(X,Z), pai(Z,Y).
+
+%% definindo um irmao: alguem que tenha o mesmo pai
+irmao(X,Y) => pai(Z,X), %%% 1o a ser avaliado
+              pai(Z,Y), %%% 2o a ser avaliado
+              %%X !== Y. 
+              !==(X , Y). %%% 3o a ser avaliado
+/*
+implemente o predicado tio(X,Y), tio_avo(X,Y), bisavo(X,Y)
+..........................................................
+*/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% MAIS REGRAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+listar_pais  ?=>    %%% ?=>  regra "backtrackavel"
+    pai(X,Y) , %% and 
+    printf("\n ==> %w  e pai de  %w", X , Y)  , 
+    false  .
+
+listar_pais => 
+    printf("\n ")  ,
+    true. %% the final rule of above
+          
+listar_ant  ?=>    %%% ?=>  regra "backtrackavel"
+    ancestral(X,Y) ,  
+    printf("\n ==> %w  e ancestral de  %w", X , Y)  , 
+    false.
+
+listar_ant => 
+    printf("\n ")  ,
+    true. %% the final rule of above          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% main ... facilidade no uso console
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+main ?=>   %%% ?=>  regra "backtrackavel"
+ %   listar_pais,
+  %   listar_ant, 
+ %   avo(X,Y), printf("\n ==> %w  eh avo de  %w", X , Y)  , 
+     irmao(Z,W), printf(" \n ==> %w  eh irmao de  %w", Z , W),
+     false.   
+main => true.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/*
+1. Todo x que eh pai de um y implica em x ser um ancestral
+de y
+QxQy (pai(x,y) --> ancestral(x,y))
+
+2. Todo x que eh pai de um z, e z
+eh um  ancestral de y, entao x eh ancestral de y
+
+QxQyQz  (pai(x,z) and ancestral(z,y) --> ancestral(x,y))
+
+EM PICAT -- clausulas de HORN (sempre apenas uma conclusao)
+*/
+ancestral(X,Y) ?=> pai(X,Y). %%%%%% ?=>  regra "backtrackavel"
+ancestral(X,Y) =>  pai(X,Z),
+                     ancestral(Z,Y).
+
+%%% FATOS ...  desenhe a arvore geneologica
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+index(-,-)    %% definindo FATOS
+%%%%%pai(PAI, FILHO)  
+	%pai(platao, luna)   .
+	pai(platao, pericles).
+	pai(platao, eratostenes).
+	pai(epimenides, platao).
+	pai(bartolomeu, epimenides).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

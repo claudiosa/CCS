@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Objetivos}{3}{0}{1}
+\beamer@sectionintoc {2}{Introdu\IeC {\c c}\IeC {\~a}o}{4}{0}{2}
+\beamer@sectionintoc {3}{Caracter\IeC {\'\i }sticas de PICAT}{5}{0}{3}
+\beamer@sectionintoc {4}{WebIDE}{8}{0}{4}
+\beamer@sectionintoc {5}{Conclus\IeC {\~o}es}{20}{0}{5}

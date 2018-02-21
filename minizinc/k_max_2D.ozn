@@ -1,0 +1,6 @@
+output [(if i==1 /\ j==1 then "total_cost: "++show(total_cost) else " " endif++if j==1 then "\n" else " " endif)++show(x[i,j]) | i in 1..rows, j in 1..cols, ]++["\n"];
+int: rows = 4;
+int: cols = 5;
+array [1..rows,1..cols] of int: x;
+array [1..rows,1..cols] of int: cost = [|14,5,8,7,15|2,12,6,5,3|7,8,3,9,7|2,4,6,10,1|];
+int: total_cost = sum([x[i,j]*cost[i,j] | i in 1..rows, j in 1..cols, ]);

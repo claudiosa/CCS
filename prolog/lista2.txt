@@ -1,0 +1,5 @@
+compto([ ], 0).
+compto([X | T], N):- compto(T, N1), N is N1+1.
+
+?- compto([a, b, c, d], X).
+X = 4

@@ -1,0 +1,38 @@
+%%%%%%% ilustra functores / STRUCTs
+main => test02. %, carros.
+all_cars ?=>
+	 pertence(X,Y,Z),
+	 printf("\n X: %w  \t Y: %w \t  Z: %w ", X, Y, Z ),
+	 fail.
+all_cars => printf("\n The End of Data Base - FACTS !!!!!\n").
+
+test01 ?=>
+	pertence( claudio,Y,Z),
+	X = claudio, %% atribuicao ....
+	printf("\n X: %w  \t Y: %w \t  Z: %w ", X, Y, Z ),
+	fail.
+test01 => printf("\n The End of Data Base - FACTS !!!!!\n").
+
+
+test02 ?=>
+	pertence( X, $carro( Y  ) ,  Z),
+	printf("\n X: %w  \t Y: %w \t  Z: %w ", X, Y, Z ),
+	fail.
+test02 => printf("\n The End of Data Base - FACTS !!!!!\n").
+
+
+test03 ?=>
+	pertence( X, $carro( fabricante(toyota , Y)) ,  Z),
+	printf("\n X: %w  \t Y: %w \t  Z: %w ", X, Y, Z ),
+	fail.
+test03 => printf("\n The End of Data Base - FACTS !!!!!\n").
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% FACTS
+index(-,-,-)
+
+pertence( fred, carro( fabricante(toyota , japao)), ano_cor(2014,azul)).
+pertence( romi, carro( fabricante(bmw , alemanha)), ano_cor(2015,vermelho)).
+pertence( claudio, carro( fabricante(vw , brasil)), ano_cor(2012,prata)).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

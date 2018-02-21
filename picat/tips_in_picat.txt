@@ -1,0 +1,99 @@
+/*
+Picat> [[b,a,c,o,o,o,o]] = X 
+X = [[b,a,c,o,o,o,o]]
+yes
+Picat> [[b,a,c,o,o,o,o]] = [FX]  
+FX = [b,a,c,o,o,o,o]
+yes
+Picat> [[b,a,c,o,o,o,o]] = [[FX]]
+NO
+*/
+    % printf("\n Posicao inicial: %w ", X),
+    
+    
+/*
+From Neng-Fa:
+ I think you messed up input and output arguments. 
+ Only input arguments can be written in head patterns;
+  outputs must be explicitly written using unification. 
+  For example, reverse/2 should be defined as follows:
+
+reverse([],R) => R=[].
+reverse([A|B], Inverted) => reverse(B, X),
+                               append(X, [A], Inverted).
+					  					  
+***********************************************************/
+I was testing the struct function arity(), but i forgot to put the name of struct. 
+When i tested the function, It came with it:
+
+Picat> N = $(1,2,3,4,5), arity(N) = Aridade.
+N = (1,2,3,4,5)
+Aridade = 2
+yes
+
+Aridade shouldn't be zero ou five?
+
+It's designed this way (inherited from Prolog), not an error. 
+A tuple of the form (1,2,3,4,5) is the same as (1, (2, (3, (4, 5)))). 
+That's why its arity is 2, not 5. In contrast, the array {1,2,3,4,5} 
+has arity 5.
+
+Cheers,
+Neng-Fa
+
+
+/*
+From Neng-Fa:
+
+The following book chapter may be helpful:
+
+http://picat-lang.org/download/picat_compared_to_prolog_haskell_python.html
+
+Picat rules are pattern-matching rules, and determinism is denoted explicitly (?=> indicates backtrackable and => indicates non-backtrackable). A Prolog clause 
+
+p(A1,...,An) :- Body.
+
+can be trivially translated into the following Picat rule:
+
+p(X1,...,Xn) ?=> X1 = A1, ..., Xn = An, Body.
+
+However, the Picat rule is not efficient because it is never indexed, and it is assumed to be backtrackable. You want to write input patterns in the head, and use => if you don't want other rules to be tried after pattern-matching succeeds. 
+
+Here is my translation of your Prolog program:
+
+likes(sam,Food) ?=>
+    indian(Food),
+    mild(Food).
+likes(sam,Food) ?=>
+    chinese(Food).
+likes(sam,Food) ?=>
+    italian(Food).
+likes(sam,Food) =>
+    Food = chips.
+
+index (+) (-)
+indian(curry).
+indian(dahl).
+indian(tandoori).
+indian(kurma).
+
+index (+) (-)
+mild(dahl).
+mild(tandoori).
+mild(kurma).
+
+index (+) (-)
+chinese(chow_mein).
+chinese(chop_suey).
+chinese(sweet_and_sour).
+
+index (+) (-)
+italian(pizza).
+italian(spaghetti).
+
+The compiler translates the facts into pattern-matching rules based on the index declarations, where + indicates that the argument is input, and - indicates that the argument is output. You can find more details about the Picat compiler in the following article:
+
+http://www.sci.brooklyn.cuny.edu/~zhou/papers/padl17.pdf
+
+Cheers,
+Neng-Fa

@@ -1,0 +1,12 @@
+le_lista(Lista) :-
+   write('Digite <Enter> ou 
+	<Escape> para terminar:'),
+   write('===>'),
+   le_aux( Lista ).
+le_aux( [Char | Resto ] ) :-
+                      write(' '),
+                      get0(Char),
+                      testa(Char),
+                      put(Char),
+                      put(7),
+                      le_aux( Resto ).

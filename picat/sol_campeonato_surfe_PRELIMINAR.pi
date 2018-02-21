@@ -1,0 +1,244 @@
+/*
+Campeonato de Surf do RACHA-CUCA INCOMPLETO
+
+REGRAS FICTICIAS foram modificadas .......
+
+
+ERRO comum dos alunos (2016-2): 
+"Voces soh podem montar as regras com as variaveis,
+uma vez que estas estejam INSTANCIADAS durante
+o programa na ordem correta ...."
+
+ISTO EH: NUNCA MONTAR REGRAS COM FATOS NAO INSTANCIADOS
+
+
+FALTA BASICAMENTE ACERTAREM as regras ....
+
+para rodar: $ picat  sol_campeonato_surf_PRELIMINAR.pi
+*/
+
+main ?=> 
+     modelo( L  ),
+     imprime( L ),
+     false.
+	 
+main => nl, 
+       printf("\n==================================================== \n"). 
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AQUI COMEÇA O PROGRAMA ....
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+modelo( Lista ) ?=>
+	%%%%%%%%%%%%% LISTA %%%%%%%%%%%%%
+    Lista = 
+    [
+     [Cor_1, Surf_1, Praia_1, Tam_1, Gent_1, Rank_1] , %%% SURFISTA 1
+     [Cor_2, Surf_2, Praia_2, Tam_2, Gent_2, Rank_2] ,
+     [Cor_3, Surf_3, Praia_3, Tam_3, Gent_3, Rank_3] ,
+     [Cor_4, Surf_4, Praia_4, Tam_4, Gent_4, Rank_4] ,
+     [Cor_5, Surf_5, Praia_5, Tam_5, Gent_5, Rank_5]  %%% SURFISTA 5
+    ],
+
+
+%%%%%%%%%%%%% TODAS Cor_ES %%%%%%%%%%%%%
+
+cor( Cor_1),
+cor( Cor_2),
+cor( Cor_3),
+cor( Cor_4),
+cor( Cor_5),
+alldifferent([Cor_1, Cor_2, Cor_3, Cor_4, Cor_5]),
+
+%%%%%%%%%%%%% REGRAS  que envolvam APENAS CORES %%%%%%%%%%%%%
+
+%% EXEMPLO
+ Cor_1==azul,
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%% TODOS NOMES %%%%%%%%%%%%%
+
+surf(Surf_1),
+surf(Surf_2),
+surf(Surf_3),
+surf(Surf_4),
+surf(Surf_5),
+alldifferent([Surf_1, Surf_2, Surf_3, Surf_4, Surf_5]),
+
+%%%%%%%%%%%%% REGRAS  que envolvam APENAS CORES + NOMES %%%%%%%%%%%%%
+
+%% EXEMPLO
+ (Surf_2==igor, Cor_3==verde),
+
+
+%%% ALUNO ... voce aqui ...
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores
+%%%%%%%%%%%%% TODAS PRAIAS %%%%%%%%%%%%%
+
+praia(Praia_1),
+praia(Praia_2),
+praia(Praia_3),
+praia(Praia_4),
+praia(Praia_5),
+alldifferent([Praia_1, Praia_2, Praia_3, Praia_4, Praia_5]),
+%%%%%%%%%%%%% REGRAS  que envolvam APENAS CORES + NOMES + PRAIAS %%%%%%%%%%%%%
+
+%% EXEMPLO
+ 
+ Praia_3 == maresias, 
+ Cor_5==branca,
+ Surf_5==fernando, 
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores
+
+%%%%%%%%%%%% TODOS TAMANHOS DAS PRANCHAS %%%%%%%%%%%%%
+
+tam(Tam_1),
+tam(Tam_2),
+tam(Tam_3),
+tam(Tam_4),
+tam(Tam_5),
+alldifferent([Tam_1, Tam_2, Tam_3, Tam_4, Tam_5]),
+
+%%%%%%%%%%%%% REGRAS  OBVIAS %%%%%%%%%%%%%
+
+%%%%%%%11 O surfita da prancha de 6'0" está na quinta posição.
+
+(Tam_5 == '6_0'),%%% ATENCAO NOS APOSTROFOS
+%%%%%%%%%%%%% REGRAS  que envolvam APENAS CORES + NOMES + PRAIAS + TAMANHO %%%%%%%%%%%%%
+
+%% EXEMPLO
+( Tam_1 == '5_7' ) , %%% ATENCAO NOS APOSTROFOS
+ %%%% NADA DAQUI PODE SER UMA CONTRADICAO
+ Praia_3 == maresias, 
+ Cor_4==amarela,
+ Surf_5==fernando, 
+
+
+%%%%%%%%%%%% GENTÍLICO %%%%%%%%%%%%%
+%%%% EM NENHUM MOMENTO anterior (ACIM) PODIA APARECER REGRAS com RANK + GENT 
+gent(Gent_1),
+gent(Gent_2),
+gent(Gent_3),
+gent(Gent_4),
+gent(Gent_5),
+alldifferent([Gent_1, Gent_2, Gent_3, Gent_4, Gent_5]),
+
+%%%%%%%%%%%%% REGRAS  que envolvam APENAS CORES + NOMES + PRAIAS + TAMANHO + GENTILICO %%%%%%%%%%%%%
+
+%%%%%%%12 O Gaúcho está na Quarta posição.
+
+(Gent_4==gaucho),
+
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores
+
+(Gent_2==paulista),
+( Tam_4 == '5_11' ) , %%% ATENCAO NOS APOSTROFOS
+ %%%% NADA DAQUI PODE SER UMA CONTRADICAO
+ Praia_3 == maresias, 
+ Cor_4==amarela,
+ Surf_5==fernando, 
+
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO
+
+	%%%%%%%%%%%%% RANKING %%%%%%%%%%%%%
+%%%% EM NENHUM MOMENTO anterior (ACIM) PODIA APARECER REGRAS com RANK 
+rank(Rank_1),
+rank(Rank_2),
+rank(Rank_3),
+rank(Rank_4),
+rank(Rank_5),
+alldifferent([Rank_1, Rank_2, Rank_3, Rank_4, Rank_5]),
+
+%%%% REGRAS  que envolvam  CORES + NOMES + PRAIAS + TAMANHO + GENTILICO + RANK %%%%%%%%%%%
+
+%%%%%%%16 O surfista que está no Quinto lugar do ranking está na quarta posição.
+
+ ( Rank_4==quin_5 ),
+(Gent_2==paulista),
+( Tam_4 == '5_11' ) , %%% ATENCAO NOS APOSTROFOS
+ Praia_2 == itaguare, 
+ Cor_4==amarela,
+ Surf_5==fernando, 
+ Rank_3== oit_8 , 
+%%%% NADA DAQUI PODE SER UMA CONTRADICAO COM O QUE FOI PREVIAMENTE DEFINIDO em regras anteriores 
+ /*
+ 
+ NESTE PONTO TODAS AS VARIAVEIS DOS FATOS FORAM INSTANCIADAS ...
+ ASSIM falta apenas ir construindo as regras
+ de acordo com o texto
+ 
+ */
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%% quase terminado 
+printf("\n==> Atingiu o Final do Modelo : UFA !!!! =====\n"). 
+ 	 
+/** quando estiver imprimindo a mensagem acima e esta ... comente esta 	 
+modelo(_) =>	 
+   printf("\n==> Inconsistencia no MODELO passo anterior: REVISE TODA REGRA <== \n"). 
+**/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% apos o aluno entender varios conceitos 
+alldifferent([]) ?=> true.
+alldifferent([H|T]) => not(member(H,T)),
+                       alldifferent(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+imprime([]) ?=> true. 
+imprime([[Cor_, Surf_, Praia_, Tam_, Gent_, Rank_]|T]) => 
+       printf("COR: %w || Surfista: %w || Praia: %w || Tam: %w || Natural: %w || Rank: %w\n" , 
+       Cor_, Surf_, Praia_, Tam_, Gent_, Rank_),
+        %%%%%writeln([Cor_, Surf_, Praia_, Tam_, Gent_, Rank_]),
+        imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% BANCO DE DADOS ou FATOS %%%%%%%%%%%%%
+
+	% Cores
+index(-)
+cor(amarela).
+cor(azul).
+cor(branca).
+cor(verde).
+cor(vermelha).
+
+	% NOMES
+index(-)
+surf(flavio).
+surf(fernando).
+surf(igor).
+surf(rogerio).
+surf(tomas).
+
+	% PRAIA
+index(-)
+praia(areado).
+praia(brava).
+praia(itaguare).
+praia(itamambuca).
+praia(maresias).
+
+	% TAMANHO
+index(-)
+tam('5_6').
+tam('5_7').
+tam('5_8').
+tam('5_11').
+tam('6_0').
+
+	% GENTILICO
+index(-)
+gent(gaucho).
+gent(baiano).
+gent(fluminense).
+gent(mineiro).
+gent(paulista).
+
+	% RANKING
+index(-)
+rank(prim_1).
+rank(seg_2).
+rank(terc_3).
+rank(quin_5).
+rank(oit_8).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

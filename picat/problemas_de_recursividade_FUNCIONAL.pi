@@ -1,0 +1,77 @@
+/*
+%% Solução: César Augusto Moro Fürst
+Enunciado do Problema: 
+%https://github.com/claudiosa/CCS/blob/master/picat/LMA_TRABALHOS_FINAIS/trabalho-final-LMA_2017-2.pdf
+turma: 2017-2
+*/
+
+
+/* mais sintética mais com FUNCOES - como Haskell */
+fat(0) = 1.
+fat(1) = 1.
+fat(N) = N * fat ((N-1)).
+
+
+
+/*1. Encontre o n-ésimo termo da seguinte sequência recursiva: 1; 4; 8; 13; 19; 26; :::.*/
+
+posicao_1(N) = nesimo_1(1,N).
+
+nesimo_1(_,0) = 0.
+nesimo_1(2,N) = 3 + nesimo_1((3 + 1),(N - 1)).
+nesimo_1(K,N) = K + nesimo_1((K + 1),(N - 1)).
+
+main =>
+		printf("Oitavo termo da sequencia eh: %d\n",posicao_1(8)),
+		posicao_2(6),
+		euler(1,10),
+		printf("O resultado de (10 + soma(4)) de acordo com a teoria de Giuseppe Peano eh: %d\n",soma(10,4)).
+main => printf("deu erro\n").
+
+/*2. Encontre o n-ésimo termo e o seguinte (ou seja, dois termos), para sequência
+recursiva dada por: 2; 3; 3; 5; 10; 13; 39; :::. Dica:
+2 + 1 = 3
+3 x 1 = 3
+3 + 2 = 5
+5 x 2 = 10
+10 + 3 = 13
+13 x 3 = 39*/
+
+posicao_2(N) =>
+				printf("O n-ehsimo termo eh: %d\n", nesimo_2(N,1,1)),
+				printf("O n-ehsimo+1 termo eh:%d\n", nesimo_2((N+1),1,1)).
+
+nesimo_2(0,_,_) = Result =>  Result = 1.
+nesimo_2(N,K,X) = Result => 
+				if(==((X mod 2),1))
+					then
+						Result = nesimo_2((N-1),K,(X+1)) + K
+					else
+						Result = nesimo_2((N-1),(K+1),(X+1)) * K
+					end.
+
+
+/*4. Aproveitando o fatorial recursivo feito em sala, implemente a seguinte soma
+recursiva para n termos, dado um expoente x.
+*/
+euler(X,N) =>
+			printf("O valor Aproximado de e elevado a %d com %d repeticoes eh: %f\n",X,N,soma_e(X,N)).
+
+soma_e(_,0) = 1.
+soma_e(X,N) = (soma_e(X,N-1)) + ((elevado(X,N))/(fat(N))).
+
+elevado(_,0) = 1.
+elevado(X,Y) = elevado(X,(Y-1)) * X.
+
+
+/*3. Giuseppe Peano foi uma matemático que observou que os números naturais
+podem ser obtidos por somas recursivas, dadas por: x+0 = x e x+soma(y) =
+soma(x + y). Traduza isto para LPO e na sequência escreva em Picat (ou
+Prolog) que um dado número N > 0 este pode ser provado como sendo um
+número natural. Referência: postulados aritméticos de Peano*/
+
+soma(X,0) = X.
+soma(X,Y) = soma_r(X+Y).
+
+soma_r(0) = 0.
+soma_r(N) = N + soma_r( N-1 ).

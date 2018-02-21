@@ -1,0 +1,29 @@
+
+
+
+http://rogerdudler.github.io/git-guide/index.pt_BR.html
+
+FIRST OF ALL :: se fora de sua maquina
+git config --global user.email claudio.sa@udesc.br
+git clone https://github.com/claudiosa/Aprendendo-GitHub.git
+
+
+ANTES VERIFIQUE SE O MASTER ESTAH MAIS ATUAL
+git pull
+
+
+SEQUENCIA BASICA DE ENVIO ..... MASTER -> ORIGIN
+git status
+git add *
+git commit -a
+git push origin master
+
+
+
+SEQUENCIA BASICA DE BUSCA..... MASTER <- ORIGIN
+git status
+git pull
+e depois repete
+git add *
+git commit -a
+git push origin master

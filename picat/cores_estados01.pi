@@ -1,0 +1,24 @@
+
+pintar_sul  => 
+	cor(X1), %  aridade = 1
+	cor(X2),
+	cor(X3),
+    != (X1 , X2), %% vizinhos, aridade = 2
+    != (X3 , X2),
+    printf("\n RS: %d  SC: %d  PR: %d", X1, X2, X3).
+
+%%% FATOS ...  Prolog-like
+index(-) % these facts are not ordered
+cor( 1 )      .
+cor( 2 )      .
+cor( 3 )      .
+
+main => listar_todos.
+
+listar_todos ?=>     %%% this rule is backtrackable
+         pintar_sul ,    %% and
+         false.
+
+listar_todos => 
+          printf("\n**************************\n ") ,
+          true. %% the final rule of above

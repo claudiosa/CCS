@@ -1,0 +1,11 @@
+
+26/10
+
+1. Rever PONTEIROS para Estruturas ... o exercicio deixado na ultima semana
+2. Arquivos
+3. Tipos de Arquivos 
+4. Lendo de uma arquivo TEXTO sem formatacao
+5. Lendo de uma arquivo TEXTO  com uma Estrutura
+6. Escrevendo um arquivo TEXTO  com uma Estrutura
+7. Exercicios 
+8. QUIZZ$

@@ -1,0 +1,4 @@
+divide([], [], []). 
+divide([X], [], [X]). 
+divide([X,Y | L3] , [X | L1], [Y | L2] ):-
+divide( L3, L1, L2).

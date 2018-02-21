@@ -1,0 +1,125 @@
+%%%By ccs and Roger -- DCC UDESC
+% the problem ...
+
+/*
+     X2      X5
+    /    \    /    \
+X1     X4       X7
+   \     /    \     /
+     X3      X6
+*/
+
+import datetime.
+import planner.
+
+/* pontos iniciais e finais do problema */
+index(-)
+pt_origem(  [  b ,  a ,  c , o , o , o , o ]  ).
+
+index(-)
+pt_final( [o , o, o, o, c, a, b] ).
+
+%% for the planner
+final( [o, o, o, o, c, a, b] ) => true .
+
+
+/* movimentos permitidos  ===> veja o diagrama*/
+
+/* Describing the possible actions ==> for the planner */
+action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    ((X2 == o, X4 !=o) ;  (X4 == o, X2 != o)),  %% conditions
+	Action = [ X1,X4,X3,X2,X5,X6,X7 ], %%(X4 ,'X4 <-> X2', X2), %% a description
+	S1 = [ X1,X4,X3,X2,X5,X6,X7 ].   %% results
+	
+action( [ X1,X2,X3,X4,X5,X6,X7 ] , S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    ((X3 == o, X4 !=o) ;  (X4 == o, X3 != o)), 
+	Action = [ X1,X2,X4,X3,X5,X6,X7 ], %% (X4 , 'X4 <-> X3', X3),
+	S1 =  [ X1,X2,X4,X3,X5,X6,X7 ] .
+	
+action( [ X1,X2,X3,X4,X5,X6,X7 ] , S1, Action, Action_Cost ) ?=>
+       Action_Cost = 1,
+       	(X2 == o, X1 !=o),
+       	Action = [ X2,X1,X3,X4,X5,X6,X7 ] , %% (X1, 'X1 <-> X2', X2),
+        S1 = [ X2,X1,X3,X4,X5,X6,X7 ] .
+       
+action( [ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    X3 == o, (X1 != o),
+    Action = [ X3,X2,X1,X4,X5,X6,X7 ], %% (X3, 'X3 <-> X1', X1),
+    S1 = [ X3,X2,X1,X4,X5,X6,X7 ].
+
+action( [ X1,X2,X3,X4,X5,X6,X7 ],  S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    ((X6 == o, X4 !=o) ;  (X4 == o, X6 != o)), 
+	Action = [ X1,X2,X3,X6,X5,X4,X7 ], %%(X4, 'X4 <-> X6', X6),
+	S1 =  [ X1,X2,X3,X6,X5,X4,X7 ] .
+
+action( [ X1,X2,X3,X4,X5,X6,X7 ] , S1, Action, Action_Cost ) ?=>
+     Action_Cost = 1,
+    
+	((X5 == o, X4 !=o) ;  (X4 == o, X5 != o)), 
+     Action = [ X1,X2,X3,X5,X4,X6,X7 ], %%%(X4, 'X4 <-> X5', X5),
+     S1 =  [ X1,X2,X3,X5,X4,X6,X7 ].
+			
+action( [ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    
+	((X5 == o, X7 !=o) ;  (X7 == o, X5 != o)), 
+	Action = [ X1,X2,X3,X4,X7,X6,X5] ,%% (X5, 'X5 <-> X7', X7),
+	S1 =  [ X1,X2,X3,X4,X7,X6,X5] .
+ 
+action( [ X1,X2,X3,X4,X5,X6,X7 ]  , S1, Action, Action_Cost ) =>
+    Action_Cost = 1,
+    ((X6 == o, X7 !=o) ;  (X7 == o, X6 != o)), 
+    Action = [X1,X2,X3,X4,X5,X7,X6], %%%(X6, 'X6 <-> X7', X7),
+     S1 =  [X1,X2,X3,X4,X5,X7,X6].
+
+%%%%%%%%%%%%%%%%% the main call %%%%%%%%%
+main  ?=>  
+    pt_origem(X), 
+    printf("\n Configuracao INICIAL\n"), 
+    w_amarelinha(X),
+    pt_final(Y),
+    T1 = current_time(),
+    time(best_plan_unbounded( X , Solucao)), %%% CPU TIME
+    T2 = current_time(), 
+
+    write(Solucao), nl,
+    write_L(Solucao), 
+  
+    Total := length(Solucao) ,
+    Num_Movts := (Total -1) ,
+   % T_CPU :=T2-T1, %%% think in something better
+    printf("\n Initial Position (state): %w ", X),
+    printf("\n Final  Position (state): %w", Y),
+    printf("\n Total of states: %d", Total), 
+    printf("\n Total of moviments: %w", Num_Movts),
+    printf("\n CPU TIME INIC: %w  FIM %w",     T1, T2),
+    printf(" \n =========================================\n ")
+    .
+   
+main => nl, write('No solution in the model  ... Houston we have a trouble!!!!' ) .
+
+/* ************************************************************/
+/*
+      X2       X5
+    /    \   /    \
+  X1       X4      X7
+   \     /   \    /
+     X3        X6
+*/
+
+/************************************************************/
+ write_L([])  ?=> true.
+ write_L([X|L]) =>  w_amarelinha(X), write_L(L).
+/* ************************************************************ */
+%%% ajuste no braco ... veio do Prolog isto
+w_amarelinha([X1,X2,X3,X4,X5,X6,X7]) =>
+       write('  '), write(X2), write('    '), write(X5), nl,
+       write(X1), write('    '), write(X4), write('    '), write(X7), nl, 
+       write('  '), write(X3), write('    '), write(X6), nl, nl.
+ %%% DAH PARA MELHORAR MUITO COM O printf      
+/* ************************************************************ ***********/
+ 

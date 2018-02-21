@@ -1,0 +1,40 @@
+import os.
+main ?=> Status = command("clear") ,
+		printf("====================================== %d", Status),
+        t1,
+        t2,
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong !!!").
+
+t1 =>
+		X1 = 1,
+		X2 = 10,
+		I = 1,
+        printf("\n  %d    %d    %d", I, X1, X2),
+		while( I < 5 )
+		  X1 := teste1(X1),    %%% simula a troca de valores
+		  X2 := teste1(X2),
+		  printf("\n  %d    %d    %d", I, X1, X2),
+		  I := I + 1,   %%% simula a troca de valores
+		end  .
+
+t2 =>
+		X1 = 1,
+		X2 = 10,
+		I = 1,
+        printf("\n  %d    %d    %d", I, X1, X2),
+		while( I < 5 )
+		  teste2(X1, R1),
+		  teste2(X2, R2),
+		  X1 := R1,   %% simula uma troca de valores explicita
+		  X2 := R2,
+		  printf("\n  %d    %d    %d", I, X1, X2),
+		  I := I + 1,
+		end  .
+
+
+/* Usando sintaxe de FUNCOES  */
+teste1(N) = Resp => Resp = N + 2. %% Calcula mesmo ...
+teste2(N,R) => R = N + 2. 
+/***********************************************/        

@@ -1,0 +1,137 @@
+﻿<html>
+	<head>
+		<style>
+			table {
+				border: black solid 1px;
+				border-collapse: collapse;
+			}
+			td, th {
+				border: black solid 1px;
+				padding: 3px 3px;
+				text-align: center;
+			}
+			.code {
+				border: gray solid 1px;
+				font-family: monospace;
+				background-color: lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Recursive comparison between Python, Haskell and Picat</h1> Last Edited: 11/27/2015
+		<p>Each language compiler/interpreter support its own set of optimization. In this benchmark, we will look at how Python, Glasgow Haskell and Picat fare with recursion. For a consistent comparison, we will only look at the execution time of their interpreters. The reason being that Picat doesn’t compile to binary executable at the time of this benchmark.</p>
+		<p>Reversing lists of N elements will be used for testing recursion. Two recursion algorithms will be used for reversing lists: <b>normal recursion</b> and <b>tail-end recursion</b>.</p>
+		<h2>Normal Reverse Results:</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Algorithm</th>
+					<th>List Size</th>
+					<th>Python Lists</th>
+					<th>Python Tuples</th>
+					<th>Haskell</th>
+					<th>Picat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th rowspan=4>Normal Reverse</th>
+					<td>9,000</td>
+					<td>0.922</td>
+					<td>0.734</td>
+					<td>0.016</td>
+					<td>0.656</td>
+				</tr>
+				<tr>
+					<td>100,000</td>
+					<td>Stack Overflow</td>
+					<td>Stack Overflow</td>
+					<td>0.141</td>
+					<td>80.909</td>
+				</tr>
+				<tr>
+					<td>1,000,000</td>
+					<td>Stack Overflow</td>
+					<td>Stack Overflow</td>
+					<td>1.203</td>
+					<td>Too Slow</td>
+				</tr>
+				<tr>
+					<td>10,000,000</td>
+					<td>Stack Overflow</td>
+					<td>Stack Overflow</td>
+					<td>14.375</td>
+					<td>Too Slow</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<img src="images/normalreverse.png" height="400" width="500" />
+		<p>Both Python's Lists and Tuples are used in this benchmark. The reason is because Python internally implements lists using arrays. On the other hand, Haskell's and Picat's lists are implemented using linked-list. Since the internal implementation of Tuples in Python uses linked-list, using Python Tuples would make the benchmark a better comparison. In addition, one can see that it is faster to use Tuples in Python in this case since insertion is faster using linked-list compared to arrays.</p>
+		<p>As one can see for the <b>normal reverse algorithm</b>, Python is the slowest. By default, Python supports up to 1,000 recursive depth. This limit can be changed inside the code: <span class="code">sys.setrecursionlimit(RECURSIVE_DEPTH)</span>. However, even after increasing the recursive depth limit, Python stack still overflows around 9,500 recursive depth which is why this benchmark uses 9,000 as the test limit for Python. Since Haskell and Picat use dynamic stacks which grow automatically according to the needs, they don't have this stack overflow problem.</p>
+		<p>Picat ranks second in terms of performance. However, as the list size increase, the time complexity increases exponentially. This can be seen when the list size is increased from 9,000 to 100,000; the time required for Picat to complete the function call went from 0.656 seconds to 80.909 seconds.</p>
+		<p>Haskell on the other hand did some interesting smart optimization. It optimized the normal reverse algorithm into something that grows linearly. As we can see, in every step that the list size is increased by tenfold, the time complexity is increased a little over 10 times.</p>
+		<h2>Tail-End Reverse Results:</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Algorithm</th>
+					<th>List Size</th>
+					<th>Python Lists</th>
+					<th>Python Tuples</th>
+					<th>Haskell</th>
+					<th>Picat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th rowspan=3>Tail-End Reverse</th>
+					<td>100,000</td>
+					<td>1.609</td>
+					<td>1.391</td>
+					<td>Too Fast</td>
+					<td>Too Fast</td>
+				</tr>
+				<tr>
+					<td>1,000,000</td>
+					<td>Stack Overflow</td>
+					<td>Stack Overflow</td>
+					<td>0.547</td>
+					<td>0.031</td>
+				</tr>
+				<tr>
+					<td>10,000,000</td>
+					<td>Stack Overflow</td>
+					<td>Stack Overflow</td>
+					<td>6.219</td>
+					<td>0.328</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<img src="images/tailendreverse.png" height="400" width="500" />
+		<br />
+		<p>When comparing <b>tail-end reverse</b> algorithm, Python is still the slowest. In addition, it is even slower than the normal reverse algorithm. The reason is because Python does not support tail-end recursive optimization <a href="http://neopythonic.blogspot.com.au/2009/04/tail-recursion-elimination.html">in favor of debugging</a> which is undestandable. In addition, tail-end recursion without optimization leads to larger stacks which is why it is slower than normal recursion.</p>
+		<p>Haskell on the other hand, ranks second. It runs the tail-end reverse a little more than twice faster than the normal reverse implementation. Although not included in this bechmark, Haskell programs tend to run 3 to 5 times faster when compiled to binary executable.</p>
+		<p>Picat for the surprise, ranks first. It not only supports tail-end recursive optimization, it actually runs even faster than Haskell’s interpreted tail-end optimization by a margin of over 10 times.</p>
+		<h2>Conclusion</h2>
+		<p>I am sure that each of the languages’ interpreter can do better in its own language specific optimization. What the benchmark shows is that the best way to go through a list of elements in Python is by using loops. Recursion are not optimized in Python and there is the risk of stack overflow; therefore, sometimes it is better to avoid it.</p>
+		<p>Haskell does some really good optimization even for normal recursive code. Witting tail-end recursive code helps the interpreter to optimize the code even further.</p>
+		<p>Picat on the other hand does a fairly good job for normal recursive code even though it is not optimized. And for the surprise, it excels at tail-recursive code. It is still rather a young language at the time of this benchmark (only about 4 years old). I am eager to see what it provides in the future. Maybe binary code compilation could be a future step.</p>
+		<h2>Miscellanous</h2>
+		This benchmark was done on a machine with the following specifications:<br />
+		OS: Windows 10 Home 64-bit<br />
+		CPU: Intel i5-3317U<br />
+		Ram: 6.00GB<br />
+
+		<br />The following interpreters/compilers were used for this benchmark:<br />
+		Python 3.5.0 32-bit<br />
+		Glasgow Haskell Interpreter 7.10.2 32-bit<br />
+		Picat 1.5 32-bit<br />
+
+		<br />Source Code: <br />
+		Python: <a href="code/reverse.py">reverse.py</a><br />
+		Haskell: <a href="code/reverse.hs">reverse.hs</a><br />
+		Picat: <a href="code/reverse.pi">reverse.pi</a><br />
+	</body>
+</html>

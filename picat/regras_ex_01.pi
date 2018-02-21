@@ -1,0 +1,24 @@
+%%%% FATOS ... 
+index(-) % These facts are not ordered
+homem   ( platao )       . % formula dizendo que plata eh um homem
+homem   ( socrates )     .
+homem   ( adao )         .
+%%% opcional 
+main  => listar_todos.
+
+
+%% Uma regra da LPO: 
+%% Todos homens sao mortais 
+%%:: Qx ( homem(x) --> mortal(x))
+mortal(X)  => homem(X)  .
+
+%% BUSCA EXAUSTIVA == todos resultados
+listar_todos  ?=>     %%% this rule is backtrackable
+          mortal(X) , 
+          printf("\n Homem mortal: %w ", X) ,  
+          false.
+
+listar_todos => 
+          printf("\n The profs are humans !!! \n ")  ,
+          true. %% the final rule of above
+

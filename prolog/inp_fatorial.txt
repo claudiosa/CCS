@@ -1,0 +1,4 @@
+main :- fat(3,N), write(N), nl,
+        fat(5,X), write(X), nl,
+        fat(7,Y), write(Y), nl.
+%%        halt.

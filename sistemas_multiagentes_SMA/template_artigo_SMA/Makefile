@@ -1,0 +1,76 @@
+# LaTeX Makefile for dvi, ps, and pdf file creation.
+# By Jeffrey Humpherys
+# Written April 05, 2004
+# Revised January 13, 2005
+# Thanks Bjorn and Boris
+#
+# Usage:
+# make          # make dvi, ps, and pdf
+# make dvi      # make dvi
+# make ps       # make ps (and dvi)
+# make pdf      # make pdf
+#
+## nome do .tex ....
+## Um comando no MAKE ... comeca com TAB
+MAIN		=  n_rainhas_clp
+SOURCES	= $(wildcard ./*.tex)
+EPSFIGURES	= $(patsubst %.fig,%.eps,$(wildcard ./figures/*.fig))
+PDFFIGURES	= $(patsubst %.fig,%.pdf,$(wildcard ./figures/*.fig))
+
+all: dvi ps pdf
+
+dvi: ${MAIN}.dvi
+pdf: ${MAIN}.pdf
+ps: ${MAIN}.ps
+
+${MAIN}.dvi : ${SOURCES} ${EPSFIGURES}
+	    latex ${MAIN} 
+	    bibtex ${MAIN}.aux
+	    @while ( grep "Rerun to get cross-references"	\
+                        ${MAIN}.log > /dev/null ); do		\
+               echo '** Re-running LaTeX **';		\
+             latex ${MAIN};				\
+    done
+
+
+# ${MAIN}.pdf : ${SOURCES} ${PDFFIGURES}
+#        pdflatex ${MAIN}
+#        @while ( grep "Rerun to get cross-references" 	\
+#                        ${MAIN}.log > /dev/null ); do		\
+#                echo '** Re-running LaTeX **';		\
+#                pdflatex ${MAIN};				\
+#        done
+
+${MAIN}.ps : ${MAIN}.dvi
+        # running dvips
+	       dvips ${MAIN}.dvi -o ${MAIN}.ps
+
+${MAIN}.pdf : ${MAIN}.ps
+	     ps2pdf13 ${MAIN}.ps  ${MAIN}.pdf
+
+clean:
+#        rm -f ./figures/*.tex
+#         rm -f ./figures/*.eps
+#        rm -f ./figures/*.pdf
+	       rm -f ./figures/*.bak
+	        rm -f ./*.aux
+	             rm -f ./*.bbl
+	                  rm -f ./*.blg
+	                       rm -f ./*.log
+	        rm -f ./*.tex~
+	echo acabou exclusao!
+#
+# (re)Make .eps is .fig if newer
+#
+%.eps : %.fig
+        #Creates .eps file
+	  fig2dev -L pstex $*.fig > $*.eps
+        #Creates .tex file
+	   fig2dev -L pstex_t -p $* $*.fig > $*.tex
+#
+# (re)Make .pdf if .esp is newer
+#
+%.pdf : %.eps
+        #Creates .pdf files from .esp files
+	    epstopdf $*.eps > $*.pdf
+

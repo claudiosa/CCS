@@ -1,0 +1,54 @@
+
+main =>
+	soma_vetor_1D,
+	soma_vetor_2D,
+	soma_vetor_3D.
+
+soma_vetor_1D =>
+	 Vetor := {1, 5 , 3, 7},
+	 N := length(Vetor),
+         S := 0,       
+	 foreach(Ind in 1 .. N)
+	 	printf( " %d", Vetor[Ind] ),
+	        S := S + Vetor[Ind]      
+	 end,
+	 printf("\n Soma de %w  eh:  %d\n" , Vetor, S).
+
+soma_vetor_2D =>
+	 Vetor := {{1, 5 , 3, 7},
+			{7, 3 , 1, 5}},
+	 Linhas := length(Vetor),
+	 Colunas := length(Vetor[1]),	 
+         S := 0,       
+	 foreach(Ind_1 in 1 .. Linhas)
+	 	 foreach(Ind_2 in 1 .. Colunas)
+ 	         S := S + Vetor[Ind_1, Ind_2]     
+	 end,
+	 end,
+	 printf("\n Soma  de %w  eh:  %d\n" , Vetor, S).
+
+soma_vetor_3D =>
+	 Vetor := {{{7, 1 , 5, 3},{1, 3 , 7, 5} , {5, 3 , 1, 7}, {3, 7 , 1, 5}},
+			{{7, 1 , 5, 3},{1, 3 , 7, 5} , {5, 3 , 1, 7}, {3, 7 , 1, 5}}
+	               },
+	 Linhas := length(Vetor),
+	 Colunas := length(Vetor[1]),	 
+ 	 Em_Z     := length(Vetor[1,1]),	 
+         S := 0,       
+	 foreach(Ind_1 in 1 .. Linhas)
+	 	 foreach(Ind_2 in 1 .. Colunas)
+		 	 	 foreach(Ind_3 in 1 .. Em_Z)
+ 	         S := S + Vetor[Ind_1, Ind_2, Ind_3]     
+	 end,
+	 end,
+	 end,
+	 printf("\n Soma  de %w  eh:  %d\n" , Vetor, S).
+
+
+
+
+/*
+picat soma_vetor01.pi 
+ 1 5 3 7
+ Soma dos elementos de {1,5,3,7}  eh:  16
+*/

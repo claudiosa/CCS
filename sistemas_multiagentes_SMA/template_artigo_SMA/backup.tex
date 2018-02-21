@@ -1,0 +1,645 @@
+\documentclass[12pt]{article}
+\usepackage{sbc-template}
+
+\usepackage[dvips]{color} %% incluido por Claudio
+\usepackage{graphicx, subfigure, url}
+\usepackage{amsmath,amsthm, amscd}
+\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc} 
+
+\usepackage{listings,comment}
+\usepackage{colortbl}
+\definecolor{olive}{rgb}{0,0.6,0}
+\definecolor{brown}{rgb}{0.5,0.4,0}
+\definecolor{orange}{rgb}{1,0.65,0.2}
+
+\renewcommand{\lstlistingname}{Código}
+\newenvironment{code}
+{\begin{list}{}
+{\setlength{\leftmargin}{1.5cm}
+\setlength{\rightmargin}{1.5cm}
+% \lstset{float = {hbtp},
+\lstset{float = {H},
+lineskip = -1pt,
+captionpos = b,
+numbers = left,
+numberstyle = \tiny,
+basicstyle = \scriptsize,
+tabsize = 4}}
+\item\scriptsize}
+{\end{list}}
+
+\newcommand{\nrainhas}{\emph{n-rainhas }}
+\newcommand{\Nrainhas}{\emph{N-Rainhas }}
+\newcommand{\PR}{Programação por Restrições}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definição}[section]
+
+\sloppy
+
+\title{Aplicando Programação em Lógica com Restrições no Problema das \Nrainhas com Tabela de Pesos}
+
+\author{Gerson Fernando Budke\inst{1}, \\     
+Claudio Cesar de Sá\inst{1},\\
+Rogério Eduardo da Silva\inst{1},\\
+%Daniela Gorski Trevisan (Universidade do Estado de Santa Catarina)      
+Milton Roberto Heinen\inst{1}
+}
+
+\address{Universidade do Estado Santa Catarina -- UDESC\\
+Departamento de Ciência da Computação -- DCC\\
+Centro de Ciências Tecnológicas -- CCT\\
+Campus Universitário Prof. Avelino Marcante s/n\\
+Bloco F  2o. Andar -- Sala 209\\
+89.223-100 -- Joinville -- SC -- Brasil
+%%%\author{ Omitido para revisão cega }
+\email{\{dcc6gfb, claudio, rsilva, miltonh\}@joinville.udesc.br}
+}
+
+%%%\restylefloat{figure,table}
+\begin{document}
+
+\maketitle
+
+\begin{resumo}
+Neste artigo a Programação em Lógica com Restrições (PLR) é aplicada ao problema clássico das \nrainhas, contudo, cada posição ou célula no tabuleiro possui um peso, um valor inteiro. Assim, este tabuleiro é ponderado segundo uma tabela de pesos, o qual generaliza o conceito de um tabuleiro com pesos iguais em todas as suas células. O objetivo consiste em encontrar as combinações das \nrainhas que levem há  uma maximização
+sobre estas combinações válidas. A metáfora deste problema com problemas reais de combinatoriais é onipresente/ubíqua.
+%, objetivando a sua combinação maximal.
+Os resultados levantados bem como o tempo de maximização é factível dada a complexidade desta classe de problema.
+ Este resultado fortalece a PLR como uma teoria atrativa a problemas combinatoriais
+a serem aplicados a problemas reais.
+\end{resumo}
+
+\begin{abstract}
+The Constraint Logic Programming (CLP) is applied to the traditional problem of
+8-queens, where each position or cell on board has a weight, an integer value. It means that a board weighted in according to a scale of weights. With the result from the combination of 8-queens was applied on a maximization all valid combinations, aiming to find its maximal combination. The results presented are acceptable considering the run time given the complexity of this problem. This result shows the CLP as an attractive theory to problems combinatorials when applied in real problems.
+
+\end{abstract}
+
+
+\section{Introdução}
+\label{sec_introducao}
+
+Um objetivo recorrente em Inteligência Artificial (IA) é a especificação
+de metodologias e técnicas que resolvam problemas específicos, cujas
+soluções apresentem características do comportamento humano
+``{\em inteligente}''.  Os objetivos atuais da IA estão distantes da definição original de inteligência para uma máquina, 
+formulada por Turing, a qual exige senso comum em sua avaliação, logo, uma definição  contestada por vários. 
+A IA
+atual visa estabelecer uma tecnologia capaz de suportar o desenvolvimento
+de programas com bom desempenho em tarefas que exijam sofisticação
+cognitiva em um domínio especializado. Um programa que atenda a essa
+condição é considerado inteligente. Essa  definição de
+``inteligência'' \/ almeja um sistema com a capacidade de aprender novos conhecimentos a partir de 
+um conhecimento básico e, finalmente, reproduzi-los com desempenho semelhante a um especialista.
+
+Neste contexto, os problemas que exijam algum tipo de habilidade humana, quanto a estruturação
+de uma solução algoritmica,  os quais conduzam há um significativo 
+ número de espaço de estados,  raciocínio diversos, incertezas, múltiplas avaliações, manutenção de
+verdades, dinâmica temporal,  evolução, etc, são de interesse da IA.
+Logo, a habilidade mental  típica do ser humano na solução de um problema, torna um indicativo de que um dado problema  é ou não de interesse da IA. 
+
+\begin{comment}
+Por outro lado, uma simples 
+ ameba\footnote{A ameba é um animal unicelular, 
+composto por apenas uma única célula. Em função do seu tamanho, em média 
+0,2 milímetro, é observável apenas com a ajuda de  microscópio. A ameba é classificada  como protozoário e sua vida remonta o período de origem do nosso planeta.}
+ biológica  apresenta
+um elevado grau de adaptação ao meio ambiente visando a sua sobrevivência, apresenta
+características intrínsecas de um ser inteligente.
+, estático
+\end{comment}
+
+Neste artigo, um  problema clássico da IA, significativo quanto
+memória utilizada e  espaço de estados é atacado por uma técnica conhecida 
+como a Programação em Lógica por Restrições (PLR) \cite{JAFFAR87}. A PLR encontra-se inserida na área de Programação por Restrições (PR) \cite{apt_2003} a qual se preocupa em resolver problemas combinatoriais típicos das classes NP e E \cite{rossi2006,rina2003}.
+
+%é atacado, no qual o conceito de memória e exploração de espaço de estados são
+%características desejáveis e necessárias ao agente em encontrar uma solução.
+
+O problema apresentado é o das n--rainhas, com um tabuleiro de 
+pesos, aleatórios ou não, sob as células. A proposta é dispor estas rainhas no tabuleiro tal que
+estas não se ataquem mutuamente, e que a soma dos pesos em cada
+célula escolhida, seja a maior possível em uma dada configuração; neste caso uma maximização.  Logo, tem-se
+um problema multi-objetivo: nenhum conflito entre $n$ rainhas dispostas sobre um
+ tabuleiro $n \times n$ e 
+ maximizar ou minimizar,  a soma do peso final de todas as células que a mesma ocupem.
+
+Este artigo está organizado de acordo com: na seção \ref{sec_fundamentos}
+ uma revisão--resumo do contexto da PLR e suas
+ motivações. Na seção \ref{sec_modelagem} segue por uma análise e modelagem
+ do problema. Na seção \ref{sec_implementacao} é discutido aspectos
+técnicos desta solução escrito na linguagem ProLog. Na seção \ref{sec_resultados}
+alguns testes são exibidos afim de constatar a eficiência da PLR.
+
+\section{Fundamentação Conceitual}
+\label{sec_fundamentos}
+
+\begin{comment}
+Esta seção tem por objetivo correlacionar os conceitos necessários. Inicialmente é apresentado os conceitos básicos de problemas NP-Completos. 
+\end{comment}
+
+Nesta seção  é introduzida a classe dos {\em Problemas de Satisfação de Restrições}, a técnica da  {\em Programação por Restrições} e um de seus sub-conjuntos: {\em Programação em Lógica com Restrições}.
+
+\begin{comment}
+\subsection{Problemas NP}
+
+Na teoria da complexidade computacional, {\em NP} é o acrônimo em inglês para Tempo Polinomial Não-Determinístico ({\em Non-Deterministic Polynomial Time}) que denota o conjunto de problemas que são decidíveis em tempo polinomial por uma máquina de Turing\footnote{A máquina de Turing: é um dispositivo teórico, conhecido como \emph{máquina universal}, que foi concebido pelo matemático britânico Alan Turing (1912-1954).} não-determinística\footnote{Máquina de Turing Não-Determinística: é aquela onde a tabela de ação contém múltiplas entradas para uma combinação de um símbolo $\times$ estado.}. Uma definição equivalente é o conjunto de problemas que podem ser verificados em tempo polinomial por uma máquina de Turing determinística\footnote{Máquina de Turing Determinística: é aquela onde a tabela de ação contém no máximo uma entrada para cada combinação de símbolo $\times$ estado.}.
+
+\begin{defn}
+\label{def:NP}
+
+Um problema sendo resolvido por uma máquina de Turing $M$ é dito de complexidade de tempo $T(n)$ sempre que $M$ recebe uma entrada $w$ de comprimento $n$ e $M$ pára depois de efetuar no máximo $T(n)$ movimentos, independente do fato de $M$ aceitar ou não a entrada \cite{sipser_2006_a}. Formalmente, se diz que uma linguagem $L$ esta na classe $NP$ se existe uma máquina de Turing não-determinística $M$ e uma complexidade de tempo polinomial $T(n)$ tais que $L = L(M)$ e, quando $M$ recebe uma entrada de comprimento $n$ de forma que não exista nenhuma seqüência de mais de $T(n)$ movimentos de $M$ \cite{sipser_2006_a}. Sendo assim, $P \subseteq NP$ \/ por definição da teoria geral de autômatos ficando evidente se $M$ executa o não-determinismo em paralelo.
+\end{defn}
+
+\end{comment}
+
+\subsection{Problemas de Satisfação de Restrições}
+\label{sec:ch_cp}
+
+Um problema combinatorial cl\'assico é apresentado por um conjunto de vari\'aveis de um sistema,  as quais  ser\~ao instanciadas por objetos de domínios, segundo um conjunto de relaç\~oes, as quais representam o relacionamento entre os objetos. A tarefa combinatorial
+é dada pela aç\~ao de instanciar estes objetos as variáveis, de tal modo que todas as 
+relaç\~oes sejam satisfeitas.
+
+A esta classe de problemas combinatoriais é conhecida como \textit{Problemas de Satisfação de Restrições} (PSRs). A resoluç\~ao dos PSR's constituem em encontrar valores as variáveis
+respeitando ou satisfazendo suas restrições. Deste modo, um PSR é tipicamente um problema \textit{NP-Completo} \cite{rossi2006}. O desafio de todo o processamento por restrições está em gerar algoritmos que resolvam esta classe de problemas em um tempo
+computacional aceitável. Invariavelmente, alguns destes problemas NP, podem apresentar uma
+complexidade espacial consider\'avel, assim passam para classe P-SPACE \cite{sipser_1996}.
+Dado este aspecto combinatorial e de complexidade NP, esta passa ter interesse
+por outras àreas da pesquisa que lidam buscas \textit{heurísticas}, tais como a Computação Evolutiva (CE),
+ ou ainda buscas \textit{completas} com a IA clássica e a Pesquisa Operacional (PO), etc. 
+
+
+\begin{comment}
+Para esta classe de problemas lança-se mão do uso da \textit{Programação por Restrições} (PPR ou PR), ou seja, uma técnica que utiliza uma teoria e  ferramentas pr\'oprias de  programação. A PPR é uma forma de aplicar os conceitos de variáveis, domínios e restrições, via esta teoria específica de programação. 
+\end{comment}
+
+
+\begin{comment}
+Esta situaçao é ilustrada pela figura \ref{fig:eureka}.
+\begin{figure}[!ht]
+\begin{center}
+  \includegraphics[scale=0.5]{figuras/psr_01.eps}
+  \caption{Família dos problemas do tipo satisfação de restrições}
+\label{fig:eureka}
+\end{center}
+\end{figure}
+\end{comment}
+
+\begin{comment}
+A \PR por sua vez, a exemplo da IA, CE, PO, etc, apresenta várias outras
+subdivisões e sub-áreas de interesse.  Uma delas ela é a \textit{Programação em Lógica com Restrições} \cite{Marriot_98} um dos segmentos a serem atacados nesta pesquisa. A PLR tem na lógica de primeira-ordem 
+o seu modelo computacional, o qual é calculado a partir de buscas exaustivas sobre
+os seus \textit{modelos consistentes} -- modelos de Herbrand.
+\end{comment}
+
+Uma das   partes mais instigantes sobre os PSRs é que os mesmo são onipresentes
+em problemas do mundo real \cite{rossi2006}. Destacam-se os problemas de escalonamento, planejamento, roteamento, contenção, alocação, etc, assim  uma das técnicas de se atacar os PSR, é  com a PR.
+
+\begin{comment}
+As restrições podem ser consideradas como informações e dados há um programa por restrições. 
+Estas  visam limitar o \textit{espaço de busca} e descrevem propriedades de 
+variáveis/objetos e o relacionamento entre eles. As restrições são formalizadas como uma relação entre os objetos e esses são modelados como variáveis \cite{BARTAK98c}.
+\end{comment}
+\begin{comment}
+A relação existente entre os problemas de satisfação de restrições e a programação por restrições é expressa pela figura \ref{fig:eureka}. Portanto, pode-se considerar que a PR está contida em PSR. Ou seja, a PR é um método que pode ser aplicado para encontrar a solução de problemas do tipo PSR.
+\end{comment}
+
+%%%%%%%%%%%%%% ateh aqui....
+
+\subsection{Programação por Restrições}
+
+O objetivo da Programação por Restrições (PR) é resolver problemas por exploração das restrições encontrando valores que satisfaçam uma solução \cite{apt_2003}. A PR provê  uma abordagem declarativa para resolução de problemas.
+
+Usualmente, esta técnica consiste em modelar um problema utilizando-se de variáveis, domínios e restrições. Esta modelagem pode ser utilizada em problemas de pequeno, médio e grande porte e podem ser resolvidas utilizando técnicas clássicas de programação para computadores \cite{BARTAK07}.
+
+\begin{comment}
+A PPR consiste em um \textit{framework} para resolução de problemas (otimização) combinatoriais. A idéia básica deste \textit{framework} está em modelar um problema com um conjunto de variáveis. As variáveis possuem domínios (os valores possíveis para estas variáveis) e restrições que restringem as possíveis combinações entre as variáveis.
+\end{comment}
+
+A tarefa principal de um algoritmo PR está em encontrar soluções (valores para as variáveis) que obedeçam às regras impostas pelas restrições. Um resultado é dito \textit{consistente} quando atende a estes critérios \cite{BARTAK98c}.
+Para  aplicações da PR existem algoritmos que se utilizam dos conceitos advindos da Pesquisa Operacional (PO), da Programação em Lógica (PL), entre outros \cite{BARTAK07}. 
+%%%%A subseção \ref{sec:plr1} apresenta o uso da PL aplicada à PPR.
+
+\subsection{Alguns Fundamentos da \PR}
+
+Esta subseção   apresenta alguns fundamentos da PR, pois, estes elementos
+ descrevem as restrições  e declarações sobre um problema. Os problemas devem ser modelados, categorizados, ou seja, representados de forma a fazer com que se possa aplicar um determinado método de busca para encontrar a(s) 
+solução(ões). Diversas são as técnicas encontradas na IA para a modelagem e resolução de problemas \cite{RusNorv}.
+
+\begin{comment}
+Uma delas é a aplicação de técnicas para  solução de Problemas de Satisfação de Restrições PSR, ou, problemas que podem ser resolvidos pelo uso de restrições.
+Um PSR é definido como uma tupla $(V,D,R)$ onde \cite{apt_2003}:
+
+
+\begin{itemize}
+
+ \item $V$ é um conjunto de $n$ variáveis $\lbrace x_{1}, ..., x_{n} \rbrace$. Por convenção, variáveis  são representadas pelas letras $x$, $y$, $z$, etc, indexadas por $i$ se for caso de um número
+ significativo das mesmas; fato que é regra geral.
+
+ \item $D = \lbrace D_{1}, ..., D_{n} \rbrace$ é um conjunto de domínios. Onde cada componente $D_{i}$ é o domínio que contém todos os possíveis valores que se podem atribuir à variável $x_{i}$.
+
+ \item $R$ é um conjunto finito de restrições. Cada restrição $n$-ária $(R_{n})$ está definida sobre um conjunto de variáveis $\lbrace x_{1}, ..., x_{x} \rbrace$ restringindo os valores que as variáveis podem, simultaneamente possuir. Este conjunto é dado por: $R = \{ r_1, r_2, ..., r_m \}$
+
+\end{itemize}
+
+Em uma descrição, pode-se conceituar um PSR como um problema que pode ser composto por um conjunto de variáveis, cada qual associada à um domínio e um conjunto de restrições que se aplica aos valores que as variáveis podem, simultaneamente, serem atribu\'idas ou assumirem. A tarefa está em descobrir um valor no domínio para cada variável que satisfaça todas as restrições \cite{Tsang93}. Um conjunto de variáveis $ V = {x_{1},...,x_{n}} $, em associação com o domínio $D_{1},...,D_{n}$, respectivamente, possui uma \textit{relação $R$} com um conjunto de variáveis que resulta em um subconjunto de um produto destes domínios. O conjunto de variáveis no qual a restrição está definida é chamado de \textit{escopo} da relação 
+ora da \textit{restriç\~ao}, denotado por  \textit{grau} ou  \textit{escopo} de vari\'avel $x_i$ no conjunto   $R$. Cada relação que um subconjunto de mesmo produto $D_{1} \quad  \times ... \times \quad D_{n}$ de $n$ domínios é dita: \textit{aridade n}. Se $n  = 1, 2 $ ou $3$, então a relação é chamada \textit{unária, binária} e \textit{ternária} respectivamente. Se $R = D_{1}\quad \times ... \times \quad D_{n}, $ ent\~ao $R$ é chamado de relação \textit{universal}. 
+\end{comment}
+
+Assim um modelo em PR, para  classe dos PSR, seguem de modo canônico a tupla  \textit{$(V, D, R)$}, onde:
+
+\begin{description}
+\item[$V$:] um conjunto de variáveis usadas na modelagem do problema, $\{ x_{1}, ... , x_{n} \}$;
+\item[$D$:] um conjunto domínio(s), $\{ D_{1},...,D_{n} \}$ em que as variáveis de $V$ podem assumir valores;
+\item[$R$:] tem-se no de $m$ conjunto de restrições  um mapeamento do tipo $(V \times D)^m \rightarrow V$.
+ 	     Assim, uma restriç\~ao é dada por: $r_j(x_1, ... , x_n)$ 
+\end{description}
+
+Logo, encontrar uma soluç\~ao de um modelo em PR é logicamente expresso por:
+$$ \exists x_1 \exists x_2 ... \exists x_n (r_1(x_1, ... , x_n) \wedge r_2(x_1, ... , x_n) \wedge ... \wedge r_m(x_1, ... , x_n) )  $$ 
+
+Onde a sua interpretação lógica consistente é uma resposta ao problema. A descrição
+de sua solubilidade é análoga ao mundo de Herbrand \cite{RusNorv}.  Cada restrição é aplicada a um subconjunto de variáveis, visando a satisfatibilidade em de  seus valores. Uma atribuição é dita \textit{consistente} se esta não violar nenhuma restrição. Assim,  uma solução é encontrada quando todas as variáveis possuirem um valor consistente \cite{apt_2003, rina2003, rossi2006}.
+
+
+\subsection{Definições} %%Conjuntos, Restrições, Domínios e Túplas}
+\label{sec_def}
+
+Para compreender a aplicação da PLR é necessário definir algumas definições próprias da área. Esta seção está resume algumas destas definições  \cite{rina2003, apt_2003}.
+
+%\begin{description}
+
+\textbf{Conjunto}: Um \textit{conjunto} é uma coleção de objetos distintos e um objeto em uma coleção é chamado de um \textit{membro} ou \textit{elemento} de um conjunto.
+
+\textbf{Ordenação}: Um conjunto não pode conter o mesmo objeto mais de uma vez, e estes elementos não são ordenados.
+
+\textbf{Variável}: Uma variável possui uma coleção de valores, chamada domínio.
+
+\textbf{Domínio}: Um domínio de uma variável é um conjunto que lista todas os objetos possíveis que a variável pode conter.
+
+\textbf{Tupla}: Uma tupla é um a seqüência de objetos, não necessariamente distintos e um objeto em sequência é chamado de \textit{componente}.
+
+%\end{description}
+
+%Para esta aplicação é necessário compreender o uso de restrições (\ref{sec:restr}) e domínios aplicados à problemas da classe PSR.
+
+
+\subsubsection*{Restrições}
+\label{sec:restr}
+
+As restrições  conduzem há um \textit{encolhimento}  no espaço de possibilidades (de estados) na busca por uma solução. A ordem pela qual as restrições são impostas não é relevante, mas sim, que ao final da conjunção dos termos seja atribuído o valor \textit{verdadeiro}. As restrições possuem propriedades importantes a serem citadas \cite{rossi2006}, tais como:
+
+\begin{itemize}
+	\item Constitui uma \textit{informação parcial}, haja vista que esta não pode, por si só, determinar o valor das variáveis do problema;
+
+	\item As restrições são \textit{aditivas}. Por exemplo: uma restrição $r_{1}: X + Y \geq Z $ pode ser adicionada a uma outra restrição $r_{2}: X + Y \leq W $;
+
+	\item As restrições raramente são \textit{independentes}. Geralmente compartilham variáveis, pois tratam sob um mesmo modelo. A combinação das restrições $r_{1}$ e $r_{2}$ resulta na obtenção de uma expressão algébrica do tipo: $Z \geq X + Y \leq W$;
+
+	\item As restrições são ainda \textit{não-direcionais}. Considerando a restrição $X + Y = Z$, esta pode ser utilizada para determinar a sua forma equivalente em $X \quad (X = Z - Y)$ ou em $Y \quad (Y = Z - X)$;
+
+	\item As restrições são de natureza \textit{declarativa} pelo fato de apenas denotarem as relações que devem ser asseguradas entre variáveis sem especificar um procedimento computacional para  estabelecer esse relacionamento.
+\end{itemize}
+
+Estas  características são típicas no uso de restrições em problemas do tipo PSR. A aplicação da restrição em um PR deve levar em consideração as variáveis do problema, bem como o domínio ao qual elas pertencem. A subseção 
+\ref{sec:dominios}, apresenta as definições de domínios.
+
+\subsubsection*{Domínios}
+\label{sec:dominios}
+
+A maioria das linguagens de PR possuem suporte a diversos tipos de domínios. Dentre elas destacam-se as restrições booleanas, domínios finitos, intervalos reais e termos lineares. 
+ Os mais utilizados são: inteiros, booleanos, reais (potencialmente infinito), conjuntos, intervalos, etc. Detalhes encontram-se \cite{apt_2003}.
+
+%%%%Outros  exemplos incluem listas, conjuntos finitos e árvores. 
+\begin{comment}
+ Contudo, os principais domínios são visualizados na figura \ref{fig:dominios} \cite{sucupira_03}.
+
+\begin{figure}[!ht]
+\begin{center}
+  \includegraphics[scale=0.9]{figuras/dom_psr.eps}
+  \caption{Domínios nos  PSR}
+\label{fig:dominios}
+\end{center}
+\end{figure}
+
+Os domínios correspondem ao tipo de valores que podem ser atribuídos às variáveis no momento da busca. Apesar da maioria dos problemas PSR poderem ser resolvidos utilizando domínios finitos, é importante relacionar aqui, este e outros domínios, tais como:
+
+\begin{description}
+
+  \item [Domínios booleanos]: são tratados por meta-interpretadores de restrições especializadas, podendo, no entanto, ser utilizados como um caso particular de restrições associadas à domínios finitos. As variáveis podem obter dois valores inteiros: $0$ (falso) ou $1$ (verdadeiro).
+
+  \item [Domínios finitos]: são utilizadas em muitas áreas do conhecimento. Para satisfação destas restrições usa-se uma combinação de técnicas para a preservação de consistência, propagação de valores e pesquisa com retrocesso \cite{sucupira_03, apt_2003}. Cada variável possui associada a ela um conjunto finito de valores inteiros. Os valores do domínio inconsistentes são removidos do domínio das variáveis durante a propagação;
+
+  \item [Números reais]:, também conhecidas como intervalos reais, são equivalentes aos domínios finitos mas aqui são utilizados valores reais. Inclusive as técnicas de remoção de inconsistências são similares às técnicas usadas para com os domínios finitos. Outras técnicas matemáticas de diferenciação automática ou as séries de \textit{Taylor} podem ser utilizadas \cite{sucupira_03};
+
+  \item [Domínios lineares]: ou restrições lineares, compreendem domínios construídos por meio de variáveis cujos valores são dados pelo conjunto dos números reais. Para este tipo de restrições têm sido implementados meta-interpretadores de restrições bastante eficientes que utilizam o algoritmo \textit{simplex} como ponto de partida \cite{sucupira_03}.
+\end{description}
+
+O uso do domínio PSR está diretamente ligado à modelagem desenvolvida pelo analista ou programador. Por outro lado, provavelmente, hoje em dia, mais de 95\% de todas as aplicações que utilizam restrições são de domínios finitos \cite{TSANG_97, apt_2003}. 
+\end{comment}
+
+\subsection{Programação em Lógica e a Linguagem ProLog}
+
+A {\em Programação em Lógica} consiste em utilizar a lógica matemática (cálculo dos predicados ou lógica de primeira-ordem) para descrever programas. Esta segue 
+uma implementação mecânica de um resolvedor baseado no método da Resolução \cite{kowalski_linear_71, kowalski_predicate74}.
+
+A linguagem  de programação ProLog é  orientada ao paradigma da  programação
+ em lógica \cite{kowalski_1979}. Essa linguagem é de propósito geral, freqüentemente associada  com a Inteligência Artificial e Lingüística
+Computacional \cite{covington_89}. A linguagem ProLog tem um subconjunto puramente lógico, denominado ``{\em ProLog puro}'',  bem como uma série de características extras-lógicos.
+
+A sua origem como linguagem e uma  implementação  experimental ocorreu  durante o ano de 1972 e foi desenvolvida por Alain Colmerauer e Philippe Roussel. Estes se 
+basearam  na interpretação procedural das cláusulas de Horn\footnote{Em lógica matemática: uma cláusula de Horn é uma cláusula (uma disjunção de literais) com pelo menos um literal positivo.} realizadas por Robert Kowalski.
+
+% ProLog is a logic programming language. It is a general purpose language often associated with artificial intelligence and computational linguistics. It has a purely logical subset, called "pure ProLog", as well as a number of extralogical features.
+
+\subsection{Programação em Lógica com Restrições}
+
+A partir das definições da PR  e avanços na Programação em Lógica, surge um uso natural e imediato desta, visando a exploração e redução do espaço de estados. Este trabalho resulta numa sub-área da PR, definida por a Programação em Lógica com Restrições (PLR) \cite{apt_2003, Marriot_98}.  Os primeiros trabalhos datam dos meados dos anos 80, ainda dentro a área da Inteligência Artificial, para em seguida, se consolidar como uma área em particular a partir do artigo seminal de J. Jaffar \cite{JAFFAR87}.
+
+A exemplo da PR,  a PLR é atrativa sob os seguintes requisitos metodológicos:
+
+\begin{itemize}
+\item Adequação a representação do conhecimento, caso este seja construído em lógica formal;
+\item Rápida prototipação e consequentemente baixo custo de desenvolvimento;
+\item Visão declarativa de suas restrições, possibilitando uma facilidade quanto aos testes e depuração;
+\item Flexibilidade na codificação dos algoritmos por abstrair características de programação em lógica.
+\end{itemize}
+\begin{comment}
+Contudo, a Programação em Lógica com Restrições é resultado da utilização do paradigma da programação em lógica somado à programação por restrições. A PLR está contida no subconjunto de técnicas que fazem uso da PL para resolver problemas do tipo PSR. As vantagens de se utilizar a programação em lógica por restrições (PLR) estão em: modelar problemas de forma declarativa com uma sólida base matemática, propagação dos efeitos das decisões utilizando algoritmos eficientes e busca por soluções ótimas \cite{FRUHWIRTH_03}. Desde o início dos anos 90, a programação baseada em restrições tem tido sucesso comercial e industrial \cite{russel_2010}. Em 1996, o mundo gerou, utilizando tecnologia de restrições um valor estimado de 100 milhões de dólares \cite{FRUHWIRTH_03}.
+
+A PLR surgiu inicialmente contido no contexto da programação lógica, apesar de atualmente existirem implementações baseadas em programação funcional e programação imperativa.
+
+
+De forma geral, as restrições são implementadas como uma extensão de uma linguagem já existente. Estas, operam sobre domínios específicos, sendo os mais usuais os seguintes:
+\begin{itemize}
+\setlength{\itemsep}{-2pt}
+\item Booleanos
+\item Números inteiros e racionais
+\item Lineares
+\item Finitos
+\item Mistos
+\end{itemize}
+Apesar dos vários domínios disponíveis, o mais usado atualmente é o domínio finito inteiro, devido principalmente à sua versatilidade. Na prática, o interpretador cria inicialmente o domínio para cada variável do problema e vai restringindo cada domínio à medida que avalia cada restrição. No fim deste processo, obter-se-á uma ou várias soluções que satisfaçam as restrições, ou caso estas não sejam satisfazíveis, nenhuma solução é encontrada.  A utilização dessa forma de restrições reduz o espaço de busca. Assim, o ganho com PLR é obtido pela redução do espaço de busca, conseqüentemente o tempo de busca se reduz drasticamente \cite{apt_2003}.
+\end{comment}
+
+%% retomar AQUI
+\section{Modelagem do Problema das \Nrainhas}
+\label{sec_modelagem}
+
+O problema das \nrainhas é antigo tendo mais de dois séculos. Inicialmente era conhecido como o problema das 8-rainhas, tem sido estudado por  matemáticos famosos, ao longo dos anos, incluindo o  matemático alemão Karl Friedrich Gauss (1777-1855). O problema foi generalizado para $n \times n$ lugares em 1850 por Franz Nauck. Desde a década de 1960, com a rápida evolução na ciência da computação, este problema tem sido usado como exemplo para algoritmos de busca por retrocesso \emph{backtracking}, geração de permutação, paradigma dividir e conquistar, metodologia de desenvolvimento de programas, problemas de satisfação com restrições, programação inteira, e de especificação.
+
+
+O problema consiste em encontrar todas as formas possíveis 
+de posicionar as \nrainhas em um tabuleiro de xadrez de $n$ 
+lugares, de tal modo que as \nrainhas não se ataquem. 
+De acordo com as regras de xadrez, a rainha ataca 
+células em todas as direções para linha, coluna e diagonais. 
+Assim, o objetivo é posicionar as \nrainhas em um tabuleiro 
+de $n \times n$ de tal forma que duas rainhas nunca estejam
+ na mesma linha, coluna e diagonais \cite{Tsang93}. 
+ A Figura \ref{fig:8QueensSolution} mostra uma solução 
+ para o problema clássico.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[height=3.0cm,width=3.0cm,angle=0]{8QueensSolution.eps}
+\caption{Uma solução válida para o problema das 8 rainhas}
+\label{fig:8QueensSolution}
+\end{figure}
+
+A ordem de complexidade do problema é fatorial\footnote{Lembrar que $n! > 2^n$ tal que $n>4$, logo este problema tem complexidade exponencial.} onde uma solução pode ser visualizada como uma permutação das $n$ rainhas em uma vetor unidimensional. Assim, inicialmente o espaço de estados inicial é dado por $n!$ soluções, uma vez que cada solução das \nrainhas é 
+baseada no tamanho $n \times n$ do tabuleiro \cite{Tsang93}. 
+Devido o ataque nas linhas, colunas e diagonais este valor $n!$ se reduz drasticamente.
+
+\begin{defn}
+\label{def:constrains1}
+Como uma proposta para solução do problema, posição das rainhas, é um vetor que armazene 
+valores onde cada elemento do vetor representa o número da coluna para  linha corrente do tabuleiro. 
+Cada linha e coluna contém exatamente uma rainha. Sendo assim, o 
+vetor $Qs = \{2, 4, 6, 8, 3, 1, 7, 5\}$ é uma solução possível, 
+representado pela Figura \ref{fig:8QueensSolution}. Exemplificando: $Q(3)=6$, leia-se, a rainha da linha $3$
+está posicionada na coluna $6$.
+\end{defn}
+
+\begin{defn}
+\label{def:constrains2}
+O posicionamento de cada rainha deve obedecer  as regras segundo o jogo de xadrez.
+ Sendo assim, a Equação \ref{eq:constraint:1} garante que duas rainhas não 
+ estejam na mesma linha e na mesma coluna. Da mesma forma a Equação \ref{eq:constraint:2} garante 
+que duas rainhas não estejam na mesma diagonal \cite{Tsang93}, dado por:
+\begin{subequations}
+\begin{align}
+\label{eq:constraint:1} \forall_{i, j} & : Q_{i} \neq Q_{j} \\
+\label{eq:constraint:2} \forall_{i, j} & : Q_{i} = a \wedge Q_{j} = b \rightarrow i - j \neq \left| a - b \right|
+\end{align}
+\end{subequations}
+\end{defn}
+
+Para a demonstração é utilizado o vetor $Qs$ apresentado na Definição \ref{def:constrains1} que é uma solução válida apresentada na Figura \ref{fig:8QueensSolution}. A seguinte listagem exemplifica as equações \ref{eq:constraint:1} e \ref{eq:constraint:2}:
+\begin{subequations}
+\begin{align}
+i & = 1 \\
+j & = 2 \\
+Q_{i} & = 2 \\
+Q_{j} & = 4
+\end{align}
+\end{subequations}
+
+Validando a restrição 1:
+\begin{subequations}
+\begin{align}
+Q_{i} & \neq Q_{j} \\
+2 & \neq 4 \\
+& true
+\end{align}
+\end{subequations}
+
+Validando a restrição 2:
+\begin{subequations}
+\begin{align}
+a & = Q_{i} & = 2 \\
+b & = Q_{j} & = 4 \\
+x & = |a - b| & = 2 \\
+i - j & = 1 - 2 & = -1 \\
+i - j & \neq x & true
+\end{align}
+\end{subequations}
+
+Se as restrições forem verdadeiras, as posições das rainhas
+ são válidas. Esse processo é realizado entre todos os 
+ elementos do vetor $Qs$. Uma solução é válida quando 
+ satisfaz todas as restrições. Este conjunto de fórmulas 
+ é a essência dos algoritmos apresentados nas seções seguintes.
+
+\section{Implementação}\label{sec_implementacao}
+
+A partir de uma configuração válida, que atenda as restrições \ref{def:constrains1} e \ref{def:constrains2},
+ o problema consiste em encontrar {\em a melhor} combinação das \nrainhas para um tabuleiro de xadrez com pesos. Este problema apresenta uma metáfora imediata há uma classe de problemas reais, os quais apresentam aspectos combinatoriais. Por exemplo, seja uma linha de produção com várias células produtivas ou de manufatura. Cada célula desta é modelada como uma linha ou coluna completa no tabuleiro, tal que os pesos em cada casa do tabuleiro, indicam os recursos disponíveis nesta célula. O objetivo deste problema real é encontrar quais os recursos a serem aplicados em cada célula, afim de maximizar a linha da produção por completo.
+
+\begin{defn}
+\label{def:problem1}
+O valor selecionado da tabela de pesos é determinado 
+conforme a posição $Q(i) \times seus\_pesos(j) $ de uma rainha no tabuleiro. Apenas relembrando, $Q(i)$ é a rainha da linha $i$ com seus respectivos pesos em cada coluna $j$.
+\end{defn}
+
+\begin{defn}
+\label{def:problem2}
+A melhor solução para o problema é dado pela maior soma dos valores selecionados 
+na tabela de pesos que satisfaçam as Definições \ref{def:constrains1} e \ref{def:constrains2}. 
+Leia-se o valor maximal deste problema.
+\end{defn}
+
+Como exemplo, a solução encontrada pelas posições e pesos definidas na 
+Figura \ref{fig:8QueensSolution}, tem-se uma saída com o valor de $40$ 
+unidades, segundo a tabela de pesos nesta mesma figura\footnote{Devido 
+ajuste do editor, a Figura \ref{fig:8QueensSolution}  encontra-se fora 
+desta página}.
+
+\begin{figure}[htbp]
+\begin{minipage}[htp]{1.00\linewidth}
+\centering
+\begin{tabular}{c c c c c c c c}
+1 & \colorbox{black} {\color{white} 2} & 3 & 4 & 5 & 6 & 7 & 8 \\
+2 & 3 & 4 & \colorbox{black} {\color{white} 5} & 6 & 7 & 8 & 1 \\
+3 & 4 & 5 & 6 & 7 & \colorbox{black} {\color{white} 8} & 1 & 2 \\
+4 & 5 & 6 & 7 & 8 & 1 & 2 & \colorbox{black} {\color{white} 3} \\
+5 & 6 & \colorbox{black} {\color{white} 7} & 8 & 1 & 2 & 3 & 4 \\
+\colorbox{black} {\color{white} 6} & 7 & 8 & 1 & 2 & 3 & 4 & 5 \\
+7 & 8 & 1 & 2 & 3 & 4 & \colorbox{black} {\color{white} 5} & 6 \\
+8 & 1 & 2 & 3 & \colorbox{black} {\color{white} 4} & 5 & 6 & 7
+\end{tabular}
+\end{minipage}
+\caption{Exemplo de problema com solução $\{2, 5, 8, 3, 7, 6, 5, 4 \}$ \/ gerando $Max = 40$}
+\label{tab:8QueensProblem}
+\end{figure}
+
+A seguir as implementações com a programação em lógica, na linguagem ProLog \cite{bratko2001}, 
+e em PLR \cite{Marriot_98, wallace2007} aqui desenvolvida.
+
+\subsection{Formulação do Problema das \Nrainhas}
+
+Para formalizar o ṕroblema em PLR deve ser identificado um conjunto de variáveis e um domínio.
+
+\begin{defn}
+As variáveis são os elementos do vetor da Definição \ref{def:constrains2}.
+\end{defn}
+
+\begin{defn}
+As restrições para esta modelagem são definidas em \ref{def:constrains1}.
+\end{defn}
+
+\begin{defn}
+O domínio das soluções se encontra no conjunto dos números naturais $(N)$ e 
+está restrita ao limite de $1 \leq x \leq k$ onde $x$ é um valor da solução 
+para o problema das \nrainhas e $k$ é o tamanho do lado do tabuleiro.
+\end{defn}
+
+
+\subsubsection{Solução em ProLog}
+
+Uma  implementação original da solução do problema das \nrainhas 
+se encontra em \cite{bratko2001}. Esta foi estendida para adicionar a questão dos pesos 
+no tabuleiro. Esta implementação 
+é utilizada para comparação com a solução por PLR. 
+Devido a falta de espaço, este código é omitido.
+%% no Código \ref{lst:nqueenpl} 
+
+%\begin{code}
+%\lstinputlisting[caption = {Solução em ProLog \cite{Bratko01}}, label = {lst:nqueenpl}] {nqueenspl.pl}
+%\end{code}
+
+\subsubsection{Solução em PLR}
+
+A implementação original em PLR foi desenvolvida por Markus Triska \cite{Triska}, este
+código serviu de base para  considerar pesos de cada célula no tabuleiro. Igualmente,
+este código é omitido.
+
+%O Código \ref{lst:nqueencsp} se encontra implementado em PLR para ProLog e foi desenvolvido por Markus Triska %\cite{Triska} utilizado como base na implementação desta resolução. Ou seja, o código de M. Triska foi estendido %para considerar os pesos de cada célula no tabuleiro. Seu código original é dado por:
+
+%\begin{code}
+%\lstinputlisting[caption = {Solução CSP em ProLog \cite{Triska}}, label = {lst:nqueencsp}] {nqueenscsp.pl}
+%\end{code}
+
+\subsection{Modelagem da Maximização das Soluções com Tabela de Pesos}
+
+ A maximização da solução final consiste em analisar 
+ todas as soluções válidas para o problema,
+ pela soma dos valores nas posições onde cada rainha 
+ se encontra. O valor a ser somado é definido por uma 
+ tabela de pesos, gerada aleatoriamente. 
+ Contudo, esta tabela é a mesma para todas as soluções possíveis a serem encontradas.
+ O predicado \texttt{findall} é empregado para 
+ encontrar todas soluções possíveis. A partir destas 
+ combinações, uma comparação entre todos pesos encontrados, 
+ escolhe-se a de maior peso, tratando-se de uma maximização. No caso de uma minimização, 
+ o valor é o de menor peso. O código completo deste experimento
+  pode ser obtido com os autores.
+
+
+%Para conseguir alcançar o objetivo várias predicados auxiliares são necessárias. Estes predicados são exibidos pela listagem de Código \ref{lst:aux}.
+
+%\begin{code}
+%\lstinputlisting[caption = {Predicados auxiliares}, label = {lst:aux}] {sourceAux02.pl}
+%\end{code}
+
+%Os principais predicados/métodos  são mostrados na listagem de Código \ref{lst:solution}.
+
+%\begin{code}
+%\lstinputlisting[caption = {Código completo do problema}, label = {lst:solution}] {sourceAux01.pl}
+%\end{code}
+
+%Uma solução pode ser gerada aleatoriamente ou com uma tabela de pesos fixa. Para tal, basta comentar a linha 39 e %descomentar a 40, ou vice-versa do Código \ref{lst:solution}. O comando que executa uma resolução é %\texttt{show()} e seus parâmetros se encontram comentados no Código \ref{lst:solution} nas linhas finais.
+
+%%%%%
+\section{Resultados}
+\label{sec_resultados}
+
+O experimento consistiu em implementar os dois métodos: 
+utilizando uma linguagem em lógica pura e um segundo com a PLR. A análise é feita sobre o vetor solução do problema das \nrainhas, buscando o valor maximizado. As implementações foram realizadas com a versão 5.6.52 SWI-ProLog\footnote{SWI-ProLog: Interpretador para a linguagem de Programação em Lógica, neste caso o ProLog. Esta permite a  utilização de bibliotecas para PLR, do inglês CLP {\em Constraint Logic Programming} e outras como o uso da linguagem C/C++.} \url{http://www.swi-prolog.org}. A biblioteca utilizada para PLR é a \emph{clpfd} disponível no mesmo pacote de instalação do SWI-ProLog.
+
+Os testes consistem em executar as instâncias válidas. Com uma tabela de pesos gerada aleatoriamente,  o tempo de processamento é computado a partir da geração de todas soluções, e em seguida a sua maximização. A tabela \ref{tab:Times} apresenta alguns destes valores quando executados em uma máquina padrão com 1.8 GHz de velocidade de CPU, 512 Kbytes de memória principal.
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+\hline
+Tabuleiro & ProLog & PLR & Número de Combinações \\
+\hline
+\hline
+$4 \times 4$ & $\cong$ 0.512 ms &  $\cong$ 2.979 ms & 2 \\
+%% $5 \times 5$ & $< 1$ms & 16ms & 10 \\
+$6 \times 6$ & $\cong$ 195.236 ms & $\cong$ 113.003 ms & 4 \\
+%% $7 \times 7$ & 47ms & 46ms & 40 \\
+$8 \times 8$ &  $\cong$ 1029.973 ms & $\cong$ 722.416 ms & 92 \\
+%%$9 \times 9$ & 3.9s & 1.2s & 352 \\
+$10 \times 10$ & $\cong$ 99.553 seg & $\cong$ 15.00 seg & 724 \\
+$12 \times 12$ & $\geq$ 120 min &  $\cong$ 334.117 seg & 14200 \\
+\hline
+\end{tabular}
+\label{tab:Times}
+\end{center}
+
+Embora tenha-se obtido tempos aceitáveis, a estatística dos tempos obtidos demonstram a complexidade exponencial deste problema. Para $N > 10$, este problema assume uma complexidade superior a $2^N$, logo, um problema NP-completo. Tratando-se de uma otimização, este é um clássico NP-difícil, do inglês, {\em NP-hard} \cite{sipser_1996}. Com tabuleiros de lado maior que $8$ unidades os tempos crescem por um fator exponencial. A partir de um tabuleiro de tamanho $7$, inicia as vantagens da utilização da PLR comparada com a programação em lógica tradicional. Mesmo com instâncias pequenas, devido a natureza do problema, logo se começa a notar as diferenças de tempos de execução. Encontrar a melhor combinação não o fator mais complicado neste experimento, 
+mas sim encontrar {\em todas} combinações. 
+%%%Neste ponto a PLR é uma teoria interessante devido a sua fundamentação em linguagens lógicas, neste caso,
+%o ProLog.
+
+Em estratégias de buscas por melhoramentos como algoritmos genéticos, {\em simulated annealing}, são interessantes se o objetivo fosse encontrar uma única solução \cite{RusNorv}. Contudo, no problema aqui proposto,  a complexidade do controle em evitar as soluções duplicadas por estes métodos, deixaria de ser uma abordagem viável neste problema. Assim, a completude quanto as soluções
+existentes de um dado problema, torna a PLR como uma técnica atrativa.
+
+\section{Conclusão}
+\label{sec:conclusao}
+
+Neste artigo foi aplicado a Programação em Lógica com Restrições (PLR) ao problema das \nrainhas ,
+com o diferencial de que o mesmo apresenta uma tabela de pesos sobre as posições/células no tabuleiro. 
+A  modelagem do problema foi construída para que dois algoritmos, ProLog padrão e a PLR, encontrem todas as combinações válidas para o problema das \nrainhas. Dentre todas soluções encontradas, uma maximização é aplicada
+afim de encontrar a melhor combinação para as \nrainhas sob este tabuleiro ponderado.
+A solução com PLR  teve um desempenho superior a solução exclusiva da programação em lógica. Na realização dos experimentos constatou-se que o tempo para encontrar o valor da maximização é desprezível para instâncias de $N>8$. Assim, para estes problemas combinatoriais, a Programação por Restrições (PR) e técnicas derivadas como PLR podem ser facilmente aplicada a problemas do mundo real. Alternativas a estudos futuros e abertos, destacam-se: {\em hardwares} especializados, paralelismo e concorrência.
+
+%Com avanços da PLR em {\em hardwares} especializados, torna possível %problema complexos serem resolvidos em um tempo aceitável ou %situações em tempo-real. Finalmente, uma 
+
+
+\bibliographystyle{sbc}
+\bibliography{cc_plr}
+\end{document}

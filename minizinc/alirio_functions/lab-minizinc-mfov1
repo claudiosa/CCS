@@ -1,0 +1,2 @@
+#!/bin/bash
+PATH=MiniZincIDE-2.0.8-bundle-linux-x86_64 minizinc -a lab-minizinc-mfov1.mzn

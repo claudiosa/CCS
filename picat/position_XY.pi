@@ -1,0 +1,77 @@
+import os.
+import util.
+
+main ?=>
+        Map = {{*,#,*,*,2,*},
+               {*,#,c,#,#,*}},
+        N = 2,       
+        position_XY( N, [X,Y], Map ), 
+        printf("\n %w....%w \n", X, Y),
+        
+
+        position_c_XY([X1,Y1], Map ),
+        printf("\n c is on: %w....%w \n", X1, Y1),
+        print_map( Map ),
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong !!!").
+
+/*************** HERE ******************************/
+position_XY(N, [X,Y], Map ) ?=>
+      L = Map.length, %% from Hakan's Page
+      C = Map[1].length, %% should be evidenced in the User Guide
+      
+      println( [Map,N, L,C, Map.length, Map[1].length] ),
+        foreach(I in 1..L, J in 1..C)
+             if  (Map[I,J] == N) then  
+                  X = I,
+                  Y = J
+               end
+              
+           end,
+         printf("\n %w.%w ||", X,Y)
+        .
+          
+position_XY(_,_,_) => printf("\n Could find the agent position!\n").
+
+
+
+/* Get position XY in a grid from a cell with 'c' */
+position_c_XY([X,Y], Map ) ?=>
+  L = Map.length,
+  C = Map[1].length,
+   
+   foreach(I in 1..L , J in 1..C)
+   % printf(":%w" , Map[I,J]),
+       if (Map[I,J] == 'c') then  
+       %% convert digit, ex '3'  to  3 compare with N
+       X = I,
+       Y = J
+      end   %% END  IF INNER
+  %   end  
+     end %% END  FOREACH
+   ,
+  % printf("\n ALL: "),
+  % println([  N, L, C, Map, X, Y] ),
+  
+   if( var(X) || var(Y) ) then
+   printf("The c was not found: %d" , N )
+   end  %% END  IF
+   .
+    
+position_c_XY( _ , _) => printf("\n Problem in XY position function \n").
+
+
+
+%% print map ....
+print_map( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     end,
+     nl,
+   end.   
+	   

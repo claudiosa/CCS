@@ -1,0 +1,347 @@
+
+
+void *fopen(char *name, char *mode);
+int   fclose(void *fp);
+int   fread(void *buf, int sizelem, int n, void *fp);
+int   fwrite(void *buffer,int sizelem, int n,void *fp);
+int   feof(void *fp);
+int   ferror(void *fp);
+int   fflush(void *fp);
+int   fscanf(void *fp,char *format,...);
+int   scanf(char *format,...);
+int   sscanf(char *buf, char *fmt, ...);
+int   fprintf(void *fp, char *fmt, ...);
+int   printf(char *fmt, ...);
+int   sprintf(char *buf, char *fmt, ...);
+int   vsprintf(char *buf, char *fmt, char *args);
+int   fgetc(void *fp);
+char *fgets(char *buf, int n, void *fp);
+int   getc(void *fp);
+int   getchar();
+char *gets(char *buf);
+int   ungetc(int c, void *fp);
+int   fputc(int c, void *fp);
+int   fputs(char *str, void *fp);
+int   putc(int c, void *fp);
+int   putchar(int c);
+int   puts(char *str);
+
+void *memchr(void *buf, int c, int count);
+int   memcmp(void *buf1, void *buf2, int n);
+void *memcpy(void *buf1, void *buf2, int count);
+void *memmove(void *buf1, void *buf2, int count);
+void *memset(void *buf, int val, int n);
+char *strcat(char *buf1,  char *buf2);
+char *strncat(char *buf1, char *buf2, int n);
+char *strcpy(char *buf1, char *buf2);
+char *strncpy(char *buf1, char *buf2, int n);
+int   strcmp(char *str1, char *str2);
+int   strncmp(char *buf1, char *buf2, int n);
+char *strchr(char *str, int c);
+char *strrchr(char *buf, int c);
+int   strlen(char *str);
+char *strpbrk(char *str1, char *str2);
+char *strstr(char *buf1, char *buf2);
+int   strspn(char *str1, char *str2);
+int   strcspn(char *str1, char *str2);
+char *itoa(int value,char *str1,int radix);
+char *ltoa(long value, char *str1, int radix);
+long labs(long n);
+int abs(int n);
+long atol(char *str1);
+int atoi(char *str1);
+long strtol(char *nptr, char **endptr, int base);
+unsigned long strtoul(char *nptr, char **endptr, int base);
+
+
+typedef struct {int x,y;}person;
+typedef struct {int topo, vetorx[100], vetory[100];}Lpilha;
+void Inicio();
+void Labirin();
+int Teste(int ratox,int ratoy, int vetorx, int vetory, int vetorx2, int vetory2);
+person pop();
+void push(person temp);
+void IniciaPilha();
+person IniciaPerson(person rato);
+void DesenhaLab();
+person Proxima(person rato);
+int X,Y,labirinto[100][100];
+Lpilha pilha;
+void Inicio()
+{       int i,j;
+clrscr();
+textcolor(2);
+gotoxy(25,2);
+cprintf("MH-LABIRINTO: PROGRAMA DO RATINHO");
+DesenhaLab();
+textcolor(14);
+gotoxy(Y+20,X+8);
+cprintf("*");
+}
+void Labirin(char labir[12])
+{       void *teste;
+char temp[2];
+int i=0,j=0;
+char c[2];
+teste=fopen(labir,"r");
+temp[0]=getc(teste);
+switch(temp[0])
+{	case '1':labirinto[i][j]=1;break;
+case '0':labirinto[i][j]=0;
+}
+j++;
+while(!feof(teste))
+{	temp[0]=getc(teste);
+switch(temp[0])
+{	case '\n':{j=-1;i++;break;}
+case '1':{labirinto[i][j]=1;break;}
+case '0':{labirinto[i][j]=0;}
+}
+j++;
+}
+fclose(teste);
+X=i-1;
+Y=j-3;
+}
+int Teste(int ratox,int ratoy, int vetorx, int vetory,int vetorx2, int vetory2)
+{	if (((ratox==vetorx)&&(ratoy==vetory))||((ratox==vetorx2)&&(ratoy==vetory2)))
+{	return(1);
+}
+else
+{	return(0);
+}
+}
+person pop()
+{       person temp;
+temp.x=pilha.vetorx[pilha.topo];
+temp.y=pilha.vetory[pilha.topo];
+pilha.topo--;
+return(temp);
+}
+void push(person temp)
+{	pilha.topo++;
+pilha.vetorx[pilha.topo]=temp.x;
+pilha.vetory[pilha.topo]=temp.y;
+}
+void IniciaPilha()
+{       int i,j;
+for(i=0;i<100;i++)
+{	pilha.vetorx[i]=0;
+pilha.vetory[i]=0;
+}
+pilha.topo=0;
+}
+person IniciaPerson(person rato)
+{	rato.x=1;
+rato.y=1;
+return(rato);
+}
+void DesenhaLab()
+{       int i,j,parede=0;
+textcolor(3);
+for(i=0;i<X+2;i++)
+{	for(j=0;j<Y+2;j++)
+{	switch(labirinto[i][j])
+{	case 1:{gotoxy(j+20,i+8);cprintf("±");parede++;break;}
+case 0:{gotoxy(j+20,i+8);cprintf(" ");}
+}
+}
+}
+gotoxy(35,3);
+cprintf("PAREDES: %d",(parede-(2*X+2*Y)));
+}
+person Proxima(person rato)
+{       int preso=1,posit=0,A;
+labirinto[rato.x][rato.y]=1;
+switch(labirinto[rato.x+1][rato.y+1])
+{	case 0:
+{	A=Teste(rato.x+1,rato.y+1,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.x++;
+rato.y++;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+default:
+{ 	switch(labirinto[rato.x+1][rato.y])
+{	case 0:
+{	A=Teste(rato.x+1,rato.y,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.x++;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+default:
+{	switch(labirinto[rato.x][rato.y+1])
+{	case 0:
+{	A=Teste(rato.x,rato.y+1,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.y++;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+default:
+{       switch(labirinto[rato.x][rato.y-1])
+{	case 0:
+{	A=Teste(rato.x,rato.y-1,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.y--;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+default:
+{	switch(labirinto[rato.x-1][rato.y])
+{	case 0:
+{	A=Teste(rato.x-1,rato.y,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.x--;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+default:
+{	switch(labirinto[rato.x-1][rato.y+1])
+{	case 0:
+{	A=Teste(rato.x-1,rato.y+1,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.x--;
+rato.y++;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+default:
+{	switch(labirinto[rato.x+1][rato.y-1])
+{	case 0:
+{	A=Teste(rato.x+1,rato.y-1,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.x++;
+rato.y--;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+default:
+{	switch(labirinto[rato.x-1][rato.y-1])
+{	case 0:
+{	A=Teste(rato.x-1,rato.y-1,pilha.vetorx[pilha.topo-1],pilha.vetory[pilha.topo-1],pilha.vetorx[pilha.topo-2],pilha.vetory[pilha.topo-2]);
+if (A==0&&posit==0)
+{       rato.x--;
+rato.y--;
+push(rato);
+preso=0;
+posit=1;
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+if (preso==1)
+{       rato=pop();
+}
+return(rato);
+}
+void main()
+{       int i=0,j,achou=0,A,B=2;
+char labir[12];
+person rato,ratotemp;
+clrscr();
+do
+{	gotoxy(30,5);
+printf("[1] N¡vel F cil");
+gotoxy(30,6);
+printf("[2] N¡vel Normal");
+gotoxy(30,7);
+printf("[3] N¡vel Dif¡cil");
+gotoxy(30,8);
+printf("[4] Desafio Especial");
+gotoxy(30,9);
+printf("[5] Outro");
+gotoxy(30,11);
+printf("Op‡Æo: ");
+scanf("%d",&i);
+switch(i)
+{	case 1:strcpy(labir,"labiresp.txt");break;
+case 2:strcpy(labir,"labir.txt");break;
+case 3:strcpy(labir,"labir3.txt");break;
+case 4:strcpy(labir,"labir2.txt");break;
+case 5:
+{	gotoxy(30,20);
+printf("Digite o nome do arquivo: ");
+fflush(stdin);
+gets(&labir);
+}
+}
+}while(i==0);
+Labirin(labir);
+Inicio();
+B=2;
+A=1;
+IniciaPilha();
+rato=IniciaPerson(rato);
+push(rato);
+do
+{       A=pilha.topo+1;
+if (rato.x>X)
+{	rato.x=X;}
+if (rato.y>Y)
+{	rato.y=Y;}
+if (pilha.topo>23)
+{	B=65;
+A=pilha.topo-23;
+if (pilha.topo>44)
+{	B=2;
+A=pilha.topo-44;
+if (pilha.topo>63)
+{	B=65;
+A=pilha.topo-63;
+if (pilha.topo>84)
+{	B=2;
+A=pilha.topo-84;
+}
+}
+}
+}
+gotoxy(rato.y+20,rato.x+8);
+textcolor(7);
+cprintf("©");
+if (pilha.topo>1)
+{	gotoxy(ratotemp.y+20,ratotemp.x+8);
+cprintf(" ");
+}
+gotoxy(B,A);
+cprintf("%d,%d",pilha.vetorx[pilha.topo],pilha.vetory[pilha.topo]);
+if ((rato.x==X)&&(rato.y==Y))
+{	gotoxy(B,A);
+cprintf("ACHOU!!!");
+achou=1;
+}
+ratotemp=rato;
+rato=Proxima(rato);
+getch();
+}while(achou!=1);
+clrscr();
+}

@@ -1,0 +1,30 @@
+
+    \frametitle{\textit{Run}}
+
+    \begin{itemize}
+      \item Código para criação do HTML (por meio de CGI--Python) com o resultado da execução
+    \end{itemize}
+
+\begin{lstlisting}[language=Python]
+    f = open(HTMLBASE, 'r')
+    htm = f.read()
+    f.close()
+
+    htm = htm.split('<!-- split marker -->')
+    htm = '''%s
+<!-- split marker -->
+<textarea id="code" name="code">
+%s</textarea>
+<!-- split marker -->
+%s
+<!-- split marker -->
+<pre style="width:580px;overflow:auto">
+%s
+</pre>
+<!-- split marker -->
+%s
+''' %(htm[0],codepi,htm[2],codeout,htm[-1])
+
+    print htm
+\end{lstlisting}
+

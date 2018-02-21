@@ -1,0 +1,6 @@
+
+%% swipl --goal=main -t halt -o saida.exe -c xxx
+main :-
+   g_fat(3),
+   g_fat(-3),
+   g_fat(4).

@@ -1,0 +1,57 @@
+Exercícios de Vetores e Matrizes
+
+ATENÇÃO : basicamente  "todos" exercicios da seção de 
+          laços de repetição, podem ser refeitos agora
+	  com vetores 1D e 2D.
+	  Assim refaça alguns de laços ... mas agora com VETORES!
+
+1. Crie um programa em C que tenha um vetor A com 
+   de 1000 números inteiros quaisquer, e um vetor B com 5 números quaisquer, 
+   digamos 1, 2, 3, 4 e 5. Seu programa deve dizer 
+   quantos números de 1 a 5 estão presentes no vetor A.
+   Resumindo com um exemplo minúsculo:
+   Digamos: A = { 2, 3, 4, 5, 6, 1, 2, 3, 3, 3, 3, 2}
+     vetor  B = { 2, 3} // APENAS 2 numeros ...
+     crie o vetor C, tal que a saida seja:
+     C = {3, 6}  pois o 2 apareceu 3 X em A e 
+                      o 3 apareceu 6 X em A.
+		      
+   Exercicio interessante: precisa de 2 for aninhados.... dificuldade média.     
+ 
+2. Dado um vetor um vetor A de números inteiros quaisquer,
+   indique se o mesmo é um palíndromo ou não.
+
+3. Crie um programa em C que peça 1000 números, armazene eles em um vetor e diga 
+   qual elemento é o maior, e seu valor médio.
+
+4. Crie um programa em C que peça 1000 números, armazene eles em um vetor e diga
+   qual elemento é o menor, e o valor do produto % 999 (para não crescer muito ....).
+
+5. Crie um programa em C que peça 1000 números, armazene eles em um
+   vetor e diga qual elemento é o maior, qual é o menor e seus respectivos valores.
+
+6. Crie um aplicativo em C que peça um número inicial ao usuário, 
+    uma razão e calcule os termos de uma P.A. (Progressão Aritmética),
+    armazenando esses valores em um vetor de tamanho 100.
+
+7. Crie um aplicativo em C que peça um número inicial ao usuário, uma razão e 
+   calcule os termos de uma P.G (Progressão Geométrica), armazenando esses valores 
+   em um vetor de tamanho 100.
+
+8. Escreve um programa que sorteio, aleatoriamente, 100 números e armazene estes em um vetor.
+   Em seguida, o usuário digita um número e seu programa em C deve acusar se o número digitado
+   está no vetor ou não. Se estiver, diga a posição que está.
+
+9. Criando um tabuleiro de Jogo da Velha
+   Crie um tabuleiro de jogo da velha, usando uma matrizes de caracteres (char) 3x3, onde o usuário pede o número da linha (1 até 3) e o da coluna (1 até 3). A cada vez que o usuário entrar com esses dados, colocar um 'X' ou 'O' no local selecionado.
+
+
+10. Como criar um programa que verifica se o número é palíndromo
+    Número palíndromo é aquele que, se lido de trás para frente e de frete para trás, é o mesmo.
+    Exemplos: 2112, 666, 2442 etc
+
+11. Faça um programa que leia uma vetor, e em seguida  inverta-o sobre o mesmo vetor.
+
+12. 
+
+

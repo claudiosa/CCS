@@ -1,0 +1,46 @@
+05/11/2015
+Seja um vetor de CHAR:
+
+ char Vetor[] = "Hoje é segunda-feira";
+
+	1. Crie um ponteiro para variável Vetor e como se inicializa;
+	2. Imprima a posição de memória da 1a. posição do Vetor;
+	   Ex: printf( ......)
+	3. Desloque o ponteiro em relação a origem em 10 posições?
+	4. Como faço para não perder a posição inicial do Vetor
+	   dentro de uma função.
+	5. Escreva a função copia_st1_st2(char *s1, char *s2)
+	6. Como se testa o final de um Vetor de carácteres?
+	7. Como se escreve a variável  Vetor em sequência reversa?
+	    Exemplo:
+	       
+	        imp_invertido( char *pt )
+	           {
+	              ::::::::::
+	              
+	            }
+	            
+	         Entrada: "aeiou" 
+	         Saida: "uoiea"     
+	
+=======================================================================	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+        
+    
+        
+    

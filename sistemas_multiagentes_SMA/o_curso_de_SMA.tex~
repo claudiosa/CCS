@@ -1,0 +1,250 @@
+
+\section{O Curso}
+\begin{frame}
+
+
+\frametitle{Disciplina}
+
+\begin{block}{Sistemas Multiagentes -- OSIM001}
+
+\begin{itemize}
+\item \emph{\textbf{Turma:}} 
+\item \emph{\textbf{Professor:}} Claudio Cesar de Sá
+  \begin{itemize}
+  \item \texttt{claudio.sa@udesc.br}
+  \item Sala 13 Bloco F
+  \end{itemize}
+\item \emph{\textbf{Carga horária:}} 72 horas-aula 
+\textcolor{red}{$\bullet$}~Teóricas: 36 \textcolor{red}{$\bullet$}~Práticas: 36
+\item \emph{\textbf{Curso:}} BCC
+\item \emph{\textbf{Requisitos:}} Vários -- IA, LMA, TEC, SO, PRP, ...
+\item \emph{\textbf{Período:}} 1º semestre de 2017
+\item \emph{\textbf{Horários:}}
+  \begin{itemize}
+  \item 6ª 10h10 (2 aulas) - F-104  -- aula expositiva
+  \item 6ª 18h00 (2 aulas) - F-306 -- lab
+  
+  \end{itemize}
+
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+
+%-------------------------------------
+\begin{frame}
+\frametitle{Ementa}
+
+\begin{block}{Ementa}
+ Motivação do paradigma. Agentes reativos e cognitivos. Teoria e arquitetura de agentes. Sistema multiagentes (SMA) reativo e cognitivo. Linguagens e protocolos de comunicação. Coordenação e negociação. Metodologias para desenvolvimento de SMAs. Ambientes de desenvolvimento.
+
+\end{block}
+
+\end{frame}
+
+%-------------------------------------
+\begin{frame} [allowframebreaks=0.9]
+\frametitle{Objetivos}
+
+\begin{itemize}
+\item \emph{\textbf{Geral:}} 
+ Apresentar o  conceito de inteligência artificial distribuída: 
+ desenvolvimento de agentes e abordagens para coordenação de sistemas multiagentes,
+ permitindo ao aluno ser capaz de modelar problemas de forma a modularizar sua solução
+ de forma distribuída.
+
+\newpage
+\item \emph{\textbf{Específicos:}} 
+
+  \begin{itemize}
+  \item Descrever o histórico e quadro atual da Inteligência Artificial -- Moderna. 
+  \item Compreender a noção de Teoria de Problemas, computabilidade e complexidade na ótica de IA e IAD.
+  \item Diferencia IAD (orientação a divisão de problemas) versus SMA (orientação a 
+  coordenação de agentes)
+  \item  Conhecer diferentes arquiteturas de agentes
+  \item   Modelar problemas computacionais através de aplicação de agentes.
+  \item   Descrever o processo de tomada de decisão e aprendizagem computacional baseado em 
+  sistemas multiagentes.
+  \item   Conceber, projetar e construir sistemas computacionais capazes de aplicar sistemas 
+  multiagentes como técnica de resolução.
+  
+  \end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+
+
+%-------------------------------------
+\begin{frame}
+\frametitle{Conteúdo programático}
+
+
+    \begin{itemize}
+      \item Conceitos de SMA (há muitos correlacionados há áreas diversas)
+      \item Ferramentas: Netlogo e Picat
+      \item Aplicação: voces escolhem
+      \item Um artigo $ \equiv $ projeto
+      \item Um artigo OUTRO da área a ser apresentado: ficha técnica
+      
+    \end{itemize}
+\end{frame}
+
+
+%-------------------------------------
+
+\subsection{Ferramentas}
+\begin{frame}
+
+    \frametitle{Ferramentas}
+
+    \begin{itemize}
+      \item PICAT (com suporte)
+      \item NETLOGO
+       \url{http://ccl.northwestern.edu/netlogo/docs/} (escondido in WEB)
+      
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Metodologia e avaliação}  
+
+\begin{frame}[allowframebreaks=0.9]
+
+\frametitle{Metodologia e avaliação}
+
+\textbf{Metodologia:} \\
+
+\textit{As aulas serão expositivas e práticas. A cada novo assunto tratado, exemplos 
+ são demonstrados utilizando ferramentas computacionais adequadas para consolidar os conceitos 
+ tratados. 
+  As aulas nas sextas-feiras a tarde poderão ser realizadas, também, na forma de estudo dirigido.}
+
+
+\newpage
+    \textbf{Avaliação}
+
+    \begin{itemize}
+      \item Duas provas (conceituais) -- 25\%\\
+      
+	\quad \textcolor{red}{$\bullet$}~$P_1$: 25/mar\\
+	\quad \textcolor{red}{$\bullet$}~$P_2$: 25/maio
+
+
+      \item Exercícios de laboratório  -- 10\%
+      \item Implementação de um protótipo  -- 20\%
+       \item O artigo (resultados da implementação)  -- 30\%
+
+      \item Para o artigo: muito material será fornecido em \LaTeX ...
+
+      \item Apresentação de um artigo estudado sobre SMA -- 15\%
+ 
+      \item Presença e participação
+      
+    \end{itemize}
+
+\end{frame}
+
+
+
+\subsection{Dinâmica}
+\begin{frame}
+
+    \frametitle{Dinâmica de Aula}
+
+    \begin{itemize}
+      
+      \item Teoria na parte da manhã -- 10:00 hrs -- K-107
+      \item \textit{Ralação} a tarde -- LAB -- estudar o NetLogo -- vídeo-aulas
+      
+    \end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Referências}  
+%[allowframebreaks=0.9]
+
+%-------------------------------------
+\begin{frame}[allowframebreaks=0.9]
+\frametitle{Bibliografia}  
+
+\textbf{Básica:} 
+\begin{itemize}
+
+\item \scriptsize{ALVARES, L. O., SICHMAN, J. \textit{Introdução aos Sistemas
+ Multiagentes}, Anais do EINE – Escola de Informática do Nordeste,
+  Sociedade Brasileira de Computação – SBC, Brasil, 1997.}
+
+\item \scriptsize{FERBER, J. \textit{Multi-Agent Systems: An Introduction 
+to Distributed Artificial Inteligence}. Harlow, England, Addison-Wesley, 1999.}
+
+
+\item \scriptsize{WOOLDRIDGE, M.. \textit{An introduction to
+ MultiAgent Systems}, John Wiley, 2001}
+
+
+\item \url{https://github.com/claudiosa/CCS/tree/master/https://github.com/claudiosa/CCS/tree/master/sistemas_multiagentes}
+
+\end{itemize}
+
+\textbf{Complementar:}
+
+\begin{itemize}
+\item \scriptsize{Nikos Vlassis,
+\textit{A Concise Introduction to Multiagent Systems and Distributed Artificial Intelligence}
+Synthesis Lectures on Artificial Intelligence and Machine Learning
+2007, 71 pages -- guia dos tópicos destes slides
+}
+
+
+\item \scriptsize{
+O’HARE, G.; JENNINGS, N. (Editors) \textit{Foundations of distributed artificial intelligence}, New York, NY: John Wiley, 1996.}
+
+
+\item \scriptsize{
+WEISS, G. \textit{Multiagent Systems: A Modern Approach to Distributed Artificial Intelligence}. London, MIT Press, 2001.
+}
+
+
+
+
+\item \scriptsize{Russell, S., Norvig, Peter; "Inteligência Artificial", Ed. Campus-Elsevier; Brasil, 2010  -- em inglês.}
+
+
+
+\item \scriptsize{Bittencourt, G.; “Inteligência Artificial, ferramentas e teorias”; 3. ed. UFSC; Florianópolis, SC; 2006.}
+
+\item \scriptsize{Barreto. J.M.; “Inteligência Artificial, uma abordagem híbrida”; 3a. ed.; RoRoRo; Florianópolis, SC; 2001}
+
+\item \scriptsize{Eberhart, R; Simpson, P.; Dobbins, R.; "Computational Intelligence PC Tools"; AP Professional; 1996; ISBN 0-12-228630-8.}
+
+\item \scriptsize{Fausett, Laurene; Fundamentals of Neural Networks; Prentice Hall Ind.; N. Jersey; 1994.}
+
+\item \scriptsize{Freeman, J. A.; Skapura, D. M.; “Neural networks – Algorithms, Applications and Programming Techniques”; Addison- Wesley Pub. Co.; New York; 1991.}
+
+\item \scriptsize{Luger, George F.; Inteligência Artificial; Artmed Ed. S.A.; P. Alegre; 2004.}
+
+\item \scriptsize{Mitchell, M.; “An introduction to genetic algorithms”; The MIT press; London; 1966.}
+
+\item \scriptsize{Rabuske, R. A.; Inteligência Artificial; UFSC; Florianópolis; 19??}
+
+\item \scriptsize{Resende, Solange O., Sistemas Inteligentes - Fundamentos e aplicações, Ed. Manole (www.manole.com.br), 200?}
+
+\item \scriptsize{Rich, E.; “Artificial Intelligence”; McGraw-Hill Book Company; USA; 1983.}
+\item \scriptsize{Material didático disponível em: www.inf.ufsc.br/\~~falqueto}
+
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

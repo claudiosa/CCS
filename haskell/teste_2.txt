@@ -1,0 +1,3 @@
+Escrevendo diretamente  no arquivo 
+ 
+ Anexando no final do arquivo 

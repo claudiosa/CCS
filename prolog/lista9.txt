@@ -1,0 +1,12 @@
+member(3, [4,5,3]).
+Yes
+
+member(X, [4,5,3]).
+X = 4 ;
+X = 5 ;
+X = 3 ;
+No
+
+member(3, X).
+X = [3|_G231] 
+Yes

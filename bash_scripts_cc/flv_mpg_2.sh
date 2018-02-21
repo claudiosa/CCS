@@ -1,0 +1,1 @@
+ffmpeg -i filme.flv -ab 56 -ar 22050 -b 500 -s 320x240 filme.mpg

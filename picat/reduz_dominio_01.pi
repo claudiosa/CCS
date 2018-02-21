@@ -1,0 +1,22 @@
+import cp.
+	
+main ?=> modelo, fail.	
+main =>  true.	
+
+modelo => 
+    Variaveis = [X1,X2,X3,X4],
+    Variaveis :: 0 .. 10,    
+	printf("\n Dominios: %w\t %w\t %w\t %w", 
+        fd_dom(X1), fd_dom(X2), fd_dom(X3), fd_dom(X4)),
+	X1 #> X2 + 2,
+	printf("\n Dom_X1=%w\tDom_X2=%w", fd_dom(X1), fd_dom(X2)),
+	X2 #> X3 + 2,
+	printf("\n Dom_X2=%w\tDom_X3=%w", fd_dom(X2), fd_dom(X3)),
+	X3 #> X4 + 2,
+	printf("\n Dom_X3=%w\tDom_X4=%w", fd_dom(X3), fd_dom(X4)),
+	% SEARCH
+	solve([ff], Variaveis),
+	printf("\n LEAFS -->\tX1: %d \tX2: %d \tX3: %d \tX4: %d",  X1,X2,X3,X4),
+	printf("\n ..........................\n")
+	.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

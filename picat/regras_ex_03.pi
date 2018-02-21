@@ -1,0 +1,26 @@
+
+%%% FATOS ... = Mapa
+index(-, -) 
+estrada(joinville , itajai )        .
+estrada(joinville , blumenau )      .
+estrada(itajai    , camboriu )      .
+estrada(blumenau  , camboriu)       .
+estrada(camboriu  , floripa)        .
+
+% As regra da LPO agora em PICAT
+caminho(X,Y) ?=> estrada(X,Y) .
+caminho(X,Y)  => estrada(X,Z) ,  
+                 caminho(Z,Y) .
+
+listar_todos  ?=>     %%% this rule is backtrackable
+          caminho(X,Y)                         ,   %% and
+          printf("\n X: %w ---> Y: %w ", X,Y)  ,   %% and
+          false.
+
+listar_todos => 
+          printf("\n ")  ,
+          true. %% the final rule of above
+
+%% aconselhavel o ... uso do main
+main => 
+     listar_todos  .

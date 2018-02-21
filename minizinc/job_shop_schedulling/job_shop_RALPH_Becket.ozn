@@ -1,0 +1,5 @@
+output ["job_task_start :\n ",show2d(job_task_start),"\n","t_end = ",show(t_end),"\n"];
+set of int: jobs = 1..15;
+set of int: tasks = 1..5;
+array [jobs,tasks] of int: job_task_start;
+int: t_end;

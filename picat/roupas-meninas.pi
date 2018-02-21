@@ -1,0 +1,105 @@
+/* 
+Roupas das Meninas
+
+Alexandra, Barbara, e Rosa tem roupas em azul,
+ verde, lilaz, vermelho e amarelo.
+Nenhuma delas veste amarelo com vermelho.
+Cada uma delas veste roupas com duas cores.
+Alexandra está vestindo o azul.
+Barbara está vestindo o amarelo mas nao o verde.
+Rosa veste o verde mas nao se veste nem de azul e 
+nem lilaz.
+Uma delas está de vermelho.
+Uma das cores é usada tanto por Barbara como por Rosa.
+Alexandra e Barbara tem 04 cores entre elas.
+
+Determine a roupa que cada menina estah usando?
+
+Picat> load('roupas-meninas.pi').
+Compiling:: roupas-meninas.pi
+roupas-meninas.pi compiled in 4 milliseconds
+loading...
+
+aqui NAO TINHA o byte-code .qi :
+
+
+Compiling::roupas-meninas.pi
+roupas-meninas.pi compiled in 12 milliseconds
+
+yes
+
+Picat> load ("roupas-meninas")   
+loading...roupas-meninas.qi
+
+yes
+
+agora pronto para execucao ....
+
+
+*/
+
+index(-)
+    cor(azul).
+    cor(verde).
+    cor(lilaz).
+    cor(vermelho).
+    cor(amarelo).
+
+main ?=> 
+          modelo_meninas.
+
+main => printf("\n ........HOUSTON: we have a problems here!!!!.......\n"),
+		 true.	    
+modelo_meninas =>
+	L_cores = [(S1, B1, rosa) ,    
+	           (S2, B2, alexandra) , 
+	           (S3, B3, barbara)]  ,
+             cor(S1),
+             cor(B1),
+             cor(S2),
+           %  trace,
+             cor(B2),
+             cor(S3),
+             cor(B3),
+            
+             %%%%%%%%%%%%%%% comece o modelo
+             alldifferent([ S2, B2, S3, B3 ]),
+            
+             !=(S1,B1),  !=(S2,B2), !=(S3,B3),
+             (not(B1==amarelo, S1==vermelho);
+             not(S1==amarelo, B1==vermelho)),
+          %   notrace,
+     	(not(B2==amarelo, S2==vermelho);
+             not(S2==amarelo, B2==vermelho)),
+            (not(B3==amarelo, S3==vermelho);
+             not(S3==amarelo, B3==vermelho)),
+            (S1 == verde ; B1== verde ), (S1 == vermelho ; B1== vermelho ),  
+            (S2 == azul ; B2== azul ), %% Alexandra está vestindo o azul. 
+            (S3 == amarelo ; B3== amarelo ), %%  
+             printf("\n B1: %w  S1: %w \n B2: %w  S2: %w \n B3: %w S3: %w ", 
+             	B1,  S1,   B2,  S2,   B3,  S3),
+             printf("\n ou  SIMPLESMENTE %w" ,  L_cores).
+             %fail.
+
+modelo_meninas => printf("\n =============================\n"), 
+                          true.
+
+alldifferent([])  ?=> true.
+alldifferent([H|T]) =>  
+                         not(   member(H,T) ),
+	             alldifferent(T)  .
+
+
+
+/*#######################################		
+?- VEIO DA SOLUCAO PROLOG
+rosa  ===> verde   vermelho
+rosa  ===> verde   amarelo
+ale  ===> azul   verde
+ale  ===> azul   lilaz
+ale  ===> azul   vermelho
+ale  ===> azul   amarelo
+babe  ===> amarelo   azul
+babe  ===> amarelo   lilaz
+Yes
+?-  */

@@ -1,0 +1,209 @@
+%BEATRIZ MICHELSON REICHERT.
+%RESIDENCIAL CIENTISTAS FAMOSOS.
+
+import cp.
+import datetime.
+
+main => go.
+
+go =>
+  %pega o tempo atual
+  current_time() = Time1,
+
+  %GERAR VARIÁVEIS
+
+  %TAMANHO VETOR
+  N = 5,
+
+  %Cada elemento em detalhes, blocos, arquiteto, idade, vendidos e tem
+  %é representado por um número inteiro, este vai ser utilizado para a resolução e
+  %para printar o resultado final.
+
+  % FATOS
+  %DETALHE
+  Amarelo = 1, Azul = 2,Branco = 3, Vermelho = 4,Verde = 5,
+  DetalhesS = ["Amarelo","Azul","Branco","Vermelho","Verde"],
+
+  %BLOCO
+  Gauss = 1, Newton=2, Pascal=3, Tesla=4, Watt=5,
+  BlocoS = ["Gauss","Newton","Pascal","Tesla","Watt"],
+
+  %ARQUITETO
+  Alberto= 1 , Eduardo = 2, Fabio = 3, Sergio = 4 , Willian = 5,
+  ArquitetoS = ["Alberto","Eduardo","Fabio","Sergio","Willian"],
+
+  %IDADE
+  Id45 = 1, Id47 = 2, Id50 = 3, Id51 = 4, Id56 = 5,
+  IdadeS = ["45","47","50","51","56"],
+
+  %VENDIDO
+  Ven50 = 1, Ven60 = 2, Ven70 = 3, Ven80 = 4, Ven90 = 5,
+  VendidoS = ["50","60","70","80","90"],
+
+  %TEM
+  Academia = 1, Churrasqueira = 2, Piscina = 3, Sfesta = 4, Sjogos = 5,
+  TemS = ["Academia","Churrasqueira","Piscina","Salao de festa","Salao de jogos"],
+
+  % VARIÁVEIS DE DECISÃO
+  %CRIAÇÃO DE LISTA, (com tamanho 5 (inicia em 1)).
+
+  Det = new_list(N), Det :: 1..N,
+  Bloc = new_list(N), Bloc :: 1..N,
+  Arq = new_list(N), Arq :: 1..N,
+  Id = new_list(N), Id :: 1..N,
+  Ven = new_list(N), Ven :: 1..N,
+  Te = new_list(N), Te :: 1..N,
+
+  % RESTRIÇÕES PARA QUE NÃO TENHA VARIÁVEIS REPETIDAS
+  %all_different é uma função definida na própria linguagem picat
+  %GERAR RESTRIÇÕES
+  all_different(Det),
+  all_different(Bloc),
+  all_different(Arq),
+  all_different(Id),
+  all_different(Ven),
+  all_different(Te),
+
+  %REGRAS
+
+  % O bloco que tem Salão de Festa está em uma das pontas.
+      function_diff_value(Te[Sfesta],Det[1],Det[5]),
+
+% O bloco que tem Academia está ao lado do que tem 50% das unidades vendidas.
+       function_all(Te[Academia],Ven[Ven50]),
+
+% O arquiteto mais novo é responsável pelo bloco vizinho ao que tem Piscina.
+      function_all(Id[Id45],Te[Piscina]),
+
+  % O bloco com Piscina tem 70% das unidades vendidas.
+      Te[Piscina] #= Ven[Ven70],
+
+  % O prédio do arquiteto de 56 anos está exatamente à esquerda do prédio do arquiteto de 45 anos.
+       Id[Id56] #= (Id[Id45]-1),
+
+  % O bloco do arquiteto de 50 anos está ao lado do que já vendeu 70%.
+       function_all(Id[Id50],Ven[Ven70]),
+
+% O bloco Watt fica ao lado do que possuí Churrasqueira.
+       function_all(Bloc[Watt],Te[Churrasqueira]),
+
+ % O prédio mais vendido está exatamente à esquerda do bloco Watt.
+       Ven[Ven90] #= (Bloc[Watt]-1),
+
+  % O arquiteto de 51 anos está trabalhando no bloco de uma das pontas.
+       function_diff_value(Id[Id51],Det[1],Det[5]),
+
+  % Fábio é o responsável pelo projeto do prédio com detalhes em Branco.
+       Arq[Fabio] #= Det[3],
+
+ % O bloco com detalhes em Azul fica ao lado do que tem Piscina.
+       function_all(Det[2],Te[Piscina]),
+
+% O bloco Newton fica ao lado do bloco projetado por Sérgio.
+       function_all(Bloc[Newton],Arq[Sergio]),
+
+  % Willian está trabalhando no quinto prédio.
+       (Det[5] #= Arq[Willian]),
+
+  % Na terceira posição está o bloco Tesla.
+       (Det[3] #= Bloc[Tesla]),
+
+  % O prédio menos vendido está na quinta posição.
+       (Det[5] #= Ven[Ven50]),
+
+  % O bloco Tesla está exatamente à esquerda do bloco Pascal.
+       Bloc[Tesla] #= (Bloc[Pascal]-1),
+
+ % O bloco Gauss está em algum lugar à direita do prédio que tem detalhes em Vermelho.
+       Bloc[Gauss] #>= (Det[Vermelho]),
+
+  % O prédio com Academia tem 80% das suas unidades vendidas.
+       Te[Academia] #= Ven[Ven80],
+
+  % O bloco com Churrasqueira está sendo projetado pelo arquiteto de 47 anos.
+       Te[Churrasqueira] #= Id[Id47],
+
+ % O bloco que possui detalhes em Branco está exatamente à esquerda do que é projetado pelo Eduardo.
+       Det[Branco] #= (Arq[Eduardo]-1),
+
+  % O bloco Gauss está em uma das pontas.
+       function_diff_value(Bloc[Gauss],Det[1],Det[5]),
+
+% O prédio projetado pelo arquiteto mais velho está em algum lugar à direita do prédio que tem detalhes em Azul.
+       Id[Id56] #>= Det[Azul],
+
+  % Os prédios com detalhes em Amarelo e com Piscina são vizinhos.
+      function_all(Det[Amarelo],Te[Piscina]),
+
+
+  % RESOLUÇÃO DAS REGRAS
+  Vars = Det++Bloc++Arq++Id++Ven++Te,
+  solve(Vars),
+
+  nl,
+
+  printf("Resultados:\n"),
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W,Det,DetalhesS,Det1),
+    printf("Detalhes(%w) %w \n", W, Det1)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W,Bloc,BlocoS,Bloc2),
+    printf("Bloco(%w) %w \n", W, Bloc2)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W,Arq,ArquitetoS,Arq3),
+    printf("Arquiteto(%w) %w \n", W, Arq3)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W,Id,IdadeS,Id4),
+    printf("Idade(%w) %w \n", W, Id4)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W,Ven,VendidoS,Ven5),
+    printf("Vendido(%w) %w \n", W, Ven5)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W,Te,TemS,Te6),
+    printf("Tem(%w) %w \n", W, Te6)
+  end,
+  nl,
+
+  %pega o tempo atual
+  current_time() = Time2,
+
+
+  printf("Hora,Minuto,Segundo\n"),
+  printf("Inicio: %w \n",Time1),%tempo inicial
+  printf("Fim: %w \n",Time2),%tempo final
+
+  nl.
+
+%nth é uma função definida na própria linguagem picat
+%FUNÇÃO PARA PRINTAR
+
+  func_print(I,X,Strings,Y) =>
+  nth(T,X,I),
+  nth(T,Strings,Y).
+
+%% Definição de algumas funções:
+
+% Função para verificar o lado
+function_all(A1,A2) =>
+  ((A1 - A2) #= 1 ;  (A1 - A2) #= -1 ).
+
+%Função para verificar uma das pontas.
+function_diff_value(Value_double,Value_ig1,Value_ig2) =>
+  (Value_ig1 #= Value_double ; Value_ig2 #= Value_double).

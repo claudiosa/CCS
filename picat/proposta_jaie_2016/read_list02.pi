@@ -1,0 +1,6 @@
+main(Args) =>
+   println(Args).
+/*
+picat prog.pi 1 2 3 4
+[1,2,3,4]
+*/
