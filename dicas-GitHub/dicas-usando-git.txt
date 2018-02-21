@@ -93,3 +93,11 @@ Fast-forward
  create mode 100644 prolog/TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.aux
  create mode 100644 prolog/TRABALHOS_FINAIS/trabalho-final-LMA_2015-2.log
 
+SITUACAO:
+Quando já existe o repositorio remoto  mas nao está linkado ao  local
+
+1. git init
+2. git pull https://github.com/*username*/*repository*.git master
+3. git status
+4. git commit -m "xxxxx"
+5. git push -f origin master
