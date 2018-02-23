@@ -1,0 +1,140 @@
+Agora ainda MAIS facil  Ver 2.0.12
+
+http://www.minizinc.org/
+This fully self-contained package contains the most recent release of MiniZinc, the MiniZinc IDE, and the G12 and Gecode FlatZinc solvers. If you need a package for a different operating system or prefer to install these components separately, please go to our software page. 
+
+OU SEJA .... interface traz consigo o MINIZINC dentro dele
+
+
+
+Basicamente como ROOT:
+1. root@gerzat:/usr/local/share# tar -xvf MiniZincIDE-2.0.12-bundle-linux-x86_64.tgz
+2. mkdir MiniZincIDE
+3. root@gerzat:/usr/local/share# mv  MiniZincIDE-2.0.12-bundle-linux-x86_64/* MiniZincIDE/
+4. root@gerzat:/usr/bin# ln -s /usr/local/share/MiniZincIDE/MiniZincIDE.sh MiniZincIDE
+
+
+ADICIONEI 
+cd /usr/local/MiniZincIDE  <=== ADICIONEI ISTO em MiniZincIDE.sh 
+ficando
+
+#!/bin/sh
+cd /usr/local/share/MiniZincIDE/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib
+export QT_PLUGIN_PATH=$PWD/plugins
+exec ./MiniZincIDE $@
+
+PRONTO PARA USAR 
+
+13/06/2016
+
+
+MINIZINC EM SUA ULTIMA VERSAO .... FICOU FACIL de tudo
+
+Iniciando a instalacao do MINIZINC
+http://www.minizinc.org/
+Baixar IDE+MINIZINC
+https://github.com/MiniZinc/MiniZincIDE/releases/download/0.9.7/MiniZincIDE-0.9.7-bundle-linux-x86_64.tgz
+ tar -zxvf MiniZincIDE-0.9.7-bundle-linux-x86_64.tgz
+ mv  MiniZincIDE /usr/local/
+root@F:/home/suporte/Downloads# ls  /usr/local/MiniZincIDE/
+flatzinc         lib          MiniZincIDE.sh  mzn-g12fd    plugins
+fzn-gecode       minizinc     mzn2doc         mzn-g12lazy  share
+fzn-gecode-gist  MiniZincIDE  mzn2fzn         mzn-g12mip   solns2out
+root@F:/home/suporte/Downloads#
+ln -s /usr/local/MiniZincIDE/minizinc /usr/bin/minizinc
+root@F:/home/suporte/Downloads#
+geany /usr/local/MiniZincIDE/MiniZincIDE.sh
+root@F:/home/suporte/Downloads# cat /usr/local/MiniZincIDE/MiniZincIDE.sh
+#!/bin/sh
+cd /usr/local/MiniZincIDE  <=== ADICIONADA
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib
+export QT_PLUGIN_PATH=$PWD/plugins
+cd /home/udesc/  <=== ADICIONADA
+exec /usr/local/MiniZincIDE/MiniZincIDE $@
+
+%%%%% CRIAR link simbolico para a IDE
+ln -s /usr/local/MiniZincIDE/MiniZincIDE.sh /usr/bin/minizincIDE
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Instalando MINIZINC 2.0.1xx
+
+
+1. Baixar o binario de http://www.minizinc.org/2.0.1xxxex/install-linux.html
+2. Descompactar como root onde se vai instalar
+   Exemplo /usr/local/minizinc-2.0.0/ ou /usr/share
+   Ex2:
+   ..... /usr/local# tar -xvf minizinc-2.0.1-linux64.tar.gz 
+
+3. Criar links simbolicos em /usr/bin/
+ ln -s /usr/local/minizinc-2.0.0/bin/minizinc /usr/bin/minizinc
+ ou
+ cd /usr/bin
+ ln -s /usr/local/minizinc-2.0.1/bin/minizinc minizinc
+
+ Automaticamente é criado um outro link simbolico em:
+ ln -s /usr/local/minizinc-2.0.0/bin/minizinc /usr/bin/X11/minizinc
+
+Pronto ... falta a interface grafica
+
+Instalando a Interface Grafica
+
+1. Baixar o binario de http://www.minizinc.org/ide/index.html ULTIMA VERSAO
+2. Descompactar como root onde se vai instalar
+   Exemplo: /usr/local/MiniZincIDE-0.9.5-linux-x86_64
+   
+  ou algo como, vá para /usr/local
+/usr/local# mv ~ccs/Downloads/MiniZincIDE-0.9.6-linux-x86_64.tgz .
+/usr/local# tar -xvf MiniZincIDE-0.9.6-linux-x86_64.tgz 
+
+O que alterei para funcionar:
+
+a) Adicionei no MiniZincIDE.sh o caminho de onde instalei tudo ... ou faz isto no path, logo: 
+cat MiniZincIDE.sh 
+#!/bin/sh
+cd /usr/local/MiniZincIDE-0.9.6-linux-x86_64         <=== O CAMINHO ADICIONADO...
+/usr/local/share/MiniZincIDE-0.9.8-bundle-linux-x86_64#
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib
+export QT_PLUGIN_PATH=$PWD/plugins
+exec ./MiniZincIDE $@
+
+b) Finalmente um link simbolico em /usr/bin
+  ln -s /usr/local/MiniZincIDE-0.9.6-linux-x86_64/MiniZincIDE.sh IDEminizinc  
+  Logo o executável gráfico ficou sendo IDEminizinc
+  
+  O caminho para IDEminizinc -> /usr/local/MiniZincIDE-0.9.6-linux-x86_64/MiniZincIDE.sh
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+OUTRA INSTALL em julho 2015// COMO ROOT do it:
+
+wget https://github.com/MiniZinc/MiniZincIDE/releases/download/0.9.8/MiniZincIDE-0.9.8-bundle-linux-x86_64.tgz
+ tar -xvf MiniZincIDE-0.9.8-bundle-linux-x86_64.tgz
+cd /usr/bin
+ln -s /usr/local/share/MiniZincIDE-0.9.8-bundle-linux-x86_64/MiniZincIDE.sh IDEminizinc
+ADICIONE "cd usr/local/share/MiniZincIDE-0.9.8-bundle-linux-x86_64" em 
+/usr/local/share/MiniZincIDE-0.9.8-bundle-linux-x86_64/MiniZincIDE.sh or IDEminizinc
+ainda para console:
+ln -s /usr/local/share/MiniZincIDE-0.9.8-bundle-linux-x86_64/minizinc minizinc
+%%%%%%%%%%%%%%%%
+
+FINALMENTE ADICIONAR o CAMINHO em seu sistema .profile ou /etc/profile
+
+................................................................................
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/share/minizinc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+else
+  PATH="/usr/local/share/minizinc:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+fi
+export PATH
+................................................................
+TESTE algo como:
+$mzn-g12fd clique_ex.mzn data_clique_30.dzn 
+Clique size:15
+{2,4,6,8,10,12,14,16,18,20,22,24,26,28,30}
+----------
+................................................................................
+
+

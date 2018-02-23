@@ -1,0 +1,14 @@
+/*
+Apos baixar do site http://picat-lang.org/ -> downloads
+Descompactar tar -xvf picat19_linux64.tar.gz
+Ir para o diretorio cd Downloads/Picat/
+cd Picat/
+USE ...
+udesc@F:~/Downloads/Picat$ ./picat bom_dia_turma.pi 
+ 
+ BOM DIA turmas de LMA 
+ 
+ udesc@F:~/Downloads/Picat$ 
+*/
+
+main => printf(" \n BOM DIA turmas de LMA \n \n ").

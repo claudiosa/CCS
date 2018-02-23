@@ -1,0 +1,29 @@
+%%% FATOS ... 
+index(-)      % fatos instanciados como retorno
+     f1(a).
+     f1(b).
+	
+index(-)      % fatos instanciados como retorno
+    f2(1).
+    f2(2).
+	
+index(-)       % fatos instanciados como retorno
+    f3('#').
+    f3('@').
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+regra(XXX, YYY, ZZZ)  =>     %%% this rule is NOT backtrackable
+          	f1(ZZZ),
+          	f2(XXX),
+          	f3(YYY).
+%% EXERCICIO: TROQUE AS ORDENS das VARIAVEIS e dos fatos	  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+lst_vars ?=> %%% this rule is  backtrackable
+   regra(X,Y,Z),                            
+   printf("\n X: %w \t Y: %w \t Z: %w ", X,Y,Z)  ,   %% and
+   false.
+
+lst_vars => 
+       printf("\n\n FIM DOS FATOS \n\n ")  ,
+       true. %% the final rule of above
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+main => lst_vars.

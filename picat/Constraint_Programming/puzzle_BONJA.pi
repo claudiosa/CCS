@@ -1,0 +1,15 @@
+import cp.
+main ?=> puzzle_BONJA.
+main => printf("\n calling  HOUSTON ....  \n").
+
+puzzle_BONJA ?=>
+    Vars = [B, O, N, J, A],
+    Vars :: 1..9,
+    all_different( [B,O,N,J,A] ), 
+    B + O + N  #= J+ A,
+    B * O * N * J * A  #= 1008,
+    solve([ff] , Vars),
+    printf("B:%d  O:%d  N:%d  J:%d  A:%d \n", B,O,N,J,A),
+    fail.
+puzzle_BONJA =>  true.
+    

@@ -1,0 +1,9 @@
+teste =>
+     X := 3, 
+     Y := 4,
+     if (X >= Y) 
+     then
+          printf("\n X eh maior: %d\n" , X)
+     else
+          printf("\n senao Y eh maior: %d\n" , Y)
+     end.

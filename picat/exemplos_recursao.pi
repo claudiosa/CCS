@@ -1,0 +1,44 @@
+/* Versões recursivas PROVA 2017-1 */
+
+main ?=> Status = command("clear") ,
+	printf("====================================== %d\n", Status),
+    maior_div( 12, 6, Div1 ),
+    maior_div( 12, 4, Div2 ),
+    writeln( Div1 ) , 
+    writeln( Div2 ) ,
+    mov_HANOI(2, M1),
+    mov_HANOI(3, M2),
+    mov_HANOI(4, M3),
+    printf("\n 1. HANOI: %d |%d |%d \n",
+    	   M1, M2, M3),
+    printf("\n 2. f_HANOI: %d |%d |%d \n",
+    	   f_mov_HANOI(2),
+    	   f_mov_HANOI(3), 
+    	   f_mov_HANOI(4)) 
+    	   .
+
+main =>  printf("\n HOUSTON ... Something Wrong !!!").
+
+/* recursividade CLASSICA -- prolog like*/
+maior_div( X, 0, Div ) ?=> Div = X. % regra backtrackable
+maior_div( X, Y, Div ) => 
+           Y > 0,  
+           Aux  =  mod(X,Y),
+           maior_div( Y, Aux, Div ). 
+
+/* recursividade CLASSICA -- prolog like*/
+mov_HANOI( 1, N_mov ) ?=> N_mov = 1. % regra backtrackable
+mov_HANOI( N, N_mov ) => 
+          N > 1, 
+          Aux  =  (N-1),
+          mov_HANOI( Aux, N_aux ),
+          N_mov = 2*N_aux + 1.
+
+/* Usando sintaxe de FUNCOES  */
+f_mov_HANOI( 1 ) = 1 => true. % regra backtrackable
+f_mov_HANOI( N ) = Mov => 
+             N > 1, 
+             %printf("\t f_HANOI: %d|  \n", N),
+             Mov = 2*f_mov_HANOI( N-1 ) + 1.
+
+/************************************************/        

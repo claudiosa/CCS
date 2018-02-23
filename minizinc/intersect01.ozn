@@ -1,0 +1,2 @@
+output [show(z)];
+set of int: z = 0..0;

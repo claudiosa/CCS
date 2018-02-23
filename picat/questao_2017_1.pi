@@ -1,0 +1,31 @@
+
+index(-)      % fatos instanciados como retorno
+     f1(22).
+     f1(24).
+	
+index(-)  % fatos instanciados como retorno
+    f2(1).
+    f2(2).
+	
+index(-)     % fatos instanciados como retorno
+    f3(13).
+    f3(15).
+    
+regra( X_1, Y_1, Z_1, Resp ) =>     
+          f1(Z_1),
+          f2(X_1),
+          f3(Y_1),
+          Resp = (X_1 + Y_1 + Z_1 ).
+
+%%% Exercicio de Aprendizagem:
+%% VARIE A ORDEM DE f1 a f3 e deduza os resultados
+%% Depois e execute no compilador e comprove se aprendeu
+
+main ?=>     %%% this rule is  backtrackable
+   regra(X,Y,Z, R),                            
+   printf("\n X: %d \tY: %d \tZ: %d \tResp: %d", X,Y,Z, R)  ,  
+   false.
+
+main => 
+       printf("\n\n FIM DOS FATOS \n\n") ,
+       true.

@@ -1,0 +1,150 @@
+Prova de IA - Recursividade - 13/09
+
+IP da prova:  200.19.107.44/boca
+Prova individual ou no máximo dois
+1. Atenção aos nomes dos predicados submetidos. Veja protótipos.
+2. Cuidar na formatação. Esta é exatamente a dos exemplos.
+3.  Não há penalizações por submissões erradas.
+
+
+
+1.  Implemente a soma série dada por:  1*2 - 3*4 + 5*6 - 7*8  + ......
+Protótipo do predicado: serie(N,X)
+
+Exemplos de I/O:
+
+?-  serie(4,X).
+X = -36 .
+?- serie(5,X).
+X = 54 .
+?- serie(1,X).
+X = 2 .
+
+
+
+
+
+2. Implemente a repetição alternada de dois carácteres quaisquer de modo decrescente até 0. Tudo numa mesma linha.
+Protótipo do predicado: dois_c(X,Y,N)
+
+Exemplos de I/O:
+
+?- dois_c('#', '*', 7).
+#######*******######******#####*****####****###***##**#*
+true .
+?- dois_c('#', '*', 0).
+true .
+?- dois_c('#', '&', 1).
+#&
+true 
+
+
+
+
+
+3. Construa uma quadrado com dois carácteres quaisquer.  Veja que o resultado é um retângulo (n linhas por n+n colunas).
+Protótipo do predicado: quad(X,Y,N)
+
+Exemplos de I/O:
+
+?- quad('#', '&', 5).
+#####&&&&&
+#####&&&&&
+#####&&&&&
+#####&&&&&
+#####&&&&&
+true .
+?- quad('*', '&', 1).
+*&
+true .
+?- quad('*', '&', 0).
+true .
+
+
+
+
+4. Gera os fatoriais de modo crescente e seus respectivos valores parciais. As duas
+exceções devem ser tratadas.
+Protótipo do predicado: g_fat(N)
+
+Exemplos de I/O:
+
+?- g_fat(-77).
+
+Fat Negativo
+true.
+
+?- g_fat(0).
+
+1
+true.
+
+?- g_fat(5).
+
+0! = 1
+1! = 1
+2! = 2
+3! = 6
+4! = 24
+5! = 120
+true.
+
+PS : tem um salto de linha antes de começar imprimir a sequência.
+
+
+
+
+
+5a. Imprime a sequência dos divisores em ordem crescente dos divisores de um dado número inteiro positivo.
+Protótipo do predicado: imp_div(N)
+
+Exemplos de I/O:
+
+?- imp_div(0).
+
+ Numero Zero
+true.
+
+?- imp_div(-77).
+
+ Numero Negativo
+true.
+
+?- imp_div(14).
+ 1 2 7 14
+true 
+PS : tem um salto de linha antes de começar imprimir as  duas exceções.
+
+6a. Implementar a função de Mcharty, ou a função 91. Sua especificação é dada por:
+f(n) = se n>100 então (n-10)  ou
+           n =< 100 f(f(n+1)                            
+Repetindo:
+f(n) = 
+ 1o. caso:   n>100 então (n-10) 
+ 2o. caso:   n =< 100 f(f(n+1)                            
+
+
+Protótipo do predicado: f_91(N,F)
+
+
+Exemplos de I/O:
+
+?- f_91(0,X).
+X = 91.
+
+?- f_91(99,X).
+X = 91.
+
+?- f_91(999,X).
+X = 989.
+
+
+?- f_91(101,X).
+X = 91.
+
+?- f_91(102,X).
+X = 92.
+
+
+
+Boa sorte.

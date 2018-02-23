@@ -1,0 +1,48 @@
+Instalar o solver do GECODE:
+
+root@gerzat:/bin# aptitude search "gecode"
+p   libgecode-dev                       - generic constraint development environment    
+p   libgecode-dev:i386                  - generic constraint development environment    
+p   libgecode-doc                       - generic constraint development environment    
+i A libgecode41v5                       - generic constraint development environment    
+p   libgecode41v5:i386                  - generic constraint development environment    
+i   libgecodeflatzinc41v5               - Gecode support for FlatZinc modelling language
+p   libgecodeflatzinc41v5:i386          - Gecode support for FlatZinc modelling language
+i A libgecodegist41v5                   - Gecode Interactive Search Tool library        
+p   libgecodegist41v5:i386              - Gecode Interactive Search Tool library        
+
+INSTALAR COMO ROOT:
+aptitude install libgecode41v5 libgecodeflatzinc41v5 libgecodegist41v5  
+aptitude install flatzinc
+
+Conferir a instalacao em
+ccs@gerzat:~/Dropbox/CCS/minizinc$ ls -al /usr/bin/mzn-gecode 
+-rwxr-xr-x 1 root root 1531 Set  5  2015 /usr/bin/mzn-gecode
+
+CUJO CONTEUDO EH ALGO COMO:
+...............................
+prefix=/usr
+datarootdir=${prefix}/share
+FLATZINC_CMD=fzn-gecode minizinc -I ${datarootdir}/gecode/mznlib "$@"
+...............................
+LOGO o mzn-gecode foi instalado com sucesso, confira aqui:
+$ ls -al /usr/share/gecode/
+total 20
+drwxr-xr-x   3 root root  4096 Set  3 19:35 .
+drwxr-xr-x 353 root root 12288 Set  3 19:35 ..
+drwxr-xr-x   2 root root  4096 Set  3 19:35 mznlib
+
+
+Por garantia copie esta chamada para:
+ccs@gerzat:~/Dropbox/CCS/minizinc$ ls /usr/local/minizinc-2.0.14/bin/
+flatzinc    minizinc  mzn2fzn    mzn-g12lazy  mzn-gecode  solns2out
+MEU_GECODE  mzn2doc   mzn-g12fd  mzn-g12mip   solns2dzn
+
+Em resumo sao dois passos:
+
+1. $ mzn2fzn brasil.mzn
+2. $ fzn-gecode -a brasil.fzn
+
+PS: NAO ESTA  INCORPORADO AS SAIDAS FORMATADAS pelo solns2dzn  solns2out
+que formata as saidas demandas pelo .mzn
+..............................................................

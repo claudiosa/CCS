@@ -1,0 +1,4 @@
+João da Silva#56#1.78#'M'
+José da Expedito#35#1.8#'M'
+Maria Luiza#35#1.58#'F'
+Marcio Ferreira#25#1.98#'M'

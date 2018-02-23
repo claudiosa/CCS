@@ -1,0 +1,53 @@
+/*
+For example, the rules for the "monkey and bananas problem" would be represented with the following knowledge base in Prolog: 
+*/
+can_reach(monkey, bananas) :- tall(X), under(Y, bananas), on(monkey, Z), X==Y, X==Z.
+under(X, bananas) :- at(X, location_under_bananas).
+on(X, Y) :- can_climb(X, Y).
+at(X, _ ) :- portable(X).
+can_climb(monkey, _).
+tall(chair).
+tall(pillar).
+portable(chair).
+
+/*
+Example
+To illustrate this, we will once again prove that the monkey can reach the bananas. We will do this by making the query: 
+?-can_reach(monkey, bananas).
+This would be matched with the rule: 
+can_reach(monkey, bananas) :- tall(X), under(X, bananas), on(monkey, X).
+This means that Prolog would then in turn try to prove tall(X), under(X, bananas), and on(monkey, X). Since Prolog always works from left to right, it would start with tall(X). 
+Prolog would match this with tall(chair), since that is the firstrule in the knowledge base that matches tall(X). 
+
+In the process, it would unify X = chair. Note that this unification would be propagated throughout the rule as a whole. It would now be trying to prove under(chair, bananas) and on(monkey, chair). 
+
+To prove under(chair, bananas), Prolog would match it with 
+
+under(X, bananas) :- at(X, location_under_bananas). 
+
+This would cause the unification X = chair throughout the rule. This would mean Prolog would now need to prove at(chair, location_under_bananas). 
+
+This would match the rule 
+
+at(X, Y) :- portable(X). 
+
+Unifying X = chair  and Y = location_under_the_bananas. This means Prolog would now be trying to prove portable(chair). 
+
+This would match the rule 
+
+portable(chair). 
+
+Unifying X = chair. This would mean that at(chair, location_under_bananas) would be proven, and therefore so would under(chair, bananas) . 
+
+This would leave on(monkey, chair) to be proven. This would match the rule 
+
+on(X, Y) :- can_climb(X, Y).
+
+Unifying X = monkey  and Y = chair. This means Prolog would now be trying to prove can_climb(monkey, chair). 
+
+This would match the rule
+
+can_climb(monkey, X).
+
+Unifying X  = chair. This means that on(monkey, chair) is true, and therefore can_reach(moneky, bananas) is true. 
+*/ 

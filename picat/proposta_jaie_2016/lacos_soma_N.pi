@@ -1,0 +1,31 @@
+%% Usando lacos para soma de 0 ateh N
+main => soma_01(7), soma_02(7),  soma_03(7).
+
+soma_01 (N) =>   %% USANDO a estrutura foreach
+	S := 0,       
+	foreach(Aux in 1 .. N)
+	 	printf(" %d", Aux),
+	  	S := S + Aux,
+	end,
+    printf("\n SOMA de 1 ate %d: %d\n", N, S).
+
+soma_02 (N) => %% USANDO a estrutura do-while
+	S := 0,       
+	Aux := N,
+	do
+	 	printf(" %d", N),
+	  	S := S + N,
+	  	N := N - 1
+	while (N >= 0),
+    printf("\n SOMA de 1 ate %d: %d\n", Aux, S).
+
+soma_03 (N) => %% USANDO a estrutura while-do
+	S := 0,       
+	Aux := N,
+	while (N >= 0)
+	 	printf(" %d", N),
+	  	S := S + N, 
+	  	N := N - 1     
+	end,
+    printf("\n SOMA de 1 ate %d: %d\n", Aux, S).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

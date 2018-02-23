@@ -1,0 +1,107 @@
+import os.
+import util.
+import math.
+import datetime.
+import planner.
+
+main=>  
+  /* foreach(I in  1 ..10, I mod 2 != 0)  
+        printf(" => %d is not a multiple of 2\n", I)  
+    end,
+   */
+    
+    printf("\n testing 1: %d", count_X_in_L( 2, [2,3,2,2] ) ),
+    printf("\n testing 2 : %d\n", count2_X_in_L( 7, [2,3,2,2] ) ),
+    M = {{ 1 , # , # , 0 , 1 , 1},
+         { 1,  #,  #,  1,  #,  #},
+         { 0,  0,  1,  0,  #,  #}},
+   
+    print_map( Map )
+    %feasible_move_XY( [X,Y], Map ),
+    %printf("\n Getting (X: %w, Y:  %w):  " , X, Y)
+    .
+
+%count2_X_in_L( _ , [] ) = Res =>  Res = 0.
+count2_X_in_L( _ , [] ) =  0.
+count2_X_in_L( X , [H|L] ) = Res, X == H =>  
+              Res = count2_X_in_L( X , L ) + 1 .
+count2_X_in_L( X , [H|L] ) = Res, X !== H =>  
+              Res = count2_X_in_L( X , L ) .
+
+count_X_in_L( _ , [] )  = 0.
+count_X_in_L( X , [X|L] ) = count_X_in_L( X , L ) + 1 .
+count_X_in_L( X , [H|L] ) = Res => X !== H, Res = count_X_in_L( X , L ) .
+
+/*
+count_X_in_L( X , [H|L] ) = Res => X !== H,  
+             Res = count_X_in_L( X , L ) .
+OU
+*/             
+
+feasible_move_XY( [X,Y], Map ) ?=>
+  L = (Map.length),
+  C = (Map[1].length),
+  printf(" MAX DIM: %d x %d ", L, C),
+  
+  %% REPENSAR AQUI ...
+  %%% foreach (E1 in D1, Cond1, …, En in Dn, Condn)
+  %% ,  (not var(X) && not var(Y)) 
+  %% , (I+2 =< L && J+2 =< C)
+  foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
+    (
+      % if ( Map[I,J] == '1'  ) then 
+      %  printf("\n ==> (%d,%d): %w " , I, J, Map[I,J] )
+      % end
+      % 
+       %%% VERTICAL  
+      if ((I+2 =<L) && Map[I,J] == '1' && Map[I+1,J] == '1' &&  Map[I+2,J] == '0' ) then  %110
+      X := I,
+        Y := J,
+        printf("\n VERTICAL 110")
+       
+       elseif ((I+2 =<L) && Map[I,J] == '0' , Map[I+1,J] == '1',  Map[I+2,J] == '1' ) then  %011
+        X := I,
+        Y := J,
+        printf("\n VERTICAL 011")
+       
+       elseif ((J+2 =<C) && Map[I,J] == '1', Map[I,J+1] == '1',  Map[I,J+2] == '0' ) then  %down
+        X := I,
+        Y := J,
+        printf("\n HORIZONTAL 110")
+       
+       elseif ((J+2 =<C) && Map[I,J] == '0' && Map[I,J+1] == '1' &&  Map[I,J+2] == '1') then  %down
+         X := I,
+         Y := J,
+         printf("\n HORIZONTAL 011")
+         
+       else
+        printf("\n Nenhum movimento viavel em:"),
+        X := I,
+        Y := J,
+        printf("\t(%d,%d): %w " , I, J, Map[I,J] )
+        
+       end %%%% END do if ...
+      ,
+      printf("\t foreach END")
+     ) 
+   end %% END  FOREACH
+   ,
+  printf("\n APOS foerach "),
+  printf("\n ===> (X: %d, Y:  %d): %w  " , X, Y , Map[X,Y] ).
+
+    
+feasible_move( _ , _) => printf("\n Problem in XY position function \n").
+
+
+%% printing the GRID ....
+print_map( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+   end.   

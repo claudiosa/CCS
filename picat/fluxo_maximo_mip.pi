@@ -1,0 +1,28 @@
+  import mip.
+%%%%%%%%% PLEASE INSTALLL IT # aptitude install glpk-utils 
+
+    main =>
+        M={{0,3,2,3,0,0,0,0},
+           {0,0,0,0,0,0,5,0},
+           {0,1,0,0,0,1,0,0},
+           {0,0,2,0,2,0,0,0},
+           {0,0,0,0,0,0,0,5},
+           {0,4,0,0,2,0,0,1},
+           {0,0,0,0,0,2,0,3},
+           {0,0,0,0,0,0,0,0}},
+        maxflow(M,1,8).
+
+    maxflow(M,Source,Sink) =>
+        N=M.length,
+        X=new_array(N,N),
+        foreach(I in 1..N, J in 1..N)
+            X[I,J] :: 0..M[I,J]
+        end,
+        foreach(I in 1..N, I!=Source, I!=Sink)
+            sum([X[J,I] : J in 1..N]) #= sum([X[I,J] : J in 1..N]) 
+        end,
+        Total #= sum([X[Source,I] : I in 1..N]),
+        Total #= sum([X[I,Sink] : I in 1..N]),
+        solve([$max(Total)],X),
+        writeln(Total),
+        writeln(X).

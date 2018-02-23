@@ -1,0 +1,205 @@
+%FEIRA DE ANTIGUIDADES
+%BEATRIZ MICHELSON REICHERT
+
+import cp.
+import datetime.
+
+main => go.
+
+go =>
+  %pega o tempo atual
+  current_time() = Time1,
+
+  %GERAR VARIÁVEIS
+  %TAMANHO VETOR
+
+  N = 5,
+
+  %Cada elemento em mochila, nome, idade, início, coleciona e esporte
+  %é representado por um número inteiro, este vai ser utilizado para a resolução e
+  %para printar o resultado final.
+
+  % FATOS
+  % MOCHILA
+  Amarelo = 1, Azul = 2, Branco = 3, Verde = 4, Vermelho = 5,
+  MochilaS = ["Amarelo","Azul","Branco","Verde","Vermelho"],
+
+  %NOME
+  Evandro = 1, Fabricio = 2, Pedro = 3, Marcel = 4, Yuri = 5,
+  NomeS = ["Evandro","Fabricio","Pedro","Marcel","Yuri"],
+
+  %IDADE
+  I33 = 1 , I35 = 2, I39 = 3, I41 = 4 , I44 = 5,
+  IdadeS = ["33","35","39","41","44"],
+
+  %INICIO
+  In12 = 1, In15 = 2, In20 = 3, In22 = 4, In25 = 5,
+  InicioS = ["12","15","20","22","25"],
+
+  %COLECIONA
+  Armas = 1, Brinquedos = 2, Esculturas = 3, Latas = 4, Relogios = 5,
+  ColecionaS = ["Armas","Brinquedos","Esculturas","Latas","Relogios"],
+
+  %ESPORTE
+  Basquete = 1, Futebol = 2, Natacao = 3, Volei = 4, Tenis = 5,
+  EsporteS = ["Basquete","Futebol","Natacao","Volei","Tenis"],
+
+  %VARIÁVEIS DE DECISÃO
+  %CRIAÇÃO DE LISTA, (com tamanho 5 (inicia em 1)).
+
+  Moc  = new_list(N), Moc  :: 1..N,
+  No  = new_list(N), No  :: 1..N,
+  I  = new_list(N), I  :: 1..N,
+  In  = new_list(N), In  :: 1..N,
+  Col  = new_list(N), Col  :: 1..N,
+  Esp  = new_list(N), Esp  :: 1..N,
+
+  % RESTRIÇÕES PARA QUE NÃO TENHA VARIÁVEIS REPETIDAS
+  %all_different é uma função definida na própria linguagem picat
+  %GERAR RESTRIÇÕES
+
+  all_different(Moc),
+  all_different(No),
+  all_different(I),
+  all_different(In),
+  all_different(Col),
+  all_different(Esp),
+
+  %REGRAS
+
+  % Na quarta posição está o colecionador que começou a colecionar com 12 anos.
+  4 #= In[In12],
+
+  % O colecionador da mochila Verde começou com 15 anos.
+  Moc[Verde] #= In[In15],
+
+  % Em uma das pontas está o colecionador da mochila Branca.
+  function_or(Moc[Branco]),
+
+  % Quem gosta de Vôlei começou a colecionar com 25 anos.
+  Esp[Volei] #= In[In25],
+
+  % Na terceira posição está o rapaz da mochila Azul.
+  3 #= Moc[Azul],
+
+  % Yuri está em uma das pontas.
+  function_or(No[Yuri]),
+
+  % O colecionador de 39 anos começou a colecionar com 15 anos.
+  I[I39] #= In[In15],
+
+  % Na quinta posição está quem gosta de Basquete.
+  5 #= Esp[Basquete],
+
+  % O dono da mochila Verde está em algum lugar à direita do dono da mochila Branca.
+  Moc[Verde] #>= Moc[Branco],
+
+  % Quem coleciona Brinquedos está ao lado de quem está com a mochila Azul.
+  function_all(Col[Brinquedos],Moc[Azul]),
+
+  % Na primeira posição está quem gosta de Futebol.
+  1 #= Esp[Futebol],
+
+  % O colecionador da mochila Vermelha gosta de Tênis. 
+  Moc[Vermelho] #= Esp[Tenis],
+
+  % Quem coleciona Armas está ao lado do homem de 39 anos.
+  function_all(Col[Armas],I[I39]),
+
+  % O colecionador que gosta de Natação está exatamente à esquerda do homem mais velho.
+  Esp[Natacao] #= (I[I44] - 1),
+
+  % O rapaz que começou a colecionar com 20 anos está na primeira posição.
+  1 #= In[In20],
+
+  % Em uma das pontas está quem coleciona Relógios.
+  function_or(Col[Relogios]),
+
+  % O colecionador de 35 anos começou a colecionar com 22 anos.
+  (I[I35] #= In[In22]),
+
+  % O dono da mochila Amarela está em algum lugar à esquerda de Fabricio.
+  Moc[Amarelo] #< No[Fabricio],
+
+  % Evandro está na terceira posição.
+  3 #= No[Evandro],
+
+  % O homem de 33 anos está exatamente à direita de quem coleciona Latas.
+  I[I33] #= Col[Latas] + 1,
+
+  % O colecionador da mochila Branca coleciona Esculturas.
+  Moc[Branco] #= Col[Esculturas],
+
+  % Marcel está na primeira posição.
+  1 #= No[Marcel],
+
+
+  %RESOLUÇÃO DAS REGRAS
+  Vars = Moc++No++I++In++Col++Esp,
+  solve(Vars),
+
+  nl,
+
+  printf("Resultados:\n"),
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W, Moc, MochilaS, M1),
+    printf("Detalhes(%w) %w \n", W, M1)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W, No, NomeS,N2),
+    printf("Bloco(%w) %w \n", W, N2)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W, I, IdadeS, I3),
+    printf("Arquiteto(%w) %w \n", W, I3)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W, In, InicioS, Ln4),
+    printf("Idade(%w) %w \n", W, Ln4)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W, Col, ColecionaS, C5),
+    printf("Vendido(%w) %w \n", W, C5)
+  end,
+  nl,
+
+  foreach(W in 1..N)
+    func_print(W, Esp, EsporteS, E6),
+    printf("Tem(%w) %w \n", W, E6)
+  end,
+  nl,
+
+  %pega o tempo atual
+  current_time() = Time2,
+
+
+  printf("Hora,Minuto,Segundo\n"),
+  printf("Inicio: %w \n",Time1),%tempo inicial
+  printf("Fim: %w \n",Time2),%tempo final
+
+  nl.
+
+  %nth é uma função definida na própria linguagem picat
+  %FUNÇÃO PARA PRINTAR
+
+func_print(I,X,Strings,Y) =>
+  nth(T,X,I),
+  nth(T,Strings,Y).
+
+% Função para verificar uma das pontas.
+function_or(Value_one) =>
+  (1 #= Value_one ; 5 #= Value_one).
+
+% Função para verificar o lado
+function_all(A1,A2) =>
+  ((A1 - A2) #= 1 ;  (A1 - A2) #= -1 ).

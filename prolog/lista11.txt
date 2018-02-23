@@ -1,0 +1,3 @@
+add_to_set(X, [ ], [X]).
+add_to_set(X, Y, Y) :- member(X, Y).
+add_to_set(X, Y, [X | Y]).

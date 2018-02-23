@@ -1,0 +1,25 @@
+
+main =>
+    nl,
+    imprime_lista([a,b,c]), 
+    nl, 
+    writeln('FIM main').
+
+	imprime_lista([]) ?=>  true. %write("\n FIM \n").
+	imprime_lista([H|T]) => 
+	                       % write("\n......................................\n"),
+	                       write(H), 
+	                       write(' '),
+	                       imprime_lista(T).
+	                       
+	                       
+	                       
+alldifferent([])  ?=> true.
+alldifferent([H|T]) =>  
+                  not(member(H,T)),
+	              alldifferent(T).
+	              
+	              
+index(-)     
+edge(1).
+edge(17).        

@@ -1,0 +1,24 @@
+import cp.
+/*
+ALGO COMO: forall X +2 > Y 
+*/
+main ?=> 
+%%		printf("\n X   Y  Phi"),
+		generic_model.
+
+main => printf("\n ........HOUSTON: we have a problems here!!!!.......\n"),
+		 true.	
+
+generic_model ?=> 
+	printf("\n X   Y  Phi"),
+        Phi :: [0, 1],
+	X :: 1 .. 3,
+	Y :: 3 .. 4,   
+	(X+2 #> Y) #<=> Phi,
+	solve([X,Y,Phi]),
+	printf("\n %d   %d   %d",X, Y, Phi),	
+	fail.	
+
+generic_model => 	
+		printf("\n=====================\n").
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

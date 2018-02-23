@@ -1,0 +1,160 @@
+/*
+
+%% Melhoramentos etc: ccs
+Enunciado do Problema: 
+http://rachacuca.com.br/logica/problemas/turistas-na-copa/turma: 2015-2
+*/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% SEM USAR A BIBLIOTECA DE CP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%import cp. sem CP
+main ?=> 
+   turista( L ) ,
+    % writeln(L),
+    imprime( L ),
+    false.
+		 
+main => nl, 
+       printf("\n ==================================================== ").   
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AQUI COMEÇA O PROGRAMA ....
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+turista( Lista ) ?=>
+
+    Lista = [
+     [Camisa_1, Nacionalidade_1, Bebida_1, Dias_1, Idade_1, Companhia_1], %% PESSOA 1
+     [Camisa_2, Nacionalidade_2, Bebida_2, Dias_2, Idade_2, Companhia_2],
+     [Camisa_3, Nacionalidade_3, Bebida_3, Dias_3, Idade_3, Companhia_3],
+     [Camisa_4, Nacionalidade_4, Bebida_4, Dias_4, Idade_4, Companhia_4],
+     [Camisa_5, Nacionalidade_5, Bebida_5, Dias_5, Idade_5, Companhia_5]  %% PESSOA 5
+    ] ,
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Camisa_
+camisa(Camisa_1),
+camisa(Camisa_2),
+camisa(Camisa_3),
+camisa(Camisa_4),
+camisa(Camisa_5),
+alldifferent([Camisa_1, Camisa_2, Camisa_3, Camisa_4, Camisa_5]),
+
+
+%Nacionalidade_
+nacional_do_turista(Nacionalidade_1),
+nacional_do_turista(Nacionalidade_2),
+nacional_do_turista(Nacionalidade_3),
+nacional_do_turista(Nacionalidade_4),
+nacional_do_turista(Nacionalidade_5),
+alldifferent([Nacionalidade_1, Nacionalidade_2, Nacionalidade_3, Nacionalidade_4, Nacionalidade_5]),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Bebida_
+bebida(Bebida_1),
+bebida(Bebida_2),
+bebida(Bebida_3),
+bebida(Bebida_4),
+bebida(Bebida_5),
+alldifferent([Bebida_1, Bebida_2, Bebida_3, Bebida_4, Bebida_5]),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Dias_
+dias(Dias_1),
+dias(Dias_2),
+dias(Dias_3),
+dias(Dias_4),
+dias(Dias_5),
+alldifferent([Dias_1, Dias_2, Dias_3, Dias_4, Dias_5]),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Idade_
+idade(Idade_1),
+idade(Idade_2),
+idade(Idade_3),
+idade(Idade_4),
+idade(Idade_5),
+alldifferent([Idade_1, Idade_2, Idade_3, Idade_4, Idade_5]),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Companhia_
+companhia(Companhia_1),
+companhia(Companhia_2),
+companhia(Companhia_3),
+companhia(Companhia_4),
+companhia(Companhia_5),
+alldifferent([Companhia_1, Companhia_2, Companhia_3, Companhia_4, Companhia_5]),
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% quase terminandos
+printf("\n ==> Atingiu o Final do Modelo : UFA !!!! =====\n").
+
+
+turista( _ ) =>	
+      printf("\n==> Inconsistencia no passo anterior: REVISE TUDO <== \n").
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BASE DE DADOS ....
+%% TUDO ATOMO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+index(-) %% OBRIGATORIO ... - EXTRACAO
+camisa( amarelito ).
+camisa( azulzito ).
+camisa( branquito ).
+camisa( verdito ).
+camisa( vermelhito ).
+
+index(-) 
+nacional_do_turista(alemao).
+nacional_do_turista(croata).
+nacional_do_turista(espanhol).
+nacional_do_turista(frances).
+nacional_do_turista(italiano).
+
+index(-) 
+bebida(agua).
+bebida(cafe).
+bebida(cha).
+bebida(cerveja).
+bebida(leite).
+
+index(-)
+dias(10).
+dias(15).
+dias(20).
+dias(25).
+dias(30).
+
+index(-)
+idade(28).
+idade(31).
+idade(36).
+idade(45).
+idade(57).
+
+index(-)
+companhia(amigo).
+companhia(filho).
+companhia(irma).
+companhia(esposa).
+companhia(namorada).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% apos o aluno entender varios conceitos 
+alldifferent([]) ?=> true.
+alldifferent([H|T]) => not(member(H,T)),
+                       alldifferent(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+imprime([]) ?=> true. 
+imprime([[X1, X2, X3, X4, X5, X6]|T]) => 
+        writeln([X1, X2, X3, X4, X5, X6]),
+        imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

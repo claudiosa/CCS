@@ -1,0 +1,63 @@
+/* Versões recursivas do Fatorial */
+
+main => 
+        fat_1(1,F1), writeln(F1), 
+        fat_1(2,F2), writeln(F2),
+        fat_1(3,F3), writeln(F3),
+        writeln( fat_2(4) ) , 
+        writeln( fat_2(5) ) , 
+        writeln( fat_2(6) ) ,
+        writeln( fat_3(7) ) , 
+        writeln( fat_3(8) ) , 
+        writeln( fat_3(9) ) ,
+        writeln( fat_4(10) ) ,
+        writeln( fat_4(11) ) ,
+        writeln( fat_4(12) ) .
+
+
+/* recursividade CLASSICA -- prolog like*/
+fat_1( 0, Fat ) ?=> Fat = 1. % regra backtrackable
+fat_1( N, Fat ) => N > 0, %%% evita fatorial negativos
+                   Aux  =  (N - 1),
+                   fat_1( Aux , Parcial ),
+                   Fat = ( N * Parcial ). 
+
+/* Usando sintaxe de FUNCOES  */
+fat_2(0) = Fat => Fat = 1. % eh função .... logo sem ?
+fat_2(1) = Fat => Fat = 1. % eh função .... logo sem ?
+fat_2(N) = Fat => N > 0, %%% evita fatorial negativos
+                  Aux = (N - 1),
+                  Parcial = fat_2( Aux ),
+                  Fat = N * Parcial . 
+
+/* mais sintética com FUNCOES  */
+fat_3(0) = Fat => Fat = 1. % eh função .... logo sem ?
+fat_3(1) = Fat => Fat = 1. % eh função .... logo sem ?
+fat_3(N) = Fat => N > 0, %%% evita fatorial negativos
+                  Fat = N *  fat_2( (N-1) ) . 
+
+/* mais sintética mais com FUNCOES -- like Haskell  */
+fat_4(0) = 1. % eh função .... logo sem ?
+fat_4(1) = 1. % eh função .... logo sem ?
+%%% caso não haja condicionais ....
+fat_4(N) = N *  fat_4( (N-1) ) . 
+
+
+/** hah mais DUAS versoes  .... com if-then-else */
+
+iterativo_01(N,X) =>
+        I := 1,
+        Fat := 1,
+        while( I < N )
+            Fat := Fat * I,
+            printf("\n  %d    %d ", I, Fat),
+            I:= I + 1
+        end,
+        printf("\n Finalmene o fatorial de %d = %d ", N, Fat),
+        X = Fat. %% unificação final -- Fat era LOCAL
+ 
+ /*
+ 
+Fazer com o do-while e foreach: proximos episodios
+      
+************************************************/        

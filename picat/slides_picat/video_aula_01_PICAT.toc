@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{4}{0}{1}
+\beamer@sectionintoc {2}{Caracter\IeC {\'\i }sticas}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Instala\IeC {\c c}\IeC {\~a}o}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{Usando do Picat}{9}{0}{2}
+\beamer@sectionintoc {3}{Exemplo}{10}{0}{3}
+\beamer@sectionintoc {4}{Tipos de Dados}{14}{0}{4}
+\beamer@subsectionintoc {4}{1}{Outros Detalhes}{15}{0}{4}
+\beamer@sectionintoc {5}{Conclus\IeC {\~a}o}{19}{0}{5}

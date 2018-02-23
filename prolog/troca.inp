@@ -1,0 +1,7 @@
+
+main :-    troca( a, b ,  [a,b,c,d,e] , X1 ), write(X1) , nl,
+           troca( e , e, [a,a,c,d,d,d,d,d,e,e,e,e,e], X2), write(X2), nl,
+           troca( a, b, [], X3), write(X3 ), nl,
+           troca( z, a, [a,b,c,d,e], X4 ), write(X4), nl,
+           troca( b, e, [e,a,b, b,b,b,b,b,c,b,b,bb, d,ee,e,e,e,e,e,e], X5), write(X5), nl,
+           troca( a, b, [c,x,2,3,4] , X6 ),  write(X6) , nl.

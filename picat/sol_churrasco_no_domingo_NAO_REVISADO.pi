@@ -1,0 +1,373 @@
+%PROJETO FINAL
+%ALUNOS:Lucas Meneghelli Pereira, Pedro Kawasaki
+%TURMA: A(Lucas) e B(Pedro)
+%Churrasco de Domingo
+%TEMPO DE EXECUÇÃO:2,479 segundos
+%SAIDA:
+%        |Camiseta: verde        |Nome: juliano  |Sobrenome: pessoa
+%        |Idade: 24      |Suco: morango  |Carne: costela |
+%
+%        |Camiseta: amarela      |Nome: bruno    |Sobrenome: barros
+%        |Idade: 27      |Suco: uva      |Carne: cupim   |
+%
+%        |Camiseta: azul |Nome: samuel   |Sobrenome: lopes
+%        |Idade: 30      |Suco: limao    |Carne: maminha |
+%
+%        |Camiseta: vermelha     |Nome: marcelo  |Sobrenome: teixeira
+%        |Idade: 32      |Suco: laranja  |Carne: fraldinha       |
+%
+%        |Camiseta: branca       |Nome: ivo      |Sobrenome: assis
+%        |Idade: 22      |Suco: maracuja |Carne: picanha |
+%
+%        FIM
+%yes
+
+index(-)
+camiseta(amarela).
+camiseta(azul).
+camiseta(branca).
+camiseta(verde).
+camiseta(vermelha).
+
+index(-)
+nome(bruno).
+nome(ivo).
+nome(juliano).
+nome(marcelo).
+nome(samuel).
+
+index(-)
+sobrenome(assis).
+sobrenome(barros).
+sobrenome(lopes).
+sobrenome(pessoa).
+sobrenome(teixeira).
+
+index(-)
+idade(22).
+idade(24).
+idade(27).
+idade(30).
+idade(32).
+
+index(-)
+suco(laranja).
+suco(limao).
+suco(maracuja).
+suco(morango).
+suco(uva).
+
+index(-)
+carne(costela).
+carne(cupim).
+carne(fraldinha).
+carne(maminha).
+carne(picanha).
+
+main ?=> 
+    time(churrasco(R)),
+    escreve(R),
+    false.
+	
+main => 
+	printf("	FIM").
+
+churrasco(Resposta) ?=> 
+
+	Resposta = [
+	[C1,N1,S1,I1,B1,A1],
+	[C2,N2,S2,I2,B2,A2],
+	[C3,N3,S3,I3,B3,A3],
+	[C4,N4,S4,I4,B4,A4],
+	[C5,N5,S5,I5,B5,A5]
+	],
+	
+	%CAMISETA
+
+	camiseta(C1),
+	camiseta(C2),
+	camiseta(C3),
+	camiseta(C4),
+	camiseta(C5),
+	alldifferent([C1,C2,C3,C4,C5]),
+	
+	%O rapaz de camiseta Verde está em algum lugar à esquerda do rapaz de camiseta Branca.
+
+	(
+	(C5==branca, (C4==verde; C3==verde; C2==verde; C1==verde));
+	(C4==branca, (C3==verde; C2==verde; C1==verde));
+	(C3==branca, (C2==verde; C1==verde));
+	(C2==branca, C1==verde)
+	),
+	
+	%NOME
+	
+	nome(N1),
+	nome(N2),
+	nome(N3),
+	nome(N4),
+	nome(N5),
+	alldifferent([N1,N2,N3,N4,N5]),
+	
+	%Ivo está em uma das pontas.
+	(
+	N1==ivo;
+	N5==ivo
+	),
+	
+	%Marcelo está em algum lugar à direita do rapaz de camiseta Azul.
+
+	(
+	(C1==azul, (N2==marcelo; N3==marcelo; N4==marcelo; N5==marcelo));
+	(C2==azul, (N3==marcelo; N4==marcelo; N5==marcelo));
+	(C3==azul, (N4==marcelo; N5==marcelo));
+	(C4==azul, N5==marcelo)
+	),
+	
+	%SOBRENOME
+	
+	sobrenome(S1),
+	sobrenome(S2),
+	sobrenome(S3),
+	sobrenome(S4),
+	sobrenome(S5),
+	alldifferent([S1,S2,S3,S4,S5]),
+	
+	%Lopes e Teixeira estão lado a lado.
+
+	(
+	(S1==lopes, S2==teixeira);
+	(S2==lopes, S3==teixeira);
+	(S3==lopes, S4==teixeira);
+	(S4==lopes, S5==teixeira);
+	(S2==lopes, S1==teixeira);
+	(S3==lopes, S2==teixeira);
+	(S4==lopes, S3==teixeira);
+	(S5==lopes, S4==teixeira)
+	),
+	
+	%Teixeira está em algum lugar à direita do homem de camiseta Amarela.
+
+	(
+	(C1==amarela, (S2==teixeira; S3==teixeira; S4==teixeira; S5==teixeira));
+	(C2==amarela, (S3==teixeira; S4==teixeira; S5==teixeira));
+	(C3==amarela, (S4==teixeira; S5==teixeira));
+	(C4==amarela, S5==teixeira)
+	),
+	
+	%O homem de camiseta Amarela está em algum lugar entre Pessoa e Ivo, nessa ordem.
+
+	(
+	(S1==pessoa, N3==ivo, C2==amarela);
+	(S1==pessoa, N4==ivo, (C2==amarela;C3==amarela));
+	(S1==pessoa, N5==ivo, (C2==amarela;C3==amarela;C4==amarela));
+	(S2==pessoa, N4==ivo, C3==amarela);
+	(S2==pessoa, N5==ivo, (C3==amarela;C4==amarela));
+	(S3==pessoa, N5==ivo, C4==amarela)
+	),
+	
+	%IDADE
+	
+	idade(I1),
+	idade(I2),
+	idade(I3),
+	idade(I4),
+	idade(I5),
+	alldifferent([I1,I2,I3,I4,I5]),
+	
+	%O homem da camiseta Amarela está em algum lugar entre Pessoa e quem tem 22 anos, nessa ordem.
+
+	(
+	(S1==pessoa, I3==22, C2==amarela);
+	(S1==pessoa, I4==22, (C2==amarela;C3==amarela));
+	(S1==pessoa, I5==22, (C2==amarela;C3==amarela;C4==amarela));
+	(S2==pessoa, I4==22, C3==amarela);
+	(S2==pessoa, I5==22, (C3==amarela;C4==amarela));
+	(S3==pessoa, I5==22, C4==amarela)
+	),
+ 	
+	%Bruno está em algum lugar entre o amigo de 24 anos e o Samuel, nessa ordem.
+
+	(
+	(I1==24, N3==samuel, N2==bruno);
+	(I1==24, N4==samuel, (N2==bruno;N3==bruno));
+	(I1==24, N5==samuel, (N2==bruno;N3==bruno;N4==bruno));
+	(I2==24, N4==samuel, N3==bruno);
+	(I2==24, N5==samuel, (N3==bruno;N4==bruno));
+	(I3==24, N5==samuel, N4==bruno)
+	),
+	
+	%O amigo mais velho está usando uma camiseta Vermelha.
+
+	(
+	(I1==32, C1==vermelha);
+	(I2==32, C2==vermelha);
+	(I3==32, C3==vermelha);
+	(I4==32, C4==vermelha);
+	(I5==32, C5==vermelha)
+	),
+	
+	%SUCO
+	
+	suco(B1),
+	suco(B2),
+	suco(B3),
+	suco(B4),
+	suco(B5),
+	alldifferent([B1,B2,B3,B4,B5]),
+	
+	%Na terceira posição está o homem que gosta de suco de Limão.
+
+	(
+	B3==limao
+	),
+	
+	%O amigo que gosta de suco de Morango está em uma das pontas.
+
+	(
+	(B1==morango; B5==morango)
+	),
+	
+	%Assis está ao lado de quem gosta de suco de Laranja.
+
+	(
+	(S1==assis, B2==laranja);
+	(S2==assis, B3==laranja);
+	(S3==assis, B4==laranja);
+	(S4==assis, B5==laranja);
+	(S2==assis, B1==laranja);
+	(S3==assis, B2==laranja);
+	(S4==assis, B3==laranja);
+	(S5==assis, B4==laranja)
+	),
+	
+	%Lopes está exatamente à esquerda de quem gosta de suco de Laranja.
+
+	(
+	(S1==lopes, B2==laranja);
+	(S2==lopes, B3==laranja);
+	(S3==lopes, B4==laranja);
+	(S4==lopes, B5==laranja)
+	),
+	
+	%O homem de 30 anos está em algum lugar entre quem gosta de suco de Uva e quem tem 32 anos, nessa ordem.
+
+	(
+	(B1==uva, I3==32, I2==30);
+	(B1==uva, I4==32, (I2==30;I3==30));
+	(B1==uva, I5==32, (I2==30;I3==30;I4==30));
+	(B2==uva, I4==32, I3==30);
+	(B2==uva, I5==32, (I3==30;I4==30));
+	(B3==uva, I5==32, I4==30)
+	),
+	
+	%O rapaz que gosta de suco de Laranja está em algum lugar entre quem está de camiseta Amarela e quem gosta de suco de Maracujá, nessa ordem.
+
+	(
+	(C1==amarela, B3==maracuja, B2==laranja);
+	(C1==amarela, B4==maracuja, (B2==laranja;B3==laranja));
+	(C1==amarela, B5==maracuja, (B2==laranja;B3==laranja;B4==laranja));
+	(C2==amarela, B4==maracuja, B3==laranja);
+	(C2==amarela, B5==maracuja, (B3==laranja;B4==laranja));
+	(C3==amarela, B5==maracuja, B4==laranja)
+	),
+	
+	%CARNE
+	
+	carne(A1),
+	carne(A2),
+	carne(A3),
+	carne(A4),
+	carne(A5),
+	alldifferent([A1,A2,A3,A4,A5]),
+		
+ 	%O rapaz da camiseta Amarela está em algum lugar entre quem gosta de Costela e quem está com a camiseta Azul, nessa ordem.
+
+	(
+	(A1==costela, C3==azul, C2==amarela);
+	(A1==costela, C4==azul, (C2==amarela;C3==amarela));
+	(A1==costela, C5==azul, (C2==amarela;C3==amarela;C4==amarela));
+	(A2==costela, C4==azul, C3==amarela);
+	(A2==costela, C5==azul, (C3==amarela;C4==amarela));
+	(A3==costela, C5==azul, C4==amarela)
+	),
+
+ 	%O homem de camiseta Amarela está em algum lugar entre quem gosta de suco de Morango e quem gosta de Picanha, nessa ordem.
+
+	(
+	(B1==morango, A3==picanha, C2==amarela);
+	(B1==morango, A4==picanha, (C2==amarela;C3==amarela));
+	(B1==morango, A5==picanha, (C2==amarela;C3==amarela;C4==amarela));
+	(B2==morango, A4==picanha, C3==amarela);
+	(B2==morango, A5==picanha, (C3==amarela;C4==amarela));
+	(B3==morango, A5==picanha, C4==amarela)
+	),
+	
+	%Barros está em algum lugar entre quem gosta de suco de Morango e quem gosta de Fraldinha, nessa ordem.
+
+	(
+	(B1==morango, A3==fraldinha, S2==barros);
+	(B1==morango, A4==fraldinha, (S2==barros;S3==barros));
+	(B1==morango, A5==fraldinha, (S2==barros;S3==barros;S4==barros));
+	(B2==morango, A4==fraldinha, S3==barros);
+	(B2==morango, A5==fraldinha, (S3==barros;S4==barros));
+	(B3==morango, A5==fraldinha, S4==barros)
+	),
+
+	%O homem de 27 anos está em algum lugar entre quem gosta de Costela e quem tem 32 anos, nessa ordem.
+
+	(
+	(A1==costela, I3==32, I2==27);
+	(A1==costela, I4==32, (I2==27;I3==27));
+	(A1==costela, I5==32, (I2==27;I3==27;I4==27));
+	(A2==costela, I4==32, I3==27);
+	(A2==costela, I5==32, (I3==27;I4==27));
+	(A3==costela, I5==32, I4==27)
+	),
+
+	%O homem de 32 anos gosta de Fraldinha.
+
+	(
+	(A1==fraldinha, I1==32);
+	(A2==fraldinha, I2==32);
+	(A3==fraldinha, I3==32);
+	(A4==fraldinha, I4==32);
+	(A5==fraldinha, I5==32)
+	),
+
+	%Quem gosta de Cupim está em algum lugar entre quem gosta de Costela e quem gosta de Fraldinha, nessa ordem.
+
+	(
+	(A1==costela, A3==fraldinha, A2==cupim);
+	(A1==costela, A4==fraldinha, (A2==cupim;A3==cupim));
+	(A1==costela, A5==fraldinha, (A2==cupim;A3==cupim;A4==cupim));
+	(A2==costela, A4==fraldinha, A3==cupim);
+	(A2==costela, A5==fraldinha, (A3==cupim;A4==cupim));
+	(A3==costela, A5==fraldinha, A4==cupim)
+	),
+
+	%Em uma das pontas está o rapaz que gosta de Picanha.
+
+	(
+	A1==picanha;
+	A5==picanha
+	),
+
+	%O homem que gosta de Maminha gosta de suco de Limão.
+
+	(
+	(A1==maminha, B1==limao);
+	(A2==maminha, B2==limao);
+	(A3==maminha, B3==limao);
+	(A4==maminha, B4==limao);
+	(A5==maminha, B5==limao)
+	).
+	
+escreve([]) ?=> true. 
+	escreve([[C, N, S, I, B, A]|T]) => 
+	printf("	|Camiseta: %w	|Nome: %w	|Sobrenome: %w\n	|Idade: %w	|Suco: %w	|Carne: %w	|\n\n",C,N,S,I,B,A),
+	escreve(T).
+
+alldifferent([]) ?=> true.
+	alldifferent([H|T]) => not(member(H,T)),
+						   alldifferent(T).

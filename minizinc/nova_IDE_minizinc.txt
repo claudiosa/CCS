@@ -1,0 +1,30 @@
+Para versão 2.0.7
+
+root@goedel:mv ~ccs/Downloads/MiniZincIDE-2.0.7-linux-x86_64.tgz .
+root@goedel:/usr/local# mkdir temp
+root@goedel:/usr/local# mv MiniZincIDE-0.9.6-linux-x86_64/ temp/
+root@goedel:/usr/local# tar -xvf MiniZincIDE-2.0.7-linux-x86_64.tgz
+root@goedel:/usr/local# cd MiniZincIDE-2.0.7-linux-x86_64
+root@goedel:/usr/local/MiniZincIDE-2.0.7-linux-x86_64# ls
+lib  MiniZincIDE  MiniZincIDE.sh  plugins
+
+
+Adicione isto :
+cd /usr/local/MiniZincIDE-2.0.7-linux-x86_64
+em  MiniZincIDE.sh 
+
+
+ldd: para testar e ver TODAS as libs do aplicativo estão no sistema....
+/usr/local/MiniZincIDE-2.0.7-linux-x86_64$ ldd MiniZincIDE
+
+Precisei installar:
+
+aptitude install libqt5gui5
+aptitude install libqt5webkit5
+
+: atualizar a DB de bibs
+updateb 
+
+E por ultimo:
+root@goedel:/usr/bin# ln -s /usr/local/MiniZincIDE-2.0.7-linux-x86_64/MiniZincIDE.sh MiniZincIDE
+

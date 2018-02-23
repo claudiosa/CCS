@@ -1,0 +1,3 @@
+output 
+  [ "  VAR_X = ", show(5), "  VAR_B01 = ", show(num_par_01(5)), 
+    "  VAR_B02 = ", show(num_par_02(5)) ];

@@ -1,0 +1,325 @@
+%% Solução feita por: Gustavo Miquelluzzi Bonassa + CCS
+%% 2016-2
+%%https://rachacuca.com.br/logica/problemas/campeonato-de-surf/
+%% SOLUCAO OK
+%% Revisão e modificações CCS
+
+%% 
+main ?=> 
+     surf(L),
+     imprime(L),
+     false.
+     
+main => 
+       printf("\n==================== FIM DO main = OK =========================\n").   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+surf(Lista) ?=>
+
+    Lista = [
+     [Cor_1, Nome_1, Praia_1, Tamanho_1, Gentilico_1, Ranking_1],
+     [Cor_2, Nome_2, Praia_2, Tamanho_2, Gentilico_2, Ranking_2],
+     [Cor_3, Nome_3, Praia_3, Tamanho_3, Gentilico_3, Ranking_3],
+     [Cor_4, Nome_4, Praia_4, Tamanho_4, Gentilico_4, Ranking_4],
+     [Cor_5, Nome_5, Praia_5, Tamanho_5, Gentilico_5, Ranking_5]
+    ] ,
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% INSTANCIA cor
+
+cor(Cor_1),
+cor(Cor_2),
+cor(Cor_3),
+cor(Cor_4),
+cor(Cor_5),
+alldifferent([Cor_1, Cor_2, Cor_3, Cor_4, Cor_5]),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% INSTANCIA nome
+
+nome(Nome_1),
+nome(Nome_2),
+nome(Nome_3),
+nome(Nome_4),
+nome(Nome_5),
+alldifferent([Nome_1, Nome_2, Nome_3, Nome_4, Nome_5]),
+
+% 18 - O surfista da pranhca Amarela está em algum lugar à esquerda do Felipe.
+(
+(Nome_5==felipe,(Cor_1==amarelo; Cor_2==amarelo; Cor_3==amarelo; Cor_4==amarelo));
+(Nome_4==felipe,(Cor_1==amarelo; Cor_2==amarelo; Cor_3==amarelo));
+(Nome_3==felipe,(Cor_1==amarelo; Cor_2==amarelo));
+(Nome_2==felipe,Cor_1==amarelo)
+),
+
+% 19 - Fabiano está em algum lugar entre o dono da prancha Vermelha e o Rodrigo, nessa ordem.
+(
+(Cor_1==vermelho,Nome_3==rodrigo,(Nome_2==fabiano));
+(Cor_1==vermelho,Nome_4==rodrigo,(Nome_2==fabiano;Nome_3==fabiano));
+(Cor_1==vermelho,Nome_5==rodrigo,(Nome_2==fabiano;Nome_3==fabiano;Nome_4==fabiano));
+(Cor_2==vermelho,Nome_4==rodrigo,(Nome_3==fabiano));
+(Cor_2==vermelho,Nome_5==rodrigo,(Nome_3==fabiano;Nome_4==fabiano));
+(Cor_3==vermelho,Nome_5==rodrigo,(Nome_4==fabiano))
+),
+
+% 17 - Iago está em algum lugar à direita do dono da prancha Verde.
+(
+(Cor_1==verde,(Nome_2==iago; Nome_3==iago; Nome_4==iago; Nome_5==iago));
+(Cor_2==verde,(Nome_3==iago; Nome_4==iago; Nome_5==iago));
+(Cor_3==verde,(Nome_4==iago; Nome_5==iago));
+(Cor_4==verde, Nome_5==iago)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% INSTANCIA praia
+
+praia(Praia_1),
+praia(Praia_2),
+praia(Praia_3),
+praia(Praia_4),
+praia(Praia_5),
+alldifferent([Praia_1, Praia_2, Praia_3, Praia_4, Praia_5]),
+
+% 14 - Quem gosta de surfar em Itamambuca está exatamente à esquerda de quem gosta de surfar em Areado.
+(
+(Praia_1==itamambuque,Praia_2==areado);
+(Praia_2==itamambuque,Praia_3==areado);
+(Praia_3==itamambuque,Praia_4==areado);
+(Praia_4==itamambuque,Praia_5==areado)
+),
+
+% 20 - O dono da prancha Amarela está em algum lugar entre o surfista da prancha Vermelha e o que curte surfar em Itaguaré, nessa ordem.
+(
+(Cor_1==vermelho,Praia_3==itaguare,(Cor_2==amarelo));
+(Cor_1==vermelho,Praia_4==itaguare,(Cor_2==amarelo;Cor_3==amarelo));
+(Cor_1==vermelho,Praia_5==itaguare,(Cor_2==amarelo;Cor_3==amarelo;Cor_4==amarelo));
+(Cor_2==vermelho,Praia_4==itaguare,(Cor_3==amarelo));
+(Cor_2==vermelho,Praia_5==itaguare,(Cor_3==amarelo;Cor_4==amarelo));
+(Cor_3==vermelho,Praia_5==itaguare,(Cor_4==amarelo))
+),
+
+% 13 - O dono da prancha Amarela está ao lado do surfista que gosta de surfar em Areado.
+(
+(Cor_1==amarelo, Praia_2==areado);
+(Cor_2==amarelo, (Praia_1==areado; Praia_3==areado));
+(Cor_3==amarelo, (Praia_2==areado; Praia_4==areado));
+(Cor_4==amarelo, (Praia_3==areado; Praia_5==areado));
+(Cor_5==amarelo, Praia_4==areado)
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% INSTANCIA tamanho
+
+tamanho(Tamanho_1),
+tamanho(Tamanho_2),
+tamanho(Tamanho_3),
+tamanho(Tamanho_4),
+tamanho(Tamanho_5),
+alldifferent([Tamanho_1, Tamanho_2, Tamanho_3, Tamanho_4, Tamanho_5]),
+
+% 9 - O surfita da prancha de 6'0" está na quinta posição.
+Tamanho_5==60,
+
+% 12 - O surfista que curte surfar em Maresias está exatamente à direita do surfista da prancha de 5'7".
+(
+(Tamanho_1==57,Praia_2==maresias);
+(Tamanho_2==57,Praia_3==maresias);
+(Tamanho_3==57,Praia_4==maresias);
+(Tamanho_4==57,Praia_5==maresias)
+),
+
+% 10 - O dono da prancha de 5'8" está em algum lugar entre o Tiago e o dono da prancha de 5'7", nessa ordem.
+(
+(Nome_1==tiago,Tamanho_3==57,(Tamanho_2==58));
+(Nome_1==tiago,Tamanho_4==57,(Tamanho_2==58;Tamanho_3==58));
+(Nome_1==tiago,Tamanho_5==57,(Tamanho_2==58;Tamanho_3==58;Tamanho_4==58));
+(Nome_2==tiago,Tamanho_4==57,(Tamanho_3==58));
+(Nome_2==tiago,Tamanho_5==57,(Tamanho_3==58;Tamanho_4==58));
+(Nome_3==tiago,Tamanho_5==57,(Tamanho_4==58))
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% INSTANCIA gentilico
+
+gentilico(Gentilico_1),
+gentilico(Gentilico_2),
+gentilico(Gentilico_3),
+gentilico(Gentilico_4),
+gentilico(Gentilico_5),
+alldifferent([Gentilico_1, Gentilico_2, Gentilico_3, Gentilico_4, Gentilico_5]),
+
+% 20 - O Gaúcho está na Quarta posição.
+Gentilico_4==gaucho,
+
+% 8 - O Baiano está exatamente à direita do Mineiro.
+(
+(Gentilico_1==mineiro,Gentilico_2==baiano);
+(Gentilico_2==mineiro,Gentilico_3==baiano);
+(Gentilico_3==mineiro,Gentilico_4==baiano);
+(Gentilico_4==mineiro,Gentilico_5==baiano)
+),
+
+% 5 - O dono da prancha Azul está em algum lugar à esquerda do Paulista.
+(
+(Gentilico_5==paulista,(Cor_1==azul; Cor_2==azul; Cor_3==azul; Cor_4==azul));
+(Gentilico_4==paulista,(Cor_1==azul; Cor_2==azul; Cor_3==azul));
+(Gentilico_3==paulista,(Cor_1==azul; Cor_2==azul));
+(Gentilico_2==paulista,Cor_1==azul)
+),
+
+% 6 - O Gaúcho está em algum lugar à direita do surfista da prancha Verde.
+(
+(Cor_1==verde,(Gentilico_2==gaucho; Gentilico_3==gaucho; Gentilico_4==gaucho; Gentilico_5==gaucho));
+(Cor_2==verde,(Gentilico_3==gaucho; Gentilico_4==gaucho; Gentilico_5==gaucho));
+(Cor_3==verde,(Gentilico_4==gaucho; Gentilico_5==gaucho));
+(Cor_4==verde,Gentilico_5==gaucho)
+),
+
+% 16 - Rogério está ao lado do surfista que nesceu na Bahia.
+(
+(Nome_1==rodrigo,Gentilico_2==baiano);
+(Nome_2==rodrigo,(Gentilico_1==baiano;Gentilico_3==baiano));
+(Nome_3==rodrigo,(Gentilico_2==baiano;Gentilico_4==baiano));
+(Nome_4==rodrigo,(Gentilico_3==baiano;Gentilico_5==baiano));
+(Nome_5==rodrigo,Gentilico_4==baiano)
+),
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% INSTANCIA ranking
+
+ranking(Ranking_1),
+ranking(Ranking_2),
+ranking(Ranking_3),
+ranking(Ranking_4),
+ranking(Ranking_5),
+alldifferent([Ranking_1, Ranking_2, Ranking_3, Ranking_4, Ranking_5]),
+
+% 1 - O surfista que está no Quinto lugar do ranking está na quarta posição.
+Ranking_4==quinto,
+
+% 2 - O Oitavo do ranking está exatamente à esquerda do Quinto lugar.
+(
+(Ranking_1==oitavo,Ranking_2==quinto);
+(Ranking_2==oitavo,Ranking_3==quinto);
+(Ranking_3==oitavo,Ranking_4==quinto);
+(Ranking_4==oitavo,Ranking_5==quinto)
+),
+
+% 4 - O Mineiro está exatamente à direita do surfista que está em Segundo no ranking.
+(
+(Ranking_1==segundo,Gentilico_2==mineiro);
+(Ranking_2==segundo,Gentilico_3==mineiro);
+(Ranking_3==segundo,Gentilico_4==mineiro);
+(Ranking_4==segundo,Gentilico_5==mineiro)
+),
+
+% 11 - O surfita da prancha de 5'11" está em algum lugar entre o Segundo do ranking e o surfista da prancha de 5'8", nessa ordem.
+(
+(Ranking_1==segundo,Tamanho_3==58,(Tamanho_2==511));
+(Ranking_1==segundo,Tamanho_4==58,(Tamanho_2==511;Tamanho_3==511));
+(Ranking_1==segundo,Tamanho_5==58,(Tamanho_2==511;Tamanho_3==511;Tamanho_4==511));
+(Ranking_2==segundo,Tamanho_4==58,(Tamanho_3==511));
+(Ranking_2==segundo,Tamanho_5==58,(Tamanho_3==511;Tamanho_4==511));
+(Ranking_3==segundo,Tamanho_5==58,(Tamanho_4==511))
+),
+
+% 3 - O Primeiro do ranking está em algum lugar à direita do surfista da prancha Amarela.
+(
+(Cor_1==amarelo, (Ranking_2==primeiro; Ranking_3==primeiro; Ranking_4==primeiro; Ranking_5==primeiro));
+(Cor_2==amarelo, (Ranking_3==primeiro; Ranking_4==primeiro; Ranking_5==primeiro));
+(Cor_3==amarelo, (Ranking_4==primeiro; Ranking_5==primeiro));
+(Cor_4==amarelo, Ranking_5==primeiro)
+),
+
+% 7 - O Mineiro está ao lado do Oitavo do ranking.
+(
+(Gentilico_1==mineiro,Ranking_2==oitavo);
+(Gentilico_2==mineiro,(Ranking_1==oitavo;Ranking_3==oitavo));
+(Gentilico_3==mineiro,(Ranking_2==oitavo;Ranking_4==oitavo));
+(Gentilico_4==mineiro,(Ranking_3==oitavo;Ranking_5==oitavo));
+(Gentilico_5==mineiro,Ranking_4==oitavo)
+),
+
+% 15 - O surfista da prancha Amarela está em algum lugar entre o que curte surfar em Brava e o Quinto do ranking, nessa ordem.
+(
+(Praia_1==brava,Ranking_3==quinto,(Cor_2==amarelo));
+(Praia_1==brava,Ranking_4==quinto,(Cor_2==amarelo;Cor_3==amarelo));
+(Praia_1==brava,Ranking_5==quinto,(Cor_2==amarelo;Cor_3==amarelo;Cor_4==amarelo));
+(Praia_2==brava,Ranking_4==quinto,(Cor_3==amarelo));
+(Praia_2==brava,Ranking_5==quinto,(Cor_3==amarelo;Cor_4==amarelo));
+(Praia_3==brava,Ranking_5==quinto,(Cor_4==amarelo))
+),
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+printf("\n****** Final do Modelo ******\n").
+
+/* DEPOIS DE OK .... COMENTE ISTO
+
+surf( _ ) => 
+      printf("\n****** REVISE O PASSO ANTERIOR ****** \n").
+
+*/      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Os nomes foram alterados da seguinte forma:
+% flavio -> felipe
+% fernando -> fabiano
+% igor -> iago
+% rogerio -> rodrigo        
+% tomas -> tiago
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% BANCO DE DADOS ou FATOS %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+index(-) 
+cor(amarelo).
+cor(azul).
+cor(branca).
+cor(verde).
+cor(vermelho).
+
+index(-) 
+nome(felipe).
+nome(fabiano).
+nome(iago).
+nome(rodrigo).
+nome(tiago).
+
+index(-) 
+praia(areado).
+praia(brava).
+praia(itaguare).
+praia(itamambuque).
+praia(maresias).
+
+index(-)
+tamanho(56).
+tamanho(57).
+tamanho(58).
+tamanho(511).
+tamanho(60).
+
+index(-)
+gentilico(gaucho).
+gentilico(baiano).
+gentilico(fluminense).
+gentilico(mineiro).
+gentilico(paulista).
+
+index(-)
+ranking(primeiro).
+ranking(segundo).
+ranking(terceiro).
+ranking(quinto).
+ranking(oitavo).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+alldifferent([]) ?=> true.
+alldifferent([H|T]) => not(member(H,T)),
+                       alldifferent(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+imprime([]) ?=> true. 
+imprime([[Cor, Nome, Praia, Tamanho, Gentilico, Ranking]|T]) => 
+%%%%    writeln([Cor, Nome, Praia, Tamanho, Gentilico, Ranking]),
+       printf("Cor: %w || Surfista: %w || Praia: %w || Tam: %w || Natural: %w || Rank: %w\n" , 
+       Cor, Nome, Praia, Tamanho, Gentilico, Ranking),
+       imprime(T).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

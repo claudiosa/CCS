@@ -1,0 +1,22 @@
+
+Sorry I received it when I was on summer holiday, I did have a brief look and it looked interesting and usable.
+
+Feel free to announce it.
+
+We should probably try to incorporate it into the official MiniZinc library at some point
+but we would need to go through and just check that we agree with the design choices
+e.g.
+
+hamiltonian_cycle/1
+
+makes use of
+
+cycle/3 wit and unused cost argument
+
+not sure that is wise?
+
+Also there are plenty of promise_total that I would have to think about!
+
+
+Peter Stuckey
+pstuckey@unimelb.edu.au
