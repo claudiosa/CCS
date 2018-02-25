@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  1 FEB 2018 18:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.2.25)  25 FEB 2018 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -839,12 +839,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 60.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<varios_tugs.jpg, id=44, 225.84375pt x 225.84375pt>
-File: varios_tugs.jpg Graphic file (type jpg)
-<use varios_tugs.jpg>
-Package pdftex.def Info: varios_tugs.jpg  used on input line 68. on input line 
-68.
-Package pdftex.def Info: Requested size: 192.42296pt x 300.68544pt on input lin
+<figuras/varias_distros.png, id=56, 219.0pt x 314.63pt>
+File: figuras/varias_distros.png Graphic file (type png)
+<use figuras/varias_distros.png>
+Package pdftex.def Info: figuras/varias_distros.png  used on input line 68. on 
+input line 68.
+Package pdftex.def Info: Requested size: 192.42319pt x 300.64432pt on input lin
 e 68.
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 77.
 
@@ -859,681 +859,681 @@ LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <16> not available
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <40> not available
 (Font)              size <35.83> substituted on input line 79.
 
-LaTeX Font Info:    Calculating math sizes for size <40> on input line 79.
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <40> not available
-(Font)              size <24.88> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <27.99988> not available
-(Font)              size <24.88> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <40> not available
-(Font)              size <24.88> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <27.99988> not available
-(Font)              size <24.88> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <20> not available
-(Font)              size <20.74> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <40> not available
-(Font)              size <24.88> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <27.99988> not available
-(Font)              size <24.88> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `T1/cmss/m/it' in size <40> not available
-(Font)              size <35.83> substituted on input line 79.
-
-
-Overfull \hbox (38.99998pt too wide) in paragraph at lines 60--88
+Overfull \hbox (38.99998pt too wide) in paragraph at lines 60--89
 [][] 
  []
 
-</home/ccs/MEGA/figs_genericas/fundo_bege.jpg, id=45, 525.6438pt x 396.0396pt>
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 90. on input line 90.
+<../../figs_genericas/fundo_bege.jpg, id=57, 525.6438pt x 396.0396pt>
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 94. on input line 94.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 90.
-<metagray.pdf, id=46, pagebox=cropbox, 133.49875pt x 505.89pt>
+e 94.
+<metagray.pdf, id=58, pagebox=cropbox, 133.49875pt x 505.89pt>
 File: metagray.pdf Graphic file (type pdf)
 <use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 90. on input line 90.
+Package pdftex.def Info: metagray.pdf  used on input line 94. on input line 94.
 
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-90.
+94.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- </home/ccs/MEGA/figs_genericas/fundo_bege.jpg> </usr/share/texmf-dist/tex/late
-x/pdfslide/metagray.pdf> <./varios_tugs.jpg>] (./rapidas_linux.toc
+ <../../figs_genericas/fundo_bege.jpg> </usr/share/texmf-dist/tex/latex/pdfslid
+e/metagray.pdf> <./figuras/varias_distros.png>]
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 1.
+(Font)              size <17.28> substituted on input line 98.
 
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 101.
 
-LaTeX Font Warning: Font shape `T1/cmr/bx/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 5.
+(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 10. on input line 10.
+LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 101.
+
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 108. on input line 108.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 10.
-<metagreen.pdf, id=76, pagebox=cropbox, 133.49875pt x 505.89pt>
+e 108.
+<metagreen.pdf, id=80, pagebox=cropbox, 133.49875pt x 505.89pt>
 File: metagreen.pdf Graphic file (type pdf)
 <use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 10. on input line 10
-.
+Package pdftex.def Info: metagreen.pdf  used on input line 108. on input line 1
+08.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-10.
+108.
 [2
 
- </usr/share/texmf-dist/tex/latex/pdfslide/metagreen.pdf>])
+ </usr/share/texmf-dist/tex/latex/pdfslide/metagreen.pdf>]
+(./rapidas_linux.toc
+
+LaTeX Font Warning: Font shape `T1/cmr/bx/it' in size <16> not available
+(Font)              size <17.28> substituted on input line 6.
+
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 10. on input line 10.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 10.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 10. on input line 10.
+
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+10.
+[3
+
+])
 \tf@toc=\write6
 \openout6 = `rapidas_linux.toc'.
 
-
-Excluding 'comment' comment.
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 129. on input line 129.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 110. on input line 110.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 129.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 129. on input line 12
-9.
+e 110.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 110. on input line 1
+10.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-129.
- [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 131.
+110.
+ [4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 112.
 
-
-(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <16> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 131.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 131.
-
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 138. on input line 138.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 138.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 138. on input line 1
-38.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-138.
-[4
-
-]
-<figuras/linux-laptops-notebook.jpg, id=116, 766.46916pt x 506.90788pt>
-File: figuras/linux-laptops-notebook.jpg Graphic file (type jpg)
-<use figuras/linux-laptops-notebook.jpg>
-Package pdftex.def Info: figuras/linux-laptops-notebook.jpg  used on input line
- 143. on input line 143.
-Package pdftex.def Info: Requested size: 288.62985pt x 225.48434pt on input lin
-e 143.
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 153. on input line 153.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 153.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 153. on input line 15
-3.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-153.
- [5
-
- <./figuras/linux-laptops-notebook.jpg>]
-<figuras/desktop_linux.jpg, id=129, 1027.84pt x 770.88pt>
-File: figuras/desktop_linux.jpg Graphic file (type jpg)
-<use figuras/desktop_linux.jpg>
-Package pdftex.def Info: figuras/desktop_linux.jpg  used on input line 159. on 
-input line 159.
-Package pdftex.def Info: Requested size: 256.95937pt x 192.71953pt on input lin
-e 159.
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 167. on input line 167.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 167.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 167. on input line 1
-67.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-167.
- [6
-
- <./figuras/desktop_linux.jpg>]
-<figuras/arch_linux.jpg, id=142, 371.3875pt x 250.9375pt>
-File: figuras/arch_linux.jpg Graphic file (type jpg)
-<use figuras/arch_linux.jpg>
-Package pdftex.def Info: figuras/arch_linux.jpg  used on input line 172. on inp
-ut line 172.
-Package pdftex.def Info: Requested size: 334.24565pt x 225.84164pt on input lin
-e 172.
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 179. on input line 179.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 179.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 179. on input line 17
-9.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-179.
- [7
-
- <./figuras/arch_linux.jpg>]
-<figuras/shell_linux.jpg, id=157, 228.855pt x 314.17375pt>
-File: figuras/shell_linux.jpg Graphic file (type jpg)
-<use figuras/shell_linux.jpg>
-Package pdftex.def Info: figuras/shell_linux.jpg  used on input line 184. on in
-put line 184.
-Package pdftex.def Info: Requested size: 288.6312pt x 225.48103pt on input line
- 184.
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 194. on input line 194.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 194.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 194. on input line 1
-94.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-194.
- [8
-
- <./figuras/shell_linux.jpg>]
-<figuras/xterminals.jpg, id=171, 1927.2pt x 1084.05pt>
-File: figuras/xterminals.jpg Graphic file (type jpg)
-<use figuras/xterminals.jpg>
-Package pdftex.def Info: figuras/xterminals.jpg  used on input line 199. on inp
-ut line 199.
-Package pdftex.def Info: Requested size: 423.98532pt x 238.49173pt on input lin
-e 199.
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 207. on input line 207.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 207.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 207. on input line 20
-7.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-207.
- [9
-
- <./figuras/xterminals.jpg>]
-<figuras/terminal_unico.jpg, id=184, 722.7pt x 351.3125pt>
-File: figuras/terminal_unico.jpg Graphic file (type jpg)
-<use figuras/terminal_unico.jpg>
-Package pdftex.def Info: figuras/terminal_unico.jpg  used on input line 212. on
- input line 212.
-Package pdftex.def Info: Requested size: 288.62274pt x 187.90475pt on input lin
-e 212.
+(Font)              size <17.28> substituted on input line 112.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 216.
+(Font)              size <17.28> substituted on input line 116.
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 220. on input line 220.
+
+Overfull \hbox (92.67943pt too wide) in paragraph at lines 116--118
+[][]$\T1/cmtt/m/n/17.28 https : / / br . udacity . com / course / linux-[]comma
+nd-[]line-[]basics-[]-[]ud595#$[][] 
+ []
+
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 121. on input line 121.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 220.
+e 121.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 121. on input line 12
+1.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+121.
+[5
+
+]
+<figuras/linux-laptops-notebook.jpg, id=147, 766.46916pt x 506.90788pt>
+File: figuras/linux-laptops-notebook.jpg Graphic file (type jpg)
+<use figuras/linux-laptops-notebook.jpg>
+Package pdftex.def Info: figuras/linux-laptops-notebook.jpg  used on input line
+ 126. on input line 126.
+Package pdftex.def Info: Requested size: 288.62985pt x 225.48434pt on input lin
+e 126.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 136. on input line 136.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 136.
 File: metagreen.pdf Graphic file (type pdf)
 <use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 220. on input line 2
-20.
+Package pdftex.def Info: metagreen.pdf  used on input line 136. on input line 1
+36.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-220.
-[10
+136.
+ [6
+
+ <./figuras/linux-laptops-notebook.jpg>]
+<figuras/desktop_linux.jpg, id=161, 1027.84pt x 770.88pt>
+File: figuras/desktop_linux.jpg Graphic file (type jpg)
+<use figuras/desktop_linux.jpg>
+Package pdftex.def Info: figuras/desktop_linux.jpg  used on input line 142. on 
+input line 142.
+Package pdftex.def Info: Requested size: 256.95937pt x 192.71953pt on input lin
+e 142.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 150. on input line 150.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 150.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 150. on input line 15
+0.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+150.
+ [7
+
+ <./figuras/desktop_linux.jpg>]
+<figuras/arch_linux.jpg, id=175, 371.3875pt x 250.9375pt>
+File: figuras/arch_linux.jpg Graphic file (type jpg)
+<use figuras/arch_linux.jpg>
+Package pdftex.def Info: figuras/arch_linux.jpg  used on input line 155. on inp
+ut line 155.
+Package pdftex.def Info: Requested size: 334.24565pt x 225.84164pt on input lin
+e 155.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 162. on input line 162.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 162.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 162. on input line 1
+62.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+162.
+ [8
+
+ <./figuras/arch_linux.jpg>]
+<figuras/shell_linux.jpg, id=188, 228.855pt x 314.17375pt>
+File: figuras/shell_linux.jpg Graphic file (type jpg)
+<use figuras/shell_linux.jpg>
+Package pdftex.def Info: figuras/shell_linux.jpg  used on input line 167. on in
+put line 167.
+Package pdftex.def Info: Requested size: 288.6312pt x 225.48103pt on input line
+ 167.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 177. on input line 177.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 177.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 177. on input line 17
+7.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+177.
+ [9
+
+ <./figuras/shell_linux.jpg>]
+<figuras/xterminals.jpg, id=202, 1927.2pt x 1084.05pt>
+File: figuras/xterminals.jpg Graphic file (type jpg)
+<use figuras/xterminals.jpg>
+Package pdftex.def Info: figuras/xterminals.jpg  used on input line 182. on inp
+ut line 182.
+Package pdftex.def Info: Requested size: 423.98532pt x 238.49173pt on input lin
+e 182.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 190. on input line 190.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 190.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 190. on input line 1
+90.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+190.
+ [10
+
+ <./figuras/xterminals.jpg>]
+<figuras/terminal_unico.jpg, id=215, 722.7pt x 351.3125pt>
+File: figuras/terminal_unico.jpg Graphic file (type jpg)
+<use figuras/terminal_unico.jpg>
+Package pdftex.def Info: figuras/terminal_unico.jpg  used on input line 195. on
+ input line 195.
+Package pdftex.def Info: Requested size: 288.62274pt x 187.90475pt on input lin
+e 195.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 203. on input line 203.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 203.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 203. on input line 20
+3.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+203.
+ [11
 
  <./figuras/terminal_unico.jpg>]
-Overfull \hbox (14.21347pt too wide) in paragraph at lines 224--225
+Overfull \hbox (14.21347pt too wide) in paragraph at lines 207--208
 []\T1/cmr/m/n/17.28 Voce terá que apren-der e dec-o-rar uns co-man-dos (traga u
 m \T1/cmr/m/it/17.28 datashet\T1/cmr/m/n/17.28 ) 
  []
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 232. on input line 232.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 215. on input line 215.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 232.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 232. on input line 23
-2.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-232.
-[11
-
-]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 240.
-
- (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <16> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 240.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 240.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 245.
-
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 250. on input line 250.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 250.
+e 215.
 File: metagreen.pdf Graphic file (type pdf)
 <use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 250. on input line 2
-50.
+Package pdftex.def Info: metagreen.pdf  used on input line 215. on input line 2
+15.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-250.
+215.
 [12
 
 ]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 263. on input line 263.
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <16> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 230.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 230.
+
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 241. on input line 241.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 263.
+e 241.
 File: metagray.pdf Graphic file (type pdf)
 <use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 263. on input line 26
-3.
+Package pdftex.def Info: metagray.pdf  used on input line 241. on input line 24
+1.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-263.
- [13
+241.
+[13
 
 ]
-Overfull \hbox (12.14958pt too wide) in paragraph at lines 273--273
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 258. on input line 258.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 258.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 258. on input line 2
+58.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+258.
+ [14
+
+]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 282. on input line 282.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 282.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 282. on input line 28
+2.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+282.
+ [15
+
+]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 295. on input line 295.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 295.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 295. on input line 2
+95.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+295.
+ [16
+
+]
+Overfull \hbox (12.14958pt too wide) in paragraph at lines 309--309
  []\T1/cmtt/m/n/17.28 ......................................................[] 
 
  []
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 277. on input line 277.
+
+Overfull \hbox (12.14958pt too wide) in paragraph at lines 309--309
+ []\T1/cmtt/m/n/17.28 ......................................................[] 
+
+ []
+
+
+Overfull \hbox (12.14958pt too wide) in paragraph at lines 309--309
+ []\T1/cmtt/m/n/17.28 ......................................................[] 
+
+ []
+
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 318. on input line 318.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 277.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 277. on input line 2
-77.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-277.
-[14]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 286. on input line 286.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 286.
+e 318.
 File: metagray.pdf Graphic file (type pdf)
 <use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 286. on input line 28
-6.
+Package pdftex.def Info: metagray.pdf  used on input line 318. on input line 31
+8.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-286.
- [15]
-Overfull \hbox (46.82951pt too wide) in paragraph at lines 295--295
+318.
+[17]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 327. on input line 327.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 327.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 327. on input line 3
+27.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+327.
+ [18]
+Overfull \hbox (46.82951pt too wide) in paragraph at lines 336--336
  []\T1/cmtt/m/n/17.28 $ cd pgms_prolog/      VAI PARA BAIXO ou um dado diretori
 o[] 
  []
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 300. on input line 300.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 341. on input line 341.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 300.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 300. on input line 3
-00.
+e 341.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 341. on input line 34
+1.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-300.
-[16]
-Overfull \hbox (29.48955pt too wide) in paragraph at lines 306--306
+341.
+[19]
+Overfull \hbox (29.48955pt too wide) in paragraph at lines 347--347
  []\T1/cmtt/m/n/17.28 -rwxr-xr-x 1 udesc udesc 435 2011-08-29 15:34 append.txt[
 ] 
  []
 
 
-Overfull \hbox (81.50945pt too wide) in paragraph at lines 306--306
+Overfull \hbox (81.50945pt too wide) in paragraph at lines 347--347
  []\T1/cmtt/m/n/17.28 -rw-r--r-- 1 udesc udesc   0 2011-08-29 19:41 nome_arquiv
 o.txt[] 
  []
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 310. on input line 310.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 351. on input line 351.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 310.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 310. on input line 31
-0.
+e 351.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 351. on input line 3
+51.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-310.
-[17]
-Overfull \hbox (2.87627pt too wide) in paragraph at lines 320--321
+351.
+[20]
+Overfull \hbox (2.87627pt too wide) in paragraph at lines 361--362
 []\T1/cmr/m/n/17.28 criou um ar-quivo chamado \T1/cmtt/m/n/17.28 programa.c 
  []
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 331. on input line 331.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 372. on input line 372.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 331.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 331. on input line 3
-31.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-331.
-[18]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 355. on input line 355.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 355.
+e 372.
 File: metagray.pdf Graphic file (type pdf)
 <use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 355. on input line 35
-5.
+Package pdftex.def Info: metagray.pdf  used on input line 372. on input line 37
+2.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-355.
- [19]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 374. on input line 374.
+372.
+[21]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 396. on input line 396.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 374.
+e 396.
 File: metagreen.pdf Graphic file (type pdf)
 <use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 374. on input line 3
-74.
+Package pdftex.def Info: metagreen.pdf  used on input line 396. on input line 3
+96.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-374.
- [20]
-Overfull \hbox (298.25902pt too wide) in paragraph at lines 389--389
- []\T1/cmtt/m/n/17.28 udesc     4809  3.1  0.4  58132 16668 pts/2    Sl   19:54
-   0:00 gedit nome_arquivo.txt[] 
+396.
+ [22]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 419. on input line 419.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 419.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 419. on input line 41
+9.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+419.
+ [23]
+Overfull \hbox (3.4796pt too wide) in paragraph at lines 432--432
+ []\T1/cmtt/m/n/17.28 $ gedit nome_arquivo.txt   // processo em modo parado[] 
  []
 
 
-Overfull \hbox (306.929pt too wide) in paragraph at lines 389--389
- []\T1/cmtt/m/n/17.28 udesc     4814  0.0  0.0   3060   816 pts/2    S+   19:54
-   0:00 grep --color=auto gedit[] 
- []
-
-
-Overfull \hbox (29.48955pt too wide) in paragraph at lines 389--389
- []\T1/cmtt/m/n/17.28 $ gedit nome_arquivo.txt      // processo em modo parado[
-] 
- []
-
-
-Overfull \hbox (81.50945pt too wide) in paragraph at lines 389--389
- []\T1/cmtt/m/n/17.28 [1]+  Parado                  gedit nome_arquivo.txt    P
-ARADO[] 
- []
-
-
-Overfull \hbox (12.14958pt too wide) in paragraph at lines 389--389
+Overfull \hbox (12.14958pt too wide) in paragraph at lines 432--432
  []\T1/cmtt/m/n/17.28 [1]+ gedit nome_arquivo.txt &   // posto em background[] 
 
  []
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 392. on input line 392.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 435. on input line 435.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 392.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 392. on input line 39
-2.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-392.
-[21]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 402. on input line 402.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 402.
+e 435.
 File: metagreen.pdf Graphic file (type pdf)
 <use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 402. on input line 4
-02.
+Package pdftex.def Info: metagreen.pdf  used on input line 435. on input line 4
+35.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-402.
- [22]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 410. on input line 410.
+435.
+[24]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 449. on input line 449.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 410.
+e 449.
 File: metagray.pdf Graphic file (type pdf)
 <use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 410. on input line 41
-0.
+Package pdftex.def Info: metagray.pdf  used on input line 449. on input line 44
+9.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-410.
- [23]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 417. on input line 417.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 417.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 417. on input line 4
-17.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-417.
- [24]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 428. on input line 428.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 428.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 428. on input line 42
-8.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-428.
+449.
  [25]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 437. on input line 437.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 457. on input line 457.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 437.
+e 457.
 File: metagreen.pdf Graphic file (type pdf)
 <use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 437. on input line 4
-37.
+Package pdftex.def Info: metagreen.pdf  used on input line 457. on input line 4
+57.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-437.
+457.
  [26]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 460. on input line 460.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 460.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 460. on input line 46
-0.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-460.
- [27]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 464. on input line 464.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 464. on input line 464.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
 e 464.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 464. on input line 4
-64.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 464. on input line 46
+4.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
 464.
- [28]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 476. on input line 476.
+ [27]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 475. on input line 475.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 476.
+e 475.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 475. on input line 4
+75.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+475.
+ [28]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 484. on input line 484.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 484.
 File: metagray.pdf Graphic file (type pdf)
 <use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 476. on input line 47
+Package pdftex.def Info: metagray.pdf  used on input line 484. on input line 48
+4.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+484.
+ [29]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 507. on input line 507.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 507.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 507. on input line 5
+07.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+507.
+ [30]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 511. on input line 511.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 511.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 511. on input line 51
+1.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+511.
+ [31]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 523. on input line 523.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 523.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 523. on input line 5
+23.
+Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
+523.
+ [32]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 536. on input line 536.
+Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
+e 536.
+File: metagray.pdf Graphic file (type pdf)
+<use metagray.pdf>
+Package pdftex.def Info: metagray.pdf  used on input line 536. on input line 53
 6.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-476.
- [29]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 489. on input line 489.
+536.
+ [33]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 547. on input line 547.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 489.
+e 547.
 File: metagreen.pdf Graphic file (type pdf)
 <use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 489. on input line 4
-89.
+Package pdftex.def Info: metagreen.pdf  used on input line 547. on input line 5
+47.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-489.
- [30]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 500. on input line 500.
+547.
+ [34]
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 559. on input line 559.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 500.
+e 559.
 File: metagray.pdf Graphic file (type pdf)
 <use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 500. on input line 50
-0.
+Package pdftex.def Info: metagray.pdf  used on input line 559. on input line 55
+9.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-500.
- [31]
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 512. on input line 512.
-Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 512.
-File: metagreen.pdf Graphic file (type pdf)
-<use metagreen.pdf>
-Package pdftex.def Info: metagreen.pdf  used on input line 512. on input line 5
-12.
-Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-512.
- [32]
-Underfull \hbox (badness 10000) in paragraph at lines 514--516
+559.
+ [35]
+Underfull \hbox (badness 10000) in paragraph at lines 561--563
 
  []
 
-File: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg Graphic file (type jpg)
-<use /home/ccs/MEGA/figs_genericas/fundo_bege.jpg>
-Package pdftex.def Info: /home/ccs/MEGA/figs_genericas/fundo_bege.jpg  used on 
-input line 526. on input line 526.
+File: ../../figs_genericas/fundo_bege.jpg Graphic file (type jpg)
+<use ../../figs_genericas/fundo_bege.jpg>
+Package pdftex.def Info: ../../figs_genericas/fundo_bege.jpg  used on input lin
+e 573. on input line 573.
 Package pdftex.def Info: Requested size: 521.43968pt x 422.06007pt on input lin
-e 526.
-File: metagray.pdf Graphic file (type pdf)
-<use metagray.pdf>
-Package pdftex.def Info: metagray.pdf  used on input line 526. on input line 52
-6.
+e 573.
+File: metagreen.pdf Graphic file (type pdf)
+<use metagreen.pdf>
+Package pdftex.def Info: metagreen.pdf  used on input line 573. on input line 5
+73.
 Package pdftex.def Info: Requested size: 26.01483pt x 72.26761pt on input line 
-526.
-[33]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 526.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 526.
+573.
+[36]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
  (./rapidas_linux.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 526.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 526.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
 Package rerunfilecheck Info: File `rapidas_linux.out' has not changed.
-(rerunfilecheck)             Checksum: B3D1E2DD918727423D14F5DCB9487433;555.
+(rerunfilecheck)             Checksum: CF6643DE0E059A1E8A998DAEE86249BA;746.
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 15.12pt have occurred.
+(Font)              up to 4.17pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 526.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
  ) 
 Here is how much of TeX's memory you used:
- 9203 strings out of 492985
- 129587 string characters out of 6138637
- 237407 words of memory out of 5000000
- 12542 multiletter control sequences out of 15000+600000
- 24853 words of font info for 73 fonts, out of 8000000 for 9000
+ 9189 strings out of 492985
+ 129333 string characters out of 6138638
+ 237398 words of memory out of 5000000
+ 12522 multiletter control sequences out of 15000+600000
+ 22133 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,14n,32p,315b,586s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
@@ -1544,16 +1544,15 @@ sfbi1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi2488.pfb></
 usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf
 -dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
-per/sfsi3583.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pf
-b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1728.pfb></usr/share/t
-exmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/share/texmf-dist/fonts
-/type1/public/cm-super/sfss3583.pfb></usr/share/texmf-dist/fonts/type1/public/c
-m-super/sfti1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt172
-8.pfb></usr/share/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on rapidas_linux.pdf (33 pages, 1237934 bytes).
+per/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1728.pf
+b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/share/t
+exmf-dist/fonts/type1/public/cm-super/sfss3583.pfb></usr/share/texmf-dist/fonts
+/type1/public/cm-super/sfti1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
+m-super/sftt1728.pfb></usr/share/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on rapidas_linux.pdf (36 pages, 1318928 bytes).
 PDF statistics:
- 531 PDF objects out of 1000 (max. 8388607)
- 465 compressed objects within 5 object streams
- 54 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 580 PDF objects out of 1000 (max. 8388607)
+ 510 compressed objects within 6 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 

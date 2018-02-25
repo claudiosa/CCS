@@ -1,0 +1,67 @@
+
+    Introduction to the UNIX Operating System
+
+        What is UNIX?
+        Files and processes
+        The Directory Structure
+        Starting an UNIX terminal
+
+    Tutorial One
+
+        Listing files and directories
+        Making Directories
+        Changing to a different Directory
+        The directories . and ..
+        Pathnames
+        More about home directories and pathnames
+
+    Tutorial Two
+
+        Copying Files
+        Moving Files
+        Removing Files and directories
+        Displaying the contents of a file on the screen
+        Searching the contents of a file
+
+    Tutorial Three
+
+        Redirection
+        Redirecting the Output
+        Redirecting the Input
+        Pipes
+
+    Tutorial Four
+
+        Wildcards
+        Filename Conventions
+        Getting Help
+
+    Tutorial Five
+
+        File system security (access rights)
+        Changing access rights
+        Processes and Jobs
+        Listing suspended and background processes
+        Killing a process
+
+    Tutorial Six
+
+        Other Useful UNIX commands
+
+    Tutorial Seven
+
+        Compiling UNIX software packages
+        Download source code
+        Extracting source code
+        Configuring and creating the Makefile
+        Building the package
+        Running the software
+        Stripping unnecessary code
+
+    Tutorial Eight
+
+        UNIX variables
+        Environment variables
+        Shell variables
+        Using and setting variables
+

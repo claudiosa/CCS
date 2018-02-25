@@ -41,7 +41,7 @@ pdfsubject=, pdfkeywords=}
 
 
 %\graphicspath{{./figuresdir1/}{./figuresdir2/}{./figuresdir3/}}
-\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{figuras/}}
+\graphicspath{{/home/ccs/MEGA/figs_genericas/}{figuras/}}
 
 %\restylefloat{figure,table}   %%%% obrigat#io... pelo [H]
 \overlay{fundo_bege.jpg}
@@ -126,8 +126,106 @@ pdfsubject=, pdfkeywords=}
 
 \end{comment}
 
+\section{O que é o Linux?}
+\begin{itemize}
+  \item Um Sistema Operacional, como Windows
+  \item Código aberto -- sem proprietários
+  \item Suas versões iniciais datam dos anos 199x
+  \item Nome vem do idealizador: Linus Tosvalds
+\end{itemize}
 
 
+\section{Linux em qualquer máquina}
+
+\begin{figure}[!htb]
+\centering
+%%\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/trens.png}
+\includegraphics[width=0.6\textwidth , height=0.6\textheight]{figuras/linux-laptops-notebook.jpg}
+%%%prolog/scale=0.47
+%\label{fig_solutions_covering}
+ \caption{Linux a U\$ 249,00}
+\end{figure}
+
+
+
+
+
+\section{Uma Interface Linux}
+
+
+\begin{figure}[!htb]
+\centering
+%%\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/trens.png}
+\includegraphics[scale=0.25]{figuras/desktop_linux.jpg}
+%%%prolog/scale=0.47
+%\label{fig_solutions_covering}
+ \caption{Uma Interface Linux}
+\end{figure}
+
+
+
+\section{Linux x Hardware}
+
+\begin{figure}[!htb]
+\centering
+%%\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/trens.png}
+\includegraphics[scale=0.9]{figuras/arch_linux.jpg}
+%%%prolog/scale=0.47
+%\label{fig_solutions_covering}
+\caption{Linux x Hardware}
+\end{figure}
+
+
+\section{Como acessar o \textit{kernel} Linux?}
+
+\begin{figure}[!htb]
+\centering
+%%\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/trens.png}
+\includegraphics [width=0.6\textwidth , height=0.6\textheight]{figuras/shell_linux.jpg}
+%%%prolog/scale=0.47
+%\label{fig_solutions_covering}
+\caption{Linux x Hardware}
+\end{figure}
+
+
+
+
+
+\section{Acesso via Terminal ou Consoles}
+
+\begin{figure}[!htb]
+\centering
+%%\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/trens.png}
+\includegraphics[scale=0.22]{figuras/xterminals.jpg}
+%%%prolog/scale=0.47
+%\label{fig_solutions_covering}
+\caption{Terminal ou Consoles}
+\end{figure}
+
+
+
+\section{Um Terminal}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/terminal_unico.jpg}
+%\includegraphics[scale=0.9]{figuras/trens.pdf}
+%%%prolog/scale=0.47
+%\label{fig_solutions_covering}
+\caption{Isto é uma console ou terminal (\textit{o fim do mundo!})}
+\end{figure}
+
+
+\section{Comandos no Linux}
+
+\begin{enumerate}
+  \item Vão ocorrer nesta linha de comando
+  \item Voce terá que aprender e decorar uns comandos (traga um \textit{datashet})
+  \item Estes comandos serão interpretados pelo programa \textit{bash}, o qual
+  acionam o \textit{kernel} linux
+  \item e só!
+\end{enumerate}
 
 
 
