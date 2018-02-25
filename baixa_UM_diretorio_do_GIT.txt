@@ -1,0 +1,21 @@
+Baixar um diretorio do GITHUB ... especificamente
+
+1. Vah para https://minhaskamal.github.io/DownGit
+2. Baixe o diretorio desejado https://github.com/claudiosa/CCS/tree/master/DIR_DESEJADO
+
+OU
+
+Usando svn
+1. Confira o conteudo svn ls https://github.com/CCS/trunk/DIR_DESEJADO
+2. Em seguida  svn export https://github.com/CCS/trunk/DIR_DESEJADO
+
+OU ainda
+
+Usando o  in terminal
+$ git archive --format tar --remote ssh://github.com/CCS/ HEAD CCS/DIRETORIO_DESEJADO > ~Downloads/TUDOD_AQUI.tgz
+tem que obter a chave publica antes....
+
+
+You can do a simple download of the directory tree:
+git archive --remote git@github.com:CCS.git HEAD:DIRETORIO_DESEJADO | tar xf -
+
