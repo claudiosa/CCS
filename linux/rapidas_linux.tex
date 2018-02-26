@@ -41,7 +41,7 @@ pdfsubject=, pdfkeywords=}
 
 
 %\graphicspath{{./figuresdir1/}{./figuresdir2/}{./figuresdir3/}}
-\graphicspath{{/home/ccs/MEGA/figs_genericas/}{figuras/}}
+\graphicspath{{../../figs_genericas/}{figuras/}}
 
 %\restylefloat{figure,table}   %%%% obrigat#io... pelo [H]
 \overlay{fundo_bege.jpg}
@@ -65,7 +65,7 @@ pdfsubject=, pdfkeywords=}
 %%%%%%%%%%% INCLUDING PDF FIGURES
 %\includegraphics[scale = 0.5]{mobius_strip_small.pdf}
 %\includegraphics[scale = 1.2]{logo2_coca_icone.jpg}
-\includegraphics[height=0.8\textheight, width=0.8\textwidth]{varios_tugs.jpg}
+\includegraphics[height=0.8\textheight, width=0.8\textwidth]{figuras/varias_distros.png}
 %%\includegraphics[scale = 0.5, bb=0.0cm 6.0cm 3cm 3cm]{mobius_strip_small.pdf}
 \end{minipage}
 &
@@ -76,9 +76,10 @@ pdfsubject=, pdfkeywords=}
 \begin{flushleft}
  {\textsf {\Large \underline{Para Todos os Cursos}}} \\
 \vskip 1cm
-{\textsf {\Huge \underline{\textit{Fast}  Linux} } }\\
+{\textsf {\Huge Linux: linha de comando} }\\
 \vskip 1cm
-{\textsf Grupo Colméia } \\ 
+{\textsf Grupo Colméia }\\ 
+{\textsf Claudio Cesar de Sá}\\ 
 {\textsf \$ : linha de comando}
 \end{flushleft}
 
@@ -87,44 +88,24 @@ pdfsubject=, pdfkeywords=}
 \end{tabular}
 
 
-\tableofcontents
-\begin{comment}
-\section{Professores do CoCA}
+
+
+
+\section{Direitos Autorais:}
 %%\textcolor{white}{xxxx}
 \begin{description}
 
-  \item[\ding{239}]  Claudio Cesar de Sá (\textsf{claudio@colmeia.udesc.br})
-  \item[\ding{239}]  Cristiano Damiani  (\textsf{damiani@joinville.udesc.br})
-  \item[\ding{239}]  Fernando Deeke Sasse (\textsf{fsasse@gmail.br} -- DMAT)
-  \item[\ding{239}]  Rogério Eduardo da Silva (\textsf{dcc2res@joinville.udesc.br})
+  \item[\ding{239}]  Claudio Cesar de Sá (\textsf{claudio.sa@udesc.br})
+  \item[\ding{239}]  Livre para usar e melhorar
+  \item[\ding{239}]  Me retorne com as melhorias! 
+    \item[\ding{239}] Atualizado em \url{https://github.com/claudiosa/CCS/} $\Rightarrow $ linux
 \end{description}
 
 
 
-\section{Problemas de Alocação}
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/depositos.pdf}
-%%%prolog/scale=0.47
-%\label{fig_solutions_covering}
- \caption{Problemas de Abastecimento -- Alocação}
-\end{figure}
 
 
-
-\begin{figure}[!htb]
-\centering
-%%\includegraphics[width=0.6\textwidth , height=0.5\textheight]{figuras/trens.png}
-\includegraphics[scale=0.9]{figuras/trens.pdf}
-%%%prolog/scale=0.47
-%\label{fig_solutions_covering}
- \caption{Problemas de escalonamento de trens/onibus}
-\end{figure}
-
-
-
-\end{comment}
+\tableofcontents
 
 \section{O que é o Linux?}
 \begin{itemize}
@@ -132,6 +113,8 @@ pdfsubject=, pdfkeywords=}
   \item Código aberto -- sem proprietários
   \item Suas versões iniciais datam dos anos 199x
   \item Nome vem do idealizador: Linus Tosvalds
+  \item Muitos cursos \textit{on-line} tais como:\\
+  \url{https://br.udacity.com/course/linux-command-line-basics--ud595#}
 \end{itemize}
 
 
@@ -231,9 +214,16 @@ pdfsubject=, pdfkeywords=}
 
 \section{As Teclas}
 
-No linux as teclas ocupam o lugar do \textit{mouse}, estas
+
+\begin{itemize}
+  \item No linux as teclas também ocupam o lugar do \textit{mouse}, estas
 s\~ao \textbf{aceleradoras}
 
+\item \textcolor{red}{Quando tiveres prática, o \textit{rato} fica em segundo momento!}
+
+\end{itemize}
+
+Começando:
 \begin{description}
 
 
@@ -244,7 +234,49 @@ s\~ao \textbf{aceleradoras}
 \item[$\uparrow $ e $\downarrow $:] repetem os comandos digitados neste terminal
 \item[\texttt{\^}: ] é o \texttt{ENTER} o qual deve ser pressionado após os comandos
 que se seguem
+
 \end{description}
+
+
+\section{Estendendo estes atalhos de teclado}
+
+\underline{\textbf{Sobre processos}}:
+\begin{description}
+\item[\texttt{Ctrl+C}:] Mata um processo sob o aplicativo terminal
+\item[\texttt{Ctrl+Z}:] Depois
+\item[\texttt{Ctrl+D}:] Fecha a janela terminal (não use), apenas em 
+desespero de causa!
+\end{description}
+
+\textbf{\textbf{Sobre a tela}}:
+\begin{description}
+\item[\texttt{Ctrl+L}:] Limpa a tela no terminal (uso bastante)
+\item[\texttt{Ctrl+S}:] Faz um \textbf{stop} de uma saída no terminal
+\item[\texttt{Ctrl+Q}:] Retoma esta saída pausada na janela terminal \end{description}
+
+
+\section{Atalhos para mover o cursor}
+
+\underline{\textbf{Atalhos na linha de comando}}:
+\begin{description}
+\item[\texttt{Ctrl+A} ou \texttt{Home}:] move para o início de linha
+\item[\texttt{Ctrl+E} ou \texttt{End}:] move para o fim de linha
+\item[\texttt{Ctrl+B}:] move o cursor para palavra \textbf{antes} dele (isto é: à esquerda)
+\item[\texttt{Alt+F}:] move o cursor para palavra \textbf{depois} dele
+(isto é: à direita)
+\item[\texttt{Ctrt+F}:] move o cursor um carácter à \textbf{direita} dele (muito útil)
+
+\item[\texttt{Ctrt+D} ou \texttt{Delete}:] exclui o carácter e puxa-o da direita dele o próximo carácter
+
+\item[\texttt{Alt+D}:] exclui todos carácteres à direita dele
+
+\item[\texttt{Ctrl+H} ou \texttt{Backspace}:] exclui o carácter
+antes dele 
+
+\end{description}
+
+\textcolor{red}{Falta ainda o \textit{copy-paste} usando teclas!}
+
 
 
 \section{Comandos Introdutórios}
@@ -263,14 +295,23 @@ $ pwd
 \item[\ding{248}] Listando o conteúdo do diretório:
 \begin{verbatim}
 $ ls
-append.txt      lab_inic.pl        rapidas_linux.out
-aula-15-08a.pl  lab_recursao.c     rapidas_linux.pdf
-aula-15-08.pl   lab_recursao.pl    rapidas_linux.tex
+......................................................
+$ 
+TESTE ESTE
+$ ls *.txt
 ......................................................
 $ 
 TESTE ESTE
 $ ls .*
+......................................................
+
+
 \end{verbatim}
+
+
+
+
+
 
 
 \pagebreak
@@ -307,7 +348,7 @@ $ ls -al *.txt
 
 
 \pagebreak
-\item[\ding{248}] Passos para os laboratórios da turma de ALP:
+\item[\ding{248}] Passos para os laboratórios da turma de ALP (os demais cursos, mais adiante):
 
 
 \begin{description}
@@ -318,8 +359,8 @@ $ ls -al *.txt
     \item[\ding{242} \texttt{mkdir SEU\_NOME \^}:] cria diretório
         \item[\ding{242} \texttt{cd SEU\_NOME \^}:] vai para o seu diretório
         \item[\ding{242} \texttt{touch programa.c \^}:] criou um arquivo chamado \texttt{programa.c}
-        \item[\ding{242} \texttt{geany programa.c} \&  \^:] edita o \texttt{programa.c} com o \texttt{geany}
-       \item[\ding{242} \texttt{g++ programa.c \^}:] compila o arquivo o \texttt{programa.c} 
+        \item[\ding{242} \texttt{geany programa.c \& \^ }:] edita o \texttt{programa.c} com o \texttt{geany}
+       \item[\ding{242} \texttt{gcc programa.c \^ }:] compila o arquivo o \texttt{programa.c} 
     \item[\ding{242}  \texttt{ls a* \^}:] verifica se o programa executável foi gerado, é o \textbf{a.out}  
     \item[\ding{242}  \texttt{./a.out \^}:] executa o \textbf{a.out}  
     \item[\ding{242}  \texttt{ls \* \^}:] lista diretório corrente
@@ -343,7 +384,7 @@ $ bg 1 ^                    // processo 1 PARADO
 
 o correto eh:
 
-$ geny nome_arquivo.txt    &  ^   
+$ geany nome_arquivo.txt    &  ^   
           
           // NAO ESQUECA O & comercial ao final 
           // ^ eh o ENTER ....
@@ -366,6 +407,10 @@ $ ps -aux | grep udesc
 $ ps -aux | grep udesc | more
 .....................
 lista os processos por pagina
+
+TESTE
+$ htop
+
 \end{verbatim}
 
 
@@ -373,15 +418,13 @@ lista os processos por pagina
 \pagebreak
 \item[\ding{248}] Processos na memória e seu estado:
 \begin{verbatim}
-$ gedit nome_arquivo.txt &
-[1] 4801
-$ ps aux | grep gedit
-udesc     4809  3.1  0.4  58132 16668 pts/2    Sl   19:54   0:00 gedit nome_arquivo.txt
-udesc     4814  0.0  0.0   3060   816 pts/2    S+   19:54   0:00 grep --color=auto gedit
 
-$ gedit nome_arquivo.txt      // processo em modo parado
+$ ps aux | grep NOME_DO_PROGRAMA
+ 
+SE PARADO, por exemplo: 
+$ gedit nome_arquivo.txt   // processo em modo parado
 ^Z
-[1]+  Parado                  gedit nome_arquivo.txt    PARADO
+[1]+  Parado     
 $
 $ bg 1
 [1]+ gedit nome_arquivo.txt &   // posto em background
@@ -389,7 +432,7 @@ $ bg 1
 \end{verbatim}
 
 \pagebreak
-\item[\ding{248}] Apagar arquivo  e diretório:
+\item[\ding{248}] Criar e apagar arquivos  e diretórios:
 \begin{verbatim}
 $ touch x
 $ rm x
@@ -397,6 +440,10 @@ $ mkdir cria_diretorio
 $ rmdir cria_diretorio
 \end{verbatim}
 
+\begin{itemize}
+  \item \textcolor{red}{Diretórios só apagam se estiverem vazios!}
+   \item \textcolor{red}{\textbf{NUNCA}:} \texttt{rm $\ast$} muito menos \texttt{rm -r $\ast$}
+\end{itemize}
 
 \pagebreak
 \item[\ding{248}] Copiar um arquivo:

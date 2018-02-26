@@ -19,7 +19,8 @@
 \textcolor{red}{$\bullet$}~Teóricas: 36 \textcolor{red}{$\bullet$}~Práticas: 36
 \item \emph{\textbf{Curso:}} BCC
 \item \emph{\textbf{Requisitos:}} LPG, Linux, sólidos conhecimentos da linguagem C -- há um documento específico sobre isto
-\item \emph{\textbf{Período:}} 2º semestre de 2017
+%\item \emph{\textbf{Período:}} 2º semestre de 2017
+\item \emph{\textbf{Período:}} 1º semestre de 2018
 \item \emph{\textbf{Horários:}}
   \begin{itemize}
   \item 3ª 15h20 (2 aulas) - F-205  -- aula expositiva
@@ -39,7 +40,8 @@
 \frametitle{Ementa}
 
 \begin{block}{Ementa}
-Representação e manipulação de tipos abstratos de dados. Estruturas lineares. Introdução a estruturas hierárquicas. Métodos de classificação. Análise de eficiência. Aplicações.
+Representação e manipulação de tipos abstratos de dados. Estruturas lineares. 
+Introdução a estruturas hierárquicas. Métodos de classificação. Análise de eficiência. Aplicações.
 \end{block}
 
 \end{frame}
@@ -122,8 +124,8 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
     \begin{itemize}
      \item Linux 
       \item Linguagem C (ora o compilador g++)
-      \item Codeblock
-      
+      \item Codeblock, Geany, Sublime, Atom, etc
+            
 
       % \url{http://ccl.northwestern.edu/netlogo/docs/} (escondido in WEB)
       
@@ -151,14 +153,15 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
     \textbf{Avaliação}
 
     \begin{itemize}
-    \item Três provas -- $\approx$  90\%\\
+    \item n-provas -- $\approx$  90\%\\
       
-	\quad \textcolor{red}{$\bullet$}~$P_1$: xx/ago\\
-	\quad \textcolor{red}{$\bullet$}~$P_2$: xx/set\\
-		\quad \textcolor{red}{$\bullet$}~$P_3$: xx/set\\
-	\quad \textcolor{red}{$\bullet$}~$P_4$: yy/out\\
-		\quad \textcolor{red}{$\bullet$}~$P_5$: yy/nov\\
-	\quad \textcolor{red}{$\bullet$}~$P_F$: zz/nov\\(provão: todo conteúdo)
+	\quad \textcolor{red}{$\bullet$}~$P_1$: xx/mar ou ago\\
+	\quad \textcolor{red}{$\bullet$}~$P_2$: xx/abril ou set\\
+		\quad \textcolor{red}{$\bullet$}~$P_3$: xx/maio ou set\\
+	\quad \textcolor{red}{$\bullet$}~$P_4$: xx/junho ou out\\
+		\quad \textcolor{red}{$\bullet$}~$P_5$: xx/junho ou nov\\
+		\quad \textcolor{red}{$\bullet$}~$TF$: Trabalho Final sobre \'arvores $\approx$  10\%\\
+	\quad \textcolor{red}{$\bullet$}~$P_F$: 2x/junho ou nov\\(provão: todo conteúdo)
 
       \item Exercícios de laboratório  -- $\approx$ \%
        
@@ -174,8 +177,8 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
       
 %%%      \item Sitio para entrega de trabalhos: \textbf{\url{https://www.cloudwok.com/u/mnG8}}
       
-      \item Sitio das avaliações: \textbf{\url{https://run.codes/Users/login}} 
-      código da disciplina: \textbf{GEPZ}
+      \item Sítio das avaliações: \textbf{\url{https://run.codes/Users/login}}   código da disciplina: \textbf{SJ95}
+      \item Turma: 2018-1
       
     \end{itemize}
 
@@ -190,8 +193,7 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
 
     \begin{itemize}
     
-       \item Há um monitor na disciplina -- Lucas -- ver no site de monitoria da UDESC 
-       os horários
+       \item Há um monitor na disciplina -- Lucas -- ver no site de monitoria da UDESC     os horários
        
        \item Há uma lista de discussão (para avisos e dúvidas gerais):  \textbf{\url{eda-lista@googlegroups.com}}
        
@@ -220,8 +222,7 @@ Representação e manipulação de tipos abstratos de dados. Estruturas lineares
     
     \begin{itemize}    
     
-   \item Questões específicas (leia-se: notas, dor-de-dente, etc) venha falar 
-   pessoalmente com o professor!
+   \item Questões específicas (leia-se: notas, dor-de-dente, etc) venha falar pessoalmente com o professor!
       
    \end{itemize}
 
