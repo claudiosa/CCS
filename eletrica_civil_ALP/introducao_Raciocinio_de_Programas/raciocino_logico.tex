@@ -90,15 +90,52 @@ tiveram na disciplina de ALP em semestre anterioes.\\
   
   \item $x$ é ímpar ou $x$ é par
   
-  \item $12x + x^2 \le 12$
+  \item $\forall x(12x + x^2 \le 12)$
 
-  \item $144 \ge 12x + 7$
+  \item $\forall x(144 \ge 12x + 7)$
 
-  \item $128 - 14x \le 12x + 4$
+  \item $\forall x(128 - 14x \le 12x + 4)$
+      
       
 \end{enumerate}
 \end{exampleblock}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{As inequações serão úteis:}
+
+\begin{exampleblock}
+%%{Seja $x \in N$, avalie a \textbf{verdade} das expressões:}
+{Seja $x \in \{0,1..99\}$, avalie a \textbf{verdade} das expressões:}
+\begin{enumerate}
+  
+  \item $ x > 100$ \hspace{1cm} \textcolor{red}{R: 0}
+  
+  \item $x$ é ímpar ou $x$ é par \hspace{1cm} \textcolor{red}{R: 1}
+
+  
+  \item $\forall x(12x + x^2 \le 12)$
+\hspace{1cm} \textcolor{red}{R: 0 ou falsa}
+
+
+
+  \item $\forall x(144 \ge 12x + 7)$ 
+\hspace{1cm} \textcolor{red}{R: 0 ou falsa}
+
+  \item $\forall x(128 - 14x \le 12x + 4)$ 
+\hspace{1cm} \textcolor{red}{R: 0 ou falsa}
+      
+\end{enumerate}
+\end{exampleblock}
+\end{frame}
+
+
+
+
+
+
+
 
 
 
@@ -250,7 +287,25 @@ para resolver estas fórmulas!
 
 
 \begin{frame}
-\frametitle{Falta fechar com exercícios de prenchimento de TVs:}
+\frametitle{Construa a Tabelas Verdades (TVs) das fórmulas abaixo:}
+\begin{block}{}
+
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	$\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{\sim A}$ & $\mathbf{\sim A \vee B}$ \\
+	\hline
+	V & V & F & \\
+	\hline
+	V & F & F & \\
+	\hline
+	F & V & V & \\
+	\hline
+	F & F & V & \\
+	\hline
+	\end{tabular}
+  
+  Esta fórmula é conhecida como $\sim A \vee B \equiv A \rightarrow B$, leia-se: \textbf{se A  então B}
+\end{block}
 
 \end{frame}
 
