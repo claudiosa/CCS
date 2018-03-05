@@ -1,0 +1,54 @@
+[3;J[H[2J====================================== 0 OK
+ The Initial Grid or Map
+1 # # 0 1 1 
+1 # # 1 # # 
+0 0 1 0 # # 
+
+End state:
+
+0 # # 0 0 0 
+0 # # 0 # # 
+0 0 1 0 # # 
+
+CPU time 0.0 seconds.
+
+
+Init:
+
+1 # # 0 1 1 
+1 # # 1 # # 
+0 0 1 0 # # 
+
+ => Action jump_left from (1,6)
+1 # # 1 0 0 
+1 # # 1 # # 
+0 0 1 0 # # 
+
+ => Action jump_down from (1,4)
+1 # # 0 0 0 
+1 # # 0 # # 
+0 0 1 1 # # 
+
+ => Action jump_left from (3,4)
+1 # # 0 0 0 
+1 # # 0 # # 
+0 1 0 0 # # 
+
+ => Action jump_down from (1,1)
+0 # # 0 0 0 
+0 # # 0 # # 
+1 1 0 0 # # 
+
+ => Action jump_right from (3,1)
+0 # # 0 0 0 
+0 # # 0 # # 
+0 0 1 0 # # 
+
+
+ A boundary (estimating a deep): 5  
+ PLAN: [(jump_left,1,6),(jump_down,1,4),(jump_left,3,4),(jump_down,1,1),(jump_right,3,1)]
+ Total of states: 5
+ Total of moviments: 4
+ CPU TIME Initial: time(11,48,36)  end: time(11,48,36) 
+ =========================================
+ 
