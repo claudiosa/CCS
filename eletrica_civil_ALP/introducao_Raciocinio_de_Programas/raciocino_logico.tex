@@ -37,7 +37,11 @@
 
 
 \title{Introdução ao Raciocínio Lógico para ALP}
+<<<<<<< HEAD
 \author{Rogério Eduardo da Silva - \textit{rogerio.silva@udesc.br}\\Claudio Cesar de Sá - \textit{claudio.sa@udesc.br}}
+=======
+\author{Rafael Alceste Berri -- \textit{rafaelberri@usp.br}\\Claudio Cesar de Sá -- \textit{claudio.sa@udesc.br}}
+>>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
 \institute{Universidade do Estado de Santa Catarina \\ Departamento de Ciência da Computação}
 \date{\today}
 
@@ -79,7 +83,11 @@ tiveram na disciplina de ALP em semestre anterioes.\\
 
 
 \begin{frame}
+<<<<<<< HEAD
 \frametitle{As inequações serão úteis:}
+=======
+\frametitle{Refletindo sobre as inequações serão úteis:}
+>>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
 
 \begin{exampleblock}
 %%{Seja $x \in N$, avalie a \textbf{verdade} das expressões:}
@@ -288,6 +296,7 @@ para resolver estas fórmulas!
 
 \begin{frame}
 \frametitle{Construa a Tabelas Verdades (TVs) das fórmulas abaixo:}
+<<<<<<< HEAD
 \begin{block}{}
 
 	\begin{tabular}{|c|c|c|c|}
@@ -306,9 +315,135 @@ para resolver estas fórmulas!
   
   Esta fórmula é conhecida como $\sim A \vee B \equiv A \rightarrow B$, leia-se: \textbf{se A  então B}
 \end{block}
+=======
+
+
+\begin{block}{Resolva: $\sim A \vee B$}
+\begin{center}
+
+	\begin{tabular}{|c|c|c|c|}
+	\hline 	\hline
+	$\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{\sim A}$ & $\mathbf{\sim A \vee B}$ \\
+	\hline
+	F & F & V & \\
+  \hline
+	F & V & V & \\
+	\hline
+	V & F & F & \\
+	\hline
+	V & V & F & \\
+	\hline 	\hline
+	\end{tabular}
+\end{center}
+  
+\begin{itemize}
+   \item Para fins de concurso público é algo como: \textit{se A for verdadeiro então B também deverá ser}!
+   \item Contudo, se A não for verdade, qualquer coisa serve para B
+    \item  Esta fórmula é conhecida como $\sim A \vee B \equiv A \rightarrow B$, leia-se: \textbf{se A  então B}
+
+  \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Construa a Tabelas Verdades (TVs) das fórmulas abaixo:}
+
+
+\begin{block}{Resolva: $(\sim A \vee B) \wedge (\sim B \vee A) $}
+\begin{center}
+
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline 	\hline
+	$\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{\sim A}$ & $X:\mathbf{\sim A \vee B}$ & $\mathbf{\sim B}$ & $Y:\mathbf{\sim B \vee A}$ & $X \wedge Y $ \\
+	\hline
+	F & F & V &  &  &  &   \\	
+	\hline
+	F & V & V &  &  &  &   \\
+	\hline
+	V & F & F &  &  &  &   \\
+	\hline
+	V & V & F &  &  &  &   \\
+	\hline 	\hline
+	\end{tabular}
+\end{center}
+  
+\begin{itemize}
+   \item Para fins de concurso público é algo como: \textit{se A e B forem iguais então esta fórmula é verdadeira}!
+  \item Se A e B forem diferentes, então a expressão é falsa
+    \item  Esta fórmula é conhecida como $A \leftrightarrow  B$, leia-se: \textbf{A bi-implica em B}
+
+  \end{itemize}
+  \end{block}
+
 
 \end{frame}
 
 
 
+
+\begin{frame}
+\frametitle{Onde tudo isto será usado?}
+
+
+\begin{block}{Sejam as fórmulas  $A:X=3$ e $B:Y=4$, resolva via TV: }
+
+\begin{itemize}
+
+  \item   $X = 3 \vee   Y = 4$
+    \item $X = 3 \vee   Y \neq 4$
+    \item $X = 3 \wedge Y \neq 4$
+    \item $X < 3 \vee   Y = 4$
+    \item $X > 3 \wedge   Y \neq 4$
+
+\end{itemize}
+
+  \end{block}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Concluindo}
+
+
+\begin{block}{Isto tudo se relaciona em seguir passos lógicos: }
+
+\begin{itemize}
+
+  \item Como o computador trabalha com \textbf{0}'s e \textbf{1}'s, estas operações de \textbf{V}erdade e \textbf{F}also são análogas
+  \pause
+    \item O tempo inteiro voce deverá começar a pensar deste modo: $0 = F$ e $1 = V$
+      \pause
+    \item Claro este princípio não serve para vida!
+      \pause
+    \item Mas, aqui para o curso sim!
+      \pause
+    \item Boa sorte!
+
+\end{itemize}
+
+  \end{block}
+
+>>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+
+\end{frame}
+
+
+
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+>>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
 \end{document}
