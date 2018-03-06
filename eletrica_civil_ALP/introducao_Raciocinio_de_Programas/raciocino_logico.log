@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  2 MAR 2018 08:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.22)  6 MAR 2018 19:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,11 +455,11 @@ Package: sansmathaccent 2013/03/28
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )))
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
-(/usr/share/texmf-dist/tex/latex/beamer/translator/translator.sty
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator.sty
 Package: translator 2010/06/12 ver 1.10
 
-(/usr/share/texmf-dist/tex/latex/beamer/translator/translator-language-mappings
-.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/translator-language-map
+pings.tex))) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
 \beamer@argscount=\count127
@@ -616,29 +616,33 @@ Package: amsthm 2015/03/04 v2.20.2
 \c@theorem=\count153
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
-(/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemedefault.sty
-(/usr/share/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemedefault.sty)
-
-(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemedefault.st
-y)
-(/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemedefault.st
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/theme/beamerthemedefault.st
 y
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/font/beamerfontthemedefault
+.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemedefau
+lt.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/inner/beamerinnerthemedefau
+lt.sty
 \beamer@dima=\dimen188
 \beamer@dimb=\dimen189
 )
-(/usr/share/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemedefault.st
-y))) (/usr/share/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeMadrid.sty
-(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemewhale.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/outer/beamerouterthemedefau
+lt.sty)))
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/theme/beamerthemeMadrid.sty
 
-(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemeorchid.sty
-)
-(/usr/share/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemerounded.st
-y)
-(/usr/share/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemeinfolines.
-sty))
-(/usr/share/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemebeaver.sty
-) (/usr/share/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemeserif.sty)
-(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemewhale
+.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemeorchi
+d.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/inner/beamerinnerthemeround
+ed.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/outer/beamerouterthemeinfol
+ines.sty))
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/color/beamercolorthemebeave
+r.sty)
+(/usr/share/texmf-dist/tex/latex/beamer/base/themes/font/beamerfontthemeserif.s
+ty) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2017/11/03 3.15 The Babel package
 
 (/usr/share/texmf-dist/tex/generic/babel/switch.def
@@ -1168,32 +1172,33 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  T1/aett/m/n --> T1/aett/bx/n on input line 47.
 
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dicti
-onary/translator-basic-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-basic-
+dictionary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-bibliograph
-y-dictionary/translator-bibliography-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-biblio
+graphy-dictionary/translator-bibliography-dictionary-English.dict
 Dictionary: translator-bibliography-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-environment
--dictionary/translator-environment-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-enviro
+nment-dictionary/translator-environment-dictionary-English.dict
 Dictionary: translator-environment-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-months-dict
-ionary/translator-months-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-months
+-dictionary/translator-months-dictionary-English.dict
 Dictionary: translator-months-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-numbers-dic
-tionary/translator-numbers-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-number
+s-dictionary/translator-numbers-dictionary-English.dict
 Dictionary: translator-numbers-dictionary, Language: English 
 )
-(/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-theorem-dic
-tionary/translator-theorem-dictionary-English.dict
+(/usr/share/texmf-dist/tex/latex/beamer/base/translator/dicts/translator-theore
+m-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 \c@lstlisting=\count170
- (./raciocino_logico.nav)
+
+(./raciocino_logico.nav)
 Overfull \hbox (430.40785pt too wide) in paragraph at lines 47--47
  [][]  \T1/aer/m/n/6 ([])  
  []
@@ -1380,6 +1385,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--221
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 221--221
+[]\T1/aer/bx/n/10.95 Conserte o cir-cuito
+ []
+
+
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
@@ -1556,10 +1566,10 @@ Package rerunfilecheck Info: File `raciocino_logico.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19592 strings out of 492985
- 358008 string characters out of 6138637
- 452310 words of memory out of 5000000
- 22588 multiletter control sequences out of 15000+600000
+ 19590 strings out of 492985
+ 358177 string characters out of 6138637
+ 452055 words of memory out of 5000000
+ 22586 multiletter control sequences out of 15000+600000
  48436 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,18n,63p,802b,875s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1573,7 +1583,7 @@ t/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb>
-Output written on raciocino_logico.pdf (22 pages, 242617 bytes).
+Output written on raciocino_logico.pdf (22 pages, 243111 bytes).
 PDF statistics:
  235 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
