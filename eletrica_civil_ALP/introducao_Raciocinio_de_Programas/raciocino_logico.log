@@ -1,13 +1,18 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.3.16)  1 MAR 2018 18:23
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  2 MAR 2018 08:21
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  2 MAR 2018 08:21
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **raciocino_logico.tex
 (./raciocino_logico.tex
+<<<<<<< HEAD
 <<<<<<< HEAD
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 3 languages loaded.
@@ -53,6 +58,8 @@ Package ifpdf Info: pdfTeX in PDF mode is detected.
 \beamer@descdefault=\dimen117
 \beamer@descriptionwidth=\dimen118
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 LaTeX2e <2017-04-15>
 Babel <3.15> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
@@ -92,7 +99,10 @@ Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 \beamer@vboxoffset=\dimen115
 \beamer@descdefault=\dimen116
 \beamer@descriptionwidth=\dimen117
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \beamer@lastskip=\skip41
 \beamer@areabox=\box28
 \beamer@animcurrent=\box29
@@ -100,6 +110,7 @@ Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 \beamer@sectionbox=\box31
 \beamer@logobox=\box32
 \beamer@linebox=\box33
+<<<<<<< HEAD
 <<<<<<< HEAD
 \beamer@sectioncount=\count84
 \beamer@subsubsectionmax=\count85
@@ -126,6 +137,8 @@ Package: beamerbaseoptions 2013/03/10 (rcs-revision 47431932db0d)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \beamer@sectioncount=\count85
 \beamer@subsubsectionmax=\count86
 \beamer@subsectionmax=\count87
@@ -149,12 +162,16 @@ Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
 (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \KV@toks@=\toks14
 ))
 \beamer@paperwidth=\skip42
 \beamer@paperheight=\skip43
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -257,6 +274,8 @@ ex
 \t@pgf@tokc=\toks22
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -350,11 +369,15 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \t@pgf@tokc=\toks22
 
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
 File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
@@ -399,6 +422,8 @@ Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
 \pgfmath@dimen=\dimen139
 \pgfmath@count=\count112
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
 File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
@@ -439,12 +464,16 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen138
 \pgfmath@count=\count113
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \pgfmath@box=\box35
 \pgfmath@toks=\toks23
 \pgfmath@stack@operand=\toks24
 \pgfmath@stack@operation=\toks25
 )
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -583,6 +612,8 @@ Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
 Package hobsub Info: Skipping package `ifpdf' (already loaded).
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code
@@ -703,11 +734,15 @@ Package hobsub Info: Skipping package `ifvtex' (already loaded).
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
 Package hobsub Info: Skipping package `ifpdf' (already loaded).
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
+<<<<<<< HEAD
 <<<<<<< HEAD
 Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
@@ -717,11 +752,17 @@ Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
+<<<<<<< HEAD
 <<<<<<< HEAD
 Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
@@ -789,6 +830,8 @@ LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
 \Hy@abspage=\count123
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
@@ -853,7 +896,10 @@ Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
 \Hy@abspage=\count124
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 
 
 Package hyperref Message: Stopped early.
@@ -862,6 +908,7 @@ Package hyperref Message: Stopped early.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
@@ -887,6 +934,8 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
 \Fld@listcount=\count125
@@ -904,7 +953,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks26
 \symAMSa=\mathgroup4
@@ -912,6 +964,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
 Package: sansmathaccent 2013/03/28
@@ -960,6 +1013,8 @@ Package: beamerbaseframe 2013/10/02  (rcs-revision cdc8e9a3aaac)
 \beamer@frametextheight=\dimen168
 \c@subsectionslide=\count135
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
 Package: sansmathaccent 2013/03/28
 
@@ -994,12 +1049,16 @@ Package: translator 2010/06/12 ver 1.10
 \beamer@zoomframecount=\count135
 \beamer@frametextheight=\dimen167
 \c@subsectionslide=\count136
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \beamer@frametopskip=\skip45
 \beamer@framebottomskip=\skip46
 \beamer@frametopskipautobreak=\skip47
 \beamer@framebottomskipautobreak=\skip48
 \beamer@envbody=\toks27
+<<<<<<< HEAD
 <<<<<<< HEAD
 \framewidth=\dimen169
 \c@framenumber=\count136
@@ -1040,6 +1099,8 @@ Package: beamerbaseauxtemplates 2013/09/04  (rcs-revision 4ac715c499d0)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
 Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \framewidth=\dimen168
 \c@framenumber=\count137
 )
@@ -1070,12 +1131,16 @@ Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
 
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \bmb@box=\box46
 \bmb@colorbox=\box47
 \bmb@boxshadow=\box48
 \bmb@boxshadowball=\box49
 \bmb@boxshadowballlarge=\box50
+<<<<<<< HEAD
 <<<<<<< HEAD
 \bmb@temp=\dimen171
 \bmb@dima=\dimen172
@@ -1155,6 +1220,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \totwidth@=\dimen184
 \lineht@=\dimen185
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \bmb@temp=\dimen173
 \bmb@dima=\dimen174
 \bmb@dimb=\dimen175
@@ -1227,11 +1294,15 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \tagwidth@=\dimen185
 \totwidth@=\dimen186
 \lineht@=\dimen187
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \@envbody=\toks35
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks36
+<<<<<<< HEAD
 <<<<<<< HEAD
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
@@ -1239,12 +1310,17 @@ LaTeX Info: Redefining \] on input line 2666.
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2009/07/02 v2.20.1
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
 (/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \thm@style=\toks37
 \thm@bodyfont=\toks38
 \thm@headfont=\toks39
@@ -1255,6 +1331,7 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip56
 \dth@everypar=\toks42
 )
+<<<<<<< HEAD
 <<<<<<< HEAD
 \c@theorem=\count152
 )
@@ -1322,6 +1399,8 @@ File: babel.def 2014/09/25 3.9l Babel common definitions
 \U@D=\dimen188
 LaTeX Info: Redefining \textlatin on input line 1431.
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \c@theorem=\count153
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
@@ -1365,11 +1444,15 @@ File: switch.def 2017/11/03 3.15 Babel switching mechanism
 \babel@savecnt=\count154
 \U@D=\dimen190
 LaTeX Info: Redefining \textlatin on input line 1741.
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 )
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
 ))
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/ae/ae.sty
 Package: ae 2001/02/12 1.3 Almost European Computer Modern
@@ -1394,6 +1477,8 @@ Package: inputenc 2014/04/30 v1.2b Input encoding file
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/ae/ae.sty
 Package: ae 2001/02/12 1.3 Almost European Computer Modern
 
@@ -1416,12 +1501,16 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 
 (/usr/share/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
@@ -1429,6 +1518,8 @@ File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
@@ -1436,7 +1527,10 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
    defining Unicode char U+00AD (decimal 173)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+00BB (decimal 187)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C0 (decimal 192)
@@ -1502,10 +1596,15 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00FE (decimal 254)
    defining Unicode char U+00FF (decimal 255)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    defining Unicode char U+0100 (decimal 256)
    defining Unicode char U+0101 (decimal 257)
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0102 (decimal 258)
    defining Unicode char U+0103 (decimal 259)
    defining Unicode char U+0104 (decimal 260)
@@ -1513,12 +1612,18 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0106 (decimal 262)
    defining Unicode char U+0107 (decimal 263)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0108 (decimal 264)
    defining Unicode char U+0109 (decimal 265)
    defining Unicode char U+010A (decimal 266)
    defining Unicode char U+010B (decimal 267)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+010C (decimal 268)
    defining Unicode char U+010D (decimal 269)
    defining Unicode char U+010E (decimal 270)
@@ -1526,22 +1631,31 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0110 (decimal 272)
    defining Unicode char U+0111 (decimal 273)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0112 (decimal 274)
    defining Unicode char U+0113 (decimal 275)
    defining Unicode char U+0114 (decimal 276)
    defining Unicode char U+0115 (decimal 277)
    defining Unicode char U+0116 (decimal 278)
    defining Unicode char U+0117 (decimal 279)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0118 (decimal 280)
    defining Unicode char U+0119 (decimal 281)
    defining Unicode char U+011A (decimal 282)
    defining Unicode char U+011B (decimal 283)
 <<<<<<< HEAD
+<<<<<<< HEAD
    defining Unicode char U+011E (decimal 286)
    defining Unicode char U+011F (decimal 287)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+011C (decimal 284)
    defining Unicode char U+011D (decimal 285)
    defining Unicode char U+011E (decimal 286)
@@ -1560,15 +1674,21 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+012D (decimal 301)
    defining Unicode char U+012E (decimal 302)
    defining Unicode char U+012F (decimal 303)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0130 (decimal 304)
    defining Unicode char U+0131 (decimal 305)
    defining Unicode char U+0132 (decimal 306)
    defining Unicode char U+0133 (decimal 307)
 <<<<<<< HEAD
+<<<<<<< HEAD
    defining Unicode char U+0139 (decimal 313)
    defining Unicode char U+013A (decimal 314)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0134 (decimal 308)
    defining Unicode char U+0135 (decimal 309)
    defining Unicode char U+0136 (decimal 310)
@@ -1577,7 +1697,10 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+013A (decimal 314)
    defining Unicode char U+013B (decimal 315)
    defining Unicode char U+013C (decimal 316)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+013D (decimal 317)
    defining Unicode char U+013E (decimal 318)
    defining Unicode char U+0141 (decimal 321)
@@ -1585,21 +1708,32 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0143 (decimal 323)
    defining Unicode char U+0144 (decimal 324)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    defining Unicode char U+0145 (decimal 325)
    defining Unicode char U+0146 (decimal 326)
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0147 (decimal 327)
    defining Unicode char U+0148 (decimal 328)
    defining Unicode char U+014A (decimal 330)
    defining Unicode char U+014B (decimal 331)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+014C (decimal 332)
    defining Unicode char U+014D (decimal 333)
    defining Unicode char U+014E (decimal 334)
    defining Unicode char U+014F (decimal 335)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0150 (decimal 336)
    defining Unicode char U+0151 (decimal 337)
    defining Unicode char U+0152 (decimal 338)
@@ -1607,19 +1741,29 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0154 (decimal 340)
    defining Unicode char U+0155 (decimal 341)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    defining Unicode char U+0156 (decimal 342)
    defining Unicode char U+0157 (decimal 343)
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0158 (decimal 344)
    defining Unicode char U+0159 (decimal 345)
    defining Unicode char U+015A (decimal 346)
    defining Unicode char U+015B (decimal 347)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    defining Unicode char U+015C (decimal 348)
    defining Unicode char U+015D (decimal 349)
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+015E (decimal 350)
    defining Unicode char U+015F (decimal 351)
    defining Unicode char U+0160 (decimal 352)
@@ -1629,27 +1773,39 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0164 (decimal 356)
    defining Unicode char U+0165 (decimal 357)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0168 (decimal 360)
    defining Unicode char U+0169 (decimal 361)
    defining Unicode char U+016A (decimal 362)
    defining Unicode char U+016B (decimal 363)
    defining Unicode char U+016C (decimal 364)
    defining Unicode char U+016D (decimal 365)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+016E (decimal 366)
    defining Unicode char U+016F (decimal 367)
    defining Unicode char U+0170 (decimal 368)
    defining Unicode char U+0171 (decimal 369)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0172 (decimal 370)
    defining Unicode char U+0173 (decimal 371)
    defining Unicode char U+0174 (decimal 372)
    defining Unicode char U+0175 (decimal 373)
    defining Unicode char U+0176 (decimal 374)
    defining Unicode char U+0177 (decimal 375)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0178 (decimal 376)
    defining Unicode char U+0179 (decimal 377)
    defining Unicode char U+017A (decimal 378)
@@ -1658,10 +1814,13 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+017D (decimal 381)
    defining Unicode char U+017E (decimal 382)
 <<<<<<< HEAD
+<<<<<<< HEAD
    defining Unicode char U+200C (decimal 8204)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+01CD (decimal 461)
    defining Unicode char U+01CE (decimal 462)
    defining Unicode char U+01CF (decimal 463)
@@ -1696,7 +1855,10 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
    defining Unicode char U+2015 (decimal 8213)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+2018 (decimal 8216)
    defining Unicode char U+2019 (decimal 8217)
    defining Unicode char U+201A (decimal 8218)
@@ -1709,27 +1871,38 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    defining Unicode char U+1E20 (decimal 7712)
    defining Unicode char U+1E21 (decimal 7713)
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AD (decimal 173)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+00B8 (decimal 184)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C5 (decimal 197)
@@ -1748,7 +1921,10 @@ File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0152 (decimal 338)
    defining Unicode char U+0153 (decimal 339)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+0174 (decimal 372)
    defining Unicode char U+0175 (decimal 373)
    defining Unicode char U+0176 (decimal 374)
@@ -1757,7 +1933,10 @@ File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0219 (decimal 537)
    defining Unicode char U+021A (decimal 538)
    defining Unicode char U+021B (decimal 539)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
    defining Unicode char U+2018 (decimal 8216)
@@ -1769,12 +1948,17 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
 =======
 (/usr/share/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+(/usr/share/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -1799,6 +1983,7 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write5
@@ -1829,6 +2014,8 @@ File: listings.cfg 2014/09/06 1.5e listings configuration
 ))
 Package: listings 2014/09/06 1.5e (Carsten Heinz)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write5
 
@@ -1857,7 +2044,10 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -1916,6 +2106,7 @@ LaTeX Font Info:    ... okay on input line 47.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count162
@@ -1941,6 +2132,8 @@ Package grfext Info: Graphics extension search list:
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count163
@@ -1967,7 +2160,10 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
 
 (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
@@ -1975,6 +2171,7 @@ ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box56
 Package hyperref Info: Link coloring OFF on input line 47.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1984,6 +2181,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count168
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1991,7 +2190,10 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count169
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 )
 LaTeX Info: Redefining \ref on input line 47.
 LaTeX Info: Redefining \pageref on input line 47.
@@ -2041,6 +2243,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  T1/aett/m/n --> T1/aett/bx/n on input line 47.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
 ic-dictionary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
@@ -2071,6 +2274,8 @@ LaTeX Info: Redefining \includegraphics on input line 47.
 (./raciocino_logico.nav)
 Overfull \hbox (458.09734pt too wide) in paragraph at lines 47--47
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dicti
 onary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
@@ -2098,7 +2303,10 @@ Dictionary: translator-theorem-dictionary, Language: English
 \c@lstlisting=\count170
  (./raciocino_logico.nav)
 Overfull \hbox (430.40785pt too wide) in paragraph at lines 47--47
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2109,10 +2317,14 @@ Overfull \hbox (16.63635pt too wide) in paragraph at lines 47--47
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2128,10 +2340,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2144,10 +2360,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2162,6 +2382,7 @@ t>
 File: figuras/number-line-inequality-graph-example1.png Graphic file (type png)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  <use figuras/number-line-inequality-graph-example1.png>
 Package pdftex.def Info: figuras/number-line-inequality-graph-example1.png used
  on input line 76.
@@ -2169,6 +2390,8 @@ Package pdftex.def Info: figuras/number-line-inequality-graph-example1.png used
 
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 <use figuras/number-line-inequality-graph-example1.png>
 Package pdftex.def Info: figuras/number-line-inequality-graph-example1.png  use
 d on input line 76. on input line 76.
@@ -2176,7 +2399,10 @@ Package pdftex.def Info: Requested size: 273.84044pt x 156.4603pt on input line
  76.
 
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2191,25 +2417,35 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 LaTeX Font Info:    Try loading font information for U+msa on input line 102.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 =======
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 102.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2222,10 +2458,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2238,10 +2478,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2254,10 +2498,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2270,10 +2518,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2286,10 +2538,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2302,10 +2558,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2317,6 +2577,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [11
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ] <figuras/circuito_NOT.jpg, id=113, 520.94624pt x 371.3875pt>
 File: figuras/circuito_NOT.jpg Graphic file (type jpg)
 
@@ -2324,6 +2585,8 @@ File: figuras/circuito_NOT.jpg Graphic file (type jpg)
 Package pdftex.def Info: figuras/circuito_NOT.jpg used on input line 221.
 (pdftex.def)             Requested size: 171.14969pt x 130.38425pt.
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 ]
 <figuras/circuito_NOT.jpg, id=113, 520.94624pt x 371.3875pt>
 File: figuras/circuito_NOT.jpg Graphic file (type jpg)
@@ -2332,7 +2595,10 @@ Package pdftex.def Info: figuras/circuito_NOT.jpg  used on input line 221. on i
 nput line 221.
 Package pdftex.def Info: Requested size: 171.14969pt x 130.38425pt on input lin
 e 221.
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 
 Underfull \hbox (badness 10000) in paragraph at lines 221--221
 []\T1/aer/m/n/10.95 Onde a ta-bela equi-
@@ -2350,10 +2616,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--221
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2368,17 +2638,23 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 <figuras/circuito_AND.jpg, id=120, 597.23125pt x 356.33125pt>
 File: figuras/circuito_AND.jpg Graphic file (type jpg)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <use figuras/circuito_AND.jpg>
 Package pdftex.def Info: figuras/circuito_AND.jpg used on input line 254.
 (pdftex.def)             Requested size: 171.1422pt x 130.37788pt.
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 <use figuras/circuito_AND.jpg>
 Package pdftex.def Info: figuras/circuito_AND.jpg  used on input line 254. on i
 nput line 254.
 Package pdftex.def Info: Requested size: 171.1422pt x 130.37788pt on input line
  254.
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 
 Underfull \hbox (badness 10000) in paragraph at lines 254--254
 
@@ -2386,10 +2662,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 254--254
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2404,17 +2684,23 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 <figuras/circuito_OR.jpg, id=128, 682.55pt x 411.5375pt>
 File: figuras/circuito_OR.jpg Graphic file (type jpg)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <use figuras/circuito_OR.jpg>
 Package pdftex.def Info: figuras/circuito_OR.jpg used on input line 286.
 (pdftex.def)             Requested size: 171.1474pt x 130.38226pt.
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 <use figuras/circuito_OR.jpg>
 Package pdftex.def Info: figuras/circuito_OR.jpg  used on input line 286. on in
 put line 286.
 Package pdftex.def Info: Requested size: 171.1474pt x 130.38226pt on input line
  286.
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 
 Underfull \hbox (badness 10000) in paragraph at lines 286--286
 
@@ -2422,10 +2708,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 286--286
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2438,10 +2728,14 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
  <./figuras/circuito_OR.jpg>]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Overfull \hbox (458.09734pt too wide) has occurred while \output is active
 =======
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -2454,7 +2748,10 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
@@ -2539,7 +2836,10 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [22
 
 ]
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \tf@nav=\write7
 \openout7 = `raciocino_logico.nav'.
 
@@ -2549,6 +2849,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `raciocino_logico.snm'.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
@@ -2585,6 +2886,8 @@ PDF statistics:
  137 compressed objects within 2 object streams
  31 named destinations out of 1000 (max. 500000)
 =======
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 417.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 417.
  (./raciocino_logico.aux)
@@ -2616,6 +2919,9 @@ PDF statistics:
  235 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
  45 named destinations out of 1000 (max. 500000)
+<<<<<<< HEAD
 >>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
