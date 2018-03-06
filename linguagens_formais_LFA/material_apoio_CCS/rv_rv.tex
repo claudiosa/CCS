@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+
+\title{LFA}
+\author{Prova por Indução Matemática: Reverso do Reverso}
+\date{1 de Março de 2018}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+	\item Sabendo-se que $u^rv^r=(vu)^r$. Prove $(w^r)^r=w$.\\\\
+	
+	
+	BASE:
+	\begin{itemize}
+		
+	
+		
+		\item $k=|w|$
+		\item $k=0 \rightarrow \Lambda^r = \Lambda \rightarrow (\Lambda^r)^r = \Lambda$
+		\item $k=1 \rightarrow a^r = a \rightarrow (a^r)^r = a$\\
+		.\\
+		.\\
+		.\\
+		
+		
+			
+	\end{itemize}
+	
+	HIPÓTESE INDUTIVA:
+	\begin{itemize}
+		\item $k \rightarrow (w^r)^r=w $\\
+		
+
+		\end{itemize}
+			\textbf{$\rightarrow$ Precisamos provar para (k+1) que $((aw)^r)^r = aw $}  \\\\
+	
+	PROVA:
+	\begin{itemize}
+
+		
+		 \item$((aw)^r)^r=(w^ra^r)^r$ \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		 (1) Teorema $(uv)^r=v^ru^r$
+		 
+		 \item$(w^ra^r)^r=(xy)^r$ \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		 (2) $x=w^r$ e $y=a^r$
+		
+		\item $(xy)^r = y^rx^r$\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		(3) Teorema do passo (1)
+		 
+		 \item $ y^rx^r=(a^r)^r(w^r)^r$ \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		 (4) Hipótese Indutiva
+		 
+		 \item $a(w^r)^r = aw$ \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		 (5) Hipótese Indutiva \\
+		
+		 \item $((aw)^r)^r = aw$ \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space (6) C.Q.D.
+		 
+		 
+		 
+
+		 
+		 
+			
+\end{itemize}	
+		
+
+	
+	
+\end{enumerate}
+
+
+
+\medskip
+
+
+\end{document}

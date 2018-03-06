@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  15 FEB 2018 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  2 MAR 2018 08:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1194,7 +1194,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 \c@lstlisting=\count170
  (./raciocino_logico.nav)
-Overfull \hbox (458.09734pt too wide) in paragraph at lines 47--47
+Overfull \hbox (430.40785pt too wide) in paragraph at lines 47--47
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1204,7 +1204,7 @@ Overfull \hbox (16.63635pt too wide) in paragraph at lines 47--47
  []
 
 
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1219,7 +1219,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1231,7 +1231,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [2
 
 ]
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1251,7 +1251,7 @@ d on input line 76. on input line 76.
 Package pdftex.def Info: Requested size: 273.84044pt x 156.4603pt on input line
  76.
 
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1263,17 +1263,17 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [4
 
  <./figuras/number-line-inequality-graph-example1.png>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 101.
+LaTeX Font Info:    Try loading font information for U+msa on input line 102.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 101.
+LaTeX Font Info:    Try loading font information for U+msb on input line 102.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1285,7 +1285,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [5
 
 ]
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1297,7 +1297,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [6
 
 ]
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1309,7 +1309,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [7
 
 ]
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1321,7 +1321,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [8
 
 ]
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1333,7 +1333,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [9
 
 ]
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1345,30 +1345,7 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 [10
 
 ]
-<figuras/circuito_NOT.jpg, id=107, 520.94624pt x 371.3875pt>
-File: figuras/circuito_NOT.jpg Graphic file (type jpg)
-<use figuras/circuito_NOT.jpg>
-Package pdftex.def Info: figuras/circuito_NOT.jpg  used on input line 184. on i
-nput line 184.
-Package pdftex.def Info: Requested size: 171.14969pt x 130.38425pt on input lin
-e 184.
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
-[]\T1/aer/m/n/10.95 Onde a ta-bela equi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
-\T1/aer/m/n/10.95 va-lente é dada por:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
-[]
- []
-
-
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1379,21 +1356,31 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 [11
 
- <./figuras/circuito_NOT.jpg>]
-<figuras/circuito_AND.jpg, id=114, 597.23125pt x 356.33125pt>
-File: figuras/circuito_AND.jpg Graphic file (type jpg)
-<use figuras/circuito_AND.jpg>
-Package pdftex.def Info: figuras/circuito_AND.jpg  used on input line 217. on i
-nput line 217.
-Package pdftex.def Info: Requested size: 171.1422pt x 130.37788pt on input line
- 217.
+]
+<figuras/circuito_NOT.jpg, id=113, 520.94624pt x 371.3875pt>
+File: figuras/circuito_NOT.jpg Graphic file (type jpg)
+<use figuras/circuito_NOT.jpg>
+Package pdftex.def Info: figuras/circuito_NOT.jpg  used on input line 221. on i
+nput line 221.
+Package pdftex.def Info: Requested size: 171.14969pt x 130.38425pt on input lin
+e 221.
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--217
-
+Underfull \hbox (badness 10000) in paragraph at lines 221--221
+[]\T1/aer/m/n/10.95 Onde a ta-bela equi-
  []
 
 
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Underfull \hbox (badness 10000) in paragraph at lines 221--221
+\T1/aer/m/n/10.95 va-lente é dada por:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--221
+[]
+ []
+
+
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1404,21 +1391,21 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 [12
 
- <./figuras/circuito_AND.jpg>]
-<figuras/circuito_OR.jpg, id=121, 682.55pt x 411.5375pt>
-File: figuras/circuito_OR.jpg Graphic file (type jpg)
-<use figuras/circuito_OR.jpg>
-Package pdftex.def Info: figuras/circuito_OR.jpg  used on input line 249. on in
-put line 249.
-Package pdftex.def Info: Requested size: 171.1474pt x 130.38226pt on input line
- 249.
+ <./figuras/circuito_NOT.jpg>]
+<figuras/circuito_AND.jpg, id=120, 597.23125pt x 356.33125pt>
+File: figuras/circuito_AND.jpg Graphic file (type jpg)
+<use figuras/circuito_AND.jpg>
+Package pdftex.def Info: figuras/circuito_AND.jpg  used on input line 254. on i
+nput line 254.
+Package pdftex.def Info: Requested size: 171.1422pt x 130.37788pt on input line
+ 254.
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--249
+Underfull \hbox (badness 10000) in paragraph at lines 254--254
 
  []
 
 
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1429,8 +1416,21 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 
 [13
 
- <./figuras/circuito_OR.jpg>]
-Overfull \hbox (458.09734pt too wide) has occurred while \output is active
+ <./figuras/circuito_AND.jpg>]
+<figuras/circuito_OR.jpg, id=128, 682.55pt x 411.5375pt>
+File: figuras/circuito_OR.jpg Graphic file (type jpg)
+<use figuras/circuito_OR.jpg>
+Package pdftex.def Info: figuras/circuito_OR.jpg  used on input line 286. on in
+put line 286.
+Package pdftex.def Info: Requested size: 171.1474pt x 130.38226pt on input line
+ 286.
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
+
+ []
+
+
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
  [][]  \T1/aer/m/n/6 ([])  
  []
 
@@ -1440,6 +1440,102 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
  []
 
 [14
+
+ <./figuras/circuito_OR.jpg>]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[15
+
+]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[16
+
+]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[17
+
+]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[18
+
+]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[19
+
+]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[20
+
+]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[21
+
+]
+Overfull \hbox (430.40785pt too wide) has occurred while \output is active
+ [][]  \T1/aer/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (16.63635pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[22
 
 ]
 \tf@nav=\write7
@@ -1451,19 +1547,19 @@ Overfull \hbox (16.63635pt too wide) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `raciocino_logico.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 259.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 259.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 417.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 417.
  (./raciocino_logico.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 259.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 259.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 417.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 417.
 Package rerunfilecheck Info: File `raciocino_logico.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19559 strings out of 492985
- 357555 string characters out of 6138637
- 452341 words of memory out of 5000000
- 22571 multiletter control sequences out of 15000+600000
+ 19592 strings out of 492985
+ 358008 string characters out of 6138637
+ 452310 words of memory out of 5000000
+ 22588 multiletter control sequences out of 15000+600000
  48436 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,18n,63p,802b,875s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1477,10 +1573,10 @@ t/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb>
-Output written on raciocino_logico.pdf (14 pages, 217258 bytes).
+Output written on raciocino_logico.pdf (22 pages, 242617 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
+ 235 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,85 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+
+\title{LFA}
+\author{Prova por Indução Matemática: Reverso }
+\date{1 de Março de 2018}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+	\item Demonstre que $(uv)^r=v^ru^r$.\\
+	$r:$ reverso ou invertido\\
+	$\Lambda=\epsilon:$ vazio\\\\
+	
+	
+	BASE:
+	\begin{itemize}
+		
+	
+		\item Se $u=$ $\Lambda$ e $v=$ $\Lambda$ $\rightarrow$ k=0
+		\item Se $u=a$ e $v=$ $\Lambda$ $\rightarrow$ k=1
+		\item Se $u=$ $\Lambda$ e $v=a$ $\rightarrow$ k=1
+		\item Se ...  \space\space\space\space\space\space\space\space\space\space\space $k=|uv|$\\ 
+		
+	
+		
+			
+	\end{itemize}
+	
+	HIPÓTESE INDUTIVA:
+	\begin{itemize}
+		\item 	$k=n \rightarrow u^rv^r = (vu)^r$\\
+		
+
+		\end{itemize}
+			\textbf{$\rightarrow$ Precisamos provar para k=(n+1) que $(auv)^r=v^ru^ra^r=v^ru^ra$}  \\\\
+	
+	PROVA:
+	\begin{itemize}
+
+		
+		 \item$(auv)^r=((au)v)^r$
+		 \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space	 
+		 (1) Associatividade
+		 
+		 \item$((au)v)^r=v^r(au)^r$
+		 \space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		 (2) Hipótese Indutiva
+		 
+		 \item$v^r(au)^r=v^r(u^ra^r)$
+		 \space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		 (3) Hipótese Indutiva
+		 
+		 \item$v^r(u^ra^r)=v^ru^ra^r$
+		 \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space 
+		 (4) Associatividade\\
+		
+		 
+		 \item$(auv)^r=v^ru^ra^r=v^ru^ra$
+		  \space\space\space\space\space\space
+		 (5) C.Q.D.
+		 
+		 
+		 
+
+		 
+		 
+			
+\end{itemize}	
+		
+
+	
+	
+\end{enumerate}
+
+
+
+\medskip
+
+
+	
+\end{document}
+
