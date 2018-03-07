@@ -11,13 +11,13 @@
 
 \maketitle
 
-\section{Exercício: $(uv)^r=v^ru^r$}
+\section{Exercício}
 
  Demonstre que $(uv)^r=v^ru^r$.\\
 	$r:$ reverso ou invertido\\
 	$\Lambda \equiv \epsilon \equiv  \curlywedge:$ vazio\\\\
 	
-	\vspace{1cm}
+	
 	BASE Indutiva:
 	\begin{enumerate}
 		
@@ -33,19 +33,18 @@
 			
 	\end{enumerate}
 	
-		\vspace{1cm}
 	HIPÓTESE  Indutiva:
 	\begin{enumerate}
 	    \item $\mid u^rv^r \mid = n$
 		\item Passo k: temos	$k=n \Rightarrow u^rv^r = (vu)^r$\\
 		
 	\end{enumerate}
-	\vspace{1cm}	
+
 			\textbf{$\Rightarrow$ Precisamos provar para $k=(n+1)$}. Por exemplo seja a palavra: $(aw)^r$ logo $\mid (aw)^r \mid = n+1$ (passo em $n+1$),
 			 onde \underline{$w=uv$} então 
 			$(auv)^r=v^ru^ra^r=v^ru^ra$ e $\mid u^rv^ra^r \mid = n+1$, ou ainda $\mid (auv)^r \mid = n+1$
 			
-	\vspace{1cm}	
+	
 	Passo (ou Prova)  Indutivo:
 	\begin{enumerate}
 
@@ -79,7 +78,6 @@
 		 
 		 \item Há uma outra solução desta prova no livro do Sudkamp, página 41.
 
-		 \item Digitação inicial: Paula
 	
 	
 \end{enumerate}
@@ -90,3 +88,4 @@
 
 	
 \end{document}
+
