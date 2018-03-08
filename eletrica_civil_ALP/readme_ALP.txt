@@ -15,6 +15,9 @@ https://ideone.com/
 Basicamente o nosso curso
 http://www.thehuxley.com
 
+Cadastre-se na disciplina de códgigo: DQ8647
+na metade do semestre
+
 teste seu aprendizado...
 
 
