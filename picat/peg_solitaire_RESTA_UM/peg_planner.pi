@@ -24,11 +24,11 @@ main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
    %% change here according your MAP or BOARD
-   Map = read_Map("3x6_peg.txt") ,
+   %Map = read_Map("3x6_peg.txt") ,
    %Map = read_Map("5x5_peg.txt") , % no solution
    %Map = read_Map("9x9_peg.txt") ,
    %Map = read_Map("another_7x7_37_peg.txt"), 
-   %Map = read_Map("7x7_peg.txt"),
+   Map = read_Map("7x7_peg.txt"),
    %Map = read_Map("MAP_03.txt") ,
    /* 
    or
