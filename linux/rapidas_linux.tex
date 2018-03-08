@@ -351,26 +351,25 @@ $ ls -al *.txt
 \item[\ding{248}] Passos para os laboratórios da turma de ALP (os demais cursos, mais adiante):
 
 
-\begin{description}
+\begin{enumerate}
 
  \setlength\itemsep{13pt}
 
-  \item[\ding{242} \texttt{gterminal}:] é o terminal já mencionado
-    \item[\ding{242} \texttt{mkdir SEU\_NOME \^}:] cria diretório
-        \item[\ding{242} \texttt{cd SEU\_NOME \^}:] vai para o seu diretório
-        \item[\ding{242} \texttt{touch programa.c \^}:] criou um arquivo chamado \texttt{programa.c}
-        \item[\ding{242} \texttt{geany programa.c \& \^ }:] edita o \texttt{programa.c} com o \texttt{geany}
-       \item[\ding{242} \texttt{gcc programa.c \^ }:] compila o arquivo o \texttt{programa.c} 
-    \item[\ding{242}  \texttt{ls a* \^}:] verifica se o programa executável foi gerado, é o \textbf{a.out}  
-    \item[\ding{242}  \texttt{./a.out \^}:] executa o \textbf{a.out}  
-    \item[\ding{242}  \texttt{ls \* \^}:] lista diretório corrente
+  \item \texttt{terminal}: é o terminal já mencionado
+    \item \texttt{mkdir SEU\_NOME \^}: cria diretório
+    \item \texttt{cd SEU\_NOME \^}: vai para o seu diretório
+    \item \texttt{touch programa.c \^}: criou um arquivo chamado \texttt{programa.c}
+    \item \texttt{geany programa.c \& \^ }: editar o \texttt{programa.c} no {\it geany}
+     \item \texttt{gcc programa.c \^ }: compila o arquivo o \texttt{programa.c} 
+    \item \texttt{ls a* \^}: verifica se o programa executável foi gerado, é o \textbf{a.out}  
+    \item  \texttt{./a.out \^}: executa o \textbf{a.out}  
+    \item  \texttt{ls \* \^}: lista diretório corrente
        
-\end{description}
+\end{enumerate}
 
 
 \pagebreak
-\item[\ding{248}] Erro recorrente da turma:
-
+\item[\ding{248}] \textcolor{red}{\textbf{Erro recorrente das turmas}}:
 
 
 \begin{verbatim}
@@ -390,6 +389,18 @@ $ geany nome_arquivo.txt    &  ^
           // ^ eh o ENTER ....
 
 \end{verbatim}
+
+
+\pagebreak
+\item[\ding{248}] Compilando os códigos em C (pessoal de EDA):
+
+\begin{enumerate}
+  \item \texttt{gcc -Wall  nome\_programa.c -o  saida.exe}
+  \item usem a opção \textbf{\texttt{-Wall}}  mostra todos os \textit{warnings} que o run.codes acusa
+  \item \texttt{./saida.exe $<$ entrada.txt}
+\end{enumerate}
+
+
 
 
 \pagebreak
