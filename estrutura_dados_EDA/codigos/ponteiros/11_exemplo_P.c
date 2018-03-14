@@ -25,7 +25,7 @@ int espacos_02(char *pt_STR){
 		}
 	return cont;
 }
-
+// ===========================================================
 int main(void){
 
 	int i, n;
@@ -54,10 +54,10 @@ int main(void){
 		//scanf("%[^\n]s", frases[i]); // funciona ... mas nao neste caso
 		//fgets (frases[i], Kte, stdin); ver melhor
 		strcpy(m[i], frases[i]); // UMA LEITURA POR VEZ LOGO
-		printf("\n M: %s",  m[i]);
+		printf("\n m[%d]: %s", i, m[i]);
 		printf("\t FRASES: %s",  frases[i]);
 	}
-	
+	getchar(); // 
    // TODOS ESPACOS EM BRANCO
 	printf("\n\n SOL_alunal 1: %d\n", espacos_01(m,n) );
 
@@ -74,9 +74,17 @@ int main(void){
 	}
 
   printf("\n SOL 2: %d\n", total);
+   fflush(stdin);
+   system("more"); // nao funciona com < pois pegar o buffer da entrada
+   getc(stdin); // nao pegar \n da entrada
+	for(int i= 0; i < n ; i++){
+        printf("\n End de V_P[%d]: %p APONTA -> %p (%d)", i, &V_P[i] , V_P[i], V_P[i]  );
+	}
 
+	for(int i= 0; i < n ; i++){
+        printf("\n End de m[%d]: %p APONTA -> %p (%d)", i, &m[i] , m[i], m[i]  );
+	}
 
-    
 	return 0;
-
 }
+// ===========================================================
