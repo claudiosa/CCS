@@ -2,8 +2,8 @@
 
 int main(void)  // AQUI COMECA O ALGORITMO principal
 {  // sem ;
-  float Nota_1;
-  float Nota_2;
+  float    Nota_1 = 0;
+  float    Nota_2;
   float Media      ;
   float NE; 
   // declarar variaveis
@@ -17,22 +17,24 @@ int main(void)  // AQUI COMECA O ALGORITMO principal
   // CALCULOS
   Media = (Nota_1 + Nota_2) / 2;
    
-  if (Media >= 7.0)// se = if >= maior igual
+ // if ((Media >= 7.0) == true) // se = if >= maior igual
+ //  if ((Media >= 7.0) == !false)   
+    if ( Media >= 7.0 )
     {
       printf("\n UFA ... passei! ")   ;
     }
    
-   if ((Media > 1.9) && (Media < 7.0))
+   if ( (Media > 1.9) && (Media < 7.0) )
    { // && = E
       NE = (5.0 - (Media * 0.6)) / 0.4;
       printf("\n Voce precisa: %0.3f ", NE)   ;
     }
-    else
+    else // em caso de falso
    {
     printf("\n BUA ... volte proximo semestre! ")   ;
    }
    
-  printf("\n A media igual a= %0.3f\n", Media);
+  printf("\n A media igual a = %0.3f\n", Media);
 
   return 1 ;
 } // fim de ALGORITMO
