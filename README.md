@@ -1,24 +1,30 @@
 ---
-Main of CCS
+## Main of CCS
 
 This main directory with codes of many programming languages.  
 Take and enjoy it!  
 
-cc
+cc  
+
 ---
 
-Fazendo Download de diretórios em particular (Para os alunos)
+Fazendo Download de diretórios em particular (Para os alunos)  
 
 
 1. Escolha o diretorio do seu interesse  
 
-2. Vá para o site de download [download] (https://minhaskamal.github.io/DownGit)
+2. Vá para o site de download -> https://minhaskamal.github.io/DownGit
 
 3. Melhore e retorne
+
+--- 
+
+## Repetindo ...  
+
 <dl>
 <ol>
     <li> Escolha o diretório a ser copiado</li>
-    <li> Copie seu endereço deste GitHub</li>
+    <li> Copie este endereço do GitHub</li>
     <li> <a href="https://minhaskamal.github.io/DownGit"> Vá para este site ... </a></li>
     <li> Cole o endereço desejado</li>
     <li> Boa sorte!</li>
@@ -28,7 +34,7 @@ Fazendo Download de diretórios em particular (Para os alunos)
 
 ---  
 
-Criando PULL REQUESTS (Para os alunos)
+### Criando PULL REQUESTS (Para os alunos)
 
 1. Crie uma conta no [github](https://github.com/)
 
