@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #define Kte 100
+// ===========================================================
+
 // DOS ALUNOS
 int espacos_01(char ** m, int n){
  int i,j, cont=0;
@@ -13,6 +15,7 @@ int espacos_01(char ** m, int n){
 	}
 	return cont;
 }
+// ===========================================================
 
 int espacos_02(char *pt_STR){
  int j, cont=0;
@@ -56,7 +59,7 @@ int main(void){
 		printf("\n m[%d]: %s", i, m[i]);
 		printf("\t FRASES: %s",  frases[i]);
 	}
-	getchar(); // 
+	
    // TODOS ESPACOS EM BRANCO
 	printf("\n\n SOL_alunal 1: %d\n", espacos_01(m,n) );
 
@@ -76,11 +79,11 @@ int main(void){
   // fflush(stdin);
   // system("more"); // nao funciona com < pois pegar o buffer da entrada
   // getc(stdin); // nao pegar \n da entrada
-printf("\n ================ STACK =========================\n");  
+printf("\n ================ STACK -- parte superior =========================\n");  
   for(int i= 0; i < n ; i++){
       printf("\n End de V_P[%d]: %p APONTA -> %p (%ld)", i, &V_P[i] , V_P[i], V_P[i]  );
 	}
-printf("\n ============== HEAP ===========================\n");
+printf("\n ============== HEAP -- parte inferior ===========================\n");
 	for(int i= 0; i < n ; i++){
       printf("\n End de m[%d]: %p APONTA -> %p (%d)", i, &m[i] , m[i], m[i]  );
 	}
