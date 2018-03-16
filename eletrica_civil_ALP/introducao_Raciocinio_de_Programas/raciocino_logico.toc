@@ -1,1 +1,8 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+\beamer@endinputifotherversion {3.33pt}
+=======
+>>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
+=======
+>>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \select@language {brazil}
