@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-\beamer@endinputifotherversion {3.33pt}
-=======
->>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
-=======
->>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
@@ -27,28 +20,16 @@
 \headcommand {\beamer@framepages {14}{14}}
 \headcommand {\slideentry {0}{0}{11}{15/15}{}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-<<<<<<< HEAD
-<<<<<<< HEAD
-\headcommand {\beamer@partpages {1}{15}}
-\headcommand {\beamer@subsectionpages {1}{15}}
-\headcommand {\beamer@sectionpages {1}{15}}
-\headcommand {\beamer@documentpages {15}}
-\headcommand {\def \inserttotalframenumber {11}}
-=======
-=======
->>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
 \headcommand {\slideentry {0}{0}{12}{16/16}{}{0}}
 \headcommand {\beamer@framepages {16}{16}}
 \headcommand {\slideentry {0}{0}{13}{17/17}{}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {0}{0}{14}{18/22}{}{0}}
-\headcommand {\beamer@framepages {18}{22}}
-\headcommand {\beamer@partpages {1}{22}}
-\headcommand {\beamer@subsectionpages {1}{22}}
-\headcommand {\beamer@sectionpages {1}{22}}
-\headcommand {\beamer@documentpages {22}}
-\headcommand {\def \inserttotalframenumber {14}}
-<<<<<<< HEAD
->>>>>>> b44fc377c05b5c5a3e71951878186db3fcff9b48
-=======
->>>>>>> a9ceee146dd9bf0b5e7aa6f5d62a2065315b57b3
+\headcommand {\slideentry {0}{0}{14}{18/21}{}{0}}
+\headcommand {\beamer@framepages {18}{21}}
+\headcommand {\slideentry {0}{0}{15}{22/26}{}{0}}
+\headcommand {\beamer@framepages {22}{26}}
+\headcommand {\beamer@partpages {1}{26}}
+\headcommand {\beamer@subsectionpages {1}{26}}
+\headcommand {\beamer@sectionpages {1}{26}}
+\headcommand {\beamer@documentpages {26}}
+\headcommand {\def \inserttotalframenumber {15}}
