@@ -37,7 +37,9 @@
 
 
 \title{Introdução ao Raciocínio Lógico para ALP}
+
 \author{Rafael Alceste Berri -- \textit{rafaelberri@usp.br}\\Claudio Cesar de Sá -- \textit{claudio.sa@udesc.br}}
+
 \institute{Universidade do Estado de Santa Catarina \\ Departamento de Ciência da Computação}
 \date{\today}
 
@@ -54,12 +56,16 @@
 
 \begin{exampleblock}{....}
 
-Este texto reflete as dificuldades básicas que alunos
-tiveram na disciplina de ALP em semestre anterioes.\\
+\begin{itemize}
+  \item Este texto reflete as dificuldades básicas que alunos
+tiveram na disciplina de ALP em semestre anteriores.
+
+  \item \underline{Objetivo}: entender as condições binárias (\texttt{0: false} e \texttt{1: true}) de expressões lógicas
  
- Todo conteúdo encontra-se sob revisão constante e está
+\item Todo conteúdo encontra-se sob revisão constante e está
  distante de um formato final!
 
+\end{itemize}
 \end{exampleblock}
 \end{frame}
 
@@ -79,7 +85,8 @@ tiveram na disciplina de ALP em semestre anterioes.\\
 
 
 \begin{frame}
-\frametitle{Refletindo sobre as inequações serão úteis:}
+
+\frametitle{As inequações serão úteis:}
 
 \begin{exampleblock}
 %%{Seja $x \in N$, avalie a \textbf{verdade} das expressões:}
@@ -94,7 +101,7 @@ tiveram na disciplina de ALP em semestre anterioes.\\
 
   \item $\forall x(144 \ge 12x + 7)$
 
-  \item $\forall x(128 - 14x \le 12x + 4)$
+  \item $\exists x(128 - 14x \le 12x + 4)$
       
       
 \end{enumerate}
@@ -110,9 +117,9 @@ tiveram na disciplina de ALP em semestre anterioes.\\
 {Seja $x \in \{0,1..99\}$, avalie a \textbf{verdade} das expressões:}
 \begin{enumerate}
   
-  \item $ x > 100$ \hspace{1cm} \textcolor{red}{R: 0}
+  \item $ x > 100$ \hspace{1cm} \textcolor{red}{R: 0 ou falsa}
   
-  \item $x$ é ímpar ou $x$ é par \hspace{1cm} \textcolor{red}{R: 1}
+  \item $x$ é ímpar ou $x$ é par \hspace{1cm} \textcolor{red}{R: 1 ou verdade}
 
   
   \item $\forall x(12x + x^2 \le 12)$
@@ -123,8 +130,8 @@ tiveram na disciplina de ALP em semestre anterioes.\\
   \item $\forall x(144 \ge 12x + 7)$ 
 \hspace{1cm} \textcolor{red}{R: 0 ou falsa}
 
-  \item $\forall x(128 - 14x \le 12x + 4)$ 
-\hspace{1cm} \textcolor{red}{R: 0 ou falsa}
+  \item $\exists x(128 - 14x \le 12x + 4)$ 
+\hspace{1cm} \textcolor{red}{R: 1 ou verdade}
       
 \end{enumerate}
 \end{exampleblock}
@@ -211,9 +218,9 @@ para resolver estas fórmulas!
 	\hline
 	\end{tabular}
 	onde:\\
-	V (ou  \textcolor{red}{1}: lâmpada acesa\\
+	V (ou  \textcolor{red}{1}): lâmpada acesa\\
 	F (ou \textcolor{red}{0}): lâmpada apagada\\
-	\textcolor{red}{Conserte o circuito acima !!!}
+	\textbf{\textcolor{red}{Conserte o circuito acima !!!}}
   } %% fim do parbox
 
 \end{tabular} 	
@@ -244,7 +251,7 @@ para resolver estas fórmulas!
 	\hline
 	\end{tabular}\\
   onde:\\
-	V (ou  \textcolor{red}{1}: lâmpada acesa\\
+	V (ou  \textcolor{red}{1}): lâmpada acesa\\
 	F (ou \textcolor{red}{0}): lâmpada apagada\\
 
   } %% fim do parbox
@@ -276,7 +283,7 @@ para resolver estas fórmulas!
 	\hline
 	\end{tabular}\\
   onde:\\
-	V (ou  \textcolor{red}{1}: lâmpada acesa\\
+	V (ou  \textcolor{red}{1}): lâmpada acesa \textbf{\textcolor{yellow}{acesa}}\\
 	F (ou \textcolor{red}{0}): lâmpada apagada\\
 
   } %% fim do parbox
@@ -288,6 +295,26 @@ para resolver estas fórmulas!
 
 \begin{frame}
 \frametitle{Construa a Tabelas Verdades (TVs) das fórmulas abaixo:}
+
+\begin{block}{}
+
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	$\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{\sim A}$ & $\mathbf{\sim A \vee B}$ \\
+	\hline
+	V & V & F & \\
+	\hline
+	V & F & F & \\
+	\hline
+	F & V & V & \\
+	\hline
+	F & F & V & \\
+	\hline
+	\end{tabular}
+  
+  Esta fórmula é conhecida como $\sim A \vee B \equiv A \rightarrow B$, leia-se: \textbf{se A  então B}
+\end{block}
+
 
 
 \begin{block}{Resolva: $\sim A \vee B$}
@@ -364,11 +391,11 @@ para resolver estas fórmulas!
 
 \begin{itemize}
 
-  \item   $X = 3 \vee   Y = 4$
+    \item $X = 3 \vee   Y = 4$
     \item $X = 3 \vee   Y \neq 4$
     \item $X = 3 \wedge Y \neq 4$
     \item $X < 3 \vee   Y = 4$
-    \item $X > 3 \wedge   Y \neq 4$
+    \item $X > 3 \wedge Y \neq 4$
 
 \end{itemize}
 
@@ -380,6 +407,40 @@ para resolver estas fórmulas!
 
 
 \begin{frame}
+\frametitle{Onde tudo isto será usado?}
+
+
+\begin{block}{Todas estas expressões lógicas
+vão estar presentes na linguagem C: }
+
+\begin{itemize}
+    \item $\sim $ equivale ao \texttt{!} \hfill Exemplo: \texttt{!1=0}
+    \item $ \vee $ equivale ao \texttt{||} \hfill Exemplo: \texttt{X == 3 || Y != 4}
+    \item $ \wedge $ equivale ao \texttt{\&\&} \hfill Exemplo: \texttt{X >= 3 \&\& Y <= 4}
+    \pause
+    
+    \item Ainda que: $ X \rightarrow Y \equiv \sim X \vee Y$ 
+    \pause
+
+        \item Ainda que: $ X \leftrightarrow Y \equiv (X \rightarrow Y) \wedge (Y \rightarrow X)$ 
+      \pause  
+        
+    \item Tudo passível de se colocar na linguagem C    
+    \item Coloque \textbf{parênteses} em cada condição lógica!
+    \item Os resultados permanecem: $1 = true$  e $0 = false$
+
+\end{itemize}
+
+  \end{block}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
 \frametitle{Concluindo}
 
 
@@ -387,9 +448,11 @@ para resolver estas fórmulas!
 
 \begin{itemize}
 
-  \item Como o computador trabalha com \textbf{0}'s e \textbf{1}'s, estas operações de \textbf{V}erdade e \textbf{F}also são análogas
+  \item Como o computador trabalha com \textbf{0}'s e \textbf{1}'s, estas operações de \textbf{V}erdade (\textit{true}) e \textbf{F}also (\textit{false}) são análogas
   \pause
-    \item O tempo inteiro voce deverá começar a pensar deste modo: $0 = F$ e $1 = V$
+    
+    \item O tempo inteiro voce deverá começar a pensar deste modo: $0 = F $ e $1 = V$
+    
       \pause
     \item Claro este princípio não serve para vida!
       \pause
@@ -402,16 +465,8 @@ para resolver estas fórmulas!
   \end{block}
 
 
+
 \end{frame}
-
-
-
-
-
-
-
-
-
 
 
 \end{document}

@@ -1,0 +1,46 @@
+[3J[H[2J
+ m[0]: ==========================================	 FRASES: ==========================================
+ m[1]: SSSS XXXXXX YYYY YY YY	 FRASES: SSSS XXXXXX YYYY YY YY
+ m[2]: SSSS XXX XXX YYY YYYYY	 FRASES: SSSS XXX XXX YYY YYYYY
+ m[3]: SSSS XXX XXX YYY YYY     YY	 FRASES: SSSS XXX XXX YYY YYY     YY
+ m[4]: SSSS XXX XXX  YYY            YYYYY	 FRASES: SSSS XXX XXX  YYY            YYYYY
+ m[5]: SSSS XXXXXX YYYY YY YY	 FRASES: SSSS XXXXXX YYYY YY YY
+ m[6]: SSSS XXX XXX YYY YYYYY	 FRASES: SSSS XXX XXX YYY YYYYY
+ m[7]: SSSS XXX XXX YYY YYY     YY	 FRASES: SSSS XXX XXX YYY YYY     YY
+ m[8]: SSSS XXX XXX  YYY            YYYYY	 FRASES: SSSS XXX XXX  YYY            YYYYY
+ m[9]: ==========================================	 FRASES: ==========================================
+
+ SOL_alunal 1: 66
+
+ Frase 0: 0
+ Frase 1: 4
+ Frase 2: 4
+ Frase 3: 9
+ Frase 4: 16
+ Frase 5: 4
+ Frase 6: 4
+ Frase 7: 9
+ Frase 8: 16
+ Frase 9: 0
+ SOL 2: 66
+
+ End de V_P[0]: 0x7ffd6c02c270 APONTA -> 0x7ffd6c02be80 (1812119168)
+ End de V_P[1]: 0x7ffd6c02c278 APONTA -> 0x7ffd6c02bee4 (1812119268)
+ End de V_P[2]: 0x7ffd6c02c280 APONTA -> 0x7ffd6c02bf48 (1812119368)
+ End de V_P[3]: 0x7ffd6c02c288 APONTA -> 0x7ffd6c02bfac (1812119468)
+ End de V_P[4]: 0x7ffd6c02c290 APONTA -> 0x7ffd6c02c010 (1812119568)
+ End de V_P[5]: 0x7ffd6c02c298 APONTA -> 0x7ffd6c02c074 (1812119668)
+ End de V_P[6]: 0x7ffd6c02c2a0 APONTA -> 0x7ffd6c02c0d8 (1812119768)
+ End de V_P[7]: 0x7ffd6c02c2a8 APONTA -> 0x7ffd6c02c13c (1812119868)
+ End de V_P[8]: 0x7ffd6c02c2b0 APONTA -> 0x7ffd6c02c1a0 (1812119968)
+ End de V_P[9]: 0x7ffd6c02c2b8 APONTA -> 0x7ffd6c02c204 (1812120068)
+ End de m[0]: 0x5563f1551270 APONTA -> 0x5563f15512d0 (-246082864)
+ End de m[1]: 0x5563f1551278 APONTA -> 0x5563f1551340 (-246082752)
+ End de m[2]: 0x5563f1551280 APONTA -> 0x5563f15513b0 (-246082640)
+ End de m[3]: 0x5563f1551288 APONTA -> 0x5563f1551420 (-246082528)
+ End de m[4]: 0x5563f1551290 APONTA -> 0x5563f1551490 (-246082416)
+ End de m[5]: 0x5563f1551298 APONTA -> 0x5563f1551500 (-246082304)
+ End de m[6]: 0x5563f15512a0 APONTA -> 0x5563f1551570 (-246082192)
+ End de m[7]: 0x5563f15512a8 APONTA -> 0x5563f15515e0 (-246082080)
+ End de m[8]: 0x5563f15512b0 APONTA -> 0x5563f1551650 (-246081968)
+ End de m[9]: 0x5563f15512b8 APONTA -> 0x5563f15516c0 (-246081856)

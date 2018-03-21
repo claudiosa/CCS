@@ -28,6 +28,26 @@ int main()
     }
 
     printf("\nSOMA FINAL = %d\n", sum);
+
+     
+    printf("\n ================ STACK -- parte superior =========================\n");  
+      printf("\n Ends de:\n sum: %p ( ou %ld) \n num: %p ( ou %ld)", &sum, &sum, &num ,&num );
+      printf("\n End de PTR:  %p ( ou %ld)",  &ptr , &ptr  );
+
+   printf("\n ============== HEAP -- parte inferior ===========================\n");
+	for(int i= 0; i < num ; i++){
+     printf("\n End de ptr: %p APONTA -> %p ( ou %ld)",  &(ptr) , (ptr+i), (ptr+i)  );
+	}
+	
+printf("\n =========================================\n");
+
+
+
+
+
     free(ptr);
     return 0;
+    
+    
+    
 }
