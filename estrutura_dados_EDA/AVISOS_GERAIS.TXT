@@ -1,8 +1,19 @@
-
+========================================================================================
 Avisos -- Leiam todos ... é o Roadmap do curso:
 
+2018-1
 
-* 
+* Site das avaliações: https://run.codes/Users/login
+   Código da disciplina: SJ95 (inscricao)
+
+* 1a prova: 22/marco -- 15:10 hrs as 16:55 hrs   (horario de abertura do site)
+
+
+
+
+========================================================================================
+2017 - 2
+ 
 * tem prova sobre filas dia 05/out  -- 2 a 3 problemas (os dois fáceis todos devem fazer)
 * lab sobre filas dias 28/set e 03/out (dias finais antes da prova)
 * Tem 3 problemas sobre filas desde 5a feira ...para fins de exercícios
@@ -18,7 +29,7 @@ Avisos -- Leiam todos ... é o Roadmap do curso:
 * Haverá um trabalho de arvores<= 10% na nota global para novembro
 * 9/novembro sem aula -- terá um trabalho aqui de arvores....max 10%
 * Final de novembro: 21 ou 23 .. o provão final de disciplina (max 20%)
-
+========================================================================================
 
 
 Pessoal

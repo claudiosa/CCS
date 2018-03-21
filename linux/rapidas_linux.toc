@@ -11,5 +11,5 @@
 \contentsline {section}{\numberline {11}Estendendo estes atalhos de teclado}{14}{section.11}
 \contentsline {section}{\numberline {12}Atalhos para mover o cursor}{15}{section.12}
 \contentsline {section}{\numberline {13}Comandos Introdut\IeC {\'o}rios}{16}{section.13}
-\contentsline {subsection}{Contato:}{36}{section.13}
-\contentsline {subsection}{S\IeC {\'\i }tio de Refer\IeC {\^e}ncia:}{36}{section.13}
+\contentsline {subsection}{Contato:}{37}{Item.16}
+\contentsline {subsection}{S\IeC {\'\i }tio de Refer\IeC {\^e}ncia:}{37}{Item.16}
