@@ -1,7 +1,7 @@
 #include <stdio.h> // BIBLIOTECA de FUNCOES
 
 int main( )
-{
+{ 
    float N_1, N_2, Med; // DECLARACAO de VARIAVEIS
    printf("\n DIGITE AS DUAS NOTAS: "); 
    //scanf("%f", & N_1)    ;
