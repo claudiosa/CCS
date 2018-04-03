@@ -119,5 +119,10 @@
        c) A soma dos números PARES
        e) O produto dos ímpares, aplicando módulo 3 a cada iteração.
           Isto é: PI = (PI * Num_IMPAR) % 999
+
+ 23. Encontre o ponto de MAXIMO da parabola
+ dada por y(x) = -3x^2 + 100x + 10.
+       
+
 	  
 /* ===================================================================================================== */

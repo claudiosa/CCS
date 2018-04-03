@@ -1,8 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
+<<<<<<< HEAD
 #include <ctype.h>
 // original http://www.codingalpha.com/depth-first-search-algorithm-c-program/ 
 // MODIFICADO by CCS
+=======
+
+// original http://www.codingalpha.com/depth-first-search-algorithm-c-program/ 
+>>>>>>> ca3117453061d4efa661ed6bfb2e5979890888e0
 #define MAX 100
  
 #define aberto 1
@@ -17,14 +22,22 @@ void push(int vertex);
 int pop(void);
 int isEmpty(void);
  
+<<<<<<< HEAD
 // GLOBAIS ....  uma pena ... fica facil de ler neste momento
+=======
+// GLOBAIS ....  
+>>>>>>> ca3117453061d4efa661ed6bfb2e5979890888e0
 int stack[MAX];
 int top = -1;
 int vertices; // TOTAL DE VERTICES
 int adjacent_matrix[MAX][MAX];
+<<<<<<< HEAD
 int vertex_status[MAX]; // abertos ou fechados
  
 void imp_NUM_LETRAS(int ); 
+=======
+int vertex_status[MAX];
+>>>>>>> ca3117453061d4efa661ed6bfb2e5979890888e0
  
 int main(void)
 {
@@ -35,6 +48,7 @@ int main(void)
  
 void graph_traversal(void)
 {
+<<<<<<< HEAD
 	  int vertex; 
 	  for(vertex = 0; vertex < vertices; vertex++)
 	  {
@@ -47,6 +61,18 @@ void graph_traversal(void)
 	  printf("\n ============================\n");
 	  DFS(vertex);
 	  printf("\n fim do DFS \n");
+=======
+      int vertex; 
+      for(vertex = 0; vertex < vertices; vertex++)
+      {
+        vertex_status[vertex] = aberto;
+      } 
+      printf("Entre com um NO de PARTIDA para o DFS:\t");
+      scanf("%d", &vertex);
+      printf("\n COMECANDO no %d \n", vertex);
+      DFS(vertex);
+      printf("\n fim do DFS \n");
+>>>>>>> ca3117453061d4efa661ed6bfb2e5979890888e0
 }
  
 void DFS(int vertex)
@@ -60,6 +86,7 @@ void DFS(int vertex)
 		// toma o topo da pilha
 		if(vertex_status[vertex] == aberto)
 		{ // verifica se eh no aberto
+<<<<<<< HEAD
 			  //printf("%3d", vertex);
 			  imp_NUM_LETRAS(vertex);
 			  vertex_status[vertex] = visitado;
@@ -99,6 +126,25 @@ void DFS(int vertex)
 	  	 
 	 
  
+=======
+			  printf("%3d", vertex);
+			  vertex_status[vertex] = visitado;
+			  // muda o status
+		}
+		// cuidado aqui ....
+		for(count = vertices - 1; count >= 0; count--)
+	// OU    for(count = 0 ; count < vertices;  count++)
+
+		{
+		  if((adjacent_matrix[vertex][count] == 1) && (vertex_status[count] == aberto))
+		  {
+			//coloca na pilha os proximos NAO VISITADOS ou ABERTOS
+			  push(count);
+		  }
+		} // fim do FOR
+      } // FIM DO WHILE
+}
+>>>>>>> ca3117453061d4efa661ed6bfb2e5979890888e0
  
 void push(int vertex)
 {
