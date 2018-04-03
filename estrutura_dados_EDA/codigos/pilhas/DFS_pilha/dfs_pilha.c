@@ -51,24 +51,26 @@ void DFS(int vertex)
       // empilha a RAIZ
       while(!isEmpty())
       {
-            vertex = pop();
-            // toma o topo da pilha
-            if(vertex_status[vertex] == aberto)
-            { // verifica se eh no aberto
-                  printf("%3d", vertex);
-                  vertex_status[vertex] = visitado;
-                  // muda o status
-            }
-            // cuidado aqui ....
-            for(count = vertices - 1; count >= 0; count--)
-            {
-                  if((adjacent_matrix[vertex][count] == 1) && (vertex_status[count] == aberto))
-                  {
-					//coloca na pilha os proximos NAO VISITADOS ou ABERTOS
-                      push(count);
-                  }
-            }
-      }
+		vertex = pop();
+		// toma o topo da pilha
+		if(vertex_status[vertex] == aberto)
+		{ // verifica se eh no aberto
+			  printf("%3d", vertex);
+			  vertex_status[vertex] = visitado;
+			  // muda o status
+		}
+		// cuidado aqui ....
+		for(count = vertices - 1; count >= 0; count--)
+	// OU    for(count = 0 ; count < vertices;  count++)
+
+		{
+		  if((adjacent_matrix[vertex][count] == 1) && (vertex_status[count] == aberto))
+		  {
+			//coloca na pilha os proximos NAO VISITADOS ou ABERTOS
+			  push(count);
+		  }
+		} // fim do FOR
+      } // FIM DO WHILE
 }
  
 void push(int vertex)
