@@ -1,4 +1,4 @@
-all: main.exe
+all: saida.exe
 
 saida.exe: pilha_malloc.o usa_pilha_malloc.o
 	gcc -Wall -o saida.exe pilha_malloc.o usa_pilha_malloc.o
@@ -12,5 +12,5 @@ usa_pilha_malloc.o: usa_pilha_malloc.c
 clean:
 	rm usa_pilha_malloc.o pilha_malloc.o saida.exe
 
-run: 
+run:
 	./saida.exe
