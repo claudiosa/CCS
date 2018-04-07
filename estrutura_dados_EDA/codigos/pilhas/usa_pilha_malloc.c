@@ -1,25 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "pilha_malloc.h"
 
-// ALOCACAO ESTATICA
-// se DUVIDAS -> https://www.ime.usp.br/~pf/algoritmos/aulas/footnotes/typedef.html
-typedef struct
-	{
-	  int topo ;
-	  int tam_MAX;  // vira de uma STRING DADA 
-	  char * pt_entradas; // em funcao do tamanho desta
-	}  tipo_pilha ;
-
-// FALTAM ALGUMAS FUNCOES SEMI-PRONTAS
-char * le_entrada_pilha (  tipo_pilha * Pilha ); 
-void inicializa_pilha ( tipo_pilha * Pilha);
-void carrega_pilha ( char *pt_vetor ,   tipo_pilha * Pilha );
-
-void imprime_pilha ( tipo_pilha * Pilha );
-
-void push (char x, tipo_pilha * P);
-void pop (char *x, tipo_pilha * P);
-void destroi_pilha ( tipo_pilha * P );
 int main(void)
 {
 	system("clear"); // CUIDADO

@@ -1,29 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-// ALOCACAO SEMI-ESTATICA
-// EM ESTUDO
-typedef struct 
-	{
-	  int topo ;
-	  int tam_MAX;
-	  char * pt_entradas;
-	}  tipo_pilha ;
-
-/*
-OU Diretamente
-struct 
-  {
-    int topo ;
-    int tam_MAX;
-    char * pt_entradas;
-  }  tipo_pilha ;
-
-*/  
-
-// ESTAS E OUTRAS FUNCOES PODEM IR PARA UM PILHA.H
-int pilha_cheia  (tipo_pilha * P);
-int pilha_vazia  (tipo_pilha * P);
+#include "pilha_malloc.h"
 
 // Adicionar x na pilha
 void push(char x, tipo_pilha * P)

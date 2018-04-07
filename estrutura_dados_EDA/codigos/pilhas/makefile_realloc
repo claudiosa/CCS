@@ -1,0 +1,16 @@
+all: saida.exe
+
+saida.exe: pilha_realloc.o usa_pilha_realloc.o
+	gcc -Wall -o saida.exe pilha_realloc.o usa_pilha_realloc.o
+
+pilha_realloc.o: pilha_realloc.c
+	gcc -Wall -c pilha_realloc.c
+
+usa_pilha_realloc.o: usa_pilha_realloc.c
+	gcc -Wall -c usa_pilha_realloc.c
+
+clean:
+	rm usa_pilha_realloc.o pilha_realloc.o saida.exe
+
+run:
+	./saida.exe
