@@ -1,0 +1,3 @@
+\beamer@sectionintoc {1}{Pilha}{1}{0}{1}
+\beamer@sectionintoc {2}{Aplica\IeC {\c c}\IeC {\~o}es -- Estudo de Casos}{21}{0}{2}
+\babel@toc {brazilian}{}
