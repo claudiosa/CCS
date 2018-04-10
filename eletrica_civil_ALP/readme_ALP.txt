@@ -12,12 +12,15 @@ http://www.tutorialspoint.com/compile_c_online.php
 Ou:
 https://ideone.com/
 
-Basicamente o nosso curso
+Basicamente o nosso curso esta no
 http://www.thehuxley.com
 
 Cadastre-se na disciplina de códgigo: DQ8647
-na metade do semestre
-
+e
 teste seu aprendizado...
+
+att
+
+cc
 
 

@@ -1,14 +1,16 @@
-all: saida.exe
+all: main.exe
 
-saida.exe: pilha05_realloc.o pilha06_realloc.o
-	gcc -Wall -o saida.exe pilha05_realloc.o pilha06_realloc.o
+saida.exe: pilha_malloc.o usa_pilha_malloc.o
+	gcc -Wall -o saida.exe pilha_malloc.o usa_pilha_malloc.o
 
+pilha_malloc.o: pilha_malloc.c
+	gcc -Wall -c pilha_malloc.c
 
-pilha05_realloc.o: pilha05_realloc.c
-	gcc -Wall -c pilha05_realloc.c
-
-pilha06_realloc.o: pilha06_realloc.c
-	gcc -Wall -c pilha06_realloc.c
+usa_pilha_malloc.o: usa_pilha_malloc.c
+	gcc -Wall -c usa_pilha_malloc.c
 
 clean:
-	rm *.o *.exe a.out
+	rm usa_pilha_malloc.o pilha_malloc.o saida.exe
+
+run: 
+	./saida.exe

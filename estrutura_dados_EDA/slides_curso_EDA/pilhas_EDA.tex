@@ -296,6 +296,11 @@ int empty(Pilha *p)
 \end{itemize}
 \end{frame}
 
+
+
+
+
+
 %\begin{frame}{Avaliação de Expressões}
 %	\begin{itemize}
 %		\item Considere as expressões aritméticas abaixo, e imagine que é nosso objetivo avaliar se as expressões estão definidas corretamente.		
@@ -306,6 +311,138 @@ int empty(Pilha *p)
 %	\end{itemize}
 %\end{frame}
 %
+
+\section{Aplicações -- Estudo de Casos}
+
+\begin{frame}[c]{Balanceamento de Parenteses} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.8\textwidth , height=.7\textheight]{parenteses_balanceado.png}
+			\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{Balanceamento de Parenteses} 
+
+		\begin{figure}[!htpb]
+		\centering
+		\includegraphics[width=.8\textwidth , height=.7\textheight]{alg_balanceamento.jpg}
+		\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{Uso imediato: validar expressões Infixas} 
+
+   	\begin{figure}[!htpb]
+		\centering
+		\includegraphics[width=.6\textwidth]{validar_expressoes.png}
+		\end{figure} 
+\end{frame}
+
+
+
+\begin{frame}[c]{Conversão In-fixa para Pós-fixa -- versão 1} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.9\textwidth,height=.8\textheight]{algorit_infix_postfix.jpg}
+				\end{figure} 
+
+\end{frame}
+
+\begin{frame}[c]{Conversão In-fixa para Pós-fixa -- versão 2} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.9\textwidth , height=.8\textheight]{infix_postfix00.jpg}
+			\end{figure} 
+
+\end{frame}
+
+
+
+\begin{frame}[c]{Conversão In-fixa para Pós-fixa} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.9\textwidth , height=.8\textheight]{infix_postfix01.jpg}
+			\end{figure} 
+\end{frame}
+
+
+
+\begin{frame}[c]{Uso: cálculo de  expressões pós-fixas (e pré-fixas)} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.6\textwidth]{calcula_post_exp.png}
+			\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{DFS: Busca em Profundidade} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.8\textwidth, height=.7\textheight]{grafo_visitas.png}
+			\end{figure} 
+\end{frame}
+
+
+
+\begin{frame}[c]{DFS: Busca em Profundidade} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.8\textwidth, height=.7\textheight]{dfs01.png}
+			\end{figure} 
+\end{frame}
+
+
+
+\begin{frame}[c]{DFS: Busca em Profundidade} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.8\textwidth, height=.7\textheight]{dfs02.png}
+			\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{Representando Grafos: Matriz de Adjacência} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.8\textwidth, height=.5\textheight]{adjacency-matrix.png}
+			\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{O Algoritmo DFS Iterativo} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+				\includegraphics[width=.8\textwidth, height=.7\textheight]{depth-first-search-algorithm01.png}
+			\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{Ainda sobre o DFS} 
+
+\begin{itemize}
+  \item Veloz -- pouca memória
+  \item Versátil: muitos tipos de aplicações
+  \item Versão recursiva fica ainda mais simples
+  \item Evita ciclos com os nós visitados 
+  \item Veja a implementação usando pilhas
+  
+\end{itemize}
+
+\end{frame}
+
+
+
 \begin{frame}[fragile]{Exercícios}
 	\begin{enumerate}
 	
