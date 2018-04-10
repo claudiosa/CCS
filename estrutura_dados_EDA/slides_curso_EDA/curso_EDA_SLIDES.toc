@@ -14,6 +14,7 @@
 \beamer@sectionintoc {7}{Exemplos Completos: Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{199}{0}{7}
 \beamer@sectionintoc {8}{Pilha}{210}{0}{8}
 \beamer@sectionintoc {9}{Aplica\IeC {\c c}\IeC {\~o}es -- Estudo de Casos}{230}{0}{9}
+<<<<<<< HEAD
 \beamer@sectionintoc {10}{Filas}{245}{0}{10}
 \beamer@sectionintoc {11}{Listas}{273}{0}{11}
 \beamer@subsectionintoc {11}{1}{Listas -- Tamanho Limitado}{276}{0}{11}
@@ -33,3 +34,24 @@
 \beamer@subsectionintoc {13}{11}{\IeC {\'A}rvores AVL}{409}{0}{13}
 \beamer@subsectionintoc {13}{12}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{416}{0}{13}
 \beamer@subsectionintoc {13}{13}{\IeC {\'A}rvores de Espalhamento}{428}{0}{13}
+=======
+\beamer@sectionintoc {10}{Filas}{244}{0}{10}
+\beamer@sectionintoc {11}{Listas}{272}{0}{11}
+\beamer@subsectionintoc {11}{1}{Listas -- Tamanho Limitado}{275}{0}{11}
+\beamer@subsectionintoc {11}{2}{Listas -- Tamanho Ilimitado}{301}{0}{11}
+\beamer@sectionintoc {12}{Recurs\IeC {\~a}o}{330}{0}{12}
+\beamer@sectionintoc {13}{\IeC {\'A}rvores}{346}{0}{13}
+\beamer@subsectionintoc {13}{1}{Apresenta\IeC {\c c}\IeC {\~a}o}{348}{0}{13}
+\beamer@subsectionintoc {13}{2}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{355}{0}{13}
+\beamer@subsectionintoc {13}{3}{Aplica\IeC {\c c}\IeC {\~o}es}{359}{0}{13}
+\beamer@subsectionintoc {13}{4}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{362}{0}{13}
+\beamer@subsectionintoc {13}{5}{Inser\IeC {\c c}\IeC {\~a}o}{371}{0}{13}
+\beamer@subsectionintoc {13}{6}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{375}{0}{13}
+\beamer@subsectionintoc {13}{7}{Buscas em ABB}{383}{0}{13}
+\beamer@subsectionintoc {13}{8}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{384}{0}{13}
+\beamer@subsectionintoc {13}{9}{Balanceamento}{392}{0}{13}
+\beamer@subsectionintoc {13}{10}{Rota\IeC {\c c}\IeC {\~o}es}{403}{0}{13}
+\beamer@subsectionintoc {13}{11}{\IeC {\'A}rvores AVL}{408}{0}{13}
+\beamer@subsectionintoc {13}{12}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{415}{0}{13}
+\beamer@subsectionintoc {13}{13}{\IeC {\'A}rvores de Espalhamento}{427}{0}{13}
+>>>>>>> f628571f329ecc5822445d63feb527dc7ed52b2c
