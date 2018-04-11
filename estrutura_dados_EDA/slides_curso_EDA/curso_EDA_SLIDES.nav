@@ -295,6 +295,429 @@
 \headcommand {\beamer@framepages {242}{242}}
 \headcommand {\slideentry {9}{0}{14}{243/243}{}{0}}
 \headcommand {\beamer@framepages {243}{243}}
+<<<<<<< HEAD
+\headcommand {\slideentry {9}{0}{15}{244/244}{}{0}}
+\headcommand {\beamer@framepages {244}{244}}
+\headcommand {\beamer@sectionpages {230}{244}}
+\headcommand {\beamer@subsectionpages {230}{244}}
+\headcommand {\sectionentry {10}{Filas}{245}{Filas}{0}}
+\headcommand {\slideentry {10}{0}{1}{245/245}{}{0}}
+\headcommand {\beamer@framepages {245}{245}}
+\headcommand {\slideentry {10}{0}{2}{246/246}{}{0}}
+\headcommand {\beamer@framepages {246}{246}}
+\headcommand {\slideentry {10}{0}{3}{247/247}{}{0}}
+\headcommand {\beamer@framepages {247}{247}}
+\headcommand {\slideentry {10}{0}{4}{248/248}{}{0}}
+\headcommand {\beamer@framepages {248}{248}}
+\headcommand {\slideentry {10}{0}{5}{249/249}{}{0}}
+\headcommand {\beamer@framepages {249}{249}}
+\headcommand {\slideentry {10}{0}{6}{250/250}{}{0}}
+\headcommand {\beamer@framepages {250}{250}}
+\headcommand {\slideentry {10}{0}{7}{251/251}{}{0}}
+\headcommand {\beamer@framepages {251}{251}}
+\headcommand {\slideentry {10}{0}{8}{252/252}{}{0}}
+\headcommand {\beamer@framepages {252}{252}}
+\headcommand {\slideentry {10}{0}{9}{253/253}{}{0}}
+\headcommand {\beamer@framepages {253}{253}}
+\headcommand {\slideentry {10}{0}{10}{254/254}{}{0}}
+\headcommand {\beamer@framepages {254}{254}}
+\headcommand {\slideentry {10}{0}{11}{255/255}{}{0}}
+\headcommand {\beamer@framepages {255}{255}}
+\headcommand {\slideentry {10}{0}{12}{256/256}{}{0}}
+\headcommand {\beamer@framepages {256}{256}}
+\headcommand {\slideentry {10}{0}{13}{257/257}{}{0}}
+\headcommand {\beamer@framepages {257}{257}}
+\headcommand {\slideentry {10}{0}{14}{258/258}{}{0}}
+\headcommand {\beamer@framepages {258}{258}}
+\headcommand {\slideentry {10}{0}{15}{259/259}{}{0}}
+\headcommand {\beamer@framepages {259}{259}}
+\headcommand {\slideentry {10}{0}{16}{260/260}{}{0}}
+\headcommand {\beamer@framepages {260}{260}}
+\headcommand {\slideentry {10}{0}{17}{261/261}{}{0}}
+\headcommand {\beamer@framepages {261}{261}}
+\headcommand {\slideentry {10}{0}{18}{262/262}{}{0}}
+\headcommand {\beamer@framepages {262}{262}}
+\headcommand {\slideentry {10}{0}{19}{263/263}{}{0}}
+\headcommand {\beamer@framepages {263}{263}}
+\headcommand {\slideentry {10}{0}{20}{264/264}{}{0}}
+\headcommand {\beamer@framepages {264}{264}}
+\headcommand {\slideentry {10}{0}{21}{265/265}{}{0}}
+\headcommand {\beamer@framepages {265}{265}}
+\headcommand {\slideentry {10}{0}{22}{266/266}{}{0}}
+\headcommand {\beamer@framepages {266}{266}}
+\headcommand {\slideentry {10}{0}{23}{267/267}{}{0}}
+\headcommand {\beamer@framepages {267}{267}}
+\headcommand {\slideentry {10}{0}{24}{268/268}{}{0}}
+\headcommand {\beamer@framepages {268}{268}}
+\headcommand {\slideentry {10}{0}{25}{269/269}{}{0}}
+\headcommand {\beamer@framepages {269}{269}}
+\headcommand {\slideentry {10}{0}{26}{270/270}{}{0}}
+\headcommand {\beamer@framepages {270}{270}}
+\headcommand {\slideentry {10}{0}{27}{271/271}{}{0}}
+\headcommand {\beamer@framepages {271}{271}}
+\headcommand {\slideentry {10}{0}{28}{272/272}{}{0}}
+\headcommand {\beamer@framepages {272}{272}}
+\headcommand {\beamer@sectionpages {245}{272}}
+\headcommand {\beamer@subsectionpages {245}{272}}
+\headcommand {\sectionentry {11}{Listas}{273}{Listas}{0}}
+\headcommand {\slideentry {11}{0}{1}{273/273}{}{0}}
+\headcommand {\beamer@framepages {273}{273}}
+\headcommand {\slideentry {11}{0}{2}{274/274}{}{0}}
+\headcommand {\beamer@framepages {274}{274}}
+\headcommand {\slideentry {11}{0}{3}{275/275}{}{0}}
+\headcommand {\beamer@framepages {275}{275}}
+\headcommand {\beamer@subsectionpages {273}{275}}
+\headcommand {\beamer@subsectionentry {0}{11}{1}{276}{Listas -- Tamanho Limitado}}
+\headcommand {\slideentry {11}{1}{1}{276/277}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {276}{277}}
+\headcommand {\slideentry {11}{1}{2}{278/279}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {278}{279}}
+\headcommand {\slideentry {11}{1}{3}{280/281}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {280}{281}}
+\headcommand {\slideentry {11}{1}{4}{282/282}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {282}{282}}
+\headcommand {\slideentry {11}{1}{5}{283/283}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {283}{283}}
+\headcommand {\slideentry {11}{1}{6}{284/284}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {284}{284}}
+\headcommand {\slideentry {11}{1}{7}{285/285}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {285}{285}}
+\headcommand {\slideentry {11}{1}{8}{286/286}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {286}{286}}
+\headcommand {\slideentry {11}{1}{9}{287/287}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {287}{287}}
+\headcommand {\slideentry {11}{1}{10}{288/288}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {288}{288}}
+\headcommand {\slideentry {11}{1}{11}{289/289}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {289}{289}}
+\headcommand {\slideentry {11}{1}{12}{290/290}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {290}{290}}
+\headcommand {\slideentry {11}{1}{13}{291/291}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {291}{291}}
+\headcommand {\slideentry {11}{1}{14}{292/295}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {292}{295}}
+\headcommand {\slideentry {11}{1}{15}{296/296}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {296}{296}}
+\headcommand {\slideentry {11}{1}{16}{297/297}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {297}{297}}
+\headcommand {\slideentry {11}{1}{17}{298/298}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {298}{298}}
+\headcommand {\slideentry {11}{1}{18}{299/299}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {299}{299}}
+\headcommand {\slideentry {11}{1}{19}{300/300}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {300}{300}}
+\headcommand {\slideentry {11}{1}{20}{301/301}{Listas -- Tamanho Limitado}{0}}
+\headcommand {\beamer@framepages {301}{301}}
+\headcommand {\beamer@subsectionpages {276}{301}}
+\headcommand {\beamer@subsectionentry {0}{11}{2}{302}{Listas -- Tamanho Ilimitado}}
+\headcommand {\slideentry {11}{2}{1}{302/302}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {302}{302}}
+\headcommand {\slideentry {11}{2}{2}{303/303}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {303}{303}}
+\headcommand {\slideentry {11}{2}{3}{304/304}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {304}{304}}
+\headcommand {\slideentry {11}{2}{4}{305/305}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {305}{305}}
+\headcommand {\slideentry {11}{2}{5}{306/306}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {306}{306}}
+\headcommand {\slideentry {11}{2}{6}{307/307}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {307}{307}}
+\headcommand {\slideentry {11}{2}{7}{308/308}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {308}{308}}
+\headcommand {\slideentry {11}{2}{8}{309/309}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {309}{309}}
+\headcommand {\slideentry {11}{2}{9}{310/310}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {310}{310}}
+\headcommand {\slideentry {11}{2}{10}{311/311}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {311}{311}}
+\headcommand {\slideentry {11}{2}{11}{312/312}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {312}{312}}
+\headcommand {\slideentry {11}{2}{12}{313/313}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {313}{313}}
+\headcommand {\slideentry {11}{2}{13}{314/314}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {314}{314}}
+\headcommand {\slideentry {11}{2}{14}{315/315}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {315}{315}}
+\headcommand {\slideentry {11}{2}{15}{316/316}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {316}{316}}
+\headcommand {\slideentry {11}{2}{16}{317/317}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {317}{317}}
+\headcommand {\slideentry {11}{2}{17}{318/318}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {318}{318}}
+\headcommand {\slideentry {11}{2}{18}{319/319}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {319}{319}}
+\headcommand {\slideentry {11}{2}{19}{320/320}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {320}{320}}
+\headcommand {\slideentry {11}{2}{20}{321/321}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {321}{321}}
+\headcommand {\slideentry {11}{2}{21}{322/322}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {322}{322}}
+\headcommand {\slideentry {11}{2}{22}{323/323}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {323}{323}}
+\headcommand {\slideentry {11}{2}{23}{324/324}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {324}{324}}
+\headcommand {\slideentry {11}{2}{24}{325/325}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {325}{325}}
+\headcommand {\slideentry {11}{2}{25}{326/326}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {326}{326}}
+\headcommand {\slideentry {11}{2}{26}{327/327}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {327}{327}}
+\headcommand {\slideentry {11}{2}{27}{328/328}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {328}{328}}
+\headcommand {\slideentry {11}{2}{28}{329/329}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {329}{329}}
+\headcommand {\slideentry {11}{2}{29}{330/330}{Listas -- Tamanho Ilimitado}{0}}
+\headcommand {\beamer@framepages {330}{330}}
+\headcommand {\beamer@sectionpages {273}{330}}
+\headcommand {\beamer@subsectionpages {302}{330}}
+\headcommand {\sectionentry {12}{Recurs\IeC {\~a}o}{331}{Recurs\IeC {\~a}o}{0}}
+\headcommand {\slideentry {12}{0}{1}{331/331}{}{0}}
+\headcommand {\beamer@framepages {331}{331}}
+\headcommand {\slideentry {12}{0}{2}{332/332}{}{0}}
+\headcommand {\beamer@framepages {332}{332}}
+\headcommand {\slideentry {12}{0}{3}{333/333}{}{0}}
+\headcommand {\beamer@framepages {333}{333}}
+\headcommand {\slideentry {12}{0}{4}{334/334}{}{0}}
+\headcommand {\beamer@framepages {334}{334}}
+\headcommand {\slideentry {12}{0}{5}{335/335}{}{0}}
+\headcommand {\beamer@framepages {335}{335}}
+\headcommand {\slideentry {12}{0}{6}{336/336}{}{0}}
+\headcommand {\beamer@framepages {336}{336}}
+\headcommand {\slideentry {12}{0}{7}{337/337}{}{0}}
+\headcommand {\beamer@framepages {337}{337}}
+\headcommand {\slideentry {12}{0}{8}{338/338}{}{0}}
+\headcommand {\beamer@framepages {338}{338}}
+\headcommand {\slideentry {12}{0}{9}{339/339}{}{0}}
+\headcommand {\beamer@framepages {339}{339}}
+\headcommand {\slideentry {12}{0}{10}{340/340}{}{0}}
+\headcommand {\beamer@framepages {340}{340}}
+\headcommand {\slideentry {12}{0}{11}{341/341}{}{0}}
+\headcommand {\beamer@framepages {341}{341}}
+\headcommand {\slideentry {12}{0}{12}{342/342}{}{0}}
+\headcommand {\beamer@framepages {342}{342}}
+\headcommand {\slideentry {12}{0}{13}{343/343}{}{0}}
+\headcommand {\beamer@framepages {343}{343}}
+\headcommand {\slideentry {12}{0}{14}{344/344}{}{0}}
+\headcommand {\beamer@framepages {344}{344}}
+\headcommand {\slideentry {12}{0}{15}{345/345}{}{0}}
+\headcommand {\beamer@framepages {345}{345}}
+\headcommand {\slideentry {12}{0}{16}{346/346}{}{0}}
+\headcommand {\beamer@framepages {346}{346}}
+\headcommand {\beamer@sectionpages {331}{346}}
+\headcommand {\beamer@subsectionpages {331}{346}}
+\headcommand {\sectionentry {13}{\IeC {\'A}rvores}{347}{\IeC {\'A}rvores}{0}}
+\headcommand {\slideentry {13}{0}{1}{347/347}{}{0}}
+\headcommand {\beamer@framepages {347}{347}}
+\headcommand {\slideentry {13}{0}{2}{348/348}{}{0}}
+\headcommand {\beamer@framepages {348}{348}}
+\headcommand {\beamer@subsectionpages {347}{348}}
+\headcommand {\beamer@subsectionentry {0}{13}{1}{349}{Apresenta\IeC {\c c}\IeC {\~a}o}}
+\headcommand {\slideentry {13}{1}{1}{349/349}{Apresenta\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {349}{349}}
+\headcommand {\slideentry {13}{1}{2}{350/350}{Apresenta\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {350}{350}}
+\headcommand {\slideentry {13}{1}{3}{351/351}{Apresenta\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {351}{351}}
+\headcommand {\slideentry {13}{1}{4}{352/352}{Apresenta\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {352}{352}}
+\headcommand {\slideentry {13}{1}{5}{353/353}{Apresenta\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {353}{353}}
+\headcommand {\slideentry {13}{1}{6}{354/354}{Apresenta\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {354}{354}}
+\headcommand {\slideentry {13}{1}{7}{355/355}{Apresenta\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {355}{355}}
+\headcommand {\beamer@subsectionpages {349}{355}}
+\headcommand {\beamer@subsectionentry {0}{13}{2}{356}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}}
+\headcommand {\slideentry {13}{2}{1}{356/356}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{0}}
+\headcommand {\beamer@framepages {356}{356}}
+\headcommand {\slideentry {13}{2}{2}{357/357}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{0}}
+\headcommand {\beamer@framepages {357}{357}}
+\headcommand {\slideentry {13}{2}{3}{358/358}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{0}}
+\headcommand {\beamer@framepages {358}{358}}
+\headcommand {\slideentry {13}{2}{4}{359/359}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{0}}
+\headcommand {\beamer@framepages {359}{359}}
+\headcommand {\beamer@subsectionpages {356}{359}}
+\headcommand {\beamer@subsectionentry {0}{13}{3}{360}{Aplica\IeC {\c c}\IeC {\~o}es}}
+\headcommand {\slideentry {13}{3}{1}{360/360}{Aplica\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {360}{360}}
+\headcommand {\slideentry {13}{3}{2}{361/361}{Aplica\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {361}{361}}
+\headcommand {\slideentry {13}{3}{3}{362/362}{Aplica\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {362}{362}}
+\headcommand {\beamer@subsectionpages {360}{362}}
+\headcommand {\beamer@subsectionentry {0}{13}{4}{363}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}}
+\headcommand {\slideentry {13}{4}{1}{363/364}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{0}}
+\headcommand {\beamer@framepages {363}{364}}
+\headcommand {\slideentry {13}{4}{2}{365/365}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{0}}
+\headcommand {\beamer@framepages {365}{365}}
+\headcommand {\slideentry {13}{4}{3}{366/366}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{0}}
+\headcommand {\beamer@framepages {366}{366}}
+\headcommand {\slideentry {13}{4}{4}{367/367}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{0}}
+\headcommand {\beamer@framepages {367}{367}}
+\headcommand {\slideentry {13}{4}{5}{368/368}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{0}}
+\headcommand {\beamer@framepages {368}{368}}
+\headcommand {\slideentry {13}{4}{6}{369/371}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{0}}
+\headcommand {\beamer@framepages {369}{371}}
+\headcommand {\beamer@subsectionpages {363}{371}}
+\headcommand {\beamer@subsectionentry {0}{13}{5}{372}{Inser\IeC {\c c}\IeC {\~a}o}}
+\headcommand {\slideentry {13}{5}{1}{372/372}{Inser\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {372}{372}}
+\headcommand {\slideentry {13}{5}{2}{373/373}{Inser\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {373}{373}}
+\headcommand {\slideentry {13}{5}{3}{374/374}{Inser\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {374}{374}}
+\headcommand {\slideentry {13}{5}{4}{375/375}{Inser\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {375}{375}}
+\headcommand {\beamer@subsectionpages {372}{375}}
+\headcommand {\beamer@subsectionentry {0}{13}{6}{376}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}}
+\headcommand {\slideentry {13}{6}{1}{376/376}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{0}}
+\headcommand {\beamer@framepages {376}{376}}
+\headcommand {\slideentry {13}{6}{2}{377/377}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{0}}
+\headcommand {\beamer@framepages {377}{377}}
+\headcommand {\slideentry {13}{6}{3}{378/378}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{0}}
+\headcommand {\beamer@framepages {378}{378}}
+\headcommand {\slideentry {13}{6}{4}{379/379}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{0}}
+\headcommand {\beamer@framepages {379}{379}}
+\headcommand {\slideentry {13}{6}{5}{380/380}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{0}}
+\headcommand {\beamer@framepages {380}{380}}
+\headcommand {\slideentry {13}{6}{6}{381/383}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{0}}
+\headcommand {\beamer@framepages {381}{383}}
+\headcommand {\beamer@subsectionpages {376}{383}}
+\headcommand {\beamer@subsectionentry {0}{13}{7}{384}{Buscas em ABB}}
+\headcommand {\slideentry {13}{7}{1}{384/384}{Buscas em ABB}{0}}
+\headcommand {\beamer@framepages {384}{384}}
+\headcommand {\beamer@subsectionpages {384}{384}}
+\headcommand {\beamer@subsectionentry {0}{13}{8}{385}{Remo\IeC {\c c}\IeC {\~a}o em ABB}}
+\headcommand {\slideentry {13}{8}{1}{385/385}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {385}{385}}
+\headcommand {\slideentry {13}{8}{2}{386/386}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {386}{386}}
+\headcommand {\slideentry {13}{8}{3}{387/387}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {387}{387}}
+\headcommand {\slideentry {13}{8}{4}{388/388}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {388}{388}}
+\headcommand {\slideentry {13}{8}{5}{389/389}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {389}{389}}
+\headcommand {\slideentry {13}{8}{6}{390/390}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {390}{390}}
+\headcommand {\slideentry {13}{8}{7}{391/391}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {391}{391}}
+\headcommand {\slideentry {13}{8}{8}{392/392}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{0}}
+\headcommand {\beamer@framepages {392}{392}}
+\headcommand {\beamer@subsectionpages {385}{392}}
+\headcommand {\beamer@subsectionentry {0}{13}{9}{393}{Balanceamento}}
+\headcommand {\slideentry {13}{9}{1}{393/394}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {393}{394}}
+\headcommand {\slideentry {13}{9}{2}{395/395}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {395}{395}}
+\headcommand {\slideentry {13}{9}{3}{396/396}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {396}{396}}
+\headcommand {\slideentry {13}{9}{4}{397/397}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {397}{397}}
+\headcommand {\slideentry {13}{9}{5}{398/398}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {398}{398}}
+\headcommand {\slideentry {13}{9}{6}{399/401}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {399}{401}}
+\headcommand {\slideentry {13}{9}{7}{402/402}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {402}{402}}
+\headcommand {\slideentry {13}{9}{8}{403/403}{Balanceamento}{0}}
+\headcommand {\beamer@framepages {403}{403}}
+\headcommand {\beamer@subsectionpages {393}{403}}
+\headcommand {\beamer@subsectionentry {0}{13}{10}{404}{Rota\IeC {\c c}\IeC {\~o}es}}
+\headcommand {\slideentry {13}{10}{1}{404/404}{Rota\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {404}{404}}
+\headcommand {\slideentry {13}{10}{2}{405/405}{Rota\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {405}{405}}
+\headcommand {\slideentry {13}{10}{3}{406/406}{Rota\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {406}{406}}
+\headcommand {\slideentry {13}{10}{4}{407/407}{Rota\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {407}{407}}
+\headcommand {\slideentry {13}{10}{5}{408/408}{Rota\IeC {\c c}\IeC {\~o}es}{0}}
+\headcommand {\beamer@framepages {408}{408}}
+\headcommand {\beamer@subsectionpages {404}{408}}
+\headcommand {\beamer@subsectionentry {0}{13}{11}{409}{\IeC {\'A}rvores AVL}}
+\headcommand {\slideentry {13}{11}{1}{409/410}{\IeC {\'A}rvores AVL}{0}}
+\headcommand {\beamer@framepages {409}{410}}
+\headcommand {\slideentry {13}{11}{2}{411/411}{\IeC {\'A}rvores AVL}{0}}
+\headcommand {\beamer@framepages {411}{411}}
+\headcommand {\slideentry {13}{11}{3}{412/412}{\IeC {\'A}rvores AVL}{0}}
+\headcommand {\beamer@framepages {412}{412}}
+\headcommand {\slideentry {13}{11}{4}{413/413}{\IeC {\'A}rvores AVL}{0}}
+\headcommand {\beamer@framepages {413}{413}}
+\headcommand {\slideentry {13}{11}{5}{414/414}{\IeC {\'A}rvores AVL}{0}}
+\headcommand {\beamer@framepages {414}{414}}
+\headcommand {\slideentry {13}{11}{6}{415/415}{\IeC {\'A}rvores AVL}{0}}
+\headcommand {\beamer@framepages {415}{415}}
+\headcommand {\beamer@subsectionpages {409}{415}}
+\headcommand {\beamer@subsectionentry {0}{13}{12}{416}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}}
+\headcommand {\slideentry {13}{12}{1}{416/416}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {416}{416}}
+\headcommand {\slideentry {13}{12}{2}{417/417}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {417}{417}}
+\headcommand {\slideentry {13}{12}{3}{418/418}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {418}{418}}
+\headcommand {\slideentry {13}{12}{4}{419/419}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {419}{419}}
+\headcommand {\slideentry {13}{12}{5}{420/420}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {420}{420}}
+\headcommand {\slideentry {13}{12}{6}{421/421}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {421}{421}}
+\headcommand {\slideentry {13}{12}{7}{422/422}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {422}{422}}
+\headcommand {\slideentry {13}{12}{8}{423/423}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {423}{423}}
+\headcommand {\slideentry {13}{12}{9}{424/427}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{0}}
+\headcommand {\beamer@framepages {424}{427}}
+\headcommand {\beamer@subsectionpages {416}{427}}
+\headcommand {\beamer@subsectionentry {0}{13}{13}{428}{\IeC {\'A}rvores de Espalhamento}}
+\headcommand {\slideentry {13}{13}{1}{428/428}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {428}{428}}
+\headcommand {\slideentry {13}{13}{2}{429/429}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {429}{429}}
+\headcommand {\slideentry {13}{13}{3}{430/430}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {430}{430}}
+\headcommand {\slideentry {13}{13}{4}{431/431}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {431}{431}}
+\headcommand {\slideentry {13}{13}{5}{432/432}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {432}{432}}
+\headcommand {\slideentry {13}{13}{6}{433/433}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {433}{433}}
+\headcommand {\slideentry {13}{13}{7}{434/434}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {434}{434}}
+\headcommand {\slideentry {13}{13}{8}{435/435}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {435}{435}}
+\headcommand {\slideentry {13}{13}{9}{436/436}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {436}{436}}
+\headcommand {\slideentry {13}{13}{10}{437/437}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {437}{437}}
+\headcommand {\slideentry {13}{13}{11}{438/438}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {438}{438}}
+\headcommand {\slideentry {13}{13}{12}{439/439}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {439}{439}}
+\headcommand {\slideentry {13}{13}{13}{440/440}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {440}{440}}
+\headcommand {\slideentry {13}{13}{14}{441/441}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {441}{441}}
+\headcommand {\slideentry {13}{13}{15}{442/442}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {442}{442}}
+\headcommand {\slideentry {13}{13}{16}{443/443}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {443}{443}}
+\headcommand {\slideentry {13}{13}{17}{444/444}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {444}{444}}
+\headcommand {\slideentry {13}{13}{18}{445/445}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {445}{445}}
+\headcommand {\slideentry {13}{13}{19}{446/446}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {446}{446}}
+\headcommand {\slideentry {13}{13}{20}{447/447}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {447}{447}}
+\headcommand {\slideentry {13}{13}{21}{448/448}{\IeC {\'A}rvores de Espalhamento}{0}}
+\headcommand {\beamer@framepages {448}{448}}
+\headcommand {\beamer@partpages {1}{448}}
+\headcommand {\beamer@subsectionpages {428}{448}}
+\headcommand {\beamer@sectionpages {347}{448}}
+\headcommand {\beamer@documentpages {448}}
+\headcommand {\gdef \inserttotalframenumber {316}}
+=======
 \headcommand {\beamer@sectionpages {230}{243}}
 \headcommand {\beamer@subsectionpages {230}{243}}
 \headcommand {\sectionentry {10}{Filas}{244}{Filas}{0}}
@@ -714,3 +1137,4 @@
 \headcommand {\beamer@sectionpages {346}{447}}
 \headcommand {\beamer@documentpages {447}}
 \headcommand {\gdef \inserttotalframenumber {315}}
+>>>>>>> f628571f329ecc5822445d63feb527dc7ed52b2c
