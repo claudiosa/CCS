@@ -8,8 +8,8 @@
 
 #define MAX 100
  
-#define aberto 1
-#define visitado 2  // NO FECHADO
+#define aberto 1 // ou NAO VISITADO -- true o false
+#define visitado 2  // NOH FECHADO
  
 void lendo_grafo(void);
 void graph_traversal(void);
@@ -150,10 +150,10 @@ int isEmpty(void)
  
 void lendo_grafo(void) // MATRIZ ADJACENCIA
 {    
-      int lin, col, maximum_edges;
+      int lin, col ;
       printf("Entre total de vertices:\t");
       scanf("%d ", &vertices);
-      printf("\nVertices: ", vertices);
+      printf("\nVertices: %d", vertices);
      // maximum_edges = vertices * (vertices - 1);
       for(lin = 0; lin < vertices ; lin++)
       {
@@ -162,7 +162,8 @@ void lendo_grafo(void) // MATRIZ ADJACENCIA
             scanf("%d ", &adjacent_matrix[lin][col]);
          }
       }
-      printf(" MATRIZ LIDA\n    " );
+      // imprimindo a matriz ...
+      printf(" MATRIZ LIDA \n    " );
       for(col = 0; col < vertices ; col++)
       imp_NUM_LETRAS(col);
       printf("\n");
