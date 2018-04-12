@@ -7,6 +7,10 @@ para baixar
 wget -r http://www.marcusramos.com.br/univasf/livro-lfa/
 MUITO BOM MESMO ... 
 
+Na versão de apostila... de 2008.
+http://www2.fct.unesp.br/docentes/dmec/olivete/lfa/arquivos/Apostila.pdf
+
+ 
 
 WARMUP
 
@@ -22,5 +26,8 @@ logo para n>0
 2. Demonstrar
 (uv)^r = v^ru^r 
 
-2. Demonstrar
+3. Demonstrar
 ((w)^r)^r = w
+
+Foram resolvidos em sala .... etc... 
+solucao no diretorio de exercicios resolvidos.
