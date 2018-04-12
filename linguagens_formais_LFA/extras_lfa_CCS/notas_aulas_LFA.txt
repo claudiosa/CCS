@@ -1,4 +1,14 @@
-27/fev
+Excelente livro em PORTUGUES
+http://www.marcusramos.com.br/univasf/livro-lfa/
+
+As transparencias....
+http://www.marcusramos.com.br/univasf/livro-lfa/
+para baixar 
+wget -r http://www.marcusramos.com.br/univasf/livro-lfa/
+MUITO BOM MESMO ... 
+
+
+WARMUP
 
 0. Definir comprimento(w) ou lenght(w) = |w| = n
 
