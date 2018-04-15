@@ -1,0 +1,16 @@
+\frametitle{Exercícios}
+\begin{enumerate}
+
+	\item Os exercícios propostos no início deste capítulo (slide inicial)
+
+
+		\item Escreva uma função que inverta a ordem das letras de cada palavra de uma sentença, preservando a ordem das palavras. Suponha que as palavras da sentença são separadas por espaços. A aplicação da operação à sentença \textbf{AMU MEGASNEM ATERCES}, por exemplo, deve produzir \textbf{UMA MENSAGEM SECRETA}.
+		\item Implemente uma função que receba uma pilha como parâmetro e retorne o valor armazenado em seu topo, restaurando o conteúdo da pilha. Essa função deve obedecer ao protótipo:
+		\begin{verbatim}
+		   char topo(Pilha* p);
+		\end{verbatim}
+		\item Implemente uma função que receba duas pilhas, $p_1, p_2$, e passe todos os elementos da pilha $p_2$ para o topo da pilha $p_1$. Essa função deve obedecer ao protótipo:
+		\begin{verbatim}
+		   void concatena(Pilha* p1, Pilha* p2);
+		\end{verbatim}
+	\end{enumerate}
