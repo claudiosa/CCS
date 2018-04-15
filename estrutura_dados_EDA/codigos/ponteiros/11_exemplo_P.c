@@ -83,10 +83,15 @@ printf("\n ================ STACK -- parte superior =========================\n"
   for(int i= 0; i < n ; i++){
       printf("\n End de V_P[%d]: %p APONTA -> %p (%ld)", i, &V_P[i] , V_P[i], V_P[i]  );
 	}
+	printf("\n Tem a variavel n (lah do inicio -- STACK) : (%ld)",  &n );
+	printf("\n Tem a variavel frases (lah do inicio -- STACK) : (%ld)",  &frases);
+	
 printf("\n ============== HEAP -- parte inferior ===========================\n");
 	for(int i= 0; i < n ; i++){
-      printf("\n End de m[%d]: %p APONTA -> %p (%d)", i, &m[i] , m[i], m[i]  );
+      printf("\n End de m[%d]: %p APONTA -> %p (%ld)", i, &m[i] , m[i], m[i]  );
 	}
+	printf("\n Onde estao as funcoes? espacos_01  : (%ld)",  &espacos_01 );
+	printf("\n Onde estao as funcoes? espacos_02  : (%ld)",  &espacos_02 );
 printf("\n =========================================\n");
 	return 0;
 }
