@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include <ctype.h>
+#include <ctype.h> // usado para toupper ... 
 // original http://www.codingalpha.com/depth-first-search-algorithm-c-program/ 
 // MODIFICADO by CCS
 
@@ -46,9 +46,9 @@ void graph_traversal(void)
 	  {
 		vertex_status[vertex] = aberto;
 	  } 
-	  printf("Entre com um NO de PARTIDA para o DFS:\t");
+	  printf("\n Entre com um NOH de PARTIDA para o DFS:\t");
 	  scanf("%d", &vertex);
-	  printf("\n COMECANDO com o NOH: %d ou ", vertex);
+	  printf("\n COMEÇANDO com o NOH: %d ou ", vertex);
 	  imp_NUM_LETRAS(vertex);
 	  printf("\n ============================\n");
 	  DFS(vertex);
@@ -58,53 +58,55 @@ void graph_traversal(void)
  
 void DFS(int vertex)
 {
-      int count;
-      push(vertex);
-      // empilha a RAIZ
-      while(!isEmpty())
-      {
-		vertex = pop();
-		// toma o topo da pilha
-		if(vertex_status[vertex] == aberto)
-		{ // verifica se eh no aberto
-			  //printf("%3d", vertex);
-			  imp_NUM_LETRAS(vertex);
-			  vertex_status[vertex] = visitado;
-			  // muda o status
-		}
-//      DFS pela esquerda ou pela direita .... veja explicacao em sala  
+  int count;
+  push(vertex);  // empilha a RAIZ
+  while(!isEmpty())
+  {
+  	vertex = pop();		// toma o topo da pilha
+  	if(vertex_status[vertex] == aberto)
+  	{ // verifica se eh no aberto
+  		  //printf("%3d", vertex);
+  		  imp_NUM_LETRAS(vertex);
+        // AQUI PODE INSERIR UM TESTE QUALQUER
+        // AQUI EH A VISITA ... so imprime
+  		  vertex_status[vertex] = visitado;
+  		  // muda o status
+  	 }
+  // DFS pela esquerda ou pela direita .... veja explicacao em sala  
         for(count = vertices - 1; count >= 0; count--)
-//      pela direita
-//		for(count = 0; count < vertices ; count++)
-		{
-		  if((adjacent_matrix[vertex][count] == 1) && (vertex_status[count] == aberto))
-		   {
-			//coloca na pilha os IMEDIATOS, NAO VISITADOS ou ABERTOS
-			// VIZINHOS DE VERTEX
-			//a PARTIR DE VERTEX ... ou seja... os imediatos ao topo da pilha
-			push(count);
-		   }
-		}// FIM DO FOR
-      }// FIM DO WHILE 
-     return; 
+  //     pela direita
+  //		for(count = 0; count < vertices ; count++)
+  	    {
+  	     if((adjacent_matrix[vertex][count] == 1) && 
+             (vertex_status[count] == aberto))
+  	     {
+  		  //coloca na pilha os IMEDIATOS, NAO VISITADOS ou ABERTOS
+  		 // VIZINHOS DE VERTEX
+  		//a PARTIR DE VERTEX ... ou seja... os imediatos ao topo da pilha
+  		    push(count);
+  	     } // FIM DO IF
+  	}// FIM DO FOR
+  }// FIM DO WHILE 
+ return; 
 }
 
 // ha versoes recursivas do DFS ... mas nao eh o caso 
  
  void imp_NUM_LETRAS(int N)
  {
+  int a[26]={'a','b','c','d','e','f','g','h','i','j','k',
+           'l','m','n','o','p','q','r','s','t','u','v',
+            'w','x','y','z'}; 
+
     if(N > 26 && N < 0) // até 26 vertices...
 	 {
 	   printf("\n problema ... imp_NUM_LETRAS");
 	   return;
 	 }
 
-	int a[26]={'a','b','c','d','e','f','g','h','i','j','k',
-		       'l','m','n','o','p','q','r','s','t','u','v',
-		        'w','x','y','z'}; 
 	printf(" %c", toupper(a[ N ])); // ver tabela ASCII
 
-    return;
+  return;
  }  
 	  	 
 	 
@@ -147,7 +149,8 @@ int isEmpty(void)
             return 0;
       }
 }
- 
+
+// LE E ESCREVE 
 void lendo_grafo(void) // MATRIZ ADJACENCIA
 {    
       int lin, col ;
@@ -155,29 +158,29 @@ void lendo_grafo(void) // MATRIZ ADJACENCIA
       scanf("%d ", &vertices);
       printf("\nVertices: %d", vertices);
      // maximum_edges = vertices * (vertices - 1);
-      for(lin = 0; lin < vertices ; lin++)
-      {
-		for(col = 0; col < vertices ; col++)
-		{
-            scanf("%d ", &adjacent_matrix[lin][col]);
-         }
+    for(lin = 0; lin < vertices ; lin++)
+    {
+		  for(col = 0; col < vertices ; col++)
+		  {
+        scanf("%d ", &adjacent_matrix[lin][col]);
       }
+    }
       // imprimindo a matriz ...
       printf(" MATRIZ LIDA \n    " );
       for(col = 0; col < vertices ; col++)
       imp_NUM_LETRAS(col);
       printf("\n");
       
-      for(lin = 0; lin < vertices ; lin++)
+    for(lin = 0; lin < vertices ; lin++)
       {
-		imp_NUM_LETRAS(lin);  
-		printf(": ");
-		for(col = 0; col < vertices ; col++)
-		{
-            printf(" %d", adjacent_matrix[lin][col]);
-         }
-        printf("\n" ); 
-      }
+  		 imp_NUM_LETRAS(lin);  
+  		 printf(": ");
+  		 for(col = 0; col < vertices ; col++)
+  		 {
+        printf(" %d", adjacent_matrix[lin][col]);
+       }
+       printf("\n" ); 
+     }
      
      return; 
 }
