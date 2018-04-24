@@ -11,3 +11,5 @@ usa_fila_01.o: usa_fila_01.c
 
 clean:
 	rm *.o *.exe *.out
+
+run:  ./saida.exe   ### para o run.codes
