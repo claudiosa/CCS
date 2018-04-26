@@ -1,12 +1,12 @@
 \BOOKMARK [2][]{Outline0.1}{O Curso}{}% 1
-\BOOKMARK [3][]{Outline0.1.1.19}{Ferramentas}{Outline0.1}% 2
-\BOOKMARK [3][]{Outline0.1.2.21}{Metodologia e avalia\347\343o}{Outline0.1}% 3
-\BOOKMARK [3][]{Outline0.1.3.24}{Din\342mica}{Outline0.1}% 4
-\BOOKMARK [3][]{Outline0.1.4.27}{Refer\352ncias}{Outline0.1}% 5
+\BOOKMARK [3][]{Outline0.1.1.16}{Ferramentas}{Outline0.1}% 2
+\BOOKMARK [3][]{Outline0.1.2.18}{Metodologia e avalia\347\343o}{Outline0.1}% 3
+\BOOKMARK [3][]{Outline0.1.3.21}{Din\342mica}{Outline0.1}% 4
+\BOOKMARK [3][]{Outline0.1.4.24}{Refer\352ncias}{Outline0.1}% 5
 \BOOKMARK [2][]{Outline0.2}{Ponteiros}{}% 6
-\BOOKMARK [3][]{Outline0.2.1.49}{Motiva\347\343o aos Ponteiros}{Outline0.2}% 7
+\BOOKMARK [3][]{Outline0.2.1.46}{Motiva\347\343o aos Ponteiros}{Outline0.2}% 7
 \BOOKMARK [2][]{Outline0.3}{Ponteiros e Matrizes}{}% 8
-\BOOKMARK [3][]{Outline0.3.1.139}{Indire\347\343o M\372ltipla}{Outline0.3}% 9
+\BOOKMARK [3][]{Outline0.3.1.136}{Indire\347\343o M\372ltipla}{Outline0.3}% 9
 \BOOKMARK [2][]{Outline0.4}{Fun\347\365es que retornam Ponteiros}{}% 10
 \BOOKMARK [2][]{Outline0.5}{Ponteiro para Fun\347\365es}{}% 11
 \BOOKMARK [2][]{Outline0.6}{Aloca\347\343o Din\342mica}{}% 12
@@ -14,21 +14,22 @@
 \BOOKMARK [2][]{Outline0.8}{Pilha}{}% 14
 \BOOKMARK [2][]{Outline0.9}{Aplica\347\365es \205 Estudo de Casos}{}% 15
 \BOOKMARK [2][]{Outline0.10}{Filas}{}% 16
-\BOOKMARK [2][]{Outline0.11}{Listas}{}% 17
-\BOOKMARK [3][]{Outline0.11.1.281}{Listas \205 Tamanho Limitado}{Outline0.11}% 18
-\BOOKMARK [3][]{Outline0.11.2.307}{Listas \205 Tamanho Ilimitado}{Outline0.11}% 19
-\BOOKMARK [2][]{Outline0.12}{Recurs\343o}{}% 20
-\BOOKMARK [2][]{Outline0.13}{\301rvores}{}% 21
-\BOOKMARK [3][]{Outline0.13.1.354}{Apresenta\347\343o}{Outline0.13}% 22
-\BOOKMARK [3][]{Outline0.13.2.361}{\301rvores Gen\351ricas}{Outline0.13}% 23
-\BOOKMARK [3][]{Outline0.13.3.365}{Aplica\347\365es}{Outline0.13}% 24
-\BOOKMARK [3][]{Outline0.13.4.368}{\301rvore Bin\341ria de Busca}{Outline0.13}% 25
-\BOOKMARK [3][]{Outline0.13.5.377}{Inser\347\343o}{Outline0.13}% 26
-\BOOKMARK [3][]{Outline0.13.6.381}{Percorrendo \301rvores Bin\341rias}{Outline0.13}% 27
-\BOOKMARK [3][]{Outline0.13.7.389}{Buscas em ABB}{Outline0.13}% 28
-\BOOKMARK [3][]{Outline0.13.8.390}{Remo\347\343o em ABB}{Outline0.13}% 29
-\BOOKMARK [3][]{Outline0.13.9.398}{Balanceamento}{Outline0.13}% 30
-\BOOKMARK [3][]{Outline0.13.10.409}{Rota\347\365es}{Outline0.13}% 31
-\BOOKMARK [3][]{Outline0.13.11.414}{\301rvores AVL}{Outline0.13}% 32
-\BOOKMARK [3][]{Outline0.13.12.421}{Em Detalhes as Rota\347\365es para AVL}{Outline0.13}% 33
-\BOOKMARK [3][]{Outline0.13.13.433}{\301rvores de Espalhamento}{Outline0.13}% 34
+\BOOKMARK [2][]{Outline0.11}{Aplica\347\365es \205 Estudo de Casos}{}% 17
+\BOOKMARK [2][]{Outline0.12}{Listas}{}% 18
+\BOOKMARK [3][]{Outline0.12.1.281}{Listas \205 Tamanho Limitado}{Outline0.12}% 19
+\BOOKMARK [3][]{Outline0.12.2.307}{Listas \205 Tamanho Ilimitado}{Outline0.12}% 20
+\BOOKMARK [2][]{Outline0.13}{Recurs\343o}{}% 21
+\BOOKMARK [2][]{Outline0.14}{\301rvores}{}% 22
+\BOOKMARK [3][]{Outline0.14.1.354}{Apresenta\347\343o}{Outline0.14}% 23
+\BOOKMARK [3][]{Outline0.14.2.361}{\301rvores Gen\351ricas}{Outline0.14}% 24
+\BOOKMARK [3][]{Outline0.14.3.365}{Aplica\347\365es}{Outline0.14}% 25
+\BOOKMARK [3][]{Outline0.14.4.368}{\301rvore Bin\341ria de Busca}{Outline0.14}% 26
+\BOOKMARK [3][]{Outline0.14.5.377}{Inser\347\343o}{Outline0.14}% 27
+\BOOKMARK [3][]{Outline0.14.6.381}{Percorrendo \301rvores Bin\341rias}{Outline0.14}% 28
+\BOOKMARK [3][]{Outline0.14.7.389}{Buscas em ABB}{Outline0.14}% 29
+\BOOKMARK [3][]{Outline0.14.8.390}{Remo\347\343o em ABB}{Outline0.14}% 30
+\BOOKMARK [3][]{Outline0.14.9.398}{Balanceamento}{Outline0.14}% 31
+\BOOKMARK [3][]{Outline0.14.10.409}{Rota\347\365es}{Outline0.14}% 32
+\BOOKMARK [3][]{Outline0.14.11.414}{\301rvores AVL}{Outline0.14}% 33
+\BOOKMARK [3][]{Outline0.14.12.421}{Em Detalhes as Rota\347\365es para AVL}{Outline0.14}% 34
+\BOOKMARK [3][]{Outline0.14.13.433}{\301rvores de Espalhamento}{Outline0.14}% 35
