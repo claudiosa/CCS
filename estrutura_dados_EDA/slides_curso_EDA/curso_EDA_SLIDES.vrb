@@ -1,0 +1,14 @@
+\frametitle{Árvore de Espalhamento - Remoção}
+\begin{verbatim}
+REMOVE(RAIZ, CHAVE) {
+    RAIZ = ESPALHAMENTO(RAIZ, CHAVE)
+
+    SE RAIZ->DIR ENTÃO
+        AUX = ESPALHAMENTO(RAIZ->DIR, CHAVE)
+        AUX->ESQ = RAIZ->ESQ
+    SENÃO
+        AUX = RAIZ->ESQ
+
+    return AUX
+}
+\end{verbatim}
