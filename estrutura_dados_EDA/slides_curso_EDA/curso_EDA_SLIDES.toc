@@ -1,35 +1,39 @@
 \babel@toc {brazilian}{}
-\beamer@sectionintoc {1}{O Curso}{10}{0}{1}
-\beamer@subsectionintoc {1}{1}{Ferramentas}{19}{0}{1}
-\beamer@subsectionintoc {1}{2}{Metodologia e avalia\IeC {\c c}\IeC {\~a}o}{21}{0}{1}
-\beamer@subsectionintoc {1}{3}{Din\IeC {\^a}mica}{24}{0}{1}
-\beamer@subsectionintoc {1}{4}{Refer\IeC {\^e}ncias}{27}{0}{1}
-\beamer@sectionintoc {2}{Ponteiros}{29}{0}{2}
-\beamer@subsectionintoc {2}{1}{Motiva\IeC {\c c}\IeC {\~a}o aos Ponteiros}{49}{0}{2}
-\beamer@sectionintoc {3}{Ponteiros e Matrizes}{119}{0}{3}
-\beamer@subsectionintoc {3}{1}{Indire\IeC {\c c}\IeC {\~a}o M\IeC {\'u}ltipla}{139}{0}{3}
-\beamer@sectionintoc {4}{Fun\IeC {\c c}\IeC {\~o}es que retornam Ponteiros}{149}{0}{4}
-\beamer@sectionintoc {5}{Ponteiro para Fun\IeC {\c c}\IeC {\~o}es}{156}{0}{5}
-\beamer@sectionintoc {6}{Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{177}{0}{6}
-\beamer@sectionintoc {7}{Exemplos Completos: Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{202}{0}{7}
-\beamer@sectionintoc {8}{Pilha}{213}{0}{8}
-\beamer@sectionintoc {9}{Aplica\IeC {\c c}\IeC {\~o}es -- Estudo de Casos}{233}{0}{9}
-\beamer@sectionintoc {10}{Filas}{250}{0}{10}
-\beamer@sectionintoc {11}{Listas}{278}{0}{11}
-\beamer@subsectionintoc {11}{1}{Listas -- Tamanho Limitado}{281}{0}{11}
-\beamer@subsectionintoc {11}{2}{Listas -- Tamanho Ilimitado}{307}{0}{11}
-\beamer@sectionintoc {12}{Recurs\IeC {\~a}o}{336}{0}{12}
-\beamer@sectionintoc {13}{\IeC {\'A}rvores}{352}{0}{13}
-\beamer@subsectionintoc {13}{1}{Apresenta\IeC {\c c}\IeC {\~a}o}{354}{0}{13}
-\beamer@subsectionintoc {13}{2}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{361}{0}{13}
-\beamer@subsectionintoc {13}{3}{Aplica\IeC {\c c}\IeC {\~o}es}{365}{0}{13}
-\beamer@subsectionintoc {13}{4}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{368}{0}{13}
-\beamer@subsectionintoc {13}{5}{Inser\IeC {\c c}\IeC {\~a}o}{377}{0}{13}
-\beamer@subsectionintoc {13}{6}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{381}{0}{13}
-\beamer@subsectionintoc {13}{7}{Buscas em ABB}{389}{0}{13}
-\beamer@subsectionintoc {13}{8}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{390}{0}{13}
-\beamer@subsectionintoc {13}{9}{Balanceamento}{398}{0}{13}
-\beamer@subsectionintoc {13}{10}{Rota\IeC {\c c}\IeC {\~o}es}{409}{0}{13}
-\beamer@subsectionintoc {13}{11}{\IeC {\'A}rvores AVL}{414}{0}{13}
-\beamer@subsectionintoc {13}{12}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{421}{0}{13}
-\beamer@subsectionintoc {13}{13}{\IeC {\'A}rvores de Espalhamento}{433}{0}{13}
+\beamer@sectionintoc {1}{O Curso}{7}{0}{1}
+\beamer@subsectionintoc {1}{1}{Ferramentas}{16}{0}{1}
+\beamer@subsectionintoc {1}{2}{Metodologia e avalia\IeC {\c c}\IeC {\~a}o}{18}{0}{1}
+\beamer@subsectionintoc {1}{3}{Din\IeC {\^a}mica}{21}{0}{1}
+\beamer@subsectionintoc {1}{4}{Refer\IeC {\^e}ncias}{24}{0}{1}
+\beamer@sectionintoc {2}{Ponteiros}{26}{0}{2}
+\beamer@subsectionintoc {2}{1}{Motiva\IeC {\c c}\IeC {\~a}o aos Ponteiros}{46}{0}{2}
+\beamer@sectionintoc {3}{Ponteiros e Matrizes}{116}{0}{3}
+\beamer@subsectionintoc {3}{1}{Indire\IeC {\c c}\IeC {\~a}o M\IeC {\'u}ltipla}{136}{0}{3}
+\beamer@sectionintoc {4}{Fun\IeC {\c c}\IeC {\~o}es que retornam Ponteiros}{146}{0}{4}
+\beamer@sectionintoc {5}{Ponteiro para Fun\IeC {\c c}\IeC {\~o}es}{153}{0}{5}
+\beamer@sectionintoc {6}{Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{174}{0}{6}
+\beamer@sectionintoc {7}{Exemplos Completos: Aloca\IeC {\c c}\IeC {\~a}o Din\IeC {\^a}mica}{199}{0}{7}
+\beamer@sectionintoc {8}{Pilha}{210}{0}{8}
+\beamer@sectionintoc {9}{Aplica\IeC {\c c}\IeC {\~o}es -- Estudo de Casos}{230}{0}{9}
+\beamer@sectionintoc {10}{Exerc\IeC {\'\i }cios}{246}{0}{10}
+\beamer@sectionintoc {11}{Filas}{248}{0}{11}
+\beamer@sectionintoc {12}{Aplica\IeC {\c c}\IeC {\~o}es -- Estudo de Casos}{274}{0}{12}
+\beamer@sectionintoc {13}{Exerc\IeC {\'\i }cios}{289}{0}{13}
+\beamer@sectionintoc {14}{Listas}{292}{0}{14}
+\beamer@subsectionintoc {14}{1}{Listas -- Tamanho Limitado}{295}{0}{14}
+\beamer@subsectionintoc {14}{2}{Listas -- Tamanho Ilimitado}{321}{0}{14}
+\beamer@sectionintoc {15}{Exerc\IeC {\'\i }cios}{347}{0}{15}
+\beamer@sectionintoc {16}{Recurs\IeC {\~a}o}{351}{0}{16}
+\beamer@sectionintoc {17}{\IeC {\'A}rvores}{367}{0}{17}
+\beamer@subsectionintoc {17}{1}{Apresenta\IeC {\c c}\IeC {\~a}o}{369}{0}{17}
+\beamer@subsectionintoc {17}{2}{\IeC {\'A}rvores Gen\IeC {\'e}ricas}{376}{0}{17}
+\beamer@subsectionintoc {17}{3}{Aplica\IeC {\c c}\IeC {\~o}es}{380}{0}{17}
+\beamer@subsectionintoc {17}{4}{\IeC {\'A}rvore Bin\IeC {\'a}ria de Busca}{383}{0}{17}
+\beamer@subsectionintoc {17}{5}{Inser\IeC {\c c}\IeC {\~a}o}{392}{0}{17}
+\beamer@subsectionintoc {17}{6}{Percorrendo \IeC {\'A}rvores Bin\IeC {\'a}rias}{396}{0}{17}
+\beamer@subsectionintoc {17}{7}{Buscas em ABB}{404}{0}{17}
+\beamer@subsectionintoc {17}{8}{Remo\IeC {\c c}\IeC {\~a}o em ABB}{405}{0}{17}
+\beamer@subsectionintoc {17}{9}{Balanceamento}{413}{0}{17}
+\beamer@subsectionintoc {17}{10}{Rota\IeC {\c c}\IeC {\~o}es}{424}{0}{17}
+\beamer@subsectionintoc {17}{11}{\IeC {\'A}rvores AVL}{429}{0}{17}
+\beamer@subsectionintoc {17}{12}{Em Detalhes as Rota\IeC {\c c}\IeC {\~o}es para AVL}{436}{0}{17}
+\beamer@subsectionintoc {17}{13}{\IeC {\'A}rvores de Espalhamento}{448}{0}{17}
