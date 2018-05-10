@@ -7,4 +7,5 @@ Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD
 * casos de testes em arquivos separados: exercicio 95 - 4 casos de teste
 * sao os 4 grafos do exercicio 95
 * ver pdf para o exercicio em questao -- exercicio_minimizacao.pdf
+* dúvidas perguntar na lista .....
 
