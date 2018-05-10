@@ -1,0 +1,8 @@
+
+Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD
+
+* pode ser individual ou dupla
+* qualquer linguagem de programaçao
+* apresentacao até 30/maio/2018 -- penalidades apos esta data
+* casos de testes em arquivos separados: exercicio 95 - 4 casos de teste
+* ver pdf para o exercicio em questao
