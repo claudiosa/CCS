@@ -5,4 +5,6 @@ Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD
 * qualquer linguagem de programaçao
 * apresentacao até 30/maio/2018 -- penalidades apos esta data
 * casos de testes em arquivos separados: exercicio 95 - 4 casos de teste
-* ver pdf para o exercicio em questao
+* sao os 4 grafos do exercicio 95
+* ver pdf para o exercicio em questao -- exercicio_minimizacao.pdf
+
