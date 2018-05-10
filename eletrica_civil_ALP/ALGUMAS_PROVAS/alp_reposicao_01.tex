@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,left=25mm,right=25mm,top=15mm,bottom=25mm]{geometry}
+\usepackage{graphicx,url}
+\usepackage{color}
+\usepackage{amssymb,listings}
+\usepackage[utf8]{inputenc}
+
+
+% Setting configuration for the text format
+%\renewcommand{\contentsname}{Table of Contents}
+%\renewcommand{\bibname}{References}
+%\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\filleft\chaptername\ \thechapter}{5pt}{\filleft\Huge}
+%\sloppy
+
+\title{Algoritmos e Linguagens de Programação --  Reposição 01 -- Ajuda na Nota}
+\author{ Claudio Cesar de Sá}
+\date{\today}
+
+\graphicspath{{/img/}}   
+\DeclareGraphicsExtensions{{.jpg},{.png}}
+
+\lstset {
+  numbers=left,
+}
+
+\begin{document}
+%\pagestyle{empty}
+\maketitle
+
+
+
+\begin{flushleft}
+\textbf{Nome}: \rule{10cm}{0.3mm} 
+\end{flushleft}
+%\textbf{Matrícula}: \rule{7cm}{0.3mm} 
+% %\rule{\linewidth}{1.
+\begin{enumerate}
+%\setlength{\itemsep}{-1pt}
+
+\item Considere a nota de N  ($1 \le N \le 100$)  alunos as quais são dadas 03
+por três números reais. Para cada um dos casos 
+calcule a média  de TODAS entradas, e indique na saída um dos seguintes casos:
+
+\begin{enumerate}
+  \item media $< 2.0$ : Volte semestre que vem!
+    \item $2.0 \le$ media $< 7.0$ : Em exame!
+        \item media $\ge 7.0$ : Se safou!
+\end{enumerate}
+Como  casos de testes, considere o seguinte arquivo de entrada:
+\begin{verbatim}
+10
+3.5 7.6 8.5
+4.5 8.56 8.9
+6.7 8.1 9.1
+5.90 7.6 8.56
+4.5 8.56 8.19
+7.2 8.1 9.1
+9.1 7.1 6.1
+\end{verbatim}
+Quantos alunos passaram por média?
+
+
+\item Usando a estrutura \texttt{switch-case}, combinada com \texttt{do-while}, construa um programa em C que mostre o seguinte menu na tela:
+\begin{small}
+\begin{verbatim}
+Cadastro de Clientes
+0 - Fim
+1 - Inclui
+2 - Altera
+3 - Exclui
+4 - Consulta
+Opção: 
+\end{verbatim}
+\end{small}
+
+Para cada uma das opções acima de 1 a 4 escreva a mensagens da opção. Se digitar 0,
+encerra o programa, e qualquer outro número, imprima a mensagem: ''\texttt{Digite alguma opção
+válida}"\/ e encerre o programa.
+
+\item  Escreva um programa em C que leia N ($1 \le N \le 100$)  casos, onde cada caso é composto por
+ 3 números inteiros: $x$, $y$ e $m$, em seguida identifique se os dois números  $x$ e $y$ são congruentes
+entre si dado o \textit{módulo} $m$. Por definição
+a congruência é definida por:
+
+$$ x \% m = k$$
+$$ y \% m = k$$
+ 
+ Exemplo: 35 \% 4 = 3  e   39 \% 4 = 3. Módulo é o resto da divisão inteira, na linguagem 
+ simbolizada por \%. Neste exemplo, o números 35, 39 são congruentes entre si
+ pelo \textit{módulo} 4. Imprima as saídas: \texttt{congruentes} ou \texttt{incongruentes} conforme o caso.
+
+Como  casos de testes, considere o seguinte arquivo de entrada:
+\begin{verbatim}
+10
+5 7 8
+54 76 87
+4 76 8
+54 76 871
+5 61 7
+14 76 8
+15 6 7
+\end{verbatim}
+
+
+
+
+\item Escreva um programa em C que determine quanto tempo transcorreu entre duas marcações de tempo. São dados de entrada: $tempo_1 = HH:MM:SS$ e $tempo_2 = hh:mm:ss$. 
+\\Exemplo: entre as marcações $tempo_1 = 10:05:47$ e $tempo_2 = 21:00:01$ transcorreram $10:54:14$
+
+{\footnotesize DICA: O operador divisão (/) quando aplicado a números inteiros, retorna o quociente da divisão.}
+x
+\end{enumerate}
+
+\end{document}

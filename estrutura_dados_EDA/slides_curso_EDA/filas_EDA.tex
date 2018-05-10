@@ -520,9 +520,175 @@ int main(void)
 \end{frame} 
 
 
+\section{Aplicações -- Estudo de Casos}
+
+
+
+
+\begin{frame}[c]{Fila de Prioridade} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+ \includegraphics[width=.8\textwidth , height=.7\textheight]{priorityqueue01.pdf}
+\caption{Várias aplicações para um único atendedor}
+			\end{figure} 
+\end{frame}
+
+
+
+\begin{frame}[c]{Filas de Prioridade -- Várias} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+ \includegraphics[width=.6\textwidth , height=.4\textheight]{priorityqueue02.pdf}
+\caption{Filas com prioridades e múltiplos atendedores}
+			\end{figure} 
+\end{frame}
+
+
+
+\begin{frame}[c]{Filas de Prioridade -- Uso de CPU} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+ \includegraphics[width=.6\textwidth , height=.5\textheight]{round_robin_CPU.pdf}
+\caption{Filas com prioridades -- clássico \textit{round-robin}}
+			\end{figure} 
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Filas de Prioridade -- Múltiplos Atendedores} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+ \includegraphics[width=.6\textwidth , height=.5\textheight]{taxa_chegada.jpg}
+\caption{Filas com prioridades -- clássico \textit{round-robin}}
+			\end{figure} 
+\end{frame}
+
+\begin{comment}
+\begin{frame}[c]{Filas com Múltiplos Atendedores} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+%%%				\includegraphics[width=.8\textwidth , height=.7\textheight]{parenteses_balanceado.png}
+
+			\end{figure} 
+\end{frame}
+\end{comment}
+
+
+
+\begin{frame}[c]{BFS: Busca em Largura} 
+
+		   	\begin{figure}[!htpb]
+				\centering
+\includegraphics[width=.7\textwidth, height=.5\textheight]{uso_bfs_classico.png}
+\caption{Casos clássicos -- pesquisas em labirinto -- grafos}
+			\end{figure} 
+    \end{frame}
+
+
+\begin{frame}[c]{Comparativo BFS X DFS \textit{breadth first search (BFS) and depth first search (DFS)} }
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.5\textheight]{comparativo_dfs_bfs.jpeg}
+ \caption{Casos clássicos -- pesquisas em labirinto -- grafos}
+	\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{BFS \textit{breadth first search (BFS) em Grafo}}
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.5\textheight]{bfs-grafo01.jpg}
+ \caption{Caso clássico -- grafos}
+	\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{A árvore de busca do BFS (\textit{breadth first search})  em Grafos}
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.7\textheight]{bfs01.jpeg}
+ \caption{A árvore de busca do BFS}
+	\end{figure} 
+\end{frame}
+
+
+
+\begin{frame}[c]{A árvore de busca do BFS (\textit{breadth first search})  em Grafos}
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.7\textheight]{bfs02.jpeg}
+ \caption{A árvore de busca do BFS}
+	\end{figure} 
+\end{frame}
+
+\begin{frame}[c]{A árvore de busca do BFS (\textit{breadth first search})  em Grafos}
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.7\textheight]{bfs03.jpeg}
+ \caption{A árvore de busca do BFS}
+	\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{Pseudo Código do BFS (\textit{breadth first search})  }
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.7\textheight]{pseudo_codigo_BFS.pdf}
+% \caption{A árvore de busca do BFS}
+	\end{figure} 
+\end{frame}
+
+\begin{frame}[c]{Resumindo BFS X DFS \textit{breadth first search (BFS) and depth first search (DFS)} em um labirinto}
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.5\textheight]{bfs_dfs_maze01.pdf}
+ \caption{Comportamento no labirinto -- célula à esquerda é o final}
+	\end{figure} 
+\end{frame}
+
+
+\begin{frame}[c]{Internamente o labirinto ...}
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.5\textheight]{bfs_dfs_maze02.pdf}
+ \caption{Grafo não-direcionado, onde cada célula é um nó}
+	\end{figure} 
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Representando este labirinto como um grafo}
+
+ 	\begin{figure}[!htpb]
+	\centering
+  \includegraphics[width=.7\textwidth, height=.5\textheight]{maze_matrix_graphs.pdf}
+ \caption{\textbf{0}: parede (limite) -- \textbf{1}: livre para se movimentar}
+	\end{figure} 
+\end{frame}
+
+
+\section{Exercícios}
 \begin{frame}{Exercícios}
 	
 	\begin{enumerate}
+	
+	\item $\Rightarrow $ run.codes, urionline, thehuxley.com, etc.
+	
 	\item Implemente um esquema de uma fila usando duas pilhas
 	
 	\item Encontrar o maior sub-conjunto de uma janela $w$ para um vetor circular
@@ -532,18 +698,12 @@ int main(void)
   \texttt{$\mid $rear - front + 1| = w $\mid $}. 
   Função: \texttt{abs(rear - front + 1) = w}
 	 
-%%	\item Desafio: $w$  
-	 
+
 	\item Construa uma função que copie uma fila, para uma nova fila invertida.
 	
-	\item Faça uma simulação aleatória de chegadas e partidas em uma fila,
-	tal que a cada passo exiba as mensagens de fila cheia, fila vazia,
-	número de elementos corrente na fila. Faça isto para um número considerável
-	de simulações. Este exercício é a base na simulação de sistemas de filas.
+	\item Faça uma simulação aleatória de chegadas e partidas em uma fila,	tal que a cada passo exiba as mensagens de fila cheia, fila vazia, 	número de elementos corrente na fila. Faça isto para um número considerável	de simulações. Este exercício é a base na simulação de sistemas de filas.
 	
 	\item Implemente um sistema de fila com prioridades (será um dos projetos)
-	
-	
 	
 	
 	\end{enumerate}
