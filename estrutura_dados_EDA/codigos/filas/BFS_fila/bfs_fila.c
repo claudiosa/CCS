@@ -15,9 +15,7 @@ void BFS(int vertex, fila *); // using a queue
 int vertices; // TOTAL DE VERTICES
 int adjacent_matrix[MAX][MAX];
 int vertex_status[MAX]; // VETOR de nos abertos ou fechados
- 
 void imp_NUM_LETRAS(int ); 
-int vertex_status[MAX];
 //==================================================================== 
 int main(void)
 {
@@ -65,7 +63,8 @@ void BFS(int vertex, fila * F)
   // for(count = vertices - 1; count >= 0; count--) // PILHA
   //  pela direita ao contrário da PILHA a numeracao segue do menor ao maior
   // logo:
-  	for(count = 0; count < vertices ; count++)
+  // 	for(count = vertices-1; count >= 0 ; count --)  -- era PILHA
+ 	for(count = 0; count < vertices ; count++)
   	    {
   	     if((adjacent_matrix[vertex][count] == 1) && 
              (vertex_status[count] == aberto))
