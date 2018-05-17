@@ -1,5 +1,6 @@
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD
 
 * pode ser individual ou dupla
@@ -10,6 +11,8 @@ Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD
 * ver pdf para o exercicio em questao -- exercicio_minimizacao.pdf
 * dúvidas perguntar na lista .....
 =======
+=======
+>>>>>>> 02f769ee492e80cf977bbe2b8da32f38ee0921cd
 Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD:
 
 * Pode ser individual ou dupla
@@ -23,5 +26,8 @@ Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD:
 * Tragam todo código operacional na apresentação
 
 
+<<<<<<< HEAD
 >>>>>>> lfa
+=======
+>>>>>>> 02f769ee492e80cf977bbe2b8da32f38ee0921cd
 
