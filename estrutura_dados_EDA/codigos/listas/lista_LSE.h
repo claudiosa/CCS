@@ -1,5 +1,4 @@
 
-// Definicao de lista_11.h
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -10,11 +9,14 @@ struct NO_struct
   {
     //char nome[N]; //ou uma outra struct
     char *pt_nome; // para prova simplesmente int conteudo;
+    // MUDE o conteúdo do NO
+    // int  VALOR;    por exemplo
     struct NO_struct *next; 
   };
 
 typedef struct NO_struct  NOH_tipo_LSE;
 
+// ALGUNS METODOS -- TDAs para LSE
 NOH_tipo_LSE * cria_no(void);
 void imp_lista(NOH_tipo_LSE *L);
 int  ins_fim_lista  (char *pt_ENTRADA, NOH_tipo_LSE **L);
@@ -28,4 +30,4 @@ bool exclui_o_ultimo_lista(  NOH_tipo_LSE **header_L );
 bool esta_vazia( NOH_tipo_LSE **L );
 int recurs_comp_lista_1( NOH_tipo_LSE *L );
 int recurs_comp_lista_2( NOH_tipo_LSE **L );
-/****************************************/
+/******************************************************************************/

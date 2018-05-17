@@ -1,0 +1,27 @@
+
+<<<<<<< HEAD
+Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD
+
+* pode ser individual ou dupla
+* qualquer linguagem de programaçao
+* apresentacao até 30/maio/2018 -- penalidades apos esta data
+* casos de testes em arquivos separados: exercicio 95 - 4 casos de teste
+* sao os 4 grafos do exercicio 95
+* ver pdf para o exercicio em questao -- exercicio_minimizacao.pdf
+* dúvidas perguntar na lista .....
+=======
+Implementar UM ou QUALQUER algoritmo de MINIMIZACAO de AFD:
+
+* Pode ser individual ou dupla
+* Qualquer linguagem de programação
+* Apresentação até 30/maio/2018 -- penalidades após esta data
+* Casos de testes em arquivos separados: exercicio 95 - 4 casos de teste
+* São os 4 grafos do exercicio 95
+* Ver pdf para o exercicio em questao -- exercicio_minimizacao.pdf
+* Dúvidas perguntar na lista .....
+* Marquem as apresentações com o professor
+* Tragam todo código operacional na apresentação
+
+
+>>>>>>> lfa
+
