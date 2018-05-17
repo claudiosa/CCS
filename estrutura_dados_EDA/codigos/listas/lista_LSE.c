@@ -22,14 +22,14 @@ void imp_lista(NOH_tipo_LSE *L)
 { 
   puts("\n IMPRIME LISTA: \n ============================");
   int i=1;
- // i ... apenas para uma saida mais cabrichada
+   // i ... apenas para uma saida mais cabrichada
   do {
-	  printf("\n %do. Noh  NOME: %s", i , ( L -> pt_nome));
-	  printf("\t END: %p ", L ); // cuidar aqui ...
-	  //printf("distancia entre nos: %X \n", p->lista - p->lista->prox);
-	  L = L -> next;
-      i++;
-	} while( L != NULL );  
+		  printf("\n %do. Noh  NOME: %s", i , ( L -> pt_nome) );
+		  printf("\t END: %p ", L ); // cuidar aqui ...
+		  //printf("distancia entre nos: %X \n", p->lista - p->lista->prox);
+		  L = L -> next;
+	      i++;
+	    } while( L != NULL );  
 	
 	return;
 }
@@ -42,8 +42,10 @@ void ins_inic_lista(char *pt_DADO, NOH_tipo_LSE ** head)
 
     //new_node-> x_nome = val;
     new_node  -> pt_nome = pt_DADO;
-    new_node -> next = (*head);// para o lugar onde head estava
+    // a troca  de endereços
+    new_node -> next = (*head);  // para o lugar onde head estava apontando
     (*head) = new_node ;
+    return;
 }
 
 // insere DADO x_nome na lista
@@ -76,13 +78,13 @@ int ins_fim_lista(char *pt_DADO, NOH_tipo_LSE ** L)
 		return 22; // caso geral
 	}
 }	
-// insere SIMPLIFICADO sem os codigos de retorno
+// insere SIMPLIFICADO sem os codigos de retorno acima
 void ins_fim_lista_2(char *pt_DADO,  NOH_tipo_LSE **L )
  {
    /* vai ser inserido no final da lista */
   if( (*L) == NULL ) // caso L nao esteja enderecado a lugar algum
     {
-		NOH_tipo_LSE * novo_no = cria_no ();
+		NOH_tipo_LSE * novo_no = cria_no ( );
 		//se lista vazia ... esta vai comecar em ..
 		(*L) = novo_no;
 		//strcpy( novo_no  -> nome , x_nome);
@@ -94,7 +96,7 @@ void ins_fim_lista_2(char *pt_DADO,  NOH_tipo_LSE **L )
     {	
     	NOH_tipo_LSE * novo_no , * aux ;
 	    aux = (*L); // inicio da lista
-		for( ; aux -> next != NULL ; )
+		for(    ;    aux -> next != NULL   ;    )
 			aux = aux -> next ;
 		
 		novo_no = cria_no ();   /* CRIA ==> ALOCA */
@@ -106,16 +108,16 @@ void ins_fim_lista_2(char *pt_DADO,  NOH_tipo_LSE **L )
 	}
 }
 
-// Consertado ....
+// Se vazia retorna TRUE
 bool esta_vazia( NOH_tipo_LSE **L )
 	{
 		return(  (*L) == NULL  );
 	}
 
-/* se eh o ultimo  ..... MELHORAR ..... pois nao eh caso*/
+/* este é o  ultimo NOH?  ....*/
 int is_last( NOH_tipo_LSE *L )
 {
-	return( L->next == NULL );
+	return(  L->next == NULL );
 }
 
 void destroi_lista( NOH_tipo_LSE **L )
@@ -167,9 +169,9 @@ int comprimento_lista( NOH_tipo_LSE **L )
 	      	i++;
 		    } ;
 		   OU SIMPLESMENTE ...... */   
-       for(aux =(*L) , i=1;
-            ( aux -> next != NULL ) ; 
-            aux = aux -> next, i++);     
+       for( aux =(*L) , i=1  ; 
+            ( aux -> next != NULL )   ; 
+            aux = aux -> next, i++ ) ;     
        //printf("\n Comprimento da lista: %d ", i );
   
        return i;
@@ -229,7 +231,7 @@ bool exclui_n_esimo_lista( int n, NOH_tipo_LSE **L )
 	    i++;
 	 } ;
 		      
-    anterior -> next = corrente -> next ;
+      anterior -> next = corrente -> next ;
 	  printf("\n NOH: %d => EXCLUINDO NOME: %s", i, ( corrente -> pt_nome));
     
     free(corrente);
@@ -248,7 +250,6 @@ bool exclui_o_ultimo_lista(  NOH_tipo_LSE **header_L )
 
 
  // Insercao na N-esima posicao .... 
-
 bool inclui_n_esima_lista( int n, char *pt_DADO, NOH_tipo_LSE **head_L )
   {
 
