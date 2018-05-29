@@ -1,4 +1,4 @@
-// Prototipos etc em ...
+
 #include "lista_LSE.h"
 
 int main(void)
@@ -14,31 +14,29 @@ int main(void)
     NOH_tipo_LSE * L; 
     L = NULL; // aqui sim eh necessario ... VAZIA
   
-    printf(" ENDERECOS de L:  %p : &L %p" , L , &L );
-    printf("\n  1. Compto de Lista:  %d NOSH",  comprimento_lista(&L) );  
+    printf("ENDERECOS de L:  %p : &L %p" , L , &L );
+    printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );  
     // APLICACAO 1
 	for(int i=0; i < Q; i++ )	
 	{
-     //printf("\n => %d : %d : %s", i, ins_fim_lista( vetor_INPUT[i] , &L ),   vetor_INPUT[i] );
-     // &L ... passagem por referencia ... para atualizar L no parâmetro
+     //printf("\n => %d : %d : %s", i, ins_fim_lista( vetor_INPUT[i] , &L ),     	                              vetor_INPUT[i] );
      ins_fim_lista_2( vetor_INPUT[i] , &L );
-    //printf("\n ...inserindo...:  %d: %s" , i, vetor_INPUT[i]);
+//	 printf("\n ...inserindo...:  %d: %s" , i, vetor_INPUT[i]);
      };
-    printf("\n  2. Compto de Lista:  %d NOSH", comprimento_lista(&L) ); 
-    //  APLICACAO 2
+    printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );
+//  APLICACAO 2
 	for(int i=0; i < Q; i++ )	
 	{
      ins_inic_lista(vetor_INPUT[i] , &L );
     };
-    printf("\n  3. Compto de Lista:  %d NOSH", comprimento_lista(&L) );
+// PARA FINS DE TESTES ....	
 
-  // PARA FINS DE TESTES ....	
     imp_lista( L );
     printf("\n  Compto de Lista:  %d NOSH", comprimento_lista(&L) );
     printf("\n  Recursivo 1 Compto de Lista:  %d NOSH", recurs_comp_lista_1( L ));
     printf("\n  Recursivo 2 Compto de Lista:  %d NOSH", recurs_comp_lista_2( &L ));    
 
-/*  Em sala teste ....
+/*
     if( exclui_n_esimo_lista( 4 , &L ) )
     printf("\nExclusao com sucesso" ); 
     else
