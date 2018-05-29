@@ -13,23 +13,21 @@ int main (void)
   int matriz[M][N];
   int i, j; 
 
-  /* LEITURA --- NAO TESTADO AINDA */ 
+  /* LEITURA */ 
   for (i = 0; i < M; i++)
-  { for (j = 0; j < N; j++)
-       { scanf("%d ", & matriz[i][j] );
-	 printf ("( %d, %d): %d\t", i,j, matriz[i][j]);
-	}
-    printf ("\n");   
-  }
+    for (j = 0; j < N; j++)
+			{ scanf("%d ", & matriz[i][j] );
+			 printf (" %d\t", matriz[i][j]);
+	       }
 			
   /* ESCREVENDO */			
   for (i = 0; i < M; i++)
-   {
-     for (j = 0; j < N; j++)
-     { printf ("m(%d,%d) = %d\t", i, j, matriz[i][j]);
-     }
-      printf ("\n");
-   } // fim do  2o. for
+    {
+	 for (j = 0; j < N; j++)
+		  printf ("m(%d,%d) = %d\t", i, j, matriz[i][j]);
+	  	  printf ("\n");
+
+     } // fim do  2o. for
      
      printf("\n Profs. are humans !!!! \n\n");
 

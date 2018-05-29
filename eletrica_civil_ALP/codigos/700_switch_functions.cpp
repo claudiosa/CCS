@@ -3,17 +3,18 @@
   http://www.inf.ufpr.br/cursos/ci067/Docs/NotasAula/notas-11_Fun_c_coes.html
  */
 
-//void eh um default de tipo  vazio
+
+
 #include<stdio.h>
 #include <stdlib.h>
 // DECLARACAO DAS FUNCOES ou PROTOTIPO
-void oi( void )                           ; 
-float calc_media( int vetor[] , int )     ;
-void tudo_bem( char x[] )                 ;
-void familia( void )                      ;
-void sair( void )                         ;
-int soma2(int  , int )                  ;
-int le_int(void);
+void oi( void );
+float calc_media( int vetor[] , int );
+void tudo_bem( char x[] );
+void familia( void );
+void sair( void );
+int soma2(int x , int y);
+
 
 int main()
 {
@@ -53,9 +54,7 @@ int main()
 
 	case 4:
 		{ printf("\n\tDigite 2 numeros para somar: ");
-          //scanf("%d %d", &A, &B);
-          A = le_int();
-          B = le_int();
+          scanf("%d %d", &A, &B);
           printf("\n\tA resposta eh: %d ", soma2(A , B) );
 		  break;
 		 }
@@ -81,7 +80,6 @@ int main()
 void oi()
 {
     printf("Oi!\n");
-    return; // opcional
 }
 /*******************************************************************/
 float calc_media ( int vetor[] , int TAM)
@@ -90,9 +88,9 @@ float calc_media ( int vetor[] , int TAM)
    for(int i=0; i < TAM; i++ )
    {
      media += vetor[i] ;
-     printf(":\t %d", vetor[i]);
+    // printf(":\t %f", media);
    }  
-   media = media/TAM ;
+       media = media/TAM ;
    return(media);
  }  
 /*******************************************************************/
@@ -126,17 +124,4 @@ int soma2(int x , int y)
 }
 /*******************************************************************/
 
- int le_int()
- { int x;
-	
-   printf(" DIGITE UM NUMERO INTEIRO ");
-   //setbuf( stdin, NULL );
-    //fflush(stdin); // quando se le caracter
-    /* OU
-     fflush(stdin);
-    __fpurge(stdin);
-  */
-   scanf("%d ", & x );
-   return (x);
-  } 
-/*******************************************************************/
+ 

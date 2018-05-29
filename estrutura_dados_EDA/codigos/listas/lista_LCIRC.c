@@ -1,10 +1,11 @@
 #include "lista_LCIRC.h"
 
+
 // UMA PRIMITIVA -- generica a qualquer momento
 NOH_tipo_LCIRC * cria_no(void)
 {
-  NOH_tipo_LCIRC  *new_node;
-  new_node = (NOH_tipo_LCIRC *) malloc(sizeof(NOH_tipo_LCIRC)) ;
+ NOH_tipo_LCIRC  *new_node;
+ new_node = (NOH_tipo_LCIRC *) malloc(sizeof(NOH_tipo_LCIRC)) ;
 
  if( new_node == NULL)
 	{
@@ -22,11 +23,11 @@ void imp_lista(NOH_tipo_LCIRC *pt_L) // UMA COPIA
   int i=1;
  // printf("\n %d o. Noh:::  NOME: %s", i , ( L -> nome));
   NOH_tipo_LCIRC * cabeca = pt_L ;
-  if( pt_L == NULL ) // caso L nao esteja enderecado a lugar algum
-   {
-  	 printf("\n LISTA VAZIA .....");
-  	 return;
-    }
+ if( pt_L == NULL ) // caso L nao esteja enderecado a lugar algum
+  {
+  	printf("\n LISTA VAZIA .....");
+  	return;
+  }
 
   do {
 	  printf("\n %do. Noh  NOME: %s", i , ( pt_L -> pt_nome) );
@@ -171,6 +172,7 @@ int comprimento_lista( NOH_tipo_LCIRC **L )
   }
 
 
+
 /*
  BEM TRABALHOSA .... estudem todos os casos possiveis
  3 casos possiveis ... pode ser melhorada
@@ -274,7 +276,7 @@ bool exclui_n_esimo_lista( int n_posicao, NOH_tipo_LCIRC **L )
 
   }    
 
-//  OK testado
+//  Reusando a exclusao do N-esimo  
 bool exclui_o_ultimo_lista(  NOH_tipo_LCIRC **header_L )
  {
    int posicao_ultimo = comprimento_lista( &(*header_L) );
