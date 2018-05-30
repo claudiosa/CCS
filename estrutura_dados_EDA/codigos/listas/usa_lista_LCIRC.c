@@ -54,8 +54,9 @@ int main(void)
  
     exclui_n_esimo_lista( 1, &header_LCIRC ); // 1o. lista
     printf("\n  Comprimento corrente da LDE:  %d NOH(S)", comprimento_lista(&header_LCIRC) );
- 
-    //printf("\n  Comprimento corrente da LDE:  %d NOH(S)", comprimento_lista(&header_LCIRC) );
+  
+    exclui_o_ultimo_lista(  &header_LCIRC ); // ULTIMO
+     printf("\n\n Finalmente USO do  exclui_o_ultimo_lista  restam %d NOH(S) na lista ", comprimento_lista(&header_LCIRC) );
     // PARA FINS DE TESTES ....	
 
 	//printf("fim: %p %p\n", L->next, 	ancora->next );
