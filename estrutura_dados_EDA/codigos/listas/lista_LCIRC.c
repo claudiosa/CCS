@@ -276,8 +276,7 @@ bool exclui_n_esimo_lista( int n_posicao, NOH_tipo_LCIRC **L )
 
   }    
 
-
-//  NAO ESTA PRONTO para LCIRCULAR
+//  Reusando a exclusao do N-esimo  
 bool exclui_o_ultimo_lista(  NOH_tipo_LCIRC **header_L )
  {
    int posicao_ultimo = comprimento_lista( &(*header_L) );
