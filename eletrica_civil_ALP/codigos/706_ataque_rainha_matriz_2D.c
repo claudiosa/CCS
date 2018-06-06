@@ -1,11 +1,15 @@
 #include<stdio.h>
 #include <stdlib.h>
+#include <math.h> 
+
 #define N 8
 // a ultima dimensao deve ser declarada
-void inicializa_matriz(   int  matriz[][N] , int );
-void imprime_matriz(   int matriz[N][N] , int );
-void ataques_rainha(   int  matriz[][N] , int , int, int);
-int posicao_legal_do_REI(   int  matriz[][N] , int , int, int);
+void inicializa_matriz( int  matriz[][N] , int );
+void imprime_matriz( int matriz[N][N] , int );
+int ataques_rainha( 
+	  int x_queen, int y_queen,
+	  int x_king, int y_king
+	  );
   
 int main(void)
 {
@@ -17,23 +21,33 @@ int main(void)
    /* 5 variáveis */
 //   scanf("%d", &N);
    printf("\nDigite as POSICOES da Rainha e depois do REI ... 0 e 7\n ==>");
-   scanf("%d %d", &x_Rainha, &y_Rainha);
-   scanf("%d %d", &x_REI, &y_REI);
+   //scanf("%d %d", &x_Rainha, &y_Rainha);
+   //scanf("%d %d", &x_REI, &y_REI);
 /***************************************************/
 
+   x_Rainha = 3;
+   y_Rainha = 3;
 
+   x_REI = 6;
+   y_REI = 6;
 
 
    int matriz[N][N];
-   
+
    inicializa_matriz( matriz ,  N);
    printf("\n----------------------------------\n");
-   imprime_matriz( matriz ,  N);
-   ataques_rainha( matriz , N , x_Rainha, y_Rainha);
-   printf("\n----------------------------------\n");
-   imprime_matriz( matriz ,  N);
+   matriz[x_Rainha][y_Rainha] = 1;
+   matriz[x_REI][y_REI] = 2;
    
-   if ( posicao_legal_do_REI( matriz , N , x_REI, y_REI) == 1 )
+   imprime_matriz( matriz ,  N);
+   int resposta =  ataques_rainha( 
+	  x_Rainha, y_Rainha,
+	  x_REI, y_REI );
+
+   printf("\n----------------------------------\n");
+   //imprime_matriz( matriz ,  N);
+   
+   if ( resposta == 0 )
       printf(" \n POSICAO OK DO REI ");
       else
       printf(" \n POSICAO de PERIGO  AO REI ");
@@ -81,51 +95,19 @@ void imprime_matriz( int matriz[][N], int TAM)
    return;
  }  
 /*******************************************************************/
-int posicao_legal_do_REI(int  matriz[][N], int TAM, int row, int col)
+int ataques_rainha( int x_queen, int y_queen,
+	                int x_king, int y_king)
 {
-   if(matriz[row][col] == 1) 
-        return (0); // nao mexe no tabuleiro
-   else
-   {
-    matriz[row][col] = 2; // UMA MARCA AO REI
-    return (1);
-   }
- }    
-/*******************************************************************/
-void ataques_rainha(int  matriz[][N], int TAM, int row, int col)
-{/* IMPRIME toda matriz */ 
- int i, j; 
- for (j = 0; j < TAM; j++)
-    matriz[row][j] = 1;
- 
- for (i = 0; i < TAM; i++)
-    matriz[i][col] = 1;
+    int chave = 0;
+    // ESTAO SOB A DIAGONAL  
+    if(abs(x_queen - x_king) == abs(y_queen - y_king ))
+    chave++;
+    
+    if (abs(x_queen-x_king) == 0)   
+    chave++;
 
-// SOLUCAO ROGERIO .... CLARA
- 
- // para diagonal esquerda -> acima
- for (i = row, j=col ; (i>=0) && (j >=0) ; j--, i--)
-  matriz[i][j] = 1;
-
- // para diagonal esquerda -> baixo
- for (i = row, j=col ; (i<N) && (j >=0) ; j--, i++)
-  matriz[i][j] = 1;
-  
- // para diagonal  direita -> acima
- for (i = row, j=col ; (i>=0) && (j < N) ; j++, i--)
-  matriz[i][j] = 1;
-
- // para diagonal  direita -> baixo 
- for (i = row, j=col ; (i<N) && (j < N) ; j++, i++)
-  matriz[i][j] = 1;
-
-   //PARA ESTUDO ...
-   
-//  matriz[i-abs(i-row)][abs(j-col)] = 1;
-   
-  
-  // for (j = 0; j < TAM; j++)
-   //  matriz[abs(i-row)][j] = 1;
-
-   return;
+    if (abs(y_queen-y_king) == 0)   
+    chave++;
+    
+    return chave;
  }  
