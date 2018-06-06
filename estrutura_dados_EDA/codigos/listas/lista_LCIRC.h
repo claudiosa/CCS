@@ -27,11 +27,11 @@ int  insere_inicio_lista (char *pt_ENTRADA, NOH_tipo_LCIRC **L);
 void destroi_lista( NOH_tipo_LCIRC **L );
 int  comprimento_lista( NOH_tipo_LCIRC **L );
 bool exclui_n_esimo_lista( int n, NOH_tipo_LCIRC **L );
+bool exclui_o_ultimo_lista(  NOH_tipo_LCIRC **header_L );
 
 /*
 FALTAM METODOS ... 
 int  ins_fim_lista  (char *pt_ENTRADA, NOH_tipo_LCIRC **L);
 bool inclui_n_esima_lista( int n, char *pt_DADO, NOH_tipo_LCIRC **L );
-bool exclui_o_ultimo_lista(  NOH_tipo_LCIRC **header_L );
 */
 /****************************************/
