@@ -1,19 +1,19 @@
-
+ // Definicao de arv_bin011.h
 #include "arv_bin.h"
  /* CreateTree:  create a tree.
 Pre:   None.
 Post: An empty binary search tree has been created to which root points.
  */
-void CreateTree(BIN_TREE **root)
+void CreateTree(BinTreeNode **root)
 {    // VEM O ENDERECO ....do ponteiro original
 	 *root = NULL;
 }
 
 // ALOCA UM NO DA ARVORE
-BIN_TREE * cria_no_BIN(void)
+BinTreeNode * cria_no_BIN(void)
 {
-  BIN_TREE *X;
-  X =  (BIN_TREE *) malloc (sizeof (BIN_TREE));
+  BinTreeNode *X;
+  X =  (BinTreeNode *) malloc (sizeof (BinTreeNode));
   if ( ! X ) // ou X == NULL ?
 	{
 	    printf("\n problema de alocacao... de memoria");
@@ -33,7 +33,7 @@ Pre:   The tree to which root points has been created.
 Post: The function returns the value TRUE or FALSE according as the
 tree is empty or not.
  */
-bool TreeEmtpy(BIN_TREE *root)
+bool TreeEmtpy(BinTreeNode *root)
 {
     if(root == NULL)
 	 return true;
@@ -50,33 +50,33 @@ Post: The node newnode has been inserted into the tree in such a way
  */
 // root vira como COPIA
 // podes fazer por REFERENCIA **   
-BIN_TREE * InsertTree_BIN(BIN_TREE *root, DATA_TREE INFO )
+BinTreeNode * InsertTree_BIN(BinTreeNode *root, TreeEntry INFO )
 {
   if (root == NULL) 
   {
    // cria um no ao chegar numa folha na arvore ... 
-   BIN_TREE * X = cria_no_BIN(); 
-	 X ->  UMA_CHAVE = INFO . UMA_CHAVE; 
-   strcpy(X -> UM_NOME , INFO . UM_NOME);
-   // Tipo DATA_TREE
-   //printf("\n %d : %x : %s", X -> UMA_CHAVE , X , X -> UM_NOME );
-	X -> left = X -> right = NULL;
-    root = X; // CUIDADO ... NAO ESQUECER
+   BinTreeNode * X = cria_no_BIN(); 
+	 X -> dados . UMA_CHAVE = INFO . UMA_CHAVE; 
+   strcpy(X -> dados.UM_NOME , INFO . UM_NOME);
+   // Tipo TreeEntry
+   //printf("\n %d : %x : %s", X -> dados.UMA_CHAVE , X , X -> dados.UM_NOME );
+	 X -> left = X -> right = NULL;
+   root = X; // CUIDADO ... NAO ESQUECER
     // TINHA ESQUECIDO DE ATUALIZAR ... 2 horas estudo
     // pois eh o ultimo inserido e a ULTIMA CHAMADA RECURSIVA ....
 	 } 
    else 
      {
-      if ((INFO.UMA_CHAVE) == (root -> UMA_CHAVE))
+      if ((INFO.UMA_CHAVE) == (root -> dados.UMA_CHAVE))
         {
           printf("\n CHAVE DUPLICADA !!!"); 
           printf("\n VIOLA DEFINICAO DE ABB !!!\n"); 
-          printf("\n TINHA: %d | ENTRY: %d\n",root -> UMA_CHAVE, INFO.UMA_CHAVE ); 
+          printf("\n TINHA: %d | ENTRY: %d\n",root -> dados.UMA_CHAVE, INFO.UMA_CHAVE ); 
           getchar();
           //system("exit"); // ver isto depois 
         } 
       // SEGUE A BUSCA ATE UMA FOLHA  
-       else if ((INFO.UMA_CHAVE) < (root -> UMA_CHAVE))
+       else if ((INFO.UMA_CHAVE) < (root -> dados.UMA_CHAVE))
        root->left = InsertTree_BIN(root->left, INFO); // MENOR: ESQUERDA
        else
        root->right = InsertTree_BIN(root->right, INFO);// MAIOR: DIREITA
@@ -87,38 +87,38 @@ BIN_TREE * InsertTree_BIN(BIN_TREE *root, DATA_TREE INFO )
 }
 //======================================================//
 // Feito as pressas ... meio longo ... deve ser melhorado
-BIN_TREE * InsertTree_ITERATIVO(BIN_TREE *NOH_RAIZ, DATA_TREE INFO )
+BinTreeNode * InsertTree_ITERATIVO(BinTreeNode *NOH_RAIZ, TreeEntry INFO )
 { // cria um no ao chegar numa folha na arvore ...
    if (NOH_RAIZ == NULL) // UMA UNICA VEZ
   {
    // cria um no ao chegar numa arvore VAZIA
-   BIN_TREE * X = cria_no_BIN(); 
-	X ->  UMA_CHAVE = INFO . UMA_CHAVE; 
-    strcpy( X -> UM_NOME , INFO . UM_NOME);
+   BinTreeNode * X = cria_no_BIN(); 
+	X -> dados . UMA_CHAVE = INFO . UMA_CHAVE; 
+    strcpy( X -> dados.UM_NOME , INFO . UM_NOME);
     X -> left  = NULL;  // Aterramentos
 	X -> right = NULL;  // Aterramentos
     return X; // serah a raiz pois estava vazia a mesmo
     }
   	
-  BIN_TREE * predecessor = NOH_RAIZ;
-  BIN_TREE * ancora = NOH_RAIZ; // PODERIA SER USADO um TEMP
+  BinTreeNode * predecessor = NOH_RAIZ;
+  BinTreeNode * ancora = NOH_RAIZ; // PODERIA SER USADO um TEMP
   // mas a raiz existente eh a MESMA
   char link_lr; // uma chave Left ou Right  
   while ( NOH_RAIZ!= NULL ) 
      {
-      if ( INFO.UMA_CHAVE < (NOH_RAIZ -> UMA_CHAVE) ) 
+      if ( INFO.UMA_CHAVE < (NOH_RAIZ -> dados.UMA_CHAVE) ) 
       {  predecessor = NOH_RAIZ;
 		 link_lr = 'l'; 
       // alvo menor que o valor corrente da raiz
          NOH_RAIZ = NOH_RAIZ->left; // AVANCA
        }  
        // alvo MAIOR que o valor corrente da raiz
-      else if ( INFO.UMA_CHAVE > (NOH_RAIZ-> UMA_CHAVE) )
+      else if ( INFO.UMA_CHAVE > (NOH_RAIZ-> dados.UMA_CHAVE) )
          {  predecessor = NOH_RAIZ;
 			link_lr = 'r'; 
             NOH_RAIZ = NOH_RAIZ->right;
           }
-      else if ( INFO.UMA_CHAVE == (NOH_RAIZ-> UMA_CHAVE) )
+      else if ( INFO.UMA_CHAVE == (NOH_RAIZ-> dados.UMA_CHAVE) )
          { printf("CHAVE DUPLICADA -- jah esta na arvore");
 		   getchar();	 
 		   return ancora; 
@@ -127,10 +127,10 @@ BIN_TREE * InsertTree_ITERATIVO(BIN_TREE *NOH_RAIZ, DATA_TREE INFO )
      } // fim do while
 
    // ALOCA E COPIA etc 
-   BIN_TREE * X = cria_no_BIN(); 
-	X ->  UMA_CHAVE = INFO . UMA_CHAVE; 
-   strcpy(X -> UM_NOME , INFO . UM_NOME);
-   //printf("\n %d : %x : %s", X -> UMA_CHAVE , X , X -> UM_NOME );
+   BinTreeNode * X = cria_no_BIN(); 
+	X -> dados . UMA_CHAVE = INFO . UMA_CHAVE; 
+   strcpy(X -> dados.UM_NOME , INFO . UM_NOME);
+   //printf("\n %d : %x : %s", X -> dados.UMA_CHAVE , X , X -> dados.UM_NOME );
    X -> left = X -> right = NULL; // Aterramento
    // CONECTA O NOVO NOH AO PREDECESSOR
    if(link_lr == 'l')
@@ -142,7 +142,7 @@ BIN_TREE * InsertTree_ITERATIVO(BIN_TREE *NOH_RAIZ, DATA_TREE INFO )
 }
 //======================================================//
 // NUMERO DE NOS -- Faca a versao iterativa
-int num_nos_ABB( BIN_TREE *root)
+int num_nos_ABB( BinTreeNode *root)
 {
   if (root == NULL) 
   return 0;
@@ -157,7 +157,7 @@ int num_nos_ABB( BIN_TREE *root)
 
 //======================================================//
 // A MAIOR PROFUNDIDADE = ALTURA DE UNO  -- Faca a versao iterativa
-int altura_ABB( BIN_TREE *root )
+int altura_ABB( BinTreeNode *root )
 {
   if (root == NULL) 
   return -1;
@@ -172,7 +172,7 @@ int altura_ABB( BIN_TREE *root )
  }
 //======================================================//
 
-int fator_balanco_ABB( BIN_TREE *root )
+int fator_balanco_ABB( BinTreeNode *root )
 {
   if (root == NULL) 
   return -1;
@@ -201,24 +201,23 @@ Post: The function returns a pointer to a tree node that matches target
 or NULL if the target is not in the tree.
  */
 
-BIN_TREE *TreeSearch (BIN_TREE *NOH_RAIZ, int ALVO)
+BinTreeNode *TreeSearch(BinTreeNode *NOH_RAIZ, int ALVO)
 {
    if ( NOH_RAIZ != NULL )
    {
      // RAMO ESQUERDO
-     if ( ALVO < (NOH_RAIZ -> UMA_CHAVE) ) 
+     if ( ALVO < (NOH_RAIZ -> dados.UMA_CHAVE) ) 
       // alvo menor que o valor corrente da raiz
       NOH_RAIZ = TreeSearch(NOH_RAIZ->left, ALVO);
      
-     if ( ALVO > (NOH_RAIZ-> UMA_CHAVE) )
+     if ( ALVO > (NOH_RAIZ-> dados.UMA_CHAVE) )
         NOH_RAIZ = TreeSearch(NOH_RAIZ->right, ALVO);
      
-     if ( ALVO == (NOH_RAIZ-> UMA_CHAVE) ) // achou!!!
+     if ( ALVO == (NOH_RAIZ-> dados.UMA_CHAVE) ) // achou!!!
         return NOH_RAIZ; 
-    
      else  
      {
-      printf("\n Em TreeSearch : ALVO era: %d", ALVO); 
+      printf("\n ALGUM Problema em TreeSearch : ALVO era: %d", ALVO); 
       getchar();
      // system("exit"); // ver isto depois 
      } 
@@ -229,47 +228,43 @@ BIN_TREE *TreeSearch (BIN_TREE *NOH_RAIZ, int ALVO)
    // nao estah na arvore   
    return NOH_RAIZ;
 }
-
 // ==================================================== //
 // VERSAO NAO RECURSIVA
-BIN_TREE *TreeSearch_ITERATIVO(BIN_TREE *NOH_RAIZ, int ALVO)
+BinTreeNode *TreeSearch_ITERATIVO(BinTreeNode *NOH_RAIZ, int ALVO)
 {
-  while (  (ALVO != (NOH_RAIZ-> UMA_CHAVE)) ||  ( NOH_RAIZ != NULL )  ) // NAO achou!!! 
+  while ( ALVO != (NOH_RAIZ-> dados.UMA_CHAVE) ) // NAO achou!!! 
       {
-       if ( ALVO < (NOH_RAIZ -> UMA_CHAVE) ) 
+       if ( ALVO < (NOH_RAIZ -> dados.UMA_CHAVE) ) 
       // alvo menor que o valor corrente da raiz
          NOH_RAIZ = NOH_RAIZ->left;
        // alvo MAIOR que o valor corrente da raiz
-         else if ( ALVO > (NOH_RAIZ-> UMA_CHAVE) )
+         else if ( ALVO > (NOH_RAIZ-> dados.UMA_CHAVE) )
          NOH_RAIZ = NOH_RAIZ->right;
      
        } // fim do while
 
-      if ( ALVO == (NOH_RAIZ-> UMA_CHAVE) ) // achou!!!
-      return NOH_RAIZ; 
+      if ( ALVO == (NOH_RAIZ-> dados.UMA_CHAVE) ) // achou!!!
+        return NOH_RAIZ; 
      
-      printf("\n ARVORE VAZIA .... ????"); 
-      printf("\n Ou noh ALVO NAO estava na arvore era: %d", ALVO); 
-      
-      if ( NOH_RAIZ == NULL ) 
+      else if ( NOH_RAIZ == NULL ) 
       {
       printf("\n ARVORE VAZIA ...."); 
       getchar();
      // system("exit"); // ver isto depois 
       } 
-      else  
-      {
+     else  
+     {
       printf("\n ALGUM Problema em TreeSearch : ALVO era: %d", ALVO); 
       getchar();
      // system("exit"); // ver isto depois 
-      } 
+     } 
      return NOH_RAIZ;
 }
 
 // ==================================================== //
 
 // ESTA quase BOM .... usando o outro por **
-int deltree(BIN_TREE * tree) 
+int deltree(BinTreeNode * tree) 
 {
    if (tree == NULL) 
    return 0; // true; 
@@ -293,7 +288,7 @@ int deltree(BIN_TREE * tree)
 
 // ==================================================== // 
 // ESTA quase BOM ....
-int deltree_TRUE(BIN_TREE ** tree) 
+int deltree_TRUE(BinTreeNode ** tree) 
 {
   if ( (*tree) == NULL ) 
    { return 0; // true; 
@@ -310,16 +305,16 @@ int deltree_TRUE(BIN_TREE ** tree)
  }
 // ==================================================== //
 // 
-void print_NODE(BIN_TREE * node)
+void print_NODE(BinTreeNode * node)
 {
      /* print the data of node */
      //printf("\n End: %d ", node); //%x
-     printf("\t CHAVE: %d :", node-> UMA_CHAVE);  
-     printf("\t NOME: %s ", node-> UM_NOME);
+     printf("\t CHAVE: %d :", node->dados . UMA_CHAVE);  
+     printf("\t NOME: %s ", node->dados . UM_NOME);
      return;
 }
 // ==================================================== //
-void printInorder(BIN_TREE * node)
+void printInorder(BinTreeNode * node)
 {
    if (node == NULL)
       return;
@@ -327,8 +322,8 @@ void printInorder(BIN_TREE * node)
      /* VISITE A SUB ARVORE A ESQUERDA */
      printInorder(node->left);
      /* then print the data of node */
-     printf("\n: %d :", node-> UMA_CHAVE);  
-     printf("\t NOME: %s ", node-> UM_NOME);
+     printf("\n: %d :", node->dados . UMA_CHAVE);  
+     printf("\t NOME: %s ", node->dados . UM_NOME);
      //printf("\t END NOH: %x ",  node );  
      /* now VISITE A SUB ARVORE A DIREITA */
      printInorder(node->right);
@@ -341,13 +336,13 @@ tree in preorder sequence.
  */
 
 // IMPRIMA SUB a esquerda e SUB a direita
-void printPreorder(BIN_TREE * node)
+void printPreorder(BinTreeNode * node)
 {
   if (node == NULL)
       return;
      /* first print the data of node */
-     printf("\n: %d :", node-> UMA_CHAVE);  
-     printf("\t NOME: %s ", node-> UM_NOME);  
+     printf("\n: %d :", node->dados . UMA_CHAVE);  
+     printf("\t NOME: %s ", node->dados . UM_NOME);  
      /*  then recur on left child */
      printPreorder(node->left);
      /* now recur on right child */
@@ -355,7 +350,7 @@ void printPreorder(BIN_TREE * node)
 }
 
 // ==================================================== //
-void printPosorder(BIN_TREE * node)
+void printPosorder(BinTreeNode * node)
 {
   if (node == NULL)
       return;
@@ -364,8 +359,8 @@ void printPosorder(BIN_TREE * node)
      /* then recur on right child */
      printPosorder(node->right);
      /* now print the data of node */
-     printf("\n: %d :", node-> UMA_CHAVE);  
-     printf("\t NOME: %s ", node-> UM_NOME);  
+     printf("\n: %d :", node->dados . UMA_CHAVE);  
+     printf("\t NOME: %s ", node->dados . UM_NOME);  
 }
 /* ***********************************************/
 
