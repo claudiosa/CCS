@@ -12,6 +12,7 @@ professor
 */
 
 #define N 20 
+#define COUNT 10
 
 struct struct_Tree_DATA {
     int UMA_CHAVE; // para fins de busca
@@ -37,12 +38,15 @@ BIN_TREE * InsertTree_ITERATIVO(BIN_TREE * , DATA_TREE);
 void printInorder(BIN_TREE * );
 void printPreorder(BIN_TREE * );
 void printPosorder(BIN_TREE * );
+void pretty_print ( BIN_TREE *tree, int level );
 
 int deltree(BIN_TREE * ) ;
 int deltree_TRUE(BIN_TREE ** tree);
 
 BIN_TREE *TreeSearch(BIN_TREE *NOH_RAIZ, int ALVO);
 BIN_TREE *TreeSearch_ITERATIVO(BIN_TREE *NOH_RAIZ, int ALVO);
+BIN_TREE * search_basic ( BIN_TREE *tree, int key ); 
+BIN_TREE * iterative_search_basic (BIN_TREE  *root, int key);
 
 // POR FAZER MUDANDO O TIPO DE RETORNO
 DATA_TREE *TreeSearch_ITERATIVO_02(BIN_TREE *NOH_RAIZ, int ALVO);
@@ -51,7 +55,7 @@ DATA_TREE *TreeSearch_ITERATIVO_02(BIN_TREE *NOH_RAIZ, int ALVO);
 int num_nos_ABB( BIN_TREE *root);
 void print_NODE(BIN_TREE * node);
 int lendo_dados( BIN_TREE ** pt_tree  );
-
+void print2DUtil(BIN_TREE*root, int space);
 
 // do arquivo do exclui ....
 BIN_TREE * remove_NOH_ABB(BIN_TREE *raiz, int chave) ;
@@ -63,3 +67,4 @@ BIN_TREE * buscaNo(BIN_TREE *raiz, int ch, BIN_TREE **pai);
 int altura_ABB( BIN_TREE *root);
 int fator_balanco_ABB( BIN_TREE *root );
 int maior (int x, int y);
+

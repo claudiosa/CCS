@@ -193,6 +193,27 @@ int maior (int x, int y)
 	 else
 	 return y;
 }
+/* ***********************************************/
+// recursive version for search in BINARY tree
+BIN_TREE * search_basic ( BIN_TREE *tree, int key )
+{
+  if ( tree == NULL ) 
+  {
+    return NULL; // vazio ou NAO ENCONTRADO
+  } 
+    else if ( key == tree -> UMA_CHAVE ) {
+    return tree;
+  } 
+    else if ( key < tree -> UMA_CHAVE ) {
+    return search_basic ( tree -> left, key );
+  } 
+   else {
+    return search_basic ( tree -> right, key );
+  }
+}
+/* ***********************************************/
+
+
 // ==================================================== //
 
  /* TreeSearch: search for target starting at node root.
@@ -203,72 +224,79 @@ or NULL if the target is not in the tree.
 
 BIN_TREE *TreeSearch (BIN_TREE *NOH_RAIZ, int ALVO)
 {
-   if ( NOH_RAIZ != NULL )
-   {
-     // RAMO ESQUERDO
-     if ( ALVO < (NOH_RAIZ -> UMA_CHAVE) ) 
-      // alvo menor que o valor corrente da raiz
-      NOH_RAIZ = TreeSearch(NOH_RAIZ->left, ALVO);
-     
-     if ( ALVO > (NOH_RAIZ-> UMA_CHAVE) )
-        NOH_RAIZ = TreeSearch(NOH_RAIZ->right, ALVO);
-     
-     if ( ALVO == (NOH_RAIZ-> UMA_CHAVE) ) // achou!!!
-        return NOH_RAIZ; 
+   if ( ALVO == ( NOH_RAIZ-> UMA_CHAVE) ) // achou!!!
+    {return NOH_RAIZ;
+    }	 
+    else if ( ALVO < (NOH_RAIZ -> UMA_CHAVE) ) 
+      {
+	   NOH_RAIZ = TreeSearch(NOH_RAIZ->left, ALVO);
+	   return NOH_RAIZ;
+	  }       
     
-     else  
-     {
-      printf("\n Em TreeSearch : ALVO era: %d", ALVO); 
-      getchar();
-     // system("exit"); // ver isto depois 
-     } 
-     
-    } // FIM DO IF 
-   // se nao foi chamada para o lado esquerdo ou direito
-   // NEM eh o valor ALVO procurado ou raiz NULL ... ENTAO valor
-   // nao estah na arvore   
-   return NOH_RAIZ;
+   // RAMO ESQUERDO
+   
+    //return(TreeSearch(NOH_RAIZ->left, ALVO));
+      // alvo menor que o valor corrente da raiz
+     else if ( ALVO > (NOH_RAIZ-> UMA_CHAVE) )
+    //return (TreeSearch(NOH_RAIZ->right, ALVO));
+      { NOH_RAIZ = TreeSearch(NOH_RAIZ->right, ALVO);
+        return NOH_RAIZ;       
+      } 
+      else
+      return NULL;       
 }
 
 // ==================================================== //
-// VERSAO NAO RECURSIVA
-BIN_TREE *TreeSearch_ITERATIVO(BIN_TREE *NOH_RAIZ, int ALVO)
+// Function to check the given key exist or not  e return its node
+BIN_TREE * iterative_search_basic (BIN_TREE  *root, int key)
 {
-  while (  (ALVO != (NOH_RAIZ-> UMA_CHAVE)) ||  ( NOH_RAIZ != NULL )  ) // NAO achou!!! 
-      {
-       if ( ALVO < (NOH_RAIZ -> UMA_CHAVE) ) 
-      // alvo menor que o valor corrente da raiz
-         NOH_RAIZ = NOH_RAIZ->left;
+  // Traverse untill root reaches to dead end
+    while (root != NULL)
+    {
+        // pass right subtree as new tree
+        if (key > root -> UMA_CHAVE)
+            root = root-> right;    // alvo maior que o valor corrente da raiz
+ 
+        // pass left subtree as new tree
+        else if (key < root -> UMA_CHAVE)
+            root = root->left;    // alvo menor que o valor corrente da raiz
+        else
+            return root;// if the key is found return 1
+    }
+    return NULL;
+}
+// adaptada por CCS
+// VERSAO NAO RECURSIVA --- 90%
+BIN_TREE * TreeSearch_ITERATIVO (BIN_TREE *NOH_RAIZ, int ALVO)
+{
+  while( ALVO != (NOH_RAIZ-> UMA_CHAVE)  || ( NOH_RAIZ == NULL ) ) 
+   // ( NOH_RAIZ != NULL )
+  //  ALVO != (NOH_RAIZ-> UMA_CHAVE)  ) 
+  // ||    ) // NAO achou!!! 
+   {
+     if ( ALVO < (NOH_RAIZ -> UMA_CHAVE) ) 
+     // alvo menor que o valor corrente da raiz
+       NOH_RAIZ = NOH_RAIZ -> left;
        // alvo MAIOR que o valor corrente da raiz
-         else if ( ALVO > (NOH_RAIZ-> UMA_CHAVE) )
-         NOH_RAIZ = NOH_RAIZ->right;
+         else if ( ALVO > (NOH_RAIZ ->  UMA_CHAVE) )
+         NOH_RAIZ = NOH_RAIZ -> right;
      
-       } // fim do while
+     } // fim do while
 
-      if ( ALVO == (NOH_RAIZ-> UMA_CHAVE) ) // achou!!!
-      return NOH_RAIZ; 
+      if ( ALVO == (NOH_RAIZ ->  UMA_CHAVE) ) // achou!!!
+      return NOH_RAIZ;  // achou OK
+      else
+      return NULL; // vazia ou nao estah
      
       printf("\n ARVORE VAZIA .... ????"); 
       printf("\n Ou noh ALVO NAO estava na arvore era: %d", ALVO); 
-      
-      if ( NOH_RAIZ == NULL ) 
-      {
-      printf("\n ARVORE VAZIA ...."); 
-      getchar();
-     // system("exit"); // ver isto depois 
-      } 
-      else  
-      {
-      printf("\n ALGUM Problema em TreeSearch : ALVO era: %d", ALVO); 
-      getchar();
-     // system("exit"); // ver isto depois 
-      } 
-     return NOH_RAIZ;
+    
+     //return NOH_RAIZ;
 }
 
 // ==================================================== //
 
-// ESTA quase BOM .... usando o outro por **
+// ESTA  **
 int deltree(BIN_TREE * tree) 
 {
    if (tree == NULL) 
@@ -368,5 +396,38 @@ void printPosorder(BIN_TREE * node)
      printf("\t NOME: %s ", node-> UM_NOME);  
 }
 /* ***********************************************/
-
-
+void pretty_print ( BIN_TREE *tree, int level )
+{ // 
+  if ( tree == NULL ) {
+    printf ( " " );
+  } else {
+    pretty_print ( tree->right, level + 1 );
+    printf ( "%d: %s",  tree-> UMA_CHAVE, tree-> UM_NOME );
+    pretty_print ( tree->left, level + 1 );
+  }
+}
+// Function to print binary tree in 2D
+// It does reverse inorder traversal
+void print2DUtil(BIN_TREE*root, int space)
+{
+    // Base case
+    if (root == NULL)
+        return;
+ 
+    // Increase distance between levels
+    space += COUNT;
+ 
+    // Process right child first
+    print2DUtil(root->right, space);
+ 
+    // Print current node after space
+    // count
+    printf("\n");
+    for (int i = COUNT; i < space; i++)
+        printf(" ");
+    printf("%d\n", root-> UMA_CHAVE);
+ 
+    // Process left child
+    print2DUtil(root->left, space);
+}
+ 
