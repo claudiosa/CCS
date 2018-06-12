@@ -10,9 +10,7 @@ Avisos -- Leiam todos ... é o Roadmap do curso:
 * 2a prova:  17/abril -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- pilhas
 * 3a prova:  xx/abril -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- filas
 * 4a prova:  xx/maio -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- LSE
-* 5a prova:  xx/maio -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- LDE e LC
-Trabalho arvores e tabelas Hash
-* PROVAO:  xx/junho -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- TUDO
+* PROVAO:  21/junho -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- LDE e ABB
 
 Site interessante:
 https://www.di.ubi.pt/~cbarrico/Disciplinas/AlgoritmosEstruturasDados/PaginaAlgoritmosEstruturasDados.htm
