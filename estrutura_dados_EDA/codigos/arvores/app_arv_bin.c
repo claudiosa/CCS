@@ -51,7 +51,7 @@ int main(void)
 			   printf("\n Exclusao: digite a chave: ");	 
 			   scanf("%d", & INFO );   	  
 			   pt_TREE = remove_NOH_ABB( pt_TREE , INFO );
-               break;
+			   break;
 	  	     }
 	  	    
         case 3:    
