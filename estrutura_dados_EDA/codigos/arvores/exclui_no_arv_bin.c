@@ -39,7 +39,10 @@ BIN_TREE * remove_NOH_ABB(BIN_TREE *raiz, int chave) {
 	}
 	if (!pai) {//verifica se o no a ser removido não é a raiz
 		free(no);//MATA o NO
+		
 		printf("\n Remocao com sucesso ...em  remove_NOH_ABB: %d \n", chave);
+		limpeza_teclado();
+        getchar();
 		return (q);//retorna a nova raiz
 	}
 	if (chave < pai-> UMA_CHAVE) {
@@ -51,6 +54,8 @@ BIN_TREE * remove_NOH_ABB(BIN_TREE *raiz, int chave) {
 		free(no);//MATA o NO
 	}
 	printf("\n Remocao com sucesso ...em  remove_NOH_ABB: %d \n", chave);
+	limpeza_teclado();
+    getchar();
 	return (raiz);//retorna a raiz da arvore
 }
 
