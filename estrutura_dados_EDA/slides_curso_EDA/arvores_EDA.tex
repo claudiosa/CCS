@@ -462,7 +462,7 @@ construa as árvores binárias para seguintes entradas:
 
  \item  Iremos estudar três métodos para percorrer árvores. 
 
- \item Todos estes três métodos podem ser definidos recursivamente e se baseiam em \textbf{três operações básicas}: visitar a raiz, percorrer a subárvore da esquerda e percorrer a subárvore da direita. 
+ \item Todos estes \textbf{três métodos} podem ser definidos recursivamente e se baseiam em \textbf{três operações básicas}: visitar a raiz, percorrer a subárvore da esquerda e percorrer a subárvore da direita. 
 
  \item A única diferença entre estes métodos é a ordem em que estas operações são executadas.
 \end{itemize}
@@ -478,7 +478,7 @@ O primeiro método, conhecido como percurso em pré-ordem, implica em executar
 recursivamente os três passos na seguinte ordem: 
  
 \begin{enumerate}
-  \item Visitar a raiz (imprimir esta);
+  \item Visitar a raiz (imprimir este nó);
  \item Percorrer a subárvore da esquerda em pré-ordem;
  \item Percorre a subárvore da direita em pré-ordem.
 
@@ -511,9 +511,9 @@ recursivamente os três passos na seguinte ordem:
 \begin{block}{In-ordem:}
   De modo recursivo, execute os 3 passos que se seguem:
 \begin{enumerate}
- \item Percorrer a subárvore da esquerda em pré-ordem;
-  \item Visitar a raiz (imprimir esta);
- \item Percorre a subárvore da direita em pré-ordem.
+ \item Percorrer a subárvore da esquerda em in-ordem;
+  \item Visitar a raiz (imprimir este nó -- a raiz desta sub-árvore);
+ \item Percorre a subárvore da direita em in-ordem.
 \end{enumerate}
  \end{block}
 
@@ -521,9 +521,9 @@ recursivamente os três passos na seguinte ordem:
 \begin{block}{Pós-ordem:}
   De modo recursivo, execute os 3 passos que se seguem:
 \begin{enumerate}
- \item Percorrer a subárvore da esquerda em pré-ordem;
- \item Percorre a subárvore da direita em pré-ordem;
-  \item Visitar a raiz (imprimir esta);
+ \item Percorrer a subárvore da esquerda em pós-ordem;
+ \item Percorre a subárvore da direita em pós-ordem;
+  \item Visitar a raiz (imprimir este nó -- a raiz desta sub-árvore);
 \end{enumerate}
  \end{block}
 
@@ -597,6 +597,22 @@ BUSCA(ARVORE, CHAVE) {
 \end{itemize}
 
 \end{frame}
+
+%---------------------------------------------------------
+\subsection{Métodos em ABB}
+
+\begin{frame}
+  \frametitle{Encontrar o MAIOR elemento}
+\vspace{-2cm}
+ \begin{figure}[!ht]
+    \centering
+    \includegraphics[width=8cm, height=12cm]{figs/fig_arvores/maior_elemento_ABB.pdf}
+    \caption{Base de outros métodos: a remoção}
+    \end{figure}
+
+
+\end{frame}
+
 
 
 %---------------------------------------------------------
