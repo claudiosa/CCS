@@ -8,4 +8,5 @@ find . -name "a.out"  -exec rm -rf {} \;
 find . -name ".dropbox"  -exec rm -rf {} \;
 find . -name "*.dvi"  -exec rm -rf {} \;
 find . -name "*.o"  -exec rm -rf {} \;
+find . -name "*.pdf.pdf"  -exec rm -rf {} \;
 echo FEITO
