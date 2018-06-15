@@ -1,4 +1,0 @@
-\select@language {brazilian}
-\contentsline {section}{\numberline {1}Residencial Cientistas Famosos}{5}
-\contentsline {section}{\numberline {2}Feira de Antiguidades}{6}
-\contentsline {section}{\numberline {3}Recursividade -- Exercicios}{7}
