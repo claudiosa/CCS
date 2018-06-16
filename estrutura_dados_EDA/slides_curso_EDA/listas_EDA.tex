@@ -622,15 +622,27 @@ int main(void)
 \begin{frame}%%[allowframebreaks=0.98]
 
 \begin{center}
-{\huge Implementações de Alguns Métodos}
+{\Large Implementações de Alguns Métodos}
 \end{center}
+
+\begin{block}{}
+\begin{itemize}
+  \item Listas Simplesmente Encadeadas (\textbf{LSE})
+  \item Listas Circulares (\textbf{LC}s)
+  \item Listas Duplamente Encadeadas (\textbf{LDE})
+  \item Outras variações de listas
+\end{itemize}
+\end{block}
+
+
+
 \end{frame} 
 
 
 %----------------------------------------------------------------------------------------------------------
 
 \begin{frame}%%[allowframebreaks=0.98]
-\frametitle{Incluindo um nó no início da lista}
+\frametitle{Incluindo um nó no início da lista -- LSE}
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[height=0.30\paperheight, width=0.5\paperwidth]{figs/fig_listas/lista_encadeada01}
@@ -828,6 +840,12 @@ int main(void)
 \end{itemize}
 \end{block}
 
+\end{frame} 
+
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Comparativo com as LSE, LC e LDE}
+
 \begin{block}{Desvantagens:}
 \begin{itemize}
   \item Enquanto que LDE e LSE, o último nó é ligado a NULL, nas LCs não!
@@ -843,7 +861,6 @@ int main(void)
 \end{block}
 \end{frame} 
 
-
 %----------------------------------------------------------------------------------------------------------
 
 \begin{frame}
@@ -855,6 +872,7 @@ int main(void)
   \item Buscas posicionais com deslocamentos em relação a origem,
   último nó, e ainda do nó corrente
   \item Cursores de páginas (as \textit{flechas} de duas direções)
+  \item Combinações com LCs
   
 \end{itemize}
 \end{block}
@@ -867,7 +885,7 @@ int main(void)
 %----------------------------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{Aplicações}
+\frametitle{Aplicações de Listas}
 
 \begin{block}{Exemplos:}
 \begin{itemize}
@@ -877,6 +895,7 @@ int main(void)
   \item Sistemas de prevenção de \textit{dead-lock}
   \item Problemas \textit{ad-hoc} em geral
   \item Base da STL
+  \item Onipresente na área de algoritmos
 \end{itemize}
 \end{block}
 
