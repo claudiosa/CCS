@@ -32,7 +32,8 @@ main([File]) =>
   %   printf("\n Bringht : %d", Bright).
     
 
-/* NOT USED */
+/* NOT USED  ... maybe necessary */
+
   remove_duplicates([], X) => X = [].
   remove_duplicates([$star(_,X,Y,_) | T], List) ?=>
            not member($star(_,X,Y,_), T), 
