@@ -32,19 +32,12 @@ mary_P(As) =>
     
     
 /*    
+..........................................
     List = new_list(N),
     List :: 1..N,
     Vect = to_array(List),
     foreach ($block(Row,Col) in As) %%% interessante o uso do $ eh um filtro
         Vect[Row] #!= Col
     end,                          
-    List2 = [$List[I]+I : I in 1..N],
-    List3 = [$List[I]-I : I in 1..N],
-    all_distinct(List),
-    all_distinct(List2),
-    all_distinct(List3),
-    solve([ff,inout],List),
-    foreach(I in 1..N)
-        printf("\nqueen(%w,%w). ",I,Vect[I])
-    end.
+..........................................
 */    

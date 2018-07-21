@@ -1,0 +1,5 @@
+Install syntax highlighting of Picat in Geany editor :
+
+1. COPY  filetype_extensions.conf TO  ~USER_HOME/.config/geany/
+2. COPY  filetypes.Picat.conf TO ~USER_HOME/.config/geany/filedefs/
+3. Reinitialize  the Geany and fun !
