@@ -1,19 +1,19 @@
 import mip.
-main => go.
+main => go ,  printf("\n ......HELLO"). 
 
 go =>
   
-  Vars = [X,Y],
-  Vars :: 0.0 .. 1000.0,
-
-  X #>= 0.17,
-  Y #>= 0.17,
-  
- % Y #= (X*2)*0.17,
-
- Y #= (quad(X)) * 0.17,
-  solve(Vars),
-  println(Vars),
-  nl.
-  
+            Vars = [X,Y],
+            Vars :: 0.0 .. 1000.0,
+          
+            X #>= 0.17,
+            Y #>= 0.17,
+            
+           % Y #= (X*2)*0.17,
+          
+           Y #= (quad(X)) * 0.17,
+            solve(Vars),
+            println(Vars),
+            nl.
+            
 quad(X) = R =>  R = X*X.
