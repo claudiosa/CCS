@@ -9,7 +9,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main([File]) =>
     As = read_file_terms(File),
+<<<<<<< HEAD
     printf("solution(%d)\n", stars_P(As)).
+=======
+    printf("solution(%d)", stars_P(As)).
+>>>>>>> abc0d96c2ad5d2a370774b173ecfb23bf8dd193b
 
  
  stars_P(FACTS) = Bright =>
@@ -23,8 +27,13 @@ main([File]) =>
     Bright := 0,
     %%% $ filter
     %write(L_star),
+<<<<<<< HEAD
     foreach ($star(_,X,Y,B) in L_star ) %%% interessante o uso do $ eh um filtro
         if ( (X <= W) &&  (Y <= H) ) then
+=======
+    foreach ($star(_,X,Y,B) in L_star) %%% interessante o uso do $ eh um filtro
+        if ((X <= W) &&  (Y <= H)) then
+>>>>>>> abc0d96c2ad5d2a370774b173ecfb23bf8dd193b
         Bright :=  Bright + B
         end
     end. 
