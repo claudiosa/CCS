@@ -611,12 +611,17 @@ BUSCA(ARVORE, CHAVE) {
     \end{figure}
 
 
+<<<<<<< HEAD
+\textcolor{red}{Faça o método MENOR pois os 2 serão usados em ...}
+
+=======
+>>>>>>> 129791b6a687dbe90718f7c2fef9ee5932784d36
 \end{frame}
 
 
 
 %---------------------------------------------------------
-\subsection{Remoção em ABB}
+\subsection{Remoção  em ABB}
 \frame{
     \frametitle{Árvore Binária de Busca -- Remoção}
     
@@ -737,6 +742,28 @@ do nó que se deseja excluir!}
     \end{figure}
 
 \end{frame}
+%---------------------------------------------------------
+
+\begin{frame}
+
+\frametitle{Conclusões Parciais da Exclusão}
+
+\begin{block}{}
+\begin{itemize}
+  \item Os casos de remoção de nó com um filho/folha ou nenhum são triviais;
+  \item O caso da remoção de um nó com 2 filhos, merece um certo cuidado:
+  deve-se conhecer o \textbf{nó antecessor} e os \textbf{sucessores} do nó a ser removido;
+  
+  \item Temos aqui duas alternativas para recolocar o nó excluído: promover o nó com   \textbf{a menor chave} da sub-árvore \textbf{à direita}, ou   promover o nó com  \textbf{a maior chave} da 
+  sub-árvore \textbf{à esquerda};
+  
+  \item Assim, os métodos de encontrar \textbf{a maior} ou \textbf{a menor}  chave de uma árvore,  visto   anteriormente, é o ponto de partida para o método  de exclusão;
+  
+  \item Atente as explicações em sala!
+\end{itemize}
+\end{block}
+
+\end{frame}
 
 %---------------------------------------------------------
 
@@ -746,9 +773,17 @@ do nó que se deseja excluir!}
 
 \begin{block}{}
 \begin{itemize}
-  \item A remoção é a base das partes mais difíceis de ABs
-  \item Pois o próximo assunto é \textit{balanceamento}
-  \item Implemente este método, pois tem um bom grau de dificuldade!
+  \item A remoção é a base das partes mais difíceis de ABBs;
+
+    \item Implemente este método, pois tem um bom grau de dificuldade!
+
+  \item A sucessiva exclusão de nós na árvore, vai degenerando um 
+  equilíbrio do número de nós entre as  sub-árvores e sua
+  topologia (formato);
+  
+
+  \item Assim, o próximo assunto é \textit{balanceamento};
+
 \end{itemize}
 \end{block}
 
@@ -769,8 +804,7 @@ do nó que se deseja excluir!}
     
       \item   Determinadas sequências de inserções ou remoções podem fazer com que uma ABB fique  desbalanceada, tornando suas operações O($n$). 
 
-      \item Para verificar se uma árvore (ABB) está desbalanceada é necessário
-      algumas \textbf{métricas}!
+      \item Para verificar se uma árvore (ABB) está desbalanceada é necessário  algumas \textbf{métricas}!
       
       \pause
       \item Por exemplo: número de nós por sub-árvores, alturas, etc
