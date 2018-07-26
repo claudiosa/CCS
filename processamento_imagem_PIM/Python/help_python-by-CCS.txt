@@ -1,8 +1,0 @@
-Adicionando os modulos que forem pedindo do Python
-(MANJARO LINUX)
-
-Metodo 1: yaourt pythonXX-nome-do-modulo
-Metodo 2: pacman -S pythonXX-nome-do-modulo
-Metodo 3: python -m pip install nome-do-modulo
-
-Metodo 2 e 3 como SUPERUSUARIO
