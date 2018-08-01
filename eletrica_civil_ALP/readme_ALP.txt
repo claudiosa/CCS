@@ -1,10 +1,18 @@
-Comunicação no via EMAIL
+Comunicação no via EMAIL ou Whastaspp do prof: 47 99245 1825
 
 Para postar neste grupo, envie um e-mail para alp-ee@googlegroups.com
 Para sua inscrição neste grupo, envie um e-mail para alp-ee+subscribe@googlegroups.com
-ou envie um email para
-alp-ee@googlegroups.com
-e no corpo e subject da mensagem coloque "subscribe"
+ou siga:
+
+Existem três formas de se inscrever numa lista do google groups:
+
+1- Enviar e-mail em branco para: alp-ee+subscribe@googlegroups.com
+
+2- Pedir a um moderador pra adicionar nosso endereço: claudio dot sa arroba udesc dot br
+
+3- Entrando na página do grupo
+http://groups.google.com/group/alp-ee
+
 Para cancelar sua inscrição neste grupo, envie um e-mail para alp-ee+unsubscribe@googlegroups.com
 Veja esta mensagem em https://groups.google.com/d/msg/alp-ee/topic-id/message-id
 Para mais opções, visite https://groups.google.com/d/optout
