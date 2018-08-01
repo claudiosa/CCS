@@ -1,12 +1,17 @@
 Comunicação no via EMAIL
 
 Para postar neste grupo, envie um e-mail para alp-ee@googlegroups.com
-Para cancelar sua inscrição neste grupo, envie um e-mail para alp-ee+subscribe@googlegroups.com
+Para sua inscrição neste grupo, envie um e-mail para alp-ee+subscribe@googlegroups.com
+ou envie um email para
+alp-ee@googlegroups.com
+e no corpo e subject da mensagem coloque "subscribe"
 Para cancelar sua inscrição neste grupo, envie um e-mail para alp-ee+unsubscribe@googlegroups.com
 Veja esta mensagem em https://groups.google.com/d/msg/alp-ee/topic-id/message-id
 Para mais opções, visite https://groups.google.com/d/optout
 
-
+ou vá até
+https://groups.google.com/d/forum/alp-ee
+e se inscreva
 
 
 Alguns slides da disciplina estarão aqui
