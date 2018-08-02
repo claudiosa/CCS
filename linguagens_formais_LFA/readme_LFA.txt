@@ -1,26 +1,29 @@
+Instrucoes basicas
 
-Alguns slides da disciplina estarão aqui
+Comunicação no via EMAIL (via lista abaixo) ou Whastaspp do prof: 47 99245 1825
 
-Compiladores C e C++ online ... pelo navegador mesmo:
+Fórum da disciplina
+https://groups.google.com/forum/#!forum/lfa-udesc
+ou http://groups.google.com/group/lfa-udesc
 
-Vejam:
-http://www.tutorialspoint.com/
+Para postar neste grupo, envie um e-mail para alp-ee@googlegroups.com
+Para sua inscrição neste grupo, envie um e-mail para lfa-udesc+subscribe@googlegroups.com
+ou siga:
 
-Diretamente:
-http://www.tutorialspoint.com/compile_c_online.php
+Existem três formas de se inscrever numa lista do google groups:
 
-Ou:
-https://ideone.com/
+1- Enviar e-mail em branco para: lfa-udesc+subscribe@googlegroups.com
 
-Basicamente o nosso curso esta no
-http://www.thehuxley.com
+2- Pedir a um moderador pra adicionar nosso endereço: claudio dot sa arroba udesc dot br
 
-Cadastre-se na disciplina de códgigo: DQ8647
-e
-teste seu aprendizado...
+3- Entrando na página do grupo
+http://groups.google.com/group/lfa-udesc
 
-att
+Para cancelar sua inscrição neste grupo, envie um e-mail para alp-ee+unsubscribe@googlegroups.com
+Veja esta mensagem em https://groups.google.com/d/msg/lfa-udesc/topic-id/message-id
+Para mais opções, visite https://groups.google.com/d/optout
 
-cc
-
+ou vá até
+https://groups.google.com/d/forum/lfa-udesc
+e se inscreva
 

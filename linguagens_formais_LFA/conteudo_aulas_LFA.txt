@@ -1,0 +1,43 @@
+LFA 
+
+Sequencia BASICA de conteudos da disciplina
+	
+	 Apresentação da Disciplina. 
+	 Motivação a formalismos como Resolução de Problemas
+	 Problemas gerais x formalismos
+	 Introdução às Linguagens Formais
+	 Alfabeto, Palavra, Linguagem, Gramática.
+	 Gramática. Linguagens Regulares
+	 Autômato Finito Determinístico
+	 Autômato Finito Não Determinístico
+	 Autômato Finito Não Determinístico
+	 Autômato Finito com Movimentos Vazios
+	 Exercícios
+	 Expressões Regulares
+	Gramáticas Regulares
+	Propriedades de Linguagens Regulares
+	Propriedades de Linguagens Regulares
+	Minimização de Autômatos Finitos
+	SEMANA DA COMPUTAÇÃO
+	SEMANA DA COMPUTAÇÃO
+	Autômatos Finitos com Saída
+	Preparação prova
+	PROVA I
+	
+	Correção P1. LLC. GLC.
+	Árvores de Derivação. GLC ambíguas.
+	Simplificação de GLC
+	Forma Normal de Chomsky e de Greibach
+	Exemplos Formas Normais e Simplificação
+	Autômato com Pilha
+	Autômato com Pilha
+	Bombeamento. Propriedades LLC
+	Algoritmos de Reconhecimento - Autômato Descendente
+	Algoritmos de Reconhecimento - CYK
+	Algoritmos de Reconhecimento - Early
+	Gramáticas Sensíveis ao Contexto e Irrestritas
+	Hierarquia de Chomsky. Gramática de Grafos
+	Apresentação dos trabalhos
+	Preparação Prova
+	
+	
