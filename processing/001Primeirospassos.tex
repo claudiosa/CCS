@@ -1,0 +1,1080 @@
+
+\documentclass{beamer}
+\usepackage{beamerthemeshadow}
+\usepackage{pstricks}              % PSTricks package
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{grffile}
+\usepackage[utf8]{inputenc}
+%\usepackage[portuges]{babel}
+
+\usepackage{xcolor}
+
+\definecolor{comment1}{HTML}{7e7e7e}
+\definecolor{comment2}{HTML}{7e7e7e}
+\definecolor{comment3}{HTML}{770000} % adicional à IDE do processing
+\definecolor{function1}{HTML}{006699}
+\definecolor{function2}{HTML}{006699}
+\definecolor{function3}{HTML}{669900}
+\definecolor{function4}{HTML}{006699}
+\definecolor{invalid}{HTML}{7e7e7e}
+\definecolor{keyword1}{HTML}{72a7c2}
+\definecolor{keyword2}{HTML}{72a7c2}
+\definecolor{keyword3}{HTML}{669900}%669900}
+\definecolor{keyword4}{HTML}{ee6699}%ff6699}
+\definecolor{keyword5}{HTML}{e27139}
+\definecolor{labelcolor}{HTML}{77997e}
+\definecolor{literal1}{HTML}{7D4793}
+\definecolor{literal2}{HTML}{617952}
+\definecolor{operator}{HTML}{006699}
+
+\lstset{language=Java}
+\lstset{frame=,
+  framesep=5pt,
+  basicstyle=\scriptsize,
+  keywordstyle=[1]\color{keyword1},
+  identifierstyle=\color{black},
+  commentstyle=\normalfont\color{comment1},
+  stringstyle=\color{purple}\ttfamily,
+  columns=fullflexible,
+  fontadjust=true,
+}
+
+\lstset{
+morecomment=[l][\color{comment1}]{//},
+morecomment=[s][\color{comment1}]{/*}{*/},
+morecomment=[s][\color{comment3}\bf]{/*-}{*/},
+morecomment=[s][\color{comment2}\bf]{/**}{*/}
+}
+\lstset{
+emph={
+    },emphstyle={[1]\color{literal1}},
+emph={[2]HALF_PI,PI,QUARTER_PI,TAU,TWO_PI 
+    },emphstyle={[2]\color{literal2}},
+emph={[3]setup,draw},emphstyle={[3]\color{function1}\bf},
+emph={[4]size,append,reverse,sort,beginContour,endContour,endShape,clear,blend,copy,filter,get,loadPixels,set,dist,lerp,mag,
+    },emphstyle={[4]\color{function2}},
+%emph={[5]},emphstyle={[5]\color{function3}},
+emph={[6]mouseClicked,mouseDragged,mouseMoved,mouseReleased,mouseWheel,keyReleased,keyTyped,keyPressed,mousePressed,keyPressed,
+    },emphstyle={[6]\color{function4}\bf},
+emph={[7]break,case,continue,default
+    },emphstyle={[7]\color{keyword1}\bf},
+%emph={[8]},emphstyle={[8]\color{keyword2}},
+emph={[9]for,while,else,if,switch,do
+    },emphstyle={[9]\color{keyword3}},
+emph={[10]frameRate,height,width,mouseButton,mouseX,mouseY,pmouseX,pmouseY,key,keyCode,%keyPressed,mousePressed
+pixels},emphstyle={[10]\color{keyword4}},
+emph={[11]boolean,byte,char,color,double,float,int,long,Array,FloatDict,FloatList,HashMap,IntDict,IntList,
+JSONArray,JSONObject,String,StringDict,StringList,Table,TableRow,XML,PShape,
+BufferedReader,PrintWriter,PImage,PGraphics,PShader,PFont,PVector
+    },emphstyle={[11]\color{keyword5}}, 
+emph={[12]P2D,P3D,PDF,HSB,RGB,CENTER,CORNER,ROUND,BEVEL,RADIUS,CORNERS,SQUARE,PROJECT,MITER,POINTS,LINES,TRIANGLES,TRIANGLE_STRIP,TRIANGLE_FAN,QUADS,QUAD_STRIP,CLOSE
+      },emphstyle={[12]\color{labelcolor}},
+emph={[13]cursor,noCursor,binary,boolean,byte,char,float,hex,int,str,unbinary,unhex,%frameRate
+join,match,matchAll,nf,nfc,nfp,nfs,split,splitTokens,trim,arrayCopy,concat,expand,shorten,splice,
+subset,createShape,loadShape,arc,ellipse,line,point,quad,rect,triangle,bezier,bezierDetail,bezierPoint,
+bezierTangent,curve,curveDetail,curvePoint,curveTangent,curveTightness,box,sphere,sphereDetail,ellipseMode,
+noSmooth,rectMode,smooth,strokeCap,strokeJoin,strokeWeight,beginShape,bezierVertex,curveVertex,quadraticVertex,
+vertex,shape,shapeMode,,createInput,createReader,loadBytes,loadJSONArray,loadJSONObject,loadStrings,loadTable,
+loadXML,open,parseXML,saveTable,selectFolder,selectInput,day,hour,millis,minute,month,second,year,print,println,
+save,saveFrame,beginRaw,beginRecord,createOutput,createWriter,endRaw,endRecord,saveBytes,saveJSONArray,saveJSONObject,
+saveStream,saveStrings,saveXML,selectOutput,applyMatrix,popMatrix,printMatrix,pushMatrix,resetMatrix,rotate,
+rotateX,rotateY,rotateZ,scale,shearX,shearY,translate,ambientLight,directionalLight,lightFalloff,lights,
+lightSpecular,noLights,normal,pointLight,spotLight,beginCamera,camera,endCamera,frustum,ortho,perspective,
+printCamera,printProjection,modelX,modelY,modelZ,screenX,screenY,screenZ,ambient,emissive,shininess,specular,
+background,colorMode,fill,noFill,noStroke,stroke,alpha,blue,brightness,color,green,hue,lerpColor,red,saturation,
+createImage,image,imageMode,loadImage,noTint,requestImage,tint,texture,textureMode,textureWrap,,updatePixels,
+blendMode,createGraphics,loadShader,resetShader,shader,createFont,loadFont,text,textFont,textAlign,textLeading,
+textMode,textSize,textWidth,textAscent,textDescent,abs,ceil,constrain,exp,floor,log,map,max,min,norm,pow,round,
+sq,sqrt,acos,asin,atan,atan2,cos,degrees,radians,sin,tan,noise,noiseDetail,noiseSeed,random,randomGaussian,randomSeed
+    },emphstyle={[13]\color{function1}}    
+}%
+
+\newcommand*{\identifier}[1]{\lstinline!#1!}
+
+\begin{document}
+
+\title{Primeiros passos em Computação 1}  
+
+\author{Luiz Ernesto Merkle}
+\institute{Universidade Tecnol\'{o}gica Federal do Paran\'{a} \linebreak
+         Programa de P\'{o}s-Graduação em Tecnologia \linebreak
+	  Departamento Acadêmico de Informática \linebreak 
+         Grupo de Pesquisa em Ci\^{e}ncias Humanas, Tecnologia e Sociedade \linebreak
+         Estúdio Xuê}
+\date{} 
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{0.01 - Uma linha depois de outra \dots }
+  \begin{columns}[T]
+    \begin{column}{.3\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_01/Ex_01.png}
+    \end{column}
+    \begin{column}{.7\textwidth}
+      \lstinputlisting[language=java]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_01/Ex_01.pde"}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{0.02 Para controlar o traço \dots}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_02/Ex_02.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_02/Ex_02.pde"}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemplo passo a passo 0-03}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_03/Ex_03.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_03/Ex_03.pde"}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{0.03 Variáveis agilizam o controle \dots}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_04/Ex_04.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_04/Ex_04.pde"}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{0.04 E uma pitada de interação \dots}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_05/Ex_05.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_05/Ex_05.pde"}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Enxuge tudo com funções \dots}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_06/Ex_06.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_06/Ex_06.pde"}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{0.07 Tempere com conjuntos de dados \dots}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_07/Ex_07.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_07/Ex_07.pde"}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Apimente com classes de objetos  \dots}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_08/Ex_08.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java,firstline=1,lastline=15]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_08/Ex_08.pde"}
+   continua \dots
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Apimente com classes de objetos  \dots}
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+    \includegraphics[width=\textwidth]{./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_08/Ex_08.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \lstinputlisting[language=java,firstline=17]{"./examples/Books/Processing Handbook2/Units 00-17/00 Using Processing/Ex_08/Ex_08.pde"}
+   \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Para abrir uma tela \dots}
+\begin{lstlisting}{language=java}
+// Two forward slashes are used to denote a comment.
+// All text on the same line is a part of the comment.
+// There must be no spaces between the slashes. For example,
+// the code "/ /" is not a comment and will cause an error
+// If you want to have a comment that is many
+// lines long, you may prefer to use the syntax for a
+// multiline comment
+
+/* 
+  A forward slash followed by an asterisk allows the 
+  comment to continue until the opposite 
+*/ 
+ 
+// All letters and symbols that are not comments are translated 
+// by the compiler. Because the following lines are not comments, 
+// they are run and draw a display window of 200 x 200 pixels 
+size(200, 200); 
+background(102);   
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Variáveis}
+\begin{lstlisting}{language=java}
+size(200, 200); // Runs the size() function
+
+/** declara uma variável do tipo inteira */
+int x; // Declares a new variable x
+
+/** atribui o valor 102 à variável x */
+x = 102; // Assigns the value 102 to the variable x
+
+background(x); // Runs the background() function
+
+/** calcula 2*x e atribui a cor de prenchimento das formas */
+fill(2*x); 
+rect(10,10, 180,180); 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Procure arrumar seu código de modo legível \dots}
+\begin{lstlisting}{language=java}
+/** Espaços não fazem diferença para o compilador */
+		  size
+// jose foi a cidade comprar mandioca
+(   200,
+// comentario fora de lugar
+
+
+  200)      
+  
+  ;
+background   (       
+102)
+           ;
+/*- Mas fazem uma enorme diferença para quem o le */
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Para imprimir mensagens \dots}
+\begin{lstlisting}{language=java}
+// To print text to the screen, place the desired output in quotes
+println("Processing..."); // Prints "Processing..." to the console
+
+// To print the value of a variable, rather than its name, don't put
+// the name of the variable in quotes.
+int x = 20;
+println(x); // Prints "20" to the console
+
+// While println() moves to the next line after the text
+// is output, print() does not.
+print("10");
+println("20"); // Prints "1020" to the console
+println("30"); // Prints "30" to the console
+
+// The "+" operator can be used for combining multiple text
+// elements into one line.
+int x2 = 20;
+int y2 = 80;
+println(x2 + " : " + y2); // Prints "20 : 80" to the message window 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Variáveis de tipos básicos}
+\begin{lstlisting}{language=java}
+int x; 		// Declare the variable x of type int
+float y; 	// Declare the variable y of type float
+double yy; 	// Decalra uma variavel do tipo double 
+boolean b; 	// Declare the variable b of type boolean
+
+x = 50; 	// Assign the value 50 to x
+y = 12.6; 	// Assign the value 12.6 to f
+b = true;
+
+//x = 12.6 	// Error - Não é possivel atribuir um float a um inteiro
+x = int(12.6); //  Converte um float em um inteiro
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Variáveis de tipos básicos}
+\begin{lstlisting}{language=java}
+int inteiro; 		// Declare the variable x of type int
+long inteiro_maior; 
+
+float real; 	// Declare the variable y of type float
+double real_preciso; 	// Decalra uma variavel do tipo double 
+
+boolean b; 	// Declare the variable b of type boolean
+byte B; 
+
+char letra; 
+color vermelho; 
+
+inteiro = 50; 	// Assign the value 50 to x
+real = 12.6; 	// Assign the value 12.6 to f
+b = true;
+letra = 'c';
+
+String  S = "Maria";
+
+//inteiro = 12.6 	// Error - Não é possivel atribuir um float a um inteiro
+inteiro = int(12.6); //  Converte um float em um inteiro
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Variáveis de tipos básicos}
+\scriptsize
+\begin{itemize}
+\item [boolean] Pode assumir o valor true ou o valor false
+\item [char] 	Caractere em notação Unicode de $16$ bits. Serve para a armazenagem de dados alfanuméricos. Também pode ser usado como um dado inteiro com valores na faixa entre $0$ e $65535$.
+\item [byte] 	Inteiro de 8 bits em notação de complemento de dois. Pode assumir valores entre $-2^7=-128$ e $2^{7}-1=127$.
+\item [short] 	Inteiro de $16$ bits em notação de complemento de dois. Os valores possívels cobrem a faixa de $-2^{-15}=-32.768$ a $2^{15}-1=32.767$
+\item [int]	Inteiro de $32$ bits em notação de complemento de dois. Pode assumir valores entre $-2^{31}=2.147.483.648$ e $231-1$=$2.147.483.647$.
+\item [long]	Inteiro de $64$ bits em notação de complemento de dois. Pode assumir valores entre $-2^{63}$ e $2^{63}-1$.
+\item [float]	Representa números em notação de ponto flutuante normalizada em precisão simples de $32$ bits em conformidade com a norma IEEE 754-1985. O menor valor positivo represntável por esse tipo é $1.40239846e-46$ e o maior é $3.40282347e+38$
+\item [double] 	Representa números em notação de ponto flutuante normalizada em precisão dupla de $64$ bits em conformidade com a norma IEEE 754-1985. O menor valor positivo representável é $4.94065645841246544e-324$ e o maior é $1.7976931348623157e+308$
+\end{itemize}
+Sadao Massago e Waldeck Schützer (Sem data) Tipos de dados. In: Programação Java. Disponível em {http://www.dm.ufscar.br/~waldeck/curso/java/part22.html}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Variáveis de tipos básicos}
+\begin{lstlisting}
+    double numeroDecimal = 5.0;
+    numeroDecimal = 5d;
+    numeroDecimal = 0.5;
+    numeroDecimal = 10f;
+    numeroDecimal = 3.14159e0;
+    numeroDecimal = 2.718281828459045D;
+    numeroDecimal = 1.0e-6D;
+    \\ http://en.wikibooks.org/wiki/Java_Programming/Literals
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Operadores}
+\scriptsize
+$+$ (adição), $-$ (subtração), $*$ multiplicação, $/$ (divisão), $\%$ (modulo ou resto)
+
+$()$ (parenteses)
+
+$++$ (incremento), $--$ (decremento), $+=$ (adiciona e atribui), $-=$ (subtrai e atribui)
+
+$*=$ (multiplica e atribui), $/=$ (divide e atribuin), $-$ (negação)
+
+ceil(), floor(), round(), min(), max()
+
+\normalsize
+
+\begin{lstlisting}{language=java}
+int a = 8;
+int b = 10;
+line(a, 0, a, height);
+line(b, 0, b, height);
+strokeWeight(4);
+line(a*b, 0, a*b, height);
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Operadores Lógicos e Relacionais}
+\scriptsize
+$\&\&$ (E lógico), $||$ (OU lógico), $!$ (Negação), $<$ (menor), $<=$ ( menor igual)
+
+$>$ (maior), $>=$ (maior igual), $==$ (igual)
+
+\normalsize
+
+\begin{lstlisting}{language=java}
+ 	
+
+for(int i=5; i<=95; i+=5) { 
+  if((i > 35) && (i < 60)) { 
+    stroke(0);    //Atribui a variável color a cor preta
+  } else { 
+    stroke(255);  //Atribui a variável color a cor branca
+  } 
+  line(30, i, 80, i); 
+} 
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Revisão após recesso}
+\begin{itemize}
+ \item Instruções;
+ \item Blocos; 
+ \item Variáveis;
+ \item Operadores aritméticos;
+ \item Operadores realacionais;
+ \item Condicionais;
+ \item Laços e repetições;
+ \item Laços e repetições aninhadas. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Instruções}
+Toda instrução termina por um \emph{ponto e vírgula}, inclusive a vazia. 
+\begin{lstlisting}{language=java}
+// isto é um esboço com seis instruções vazias 	
+// É um esboço que faz nada seis vezes
+;
+;
+;
+;
+;
+;
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Instruções}
+Toda instrução termina por um \emph{ponto e vírgula}, inclusive a vazia. 
+\begin{lstlisting}{language=java}
+// isto é um esboço com seis instruções não vazias 	
+int a; // declara uma variável a
+a=50; // atribui o valor 5 à variável a
+print(a); // imprime o valor de a
+point(a,a); // chama a função que desenha um ponto em a,a 
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Instruções}
+Toda instrução termina por um \emph{ponto e vírgula}, inclusive a vazia. 
+CUIDADO COM O PONTO E VIRGULA DEPOIS DO LAÇO FOR(){} e do condicional if(){}
+\begin{lstlisting}{language=java}
+// isto é um comando que repete 10 vezes uma instrução vazia:
+for (int = 0; i<10; i++);
+  xxx ; // instrução qualquer
+\end{lstlisting}
+Como espaços não fazem diferença, equivale a:
+\begin{lstlisting}{language=java}
+// isto é um comando que repete 10 vezes uma instrução vazia:
+for (int = 0; i<10; i++)
+  ;
+  xxx ; // instrução qualquer
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Instruções}
+Toda instrução termina por um \emph{ponto e vírgula}, inclusive a vazia. 
+{\scriptsize \color{red} CUIDADO COM O PONTO E VIRGULA DEPOIS DOs CONDICIONAIS!}
+\begin{lstlisting}{language=java}
+// Se verdadeiro, faz-se nada, pois o ponto e virgula é uma instrução vazia.
+if  (true);
+  xxx ; // instrução qualquer
+\end{lstlisting}
+Equivale à:
+\begin{lstlisting}{language=java}
+// Se verdadeiro, faz-se nada, pois o ponto e virgula é uma instrução vazia.
+if  (true)
+      ;
+  xxx ; // instrução qualquer
+\end{lstlisting}
+O certo seria, sem o ponto e vírgula:
+\begin{lstlisting}{language=java}
+// Se verdadeiro, faz-se nada, pois o ponto e virgula é uma instrução vazia.
+if  (true)
+  xxx ; // instrução qualquer
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Blocos}
+Blocos são conjuntos de instruções cercados por chaves {}
+\begin{lstlisting}{language=java}
+// exemplo
+{ 
+println("mouseX =" + mouseX);
+println("mouseY =" + mouseY);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Blocos}
+Blocos são usados para separar conjuntos de instruções em condicionais, laços, funções, classes. 
+\begin{lstlisting}{language=java}
+if (true) { 
+  println("verdadeiro");
+  println("Até daqui a pouco");
+  }
+else 
+  {
+  println("falso");
+  println("Hasta la vista, Baby");
+  }
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Blocos}
+Blocos são usados para separar conjuntos de instruções em condicionais, laços, funções, classes, ou ao longo de um esboço, para separar variáveis
+\begin{lstlisting}{language=java}
+
+int a = 10; // esta variável pode ser acessada de qualquer lugar
+
+a += 10;
+{
+  int a = 10; // esta variavel a só pode ser acessada de dentro destas chaves
+  a *= 10;
+}
+a *= 10; 
+// qual o valor de a, 100 ou 1000?
+println(a);
+
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Variáveis}
+Variáveis armazenam informação de vários tipos na memória do computador.
+Podem representar números inteiros(int), de ponto flutuante(float, double), caracteres(char), sequências de caracteres(String), cores (color), valores de ferdade (true, false).  
+\begin{lstlisting}{language=java}
+// Se declaradas fora de um bloco, podem ser acessadas de dentro dele, 
+// desde que não haja outra variável de mesmo nome dentro dele. 
+// Um contador global pode ser usado para isto.
+int xy=0;
+
+void seput(){ // inicialização
+ strokeWeight(5)
+ };
+void draw(){ //repetição
+ point(xy*10,xy*xy/100);
+ if(xy==10)
+   xy=0
+   x++; // como a variável xy foi declarada fora do bloco, seu valor é atualizado.
+      // Se decalra dentro do bloco, ela deixa de existir
+ } 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Operadores aritiméticos}
+Operadores aritiméticos são utilizados para calcular o valor de expressões aritméticas;
+\begin{lstlisting}{language=java}
+rect(width/4, height/4, width/2, height/2); 
+\end{lstlisting}
+Antes de desenhar o retângulo, o programa substitui as variáveis por seus valores
+\begin{lstlisting}{language=java}
+rect(100/4, 100/4, 100/2, 100/2); 
+\end{lstlisting}
+Calcula o valor de cada expressão:
+\begin{lstlisting}{language=java}
+rect(25,25,100,100);
+\end{lstlisting}
+E chama a função rect(), que desenha um retângulo na tela de saída.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Funções}
+A linguagem processing tem associada a ela uma biblioteca extensa de funções, 
+para os mais diversos fins. 
+
+Se não encontrar, procure nas bibliotecas associadas, que pode 
+have alguma já desenvolvida para o que você precisa. 
+
+Se não encontrar, muitas são de código aberto ou livre, e podem ser modificadas, desde que atribuída a autoria de quem a desenvolveu. 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Funções}
+Funções em processing podem receber ferenciados, desde que programados para tal:
+\begin{lstlisting}{language=java}
+// color cor;
+cor = color(127);
+cor = color(125,255);
+cor = color(127,127,127);
+cor = color(127,127,127,255);
+\end{lstlisting}
+Que neste caso, resultam na mesma cor e opacidade. 
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Condicionais}
+Um comando if()\{\}, ou if()\{\}else\{\} controla a execução de um programa, podendo-se escolher o que vai se executar quando uma condição verdadeira. 
+\begin{lstlisting}{language=java}
+void setup(){}
+void draw(){
+  if(mouseX<height-1)
+    background(255,0,0);
+  else
+    background (0,255,0);
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Condicionais Aninhados}
+Um condicional pode conter outro condicional, sucessivamente. 
+\begin{lstlisting}
+void setup(){}
+void draw(){
+  if(mouseX<height/2)
+    if(mouseY<height/2 0)
+       background(0);
+    else 
+       background(255,0,0);
+  else
+   if(mouseY<height/2 0)
+       background(0,255,0);
+    else 
+       background(0,0,255);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Laços e Repetições}
+O computador é uma máquina excelente para repetir instruções.
+Os comandos for()\{\} e while()\{\} podem ser usados para tal.
+\begin{lstlisting}{language=java}
+for(int a=0; a<100; a+=10)
+  {
+  fill(a,127);
+  rect(a,a,10,10);
+  } 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Laços e Repetições}
+O computador é uma máquina excelente para repetir instruções.
+Os comandos for()\{\} e while()\{\} podem ser usados para tal.
+
+Como com valores pré-determinados.
+\begin{lstlisting}{language=java}
+for(int a=0; a<100; a+=10)
+  {
+  fill(a,127);
+  rect(a,a,10,10);
+  } 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Laços e Repetições}
+O computador é uma máquina excelente para repetir instruções.
+Os comandos for()\{\} e while()\{\} podem ser usados para tal.
+
+Como com valores pseudo-randômicos.
+\begin{lstlisting}{language=java}
+for(int a=0; a<10000; a+=10)
+  {
+  fill(random(255),random(255),random(255));
+  rect(random(100), random(100),random(10,20),random(5,30));
+  } 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Laços e Repetições Aninhadas}
+Quando se precisa repetir uma repetição,
+usam-se laços aninhados
+
+Como com valores pseudo-randômicos.
+\begin{lstlisting}{language=java}
+for(int y=0; y<100; y+=10)
+  {
+  for(int x=0; x<100; x+=15)
+    {
+    fill(random(255),random(255),random(255));
+    rect(x,y, random(5,10),random(5,15));
+    }
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Seleção Múltipla}
+Quando se têm multiplas escolhas a fazer.
+Exemplo 1:
+
+\begin{lstlisting}{language=java}
+int num = 1;
+
+switch(num) {
+  case 0: 
+    println("Zero");  // Does not execute
+    break;
+  case 1: 
+    println("One");  // Prints "One"
+    break;
+  default:
+}
+
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Seleção Múltipla}
+Quando se têm multiplas escolhas a fazer.
+Exemplo 2:
+\begin{lstlisting}{language=java}
+char letter = 'N';
+
+switch(letter) {
+  case 'A':
+  case 'a':
+    println("Alpha");  // Does not execute
+    break;
+  case 'B':
+  case 'b':
+    println("Bravo");  // Does not execute
+    break;
+  default:             // Default executes if the case labels
+    println("None");   // don't match the switch parameter
+    break;
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Seleção Múltipla}
+Quando se têm multiplas escolhas a fazer.
+Exemplo 3a:
+\begin{lstlisting}{language=java}
+void setup() {
+  size(200, 200);
+}
+
+char letter='a';
+void draw() {
+
+  switch(letter) {
+  case 'R':
+  case 'r':
+    background(255, 0, 0); 
+    break;
+  case 'G':
+  case 'g':  // 
+    background(0, 255, 0); 
+    break;
+  case 'B':
+  case 'b':
+    background(0, 0, 255, 0); 
+    break;
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Seleção Múltipla}
+Quando se têm multiplas escolhas a fazer.
+Exemplo 3a (continuação):
+\begin{lstlisting}{language=java}
+void keyPressed()
+{
+  letter = key;
+  switch(letter) {
+  case 'R':
+  case 'r':
+    println("Encarnado");
+    break;
+  case 'G':
+  case 'g': 
+    println("Verde");  
+    break;
+  case 'B':
+  case 'b':
+    println("Azul"); 
+    break;
+  }
+}
+
+\end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Vetores}
+Vetores (Parte 1 de 2)
+\begin{lstlisting}{language=java}
+int pingos=150; 
+int [] chuvax;
+int [] chuvay;
+
+void setup() {
+  size(200, 200);
+  chuvax = new int[pingos];
+  chuvay = new int[pingos];
+  for (int i=0; i<pingos; i++)
+  {
+    chuvax[i] = floor(random(width));
+    chuvay[i] = floor(random(height));
+  }
+  smooth();
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Vetores}
+Vetores (Parte 2 de 2)
+\begin{lstlisting}{language=java}
+void draw() {
+  stroke(150);
+  for (int i=0; i<pingos; i++)
+    line(chuvax[i], chuvay[i],chuvax[i]+3, chuvay[i]+10 );
+}
+
+void keyPressed()
+{
+  background(200);
+  for (int i=0; i<pingos; i++)
+  {
+    chuvax[i] = floor(random(width));
+    chuvay[i] = floor(random(height));
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Vetores}
+Vetores (Parte 1 de 2)
+\begin{lstlisting}{language=java}
+void setup() {
+  size(200, 200);
+  }
+  void draw() {
+     fachada();
+  }
+
+  void fachada (int x, int y, int largura, int altura)
+  {
+  rect(x,y+altura,largura, altura);
+  triangle(x,y,x+largura,y, x+largura/2, y-altura/2);
+  }
+  
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Vetores}
+Vetores (Parte 2 de 2)
+\begin{lstlisting}{language=java}
+
+void keyPressed()
+{
+ 
+}
+\end{lstlisting}
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{Imagens, Formas, Texto, etc.}
+\begin{lstlisting}{language=java}
+PShape 
+PImage
+PFont
+PGraphics
+PVector // só em java mode
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Dados compostos}
+\begin{lstlisting}{language=java}
+Array
+String
+ArrayList
+*Dict 
+\end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Bibliotecas}
+Recursos pré-programados de funcionalidade interessante.
+\begin{lstlisting}{language=java}
+Video
+DXF 
+PDF export
+Audio
+Rede
+\end{lstlisting}
+\end{frame}
+
+
+
+
+
+
+
+% \begin{frame}[fragile]
+% \frametitle{Laços Aninhados}
+% T
+% \begin{lstlisting}{language=java}
+% // exemplo;
+% \end{lstlisting}
+% \end{frame}
+
+
+
+
+% 
+% \begin{frame}[fragile]
+% \frametitle{Estrutura de um esboço\dots}
+% \begin{lstlisting}{language=java}
+%  
+% \end{lstlisting}
+% \end{frame}
+% 
+% 
+% \begin{frame}[fragile]
+% \frametitle{Estrutura de um esboço\dots}
+% \begin{lstlisting}{language=java}
+%  
+% \end{lstlisting}
+% \end{frame}
+% 
+
+%  \begin{frame}[fragile]
+% \begin{lstlisting}{language=java}
+% // The next line is needed if running in JavaScript Mode with Processing.js
+% /* @pjs preload="moonwalk.jpg"; */ 
+% 
+% PImage img;
+% int smallPoint, largePoint;
+% 
+% void setup() {
+%   size(640, 360);
+%   img = loadImage("moonwalk.jpg");
+%   smallPoint = 4;
+%   largePoint = 40;
+%   imageMode(CENTER);
+%   noStroke();
+%   background(255);
+% }
+% 
+% void draw() { 
+%   float pointillize = map(mouseX, 0, width, smallPoint, largePoint);
+%   int x = int(random(img.width));
+%   int y = int(random(img.height));
+%   color pix = img.get(x, y);
+%   fill(pix, 128);
+%   ellipse(x, y, pointillize, pointillize);
+% }
+%   \end{lstlisting}
+% \end{frame}
+% 
+% 
+% 
+% 
+% \begin{frame}[fragile]
+% \begin{lstlisting}{language=java}
+% //keyword5
+% boolean byte char color double float int long Array FloatDict FloatList HashMap 
+% IntDict IntList JSONArray JSONObject  String StringDict StringList Table TableRow 
+% XML PShape BufferedReader PrintWriter PImage PGraphics PShader PFont PVector 
+% //label 
+% P2D P3D  PDF HSB RGB CENTER CORNER ROUND BEVEL RADIUS 
+% CORNERS ROUND SQUARE PROJECT MITER POINTS LINES 
+% TRIANGLES TRIANGLE_STRIP TRIANGLE_FAN QUADS QUAD_STRIP CLOSE 
+% //function2
+% size() append() reverse() sort() beginContour() endContour() endShape() 
+% clear() blend() copy() filter() get() loadPixels()  set()  dist() lerp() mag()
+% //function3  none
+% //function4
+% mouseClicked() mouseDragged() mouseMoved()  mouseReleased() mouseWheel() 
+% mousePressed() keyPressed() keyReleased() keyTyped() 
+%   \end{lstlisting}
+% \end{frame}
+% 
+% \begin{frame}[fragile]
+% \begin{lstlisting}{language=java}
+% // function1 
+% cursor()  frameRate()  noCursor() binary() boolean() byte() char() float() hex() int() str() 
+% unbinary() unhex() join() match() matchAll() nf() nfc() nfp() nfs() split() splitTokens() 
+% trim() arrayCopy() concat() expand() shorten() splice() subset() createShape() loadShape() 
+% arc() ellipse() line() point() quad() rect() triangle()bezier() bezierDetail() bezierPoint() 
+% bezierTangent() curve() curveDetail() curvePoint() curveTangent() curveTightness()box() 
+% sphere() sphereDetail()ellipseMode() noSmooth() rectMode() smooth() strokeCap() 
+% strokeJoin() strokeWeight() beginShape() bezierVertex() curveVertex() quadraticVertex() 
+% vertex() shape() shapeMode() createInput() createReader() loadBytes() loadJSONArray() 
+% loadJSONObject() loadStrings() loadTable() loadXML() open() parseXML() saveTable() 
+% selectFolder() selectInput() day() hour() millis() minute() month() second() year() print() 
+% println() save() saveFrame() beginRaw() beginRecord() createOutput() createWriter()
+% endRaw()endRecord() saveBytes() saveJSONArray() saveJSONObject() saveStream() 
+% saveStrings() saveXML() selectOutput() applyMatrix() popMatrix() printMatrix() 
+% pushMatrix() resetMatrix() rotate() rotateX() rotateY() rotateZ() scale() shearX() shearY()
+% translate() ambientLight() directionalLight() lightFalloff() lights() lightSpecular() noLights() 
+% normal() pointLight() spotLight() beginCamera() camera() endCamera() frustum() ortho() 
+% perspective() printCamera() printProjection() modelX() modelY() modelZ() screenX()
+% screenY() screenZ() ambient() emissive() shininess() specular()background() colorMode() 
+% fill()noFill() noStroke() stroke() alpha() blue() brightness() color() green() hue() lerpColor() 
+% red() saturation() createImage()image() imageMode() loadImage() noTint() requestImage() 
+% tint()texture() textureMode() textureWrap() updatePixels() blendMode() createGraphics() 
+% loadShader() resetShader() shader() createFont() loadFont() text() textFont()textAlign() 
+% textLeading() textMode() textSize() textWidth() textAscent() textDescent() abs() ceil() 
+% constrain()  exp() floor() log()map() max() min() norm() pow() round() sq() sqrt() acos() 
+% asin() atan() atan2() cos() degrees() radians() sin() tan()
+% noise() noiseDetail() noiseSeed() random() randomGaussian() randomSeed()
+%   \end{lstlisting}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{2. Discussion of Hello world}
+%   Note that \lstinline!cout << "Hello"! in the previous example means
+%   ``console out''.
+% \end{frame}
+% 
+% \begin{frame}{3. Discussion of Hello world}
+%   Note that \identifier{cout << "Hello"} in the previous example means
+%   ``console out''.
+% \end{frame}
+\end{document}
