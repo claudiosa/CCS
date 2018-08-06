@@ -1,4 +1,4 @@
-\begin{verbatim}
+%%% OK DFS
 /* Problema do pastor
  ===> quanto a correspondencia dos functores...
 
@@ -7,7 +7,7 @@ Ovelha ---------------|    |
 Lobo   ----------|    |    |  
 Pastor -----|    |    |    | 
             V    V    V    V
-move(estado(esquerda,esquerda,esquerda,esquerda), estado(direita,direita,direita,direita) ).
+move(estado(esq_1A,esq_1A,esq_1A,esq_1A), estado(dir_2B,dir_2B,dir_2B,dir_2B) ).
       ^                           ^
       |                           |
       |                           |
@@ -17,34 +17,35 @@ move(estado(esquerda,esquerda,esquerda,esquerda), estado(direita,direita,direita
    goal interno ===> x.
 
 *******************************************/
+main  :- 
+      X = estado(esq_1A,esq_1A,esq_1A,esq_1A) ,
+      search_DFS( [X] , L ),
+      nl,
+		  write('=============================================='),
+		  qt_move(L,N),
+		  write('\n Uma solução com '), write(N),
+		  write(' movimentos é dada por:: \n'),
+		  write_path(L),
+      fail.
 
-x  :- busca(estado(esquerda,esquerda,esquerda,esquerda), [] ).
-
-/* melhora a busca ===> jah informa qual estado que
-   os 04 objetos já se encontraram ... */
-x  :- busca(estado(esquerda,esquerda,esquerda,esquerda)  , 
-      [estado(esquerda,esquerda,esquerda,esquerda)]).
-x.
+main  :- 
+    nl,
+    write(' ...........NO MORE SOLUTION  ........').
 
 /* inicio do pgm :: cond. inicial e parada ... definidas */
 
  /* condicao de parada no estado final  */
-  busca( X , L) :-  
-		X == estado(direita,direita,direita,direita),
-		nl,
-		write('=============================================='),
-		qt_move(L,N),
-		write('\n Uma solução com '), write(N),
-		write(' movimentos é dada por:: \n'),
-		write_path(L), 
-		fail.
+  search_DFS( [X|L] , [X|L] ) :-  
+		X == estado(dir_2B,dir_2B,dir_2B,dir_2B),
+    nl,
+    write(' ........... ONE SOLUTION WAS FOUND ........').
 
  /* compara... hah casamento entre o   estado corrente e final ? */
 
 /* aqui é o cerne do processo de busca */
-  busca(Startstate , VisitedPath):-
+  search_DFS([Current_State | VisitedPath], Solution  ):-
 	/* ache um movimento:: Find a move */
-        move(Startstate,Nextstate),     
+        move(Current_State,Nextstate),     
       
        /* Verifique se é valido */
         not( inseguro(Nextstate) ),      
@@ -53,7 +54,7 @@ x.
 	not( eh_menbro(Nextstate,VisitedPath) ),  
         
 /* encontre recursivamente outro movimento */
-	busca( Nextstate, [Nextstate|VisitedPath]).
+	search_DFS([Nextstate, Current_State |VisitedPath], Solution ).
 
 
   /* Definindo os movimentos possiveis */
@@ -70,8 +71,8 @@ x.
   /* Move Pastor sozinho */
   move(estado(X,L,O,R),estado(Y,L,O,R)):-oposto(X,Y).  
 
-  oposto(esquerda,direita).
-  oposto(direita,esquerda).
+  oposto(esq_1A,dir_2B).
+  oposto(dir_2B,esq_1A).
 
  /* O lobo come a ovelha */	
  inseguro( estado(P,X,X,_) ):- oposto(P,X),!.  
@@ -107,4 +108,3 @@ x.
 	write(X), write(' of the river to '), write(Y), nl.
 
 
-\end{verbatim}
