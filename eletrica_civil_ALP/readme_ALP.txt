@@ -1,8 +1,12 @@
 Comunicação no via EMAIL ou Whastaspp do prof: 47 99245 1825
 
 Para postar neste grupo, envie um e-mail para alp-ee@googlegroups.com
-Para sua inscrição neste grupo, envie um e-mail para alp-ee+subscribe@googlegroups.com
-ou siga:
+
+Para sua inscrição neste grupo, envie um e-mail para 
+alp-ee@googlegroups.com
+no corpo da mensagem a palavra
+"subscribe" (deixe em branco o Assunto) 
+OU siga os passos abaixo:
 
 Existem três formas de se inscrever numa lista do google groups:
 
