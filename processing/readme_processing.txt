@@ -5,10 +5,11 @@ Se nao tiver instalado:
 1. Baixar do site www.processing.org
    Downloads 64 bits LINUX ....
 2. Va para pasta Downloads
-3. Extrair o .tar.gz
-   como? tar -xzvf processingxxxxx.tar.gz
+   cd Downloads/
+3. Extrair o processing-3.4.tar.gz
+   como? $tar -xzvf processing-3.4.tar.gz
 4. Ir para o diretorio
-   $cd processingXXXX/
+   $cd Downloads/processing-3.4/
 5. Executar $./processing       
         
 
