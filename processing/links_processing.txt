@@ -1,2 +1,18 @@
+Passos:
+1. Abra um terminal e teste se o processing estah instalado
+   como?  Executar $./processing
+Se nao tiver instalado:
+1. Baixar do site www.processing.org
+   Downloads 64 bits LINUX ....
+2. Va para pasta Downloads
+3. Extrair o .tar.gz
+   como? tar -xzvf processingxxxxx.tar.gz
+4. Ir para o diretorio
+   $cd processingXXXX/
+5. Executar $./processing       
+        
+
+
+
 http://www.cs.sfu.ca/CourseCentral/166/tjd/index.html
 http://www.cs.sfu.ca/CourseCentral/166/tjd/intro.html
