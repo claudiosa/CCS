@@ -7,12 +7,11 @@
        
        stroke(255, 0, 0); // VERMELHO
        strokeWeight(17);  // Beastly
-       
-       
+     
        rect(30, 20, 55, 55);
        
        stroke(0,0, 255); // AZUL
-       
+       strokeWeight(7);  // Beastly
        ellipse(156, 46, 55, 55);
 
       /*
