@@ -5,9 +5,7 @@ homem   ( socrates )     .
 homem   ( adao )         .
 %%% opcional 
 main  => listar_todos.
-
-
-%% Uma regra da LPO: 
+%% Uma regra da LPO (logica de 1a ordem): 
 %% Todos homens sao mortais 
 %%:: Qx ( homem(x) --> mortal(x))
 mortal(X)  => homem(X)  .

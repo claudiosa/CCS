@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% online:SaRodrigues:picat:stars
+%% Claudio Cesar de Sa
+%% claudio.sa@udesc.br
+%% State University of Santa Catarina
+%% Marcelo Rodrigues de Souza
+%% marcelo@ufu.br
+%% Federal University of Uberlândia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+main([File]) =>
+    As = read_file_terms(File),
+<<<<<<< HEAD
+    printf("solution(%d)\n", stars_P(As)).
+=======
+    printf("solution(%d)", stars_P(As)).
+>>>>>>> abc0d96c2ad5d2a370774b173ecfb23bf8dd193b
+
+ 
+ stars_P(FACTS) = Bright =>
+%%sky(Number,W,H) containing the number of stars, the horizontal width and the vertical height of the rectangle-shaped window.
+    member($sky(Number,W,H), FACTS),
+%%%star(Number,X,Y,B) containing the star number, the location (X,Y) and the brightness of each star. No two stars are on the same location.    
+    L_ALL = [Fact : Fact in FACTS, Fact = $star(_,_,_,_) ], 
+    remove_dups(L_ALL) = L_star, %%% UNSECURE
+    %%%No two stars are on the same location. ...
+    %%% Not checked for duplicates stars == same position
+    Bright := 0,
+    %%% $ filter
+    %write(L_star),
+<<<<<<< HEAD
+    foreach ($star(_,X,Y,B) in L_star ) %%% interessante o uso do $ eh um filtro
+        if ( (X <= W) &&  (Y <= H) ) then
+=======
+    foreach ($star(_,X,Y,B) in L_star) %%% interessante o uso do $ eh um filtro
+        if ((X <= W) &&  (Y <= H)) then
+>>>>>>> abc0d96c2ad5d2a370774b173ecfb23bf8dd193b
+        Bright :=  Bright + B
+        end
+    end. 
+ 
+  %   printf("\n Bringht : %d", Bright).
+    
+
+/* NOT USED  ... maybe necessary */
+
+  remove_duplicates([], X) => X = [].
+  remove_duplicates([$star(_,X,Y,_) | T], List) ?=>
+           not member($star(_,X,Y,_), T), 
+           List =[Head|Tail],
+           Head = $star(_,X,Y,_),
+           remove_duplicates( T, Tail).    
