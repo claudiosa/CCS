@@ -1,0 +1,30 @@
+ 
+%% Brute-force algorithm; can be made incremental and more efficient.
+%
+
+main([File]) =>
+    Fs = read_file_terms(File),
+    star(Fs).
+
+star(Fs) =>
+    once member($sky(_N,WinW,WinH),Fs),
+    SkyW = max([X : $star(_,X,_,_) in Fs]),
+    SkyH = max([Y : $star(_,_,Y,_) in Fs]),
+    maxof($scan_win(WinW,WinH,SkyW,SkyH,Fs,SumB),SumB),
+    printf("solution(%d).\n",SumB).
+
+scan_win(WinW,WinH,SkyW,SkyH,Stars,SumB) =>
+    between(0,SkyW-WinW+1,X),
+    between(0,SkyH-WinH+1,Y),
+    SumB = sum([B : $star(_,X1,Y1,B) in Stars, X1 > X, X1 < X+WinW, Y1 > Y, Y1 < Y+WinH]).
+
+
+
+/*
+main =>
+    Fs = $[sky(3, 5, 4),
+           star(1, 1, 2, 3),
+           star(2, 2, 3, 2),
+           star(3, 6, 3, 1)],
+    star(Fs).
+*/

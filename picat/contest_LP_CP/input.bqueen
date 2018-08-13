@@ -1,0 +1,9 @@
+%index(-)  %% NO DOTS
+board(5). 
+
+%index(-,-)
+block(1,1).
+block(2,2).
+block(3,3).
+block(4,5).
+block(5,5).

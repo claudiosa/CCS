@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% online:SaRodrigues:picat:mary
+%% Claudio Cesar de Sa
+%% claudio.sa@udesc.br
+%% State University of Santa Catarina
+%% Marcelo Rodrigues de Souza
+%% marcelo@ufu.br
+%% Federal University of Uberlândia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import cp.
+
+main([File]) =>
+    As = read_file_terms(File),
+    L=findall(As,mary_P(As)),
+    %%%write(L),
+    Len = length(L), 
+    printf("solution(%d)", Len+1).
+
+mary_P(As) =>
+    member($mary(M,N),As),
+    %printf("\n M -- div : %w", N),
+    %printf("\n N --  : %w \n\n", M),
+    K :: 0 .. N,
+    X :: 0 .. N,
+    
+    K * M + X #= N,
+    
+    solve([K,X]).
+    
+    % writeln([K,X]),
+    % printf("\n K: %d X uns %d\n", K,X)
+    
+    
+/*    
+..........................................
+    List = new_list(N),
+    List :: 1..N,
+    Vect = to_array(List),
+    foreach ($block(Row,Col) in As) %%% interessante o uso do $ eh um filtro
+        Vect[Row] #!= Col
+    end,                          
+..........................................
+*/    

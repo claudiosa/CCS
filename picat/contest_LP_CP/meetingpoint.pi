@@ -1,0 +1,55 @@
+
+%%% picat prog1.pi instance1.pl  to run
+main([File]) ?=>
+    printf("\n Arquivo passado : %w", File),
+    Facts = read_file_terms(File),
+    printf("\n Fatos lidos : %w \n\n", Facts),
+    
+    cl_facts(Facts), %% comp + load
+    board(N),
+    MaxX = N,
+    MaxY = N,
+    Nums = [Fact : Fact in Facts, Fact = $number(_,_,_)], %%% $ filtra o fato com prefixo NUMBER
+    printf("\n Filtrando Nums de FATOS : %w \n\n",  Nums),
+    
+    %
+    
+    member(MX,1..MaxX),
+    member(MY,1..MaxY),
+    not member($number(MX,MY,_),Nums),
+    Visited = new_array(MaxX,MaxY),
+    route(Nums,MX,MY,Visited,Plan),
+    foreach (Link in Plan)
+        printf("%w. \n", Link)
+    end.  
+              
+main(_) => printf("\n Erro na clausula acima").
+
+
+route([number(X,Y,N)|Nums],MX,MY,Visited,Plan) =>
+    var(Visited[X,Y]),                                               
+    Visited[X,Y] = 1,
+    route(X,Y,X,Y,N,MX,MY,Visited,Plan,Plan1),
+    route(Nums,MX,MY,Visited,Plan1).
+route([],_MX,_MY,_Visited,Plan) => Plan=[].
+    
+route(_PX,_PY,X,Y,N,X,Y,_Visited,Plan,PlanR) => N=0, Plan=PlanR.
+route(PX,PY,X,Y,N,MX,MY,Visited,Plan,PlanR) =>
+    member((X1,Y1),[(X,Y-1),(X,Y+1),(X-1,Y),(X+1,Y)]),    
+    cell(X1,Y1),
+    var(Visited[X1,Y1]),
+    Plan = [$link(X,Y,X1,Y1)|Plan1],
+    (X1!==PX, Y1!==PY ->
+        N1 = N-1,
+        N1 >= 0
+    ;
+        N1 = N
+    ),
+    ((X1,Y1) = (MX,MY) -> true; Visited[X1,Y1] = 1),
+    route(X,Y,X1,Y1,N1,MX,MY,Visited,Plan1,PlanR).
+
+table
+cell(X,Y) =>
+    board(N),
+    X >= 1, X =< N,
+    Y >= 1, Y =< N.

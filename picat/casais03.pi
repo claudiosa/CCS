@@ -34,7 +34,7 @@ index(-)
 /* encerrado os fatos do problema */
 
 main ?=> 
-        go_modelo( str_casal(X,Y,Z) ),
+        go_modelo( X,Y,Z ),
 	writeln(X),
 	writeln(Y),
 	writeln(Z),
@@ -43,7 +43,8 @@ main ?=>
 main => nl, 
         writeln('.........FIM........').      
 
-go_modelo( str_casal((carlos,M1,P1), (luis,M2,P2), (paulo,M3,advogado) ) ) 
+%%% nao estah OK
+go_modelo( $(carlos,M1,P1), $(luis,M2,P2), $(paulo,M3,advogado) ) 
        =>
       %  L = $str_casal((carlos,M1,P1), (luis,M2,P2), (paulo,M3,advogado)), 
 	esposa(M1),

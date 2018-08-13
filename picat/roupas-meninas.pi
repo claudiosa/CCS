@@ -86,7 +86,7 @@ modelo_meninas => printf("\n =============================\n"),
 
 alldifferent([])  ?=> true.
 alldifferent([H|T]) =>  
-                         not(   member(H,T) ),
+               not(   member(H,T) ),
 	             alldifferent(T)  .
 
 
