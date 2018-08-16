@@ -11,7 +11,7 @@ Se nao tiver instalado:
    como? $ tar -xzvf processing-3.4.tar.gz
 4. Ir para o diretorio
    $cd Downloads/processing-3.4/
-5. Executar $ ./processing       
+5. Executar $ ./processing  &     
 6. Pegar exemplos do github  claudiosa ou 
    de   www.processing.org      
 
