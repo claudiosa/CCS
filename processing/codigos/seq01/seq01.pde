@@ -1,20 +1,23 @@
 
-       size(800 , 800 )     ;
+       size(800 , 800 )      ;
 
-       stroke(35, 225, 30); // VERDE
-       strokeWeight(27);  // Beastly
-       rect(50,200,50,50);
-       
+       stroke(35, 225, 30)   ; // cor de borda VERDE
+       strokeWeight(30)      ;  // Beastly
+       rect(100,200,50,50)    ;
+      
        stroke(255, 0, 0); // VERMELHO
-       strokeWeight(17);  // Beastly
-     
-       rect(30, 20, 55, 55);
-       
-       stroke(0,0, 255); // AZUL
-       strokeWeight(7);  // Beastly
-       ellipse(156, 46, 55, 55);
+       strokeWeight(20);  // Beastly
+       rect(30, 20, 50, 50);
 
-      /*
+       stroke(0,0, 255); // AZUL
+       fill(0,0, 255);
+       strokeWeight(5);  // largura da borda fina
+       //ellipse(156, 46, 55, 55);
+       rect(100,20,50,50)    ;
+     
+     
+     /*   
+     
       A ordem dos comandos ALTERA o resultado
       Trocando a ordem de alguns comandos ... resultados 
       trocados
