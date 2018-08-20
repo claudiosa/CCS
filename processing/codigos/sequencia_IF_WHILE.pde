@@ -1,6 +1,7 @@
+
 // A partir deste exemplo os ALUNOS criam seus próprios experimentos
 // tem-se a noção de SEQUENCIA, CONDICIONAL e REPETICAO
-// Isto na 8a. aula ... inicio da 4a. semana
+// Isto na 8a. aula ... inicio da 3a. semana
 // sob LINUX
 
 // DECLARACAO DE  VARIAVEIS
