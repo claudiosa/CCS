@@ -7,24 +7,15 @@ main ?=>
      .
 
 main => nl, 
-<<<<<<< HEAD
    printf("No more solution in the model  ... \nBYE!\n") .
-=======
-   write('No more solution in the model  ... !!!!' ) .
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
-
+   
 model => 
     est_origem(X),    %%%write([X]),
+    printf("\n Estado inicial: %w " , X),
     T1 = current_time(),
     /* X  é o nó inicial, logo entra na lista inicial */
-<<<<<<< HEAD
     search_DFS( [X] , Solucao) ,
     % L = findall( Solucao, search_DFS( [X] , Solucao) ) ,
-=======
-
-    time( busca_DFS( [X] , Solucao) ), %%% CPU TIME
-    % L = findall( Solucao, busca_DFS( [X] , Solucao) ) ,
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
     % printf(" \n ... TODAS SOLUCOES ....: OK : %w" , L)
     T2 = current_time(),
 
@@ -44,10 +35,6 @@ model =>
     printf(" \n =========================================\n ")
     . %%% there is a dot HERE    
 /*************************************************************/
-<<<<<<< HEAD
-
-=======
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
 /* Initials states or start points */
 index (-)
 est_origem( [esq_1A, esq_1A, esq_1A, esq_1A ] ).
@@ -57,11 +44,7 @@ est_destino( [dir_2B,dir_2B,dir_2B,dir_2B] ).
   
 /*************************************************************/
 %% the generic DFS 
-<<<<<<< HEAD
-search_DFS( [ No_corrente | Caminho] , L) ?=>
-=======
 busca_DFS( [ No_corrente | Caminho] , L) ?=>
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
 %       the halting conditions
         est_destino(No_final),
 	      No_corrente == No_final,
@@ -70,42 +53,26 @@ busca_DFS( [ No_corrente | Caminho] , L) ?=>
 	      printf(" \n ... HALTING CONDITION ....: OK : %w" , L). 
 
 /* aqui é o cerne do processo de busca */
-<<<<<<< HEAD
 search_DFS(  [Nodo | Caminho], Solucao) =>
-=======
-busca_DFS(  [Nodo | Caminho], Solucao) =>
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
   
     /* Ache um movimento:: Find a move */
     %printf("\n corrente: %w" , Nodo), 
     move(Nodo , Novo_nodo), 
-    % printf("\n novo: %w" , Novo_nodo), 
+%   printf("\n Novo NO ou estado: %w" , Novo_nodo), 
     /* Verificar se eh seguro  este estado */
-<<<<<<< HEAD
-%    not (inseguro(Novo_nodo)), %%% PROLOG like
-     safe(Novo_nodo),
+    not (inseguro(Novo_nodo)), %%% PROLOG like
+ %%%   safe(Novo_nodo),
     /* Verifique se já não esteve em uma tentativa anteriores */
     not( member(Novo_nodo, [Nodo|Caminho]) ),
     %printf(" \n novo %w %w %w", Novo_nodo, Nodo, Caminho),
     search_DFS(  [Novo_nodo , Nodo | Caminho ] , Solucao).
-=======
-    seguro(Novo_nodo),
-    /* Verifique se já não esteve em uma tentativa anteriores */
-    not( member(Novo_nodo, [Nodo|Caminho]) ),
-    %printf(" \n novo %w %w %w", Novo_nodo, Nodo, Caminho),
-    busca_DFS(  [Novo_nodo , Nodo | Caminho ] , Solucao).
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
 
 /*************************************************************/
   /* Definindo os movimentos possiveis */
   
   /* Move Pastor + Lobo */
   move( [X,X,O,R ] , Novo ) ?=>  oposto(X,Y), 
-<<<<<<< HEAD
-%                                 O \== R,
-=======
                                  O \== R,
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
                                  Novo = [Y,Y,O,R].
   
   /*Move Pastor + Ovelha */
@@ -114,11 +81,7 @@ busca_DFS(  [Nodo | Caminho], Solucao) =>
   
   /* Move Pastor + Repolho */
   move( [X,L,O,X] , Novo)  ?=>  oposto(X,Y), 
-<<<<<<< HEAD
- %                               O \== L,
-=======
                                 O \== L,
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
                                 Novo = [Y,L,O,Y] .  
   
   /* Move Pastor sozinho */
@@ -134,17 +97,15 @@ index (+,-)  (-,+)
       oposto(esq_1A , dir_2B).
       oposto(dir_2B , esq_1A).
 
-<<<<<<< HEAD
-/*
  inseguro( [P, X, X, _ ] ) ?=> oposto(P,X).
  inseguro( [P, _, X, X ] ) => oposto(P,X).
-*/
+
  /* O lobo come a ovelha se pastor nao estiver junto */	
- safe ( [P,L,O,_ ] ) ?=>  P == L, P == O.
+% safe ( [P,L,O,_ ] ) ?=>  P == L, P == O.
  %% printf("\n 1xxx"), P == X, printf("\n 2xxx") .  
  /* A ovelha come o repolho  se pastor nao estiver junto*/
- safe ( [P,_,O,R] ) ?=>   P == O , P == R.
- safe ( [_,L,O,R] ) ?=>   L \== O , O \== R.
+ %safe ( [P,_,O,R] ) ?=>   P == O , P == R.
+ %safe ( [_,L,O,R] ) ?=>   L \== O , O \== R.
  %safe ( [P,L,O,R] ) ?=>   L == O , O == P.
  %safe ( [P,L,O,R] ) =>   O == R , O == P.
  %%printf("\n 3xxx"), P == X, printf("\n 4xxx") .  
@@ -152,17 +113,15 @@ index (+,-)  (-,+)
  %seguro( [_,_,O,R ] ) => O \== R.
 
  %seguro( _ ) =>  true.
-=======
  /* O lobo come a ovelha se pastor nao estiver junto */	
- seguro( [P,L,O,_ ] ) ?=> P == L, P == O.
+ %seguro( [P,L,O,_ ] ) ?=> P == L, P == O.
  %% printf("\n 1xxx"), P == X, printf("\n 2xxx") .  
  
  /* A ovelha come o repolho  se pastor nao estiver junto*/
- seguro( [P,_,O,R] ) ?=>  P == O , P == R.
+% seguro( [P,_,O,R] ) ?=>  P == O , P == R.
  %%printf("\n 3xxx"), P == X, printf("\n 4xxx") .  
 
- seguro( _ ) =>  true.
->>>>>>> e6251f63dd018216b7cae73008036a8223916418
+% seguro( _ ) =>  true.
  % printf("\n SEGURO FALHOU").
  %
 /********************** diversos *******************/  
