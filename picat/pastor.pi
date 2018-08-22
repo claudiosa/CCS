@@ -41,31 +41,33 @@ est_origem( [esq_1A, esq_1A, esq_1A, esq_1A ] ).
 
 index (-)
 est_destino( [dir_2B,dir_2B,dir_2B,dir_2B] ).
-  
+%%  Novo NO ou estado: [dir_2B,dir_2B,dir_2B,dir_2B]
+
 /*************************************************************/
 %% the generic DFS 
-busca_DFS( [ No_corrente | Caminho] , L) ?=>
+search_DFS( [ No_corrente | Caminho] , L) ?=>
+    
 %       the halting conditions
         est_destino(No_final),
-	      No_corrente == No_final,
- %      printf(" \n  == TESTE de PARADA passou   ==  "),
+%       printf(" \n  == TESTE de PARADA   ==  "),
+ 	      No_corrente == No_final,
 	      L = [ No_corrente | Caminho ],
 	      printf(" \n ... HALTING CONDITION ....: OK : %w" , L). 
 
 /* aqui é o cerne do processo de busca */
-search_DFS(  [Nodo | Caminho], Solucao) =>
+search_DFS(  [Nodo | Caminho], Solution) =>
   
     /* Ache um movimento:: Find a move */
     %printf("\n corrente: %w" , Nodo), 
-    move(Nodo , Novo_nodo), 
-%   printf("\n Novo NO ou estado: %w" , Novo_nodo), 
+    move( Nodo , Novo_NOH), 
+  % printf("\n Novo NO ou estado: %w" , Novo_nodo), 
     /* Verificar se eh seguro  este estado */
-    not (inseguro(Novo_nodo)), %%% PROLOG like
- %%%   safe(Novo_nodo),
+   % not (inseguro(Novo_nodo)), %%% PROLOG like ... FUNCIONA OK
+    safe(Novo_NOH),
     /* Verifique se já não esteve em uma tentativa anteriores */
-    not( member(Novo_nodo, [Nodo|Caminho]) ),
-    %printf(" \n novo %w %w %w", Novo_nodo, Nodo, Caminho),
-    search_DFS(  [Novo_nodo , Nodo | Caminho ] , Solucao).
+    not( member( Novo_NOH ,[ Nodo | Caminho ]  ) ),
+    %%printf(" \n NOVO NOH: %w %w %w", Novo_nodo, Nodo, Caminho),
+    search_DFS ( [Novo_NOH , Nodo | Caminho ] , Solution ).
 
 /*************************************************************/
   /* Definindo os movimentos possiveis */
@@ -97,17 +99,21 @@ index (+,-)  (-,+)
       oposto(esq_1A , dir_2B).
       oposto(dir_2B , esq_1A).
 
+%%// OBJETIVO: substitiuir este conceito 
+
  inseguro( [P, X, X, _ ] ) ?=> oposto(P,X).
  inseguro( [P, _, X, X ] ) => oposto(P,X).
 
+
+%%%// Por este POSITIVISTA
  /* O lobo come a ovelha se pastor nao estiver junto */	
-% safe ( [P,L,O,_ ] ) ?=>  P == L, P == O.
+ safe ( [P,L,O,_ ] ) ?=>  printf("\n 1xxx"), L == O, P == O.
  %% printf("\n 1xxx"), P == X, printf("\n 2xxx") .  
  /* A ovelha come o repolho  se pastor nao estiver junto*/
- %safe ( [P,_,O,R] ) ?=>   P == O , P == R.
- %safe ( [_,L,O,R] ) ?=>   L \== O , O \== R.
- %safe ( [P,L,O,R] ) ?=>   L == O , O == P.
- %safe ( [P,L,O,R] ) =>   O == R , O == P.
+ safe ( [P,_,O,R] ) =>  printf("\n 2xxx") , R == O , P == R.
+ %safe ( [_,L,O,R] ) =>   L \== O , O \== R.
+ 
+ 
  %%printf("\n 3xxx"), P == X, printf("\n 4xxx") .  
  %seguro( [_,L,O,_ ] ) ?=> O \== L.
  %seguro( [_,_,O,R ] ) => O \== R.
@@ -117,7 +123,7 @@ index (+,-)  (-,+)
  %seguro( [P,L,O,_ ] ) ?=> P == L, P == O.
  %% printf("\n 1xxx"), P == X, printf("\n 2xxx") .  
  
- /* A ovelha come o repolho  se pastor nao estiver junto*/
+ /* A ov%elha come o repolho  se pastor nao estiver junto*/
 % seguro( [P,_,O,R] ) ?=>  P == O , P == R.
  %%printf("\n 3xxx"), P == X, printf("\n 4xxx") .  
 
