@@ -1,0 +1,25 @@
+Bom dia Cláudio,
+
+Depois de um tempo sem pensar, e nem ter tempo, em programar alguma coisa em Picat parei para olhar o problema do Resta 1.
+
+Primeira coisa que observei que é até a instância de 7x7 a sua solução funciona bem (0,328 s no meu notebook), mas a instância 9x9 não obtive resposta depois de 30 minutos.
+
+Então fui pesquisar um pouco sobre modelos e heurísticas para resolver o quebra-cabeças.
+
+Em https://github.com/EthanWelsh/Peg-Solitaire utiliza o DFS, A* e IDA, com várias heurísticas e mostra que o DFS é a melhor opção, mas ele testa somente para um único tabuleiro.
+
+Em http://www.cs.huji.ac.il/~ai/projects/2013/PegSolitaire/ utiliza DFS, A* (4 heurísticas diferentes) e Algoritmo Genético. O resultado mostra que dependendo da configuração do tabuleiro uma heurística pode ser melhor do que outra.
+
+Já em Peg_Solitaire_1.pdf compara modelos diferentes: CP, IP e Planner, com e sem reversão, além de regras diferentes para o jogo. As tabelas 4 e 5 mostram que o tempo para obter a solução é dependente do estado final desejado.
+
+Resumindo:
+- DFS é uma boa opção
+- O mesmo algoritmo/heurística terá desempenhos diferentes conforme o tabuleiro
+- O estado final altera o desempenho.
+
+Não testei implementar nenhuma das soluções dessas referências em Picat, para verificar a conclusão deles.
+
+Atenciosamente,
+
+
+Minicz
