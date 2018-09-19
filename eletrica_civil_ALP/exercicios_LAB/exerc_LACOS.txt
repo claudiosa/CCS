@@ -37,8 +37,9 @@
 	n*(n-1)*(n-2)...*3*2*1
 	e é representado por n!
 	
- 13. Crie um aplicativo bancário em C que pede o valor do depósito inicial, o valor do investimento mensal e o número de meses que o dinheiro vai ficar rendendo na poupança.
-	Após isso, calcule o lucro obtido, sabendo que o juros da poupança é de 0,5%.
+ 13. Crie um aplicativo bancário em C que pede o valor do depósito inicial, o valor do 
+     investimento mensal e o número de meses que o dinheiro vai ficar rendendo na poupança.
+      Após isso, calcule o lucro obtido, sabendo que o juros da poupança é de 0,5%.
 	
  14. Crie um programa em C que peça um número inteiro ao usuário, e imprima a seguinte tabela::
 	1
@@ -56,7 +57,9 @@
 	40 -> 20 -> 10 -> 5 -> 16 -> ˜8 -> 4 -> 2 -> 1
 	
  16. Desafio dos números de FIbonacci
-	Crie um aplicativo em C que peça um número inteiro ao usuário - 'n' - e exiba o n-ésimo termo da série de Fibonacci,     sabendo que o primeiro termo é 0, o segundo é 1 e o próximo número é sempre a soma dos dois anteriores.
+	Crie um aplicativo em C que peça um número inteiro ao usuário - 'n' - e exiba o n-ésimo termo da 
+	série de Fibonacci,  sabendo que o primeiro termo é 0, o segundo é 1 e o próximo número é sempre a 
+	soma dos dois anteriores.
 	
  17. Desafio do diamante de asteriscos:
 	Escreva um aplicativo em C que peça um número inteiro ímpar ao usuário e desenhe um diamante no seguinte formato:
@@ -128,16 +131,17 @@
      
      1 + (1/4)^1 + (1/4)^2 + (1/4)^3 + (1/4)^4 + .... + (1/4)^N = 4/3
      
-     (esta é uma série CONVERGENTE)
+     (esta é uma série CONVERGENTE -- neste caso a soma converge há um valor fixo 4/3,
+     quanto mais termos se aproxima deste)
      
 
 25. Encontre a soma da série de 1 a N da seguinte seqência:
      
      1 + (1+1/1)^1 + (1+1/2)^2 + (1+1/3)^3 + (1+1/4)^4 + .... + (1+1/N)^N 
      
-     (esta é uma série DIVERGENTE)
+     (esta é uma série DIVERGENTE -- oposto da anterior)
      
-     Relembrando apenas:
+     Relembrando apenas o termo quando n -> infinito (limite fundamental):
      
      lim (1+1/n)^n       = NUMERO NEPERIANO - e
       n -> infinito
