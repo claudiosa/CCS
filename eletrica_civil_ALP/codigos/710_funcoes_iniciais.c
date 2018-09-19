@@ -34,15 +34,23 @@ int main( void )
    printf(" DIGITE UM NUMERO INTEIRO: \a");
    //setbuf( stdin, NULL );
  
-   scanf("%d\r", & x ); // le do teclado
+   scanf("%d%*[^\n]", & x ); // le do teclado
   // getchar();
-    fflush(stdin);     // limpeza  do BUFFER teclado
-   __fpurge(stdin);    // remove 
+  //  fflush(stdin);     // limpeza  do BUFFER teclado
+  // __fpurge(stdin);    // remove 
   
    
    return (x);
 } 
+/*
+Explicação de scanf(" %c%*[^\n]",&c);:
 
+    pula whitespace (entre os quais ' ', '\t' e '\n')
+    lê um caracter X que não é whitespace
+    pula todos os caracteres até achar um '\n' (o '\n' fica no buffer)
+
+
+*/
 
 
 void alo (void)
