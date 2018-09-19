@@ -124,5 +124,26 @@
  dada por y(x) = -3x^2 + 100x + 10.
        
 
-	  
+24. Encontre a soma da série de 1 a N da seguinte seqência:
+     
+     1 + (1/4)^1 + (1/4)^2 + (1/4)^3 + (1/4)^4 + .... + (1/4)^N = 4/3
+     
+     (esta é uma série CONVERGENTE)
+     
+
+25. Encontre a soma da série de 1 a N da seguinte seqência:
+     
+     1 + (1+1/1)^1 + (1+1/2)^2 + (1+1/3)^3 + (1+1/4)^4 + .... + (1+1/N)^N 
+     
+     (esta é uma série DIVERGENTE)
+     
+     Relembrando apenas:
+     
+     lim (1+1/n)^n       = NUMERO NEPERIANO - e
+      n -> infinito
+     
+     
+    OBS: K = X^Y   em C fica double K = pow(X,Y);
+    
+     
 /* ===================================================================================================== */
