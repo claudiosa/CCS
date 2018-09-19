@@ -29,15 +29,18 @@ e se inscreva
 Alguns slides da disciplina estarão aqui
 
 Compiladores C e C++ online ... pelo navegador mesmo:
+//CUIDAR COM A ENTRADA DE DADOS .....
 
 Vejam:
 http://www.tutorialspoint.com/
 
-Diretamente:
-http://www.tutorialspoint.com/compile_c_online.php
 
-Ou:
-https://ideone.com/
+Diretamente:
+http://www.tutorialspoint.com/compile_c_online.php (ha tutoriais etc)
+
+ou
+https://www.codechef.com/ide
+Selecione o compilador que desejares
 
 Basicamente o nosso curso esta no
 http://www.thehuxley.com
