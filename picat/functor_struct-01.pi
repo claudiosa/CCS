@@ -1,5 +1,5 @@
 %%%%%%% ilustra functores / STRUCTs
-main => test02. %, carros.
+main => test01, test02. %, carros.
 all_cars ?=>
 	 pertence(X,Y,Z),
 	 printf("\n X: %w  \t Y: %w \t  Z: %w ", X, Y, Z ),
