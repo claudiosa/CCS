@@ -3,9 +3,11 @@
  
  
  
- 
-   Criando um tabuleiro de Jogo da Velha
+ 1. Criando um tabuleiro de Jogo da Velha
    Crie um tabuleiro de jogo da velha, usando uma matrizes de caracteres (char) 3x3, 
    onde o usuário pede o número da linha (1 até 3) e o da coluna (1 até 3).
    A cada vez que o usuário entrar com esses dados, colocar um 'X' ou 'O' no 
    local selecionado.
+   
+2. Em uma classe há n alunos, cada um dos quais realizou k provas com pesos distintos. Dados n , k, os pesos das k provas e as notas de cada aluno, calcular a média ponderada das provas para cada aluno e a média aritmética da classe em cada uma das provas.
+Faça: n, k etc com entradas GENERICAS
