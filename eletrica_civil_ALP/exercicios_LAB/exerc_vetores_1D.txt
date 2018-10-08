@@ -1,4 +1,4 @@
-Exercícios de Vetores e Matrizes
+Exercícios de Vetores ( e Matrizes )
 
 ATENÇÃO : basicamente  "todos" exercicios da seção de 
           laços de repetição, podem ser refeitos agora
@@ -42,9 +42,7 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
    Em seguida, o usuário digita um número e seu programa em C deve acusar se o número digitado
    está no vetor ou não. Se estiver, diga a posição que está.
 
-9. Criando um tabuleiro de Jogo da Velha
-   Crie um tabuleiro de jogo da velha, usando uma matrizes de caracteres (char) 3x3, onde o usuário pede o número da linha (1 até 3) e o da coluna (1 até 3). A cada vez que o usuário entrar com esses dados, colocar um 'X' ou 'O' no local selecionado.
-
+9. 
 
 10. Como criar um programa que verifica se o número é palíndromo
     Número palíndromo é aquele que, se lido de trás para frente e de frete para trás, é o mesmo.
