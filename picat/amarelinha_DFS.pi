@@ -100,7 +100,9 @@ busca_DFS( [ No_corrente | Caminho] , L) ?=>
 	   write(L). 
 
 busca_DFS(  [Nodo | Caminho], Solucao) =>
+            %%% exploring for a new movement
             move(Nodo , Novo_nodo), 
+            %% test if this node was visited
             not( member(Novo_nodo, [Nodo|Caminho]) ),
            %printf(" \n novo %w %w %w", Novo_nodo, Nodo, Caminho),
            busca_DFS(  [Novo_nodo , Nodo | Caminho ] , Solucao).

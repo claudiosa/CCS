@@ -17,19 +17,18 @@ import os. %%% for OS command
 import util. %%% some functions
 %mport math.
 import datetime.  %%% cpu time
-import planner.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
    %% change here according your MAP or BOARD
-  % Map = read_Map("3x6_peg.txt") ,
+   %Map = read_Map("3x6_peg.txt") ,
    %Map = read_Map("5x5_peg.txt") , % no solution
    %Map = read_Map("9x9_peg.txt") ,
    %Map = read_Map("another_7x7_37_peg.txt"), 
-   Map = read_Map("7x7_peg.txt"),
-   %Map = read_Map("MAP_03.txt") ,
+   %Map = read_Map("7x7_peg.txt"),
+   Map = read_Map("3x6_peg.txt") ,
    /* 
    or
     Map = {
@@ -39,46 +38,65 @@ main ?=>
    },
    */
        
-    T1 = current_time(),
+    %T1 = current_time(),
     printf("\n The Initial Grid or Map"),            
     print_map(Map), nl,
+   % printf("\n ......."), 
+    Upper = get_bound(Map),
+    search_DFS( [ Map ], Plan , Upper ),
+    %T2 = current_time(), 
     
-    Bound = get_bound(Map), %%% a bound of the tree search
-   
-    time(plan(Map,Bound,Plan)),
-    % time(best_plan_unbounded( Map , Plan)), %%% CPU TIME
- 
-    T2 = current_time(), 
-    
-    show_solution( Map , Plan), %%% from HAKAN
-    printf("\n A boundary (estimating a deep): %w  " , Bound ),
-    printf("\n PLAN: %w", Plan), 
+    % show_solution( Map , Plan), %%% from HAKAN
+    print_Plan( Plan ), 
     Total := length(Plan) ,
     Num_Movts := (Total - 1) ,
   
     printf("\n Total of states: %d", Total), 
     printf("\n Total of moviments: %w", Num_Movts),
-    printf("\n CPU TIME Initial: %w  end: %w ", T1, T2),
+    %printf("\n CPU TIME Initial: %w  end: %w ", T1, T2),
     printf("\n =========================================\n ")
+    %,  fail
     .
     
 main =>  printf("\n None options from main !!!").
+/*************************************************************/
+%% the generic DFS 
+search_DFS( [ Current_NODE | Partial_SOL] , L, Upper) ?=>
+    
+   %    the halting conditions
+   %    printf(" \n  == TESTE de PARADA   ==  "),
+        final_check(  Current_NODE  ), %% check if in L exist only a single 1
+ 	      L = [ Current_NODE | Partial_SOL ],
+        printf(" \n >>> HALTING CONDITION by DFS :  %w:%d", L, Upper). 
+
+/* aqui é o cerne do processo de busca */
+search_DFS( [Node | Partial_SOL], Solution , Upper) =>
+    Upper >= 1,
+    move( Node , New_NODE, New_Action ), %% Action: Wich movement
+   % printf("\n Novo NO ou estado: %w" , Novo_nodo), 
+   % good_action_move(New_NODE),  %%% Nao funciona ainda 
+    
+    /* Verifique se já não esteve em uma tentativa anteriores */
+   % not( member( New_NODE , [ Node | Caminho ]  ) ),
+    %%printf(" \n NOVO NOH: %w %w %w", Novo_nodo, Nodo, Caminho),
+    New_Upper := (Upper-1),
+    search_DFS([New_NODE, Node | Partial_SOL], Solution, New_Upper).
+
+/*************************************************************/
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%
 % Auxiliary functions
 % a deep or bound  estimated for the search tree
-get_bound(Grid) = sum([1 : I in array_matrix_to_list(Grid), I=='1'])-1.   
+get_bound(Grid) = sum([1 : I in array_matrix_to_list(Grid), I=='1']) - 1 .   
 %% good heuristic
 %%% from HAKAN
-/*********** <<ACTION >> *************/
 %%% IN FUNCTIONS: no backtrackable rules are allowed 
 %%% Backtrackable rules only in predicates
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-/*** check the 1 at the end ****/
-final( Grid ) =>
+/*** check exist only 1 at the end ****/
+final_check( Grid ) =>
           %print_map( Grid ), 
           array_matrix_to_list(Grid) = List,
           %printf("final list: %w", List),
@@ -88,42 +106,47 @@ final( Grid ) =>
 %         Grid[4,4] == '1', %%% CHANGE IT if necessary 7x7
 %         Grid[3,3] == '1', %%% CHANGE IT if necessary 5x5
           %% Printing
-          println("End state:"),
-          print_map(Grid).  
-
+          println("\n vvvvv ONE end state was REACHED vvvvv")
+          %print_map(Grid)
+          .  
 %%%final(_) => printf("\n There are 1 in the map!\n").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* Describing the possible actions ==> for the planner */
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%% FROM HAKAN ... 1 ACTION instead 4 action as I had proposed
 %%% MUCH .... MUCH MORE EFICIENT
-action(Grid,New_Grid, Action, Action_Cost) ?=>
+%move( Nodo , New_NODE), 
+move(Grid, New_Grid, Action ) ?=>
+  % print_map( Grid ), 
   Grid_TEMP = copy_term(Grid),
-  Action_Cost = 1,
+  L_all_mov = f_feasible_moves( Grid ),   %%
+  member( (Action1 , X, Y) , L_all_mov) ,  %% THE HEURISTICS CAN BE HANDLED HERE CHOSING A GOOD MOVEMENT
+  
   %% only once time is calculated ... all the movements in the board
-  L_all_mov =  f_feasible_moves( Grid ), %% THE HEURISTICS MUST BE HANDLED HERE
-  member( (Action1, X, Y) , L_all_mov),  %% THE HEURISTICS CAN BE HANDLED HERE CHOSING A GOOD MOVEMENT
   %% take one feasible movement/action in current moment
   %% a tuple (Action1, X, Y) from L_all_mov)
   if (Action1 == jump_right)   then
-     Grid_TEMP[X, Y]   := '0',
-     Grid_TEMP[X ,Y+1] := '0',     
+     Grid_TEMP[X, Y]   := '0' ,
+     Grid_TEMP[X ,Y+1] := '0' ,     
      Grid_TEMP[X, Y+2] := '1'
+  
   elseif (Action1 == jump_left) then
-     Grid_TEMP[X, Y]   := '0',
-     Grid_TEMP[X, Y-1] := '0',     
+     Grid_TEMP[X, Y]   := '0' ,
+     Grid_TEMP[X, Y-1] := '0' ,     
      Grid_TEMP[X, Y-2] := '1'
+  
   elseif (Action1 == jump_up)   then
-     Grid_TEMP[X,   Y] := '0',      
-     Grid_TEMP[X-1, Y] := '0',     
+     Grid_TEMP[X,   Y] := '0' ,      
+     Grid_TEMP[X-1, Y] := '0' ,     
      Grid_TEMP[X-2, Y] := '1'
+  
   elseif (Action1 == jump_down) then
-     Grid_TEMP[X,   Y] := '0',      
-     Grid_TEMP[X+1, Y] := '0',     
+     Grid_TEMP[X,   Y] := '0' ,      
+     Grid_TEMP[X+1, Y] := '0' ,     
      Grid_TEMP[X+2, Y] := '1'
+  
   end,
-  Action = (Action1, X, Y) ,
+  Action = (Action1, X, Y)  ,
   New_Grid = Grid_TEMP.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,6 +160,7 @@ f_feasible_moves( Map ) = L_mov  =>
    (
       %%% VERTICAL  
      if ((I+2 =<L) , Map[I,J] == '1' , Map[I+1,J] == '1', Map[I+2,J] == '0' ) then  %110
+        %% FAZER UMA HEURISTICA DE PROIBICAO AQUI .....
         Aux := f_insert(( jump_down ,I,J), Aux)
         % ,
         % printf("\n VERTICAL 110")
@@ -173,8 +197,21 @@ f_feasible_moves( _ ) = R =>
       printf("\n Problem in position function f_feasible_moves \n"),
       R := [].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/*
+good_action_move( Map ) ?=>
+     
+  L = (Map.length),
+  C = (Map[1].length),
+  %%printf(" MAX DIM: %d x %d ", L, C),
+  Aux := [],
+  foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
+   (
+     Fazer a verificacao de movimento invalidos aqui....
 
-
+good_action_move( _ ) =>
+    printf("\n good_action_move \n"),
+      .
+*/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% READING A FILE  with a MAP or Grid....
 read_Map(File_NAME) = Arr_2D  
@@ -195,9 +232,13 @@ read_Map(File_NAME) = Arr_2D
        end,
     close(Reader)  .
     %% printf("\n The Final Array: %w\n\n", Arr_2D )
-
 %% a study for ready a file in Picat is availble in reading_files.pi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_Plan( Inv_Solucao ) =>
+  Plan = reverse(  Inv_Solucao ),
+  println("\n ONE SOLUTION: "),                        
+  foreach( State in Plan)
+  print_map( State ).
 
 %% printing the GRID ....
 print_map( M ) =>
@@ -222,7 +263,7 @@ f_insert( X, L ) = R, L == []  => R=[ X ].
 f_insert( X, L ) = R, L != []  => R=[ X | L ].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% FROM HAKAN  ... for pretty printing 
+%%% FROM HAKAN  ... for pretty printing --- LATER
 show_solution(InitGrid, Plan) => 
   Grid = copy_term(InitGrid),
   println("\nInit:"),                        
