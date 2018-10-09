@@ -1,8 +1,8 @@
-Exercícios de Vetores e Matrizes
+Exercícios de Vetores 1D ( e Matrizes 2D -- proximo arquivo )
 
 ATENÇÃO : basicamente  "todos" exercicios da seção de 
           laços de repetição, podem ser refeitos agora
-	  com vetores 1D e 2D.
+	  com vetores 1D, e 2D em alguns casos
 	  Assim refaça alguns de laços ... mas agora com VETORES!
 
 1. Crie um programa em C que tenha um vetor A com 
@@ -42,9 +42,7 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
    Em seguida, o usuário digita um número e seu programa em C deve acusar se o número digitado
    está no vetor ou não. Se estiver, diga a posição que está.
 
-9. Criando um tabuleiro de Jogo da Velha
-   Crie um tabuleiro de jogo da velha, usando uma matrizes de caracteres (char) 3x3, onde o usuário pede o número da linha (1 até 3) e o da coluna (1 até 3). A cada vez que o usuário entrar com esses dados, colocar um 'X' ou 'O' no local selecionado.
-
+9.  Dada uma seqüência de n números, imprimi-la na ordem inversa à da leitura. 
 
 10. Como criar um programa que verifica se o número é palíndromo
     Número palíndromo é aquele que, se lido de trás para frente e de frete para trás, é o mesmo.
@@ -52,6 +50,42 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
 
 11. Faça um programa que leia uma vetor, e em seguida  inverta-o sobre o mesmo vetor.
 
-12. 
+12.  Dados dois vetores x e y, ambos com n elementos, determinar o produto escalar (1) desses vetores. 
+
+13. Dados dois strings (um contendo uma frase e outro contendo uma palavra), determine o número de vezes que a palavra ocorre na frase.
+
+Exemplo: 
+Para a palavra ANA e a frase :
+ANA E MARIANA GOSTAM DE BANANA (2)
+Temos que a palavra ocorre 4 vezes na frase.
+
+14. Dada uma seqüência de n números reais, determinar os números que compõem a seqüência e o número de vezes que cada um deles ocorre na mesma.
+
+Exemplo: n = 8
+Seqüência: -1.7,  3.0,  0.0,  1.5,  0.0, -1.7,  2.3, -1,7
+Saída:       -1.7 ocorre 3 vezes 
+                   3.0 ocorre 1 vez 
+                   0.0 ocorre 2 vezes 
+                   1.5 ocorre 1 vez 
+                   2.3 ocorre 1 vez
+		   
+15.  Dadas duas seqüências com n números inteiros entre 0 e 9, interpretadas como dois números inteiros de n algarismos, calcular a seqüência de números que representa a soma dos dois inteiros.
+
+Exemplo: n = 8,
+1ª  seqüência	      8    2    4    3    4    2    5    1
+2ª  seqüência	 +    3    3    7    5    2    3    3    7 
+-----------------------------------------------------------------
+                 1    1    6    1    8    6    5    8    8		   
+
+Muito legal este e com uma certa dificuldade....
+
+16.  Dada uma seqüência de n números inteiros, determinar um segmento de soma máxima.
+
+Exemplo: Na seqüência 5, 2, -2, -7, 3, 14, 10, -3, 9, -6, 4, 1 , a soma do segmento é 33.
+
+Dificuldade: alta
+
+17.
+
 
 

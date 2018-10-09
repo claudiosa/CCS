@@ -1,0 +1,163 @@
+ 
+ Exerccicios de Veotes 2D ou MATRIZES
+ 
+ 
+ 1. Criando um tabuleiro de Jogo da Velha
+   Crie um tabuleiro de jogo da velha, usando uma matrizes de caracteres (char) 3x3, 
+   onde o usuário pede o número da linha (1 até 3) e o da coluna (1 até 3).
+   A cada vez que o usuário entrar com esses dados, colocar um 'X' ou 'O' no 
+   local selecionado.
+   
+2. Em uma classe há n alunos, cada um dos quais realizou k provas com pesos distintos. Dados n , k, os pesos das k provas e as notas de cada aluno, calcular a média ponderada das provas para cada aluno e a média aritmética da classe em cada uma das provas.
+Faça: n, k etc com entradas GENERICAS
+
+3. Escreva um algoritmo que leia um vetor de 13 elementos, que é o Gabarito de um teste da loteria esportiva, contendo os valores 1(coluna 1), 2 (coluna 2) e 3 (coluna do meio). Leia, a seguir, para cada apostador, o número do seu cartão e um vetor de Respostas de 13 posições. Verifique para cada apostador o números de acertos, comparando o vetor de Gabarito com o vetor de Respostas. Escreva o número do apostador e o número de acertos. Se o apostador tiver 13 acertos, mostrar a mensagem "Ganhador".
+
+
+Os exercícios abaixo vieram do site: 
+https://www.ebah.com.br/content/ABAAABA0UAH/lista-exercicios-matrizes-vetores-linguagem-c
+
+
+31. Elaborar um algoritmo que lê duas matrizes M(4,6) e N(4,6) e cria uma matriz que seja: a) o produto de M por N; b) a soma de M com N; c) a diferença de M com N; Escrever as matrizes calculadas.
+
+32. Elaborar um algoritmo que lê uma matriz M(6,6) e um valor A e multiplica a matriz M pelo valor A e coloca os valores da matriz multiplicados por A em um vetor de V(36) e escreve no final o vetor V.
+
+3. Escreva um algoritmo que leia um número inteiro A e uma matriz V 30x30 de números. Conte quantos valores iguais a A estão na matriz. Crie, a seguir, uma matriz X contendo todos os elementos de V diferentes de A. Mostre os resultados.
+
+34. Escreva um algoritmo que lê uma matriz M(5,5) e calcula as somas: a) da linha 4 de M b) da coluna 2 de M c) da diagonal principal d) da diagonal secundária e) de todos os elementos da matriz M Escrever essas somas e a matriz.
+
+35. Escrever um algoritmo que lê uma matriz A(15,5) e a escreva. Verifique, a seguir, quais os elementos de A que estão repetidos e quantas vezes cada um está repetido. Escrever cada elemento repetido com uma mesagem dizendo que o elemento aparece X vezes em A.
+
+36. Escrever um algoritmo que lê uma matriz M(12,13) e divida todos os 13 elementos de cada uma das 12 linhas de M pelo maior elemento em módulo daquela linha. Escrever a matriz lida e a modificada.
+
+37. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: a) a linha 2 com a linha 8 b) a coluna 4 com a coluna 10 Escreva a matriz assim modificada. 38. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: a) a diagonal principal com a diagonal secundária b) a linha 5 com a coluna 10. Escreva a matriz assim modificada.
+
+39. Escrever um algoritmo que lê uma matriz M(12,13) e divida todos os 13 elementos de cada uma das 12 linhas de M pelo maior elemento em módulo daquela linha. Escrever a matriz lida e a modificada.
+
+40. Escrever um algoritmo que lê uma matriz M(5,5) e cria 2 vetores SL(5) e SC(5) que contenham, respectivamente, as somas das linhas e das colunas de M. Escrever a matriz e os vetores criados.
+
+41. Escreva um algoritmo que lê uma matriz M[5,5]. Substitua, a seguir, todos os valores negativos da matriz pelo seu módulo. Exemplo: substitua -2 por 2, -16 por 16, assim por diante.
+
+42. Escreva um algoritmo que lê uma matriz M[6,6]. A seguir, troque os elementos da primeira coluna com os elementos da segunda coluna, os da terceira coluna com a quarta coluna e os elementos da quinta coluna com os elementos da sexta coluna.
+
+43. Repita o exercício anterior, trocando os elementos das linhas, ao invés das colunas.
+
+4. Leia uma matriz M[5,5]. A seguir, ordene os elementos da matriz M e mostre como ficou a Matriz ordenada, linha por linha.
+
+45. Faça um algoritmo que calcule a média dos elementos da diagonal principal de uma matriz 10 X 10 de números. 46. Faça um algoritmo que calcule a média dos elementos da diagonal secundária de uma matriz 10 X 10 de números.
+
+47. Faça um algoritmo que gere a seguinte matriz:
+
+48. Faça um algoritmo que gere a seguinte matriz:
+
+49. Faça um algoritmo que leia uma matriz numérica 15 X 15 e calcule a soma dos elementos da diagonal secundária. 50. Faça um algoritmo que leia uma matriz 20x15 de números. calcule e mostre a soma das linhas pares da matriz.
+
+51. Faça um algoritmo que leia uma matriz 20x20 de números e some cada uma das linhas, armazenando o resultado da soma em um vetor. A seguir, multiplique cada elemento pela soma da sua linha. Mostre a matriz resultante.
+
+52. Faça um algoritmo que leia uma matriz 50x50 de números e encontre o maior valor da matriz. A seguir, multiplique cada elemento da diagonal principal pelo maior valor. Mostre a matriz após as multiplicações.
+
+53. Faça um algoritmo que leia uma matriz 50x50 de números. A seguir, multiplique cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as multiplicações.
+
+54. Faça um algoritmo que leia uma matriz de 60 linhas e 10 colunas. Depois de lê-la, some as colunas individualmente e acumule a 53. Faça um algoritmo que leia uma matriz 50x50 de números. A seguir, multiplique cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as multiplicações.
+
+54. Faça um algoritmo que leia uma matriz de 60 linhas e 10 colunas. Depois de lê-la, some as colunas individualmente e acumule a soma na 61ª linha da matriz. Mostre o resultado de cada coluna no vídeo. (Lembrete: para guardar o resultado é necessário declarar uma matriz de 61 x 10.)
+
+5. Na teoria dos sistemas, define-se como elemento minimax de uma matriz o menor elemento da linha onde se encontra o maior elemento da matriz. Escreva um algoritmo que leia uma matriz 10 X 10 de números e encontre seu elemento minimax, mostrando também sua posição.
+
+56. Escrever um programa que lê uma matriz 17x17 e:
+
+1.calcula a média aritmética dos elementos hachurados na letra a; 2.o maior elemento da linha onde se encontra o menor elemento da área hachurada na letra b;
+
+
+Escreva os valores calculados nos itens 1 e 2 e a matriz.
+
+57. Faça um programa que leia uma matriz 12x12 e calcule e escreva a soma da área hachurada na letra a e o maior elemento da área hachurada na letra b abaixo:
+
+
+58. Faça um programa que leia uma matriz 12 x 12 e calcule e escreva:
+
+a.o menor elemento e a sua posição (índices) da área hachurada; b.a média dos elementos da área hachurada.
+
+
+59. Faça um programa lê uma matriz A 7 x 7 de números e cria 2 vetores ML(7) e MC(7), que contenham, respectivamente, o maior elemento de cada uma das linhas e o menor elemento de cada uma das colunas. Escrever a matriz A e os vetores ML e MC.
+
+60-. Execute o algoritmo abaixo, preenchendo a matriz M [2,6]:
+
+variaveis matriz numerico M [2,6] numerico fat,i
+
+para i de 1 até 6M [2,6]=	1 2 3 4 5 6
+inicio ler M[1,i] se M[1,i] > 0 então fat := 1 para j de 1 até M[1,i] fat := fat * j próximo j M[2,i] := fat senão
+
+M[2,i] := i * i fim_se M[2,i] := M[2,i] – 10 próximo fim
+
+Na leitura da Matriz, considere os valores: -5 7 2 1 4 0
+
+soma na 61ª linha da matriz. Mostre o resultado de cada coluna no vídeo. (Lembrete: para guardar o resultado é necessário declarar uma matriz de 61 x 10.)
+
+53. Faça um algoritmo que leia uma matriz 50x50 de números. A seguir, multiplique cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as multiplicações.
+
+54. Faça um algoritmo que leia uma matriz de 60 linhas e 10 colunas. Depois de lê-la, some as colunas individualmente e acumule a soma na 61ª linha da matriz. Mostre o resultado de cada coluna no vídeo. (Lembrete: para guardar o resultado é necessário declarar uma matriz de 61 x 10.)
+
+5. Na teoria dos sistemas, define-se como elemento minimax de uma matriz o menor elemento da linha onde se encontra o maior elemento da matriz. Escreva um algoritmo que leia uma matriz 10 X 10 de números e encontre seu elemento minimax, mostrando também sua posição.
+
+56. Escrever um programa que lê uma matriz 17x17 e:
+
+1.calcula a média aritmética dos elementos hachurados na letra a; 2.o maior elemento da linha onde se encontra o menor elemento da área hachurada na letra b;
+
+
+Escreva os valores calculados nos itens 1 e 2 e a matriz.
+
+57. Faça um programa que leia uma matriz 12x12 e calcule e escreva a soma da área hachurada na letra a e o maior elemento da área hachurada na letra b abaixo:
+
+
+58. Faça um programa que leia uma matriz 12 x 12 e calcule e escreva:
+
+a.o menor elemento e a sua posição (índices) da área hachurada; b.a média dos elementos da área hachurada.
+
+
+59. Faça um programa lê uma matriz A 7 x 7 de números e cria 2 vetores ML(7) e MC(7), que contenham, respectivamente, o maior elemento de cada uma das linhas e o menor elemento de cada uma das colunas. Escrever a matriz A e os vetores ML e MC.
+
+60-. Execute o algoritmo abaixo, preenchendo a matriz M [2,6]:
+
+variaveis matriz numerico M [2,6] numerico fat,i
+
+para i de 1 até 6M [2,6]=	1 2 3 4 5 6
+inicio ler M[1,i] se M[1,i] > 0 então fat := 1 para j de 1 até M[1,i] fat := fat * j próximo j M[2,i] := fat senão
+
+M[2,i] := i * i fim_se M[2,i] := M[2,i] – 10 próximo fim
+
+Na leitura da Matriz, considere os valores: -5 7 2 1 4 0
+
+5. Na teoria dos sistemas, define-se como elemento minimax de uma matriz o menor elemento da linha onde se encontra o maior elemento da matriz. Escreva um algoritmo que leia uma matriz 10 X 10 de números e encontre seu elemento minimax, mostrando também sua posição.
+
+56. Escrever um programa que lê uma matriz 17x17 e:
+
+1.calcula a média aritmética dos elementos hachurados na letra a; 2.o maior elemento da linha onde se encontra o menor elemento da área hachurada na letra b;
+
+
+Escreva os valores calculados nos itens 1 e 2 e a matriz.
+
+57. Faça um programa que leia uma matriz 12x12 e calcule e escreva a soma da área hachurada na letra a e o maior elemento da área hachurada na letra b abaixo:
+
+
+58. Faça um programa que leia uma matriz 12 x 12 e calcule e escreva:
+
+a.o menor elemento e a sua posição (índices) da área hachurada; b.a média dos elementos da área hachurada.
+
+
+59. Faça um programa lê uma matriz A 7 x 7 de números e cria 2 vetores ML(7) e MC(7), que contenham, respectivamente, o maior elemento de cada uma das linhas e o menor elemento de cada uma das colunas. Escrever a matriz A e os vetores ML e MC.
+
+60-. Execute o algoritmo abaixo, preenchendo a matriz M [2,6]:
+
+variaveis matriz numerico M [2,6] numerico fat,i
+
+para i de 1 até 6M [2,6]=	1 2 3 4 5 6
+inicio ler M[1,i] se M[1,i] > 0 então fat := 1 para j de 1 até M[1,i] fat := fat * j próximo j M[2,i] := fat senão
+
+M[2,i] := i * i fim_se M[2,i] := M[2,i] – 10 próximo fim
+
+Na leitura da Matriz, considere os valores: -5 7 2 1 4 0
+
+
+
+
