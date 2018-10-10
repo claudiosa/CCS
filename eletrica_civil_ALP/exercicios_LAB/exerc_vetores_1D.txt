@@ -11,15 +11,15 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
    no intervalo de 0 <= X <= 100. Faça um programa que conte quantas
    vezes cada um destes valores se encontram presentes neste arquivo.
    A saída esperada é indicar quantas vezes cada número x está presente
-   no arquivo.
-   Saída: Número 0 ocorreu 12 vezes
+   no arquivo.   
+   Saída esperada:
+          Número 0 ocorreu 12 vezes
           Número 1 ocorreu 31 vezes 
-	  Número 2 ocorreu 101 vezes 
-	  ..........................
-	  Número 99 ocorreu 10 vezes 
-	  Número 100 ocorreu 76 vezes 
+          Número 2 ocorreu 101 vezes 
+          ..........................
+          Número 99 ocorreu 10 vezes 
+          Número 100 ocorreu 76 vezes 
    
-
 
 1. Crie um programa em C que tenha um vetor A com 
    de 1000 números inteiros quaisquer, e um vetor B com 5 números quaisquer, 
