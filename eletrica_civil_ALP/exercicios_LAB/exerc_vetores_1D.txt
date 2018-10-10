@@ -4,6 +4,7 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
           laços de repetição, podem ser refeitos agora
 	  com vetores 1D, e 2D em alguns casos
 	  Assim refaça alguns de laços ... mas agora com VETORES!
+	  O grau de dificuldade NÃO está em ordem!!!!!
 
 
 
