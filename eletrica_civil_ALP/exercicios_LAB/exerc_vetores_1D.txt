@@ -5,6 +5,22 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
 	  com vetores 1D, e 2D em alguns casos
 	  Assim refaça alguns de laços ... mas agora com VETORES!
 
+
+
+0. Seja um arquivo de 10.000 valores cujos valores encontram-se
+   no intervalo de 0 <= X <= 100. Faça um programa que conte quantas
+   vezes cada um destes valores se encontram presentes neste arquivo.
+   A saída esperada é indicar quantas vezes cada número x está presente
+   no arquivo.
+   Saída: Número 0 ocorreu 12 vezes
+          Número 1 ocorreu 31 vezes 
+	  Número 2 ocorreu 101 vezes 
+	  ..........................
+	  Número 99 ocorreu 10 vezes 
+	  Número 100 ocorreu 76 vezes 
+   
+
+
 1. Crie um programa em C que tenha um vetor A com 
    de 1000 números inteiros quaisquer, e um vetor B com 5 números quaisquer, 
    digamos 1, 2, 3, 4 e 5. Seu programa deve dizer 
