@@ -33,7 +33,7 @@ int main (void)
         // nao esquecer 
        	transp_01[i][j] = matriz[i][j]; // ATRIBUIR ANTES DE IMPRIMIR
         transp_02[j][i] = matriz[i][j]; // ATRIBUIR ANTES DE IMPRIMIR
- 	    printf ("t(%d,%d) = %d | ", i, j, matriz[i][j] );
+ 	printf ("t(%d,%d) = %d | ", i, j, matriz[i][j] );
        }
 	   printf ("\n");
      } // fim do  2o. for
@@ -42,9 +42,10 @@ int main (void)
   /* IMPRIMINDO PELA transp_01 */			
   for (j = 0; j < N; j++) // em J ... por linha
     {
-        for (i = 0; i < M; i++)
-	 	  printf("t(%d,%d) = %d  ", i, j, transp_01[i][j]);
-	 	  printf("\n");
+     for (i = 0; i < M; i++)
+       printf("t(%d,%d) = %d  ", i, j, transp_01[i][j]);
+	  
+    printf("\n");// do for externo
     } // fim do  2o. for
      
        
@@ -53,8 +54,8 @@ int main (void)
   for (j = 0; j < N; j++) // em J ... por linha
     {
      for (i = 0; i < M; i++)
-	  printf("t(%d,%d) = %d  ", j, i, transp_02[j][i]);
-	  printf("\n");
+      printf("t(%d,%d) = %d  ", j, i, transp_02[j][i]);
+       printf("\n");
     } // fim do  2o. for
      
   printf("\n Profs. are humans !!!! \n\n");
