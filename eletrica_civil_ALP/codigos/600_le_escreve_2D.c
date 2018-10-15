@@ -5,6 +5,7 @@
 int main (void)
 {
   int M, N;  // virah do arquivo texto
+  printf("\n Dimensao da matriz M e N: " ); 	
   scanf("%d %d", &M, &N);  // lendo
   printf("\nLinhas: %d Colunas: %d \n", M, N);
   
@@ -14,19 +15,19 @@ int main (void)
   int i, j; 
 
   /* LEITURA */ 
-  for (i = 0; i < M; i++)
-    for (j = 0; j < N; j++)
-			{ scanf("%d ", & matriz[i][j] );
-			 printf (" %d\t", matriz[i][j]);
-	       }
+ for (i = 0; i < M; i++)
+  for (j = 0; j < N; j++)
+	{ scanf("%d ", & matriz[i][j] );
+	  printf (" %d\t", matriz[i][j]);
+	}
 			
   /* ESCREVENDO */			
   for (i = 0; i < M; i++)
-    {
-	 for (j = 0; j < N; j++)
-		  printf ("m(%d,%d) = %d\t", i, j, matriz[i][j]);
-	  	  printf ("\n");
-
+   {
+     for (j = 0; j < N; j++)
+     printf ("m(%d,%d) = %d\t", i, j, matriz[i][j]);
+	
+     printf ("\n");
      } // fim do  2o. for
      
      printf("\n Profs. are humans !!!! \n\n");
