@@ -24,11 +24,12 @@ main ?=>
    printf("====================================== %d OK", Status),
    %% change here according your MAP or BOARD
    %Map = read_Map("3x6_peg.txt") ,
-   %Map = read_Map("5x5_peg.txt") , % no solution
+   Map = read_Map("5x5_peg.txt") , % no solution
    %Map = read_Map("9x9_peg.txt") ,
    %Map = read_Map("another_7x7_37_peg.txt"), 
    %Map = read_Map("7x7_peg.txt"),
-   Map = read_Map("3x6_peg.txt") ,
+   %Map = read_Map("3x6_peg.txt") ,
+   %Map = read_Map("4x6_peg.txt") ,
    /* 
    or
     Map = {
@@ -42,8 +43,8 @@ main ?=>
     printf("\n The Initial Grid or Map"),            
     print_map(Map), nl,
    % printf("\n ......."), 
-    Upper = get_bound(Map),
-    search_DFS( [ Map ], Plan , Upper ),
+    Upper_BOUND = get_bound(Map), %% upper bound for deepining in the DFS
+    search_DFS( [ Map ], Plan , Upper_BOUND ),
     %T2 = current_time(), 
     
     % show_solution( Map , Plan), %%% from HAKAN
@@ -61,23 +62,25 @@ main ?=>
 main =>  printf("\n None options from main !!!").
 /*************************************************************/
 %% the generic DFS 
-search_DFS( [ Current_NODE | Partial_SOL] , L, Upper) ?=>
+search_DFS( [ Current_NODE | Partial_SOL] , Solution, Upper) ?=>
     
    %    the halting conditions
-   %    printf(" \n  == TESTE de PARADA   ==  "),
+   %    printf(" \n  == Halting test   ==  "),
         final_check(  Current_NODE  ), %% check if in L exist only a single 1
- 	      L = [ Current_NODE | Partial_SOL ],
-        printf(" \n >>> HALTING CONDITION by DFS :  %w:%d", L, Upper). 
+ 	      Solution = [ Current_NODE | Partial_SOL ],
+        printf(" \n >>> HALTING CONDITION by DFS :  %w:%d", Solution , Upper). 
 
-/* aqui é o cerne do processo de busca */
+/* the kernel of DFS */
 search_DFS( [Node | Partial_SOL], Solution , Upper) =>
     Upper >= 1,
+   
+   %% try to discover a movement
     move( Node , New_NODE, New_Action ), %% Action: Wich movement
    % printf("\n Novo NO ou estado: %w" , Novo_nodo), 
    % good_action_move(New_NODE),  %%% Nao funciona ainda 
     
-    /* Verifique se já não esteve em uma tentativa anteriores */
-   % not( member( New_NODE , [ Node | Caminho ]  ) ),
+    /* Check if this state was visited or no */
+   not ( member( New_NODE , [ Node | Partial_SOL ]  ) ),
     %%printf(" \n NOVO NOH: %w %w %w", Novo_nodo, Nodo, Caminho),
     New_Upper := (Upper-1),
     search_DFS([New_NODE, Node | Partial_SOL], Solution, New_Upper).
