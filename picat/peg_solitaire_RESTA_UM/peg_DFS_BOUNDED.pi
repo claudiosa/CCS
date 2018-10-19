@@ -24,12 +24,12 @@ main ?=>
    printf("====================================== %d OK", Status),
    %% change here according your MAP or BOARD
    %Map = read_Map("3x6_peg.txt") ,
-   Map = read_Map("5x5_peg.txt") , % no solution
+   %Map = read_Map("5x5_peg.txt") , % no solution
    %Map = read_Map("9x9_peg.txt") ,
    %Map = read_Map("another_7x7_37_peg.txt"), 
    %Map = read_Map("7x7_peg.txt"),
    %Map = read_Map("3x6_peg.txt") ,
-   %Map = read_Map("4x6_peg.txt") ,
+   Map = read_Map("4x6_peg.txt") ,
    /* 
    or
     Map = {
@@ -122,7 +122,7 @@ final_check( Grid ) =>
 move(Grid, New_Grid, Action ) ?=>
   % print_map( Grid ), 
   Grid_TEMP = copy_term(Grid),
-  L_all_mov = f_feasible_moves( Grid ),   %%
+  L_all_mov = f_ALL_MOVETS( Grid ),   %% ALL POSSIBLE MOVEMENTS
   member( (Action1 , X, Y) , L_all_mov) ,  %% THE HEURISTICS CAN BE HANDLED HERE CHOSING A GOOD MOVEMENT
   
   %% only once time is calculated ... all the movements in the board
@@ -154,7 +154,7 @@ move(Grid, New_Grid, Action ) ?=>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* Get all feasible_movement in XY  grid from a cell with  VALID MOVEMENT */
-f_feasible_moves( Map ) = L_mov  =>
+f_ALL_MOVETS( Map ) = L_mov  =>
   L = (Map.length),
   C = (Map[1].length),
   %%printf(" MAX DIM: %d x %d ", L, C),
@@ -196,8 +196,8 @@ f_feasible_moves( Map ) = L_mov  =>
     %%% finally
     L_mov = Aux .
 
-f_feasible_moves( _ ) = R => 
-      printf("\n Problem in position function f_feasible_moves \n"),
+f_ALL_MOVETS( _ ) = R => 
+      printf("\n Problem in position function f_ALL_MOVETS \n"),
       R := [].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
