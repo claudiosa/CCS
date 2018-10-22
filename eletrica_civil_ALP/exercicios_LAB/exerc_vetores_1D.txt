@@ -67,16 +67,20 @@ ATENÇÃO : basicamente  "todos" exercicios da seção de
 
 11. Faça um programa que leia uma vetor, e em seguida  inverta-o sobre o mesmo vetor.
 
-12.  Dados dois vetores x e y, ambos com n elementos, determinar o produto escalar (1) desses vetores. 
+12.  Dados dois vetores X e Y, ambos com N elementos, 
+determinar o produto escalar  desses vetores, e amazenar num 3o. vetor. 
+Deste vetor resultante, encontre o maior (MAIOR) e o menor (menor) elemento.
 
-13. Dados dois strings (um contendo uma frase e outro contendo uma palavra), determine o número de vezes que a palavra ocorre na frase.
+13. Dados dois strings (um contendo uma frase e outro contendo uma palavra),
+determine o número de vezes que a palavra ocorre na frase.
 
 Exemplo: 
 Para a palavra ANA e a frase :
 ANA E MARIANA GOSTAM DE BANANA (2)
 Temos que a palavra ocorre 4 vezes na frase.
 
-14. Dada uma seqüência de n números reais, determinar os números que compõem a seqüência e o número de vezes que cada um deles ocorre na mesma.
+14. Dada uma seqüência de n números reais, determinar os números que
+compõem a seqüência e o número de vezes que cada um deles ocorre na mesma.
 
 Exemplo: n = 8
 Seqüência: -1.7,  3.0,  0.0,  1.5,  0.0, -1.7,  2.3, -1,7
