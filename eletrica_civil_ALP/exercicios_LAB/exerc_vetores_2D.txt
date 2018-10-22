@@ -46,13 +46,27 @@ e divida todos os 13 elementos de cada uma das 12 linhas
 de M pelo maior elemento em módulo daquela linha. 
 Escrever a matriz lida e a modificada.
 
-37. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: a) a linha 2 com a linha 8 b) a coluna 4 com a coluna 10 Escreva a matriz assim modificada. 38. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: a) a diagonal principal com a diagonal secundária b) a linha 5 com a coluna 10. Escreva a matriz assim modificada.
+37. Escrever um algoritmo que lê uma matriz M(10,10) 
+e a escreve. Troque, a seguir: 
+a) a linha 2 com a linha 8
+b) a coluna 4 com a coluna 10 Escreva a matriz assim modificada. 38. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: 
+a) a diagonal principal com a diagonal secundária 
+b) a linha 5 com a coluna 10. Escreva a matriz assim modificada.
 
-39. Escrever um algoritmo que lê uma matriz M(12,13) e divida todos os 13 elementos de cada uma das 12 linhas de M pelo maior elemento em módulo daquela linha. Escrever a matriz lida e a modificada.
+39. Escrever um algoritmo que lê uma matriz M(12,13) 
+e divida todos os 13 elementos de cada uma das 12 
+linhas de M pelo maior elemento em módulo daquela linha. 
+Escrever a matriz lida e a modificada.
 
-40. Escrever um algoritmo que lê uma matriz M(5,5) e cria 2 vetores SL(5) e SC(5) que contenham, respectivamente, as somas das linhas e das colunas de M. Escrever a matriz e os vetores criados.
+40. Escrever um algoritmo que lê uma matriz M(5,5) 
+e cria 2 vetores SL(5) e SC(5) que contenham, 
+respectivamente, as somas das linhas e das 
+colunas de M. Escrever a matriz e os vetores criados.
 
-41. Escreva um algoritmo que lê uma matriz M[5,5]. Substitua, a seguir, todos os valores negativos da matriz pelo seu módulo. Exemplo: substitua -2 por 2, -16 por 16, assim por diante.
+41. Escreva um algoritmo que lê uma matriz M[5,5]. 
+Substitua, a seguir, todos os valores negativos da 
+matriz pelo seu módulo. 
+Exemplo: substitua -2 por 2, -16 por 16, assim por diante.
 
 42. Escreva um algoritmo que lê uma matriz M[6,6]. A seguir, troque os elementos da primeira coluna com os elementos da segunda coluna, os da terceira coluna com a quarta coluna e os elementos da quinta coluna com os elementos da sexta coluna.
 
