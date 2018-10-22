@@ -49,7 +49,9 @@ Escrever a matriz lida e a modificada.
 37. Escrever um algoritmo que lê uma matriz M(10,10) 
 e a escreve. Troque, a seguir: 
 a) a linha 2 com a linha 8
-b) a coluna 4 com a coluna 10 Escreva a matriz assim modificada. 38. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: 
+b) a coluna 4 com a coluna 10 Escreva a matriz assim modificada. 38.
+Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. 
+Troque, a seguir: 
 a) a diagonal principal com a diagonal secundária 
 b) a linha 5 com a coluna 10. Escreva a matriz assim modificada.
 
@@ -68,19 +70,30 @@ Substitua, a seguir, todos os valores negativos da
 matriz pelo seu módulo. 
 Exemplo: substitua -2 por 2, -16 por 16, assim por diante.
 
-42. Escreva um algoritmo que lê uma matriz M[6,6]. A seguir, troque os elementos da primeira coluna com os elementos da segunda coluna, os da terceira coluna com a quarta coluna e os elementos da quinta coluna com os elementos da sexta coluna.
 
-43. Repita o exercício anterior, trocando os elementos das linhas, ao invés das colunas.
+42. Escreva um algoritmo que lê uma matriz M[6,6]. A seguir, 
+troque os elementos da primeira coluna com os elementos da 
+segunda coluna, os da terceira coluna com a quarta coluna e os elementos 
+da quinta coluna com os elementos da sexta coluna.
+PROCURE FAZER GENERICO
+
+43. Repita o exercício anterior, trocando os elementos das linhas, 
+ao invés das colunas.
 
 4. Leia uma matriz M[5,5]. A seguir, ordene os elementos da matriz M e mostre como ficou a Matriz ordenada, linha por linha.
 
-45. Faça um algoritmo que calcule a média dos elementos da diagonal principal de uma matriz 10 X 10 de números. 46. Faça um algoritmo que calcule a média dos elementos da diagonal secundária de uma matriz 10 X 10 de números.
+45. Faça um algoritmo que calcule a média dos elementos da diagonal 
+principal de uma matriz 10 X 10 de números. 
 
-47. Faça um algoritmo que gere a seguinte matriz:
+46. Faça um algoritmo que calcule a média dos elementos da diagonal 
+secundária de uma matriz 10 X 10 de números.
 
-48. Faça um algoritmo que gere a seguinte matriz:
 
-49. Faça um algoritmo que leia uma matriz numérica 15 X 15 e calcule a soma dos elementos da diagonal secundária. 50. Faça um algoritmo que leia uma matriz 20x15 de números. calcule e mostre a soma das linhas pares da matriz.
+49. Faça um algoritmo que leia uma matriz numérica 
+15 X 15 e calcule a soma dos elementos da diagonal secundária. 
+
+50. Faça um algoritmo que leia uma matriz 20x15 de números. 
+calcule e mostre a soma das linhas pares da matriz.
 
 51. Faça um algoritmo que leia uma matriz 20x20 de números e some cada uma das linhas, armazenando o resultado da soma em um vetor. A seguir, multiplique cada elemento pela soma da sua linha. Mostre a matriz resultante.
 
@@ -88,11 +101,22 @@ Exemplo: substitua -2 por 2, -16 por 16, assim por diante.
 
 53. Faça um algoritmo que leia uma matriz 50x50 de números. A seguir, multiplique cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as multiplicações.
 
-54. Faça um algoritmo que leia uma matriz de 60 linhas e 10 colunas. Depois de lê-la, some as colunas individualmente e acumule a 53. Faça um algoritmo que leia uma matriz 50x50 de números. A seguir, multiplique cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as multiplicações.
 
-54. Faça um algoritmo que leia uma matriz de 60 linhas e 10 colunas. Depois de lê-la, some as colunas individualmente e acumule a soma na 61ª linha da matriz. Mostre o resultado de cada coluna no vídeo. (Lembrete: para guardar o resultado é necessário declarar uma matriz de 61 x 10.)
 
-5. Na teoria dos sistemas, define-se como elemento minimax de uma matriz o menor elemento da linha onde se encontra o maior elemento da matriz. Escreva um algoritmo que leia uma matriz 10 X 10 de números e encontre seu elemento minimax, mostrando também sua posição.
+54. Faça um algoritmo que leia uma matriz de 60 linhas e 10 colunas. 
+Depois de lê-la, some as colunas individualmente e acumule a soma 
+na 61ª linha da matriz. Mostre o resultado de cada coluna no vídeo. 
+(Lembrete: para guardar o resultado é necessário declarar uma matriz de 61 x 10.)
+
+
+55. Na teoria dos sistemas, define-se como elemento minimax 
+de uma matriz o menor elemento da linha onde se encontra o maior elemento da matriz.
+Escreva um algoritmo que leia uma matriz 10 X 10 de 
+números e encontre seu elemento minimax, mostrando também sua posição.
+Logo:
+O 1o. passo é encontrar o MAIOR elemento da matriz -- posicao i,j
+2o. passo, na linha i, encontrar o menor elemento desta linha
+Obs: o menor elemento da linha NAO necessariamente é o menor da MATRIZ inteira
 
 56. Escrever um programa que lê uma matriz 17x17 e:
 
