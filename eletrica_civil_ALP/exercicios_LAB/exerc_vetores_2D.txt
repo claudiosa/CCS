@@ -22,13 +22,29 @@ https://www.ebah.com.br/content/ABAAABA0UAH/lista-exercicios-matrizes-vetores-li
 
 32. Elaborar um algoritmo que lê uma matriz M(6,6) e um valor A e multiplica a matriz M pelo valor A e coloca os valores da matriz multiplicados por A em um vetor de V(36) e escreve no final o vetor V.
 
-3. Escreva um algoritmo que leia um número inteiro A e uma matriz V 30x30 de números. Conte quantos valores iguais a A estão na matriz. Crie, a seguir, uma matriz X contendo todos os elementos de V diferentes de A. Mostre os resultados.
+33. Escreva um algoritmo que leia um número inteiro A e uma matriz V 30x30 de números.
+Conte quantos valores iguais a A estão na matriz. Crie, a seguir, 
+uma matriz X contendo todos os elementos de V diferentes de A. Mostre os resultados.
 
-34. Escreva um algoritmo que lê uma matriz M(5,5) e calcula as somas: a) da linha 4 de M b) da coluna 2 de M c) da diagonal principal d) da diagonal secundária e) de todos os elementos da matriz M Escrever essas somas e a matriz.
+34. Escreva um algoritmo que lê uma matriz M(5,5) e 
+calcula as somas: 
+a) da linha 4 de M 
+b) da coluna 2 de M 
+c) da diagonal principal 
+d) da diagonal secundária 
+e) de todos os elementos da matriz M 
+Escrever essas somas e a matriz.
 
-35. Escrever um algoritmo que lê uma matriz A(15,5) e a escreva. Verifique, a seguir, quais os elementos de A que estão repetidos e quantas vezes cada um está repetido. Escrever cada elemento repetido com uma mesagem dizendo que o elemento aparece X vezes em A.
+35. Escrever um algoritmo que lê uma matriz A(15,5) e a 
+escreva. Verifique, a seguir, quais os elementos de A 
+que estão repetidos e quantas vezes cada um está repetido. 
+Escrever cada elemento repetido com uma mesagem dizendo 
+que o elemento aparece X vezes em A.
 
-36. Escrever um algoritmo que lê uma matriz M(12,13) e divida todos os 13 elementos de cada uma das 12 linhas de M pelo maior elemento em módulo daquela linha. Escrever a matriz lida e a modificada.
+36. Escrever um algoritmo que lê uma matriz M(12,13) 
+e divida todos os 13 elementos de cada uma das 12 linhas 
+de M pelo maior elemento em módulo daquela linha. 
+Escrever a matriz lida e a modificada.
 
 37. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: a) a linha 2 com a linha 8 b) a coluna 4 com a coluna 10 Escreva a matriz assim modificada. 38. Escrever um algoritmo que lê uma matriz M(10,10) e a escreve. Troque, a seguir: a) a diagonal principal com a diagonal secundária b) a linha 5 com a coluna 10. Escreva a matriz assim modificada.
 
