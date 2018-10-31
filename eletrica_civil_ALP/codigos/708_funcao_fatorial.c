@@ -18,7 +18,7 @@ for (x = 1; x <= n; x++)
 RESPOSTA = func_fat(x);
 printf("\n %d tem o valor do fatorial igual: %ld", x, RESPOSTA );
 }
-printf("\n \n ACACOU O MAIN \n" );
+printf("\n \n ACABOU O main \n" );
 return(1);
 } // FIM DO MAIN
 
