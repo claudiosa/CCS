@@ -29,7 +29,7 @@ int main()
         printf("2. Tudo bem\n");
         printf("3. Como vai a familia\n");
         printf("4. Soma 2 numeros\n");
-	    printf("5. Media numerica de um vetor\n");
+	printf("5. Media numerica de um vetor\n");
         printf("0. Sair\n");
 
         scanf("%d", & continuar);
