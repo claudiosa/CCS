@@ -10,7 +10,6 @@ Os passos iniciais de instalação do PICAT
 
 Em sua casa:
 
-
 1. Baixar de http://picat-lang.org/download.html  Windows ou Linux
 2. Como su
 3. Va para cd /usr/local/
@@ -24,3 +23,12 @@ Em sua casa:
 8. Fique entre os passos 6 e 7
 
 Ou seja ... tudo igual exceto a criacao do link simbolico para o aplicativo!
+
+
+Resumindo:
+1. Faça Download do site do Picat
+2. Descompactar: tar -xvf picat25_linux64.tar.gz 
+3. Mover: mv Picat/ /usr/share/  (como root)
+4. Link: ln -s /usr/share/Picat/picat picat   (como root)
+
+PRONTO!
