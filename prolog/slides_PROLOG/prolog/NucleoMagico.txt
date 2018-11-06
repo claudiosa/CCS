@@ -1,0 +1,14 @@
+solve(P) :-
+      start(Start),
+      search(Start,[Start],Q),
+      reverse(Q,P).
+
+search(S,P,P) :- goal(S), !.
+search(S,Visited,P) :-
+     next_state(S,Nxt),
+     safe_state(Nxt),
+     no_loop(Nxt,Visited),
+     search(Nxt,[Nxt|Visited],P).
+
+no_loop(Nxt,Visited) :-
+      \+member(Nxt,Visited).

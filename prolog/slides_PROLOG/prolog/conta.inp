@@ -1,0 +1,5 @@
+main :-     conta(a,  [a,b,c,d,e], X1), write(X1) , nl,
+            conta(e , [a,a,c,d,d,d,d,d,e,e,e,e,e], X2), write(X2), nl,
+            conta(a, [], X3), write(X3), nl,
+            conta(z, [a,b,c,d,e], X4), write(X4), nl,
+            conta(e, [e,a,bb,b,b,b,b,c,b,b,bb, d,ee,e,e,e,e,e,e], X5), write(X5), nl.

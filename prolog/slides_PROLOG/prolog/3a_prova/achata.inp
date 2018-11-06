@@ -1,0 +1,8 @@
+
+main :- 
+       achata([ [3, a, 3], [4, b, 4], [5, c, 5]], X1), write(X1) , nl,
+	   achata([ ], X2), write(X2), nl,
+	   achata([ [3, a, 3] ], X3), write(X3), nl,
+	   achata([ [3], [a], [3], [4, b, 4]], X4) , write(X4), nl,
+	   achata([ [3, 3, 3], [2, 2], [1],[3, 3, 3], [2, 2], [1]], X5), write(X5), nl,
+	   achata([ ],  X6 ),  write(X6) , nl.

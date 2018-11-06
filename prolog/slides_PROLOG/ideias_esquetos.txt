@@ -1,0 +1,56 @@
+Chapter 1 Facts, Rules, and Queries 
+Chapter 2 Unification and Proof Search 
+Chapter 3 Recursion 
+Chapter 4 Lists 
+Chapter 5 Arithmetic 
+Chapter 6 More Lists 
+Chapter 7 Definite Clause Grammars 
+Chapter 8 More Definite Clause Grammars 
+Chapter 9 A Closer Look at Terms 
+Chapter 10 Cuts and Negation 
+Chapter 11 Database Manipulation and Collecting Solutions 
+Chapter 12 Working With Files 
+
+
+Adventure in Prolog
+
+Contents
+
+Preface
+
+Prolog Tools
+
+1- Getting Started
+
+2- Facts
+
+3- Simple Queries
+
+4- Compound Queries
+
+5- Rules
+
+6- Arithmetic
+
+7- Managing Data
+
+8- Recursion
+
+9- Data Structures
+
+10- Unification
+
+11- Lists
+
+12- Operators
+
+13- Cut
+
+14- Control Structures
+
+15- Natural Language
+
+Appendix
+
+Index
+

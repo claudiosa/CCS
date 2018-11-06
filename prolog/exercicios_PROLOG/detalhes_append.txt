@@ -1,0 +1,28 @@
+?- append([a,b,c],[d,e], X).
+X = [a, b, c, d, e].
+
+?- append([a,b,c],[d,e], [a, b, c, d, e]).
+true.
+
+?- append([a,b,c], X , [a, b, c, d, e]).
+X = [d, e].
+
+?- append(X , [d,e], [a, b, c, d, e]).
+X = [a, b, c] ;
+false.
+
+?- append(X ,  Y , [a, b, c, d, e]).
+X = [],
+Y = [a, b, c, d, e] ;
+X = [a],
+Y = [b, c, d, e] ;
+X = [a, b],
+Y = [c, d, e] ;
+X = [a, b, c],
+Y = [d, e] ;
+X = [a, b, c, d],
+Y = [e] ;
+X = [a, b, c, d, e],
+Y = [] ;
+false.
+

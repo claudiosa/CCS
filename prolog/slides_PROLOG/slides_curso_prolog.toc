@@ -1,0 +1,80 @@
+\select@language {brazil}
+\contentsline {section}{\numberline {1}Introdu��o}{7}{section.1}
+\contentsline {subsection}{Hist�rico}{7}{section.1}
+\contentsline {section}{\numberline {2}Proposta destes Slides}{8}{section.2}
+\contentsline {section}{\numberline {3}Requisitos}{10}{section.3}
+\contentsline {section}{\numberline {4}{\em Index of Distribution}}{11}{section.4}
+\contentsline {section}{\numberline {5}Instalando o $ECL^iPS^e$ no Linux}{12}{section.5}
+\contentsline {section}{\numberline {6}Implementa\c {c}�es e Ambientes}{17}{section.6}
+\contentsline {section}{\numberline {7}Caracter�sticas}{18}{section.7}
+\contentsline {section}{\numberline {8}Resolvendo um Problema}{19}{section.8}
+\contentsline {subsection}{Modelagem}{20}{Item.4}
+\contentsline {subsection}{Codificando a Descri\c {c}�o Acima}{20}{Item.7}
+\contentsline {subsection}{Exerc�cios}{24}{lstnumber.1.71}
+\contentsline {section}{\numberline {9}Explicando o Fluxo da M�quina Prologuiana}{26}{section.9}
+\contentsline {section}{\numberline {10}Um Predicado Composto}{27}{section.10}
+\contentsline {subsection}{Implementando estas Figuras}{28}{figure.2}
+\contentsline {subsection}{Observa��es:}{29}{lstnumber.2.21}
+\contentsline {section}{\numberline {11}Implementando em {\bf $ECL^iPS^e$}}{30}{section.11}
+\contentsline {section}{\numberline {12}Ambiente de Programa��o: $ECL^iPS^e$ console}{32}{section.12}
+\contentsline {section}{\numberline {13}Ambiente de Programa��o: TK$ECL^iPS^e$}{33}{section.13}
+\contentsline {section}{\numberline {14}Um Outro Exemplo: Os Tr�s M�sicos}{34}{section.14}
+\contentsline {section}{\numberline {15}Apresenta��o do Prolog}{36}{section.15}
+\contentsline {subsection}{Caracter�sticas}{37}{section.15}
+\contentsline {subsection}{M�quina {\em Prologuiana}}{39}{section.15}
+\contentsline {subsection}{Exemplos e Como Trabalhar}{40}{figure.5}
+\contentsline {section}{\numberline {16}Quanto ao Eclipse}{42}{section.16}
+\contentsline {section}{\numberline {17}Ambiente Gr�fico de Programa��o: TK$ECL^iPS^e$}{44}{section.17}
+\contentsline {section}{\numberline {18}O {\em Tracer} para Auto-aprendizagem}{45}{section.18}
+\contentsline {section}{\numberline {19}Sintaxe do Prolog}{46}{section.19}
+\contentsline {subsection}{Resumindo o Prolog}{48}{section.19}
+\contentsline {subsection}{Detalhando a Sintaxe}{49}{section.19}
+\contentsline {subsection}{Outros Conceitos}{51}{section.19}
+\contentsline {subsection}{Opera��es B�sicas do SWI-Prolog}{54}{figure.8}
+\contentsline {subsection}{Outros Detalhes}{62}{Item.25}
+\contentsline {section}{\numberline {20}Resumindo Via Exemplo}{65}{section.20}
+\contentsline {section}{\numberline {21}Exerc�cios de {\em Warmup}}{68}{section.21}
+\contentsline {section}{\numberline {22}Sem�ntica Operacional}{71}{section.22}
+\contentsline {subsection}{Predicados de E/S}{73}{figure.10}
+\contentsline {subsection}{Um predicado que sempre falhe}{74}{figure.11}
+\contentsline {subsection}{Um fluxo completo}{75}{figure.12}
+\contentsline {section}{\numberline {23}Recursividade}{76}{section.23}
+\contentsline {section}{\numberline {24}Itera\c {c}�o Cl�ssica}{77}{section.24}
+\contentsline {section}{\numberline {25}Recurs�o Ilustrada}{78}{section.25}
+\contentsline {section}{\numberline {26}Recurs�o Ilustrada 2}{79}{section.26}
+\contentsline {section}{\numberline {27}Quase Tudo S�o Flores}{80}{section.27}
+\contentsline {subsection}{Notas:}{82}{figure.17}
+\contentsline {subsection}{A execu��o na console:}{85}{lstnumber.4.11}
+\contentsline {section}{\numberline {28}Um Outro Cl�ssico: Os Ancestrais}{87}{section.28}
+\contentsline {section}{\numberline {29}Seu Processamento}{90}{section.29}
+\contentsline {subsection}{Outros Exemplos de Recursividade}{91}{lstnumber.-7.11}
+\contentsline {section}{\numberline {30}Functores}{100}{section.30}
+\contentsline {section}{\numberline {31}Defini��es dos Functores}{101}{section.31}
+\contentsline {subsection}{Motiva��o}{102}{figure.21}
+\contentsline {subsection}{Exemplo}{103}{Item.33}
+\contentsline {subsection}{Concluindo Functores}{105}{Item.39}
+\contentsline {section}{\numberline {32}Listas}{107}{section.32}
+\contentsline {section}{\numberline {33}Resumindo o Fluxo do C�lculo Recursivo}{108}{section.33}
+\contentsline {section}{\numberline {34}O Fluxo Operacional das Listas � An�logo}{109}{section.34}
+\contentsline {section}{\numberline {35}Uma Lista Gen�rica}{110}{section.35}
+\contentsline {section}{\numberline {36}A Sintaxe das Listas}{111}{section.36}
+\contentsline {section}{\numberline {37}Defini��es sobre Listas}{112}{section.37}
+\contentsline {section}{\numberline {38}Listas: Uma Auto-Defini\c {c}�o}{117}{section.38}
+\contentsline {subsection}{Exemplos de Listas}{119}{Item.41}
+\contentsline {section}{\numberline {39}Problemas de Buscas em IA}{141}{section.39}
+\contentsline {subsection}{{\em N�cleo M�gico}}{142}{section.39}
+\contentsline {subsection}{Continuando com o {\em N�cleo M�gico}}{143}{lstnumber.-13.15}
+\contentsline {subsection}{Resumindo esta Id�ia em uma Figura}{144}{lstnumber.-14.7}
+\contentsline {section}{\numberline {40}Reusando o Conhecimento de Listas e Functores}{145}{section.40}
+\contentsline {section}{\numberline {41}Resolvendo com Busca em Profundidade}{146}{section.41}
+\contentsline {section}{\numberline {42}Resolvendo com Busca em Largura}{149}{section.42}
+\contentsline {section}{\numberline {43}Dicas de Programa��o}{155}{section.43}
+\contentsline {section}{\numberline {44}Predicados {\em M�o-na-roda}}{157}{section.44}
+\contentsline {section}{\numberline {45}Predicados {\em Baixaria}}{159}{section.45}
+\contentsline {section}{\numberline {46}Gerando Programas Execut�veis (ou quase com o SWI-Prolog)}{160}{section.46}
+\contentsline {subsection}{Ainda sobre Gerar Execut�veis}{165}{section.46}
+\contentsline {section}{\numberline {47}Opera��es Especiais}{167}{section.47}
+\contentsline {section}{\numberline {48}Programando com ``{\em Eleg�ncia}''}{171}{section.48}
+\contentsline {section}{\numberline {49}Sites Interessantes }{173}{section.49}
+\contentsline {section}{\numberline {50}Alguns Bons Livros}{175}{section.50}
+\contentsline {section}{\numberline {51}Sugest�es}{176}{section.51}

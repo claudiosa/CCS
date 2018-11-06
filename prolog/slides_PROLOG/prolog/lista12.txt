@@ -1,0 +1,5 @@
+max( [] ,0) :- !.
+max( [M] , M ) :- !.
+max( [M , K], M ) :- M >= K , !.
+max( [M|R] ,N ) :- max( R , K ) ,
+                   max( [K , M] , N).

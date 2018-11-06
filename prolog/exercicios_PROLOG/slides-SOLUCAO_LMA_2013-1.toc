@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Resolvendo Problemas de L\IeC {\'o}gica -- Quebra-Cabe\IeC {\c c}as}{3}{section.1}
+\contentsline {section}{\numberline {2}Exerc\IeC {\'\i }cio 01}{4}{section.2}
+\contentsline {subsection}{Amigas na Piscina}{4}{section.2}
+\contentsline {subsection}{Considera\IeC {\c c}\IeC {\~o}es}{6}{Item.20}
+\contentsline {subsection}{Solu\IeC {\c c}\IeC {\~a}o}{6}{Item.20}
+\contentsline {subsection}{Resultados}{11}{lstnumber.-1.130}
+\contentsline {section}{\numberline {3}Exerc\IeC {\'\i }cio 02}{13}{section.3}
+\contentsline {subsection}{Sala de Espera}{13}{section.3}
+\contentsline {subsection}{Resultados}{21}{lstnumber.-2.150}
+\contentsline {section}{\numberline {4}Exerc\IeC {\'\i }cio 03}{22}{section.4}
+\contentsline {subsection}{Nadadores Ol\IeC {\'\i }mpicos}{22}{section.4}
+\contentsline {subsection}{Resultados}{30}{lstnumber.-3.165}

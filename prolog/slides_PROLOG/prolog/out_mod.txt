@@ -1,0 +1,4 @@
+sim
+nao
+sim
+nao

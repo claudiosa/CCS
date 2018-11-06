@@ -1,0 +1,113 @@
+
+\documentclass[12pt, a4paper,final]{article}
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage[portuges]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%\usepackage{graphicx}
+\topmargin       -1cm
+ \headheight      17pt
+ \headsep  1cm
+
+\textheight      24cm
+
+\textwidth       16.3cm
+
+\oddsidemargin   2mm
+
+\evensidemargin  2mm
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{center}
+\framebox[\textwidth][c]{Lógica e Programação em
+Lógica  (LPL) - 1a. Parte Prática}
+\newline
+
+\end{center}
+
+\vskip1cm Alunos (até 03): \hrulefill
+%%%\noindent
+
+\begin{enumerate}
+\item  Construa a árvore geneológica de sua família, tendo as relações
+(predicados): filho e pai;
+
+\item  A partir do programa anterior, construa as
+relações: irmão, avô,  bisavô, tio,  etc;
+
+
+\item ($\ast $)  Quais dos predicados abaixo que
+casam, e se a unificação ocorrer, quais são os
+seus resultados? Qual a sua interpretação dos
+mesmos? Comente:
+
+\begin{itemize}
+\setlength{\itemsep}{-5pt}
+ \item  ?- 2 > 3. \item
+?- >(2, 3).
+
+\item  ?- 2 == 2. /* experimente com letras */
+
+ \item ?- 2=2. /* experimente com letras */
+
+ \item ?- 2 is 2. /* experimente com letras */
+
+ \item  ?- a(1, 2) = a(X,
+X).
+
+\item  ?- a(X, 3) = a(4, Y).
+
+\item  ?- a(a(3, X)) = a(Y). /* deixe para depois
+caso não entenderes */
+
+\item  ?- 1+2 = 3.
+
+\item  ?- X = 1+2.
+
+\item?-a(X, Y) = a(1, X).
+
+\item  ?- a(X, 2) = a(1, X).
+
+\item  ?- 1+2 = 3
+
+\item  ?- X + 2 = 3 * Y.
+
+\item  ?- X+Y = 1+2.
+
+\item  ?- 1+Y = X + 3.
+
+\item  ?- lectures(X, ai) = lectures(alison, Y).
+
+\item  ?- X+Y = 1+5, Z = X.
+
+\item  ?- X+Y = 1+5, X=Y.
+\end{itemize}
+
+\item ($\ast $)  Seja o programa abaixo:
+\begin{verbatim}
+b(1).
+ b(2).
+  d(3).
+   d(4).
+    c(5).
+     c(6).
+ a(W) :-  b(X),  c(Y), W is(X+Y), fail.
+a(W) :-  c(X),  d(Y), W is (X+Y).
+\end{verbatim}
+
+Encontre os valores para ``\emph{a(Y)}'' e
+explique como foi o esquema de busca. Onde e
+porquê ocorreu ''\textit{backtraking}''?
+
+\end{enumerate}
+
+$\ast $ Observação: Apenas os 2 (dois) últimos
+exercícios são para entrega {\bf em papel}.
+Rascunho, ou a mão, mas em {\bf papel} !
+
+\end{document}
