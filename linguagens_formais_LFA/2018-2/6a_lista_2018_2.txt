@@ -3,7 +3,7 @@
 OTIMO MATERIAL ONLINE
 https://www.tutorialspoint.com/automata_theory/cfg_simplification.htm
 
-Com base no arquivo referencia_lista_06_e_07.pdf deste diretorio
+Com base no arquivo referência_lista_06_07_08.pdf deste diretório
 faça os exercicios no item 6 (SEIS) -- SIMPLIFICACAO DE GLCs
 
 Os exercicios selecionados sao:
@@ -14,4 +14,4 @@ Os exercicios selecionados sao:
 6 H
 6 J
 
-Prazo: 15 dias ...
+Prazo: 15 dias ... 20/novembro
