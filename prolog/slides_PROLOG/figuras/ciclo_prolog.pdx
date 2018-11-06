@@ -1,0 +1,892 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Mayura Draw, Version 3.6
+%%Title: ciclo_prolog.pdx
+%%CreationDate: Wed Apr 10 00:23:21 2002
+%%BoundingBox: 5 330 679 763
+%%DocumentFonts: ArialMT
+%%Orientation: Portrait
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset MayuraDraw_ops
+%%Version: 3.6
+%%Copyright: (c) 1993-99 Mayura Software
+/PDXDict 100 dict def
+PDXDict begin
+% width height matrix proc key cache
+% definepattern -\> font
+/definepattern { %def
+  7 dict begin
+    /FontDict 9 dict def
+    FontDict begin
+      /cache exch def
+      /key exch def
+      /proc exch cvx def
+      /mtx exch matrix invertmatrix def
+      /height exch def
+      /width exch def
+      /ctm matrix currentmatrix def
+      /ptm matrix identmatrix def
+      /str
+      (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+      def
+    end
+    /FontBBox [ %def
+      0 0 FontDict /width get
+      FontDict /height get
+    ] def
+    /FontMatrix FontDict /mtx get def
+    /Encoding StandardEncoding def
+    /FontType 3 def
+    /BuildChar { %def
+      pop begin
+      FontDict begin
+        width 0 cache { %ifelse
+          0 0 width height setcachedevice
+        }{ %else
+          setcharwidth
+        } ifelse
+        0 0 moveto width 0 lineto
+        width height lineto 0 height lineto
+        closepath clip newpath
+        gsave proc grestore
+      end end
+    } def
+    FontDict /key get currentdict definefont
+  end
+} bind def
+
+% dict patternpath -
+% dict matrix patternpath -
+/patternpath { %def
+  dup type /dicttype eq { %ifelse
+    begin FontDict /ctm get setmatrix
+  }{ %else
+    exch begin FontDict /ctm get setmatrix
+    concat
+  } ifelse
+  currentdict setfont
+  FontDict begin
+    FontMatrix concat
+    width 0 dtransform
+    round width div exch round width div exch
+    0 height dtransform
+    round height div exch
+    round height div exch
+    0 0 transform round exch round exch
+    ptm astore setmatrix
+
+    pathbbox
+    height div ceiling height mul 4 1 roll
+    width div ceiling width mul 4 1 roll
+    height div floor height mul 4 1 roll
+    width div floor width mul 4 1 roll
+
+    2 index sub height div ceiling cvi exch
+    3 index sub width div ceiling cvi exch
+    4 2 roll moveto
+
+    FontMatrix ptm invertmatrix pop
+    { %repeat
+      gsave
+        ptm concat
+        dup str length idiv { %repeat
+          str show
+        } repeat
+        dup str length mod str exch
+        0 exch getinterval show
+      grestore
+      0 height rmoveto
+    } repeat
+    pop
+  end end
+} bind def
+
+% dict patternfill -
+% dict matrix patternfill -
+/patternfill { %def
+  gsave
+    eoclip patternpath
+  grestore
+  newpath
+} bind def
+
+/img { %def
+  gsave
+  /imgh exch def
+  /imgw exch def
+  concat
+  imgw imgh 8
+  [imgw 0 0 imgh neg 0 imgh]
+  /colorstr 768 string def
+  /colorimage where {
+    pop
+    { currentfile colorstr readhexstring pop }
+    false 3 colorimage
+  }{
+    /graystr 256 string def
+    {
+      currentfile colorstr readhexstring pop
+      length 3 idiv
+      dup 1 sub 0 1 3 -1 roll
+      {
+        graystr exch
+        colorstr 1 index 3 mul get 30 mul
+        colorstr 2 index 3 mul 1 add get 59 mul
+        colorstr 3 index 3 mul 2 add get 11 mul
+        add add 100 idiv
+        put
+      } for
+      graystr 0 3 -1 roll getinterval
+    } image
+  } ifelse
+  grestore
+} bind def
+
+/arrowhead {
+  gsave
+    [] 0 setdash
+    strokeC strokeM strokeY strokeK setcmykcolor
+    2 copy moveto
+    4 2 roll exch 4 -1 roll exch
+    sub 3 1 roll sub
+    exch atan rotate dup scale
+    arrowtype
+    dup 0 eq {
+      -1 2 rlineto 7 -2 rlineto -7 -2 rlineto
+      closepath fill
+    } if
+    dup 1 eq {
+      0 3 rlineto 9 -3 rlineto -9 -3 rlineto
+      closepath fill
+    } if
+    dup 2 eq {
+      0 -0.5 rlineto -6 -6 rlineto -1.4142 1.4142 rlineto
+      5.0858 5.0858 rlineto -5.0858 5.0858 rlineto
+      1.4142 1.4142 rlineto 6 -6 rlineto closepath fill
+    } if
+    dup 3 eq {
+      0 0.5 rlineto -7 1.5 rlineto 1 -2 rlineto -1 -2 rlineto 7 1.5 rlineto
+      closepath fill
+    } if
+    dup 4 eq {
+      0 -0.5 rlineto -9 -2.5 rlineto 0 6 rlineto 9 -2.5 rlineto
+      closepath fill
+    } if
+    dup 5 eq {
+      currentpoint newpath 3 0 360 arc
+      closepath fill
+    } if
+    dup 6 eq {
+      2.5 2.5 rmoveto 0 -5 rlineto -5 0 rlineto 0 5 rlineto
+      closepath fill
+    } if
+    pop
+  grestore
+} bind def
+
+/setcmykcolor where { %ifelse
+  pop
+}{ %else
+  /setcmykcolor {
+     /black exch def /yellow exch def
+     /magenta exch def /cyan exch def
+     cyan black add dup 1 gt { pop 1 } if 1 exch sub
+     magenta black add dup 1 gt { pop 1 } if 1 exch sub
+     yellow black add dup 1 gt { pop 1 } if 1 exch sub
+     setrgbcolor
+  } bind def
+} ifelse
+
+/RE { %def
+  findfont begin
+  currentdict dup length dict begin
+    { %forall
+      1 index /FID ne { def } { pop pop } ifelse
+    } forall
+    /FontName exch def dup length 0 ne { %if
+      /Encoding Encoding 256 array copy def
+      0 exch { %forall
+        dup type /nametype eq { %ifelse
+          Encoding 2 index 2 index put
+          pop 1 add
+        }{ %else
+          exch pop
+        } ifelse
+      } forall
+    } if pop
+  currentdict dup end end
+  /FontName get exch definefont pop
+} bind def
+
+/spacecount { %def
+  0 exch
+  ( ) { %loop
+    search { %ifelse
+      pop 3 -1 roll 1 add 3 1 roll
+    }{ pop exit } ifelse
+  } loop
+} bind def
+
+/WinAnsiEncoding [
+  39/quotesingle 96/grave 130/quotesinglbase/florin/quotedblbase
+  /ellipsis/dagger/daggerdbl/circumflex/perthousand
+  /Scaron/guilsinglleft/OE 145/quoteleft/quoteright
+  /quotedblleft/quotedblright/bullet/endash/emdash
+  /tilde/trademark/scaron/guilsinglright/oe/dotlessi
+  159/Ydieresis 164/currency 166/brokenbar 168/dieresis/copyright
+  /ordfeminine 172/logicalnot 174/registered/macron/ring
+  177/plusminus/twosuperior/threesuperior/acute/mu
+  183/periodcentered/cedilla/onesuperior/ordmasculine
+  188/onequarter/onehalf/threequarters 192/Agrave/Aacute
+  /Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+  /Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute
+  /Icircumflex/Idieresis/Eth/Ntilde/Ograve/Oacute
+  /Ocircumflex/Otilde/Odieresis/multiply/Oslash
+  /Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn
+  /germandbls/agrave/aacute/acircumflex/atilde/adieresis
+  /aring/ae/ccedilla/egrave/eacute/ecircumflex
+  /edieresis/igrave/iacute/icircumflex/idieresis
+  /eth/ntilde/ograve/oacute/ocircumflex/otilde
+  /odieresis/divide/oslash/ugrave/uacute/ucircumflex
+  /udieresis/yacute/thorn/ydieresis
+] def
+
+/SymbolEncoding [
+  32/space/exclam/universal/numbersign/existential/percent
+  /ampersand/suchthat/parenleft/parenright/asteriskmath/plus
+  /comma/minus/period/slash/zero/one/two/three/four/five/six
+  /seven/eight/nine/colon/semicolon/less/equal/greater/question
+  /congruent/Alpha/Beta/Chi/Delta/Epsilon/Phi/Gamma/Eta/Iota
+  /theta1/Kappa/Lambda/Mu/Nu/Omicron/Pi/Theta/Rho/Sigma/Tau
+  /Upsilon/sigma1/Omega/Xi/Psi/Zeta/bracketleft/therefore
+  /bracketright/perpendicular/underscore/radicalex/alpha
+  /beta/chi/delta/epsilon/phi/gamma/eta/iota/phi1/kappa/lambda
+  /mu/nu/omicron/pi/theta/rho/sigma/tau/upsilon/omega1/omega
+  /xi/psi/zeta/braceleft/bar/braceright/similar
+  161/Upsilon1/minute/lessequal/fraction/infinity/florin/club
+  /diamond/heart/spade/arrowboth/arrowleft/arrowup/arrowright
+  /arrowdown/degree/plusminus/second/greaterequal/multiply
+  /proportional/partialdiff/bullet/divide/notequal/equivalence
+  /approxequal/ellipsis/arrowvertex/arrowhorizex/carriagereturn
+  /aleph/Ifraktur/Rfraktur/weierstrass/circlemultiply
+  /circleplus/emptyset/intersection/union/propersuperset
+  /reflexsuperset/notsubset/propersubset/reflexsubset/element
+  /notelement/angle/gradient/registerserif/copyrightserif
+  /trademarkserif/product/radical/dotmath/logicalnot/logicaland
+  /logicalor/arrowdblboth/arrowdblleft/arrowdblup/arrowdblright
+  /arrowdbldown/lozenge/angleleft/registersans/copyrightsans
+  /trademarksans/summation/parenlefttp/parenleftex/parenleftbt
+  /bracketlefttp/bracketleftex/bracketleftbt/bracelefttp
+  /braceleftmid/braceleftbt/braceex
+  241/angleright/integral/integraltp/integralex/integralbt
+  /parenrighttp/parenrightex/parenrightbt/bracketrighttp
+  /bracketrightex/bracketrightbt/bracerighttp/bracerightmid
+  /bracerightbt
+] def
+
+/patarray [
+/leftdiagonal /rightdiagonal /crossdiagonal /horizontal
+/vertical /crosshatch /fishscale /wave /brick
+] def
+/arrowtype 0 def
+/fillC 0 def /fillM 0 def /fillY 0 def /fillK 0 def
+/strokeC 0 def /strokeM 0 def /strokeY 0 def /strokeK 1 def
+/pattern -1 def
+/mat matrix def
+/mat2 matrix def
+/nesting 0 def
+/deferred /N def
+/c /curveto load def
+/C /curveto load def
+/e { gsave concat 0 0 moveto } bind def
+/F {
+  nesting 0 eq { %ifelse
+    pattern -1 eq { %ifelse
+      fillC fillM fillY fillK setcmykcolor eofill
+    }{ %else
+      gsave fillC fillM fillY fillK setcmykcolor eofill grestore
+      0 0 0 1 setcmykcolor
+      patarray pattern get findfont patternfill
+    } ifelse
+  }{ %else
+    /deferred /F def
+  } ifelse
+} bind def
+/f { closepath F } bind def
+/K { /strokeK exch def /strokeY exch def
+     /strokeM exch def /strokeC exch def } bind def
+/k { /fillK exch def /fillY exch def
+     /fillM exch def /fillC exch def } bind def
+/L /lineto load def
+/m /moveto load def
+/n /newpath load def
+/N {
+  nesting 0 eq { %ifelse
+    newpath
+  }{ %else
+    /deferred /N def
+  } ifelse
+} def
+/S {
+  nesting 0 eq { %ifelse
+    strokeC strokeM strokeY strokeK setcmykcolor stroke
+  }{ %else
+    /deferred /S def
+  } ifelse
+} bind def
+/s { closepath S } bind def
+/Tx { fillC fillM fillY fillK setcmykcolor show
+      0 leading neg translate 0 0 moveto } bind def
+/t { %def
+  fillC fillM fillY fillK setcmykcolor
+  align dup 0 eq { %ifelse
+    pop show
+  }{ %else
+    dup 1 eq { %ifelse
+      pop dup stringwidth pop 2 div neg 0 rmoveto show
+    }{ %else
+      dup 2 eq { %ifelse
+        pop dup stringwidth pop neg 0 rmoveto show
+      }{ %else
+        pop
+        dup stringwidth pop jwidth exch sub
+        1 index spacecount
+        dup 0 eq { %ifelse
+          pop pop show
+        }{ %else
+          div 0 8#040 4 -1 roll widthshow
+        } ifelse
+      } ifelse
+    } ifelse
+  } ifelse
+  0 leading neg translate 0 0 moveto
+} bind def
+/T { grestore } bind def
+/TX { pop } bind def
+/tbx { pop exch pop sub /jwidth exch def } def
+/u {} def
+/U {} def
+/*u { /nesting nesting 1 add def } def
+/*U {
+  /nesting nesting 1 sub def
+  nesting 0 eq {
+    deferred cvx exec
+  } if
+} def
+/w /setlinewidth load def
+/d /setdash load def
+/B {
+  nesting 0 eq { %ifelse
+    gsave F grestore S
+  }{ %else
+    /deferred /B def
+  } ifelse
+} bind def
+/b { closepath B } bind def
+/z { /align exch def pop /leading exch def exch findfont
+     exch scalefont setfont } bind def
+/Pat { /pattern exch def } bind def
+/cm { 6 array astore concat } bind def
+/q { mat2 currentmatrix pop } bind def
+/Q { mat2 setmatrix } bind def
+/Ah {
+  pop /arrowtype exch def
+  currentlinewidth 5 1 roll arrowhead
+} bind def
+/Arc {
+  mat currentmatrix pop
+    translate scale 0 0 1 5 -2 roll arc
+  mat setmatrix
+} bind def
+/Bx {
+  mat currentmatrix pop
+    concat /y1 exch def /x1 exch def /y2 exch def /x2 exch def
+    x1 y1 moveto x1 y2 lineto x2 y2 lineto x2 y1 lineto
+  mat setmatrix
+} bind def
+/Rr {
+  mat currentmatrix pop
+    concat /yrad exch def /xrad exch def
+    2 copy gt { exch } if /x2 exch def /x1 exch def
+    2 copy gt { exch } if /y2 exch def /y1 exch def
+    x1 xrad add y2 moveto
+    matrix currentmatrix x1 xrad add y2 yrad sub translate xrad yrad scale
+    0 0 1 90 -180 arc setmatrix
+    matrix currentmatrix x1 xrad add y1 yrad add translate xrad yrad scale
+    0 0 1 180 270 arc setmatrix
+    matrix currentmatrix x2 xrad sub y1 yrad add translate xrad yrad scale
+    0 0 1 270 0 arc setmatrix
+    matrix currentmatrix x2 xrad sub y2 yrad sub translate xrad yrad scale
+    0 0 1 0 90 arc setmatrix
+    closepath
+  mat setmatrix
+} bind def
+/Ov {
+  mat currentmatrix pop
+    concat translate scale 1 0 moveto 0 0 1 0 360 arc closepath
+  mat setmatrix
+} bind def
+end
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%PDX g 3 3 0 0
+%%IncludeFont: ArialMT
+PDXDict begin
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+/_PDX_savepage save def
+
+15 15 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 setlinecap
+  7.5 0 moveto 15 7.5 lineto
+  0 7.5 moveto 7.5 15 lineto
+  2 setlinewidth stroke
+} bind
+/rightdiagonal true definepattern pop
+
+15 15 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 setlinecap
+  7.5 0 moveto 0 7.5 lineto
+  15 7.5 moveto 7.5 15 lineto
+  2 setlinewidth stroke
+} bind
+/leftdiagonal true definepattern pop
+
+15 15 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 setlinecap
+  0 7.5 moveto 15 7.5 lineto
+  2 setlinewidth stroke
+} bind
+/horizontal true definepattern pop
+
+15 15 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 setlinecap
+  7.5 0 moveto 7.5 15 lineto
+  2 setlinewidth stroke
+} bind
+/vertical true definepattern pop
+
+15 15 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 setlinecap
+  0 7.5 moveto 15 7.5 lineto
+  7.5 0 moveto 7.5 15 lineto
+  2 setlinewidth stroke
+} bind
+/crosshatch true definepattern pop
+
+30 30 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 setlinecap
+  0 7.5 moveto 30 7.5 lineto
+  0 22.5 moveto 30 22.5 lineto
+  7.5 0 moveto 7.5 7.5 lineto
+  7.5 22.5 moveto 7.5 30 lineto
+  22.5 7.5 moveto 22.5 22.5 lineto
+  1 setlinewidth stroke
+} bind
+/brick true definepattern pop
+
+30 30 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 2 scale
+  2 setlinecap
+  7.5 0 moveto 15 7.5 lineto
+  0 7.5 moveto 7.5 15 lineto
+  7.5 0 moveto 0 7.5 lineto
+  15 7.5 moveto 7.5 15 lineto
+  0.5 setlinewidth stroke
+} bind
+/crossdiagonal true definepattern pop
+
+30 30 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  2 2 scale
+  1 setlinecap
+  0 7.5 moveto 0 15 7.5 270 360 arc
+  7.5 15 moveto 15 15 7.5 180 270 arc
+  0 7.5 moveto 7.5 7.5 7.5 180 360 arc
+  0.5 setlinewidth stroke
+} bind
+/fishscale true definepattern pop
+
+30 30 [300 72 div 0 0 300 72 div 0 0]
+{ %definepattern
+  1 setlinecap 0.5 setlinewidth
+  7.5 0 10.6 135 45 arcn
+  22.5 15 10.6 225 315 arc
+  stroke
+  7.5 15 10.6 135 45 arcn
+  22.5 30 10.6 225 315 arc
+  stroke
+} bind
+/wave true definepattern pop
+
+WinAnsiEncoding /_ArialMT /ArialMT RE
+
+newpath 0 setlinecap 0 setlinejoin 10 setmiterlimit
+1 setlinewidth [] 0 setdash
+5 330 moveto 5 763 lineto 679 763 lineto 679 330 lineto closepath clip
+newpath
+%%EndPageSetup
+407.659 782 246.556 755.618 [1 0 0 1 -42.34 -27.57] Bx
+s
+1 1 1 0 k
+/_ArialMT 12 13 0 0 z
+[1 0 0 1 212.9 737] e
+144 -2.544 0 10.86 tbx
+(Insira uma quest\343o na MT) t
+T
+0 0 0 0 k
+386.359 732.151 233.418 687.556 [1 0 0 1 -31.83 -35.48] Bx
+s
+1 1 1 0 k
+/_ArialMT 12 13 0 1 z
+[1 0 0 1 277.9 682.7] e
+72 -28.544 -72 10.86 tbx
+(De cima para baixo,) t
+(selecionar um fato ou uma) t
+(regra ) t
+T
+[1 0 0 1 280.6 588.9] e
+51.6667 -93.544 -51.6667 10.86 tbx
+(O) t
+(\r) TX
+(predicado) t
+(\r) TX
+(selecionado casa) t
+(\r) TX
+(com a quest\343o) t
+(corrente?) t
+(\r) TX
+() t
+(\r) TX
+() t
+(\r) TX
+T
+q
+1 0 0 1 -15.16 -23.97 cm
+288.778 633.111 m
+358.778 590.889 L
+Q
+S
+q
+1 0 0 1 -22.02 -26.91 cm
+295.179 637.539 m
+238.778 595.333 L
+Q
+S
+q
+1 0 0 1 -10.26 -29.99 cm
+227.532 601.404 m
+284.395 523.727 L
+Q
+S
+q
+1 0 0 1 -14.18 -22.01 cm
+286.356 520.872 m
+356.556 592 L
+Q
+S
+[1 0 0 1 515.3 642.3] e
+74.4932 -41.544 -74.4932 10.86 tbx
+(Procure uma nova regra) t
+(\r) TX
+(ou fato, e busque um novo) t
+(casamento com a quest\343o) t
+(corrente da pilha) t
+T
+0 0 0 0 k
+597.667 672 446.16 612.166 [1 0 0 1 -5.356 -15.15] Bx
+s
+1 1 1 0 k
+[1 0 0 1 526.7 542.3] e
+72 -28.544 -72 10.86 tbx
+(Ainda ) t
+(\r) TX
+(restam regras) t
+(\r) TX
+( / fatos na BC?) t
+T
+q
+1 0 0 1 -15.16 -23.97 cm
+531 586.444 m
+482.111 552 L
+Q
+S
+q
+1 0 0 1 -14.18 -23.97 cm
+531 588.667 m
+599.101 551.038 L
+Q
+S
+q
+1 0 0 1 -15.16 -24.95 cm
+601.062 551.038 m
+532.111 520.889 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+532.111 520.889 m
+484.333 554.222 L
+Q
+S
+/_ArialMT 12 13 0 0 z
+[1 0 0 1 510.2 426] e
+144 -15.544 0 10.86 tbx
+(Pare) t
+(\r) TX
+T
+0 0 0 0 k
+543.222 466.444 504.333 438.667 [1 0 0 1 -1.83 -21.75] Bx
+s
+q
+1 0 0 1 -15.16 -23.97 cm
+295.444 750.889 m
+295.444 722 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+295.444 750.889 295.444 722 3 2 Ah
+Q
+q
+1 0 0 1 -12.94 -28.42 cm
+285.116 677.056 m
+285.444 637.556 L
+Q
+S
+q
+1 0 0 1 -12.94 -28.42 cm
+285.116 677.056 285.444 637.556 3 2 Ah
+Q
+q
+1 0 0 1 -5.16 37.14 cm
+97.6667 674.222 m
+281 674.222 L
+Q
+S
+q
+1 0 0 1 -5.16 37.14 cm
+97.6667 674.222 281 674.222 3 2 Ah
+Q
+q
+1 0 0 1 -15.16 -23.97 cm
+355.444 592 m
+415.444 592 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+415.444 592 m
+415.444 556.444 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+416.556 556.444 m
+481 553.111 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+416.556 556.444 481 553.111 3 2 Ah
+Q
+q
+1 0 0 1 -15.16 -23.97 cm
+531.454 683.735 m
+531 737.556 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+531 736.444 m
+297.667 736.444 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+531 736.444 297.667 736.444 3 2 Ah
+Q
+q
+1 0 0 1 -15.16 -23.97 cm
+532.111 587.556 m
+532.111 620.889 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+532.111 587.556 532.111 620.889 3 2 Ah
+Q
+q
+1 0 0 1 -15.16 -23.97 cm
+532.111 522 m
+532.111 472 L
+Q
+S
+q
+1 0 0 1 -15.16 -23.97 cm
+532.111 522 532.111 472 3 2 Ah
+Q
+1 1 1 0 k
+[1 0 0 1 217.5 452.2] e
+144 -2.544 0 10.86 tbx
+(V) t
+T
+[1 0 0 1 365.8 569.4] e
+144 -2.544 0 10.86 tbx
+(F) t
+T
+[1 0 0 1 525.8 468.3] e
+144 -2.544 0 10.86 tbx
+(F) t
+T
+[1 0 0 1 520.2 568.3] e
+144 -2.544 0 10.86 tbx
+(V) t
+T
+[1 0 0 1 220.3 356] e
+144 -15.544 0 10.86 tbx
+(V: Verdade \(sim\)) t
+(\r) TX
+(F: Falso \(n\343o\)) t
+T
+q
+1 0 0 1 0 0 cm
+117.275 492.715 m
+187.863 438.793 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+187.863 438.793 m
+116.294 407.421 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+116.294 407.421 m
+60.4118 446.636 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+60.4118 446.636 m
+117.275 494.676 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+272.176 501.804 m
+267.275 449.578 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+267.275 449.578 m
+189.824 440.754 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+267.275 449.578 189.824 440.754 3 2 Ah
+Q
+[1 0 0 1 87.86 448.5] e
+66.6667 -15.544 0 10.86 tbx
+(\311 uma regra) t
+(\r) TX
+(ou um fato?) t
+T
+0 0 0 0 k
+191.784 586.118 116.294 540.039 [1 0 0 1 -101 72.55] Bx
+s
+1 1 1 0 k
+[1 0 0 1 21.2 637] e
+144 -15.544 0 10.86 tbx
+(Adicione) t
+(\r) TX
+(o fato a MT) t
+T
+0 0 0 0 k
+231 572.392 131.98 480.235 [1 0 0 1 -32.35 57.84] Bx
+s
+1 1 1 0 k
+[1 0 0 1 114.3 612.5] e
+144 -67.544 0 10.86 tbx
+(Da esquerda) t
+(\r) TX
+(para direita,) t
+(\r) TX
+(estabele\347a a ) t
+(\r) TX
+(nova quest\343o,) t
+(\r) TX
+(pois a anterior) t
+(\r) TX
+(vai para pilha) t
+T
+q
+1 0 0 1 0 0 cm
+60.4118 446.902 m
+37.8627 446.902 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+37.8627 446.902 m
+38.8431 611.608 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+37.8627 446.902 38.8431 611.608 3 2 Ah
+Q
+q
+1 0 0 1 0 0 cm
+41.7843 658.667 m
+41.7843 712.588 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+40.8039 711.608 m
+89.8235 711.608 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+40.8039 711.608 89.8235 711.608 3 2 Ah
+Q
+q
+1 0 0 1 0 0 cm
+146.686 630.235 m
+146.686 708.667 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+146.686 630.235 146.686 708.667 3 2 Ah
+Q
+q
+1 0 0 1 0 0 cm
+116.294 494.078 m
+147.667 536.235 L
+Q
+S
+q
+1 0 0 1 0 0 cm
+116.294 494.078 147.667 536.235 3 2 Ah
+Q
+%%PageTrailer
+_PDX_savepage restore
+%%Trailer
+end
+showpage
+%%EOF

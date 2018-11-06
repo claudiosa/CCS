@@ -1,0 +1,59 @@
+\setlength{\unitlength}{0.00083333in}
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+{\renewcommand{\dashlinestretch}{30}
+\begin{picture}(8069,6284)(0,-10)
+\thicklines
+\path(4597,5122)(7672,5122)(7672,6097)
+	(4597,6097)(4597,5122)
+\path(2047,3847)(5047,3847)(5047,4747)
+	(2047,4747)(2047,3847)
+\put(1552,127){\arc{210}{1.5708}{3.1416}}
+\put(1552,742){\arc{210}{3.1416}{4.7124}}
+\put(4942,742){\arc{210}{4.7124}{6.2832}}
+\put(4942,127){\arc{210}{0}{1.5708}}
+\path(1447,127)(1447,742)
+\path(1552,847)(4942,847)
+\path(5047,742)(5047,127)
+\path(4942,22)(1552,22)
+\path(2197,1897)(3997,1897)(3997,2797)
+	(2197,2797)(2197,1897)
+\blacken\path(3082.000,1657.000)(3022.000,1897.000)(2962.000,1657.000)(3082.000,1657.000)
+\path(3022,1897)(3022,922)
+\blacken\path(2962.000,1162.000)(3022.000,922.000)(3082.000,1162.000)(2962.000,1162.000)
+\blacken\path(3411.044,3607.241)(3472.000,3847.000)(3305.388,3664.133)(3411.044,3607.241)
+\path(3472,3847)(2947,2872)
+\blacken\path(3007.956,3111.759)(2947.000,2872.000)(3113.612,3054.867)(3007.956,3111.759)
+\blacken\path(6285.025,4877.553)(6247.000,5122.000)(6165.518,4888.418)(6285.025,4877.553)
+\path(6247,5122)(6172,4297)(5197,4297)
+\blacken\path(5437.000,4357.000)(5197.000,4297.000)(5437.000,4237.000)(5437.000,4357.000)
+\blacken\path(1057.000,4732.000)(997.000,4972.000)(937.000,4732.000)(1057.000,4732.000)
+\path(997,4972)(997,4222)(1972,4222)
+\blacken\path(1732.000,4162.000)(1972.000,4222.000)(1732.000,4282.000)(1732.000,4162.000)
+\path(172,5122)(3097,5122)(3097,6172)
+	(172,6172)(172,5122)
+\dottedline{68}(22,1297)(8047,1297)(8047,6247)
+	(22,6247)(22,1297)
+\put(4822,5797){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Base de}}}}}
+\put(4822,5557){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Conhecimenbto}}}}}
+\put(6472,1822){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Máquina}}}}}
+\put(4822,5317){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}(programa usário)}}}}}
+\put(2797,4522){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Máquina}}}}}
+\put(6397,1522){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Prologuiana}}}}}
+\put(2047,547){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Interface com Usuário}}}}}
+\put(2422,247){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}(tipo console)}}}}}
+\put(772,5872){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Conhecimento}}}}}
+\put(922,5572){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Embutido}}}}}
+\put(547,5347){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}(ULA de predicados)}}}}}
+\put(2722,3997){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}(raciocínio)}}}}}
+\put(2797,4297){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Inferencial}}}}}
+\put(2572,2047){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault} Trabalho}}}}}
+\put(2647,2272){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}   de}}}}}
+\put(2572,2572){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Memória}}}}}
+\end{picture}
+}

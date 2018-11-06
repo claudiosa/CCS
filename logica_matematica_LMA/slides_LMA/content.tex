@@ -1,0 +1,44 @@
+% DO NOT COMPILE THIS FILE DIRECTLY!
+% This is included by the other .tex files.
+
+\begin{frame}[t,plain]
+\titlepage
+\end{frame}
+
+\begin{frame}
+	Agenda:
+	\tableofcontents
+\end{frame}
+
+\section{Capitulo 1} % Necessário para gerar o \tableofcontents
+\begin{frame}[t]{Introdução} % Título do Frame
+\begin{itemize}
+	\item Tópicos aqui ... \cite{da_silva_understanding_2010}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Introdução} % Título do Frame
+	\begin{itemize}
+		\item Continua os tópicos aqui (Figura \ref{fig:nla})
+	\end{itemize}
+	\begin{figure}
+		\includegraphics[scale=0.25]{gnu.png}
+		\caption{Imagem GNU}
+		\label{fig:nla}
+	\end{figure}
+\end{frame}
+
+\section{Capitulo 2} 
+\begin{frame}[t]{Capitulo 2} % Título do Frame
+	\begin{enumerate}
+		\item Referencia 2 \cite{filho}
+                \item Referencia 3 \cite{amadeu}
+	\end{enumerate}
+\end{frame}
+
+\section{Bibliografia}
+\begin{frame}
+\bibliographystyle{alpha}
+\tiny{\bibliography{refs}} % Carrega o arquivo refs.bib
+\end{frame}
+

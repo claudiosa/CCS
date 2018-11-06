@@ -1,0 +1,288 @@
+\documentclass[final,a4paper]{article}
+%%% iconv  --from-code=UTF-8 --to-code=ISO-8859-1 x.tex > x_latim.tex
+%\usepackage{lucidabr}
+%\documentclass[12pt,oneside]{article} % Uma Coluna e lingua portuguesa
+%\usepackage[T1]{fontenc}        % Permite digitar os acentos de forma normal
+\usepackage[utf8]{inputenc} %% este caso o doc esteja em utf8
+%% \usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{epic,eepic} %%,t1enc}
+%%%\usepackage{lucidabr}
+\usepackage[ams]{pdfslide}
+
+\usepackage{comment}
+\usepackage{amsmath, amsfonts ,amssymb}
+\usepackage{epsfig,url}   %float,
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage{hyperref,url}
+%\usepackage{pause}
+\usepackage{pifont} %,bbding}%%,dingbat} %%% ver manual de simbolos
+\usepackage[final]{listings}
+\newcommand{\tuple}[1]{\ensuremath{\mathbf{#1}}}
+%%%%\usepackage{pause}
+\usepackage[final]{listings}
+\pagestyle{title}
+
+
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+
+%\graphicspath{{./figuresdir1/}{./figuresdir2/}{./figuresdir3/}}
+\graphicspath{{/home/ccs/figs_genericas/}{/home/ccs/principal/figs_genericas/}{/home/ccs/Dropbox/figs_genericas/}{figuras/}
+}
+
+
+
+\definecolor{azulclaro}{rgb}{0.9,0.9,1}
+
+\lstset{
+    inputencoding=utf8,
+    basicstyle=\small,
+    frame=single,
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    numbers=left,
+    backgroundcolor=\color{azulclaro}
+}
+
+%\restylefloat{figure,table}   %%%% obrigat#io... pelo [H]
+
+%%\overlay{fundo_amarelo.jpg}
+\overlay{denim.jpg}
+\color{black} 
+
+\begin{document}
+
+%%%\begin{center}
+%\begin{Huge}
+%\hrulefill
+ 
+ %\vskip 2cm
+%\vskip 3cm
+\begin{tabular}{lr}
+%\vskip 2cm & {\vskip 2cm}\\
+\begin{minipage}[l]{0.3\textwidth}
+\vskip 2cm  %% abaixar a figura....
+%\includegraphics[height=0.75\textheight, width=0.85\textwidth]{.pdf}
+%%%width=0.8\textwidth , height=0.6\textheight
+\end{minipage}
+&
+\begin{minipage}[r]{0.7\textwidth}
+\vskip 1cm
+
+\underline{Lógica Matemática -- LMA}\\
+\vskip 1cm
+
+\textsf {Laboratórios de Final de Curso}
+%\end{Huge}
+
+\vskip 2cm
+\textsf{Claudio Cesar de Sá\\
+Rogério Eduardo da Silva}
+%\vfill
+%\hrulefill
+
+%%%\{\textsfend{center}
+\end{minipage}
+\end{tabular}
+
+\tableofcontents
+
+\newpage
+\section{Resolvendo Problemas de Lógica -- Quebra-Cabeças}
+
+\begin{enumerate}
+
+\item Antes de fazer o código: entenda os princípios da linguagem Prolog
+e finalmente, o problema que vais resolver
+
+\item Dicas de como se resolve manualmente:\\
+\url{http://www.valdiraguilera.net/problema-de-logica-esquema.html}
+
+\item Ultima parte do procedimento científico  é digitar.
+\end{enumerate}
+
+
+
+
+\section{Exercício 01}
+
+\subsection{Amigas na Piscina}
+
+ Fonte do problema proposto:   \url{http://rachacuca.com.br/logica/problemas/amigas-na-piscina/}(tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+Quatro amigas combinaram de aproveitar o dia de Sol na piscina. Elas estão lado a lado, prontas para mergulharem. Cada uma está com um maiô de uma cor e está usando um protetor solar de determinado fator de proteção (FPS).
+
+Cabe a você seguir as dicas para encontrar os gostos e as características delas.
+
+\begin{enumerate}
+  \item     Na terceira posição está a menina que gosta de Cachorros.
+  \item     Quem gosta de Peixes está em uma das pontas.
+  \item     A garota que gosta de Gatos está na primeira posição.
+  \item     Ana usa protetor solar de FPS 50.
+  \item     Na segunda posição está a menina que usa filtro solar com FPS 55.
+  \item     A garota mais nova está ao lado da que usa protetor solar de menor FPS.
+  \item    Quem gosta de suco de Morango está na quarta posição.
+  \item     A menina que gosta de suco de Maracujá está ao lado da que gosta de Pássaros.
+  \item     A menina que gosta de limonada está ao lado da que gosta de suco de Maracujá.
+  
+  \item   Quem gosta de suco de Laranja está em uma das pontas.
+  \item     A menina de maiô Azul está em algum lugar à esquerda da menina de 9 anos.
+  \item     A garota de 8 anos está na quarta posição.
+  \item     A garota de 11 anos está em uma das pontas.
+  \item     Vivian gosta de Pássaros.
+  \item     Raquel está na primeira posição.
+  \item     A menina de maiô Verde está na quarta posição.
+  \item     A menina de maiô Branco está em uma das pontas.
+    
+\end{enumerate}
+
+
+
+
+\subsection{Considerações}
+
+\subsection{Solução}
+\lstinputlisting[
+    label={pgm_01},
+    language=Prolog,
+]{sol_prof_amigas.ecl}
+
+\subsection{Resultados}
+
+\textcolor{red}{Resultados do  Prolog}
+
+\begin{verbatim}
+?- go.
+[10,32,77,69,49]: (branco,raquel,11,laranja,fps45,gatos)
+[10,32,77,69,50]: (azul,vivian,10,limao,fps55,passaros)
+[10,32,77,69,51]: (amarelo,bruna,9,maracuja,fps40,cachorros)
+[10,32,77,69,52]: (verde,ana,8,morango,fps50,peixes)
+true ;
+\end{verbatim}
+
+
+
+\section{Exercício 02}
+
+
+\subsection{Sala de Espera}
+
+ Fonte do problema proposto:
+  \url{http://rachacuca.com.br/logica/problemas/sala-de-espera/} (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+  Cinco homens aguardam o antendimento com hora marcada no dentista. Cada um deles tem consulta com uma dentista diferente, num horário diferente e veio em busca de um tratamento específico.
+Siga as dicas e descubra o nome dos pacientes, qual revista cada um está lendo, o horário do atendimento e o motivo da consulta. 
+Sejam os fatos:
+  
+  \begin{enumerate}
+  \item A pessoa que veio fazer uma obturação está lendo a revista Caras.
+  \item  Quem está lendo a Veja está em algum lugar entre o Eduardo e quem está com a revista Galileu, nessa ordem.
+  \item  Quem veio ajustar o Aparelho está em algum lugar entre quem está lendo Isto É e quem veio fazer a restauração, nessa ordem.
+  \item  O paciente da Dra. Raquel está lendo a revista Galileu.
+  \item  O Álvaro é o paciente da Priscila.
+  \item  O Marcos está em algum lugar entre o paciente de camisa Amarela e o Rodrigo, nessa ordem.
+  \item  O paciente que veio fazer uma Restauração está em algum lugar entre quem veio tratar o Canal e quem veio fazer uma Obturação, nessa ordem.
+  \item A pessoa de Amarelo está em algum lugar à esquerda do paciente agendado às 10:30.
+
+    \item Quem tem consulta às 10:15 está sentado em uma das pontas.
+    \item     O primeiro paciente será atendido pela Silvia.
+    \item     O homem de camisa Azul está em algum lugar à esquerda de quem tem consulta as 11h.
+    \item     A pessoa de camisa Verde está em algum lugar entre a pessoa com camisa Vermelha e a pessoa de camisa Azul, nessa ordem.
+    \item     O quarto paciente será atendido as 10h.
+        \item  O paciente da Dra Adriana está em algum lugar entre os pacientes das doutoras Raquel e Priscila, nessa ordem.
+    \item     O paciente da Dra. Pricila está exatamente à direita de quem está com a revista Caras.
+    \item     O homem de camisa Amarela está em algum lugar entre quem está lendo Isto É e quem veio de camisa Branca, nessa ordem.
+
+  \end{enumerate} 
+
+\lstinputlisting[
+    label={pgm_02},
+    language=Prolog,
+]{sol_prof_dentista.ecl}
+
+
+\subsection{Resultados}
+
+\begin{verbatim}
+?- go1.
+
+X1: (primeiro,canal,istoe,silvia,1015,eduardo,vermelho)
+X2: (segundo,aparelho,veja,daniele,1045,celso,amarelo)
+X3: (terceiro,restauracao,galileu,raquel,1030,marcos,verde)
+X3: (quarto,obturacao,caras,adriana,1000,rodrigo,azul)
+X4: (quinto,clareamento,epoca,priscila,1100,alvaro,branco)
+true ;
+\end{verbatim}
+
+
+\section{Exercício 03}
+
+\subsection{Nadadores Olímpicos}
+
+ Fonte do problema proposto:
+  \url{http://rachacuca.com.br/logica/problemas/nadadores-olimpicos/} (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+Descubra a nacionalidade, a idade e a cor da touca dos 4 nadadores olímpicos, junto com a sua especialidade e o número de medalhas conquistadas em sua carreira.
+
+\begin{enumerate}
+  \item  O nadador mais velho do grupo conquistou o maior número de medalhas.
+   \item Quem usa a touca Azul está em alguma raia à esquerda do nadador com 19 anos.
+   \item O nadador com 20 anos está em uma das raias das pontas.
+   \item Quem gosta de beber limonada está exatamente à esquerda de quem é especialista em nado Crawl.
+   \item  O atleta que bebe suco de Maracujá está em alguma raia à direita de quem usa a touca Azul.
+   \item Na segunda raia está o nadador que bebe suco de Laranja.
+   \item O mais velho dos nadadores está na raia número 3.
+   \item Quem ganhou 3 medalhas está na segunda raia.
+   \item Quem ganhou 5 medalhas está posicionado exatamente à esquerda de quem gosta de suco de Laranja.
+\item  O especialista em nado Peito está na raia número 2.
+\item  O especialista em nado Costas está exatamente à direita de quem conquistou 3 medalhas.
+\item  O Brasileiro conquistou o maior número de medalhas entre os 4 nadadores.
+\item  O nadador da China está exatamente à esquerda do nadador do Brasil.
+\item  O nadador dos EUA conquistou 5 medalhas.
+\item  Na última raia está o nadador com a touca branca.
+\item  O especialista em nado Borboleta está ao lado de quem usa a touca Azul.
+\item  O nadador Estadunidense está usando a touca verde.
+
+ \end{enumerate} 
+
+\lstinputlisting[
+    label={pgm_03},
+    language=Prolog,
+]{sol_prof_nadadores.ecl}
+
+
+\subsection{Resultados}
+
+
+\begin{verbatim}
+?- go1.
+[10,82,65,73,65,32,49]: (verde,eua,borboleta,5,abacaxi,20)
+[10,82,65,73,65,32,50]: (azul,china,peito,3,laranja,21)
+[10,82,65,73,65,32,51]: (amarela,brasil,costas,8,limao,24)
+[10,82,65,73,65,32,52]: (branca,russia,crawl,2,maracuja,19)
+true ;
+false.
+
+?- go2.
+
+.............
+verde,eua,borboleta,5,abacaxi,20
+.............
+azul,china,peito,3,laranja,21
+.............
+amarela,brasil,costas,8,limao,24
+.............
+branca,russia,crawl,2,maracuja,19
+ FIM 
+true 
+\end{verbatim}
+
+
+\end{document}

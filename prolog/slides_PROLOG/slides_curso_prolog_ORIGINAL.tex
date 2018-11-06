@@ -1,0 +1,3466 @@
+\documentclass[final,a4paper]{article}
+%%% iconv  --from-code=UTF-8 --to-code=ISO-8859-1 x.tex > x_latim.tex
+%\usepackage{lucidabr}
+%\documentclass[12pt,oneside]{article} % Uma Coluna e lingua portuguesa
+\usepackage[T1]{fontenc}        % Permite digitar os acentos de forma normal
+%%\usepackage[utf8]{inputenc} %% este caso o doc esteja em utf8
+\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{epic,eepic} %%,t1enc}
+\usepackage[ams]{pdfslide}
+
+\usepackage{amsmath, amsfonts ,amssymb}
+\usepackage{epsfig,url}   %float,
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+%\usepackage{pause}
+\usepackage{pifont}%,bbding}%%,dingbat} %%% ver manual de simbolos
+\usepackage[final]{listings}
+
+\pagestyle{title}
+
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+%\graphicspath{{./figuresdir1/}{./figuresdir2/}{./figuresdir3/}}
+\graphicspath{{/home/ccs/Dropbox/figs_genericas/}{/home/ccs/figs_genericas/}{/home/ccs/principal/figs_genericas/}{figuras/}}
+
+%\restylefloat{figure,table}   %%%% obrigat#io... pelo [H]
+
+
+\overlay{denim.jpg}
+\color{black} 
+%\pagedissolve{Glitter /D 3 /Di /V /M /O}
+\pagedissolve{Dissolve /D 1 /Di /H /M /O}
+%\pagedissolve{Wipe /D 1 /Di /H /M /O}
+\begin{document}
+%\lstset{language=Prolog}
+\lstloadlanguages{Prolog,Haskell}.
+
+%% \appendix
+%% em 27/07 ...
+%\chapter{Tutorial de Prolog --``{\em {\bf Pro}gramming in {\bf Log}ic}'' (Programando em
+%L�gica)  }
+%%\newpage
+
+%\vskip 3cm
+\begin{tabular}{lr}
+%\vskip 2cm & {\vskip 2cm}\\
+\begin{minipage}[l]{0.3\textwidth}
+\vskip 2cm  %% abaixar a figura....
+\includegraphics[scale=0.9]{mobius_strip_small.pdf}
+\end{minipage}
+&
+\begin{minipage}[r]{0.7\textwidth}
+\vskip 2cm
+%\begin{center}
+%% {\textsf {\Large Intelig�ncia Computacional} \\
+ {\textsf {\Large L�gica Matem�tica} \\
+Fundamentos de Prolog e {\bf $ECL^iPS^e$}\\
+(Joinville, \today)\\
+%%Prolog com Exemplos\\
+Claudio Cesar de S�\\
+Rog�rio Eduardo da Silva\\
+ Departamento de Ci�ncia da Computa��o\\
+    Bloco F - 2o. Piso - F-209 - Sala 13\\
+              Joinville - SC \\
+              email: {\tt claudio@colmeia.udesc.br}
+}
+%\end{center}
+\end{minipage}
+\end{tabular}
+
+
+\tableofcontents
+
+\section{Introdu��o}
+
+\subsection{Hist�rico}
+
+A linguagem Prolog:
+\begin{description}
+
+\item[$\checkmark $] As bases na l�gica cl�ssica
+\item[$\checkmark $] In�cio da d�cada de 70 sua primeira implementa\c{c}�o
+\item[$\checkmark $] Foi evoluindo, e continua at� hoje ativo.
+\item[$\checkmark $] Os fundamentos da LPO (L�gica de Primeira Ordem),
+seguindo para uma nota\c{c}�o em cl�usulas (forma clausal), e numa
+nota\c{c}�o restrita em cl�usulas de Horn.
+\end{description}
+
+Depois tem mais, ...
+
+
+\section{Proposta destes Slides}
+
+\begin{description}
+
+\item [\ding{248}] A proposta � tornar este texto acess�vel a
+todas as pessoas  sem  base em l�gica, e at�
+mesmo aquelas que nunca tenham utilizado nenhuma outra
+linguagem de programa��o.
+
+\item [\ding{248}] Lembrar que: apenas fazendo/praticando o verdadeiro
+aprendizado ocorre. Escutar e ver, trazem apenas lembran\c{c}as.
+
+\item [\ding{248}] Assim, ao final das partes, fa\c{c}as os
+exerc�cios propostos.
+
+\item [\ding{248}] Estes slides foram feitos h� uns 10 anos atr�s e
+abandonados e ainda est�o com alguns erros. O abuso (exagero) das aspas � o principal deles.
+
+\item [\ding{248}]  Agora retomado devido o $ECL^iPS^e$ e a 
+Programa\c{c}�o em L�gica com Restri\c{c}�es -- PLR ({\em CLP -- Constraint Logic Programming}) e as
+pesquisas em torno da PLR.
+
+\item [\ding{248}] A segunda parte deste material, tem o foco na PLR.
+
+\item [\ding{248}] Alguns fontes est�o dispon�veis em: \url{http://www2.joinville.udesc.br/~coca/cursos/ic/pgms_em_prolog/}
+
+
+\item [\ding{248}] Assim, esta  atualiza\c{c}�o ainda est� incompleta. 
+{\em Please,  react me with suggestions}.
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\section{Requisitos}
+
+
+\begin{description}
+
+
+\item [\ding{248}] Novamente: \textsf{apenas fazendo/praticando o verdadeiro
+aprendizado ocorre. Escutar e ver, trazem apenas lembran\c{c}as}.
+
+\item [\ding{248}] Assim, tenha em m�os um dos dois programas instalados.
+
+\item [\ding{248}] Prolog sugerido: \url{http://www.swi-prolog.org/}, v� na aba
+de {\em download}.
+
+\item [\ding{248}] Quanto ao $ECL^iPS^e$: \url{http://www.eclipse-clp.org} ou 
+\url{http://87.230.22.228/}, 
+ mais especificamente\\
+  \url{http://www.eclipse-clp.org/Distribution/}, escolha
+uma vers�o e a plataforma (linux, sun, mac, ..., windows) que lhe
+convier.
+\end{description}
+
+\section{{\em Index of Distribution}}
+
+\begin{verbatim}
+
+Index of /Distribution/6.0_96
+              22-Jul-2009 07:26    
+              
+Icon  Name                   
+[DIR] RPMS/                   
+[   ] This is ECLiPSe 6.0#96  
+[DIR] common/                  ===> aqui tem os manuais ...
+[DIR] i386_linux/             
+[DIR] i386_nt/                
+[DIR] sparc_sunos5/           
+[DIR] src/                    
+\end{verbatim}
+Slides de: \today
+
+
+\section{Instalando o $ECL^iPS^e$ no Linux}
+
+Seguindo os passos abaixo numa console Linux:
+
+\begin{verbatim}
+Fa�a os downloads:
+.......
+
+mkdir clp_eclipse
+mv eclipse_misc.tgz  clp_eclipse/
+mv eclipse_basFa�a os downloads:
+.......
+
+mkdir clp_eclipse
+mv eclipse_misc.tgz  clp_eclipse/
+mv eclipse_basic.tgz clp_eclipse/
+mv eclipse_doc.tgz clp_eclipse/
+mv tcltk.tgz clp_eclipse/
+tar -xvf tcltk.tgz
+tar -xvf eclipse_basic.tgz
+tar -xvf eclipse_misc.tgz
+ tar -xvf eclipse_doc.tgz
+mv *.tgz /home/coca/Downloads/
+coca@russel:~/Downloads/clp_eclipse$ cd ..
+
+Agora como root:
+su
+Senha:
+root@russel:/home/coca/Downloads# 
+mv clp_eclipse/ /usr/share/
+cd /usr/share/
+cd clp_eclipse/
+
+Saiba apenas onde est� a interface TCL, por exemplo:
+/usr/share/clp_eclipse/tcltk/i386_linux/lib
+
+./RUNME 
+se quiser java ... vj o caminnho de onde est� o seu Java
+
+Crie os links simbolicos em:
+cd /usr/bin/
+ln -s /usr/share/clp_eclipse/bin/i386_linux/tkeclipse tkeclipse
+ln -s /usr/share/clp_eclipse/bin/i386_linux/eclipse eclipse
+
+Teste
+tkeclipse
+
+
+ic.tgz clp_eclipse/
+mv eclipse_doc.tgz clp_eclipse/
+mv tcltk.tgz clp_eclipse/
+tar -xvf tcltk.tgz
+tar -xvf eclipse_basic.tgz
+tar -xvf eclipse_misc.tgz
+ tar -xvf eclipse_doc.tgz
+mv *.tgz /home/coca/Downloads/
+coca@russel:~/Downloads/clp_eclipse$ cd ..
+
+Agora como root:
+su
+Senha:
+root@russel:/home/coca/Downloads# 
+mv clp_eclipse/ /usr/share/
+cd /usr/share/
+cd clp_eclipse/
+
+Saiba apenas onde est� a interface TCL, por exemplo:
+/usr/share/clp_eclipse/tcltk/i386_linux/lib
+
+./RUNME 
+se quiser java ... vj o caminnho de onde est� o seu Java
+
+Crie os links simbolicos em:
+cd /usr/bin/
+ln -s /usr/share/clp_eclipse/bin/i386_linux/tkeclipse tkeclipse
+ln -s /usr/share/clp_eclipse/bin/i386_linux/eclipse eclipse
+
+Teste
+tkeclipse
+
+\end{verbatim}
+
+\section{Implementa\c{c}�es e Ambientes}
+
+\begin{description}
+
+\item[$\checkmark $] H� v�rios Prolog dispon�veis na WEB,
+um dos mais utilizados � o SWI-Prolog
+{\mbox http://www.swi-prolog.org/}, 
+\item[$\checkmark $] Multiplataforma:
+Windows (95, 98 ou NT), Linux (``{\em
+Unix-like}''), Mac.
+ \item[$\checkmark $]  Tem-se Prolog bem-pagos e gratuitos;
+ \item[$\checkmark $]  Interfaces gr�ficas ou texto;
+\item[$\checkmark $]  E o $ECL^iPS^e$,  objeto de investiga\c{c}�o 
+da segunda parte deste curso.
+\end{description}
+
+
+
+\section{Caracter�sticas}
+
+\begin{description}
+
+\item[$\checkmark $]  Um programa em  Prolog rompe
+com  o conceito de sequencialidade e fluxo
+ de programas, a exemplo de outras linguagens
+tradicionais de programa��o.
+
+%\item[$\checkmark $] Para 
+%\item[$\checkmark $]
+%\item[$\checkmark $]
+%\item[$\checkmark $]
+
+\end{description}
+
+%Eventualmente, o estudante deve repassar todo este
+%tutorial, antes de insistir numa compreens�o
+%sequencial do texto. A prop�sito, Vale a proposta
+%de experimentar, sem se preocupar numa
+%sequencialidade.
+
+\section{Resolvendo um Problema}
+
+\begin{description}
+
+\item [$\checkmark $]  Esse exemplo � instigante e cont�m {\em
+todos}  conceitos iniciais do Prolog, acompanhe com
+aten��o a discuss�o em sala de aula. 
+
+\item [$\checkmark $] A
+proposta � resolver de imediato um problema
+interessante, antes de entrar nos detalhes
+da linguagem. 
+\end{description}
+
+\begin{quotation}
+
+{\em Fui h� uma festa e  apresentado h� tr�s casais.
+Os maridos tinham profiss�es  e esposas distintas. 
+Ap�s alguns {\em goles} me confundi quem era casado com quem,
+e as profiss�es.
+Apenas lembro de alguns fatos, ent�o me ajude descobrir quem
+s�o estes casais, com base nos seguintes dados}:
+\begin{enumerate}
+\item  O m�dico � casado com a Maria;
+\item  O Paulo � advogado;
+\item  Patr�cia n�o � casada com Paulo;
+\item  Carlos n�o � m�dico.
+\end{enumerate}
+\end{quotation}
+
+(Retirado da revista Coquetel: {\em Problemas de L�gica})
+
+\subsection{Modelagem}
+Os demais nomes de nossos personagens s�o (sim, estavam faltando mesmo no
+enunciado):
+\begin{enumerate}
+
+\item \texttt{H = \{ carlos (c) , luiz (l) , paulo (p) \}}
+\item \texttt{M = \{ maria, lucia, patricia \}}
+\item \texttt{P = \{ advogado (a), medico (m), engenheiro (e) \}}
+\end{enumerate}
+Em resumo, um tupla-3 do tipo \texttt{(H,M,P)} \\
+
+O problema se resume em encontrar: \texttt{((H1,M1,P1), (H2,M2,P2), (H3,M3,P3))}
+
+\subsection{Codificando a Descri\c{c}�o Acima}
+
+
+\lstinputlisting[caption={3 casais e profiss�es dos maridos}, 
+                  label={casais_prolog},
+                  language=Prolog,
+			        numbers=left, 
+                    numberstyle=\tiny, % tamanho dos numeros das linhas
+			fontadjust=true, %% ainda nao sei...
+			basicstyle = \small , %%% \scriptsize, % tamanho do codigo fonte  
+         tabsize = 4, %numero de espacos
+			lineskip = -1pt, % espacamento entre linhas
+			captionpos = b, % posi��o do caption
+			%%  float = {H}  %% codigo na mesma pagina
+			%%    basicstyle=\small,          % print whole listing small
+			keywordstyle=\color{black}\bfseries\underbar,    % underlined bold black keyword
+                       %%   identifierstyle=,           % nothing happens
+                      %%  commentstyle=\color{white}, % white comments
+             stringstyle=\ttfamily,      % typewriter type for strings
+                     %% showstringspaces=false     % no special string spaces
+             frame=single, %% se quiser por um frame ao redor do codigo
+             framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+              backgroundcolor=\color{yellow}  % uma cor no fundo.
+		 ]{pgms/casais.pl}
+		 %%{/home/cc/hd_externo/extensao/ia_simbolica_livro/prolog/pgms/casais.pl}
+		 
+Ao longo deste texto, este exemplo ser�
+detalhado, bem como o estudante vai estar
+apto em resolv�-lo de  outras maneiras.
+
+\newpage
+\subsection{Exerc�cios}
+
+\begin{enumerate}
+
+\item Execute este programa no Tkeclipse explorando 
+\texttt{Tracer}. Utilize a op\c{c}�o \texttt{Creep}
+para avan\c{c}ar passo-a-passo.
+
+\item Assegure o entendimento do \texttt{Tracer} pois
+vai favorecer a sua auto-aprendizagem.
+
+\item No SWI-Prolog, Execute este programa ativando
+o {\em trace} gr�fico, {\bf guitracer}; e analise
+porque alguns resultados foram duplicados.
+Ou seja:
+\begin{verbatim}
+?- guitracer.    /* ativa o trace gr�fico */
+....
+\end{verbatim}
+
+\item Fa�a as seguintes experimenta��es na
+console do interpretador:
+\begin{enumerate}
+%%\setlength{\itemsep}{-7pt}
+\item ?- prof(X).
+\item ?- esposa(Y).
+\item ?- prof(X) , X \== medico.
+\end{enumerate}
+
+\item Altere e/ou inclua algumas regras,
+afim de restringir a quantidade de respostas.
+
+\end{enumerate}
+
+Avance ao exerc�cio seguinte, caso  tenhas
+entendido  a M�quina Prolog, deduzir
+tais respostas. Caso tenhas d�vida, habilite o
+trace (?- trace, ...) no prefixo das quest�es acima.
+
+\section{Explicando o Fluxo da M�quina Prologuiana}
+
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=12cm, height=7cm]{figuras/fluxo_px.pdf}
+%%%prolog/scale=0.47
+\label{fig_fluxo_px}
+\caption{Fluxo b�sico de um predicado em Prolog}
+\end{figure}
+
+
+
+\section{Um Predicado Composto}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm, height=8cm]{figuras/fluxo_pxyz.pdf}
+%%%prolog/scale=0.47
+\label{fig_fluxo_pxyz}
+\caption{Fluxo b�sico de um predicado composto em Prolog}
+\end{figure}
+
+\newpage
+\subsection{Implementando estas Figuras}
+
+\lstinputlisting[caption={Sem�ntica operacional do Prolog}, 
+                  label={p_rst},
+                  language=Prolog,
+			      numbers=left, 
+                  numberstyle=\tiny, % tamanho dos numeros das linhas
+			fontadjust=true, %% ainda nao sei...
+			basicstyle = \small , %%% \scriptsize, % tamanho do codigo fonte  
+            tabsize = 4, %numero de espacos
+			lineskip = -1pt, % espacamento entre linhas
+			captionpos = b, % posi��o do caption
+			%%  float = {H}  %% codigo na mesma pagina
+		    keywordstyle=\color{black}\bfseries\underbar,    % underlined bold black keyword
+                       %%   identifierstyle=,           % nothing happens
+             commentstyle=\color{red}, % white comments
+             stringstyle=\ttfamily,      % typewriter type for strings
+                     %% showstringspaces=false     % no special string spaces
+             frame=single, %% se quiser por um frame ao redor do codigo
+             framerule=2pt,  % algo maior que 0
+		     %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+              backgroundcolor=\color{yellow}  % uma cor no fundo.
+		 ]{pgms/p_rst.pl}
+
+\newpage
+\subsection{Observa��es:}
+
+\begin{description}
+
+
+\item [\ding{248}] \textsf{Estes �ltimos slides devem ser acompanhados com
+a explica��o em sala de aula.}
+
+\item [\ding{248}] \textsf{Nestes dois slides se encontram v�rias
+p�ginas de texto.}
+
+
+\item [\ding{248}] \textsf{Muita calma nesta hora com as figuras \ref{fig_fluxo_px} e \ref{fig_fluxo_pxyz}}.
+
+\item [\ding{248}] \textsf{Como exerc�cio explique o que dizem estas figuras, bem como a numera��o indicada nas flechas}.
+
+\item [\ding{248}] \textsf{Feito? Agora avance!}
+
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Implementando em  {\bf $ECL^iPS^e$}}
+
+O exemplo dos tr�s casais em $ECL^iPS^e$ (ao interessado apenas em Prolog, salte este exemplo):
+
+\lstinputlisting[caption={3 casais e profiss�es dos maridos}, 
+                  label={casais_plr},
+                  language=Prolog,
+			        numbers=left, 
+                    numberstyle=\tiny, % tamanho dos numeros das linhas
+			fontadjust=true, %% ainda nao sei...
+			basicstyle = \small , %%% \scriptsize, % tamanho do codigo fonte  
+            tabsize = 4, %numero de espacos
+			lineskip = -1pt, % espacamento entre linhas
+			captionpos = b, % posi��o do caption
+			%%  float = {H}  %% codigo na mesma pagina
+			%%    basicstyle=\small,          % print whole listing small
+			keywordstyle=\color{black}\bfseries\underbar,    % underlined bold black keyword
+                       %%   identifierstyle=,           % nothing happens
+             commentstyle=\color{red}, % white comments
+             stringstyle=\ttfamily,      % typewriter type for strings
+                     %% showstringspaces=false     % no special string spaces
+             frame=single, %% se quiser por um frame ao redor do codigo
+             framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+              backgroundcolor=\color{yellow}  % uma cor no fundo.
+		 ]{pgms/plr_casais.ecl}
+
+
+\section{Ambiente de Programa��o: $ECL^iPS^e$ console}
+
+%A console do SWI � an�loga:
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm, height=6cm]{figuras/eclipse_console.pdf}
+%%%prolog/
+\label{console_01}
+\caption{A console b�sica do $ECL^iPS^e$ (an�loga aos Prologs)}
+\end{figure}
+
+
+\section{Ambiente de Programa��o:  TK$ECL^iPS^e$}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=15cm, height=8cm]{figuras/tkeclipse_1.pdf}
+%%%prolog/
+\label{tk_01}
+\caption{O $ECL^iPS^e$ com a bilioteca TK}
+\end{figure}
+
+%Depois voltaremos a falar em mais detalhes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Um Outro Exemplo:  Os Tr�s M�sicos}
+
+
+\begin{quotation}
+``{\em  Tr�s m�sicos, Jo�o, Ant�nio e Francisco, tocam harpa, violoncelo e piano.
+  Contudo, n�o se sabe quem toca o qu�. Sabe-se que o  Ant�nio n�o � o
+  pianista. Mas o pianista ensaia sozinho � Ter�a. O Jo�o ensaia com o
+  Violoncelista �s Quintas. Quem toca o qu� ?}''
+\end{quotation}
+
+O texto acima, muma vers�o 
+ em Prolog � representado por: 
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+
+  instrumento(harpa).
+  instrumento(violoncelo).
+  instrumento(piano).
+  dia(3).
+  dia(5).
+  
+  musicos( m(joao,X1,5), m(antonio,X2,D2), m(xico,X3,D3) ) :-
+      
+    instrumento(X1),
+    instrumento(X2),
+    instrumento(X3),
+    (X2 \== piano),
+    (X1 \== X2 , X3 \== X2, X1 \== X3),
+    dia(D3),
+    dia(D2),
+    ((D2 == 3 , D3 == 5);(D2 == 5 , D3 == 3)),
+    (X1 \== violoncelo , X3 == piano , D3 == 3).
+\end{lstlisting}
+
+F�cil, certo? Veja a execu��o:
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+    stringstyle=\ttfamily,      % typewriter type for string
+    showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+  16 ?- consult('c:/publico/musicos.txt').
+  % c:/publico/musicos.txt compiled 0.00 sec, 64 bytes
+    Yes
+  17 ?- musicos(X,Y,Z).
+    X = m(joao, harpa, 5),
+  Y = m(antonio, violoncelo, 5),
+  Z = m(xico, piano, 3) ;
+    No
+  18 ?-
+\end{lstlisting}
+ Este exemplo ser� melhorado ....... e como
+ o anterior refeito com recursos da PLR.
+
+\section{Apresenta��o do Prolog}
+
+\begin{itemize}
+
+
+\item Prolog � uma
+ linguagem de programa��o implementada sobre um
+  paradigma  l�gico (L�gica de $1^a.$ Ordem (LPO)). Logo,
+  a concep��o da linguagem apresenta uma terminologia
+  pr�pria, mas fundamentada sobre a LPO. 
+  
+\item   As restri��es
+  da completude e corretude da LPO s�o contornadas
+  com um m�todo de prova sistem�tico e completo, chamado de SLD.
+  Detalhes: {\em Logic, Programming and Prolog}, de
+ Ulf Nilsson e Jan Maluszyns, editado pela by John Wiley \& Sons,
+ 2000.
+\end{itemize}
+
+
+\newpage
+\subsection{Caracter�sticas}
+
+\begin{description}
+%%% BONS \ding{239} \ding{235} \ding{229} \ding{103} \ding{42}
+%\setlength{\itemsep}{-5pt}
+ \item [\ding{248}] Manipula s�mbolos (objetos) por natureza,
+logo {\tt 7 + 13} tem v�rias
+conota��es;
+
+ \item [\ding{248}]  Um �tomo, literal ou um objeto � dado por: `a',  77, "aa", '7' ,
+"777"     \ldots
+
+ \item [\ding{248}]  Seu princ�pio inferencial � o ``{\em backward
+chaining}'' ({\em encadeamento regressivo}), ou seja,
+ para encontrar algum s�mbolo como verdade,
+devemos demonstrar que suas premissas eram
+tamb�m verdadeiras;
+
+\item [\ding{248}] Apresenta um prop�sito geral como
+Linguagem de Programa��o, bem como tem interface com
+linguagens como  Delphi,  C,  Visual Basic, e outras;
+
+\item [\ding{248}] Portabilidade entre plataformas para o Prolog padr�o.
+Logo,  Prolog � uma linguagem livre;
+
+\item [\ding{248}] F�cil aprendizado;
+
+\item [\ding{248}] �reas de aplica��es: problemas de IA,
+provadores de teoremas, sistemas especialistas,
+pesquisa operacional,  constru��o de compiladores, etc.
+
+%\item O que � uma f�rmula at�mica;
+%\item Predicado l�gico: pai(X,Y), $>=(4,6)$, \ldots
+%\item O que � uma fun��o l�gica?
+%\item O que � uma cl�usula l�gica?
+
+\end{description}
+ 
+\newpage
+\subsection{M�quina {\em Prologuiana}}
+
+\begin{description}
+
+\item [$\checkmark $] Uma arquitetura cl�ssica para essa linguagem de
+programa��o, encontra-se na figura
+\ref{maq_prolog}. Sua fundamenta��o te�rica
+encontra-se no processo de racioc�nio t�pico do
+{\em backward chaining}. 
+
+\item [$\checkmark $]  A operacionalidade �
+an�logo a esse esquema de racioc�nio.
+\end{description}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=7cm, width=9cm]{figuras/maq_prolog.pdf}
+%%{prolog/figuras/ciclo_prolog.eps}
+%\input figuras/maq_prolog.eepic
+\label{maq_prolog}
+\caption{Arquitetura T�pica de uma M�quina {\em
+Prologuiana}}
+\end{figure}
+
+\newpage
+\subsection {Exemplos e Como Trabalhar}
+
+
+\begin{description}
+
+\item [\checkmark ] Al�m do Prolog ou do Eclipse instalado, � necess�rio ter um editor de texto padr�o ASCII. Aquele de sua prefer�ncia.
+% como o {\bf edit} do MS-DOS, ou um outro editor ASCII
+
+\item [$\checkmark $] Qualquer um desde que apresente o n�mero das linhas no texto. 
+
+
+\item [$\checkmark $]Caso a escolha seja um Prolog com interface gr�fica tipo XPCE (http://www.swi-prolog.org/), o qual funciona muito bem sob o Linux, tal editor � acionado pelo comando:
+
+{\bf ?- edit(file('nome do pgm.pl')).} 
+
+O ambiente  do SWI-Prolog � inicialmente interpretado, e
+ apresenta  um {\em prompt default} ao ser executado: {\bf ?-}
+
+\item [$\checkmark $] 
+\end{description}
+
+
+Veja os exemplos iniciais:
+\begin{verbatim}
+?- 2 > 3.
+No
+?- 2 == 2.
+Yes
+?- mae(eva, abel).
+No
+?- 3 > 2.
+Yes
+\end{verbatim}
+
+Para carregar um programa usu�rio, previamente editado  e salvo no padr�o ASCII, para ser usado no SWI-Prolog, ent�o:
+\begin{verbatim}
+?- consult('c:/temp/teste.pl'). /* ou */
+?- ['c:/temp/teste.pl'].
+
+% teste.pl compiled 0.00 sec, 560 bytes
+Yes
+?- homem( X ). /* X mai�sculo */
+X = joao
+Yes
+?- homem( x ). /* x min�sculo */
+No
+\end{verbatim}
+
+\ding{248} As letras mai�sculas s�o as {\bf vari�veis} da linguagem
+Prolog, isto �, aceitam qualquer objeto.
+
+
+\section{Quanto ao Eclipse}
+
+Como todo ambiente  com algum requinte de interfaces, exige acertos
+iniciais para dar produtividade. O Eclipse tem no modo console,
+mas aconselho o modo com janelas, mais confort�vel para quem est�
+come\c{c}ando. Ent�o vamos l�:
+
+\begin{description}
+
+\item [$\checkmark $] Veja a janela gr�fica inicial. H� apenas \texttt{File},
+\texttt{Query}, e \texttt{Tools}. Apenas as duas abas iniciais nos interessam de momento.
+
+\item [$\checkmark $] V� a \texttt{File} e acerte suas prefer�ncias como Editor, cores, fontes, etc.
+
+\item [$\checkmark $] Em seguida acerte o seu diret�rio de trabalho.\\ Algo como
+\texttt{meus\_programas$\backslash$ }
+
+\item [$\checkmark $] Ou selecione um arquivo novo para digitares, ou carregue
+um arquivo para execu\c{c}�o na op\c{c}�o \texttt{Compile File}.
+
+\item [$\checkmark $] Veja na janela de \texttt{Output}. Se nenhum erro, estamos indo bem.
+
+\item [$\checkmark $] V� para linha de \texttt{Query} e teste seus predicados.
+{\small
+\begin{verbatim} 
+?- dia(X).  /* digistaste no Query */
+X = 3
+Yes (0.00s cpu, solution 1, maybe more) /* apertei o more */
+X = 5
+Yes (0.03s cpu, solution 2)
+\end{verbatim}
+}
+
+\item [$\checkmark $] Se compararmos com outras interfaces de desenvolvimento
+esta � minimalista.
+
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+ \section{Ambiente Gr�fico de Programa��o:  TK$ECL^iPS^e$}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm, height=8cm]{figuras/tkeclipse_3.pdf}
+%%%prolog/scale=0.47
+\label{fig_tk_03}
+\caption{O $ECL^iPS^e$ gr�fico -- a aba \texttt{File}}
+\end{figure}
+
+
+\section{O {\em Tracer} para Auto-aprendizagem}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm, height=8cm]{figuras/tkeclipse_2.pdf}
+%%%prolog/
+\label{tk_tracer}
+\caption{O depurador gr�fico do $ECL^iPS^e$}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{Sintaxe do Prolog}
+
+\begin{description}
+
+\item [$\checkmark $] 
+A sintaxe {\em {\bf Prologuiana}} � constru�da a partir de formula��es  com os predicados l�gicos
+
+\item [$\checkmark $]  o conceito 
+de {\it predicado} reflete o {\it esp�rito} do Prolog.
+
+\item [$\checkmark $]  Inclua um c�digo exemplo aqui....
+
+\end{description}
+
+As constru��es ({\em linhas de c�digo em Prolog})
+seguem uma sintaxe  de tr�s tipos, que podem 
+ser identificada novamente no programa inicial.
+
+\begin{description}
+%%\item[]
+\item [1o. tipo:] s�o as {\bf quest�es} ou {\em goals} ({\em query}), isto
+�, uma pergunta � uma base de conhecimento\\
+          {\em \ldots  ``a id�ia  a de um teorema a ser demonstrado''
+ \ldots}. Seja uma pergunta: {\em o n�mero 3 � maior que o 2?}
+\begin{verbatim}
+?-  >(3,2).    /* ou  ?-  3 > 2.      Ou seja,   3  � maior que 2  */
+?-
+Yes
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%
+\item [2o. tipo:] s�o os  {\bf fatos}  ... algo sempre verdadeiro
+ou  {\em  verdades incondicionais}, encontrados na {\em base de
+conhecimento}.
+\begin{verbatim}
+?- listing(homem).
+homem(joao).
+homem(jose).
+homem(jedro).
+Yes
+\end{verbatim}
+
+\item [3o. tipo:] s�o as  {\bf regras} \ldots que\/  ``{\it
+aproximadamente}'' s�o verdades ou teoremas condicionais, isto �:
+{\em necessitam de uma prova l�gica}!
+
+\begin{verbatim}
+?- listing(mortal).
+mortal(A)  :-   homem(A).
+/*  obs. o s�mbolo  :- � o implica ao contr�rio  <- */
+/*  homem -->  mortal
+ leia-se ... para demonstrar que algum X �
+ mortal, preciso demonstrar e provar que A �
+ um homem  */
+Yes
+\end{verbatim}
+
+\end{description}
+
+\newpage
+\subsection{Resumindo o Prolog}
+
+\begin{description}
+
+\item [\ding{248}] A constru��o de um
+programa em Prolog, � feita de: {\em fatos, quest�es, regras e nada mais!}
+
+\item [\ding{248}] Logo, quanto a parte da l�xica e sint�tica, � constru�da
+com poucos elementos.
+\end{description} 
+
+\newpage
+\subsection{Detalhando a Sintaxe}
+
+ \ding{248} H� alguns detalhes de como se montam
+esses predicados {\em prologuianos}, os mais trabalhosos s�o os das regras.
+Essa {\em Receita de Bolo} segue abaixo:
+
+\begin{itemize}
+%\setlength{\itemsep}{-3pt}
+\item Os predicados devem ser em letras min�sculas: {\it OBRIGATORIAMENTE}!
+
+\item Os fatos, regras e quest�es terminam por {\bf .}
+(ponto);
+
+\item Seja uma regra, exemplo:\\
+ {\fbox  { \hskip 0.5cm irm�o(X,Y) :- pai(X,Z), pai(Y,Z), X  $\backslash==$ Y. \hskip 0.5cm } }. \\
+ Os seguintes elementos s�o identificados:
+ \begin{itemize}
+%% \setlength{\itemsep}{-5pt}
+   \item ``\texttt{irm�o/2}'', ``\texttt{pai/2}'' e  ``\texttt{$\backslash==$ /2}'', s�o predicados bin�rios (i. �. aridade igual a dois);
+ \item A v�rgula  (``,'')   � o ``\texttt{and}'' l�gico;
+ \item O ``\texttt{or}'' l�gico � o ponto-e-v�rgula
+(``\texttt{;}'') ;
+ \item O   ``{\bf :- }'' � o ``{\em pesco�o}'' da regra;
+ \item O ponto no final   ``{\bf .}'' � o ``{\em p�}'' da regra;
+ \item Logo a regra possui uma  ``{\em cabe�a}'', que � o predicado ``{\em irm�o/2}'';
+ \item O corpo � composto pelos predicados: ``{\em pai/2}'' e  ``\texttt{$\backslash==$ /2}''.
+  \end{itemize}
+
+\item Os nomes que come�am por letras mai�sculas s�o  vari�veis
+ no Prolog. As vari�veis
+   podem receber n�meros, letras, frases, arquivos, regras, fatos, at� mesmo outras vari�veis, mesmo sendo desconhecidas !
+
+\item A vari�vel an�nima ``\_''  ( o {\em underscore}) 
+dispensa a necessidade de ser instanciada, isto �, 
+sem restri��es quanto ao seu escopo;
+
+\item Nomes que come�am por letras min�sculas s�o
+s�mbolos  no Prolog;
+
+\item O escopo � a validade da inst�ncia de uma vari�vel na regra;
+
+\item As vari�veis possuem o seu escopo apenas dentro de suas regras;
+
+\end{itemize}
+
+\newpage
+\subsection{Outros Conceitos}
+
+ \ding{248}  Eventualmente vais encontrar os termos abaixo em 
+livros de l�gica, de Prolog, do Eclipse, de IC, etc:
+
+\begin{enumerate}
+\item Aridade: N�mero
+ de argumentos do predicado.
+ Leia-se que\\
+ \texttt{capital(paris, fran�a)}
+ � um predicado de aridade dois;
+
+\item {\em Matching}: Ao processar uma busca na
+{\em Mem�ria de Trabalho} (MT), a m�quina infer�ncia do Prolog
+realiza verifica��es do in�cio do programa para o final.
+Encontrando um predicado de mesmo nome, em
+seguida verifica a sua aridade. Se nome e aridade
+ {\em casarem}, o {\em matching} foi bem sucedido;
+
+\item Inst�ncia: Quando uma vari�vel de uma regra for
+ substitu�da por um objeto, esse � dito ser uma inst�ncia
+ tempor�ria � regra;
+
+\item  Unifica��o: Quando uma regra for satisfeita por
+um conjunto de objetos, se encontra um inst�ncia bem
+sucedida para regra inteira. Neste caso, as vari�veis foram
+ unificados pelos objetos, resultando em uma regra verdade e
+ demonstr�vel. Em resumo, � uma inst�ncia que foi bem sucedida;
+
+\item  {\em Backtracking}: Esse conceito � particular ao
+Prolog, e o diferencia das demais linguagens convencionais
+de computador. Basicamente, {\em e n�o completamente},
+o conceito de {\em backtracking} � o mesmo da Engenharia de
+ Software. Ou seja, na falha de uma solu��o proposta, o
+  programa deve retroceder e recuperar pontos e/ou estados
+  anteriores j� visitados, visando novas explora��es a partir destes.
+  Como exemplo ilustrativo, imaginemos uma estrutura em �rvore
+  qualquer, e em que um dos n�s terminais (folhas) exista uma ou
+  mais sa�das. Qual a heur�stica de encontrar uma das sa�das ou o
+   n� desejado?  V�rias abordagens podem ser feitas, algumas discutidas neste livro. O Prolog usa uma busca em
+   profundidade ({\em depth-first}), cujo retrocesso ocorre ao
+   n� mais recente, cuja visita foi bem sucedida.
+   Esses n�s referem aos predicados que formam um
+   corpo da �rvore corrente de busca. Logo, v�rias �rvores
+   s�o constru�das, cada vez que uma nova regra � disparada.
+   Mas o controle dessas �rvores e seu objetivo corrente, �
+   implementado como uma estrutura de pilha, em que n�s
+   n�o solucionados s�o empilhados.
+\end{enumerate}
+
+\newpage
+Os conceitos acima, fazem parte de uma {\bf tentativa} de
+descrever o funcionamento aa {\bf M�quina Prologuiana}
+ da figura \ref{fig_ciclo_prolog}, via um fluxograma, e este � mostrado: 
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=12cm, width=13cm]{figuras/ciclo_prolog.pdf}
+%%{prolog/figuras/ciclo_prolog.eps}
+\label{fig_ciclo_prolog}
+\caption{Fluxo {\em Aproximado} de Infer�ncias em Prolog}
+\end{figure}
+
+\ding{248} Avalie e  verifique  a interpreta��o desse esquema 
+da {\em pilha abstrata} de quest�es que o Prolog faz, 
+representado na figura \ref{fig_ciclo_prolog}. Esta figura efetivamente atende 
+as \texttt{queries} do Prolog?
+
+
+\newpage
+\subsection{Opera��es B�sicas do SWI-Prolog}
+
+Exceto o Visual Prolog (http://www.visual-prolog.com/), todos os demais Prolog
+s�o basicamente id�nticos. Atualmente deve existir ter uns dez (10)
+fabricantes de Prolog comerciais e \emph{um outro tanto} 
+oriundos da academia. Todos oferecem algo gratuito como chamariz ao seu sistema. Logo, ao leitor sinta-se livre em experimentar outros ambientes do Prolog.
+
+Quanto ao SWI-Prolog, as suas caracter�sticas s�o:
+velocidade, portabilidade (interoperacionabilidade), padr�o, 
+robustez, facilidades de uso, interface com v�rias outras 
+linguagens de programa��o, \emph{free-source}, etc.
+
+Os passos b�sicos para se usar o SWI-Prolog em seu ambiente
+interpretado s�o:
+
+\begin{enumerate}
+%\setlength{\itemsep}{-5pt}
+\item  Editar o programa. Use o \emph{edit} do DOS, ou outro editor ASCII 
+{\bf com numera��o de linhas};
+
+\item  Carregar o programa usu�rio para o ambiente interpretado SWI-Prolog;
+
+\item  Executar os predicados;
+
+\item  Validar os resultados;
+
+\item  Voltar ao passo inicial, se for o caso.
+\end{enumerate}
+
+\newpage 
+
+Alguns comandos para usar no $ECL^iPS^e$ e 
+SWI-Prolog no padr�o terminal:
+
+\begin{itemize}
+%\setlength{\itemsep}{-5pt}
+\item Para carregar o programa: {\em pl} +
+$<$Enter$>$
+\begin{verbatim}
+Welcome to SWI-Prolog (Version 3.2.3)
+Copyright (c) 1993-1998 University of Amsterdam.  All rights reserved.
+For help, use ?- help(Topic). or ?- apropos(Word).
+Yes
+?-
+\end{verbatim}
+
+\item Idem ao {\em eclipse}. Veja o passo-a-passo
+para instala��o no Linux do Claudio.
+
+\item  Para sair desses ambientes:
+\begin{verbatim}
+?- halt.
+\end{verbatim}
+
+\item Para carregar um programa na
+Mem�ria de Trabalho (MT) ({\bf Working
+Memory-WM}, ou {\em base din�mica de
+conhecimento}):
+
+{\small 
+\begin{verbatim}
+?- consult('d:/curso/udesc/autind/iia/ex1').
+d:/curso/udesc/autind/iia/ex1 compiled, 0.00 sec, 52 bytes.
+Yes
+?-
+ou
+?-  load_files('nomes','opcoes').
+/* para conferir se est� na ``{\em Working  Memory}'' */
+?- ensure_loaded(rosa).
+Yes
+?-
+\end{verbatim}
+}
+
+\item Para eliminar um predicado da MT:
+\begin{verbatim}
+?- abolish(cor/1).
+Yes
+?- listing(cor/1).
+[WARNING: No predicates for `cor/1']
+No
+?-
+\end{verbatim}
+
+\item Para executar uma regra:
+\begin{verbatim}
+?- eh_maior_que_10.
+ DIGITE UM NUMERO:: 30
+|    .  < ......... faltou o ponto . >
+ numero maior que 10
+Yes
+?-
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Para {\em bisbilhotar} o {\em help},  bem como
+inferir novas caracter�sticas do Prolog:
+
+\begin{verbatim}
+?- help(nome_do_predicado).
+ou
+?- apropos(padr�o_desejado).
+ou
+?- explain(nome_do_predicado).
+?- apropos(setenv).
+setenv/2      Set shell environment variable
+unsetenv/1    Delete shell environment variable
+Yes
+?-
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item As imperfei��es: {\em n�o
+ pode existir espa�o entre o
+ nome do predicado
+ e o in�cio dos argumentos, no caso o ``(...)''}. Este
+ erro � bastante comum entre os iniciantes do Prolog.
+ Vejamos o exemplo abaixo no predicado  ``{\bf >}'':
+\begin{verbatim}
+?-    >     (9, 5).
+[WARNING: Syntax error: Operator expected
+> (9, 5
+** here **
+) . ]
+?-   >(9, 5).
+Yes
+?-
+\end{verbatim}
+
+\item Para entrar no m�dulo de depura��o ou debugger:
+\begin{verbatim}
+?- trace, predicado.
+ou
+?- debug, predicado.
+ou
+?- spy(predicado_em_particular).
+para desativar:
+?- nospy(predicado_em_particular).
+e
+?- notrace.
+e
+?- nodebug. /* ou Crtl-C para sair do modo debug */
+\end{verbatim}
+
+\item {\em Apavoramentos} com o modo {\em trace} na console:
+{\small
+\begin{verbatim}
+===> <abort.> sai do debug/trace ou da pendencia...
+ou <Crtl C> +  <a> de abort
+ou
+?- abort.
+Execution Aborted
+Typing an 'h' gets us:
+----
+a:                 abort      b:                 break
+c:                 continue   e:                 exit
+g:                 goals      t:                 trace
+h (?):             help
+Action (h for help) ?
+----
+`What does this mean?`, that's my first question.
+'e'    exits the program immediately
+'a'    aborts whatever you've type so far
+'c'    continues where you left off
+'h'    gets us the 'Action' help menu, again
+So what does 'g', 't' and 'b' do?
+I don't know yet, but I suspect:
+'g'    lists possible goals ===> os pendentes
+'t'    traces the program, a debugging tool
+'b'    breaks the current script (whatever your working on)
+       and give a new shell.
+\end{verbatim}
+}
+%%%%%%%%%%%%%%%%%%%%%%
+\item N�o esque�a que:
+\begin{verbatim}
+?- trace, t.
+e
+?- spy(t), t.
+\end{verbatim}
+s�o equivalentes !
+
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection {Outros Detalhes}
+
+\begin{itemize}
+\setlength{\itemsep}{-5pt}
+\item Corre��es autom�ticas:
+{\small
+\begin{verbatim}
+?- patos(X,Y).
+Correct to: `pratos(X, Y)'? yes
+X = alho
+Y = peixe ;        /*   ; ^ */
+/*  ;  para for�ar uma nova resposta manualmente */
+X = cebola
+Y = peixe ;
+X = tomate
+Y = peixe ;
+No
+?-
+\end{verbatim}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item For�ando todas as respostas, com o uso do
+predicado interno {\bf fail}:
+{\small
+\begin{verbatim}
+?- prato(X, Y),  write(X), nl, fail.
+alho
+cebola
+tomate
+No
+?-
+\end{verbatim}
+}
+
+ Logo o ``{\em fail}'' � um predicado que
+ provoca uma falha na regra, ou seja, torna-a
+  sempre falsa; esse  ``{\em fail}''
+  for�a o mecanismo ``{\em backtracking}''.
+%%%%%%%%%%%%%%%%%%%%
+
+\end{itemize}
+
+
+\section{Resumindo Via Exemplo}
+Antes da pr�xima se��o, � necess�rio compreender o que faz o programa abaixo. Caso tenhas dificuldade, execute-o com aux�lio do {\em tracer}.
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+ x(7).
+ x(5).
+ x(3).
+
+ par(Xpar) :- x(N1),  x(N2),  N1 =\= N2,  
+              Xpar  is (N1+N2),
+              write(N1) ,  write(' .... '),   
+              write(N2) ,  write(' .... '),  
+              write(Xpar),
+              nl,   
+              fail.
+
+?- par(N).
+\end{lstlisting}
+
+
+Cuja �rvore de busca � dada pela figura \ref{fig_arv_prova_exemplo}:
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=10cm, width=10cm]{figuras/arv_prova_exemplo.pdf}
+\label{fig_arv_prova_exemplo}
+\caption{�rvore de busca  para regra {\tt par}}
+\end{figure}
+
+\ding{248} Aconselho estudar cada ponto deste exemplo, pois o mesmo
+sumariza todo conhecimento at� o momento sobre Prolog.
+Avance � pr�xima se��o, apenas se este exerc�cio for dominado
+em detalhes. 
+
+%Use {\bf guitracer} no XPCE, funciona muito bem
+%e � gr�fico. Idem quanto ao {\em tkeclipse}.
+%%% em 09/04
+
+
+\section{Exerc�cios de {\em Warmup}}
+
+
+\begin{enumerate}
+\item  Construa a �rvore geneol�gica de sua fam�lia, tendo as rela��es
+(predicados): \texttt{filho} e \texttt{pai};
+
+\item  A partir do programa anterior, construa as rela��es: irm�o, av�, tio, bisav�,
+etc. Num pr�ximo assunto, o conceito de  ancestral generaliza estes
+ conceitos de pai, av�, bisav�, etc;
+
+\item  Quais dos predicados abaixo casam, e se a unifica��o ocorrer, quais 
+s�o os resutados? Escreva os seus significados, tomando por base os conceitos
+de termos ou �tomos, {\em matching} (casamento), e unifica��o:
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+    stringstyle=\ttfamily,      % typewriter type for string
+    showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+?- 2 > 3.
+?- >(2, 3).
+?- 2 == 2.
+?- a(1, 2) = a(X, X).
+?- a(X, 3) = a(4, Y).
+?- a(a(3, X)) = a(Y). 
+?- 1+2 = 3.
+?- X = 1+2.
+?- a(X, Y) = a(1, X).
+?- a(X, 2) = a(1, X).
+?- 1+2 = 3
+?- X + 2 = 3 * Y.
+?- X+Y = 1+2.
+?- 1+Y = X + 3.
+?- pai(X, adao) = pai(abel, Y).
+?- X+Y = 1+5, Z = X.
+?- X+Y = 1+5, X=Y.
+\end{lstlisting}
+
+\item  Seja o programa abaixo:
+\begin{verbatim}
+b(1).       
+b(2).
+d(3).
+d(4).    
+c(5).    
+c(6).     
+a(W) :-  b(X),  c(Y), W is (X+Y), fail.
+a(W) :-  c(X),  d(Y), W is (X+Y).
+\end{verbatim}
+Encontre os valores para \texttt{a(Y)} e explique como foi o esquema de
+busca. Onde e porqu� ocorreu \textit{backtraking}?
+\end{enumerate}
+
+
+
+
+\section{Sem�ntica Operacional}
+
+\begin{description}
+\item [\ding{248}] Mais um resumo sobre a operacionalidade dos predicados.
+\item [\ding{248}] Estas figuras s�o dif�ceis de serem encontradas, mas revelam
+a ess�ncia do Prolog
+\end{description}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.8]{figuras/fluxo_predicado_1.pdf}
+%%{prolog/figuras/ciclo_prolog.eps}
+%\input figuras/maq_prolog.eepic
+\label{fig_fluxo_1}
+\caption{Um fluxo operacional de um predicado t�pico}
+\end{figure}
+
+
+\newpage
+\begin{flushleft}
+
+
+\ding{248} Retirado de \url{http://grack.com/downloads/school/enel553/report/prolog.html}\\
+\ding{248} Ainda da figura \ref{fig_fluxo_1}, temos:
+\end{flushleft}
+
+\begin{description}
+\item [call:] � o caminho de entrada do predicado, o qual � chamado
+em sua primeira vez, para aquela inst�ncia.
+\item [exit:] uma solu��o encontrada, sua porta de sa�da para um
+retorno com \texttt{Yes}.
+\item [redo:] � a porta de entrada para o {\em backtracking} (caso
+ocorra uma falha neste predicado, este ser� exaustivamente inspecionado
+em todas as suas possibilidades de solu��es).
+\item [fail:] � a porta de sa�da no caso de n�o existirem mais
+nenhuma alternativa a ser pesquisada. Retorno com o \texttt{No}.
+\end{description}
+
+\newpage
+\subsection{Predicados de E/S}
+
+\vskip 3cm
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.8]{figuras/fluxo_predicado_2_IO.pdf}
+%%{prolog/figuras/ciclo_prolog.eps}
+%\input figuras/maq_prolog.eepic
+\label{fig_fluxo_2}
+\caption{Um fluxo operacional de um predicado de E/S - sem \texttt{redo}}
+\end{figure}
+
+Exemplo: o predicado \texttt{write/1}
+
+
+\newpage
+\subsection{Um predicado que sempre falhe}
+
+\vskip 2cm
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.8]{figuras/fluxo_predicado_3_fail.pdf}
+%%{prolog/figuras/ciclo_prolog.eps}
+%\input figuras/maq_prolog.eepic
+\label{fig_fluxo_3}
+\caption{Um fluxo operacional de um predicado com retorno em \texttt{fail}}
+\end{figure}
+
+Exemplo: o predicado \texttt{fail/0}
+
+
+\newpage
+\subsection{Um fluxo  completo}
+
+\vskip 3cm
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.8]{figuras/fluxo_predicado_4_full.pdf}
+%%{prolog/figuras/ciclo_prolog.eps}
+%\input figuras/maq_prolog.eepic
+\label{fig_fluxo_4}
+\caption{Um fluxo operacional completo}
+\end{figure}
+
+Fa�a uma reflex�o e veja se est� tudo claro ....
+
+\section{Recursividade}
+
+
+\begin{description}
+
+\item[$\checkmark $] A recursividade em Prolog � a sua 
+pr�pria defini��o em l�gica. 
+
+\item[$\checkmark $]  Apesar 
+da inefici�ncia de solu��es recursivas, esta 
+� uma das eleg�ncias do Prolog. Os  exemplos se auto-descrevem.
+
+\item[$\checkmark $] A exemplo das demais linguagens de programa��o, uma
+fun��o recursiva � aquela que busca em si pr�prio
+a solu��o para uma nova inst�ncia, at� que esta
+encontre uma inst�ncia conhecida e retorne um valor desejado.
+
+\end{description}
+
+Algumas ilustra\c{c}�es:
+
+\section{Itera\c{c}�o Cl�ssica}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=6cm, width=10cm]{figuras/iteracao_ilustra.pdf}
+%%prolog/
+\label{fig_iteracao}
+\caption{Uma itera\c{c}�o ilustrada}
+\end{figure}
+
+
+
+\section{Recurs�o Ilustrada}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=12cm]{figuras/recursividade_ilustra_1.pdf}
+%%prolog/
+\label{fig_recurs_1}
+\caption{Recurs�o ilustrada}
+\end{figure}
+
+
+\section{Recurs�o Ilustrada 2}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=8cm]{figuras/recursividade_ilustra_2.pdf}
+%%prolog/
+\label{fig_recurs_3}
+\caption{Recurs�o ilustrada 2}
+\end{figure}
+
+
+\section{Quase Tudo S�o Flores}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=8cm]{figuras/recursividade_flores.pdf}
+%%prolog/
+\label{fig_recurs_4}
+\caption{Recurs�o ilustrada -- flores}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage 
+
+\textbf{Exemplo}: Calcular a soma dos primeiros n-valores inteiros:%
+\[
+S(n)=1+2+3+4+.....+(n-1)+n
+\]
+
+Este problema pode ser reformulado sob uma vis�o matem�tica, mais
+especificamente, pela indu��o finita como:%
+
+
+\[
+S(n)=\left \{
+\begin{tabular}
+[c]{ll}
+$1$ & para $n=1$ \\
+$S(n-1) + n $ & para $n \geqslant 2$
+\end{tabular}
+\right.
+\]
+
+
+O que \'{e} um fato verdadeiro pois:
+
+\[
+S(n)=
+\begin{tabular}[c]{cc}
+$\underbrace{1+2+3+.....+(n-1)}$ &  $  + n$\\
+$S(n-1)$ &
+\end{tabular}
+\]
+
+Como o procedimento � recursivo, � necess�rio encontrar a defini��o para a ``\textbf{parada}'' da recursividade. Como $n$ n�o tem limite superior, � para qualquer $n$, inicia-se pelo que se conhece:
+{\small
+\begin{center}
+\begin{tabular}[c]{|p{15cm}|}\hline
+\textbf{\#1}. A soma de 1 \'{e} 1, logo: soma(1,1).\\
+\textbf{\#2}. Para soma dos $n$-\'{e}simos termos, \'{e} necess\'{a}rio a soma
+do $(n-1)$-\'{e}simos termos, logo:\\
+soma(N,S) ... = ... Nant = (N-1), soma(Nant, S\_Nant) e S = (N +
+S\_Nant).\\\hline
+\end{tabular}
+\end{center}
+}
+
+\newpage
+\subsection{Notas:}
+\begin{description}
+
+\item [\ding{248}] A regra \#1, ``\emph{soma(1,1).}'', � conhecida como condi��o ou
+\emph{regra de parada}, ou ainda, \emph{regra de aterramento}.
+
+\item [\ding{248}] Pelo fato de que o Prolog inicia seu procedimento sequencial ``\emph{de cima para baixo}'', a condi��o \#1 deve vir antes de \#2. 
+
+\item [\ding{248}] Em alguns casos, a regra recusirva, regra \#2, vem antes da regra \#1. Alguns desses exemplos s�o mostrados nestes slides.
+
+\item [\ding{248}] Quando estiveres confiante com o Prolog, estas condi��es de parada
+pode vir depois da regra geral. Mas para isto, outros mecanismos de {\bf controle
+de fluxo de programa} precisam serem apresentados.
+de tais casos. 
+
+\end{description}
+
+\newpage
+
+O exemplo acima � reescrito em Prolog, � dado por:
+
+\lstinputlisting[caption={Soma dos n�meros de 1 a N}, 
+                  label={cod_cruz},
+                  language=Prolog,
+			        numbers=left, 
+                    numberstyle=\tiny, % tamanho dos numeros das linhas
+			fontadjust=true, %% ainda nao sei...
+			basicstyle = \small , %%% \scriptsize, % tamanho do codigo fonte  
+                        tabsize = 4, %numero de espacos
+			lineskip = -0.1pt, % espacamento entre linhas
+			captionpos = b, % posi��o do caption
+			%%  float = {H}  %% codigo na mesma pagina
+			%%    basicstyle=\small,          % print whole listing small
+			keywordstyle=\color{black}\bfseries\underbar,    % underlined bold black keyword
+                       %%   identifierstyle=,           % nothing happens
+                      %%  commentstyle=\color{white}, % white comments
+             stringstyle=\ttfamily,      % typewriter type for strings
+                     %% showstringspaces=false     % no special string spaces
+             frame=single, %% se quiser por um frame ao redor do codigo
+             framerule=1pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+           backgroundcolor=\color{yellow}  % uma cor no fundo.
+		 ]{pgms/soma_slide.pl}
+
+%\end{lstlisting}
+
+
+O procedimento recursivo \'{e} t�pico da movimenta\c{c}\~{a}o da pilha
+intr�nseca do Prolog. O quadro abaixo ilustra o exemplo de um
+``\emph{goal}'' do tipo:
+
+\texttt{?-s(5,X).}
+
+{\small
+\begin{center}
+\begin{tabular}
+[c]{|l|l|l|l|l|l|}\hline
+\textbf{Chamada Pendente} & \textbf{Regra Casada} & \textbf{N} & \textbf{N1} &
+\textbf{Parcial} & \textbf{S}\\\hline
+s(5,X) & \#2 & 5 & 4 & ?...$<$10$>$... $\rightarrow$ & ...$<$15$>$...\\ \hline
+s(4,X) & \#2 & 4 & 3 & ?...$<$6$>$... $\rightarrow$ &
+$\nwarrow$...$<$10$>$...\\ \hline
+s(3,X) & \#2 & 3 & 2 & ?...$<$3$>$... $\rightarrow$ &
+$\nwarrow$...$<$6$>$...\\ \hline
+s(2,X) & \#2 & 2 & 1 & ?...$<$1$>$... $\rightarrow$ &
+$\nwarrow$...$<$3$>$...\\ \hline
+s(1,X) & \#1 (aterrada) & 1 & - & - & $\nwarrow$1\\\hline
+\end{tabular}
+\end{center}
+}
+
+\newpage
+\subsection{A execu��o na console:}
+
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+\begin{lstlisting}
+?- s(5,X).
+
+ N: 5 	 AUX: 4 	 PARCIAL: _G254 	 S: _G181
+ N: 4 	 AUX: 3 	 PARCIAL: _G269 	 S: _G254
+ N: 3 	 AUX: 2 	 PARCIAL: _G284 	 S: _G269
+ N: 2 	 AUX: 1 	 PARCIAL: _G299 	 S: _G284
+ ==> Apos o casamento da  REGRA #1:
+ N: 2 	 AUX: 1 	 PARCIAL: 1 	 S: 3
+ ==> Apos o casamento da  REGRA #1:
+ N: 3 	 AUX: 2 	 PARCIAL: 3 	 S: 6
+ ==> Apos o casamento da  REGRA #1:
+ N: 4 	 AUX: 3 	 PARCIAL: 6 	 S: 10
+ ==> Apos o casamento da  REGRA #1:
+ N: 5 	 AUX: 4 	 PARCIAL: 10 	 S: 15
+X = 15 
+\end{lstlisting}
+
+
+\newpage
+Observa��es:
+
+\begin{description}
+
+\item [\ding{248}] O predicado \texttt{format} funciona apenas no Prolog;
+
+\item [\ding{248}] Acompanhe as explica��es em sala de aula;
+
+%\item [\ding{248}]   A rigor, {\bf  internamente, a recursividade n\~{a}o
+%procede exatamente como descrito no quadro acima} . Mas \'{e} algo
+%muito ``\emph{pr\'{o}ximo}'' a isto;
+
+\item [\ding{248}]   Nem todo conjunto de regras recursivas s\~{a}o pass�veis de
+admitirem tal quadro.
+
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+
+
+\section{Um Outro Cl�ssico: Os Ancestrais}
+
+ O  ancestral de X, � no m�nimo o pai de X. Logo,
+um av� X tamb�m � seu ancestral. O pai deste av� tamb�m �
+ antepassado de X, e assim sucessivamente.  Generalizando este conceito de
+ancestralidade, veja figura \ref{fig_ancestral}, em termos da rela��o {\em pai}.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=7cm, width=12cm]{figuras/ancestral.pdf}
+%%prolog/
+\label{fig_ancestral}
+\caption{Uma �rvore que representa os descendentes de algu�m}
+\end{figure}
+
+Escrevendo este conceito em Prolog, tem-se:
+\begin{verbatim}
+ancestral(X,Y) :- pai(X,Y).
+ancestral(X,Y) :- pai(X,Z), ancestral(Z,Y).
+\end{verbatim}
+
+Este  conhecimento em LPO � dado por:
+\begin{flushleft}
+\ding{248} $\forall x \forall y ((pai(x,y) \rightarrow ancestral(x,y))$\\ 
+\ding{248} $\forall x \forall y \forall z((pai(x,z) \wedge  ancestral(z,y) \rightarrow ancestral(x,y))$\\ 
+\end{flushleft}
+
+\newpage
+Este c�digo em Prolog, agora em ingl�s:
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+ parent(john,paul).   /* paul is john's parent    */
+ parent(paul,tom).    /* tom is paul's parent     */
+ parent(tom,mary).    /* mary is tom's parent     */
+ ancestor(X,Y) :- parent(X,Y).
+ /* If Y is a parent of X, then Y is an ancestor of X */
+
+ ancestor(X,Y) :- parent(X,Z), ancestor(Z,Y).
+ /* if Y is an ancestor of Z and Z is a parent of X,
+    then Y is an ancestor of X */ 
+
+\end{lstlisting}
+
+
+\section{Seu Processamento}
+
+Calculando \texttt{?- ancestor(john,tom).}
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+ CALL ancestor(john,tom).
+          CALL parent(john,tom).
+          FAIL parent(john,tom).
+          CALL parent(john,Z).
+               TRY Z=paul
+               CALL ancestor(paul,tom).
+                    CALL parent(paul,tom).
+                    SUCCEEDS parent(paul,tom).
+               SUCCEEDS ancestor(paul,tom).
+          SUCCEEDS with Z=paul
+      SUCCEEDS ancestor(john,tom).
+\end{lstlisting}
+
+Repita o exemplo com nomes conhecidos de sua fam�lia.
+
+\newpage
+\subsection{Outros Exemplos de Recursividade}
+
+\begin{description}
+%\setlength{\itemsep}{-3pt}
+
+\item [Um simples sistema de menu]: al�m do uso da recursividade, este exemplo  mostra o que fazer quando
+{em aparentemente} n�o h� predicados dispon�veis  ao que
+se deseja; ou seja: ``$X <= 3$'' n�o existe, mas como op��o
+ equivalente tem-se:
+\begin{itemize}
+\item ``$X =< 3$'' ;
+\item  ``$\backslash +(X >= 3)$''.
+\end{itemize}
+{\small
+\begin{verbatim}
+menu(0).
+menu(_) :-
+        repeat,
+        write('......'), nl,
+        .......................
+        write('......'), nl,
+        write(' DIGITE A OPCAO: '),
+        read(X),
+        X >= 0,
+        \+(X >= 3),  /* isto �: X =< 3 */
+        /*   X \== 0    � equivalente a:  \+(X == 3 ) */
+        acao(X),
+        menu(X).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        acao(0).     /* continua acoes etc */
+        acao(1).
+        acao(2).
+        acao(3).
+\end{verbatim}
+} %%%% fim do smalll
+
+\newpage
+\item [Cl�ssico ``S�crates'' com \texttt{fail}]:
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+        human(socrates).        % facts about who is human
+        human(aristotle).
+        human(plato).
+        god(zeus).              % and who is a god
+        god(apollo).
+        mortal(X) :- human(X).   
+        % a logical assertion that X is mortal if X is
+
+Fazendo as perguntas:
+        ?-mortal(plato).       % is Plato mortal?
+        yes
+        ?-mortal(apollo).      % is apollo mortal?
+        no
+        ?-mortal(X).           % for which X is X mortal?
+        X = socrates ->;
+        X = aristotle ->;
+        X = plato ->;
+        no                     %human
+
+Evitando este �ltimo "no", usando a recursividade:
+
+mortal_report :-
+   write('Mostre todos mortais conhecidos:'), nl, nl,
+   mortal(X),
+   write(X), nl,
+   fail.
+mortal_report.   /* ou::    mortal_report :- true. */
+
+Ent�o:
+        ?- mortal_report.
+        Mostre todos mortais conhecidos:
+        socrates
+        aristotle
+        plato
+        yes
+        
+\end{lstlisting}
+
+Veja a seq��ncia dos fatos e da sa�da.
+
+\newpage
+\item [C�lculo do Fatorial]: Reformulando sob uma vis�o
+matem�tica, mais especificamente, pela indu��o finita tem-se:
+\[
+Fat(n)=\left\{
+\begin{tabular}[c]{ll}%
+$1$ & para $n=0$\\
+$Fat(n-1)\ast n$ & para $n\geqslant1$%
+\end{tabular}
+\right.
+\]
+
+\vskip 11pt
+O que \'{e} um fato verdadeiro pois:
+\vskip 11pt
+\[
+Fat(n)=
+\begin{tabular}
+[c]{cc}%
+$\underbrace{1\ast2\ast3\ast.....\ast(n-1)}$ & $\ast \ n$\\
+$Fat(n-1)$ &
+\end{tabular}
+\]
+
+Como o procedimento � recursivo, deve-se encontrar a defini��o para
+``\textbf{parada}'' da recursividade. Como $n$ n�o tem limite superior, � para qualquer $n$, ent�o inicia-se pelo que se conhece:
+
+\begin{center}%
+\begin{tabular}
+[c]{|l|}\hline
+\textbf{\#1}. O fatorial de 0 \'{e} 1, logo: fatorial(0,1).\\
+\textbf{\#2}. O fatorial  do $n$-\'{e}simo termo, \'{e} necess\'{a}rio \\
+o fatorial do $(n-1)$-\'{e}simo termo, logo:\\
+fatorial(N, Fat) ::  Nant = (N-1), fatorial(Nant, Fat\_Nant) e \\
+ Fat = (N $\ast$ Fat\_Nant).\\ \hline
+\end{tabular}
+\end{center}
+
+em termos de Prolog tem-se:
+{\small
+\begin{verbatim}
+fatorial( 0, 1 ).
+fatorial( X, Fat ) :-
+                         X  >  0,
+                        Aux  is  (X - 1),
+                        fatorial( Aux , Parcial ),
+                        Fat  is  ( X   *  Parcial ).
+
+\end{verbatim}
+}
+
+Complete a tabela abaixo, para descri��o do fatorial:\\
+{\small
+\begin{center}
+\begin{tabular}
+[c]{|l|l|l|l|l|l|}\hline
+\textbf{Chamada Pendente} & \textbf{Regra Casada} & \textbf{X} & \textbf{Aux} & \textbf{Parcial} & \textbf{Fat} \\ \hline
+{\small fatorial}(5,X) & \# & ...... & ...... & ?...... $\rightarrow$ &
+......\\\hline
+{\small fatorial}(4,X) & \# & ...... & ...... & ?...... $\rightarrow$ &
+$\nwarrow$......\\\hline
+{\small fatorial}(3,X) & \# & ...... & ...... & ?...... $\rightarrow$ &
+$\nwarrow$......\\\hline
+{\small fatorial}(2,X) & \# & ...... & ...... & ?...... $\rightarrow$ &
+$\nwarrow$......\\\hline
+{\small fatorial}(1,X) & \# & ...... & ...... & ?...... $\rightarrow$ &
+$\nwarrow$......\\\hline
+{\small fatorial}(0,X) & \# & ...... & ...... & ?...... $\rightarrow$ &
+$\nwarrow$......\\\hline
+\end{tabular}
+\end{center}
+}
+
+
+\newpage
+\item [``{\em O caminho do portugu�s}'']: A proposta do problema
+� encontrar o custo entre dois v�rtices quaisquer
+em um grafo orientado dado pela figura \ref{portuges}.
+O nome do problema define a proposta do exerc�cio. Este grafo
+n�o apresenta ciclos, e nem � bidirecional entre os v�rtices.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=6cm, width=10cm]{figuras/portugues.pdf}
+%%%prolog/
+\label{portuges}
+\caption{Um grafo que define custos entres as cidades - unidirecional}
+\end{figure}
+
+Para expressar a id�ia da rota tem-se que: 
+
+\begin{itemize}
+	\item Uma rota entre X e Y � uma estrada que liga X e Y diretamente;
+	\item Uma rota entre X e Y � uma estrada entre X e Z e e uma rota entre Z e Y.
+\end{itemize}
+
+{\small
+\begin{verbatim}
+ligado(a,b,5).      ligado(a,c,10).     ligado(a,g,75).
+ligado(c,d,10).    ligado(d,g,15).     ligado(d,e,5).
+ligado(g,f,20).    ligado(e,f,5).       ligado(b,f,25).
+ligado(b,e,5).    ligado(b,f,25).
+
+rota(X,Y,C) :- ligado(X,Y,C).
+rota(X,Y,C) :- ligado(X,Z,C1),
+                      rota(Z,Y, C2),
+                      C is (C1 + C2).
+
+?- rota(a,g,X).
+X = 75 ;
+X = 35 ;
+No
+?-
+\end{verbatim}
+}
+
+\newpage
+\item [Triangulo de Astericos]: ir para os exerc�cios ...
+
+\end{description}
+
+
+\section{Functores}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=10cm]{figuras/functor_termo.pdf}
+%%prolog/
+\label{fig_functor_termo}
+\caption{Um exemplo de functor -- um termo composto}
+\end{figure}
+%\begin{center}
+%\textsf{Reflita sobre a variedade de usos deste predicado}
+%\end{center}
+
+
+
+\section{Defini��es dos Functores}
+
+\begin{quotation}
+{\bf Functores}:  s�o fun��es l�gicas, logo  h� uma
+equival�ncia entre um dom�nio e imagem.\\
+
+\ding{248} Os functores permitem contornar o
+    mapeamento t�pico sobre $\{V,F\}$ ({\em yes}
+ou {\em no})\\
+
+\ding{248} Um dom�nio de objetos mapeados � objetos.
+\end{quotation}
+
+
+\noindent {\bf Exemplo}: seja a descri��o de uma classe
+de objetos do tipo carro (ver figura
+\ref{functor}):
+{\small
+\begin{verbatim}
+carro(Nome, estilo(
+        esporte(Portas, opcionais(L1,L2)),
+        passeio(Portas),
+        off_road(L3, motor(Comb, outros(Turbo, L4)))
+                              )    ).
+\end{verbatim}
+}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=10cm, width=12cm]{figuras/functor.pdf}
+\label{functor}
+\caption{Representando o conceito hier�rquico com um functor}
+\end{figure}
+
+
+
+\subsection{Motiva��o}
+
+ A principal observa��o do exemplo acima �
+a hierarquia ``{\em natural}'' e estabelecida, para
+representar um conhecimento. Tal representa��o
+� conhecida por ``{\em frames}'', que incorpora
+a maioria dos conceitos da programa��o
+orientada-�-objetos. Em resumo tem-se:
+
+\begin{enumerate}
+%\setlength{\itemsep}{-5pt}
+\item Constru��o de fatos gen�ricos (pr�ximo ao
+        conceito de classes, inst�ncias, etc.);
+
+\item Quantidade vari�vel de argumentos,
+        leva h� novos predicados. H� com isso
+{\em um certo ganho} de  generalidade, pois um
+mesmo predicado pode ser utilizado para descrever v�rios
+tipos de objetos, buscas sobre padr�es s�o facilitadas;
+
+\item Legibilidade dos dados,  e consequentemente
+o entedimento do problema;
+
+\item Em resumo, os functores podem serem vistos como
+uma estrutura��o os dados sob formas dos
+       ``{\em {\mbox REGISTROS}}'' convencionais.
+\end{enumerate}
+
+\subsection{Exemplo}
+Seja o programa abaixo:
+{\small
+\begin{verbatim}
+artista("Salvador Dali", dados(pintor(surrealista), regiao( "Catalunha" ), 
+        86, espanhol)).
+artista("Pablo Picasso", dados(pintor(cubista), 89, espanhol)).
+artista("Jorge Amado", dados(escritor(contemporaneo), 86, brasileiro)).
+\end{verbatim}
+}
+
+\noindent Para verificar seu aprendizado, verifique e
+entenda o porqu� das perguntas e repostas abaixo:
+
+\begin{enumerate}
+\setlength{\itemsep}{-5pt}
+ \item Dentro do predicado ``{\em artista}'' h� outros
+predicados?\\
+Resp:   Errado. N�o s�o outros predicados e sim
+{\bf fun��es l�gicas}!
+
+\item Quantos argumentos tem o predicado
+artista?\\
+Resp:  02 argumentos, um campo � o ```{\em nome}'' e o outro
+� a fun��o ``{\em dados}'' !
+
+\item Quantos argumentos tem a  fun��o
+``{\em dados}''?\\
+Resp:  04 e 03 argumentos para o primeiro e segundo fato respectivamente. Logo,
+apesar de terem o mesmo nome, elas s�o diferentes!
+
+\item Quantos argumentos tem a fun��o ``pintor''?\\
+Resp:  01 argumento!
+
+\item A fun��o ``{\em pintor}'' � equivalente a ``{\em
+escritor}''?\\
+Resp: N�o, um objeto tem caracter�sticas da
+fun��o ``{\em pintor}'' e outro da ``{\em
+escritor}'';
+
+\item  Quanto ao valor de retorno dessas fun��es
+l�gicas?\\
+Resp: N�o existe, {\bf ela por si s� j� � mapeada num
+ dom�nio qualquer (n�meros, letras, objetos, etc.)}.
+\end{enumerate}
+
+
+ \subsection {Concluindo Functores}
+
+ Alguns de regras e quest�es que podem ser
+ encontrados a partir do exemplo acima:
+
+{\small
+  \begin{verbatim}
+ /*  qual o nome e os dados de cada artista ? */
+?- artista(X,Y), write(X), nl, write(Y),nl, fail.
+
+ Do exemplo, deduz-se que functor ``\emph{casa}''
+  (``\emph{matching}'')  com vari�veis (letras mai�sculas).
+
+/* quem s�o os cubistas?*/
+?- artista(X, dados(pintor(Y) ,_ ,_ )), Y == cubista, nl,
+     write(X), write('=====>'), write(Y), nl, fail.
+
+/* quem tem mais de 80 anos? */
+?- artista(X,dados(_ , Y _)), Y > 80, nl, write(X), write(Y),nl, fail.
+
+/* no caso acima, nem todos resultados foram encontrados, porqu�? */
+  \end{verbatim}
+}
+
+\noindent Resumindo: os functores  organizam dados e visualizam
+regras recursivas de uma maneira mais simples e
+control�vel. Outro detalhe � que como objetos,
+functores respeitam todas as regras de ``{\em casamento}''
+vistas at� o momento. Sem exce��o !
+
+
+
+\section{Listas}
+
+\begin{description}
+\item [\ding{248}] Pr�-requisito: conceitos de recursividade e functor dominados!
+\item [\ding{248}] Seguem conceitos das LPs convencionais
+\item [\ding{248}] Essencialmente vamos computar sob uma �rvore
+bin�ria
+\item [\ding{248}] Ilustrando esta computa\c{c}�o 
+\end{description}
+
+
+\section{Resumindo o Fluxo do C�lculo Recursivo}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=12cm]{figuras/arvore_recursiva_1.pdf}
+%%prolog/
+\label{fig_arv_recurs_1}
+\caption{C�lculo Recursivo 1}
+\end{figure}
+
+
+\section{O Fluxo Operacional das Listas � An�logo}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=12cm]{figuras/arvore_recursiva_2.pdf}
+%%prolog/
+\label{fig_arv_recurs_2}
+\caption{C�lculo Recursivo 2}
+\end{figure}
+
+\section{Uma Lista Gen�rica}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=10cm]{figuras/listas_0.pdf}
+%%prolog/
+\label{fig_listas_0}
+\caption{Uma lista em Prolog}
+\end{figure}
+
+
+\section{A Sintaxe das Listas}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=6cm, width=10cm]{figuras/listas_1.pdf}
+%%prolog/
+\label{fig_listas_1}
+\caption{Lista1  ilustrada}
+\end{figure}
+\begin{center}
+\ding{248} \textsf{ Ap�s as defini\c{c}�es e 
+exemplos volte a esta figura}
+\end{center}
+
+
+\section{Defini��es sobre Listas}
+
+\begin{description}
+\item [Defini��es iniciais:] e recursivas
+ar
+\vskip13pt
+\begin{itemize}
+%\setlength{\itemsep}{-5pt}
+\item Uma lista � uma estrutura de dados que representa
+uma cole��o de objetos homog�neos;
+\item Uma lista � uma seq��ncia de objetos;
+\item Uma lista � um  tipo particular de functor\footnote{
+{\bf Logo, a lista apresenta uma hierarquia natural,
+internamente.}} (veja esta nota de roda-p\'e),
+ pois apresenta uma hierarquia interna.
+\end{itemize}
+
+%\lbrack       left bracket [
+%\rbrack       right bracket ]
+
+\item [Nota��o:] O s�mbolo ``\lbrack'' � usado para descrever o in�cio de uma lista,
+e ``\rbrack'' para o final da mesma;
+
+\newpage
+\item [Exemplos:] \lbrack a, b, c, d \rbrack,  logo um predicado cujo
+argumento seja algumas letras,  tem-se uma lista do tipo:
+\begin{verbatim}
+        letras( [ a, b, c, d ] ).
+                  ^
+                  |
+                  |
+          cabe�a da lista
+\end{verbatim}
+Os elementos de uma lista s�o lidos da esquerda para direita, logo a letra
+ ``a'' � o primeiro elemento ou ``{\em cabe�a}'' da lista. Quanto ao
+resto ou ``{\em cauda}'' da lista, � uma   ``{\em sub-lista}''  dada por:
+    \lbrack b,  c, d \rbrack.  Esta sub-lista, de acordo com uma outra defini��o complementar apresentada na se��o \ref{def_lista},
+tamb�m � uma lista.
+
+\item [Operador ``{\bf |}'':] ``{\em  Como vamos distinguir de onde se encontra
+a cabe�a  da cauda da lista?}'' Como o conceito de listas introduziram novos s�mbolos, isto �, os seus delimitadores \lbrack \ldots \rbrack, h� um novo operador que separa ou define quem � a cabe�a da cauda da lista. Este operador � o ``{\em pipe}'', simbolizado por ``{\bf |}'', que distingue a parte da esquerda da direita da lista. Isto � necess�rio para se realizar os casamentos de padr�es com as vari�veis.
+
+
+\newpage
+\item [Exemplos de ``{\em casamentos}'':] os exemplos abaixo definem
+como ocorrem os casamentos entre vari�veis e listas.
+Portanto, preste aten��o em cada exemplo, bem como teste e
+fa�a suas pr�prias conclus�es de como as listas operam.
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+ [ a, b, c, d ] == X
+ [ X | b, c, d ]  ==  [ a, b, c, d ]
+ [ a | b, c, d ]  ==  [ a, b, c, d ]
+ [ a , b | c, d ]  ==  [ a, b, c, d ]
+ [ a , b , c | d ]  ==  [ a, b, c, d ]
+ [ a , b , c , d | [] ]  ==  [ a, b, c, d ]
+ [] == X
+ [ [ a | b , c , d] ] == [ [ a , b , c , d ] ]
+ [  a | b , c , [ d ] ] == [  a , b , c , [ d ] ]
+ [  _ | b , c , [d ] ] == [  a , b , c , [ d ] ]
+ [  a | Y ] == [  a , b , c ,  d ]
+ [  a | _ ] == [  a , b , c ,  d ]
+ [  a , b | c , d ] == [  X , Y | Z ]
+\end{lstlisting}
+
+\newpage
+
+\item [Contra-exemplos de ``{\em casamentos}'':] Explique porque nos
+ exemplos abaixo, {\bf n�o} ocorre o casamento de padr�es:
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+ [ a , b | [c, d] ]  \==  [ a, b, c, d ]
+ [ [ a , b , c , d] ]  \==  [ a, b, c, d ]
+ [  a , b , [ c ] , d, e ]  \==  [ a, b, c, d, e ]
+ [ [ [ a ] | b , c , d] ] \== [ [ a , b , c , d] ]
+\end{lstlisting}
+Enfim, os tipos de  casamentos de objetos de uma lista, segue o mesmo padr�o dos ``{\em matching}'' considerados at� o momento
+em Prolog.
+
+\item [Aplica��o:]  Devido ao fato de listas modelarem
+qualquer estrutura de dados, invariavelmente, seu uso  � extensivo
+em problemas de IA, pois envolvem buscas sobre estas estruturas.
+
+\end{description}
+
+
+\section{Listas: Uma  Auto-Defini\c{c}�o}\label{def_lista}
+Retomando ao conceito de listas,
+se ``{\em auto-define}''  o conceito de lista com os seguintes axiomas:
+
+\begin{enumerate}
+%\setlength{\itemsep}{-5pt}
+\item   {\em Uma lista vazia � uma lista};
+\item   {\em  Uma sub-lista � uma lista}.
+\end{enumerate}
+
+As defini��es acima s�o recorrentes, isto �, uma depende da outra. Em outras  palavras, tem-se uma defini��o recursiva uma vez mais. Sendo assim, reescrenvendo em Prolog tal defini��o � dada por:
+
+\begin{verbatim}
+#1 �_uma_lista( [ ] ).       /* 1a. premissa */
+#2 �_uma_lista( [X | T ] ) :- �_uma_lista( T ).  /* 2a. */
+
+?- �_lista( [a,b,c] ).
+yes
+\end{verbatim}
+
+Um ``{\em mapa de mem�ria aproximado}'' � dado por:
+\begin{center}
+\begin{tabular}
+[c]{|c|c|c|c|}\hline
+& Regra & X & T\\\hline
+\'{e}\_uma\_lista([a,b,c]) & \#2 & a & [b,c]\\\hline
+\'{e}\_uma\_lista([b,c]) & \#2 & b & [c]\\\hline
+\'{e}\_uma\_lista([c]) & \#2 & c & []\\\hline
+\'{e}\_uma\_lista([]) & \#1 & -- & --\\\hline
+\end{tabular}
+\end{center}
+
+
+
+Basicamente, quase todas opera��es com listas possuem regras an�logas a defini��o acima. O exemplo anterior serve apenas para identificar que o  objeto: \lbrack a,b,c,d \rbrack ,  � uma lista.
+
+\newpage
+
+\subsection{Exemplos de Listas}
+
+As regras sobre listas s�o diversas e elegantes. Apenas exercitando
+� que se cria a destreza necess�ria para resolver qualquer
+desafio em Prolog.
+Alguns  cl�ssicos s�o mostrados nos exemplos que se seguem. H� alguns
+que s�o combinados com outros criando alguns bem complexos.
+
+
+\begin{description}
+
+\item [Comprimento de uma lista:]
+O comprimento de uma lista � o comprimento de sua sub-lista, mais um,
+sendo que o comprimento de uma lista vazia � zero. Em Prolog
+isto � dado por:
+
+\begin{verbatim}
+#1 compto([ ], 0).
+#2 compto([X | T], N):- compto(T, N1), N is N1+1.
+
+? - compto([a, b, c, d], X).
+X = 4
+\end{verbatim}
+Um ``{\em mapa de mem�ria aproximado}'' � dado por:
+
+\begin{center}
+\begin{tabular}[c]{|c|c|c|c|c|c|}
+\hline
+& Regra & X & T & N1 & N is N+1\\\hline
+compto([a,b,c,d],N) & \#2 & a & [b,c,d] & 3 $\rightarrow$ & 3+1$=$4\\\hline
+compto([b,c,d],N) & \#2 & b & [c,d] & 2 $\rightarrow$ & $\nwarrow$ 2+1\\\hline
+compto([c,d],N) & \#2 & c & [d] & 1 $\rightarrow$ & $\nwarrow$ 1+1\\\hline
+compto([d],N) & \#2 & d & [] & 0 $\rightarrow$ & $\nwarrow$ 0+1\\\hline
+compto([],N) & \#1 & -- & -- & -- & $\nwarrow$ 0\\\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\item [Concatenar ou uni�o de  duas listas:] Em ingl�s este predicado\footnote{A palavra predicado, neste contexto, reflete o conjunto de regras que definem as opera��es dos mesmos sobre listas.} � conhecido como ``{\em append}'', e em alguns Prolog's pode estar embutido como predicado nativo:
+
+\begin{verbatim}
+#1  uniao([],X,X).
+#2  uniao([X|L1],L2,[X|L3]) :- uniao( L1, L2, L3).
+
+O ``goal'':
+?- uniao([a,c,e],[b,d], W).
+W=[a,c,e,b,d]
+yes
+\end{verbatim}
+Um ``{\em mapa de mem�ria aproximado}'' � dado por:
+
+{\small
+\begin{center}
+\begin{tabular}
+[c]{|c|c|c|c|c|c|c|}\hline
+& Regra & X & L1 & L2 & L3 & L$\equiv$[X $\vert$ L3] \\ \hline
+uniao([a,c,e],[b,d],L) & \#2 & a & [c,e] & [b,d] & \emph{[c,e,b,d]} & \emph{[a,c,e,b,d]}  \\\hline
+uniao([c,e],[b,d],L) & \#2 & c & [e] & [b,d] & \emph{[e,b,d]} & $\nwarrow$  \emph{[c,e,b,d]} \\\hline
+uniao([e],[b,d],L) & \#2 & e & [] & [b,d] & \emph{[b,d]} & $\nwarrow$  \emph{[e,b,d]} \\\hline
+uniao([],[b,d],L) & \#1 & -- & -- & [b,d] & -- & $\nwarrow$  \emph{[b,d]} \\\hline
+\end{tabular}%
+\end{center}
+}
+
+\newpage
+\item [Dividir uma lista em   duas  outras listas:]  Lista inicial � ``{em \lbrack  X,Y $\vert $ L \rbrack }'', em uma lista
+
+\begin{verbatim}
+#1  divide([], [], []).  % N par de objetos na lista
+#2  divide([X], [], [X]). % N impar da lista L2
+#3  divide([X,Y | L3] , [X | L1], [Y | L2] ):-
+                                divide( L3, L1, L2).
+\end{verbatim}
+
+Obs: Estes dois �ltimos predicados apresentam
+uma particularidade interessante. Permitem que os predicados encontrem a lista
+original. Exemplo:
+\begin{verbatim}
+?- divide([a,b,c,d,e],L1,L2).
+L1=[a,c]      L2=[b,d,e]
+?- divide(L , [ a , b ], [ c , d ]).
+L=[a, c, b, d]
+\end{verbatim}
+Um ``{\em mapa de mem�ria aproximado}'' � dado por:
+{\small
+\begin{center}
+\begin{tabular}
+[c]{|c|c|c|c|c|c|c|}\hline & Regra & X & Y & [X $\vert$ L1] & [Y
+$\vert$ L2] & L3\\\hline divide([a,b,c,d,e],L1,L2) & \#3 & a & b &
+\emph{[a,c]} & \emph{[b,d,e]} & [c,d,e]\\\hline
+divide([c,d,e],L1,L2) & \#3 & c & d & \emph{[c]} & \emph{[d,e]} &
+[e]\\\hline divide([e],L1,L2) & \#2 & e & -- & \emph{[]} &
+\emph{[e]} & --\\\hline
+\end{tabular}
+\end{center}
+}
+
+\newpage
+\item [Imprimir uma lista:] observe o uso do predicado
+ ``{\em put}'' ao inv�s do ``{\em write}''.
+Esta troca se deve a raz�o que o Prolog trata as listas no c�digo
+original ASCII, ou seja \mbox{``fred'' = \lbrack 102,101, 114,
+100\rbrack }.
+
+\begin{verbatim}
+escreve_lista( [ ] ).
+escreve_lista( [ Head | Tail ] ) :-
+                   write( ' : ' ),
+                   put( Head ),
+                   escreve_lista( Tail ).
+\end{verbatim}
+
+Como uso simplificado tem-se: 
+
+\vfill
+
+\begin{center}
+\textsf{Ao final de qualquer exemplo que use listas, temos que 
+imprimir.... assim, h� muitos exemplos}
+\end{center}
+
+
+\newpage
+\item [Verifica se um dado objeto pertence h� uma  lista]: novamente, em alguns Prolog's, este predicado pode estar embutido, confira.
+\begin{verbatim}
+member( H, [ H |  _ ] ).
+member( H, [ _  | T ] ) :- member(H, T).
+\end{verbatim}
+
+O interessante � observar a versatilidade dos predicados. Explorando este tem-se:
+\begin{verbatim}
+?- member(3, [4,5,3]).
+
+Yes
+?- member(X, [4,5,3]).
+X = 4 ;
+X = 5 ;
+X = 3 ;
+No
+?- member(3, X).
+X = [3|_G231] 
+Yes
+?- member(3, X).
+
+X = [3|_G231] ;
+X = [_G230, 3|_G234] ;
+X = [_G230, _G233, 3|_G237] 
+.........................
+\end{verbatim}
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=8cm, width=10cm]{figuras/arv_member_mod.pdf}
+%%prolog/
+\label{fig_arv_member_mod}
+\caption{Um exemplo com member}
+\end{figure}
+\begin{center}
+\textsf{Reflita sobre a variedade de usos deste predicado}
+\end{center}
+
+
+\newpage
+\item [Adiciona um objeto em uma lista:]
+Neste exemplo, um objeto � adicionado a lista
+sem repeti\c{c}�o caso este j�
+ esteja contido na lista:
+ 
+\begin{verbatim}
+add_to_set(X, [ ], [X]).
+add_to_set(X, Y, Y) :- member(X, Y).
+add_to_set(X, Y, [X | Y]).
+\end{verbatim}
+
+
+
+\newpage
+\item [O maior valor de uma lista:] 
+Retorna o maior valor num�rico de uma lista.
+
+\begin{verbatim}
+1.    max( [] ,0) :- !.
+2.    max( [M] , M ) :- !.
+3.    max( [M , K], M ) :- M >= K , !.
+4.    max( [M|R] ,N ) :- max( R , K ) ,
+                         max( [K , M] , N).
+\end{verbatim}
+
+\ding{224} Uma perigosa e dif�cil recurs�o dupla no predicado acima.
+Veja o exemplo do \texttt{menor} a seguir, e refa�a o \texttt{max}.
+
+%%% O menor elemento de uma lista, n�o vazia
+\item [O menor valor de uma lista:] 
+Retorna o menor valor num�rico de uma lista.
+
+\begin{verbatim}
+menor(_,[]) :- write(' sua lista estah vazia ').
+menor(A,[A]).
+menor(A,[A,B]):- A =< B.
+menor(B,[A,B]):- B =< A.
+menor(X, [A , B | C] ) :- A < B, menor(X, [A|C]).
+menor(X, [A , B | C] ) :- B =< A, menor(X, [B|C]).
+\end{verbatim}
+
+
+
+%%\end{description}
+
+
+
+
+\begin{description}
+
+
+
+
+\item[\ding{248}] Neste momento, o estudante deve ter percebido que a ordem com que as regras se encontram dispostas na Mem�ria de Trabalho (MT) deve ser considerada. Pois o mecanismo de {\em backtracking} do Prolog, for�a uma ordem �nica de como estas regras s�o avaliadas.
+
+\item[\ding{248}] Sendo assim, uma disciplina de programa��o em Prolog
+se faz necess�ria algumas vezes! {\bf No caso das listas,  as
+condi��es de paradas devem ocorrer antes da regra geral recursiva}.
+A exce��o � a leitura de uma lista, este predicado � descrito mais adiante.
+
+\item[\ding{248}] A regra geral � aquela que cont�m uma recursividade, no exemplo
+anterior, � a regra n�mero 4. As demais regras, 1 a 3, s�o regras
+destinadas � parada da recurs�o. Logo, obrigat�rias.
+
+\item[\ding{248}] Estas regras de parada, tamb�m s�o chamadas de regras ou cl�usulas  {\em aterradas} ({\em grounding}),
+  pois delimitam o final da recurs�o.  
+
+  
+\item[\ding{248}] Como exerc�cio, determine nos exemplos anteriores quem s�o as regras gerais e as aterradas.
+
+\end{description}
+
+\newpage
+\item [Inverter uma lista:] este m�todo � ing�nuo (prim�rio) na invers�o de uma lista, no sentido que faz  $n(n+1)/2$ chamadas recursivas a uma lista de comprimento $n$.
+\begin{verbatim}
+naive_reverse( [ ] , [ ] ).
+naive_reverse( [ H  | T ], Reversed ) :-
+        naive_reverse( T , R ),
+        append( R , [ H ], Reversed ).
+\end{verbatim}
+
+\newpage
+\item [Invers�o sofisticada de uma lista:]  usa como\/ {\em truque} \/ um acumulador, compare com o anterior.
+\begin{verbatim}
+  xinvertex(A, Z) :- reverse(A, [ ], Z).
+  reverse( [], Z, Z).
+  reverse( [A | X ],Acumulador, Z) :-
+              reverse(X, [A|Acumulador], Z).
+\end{verbatim}
+
+
+\newpage
+\item [Verifica se uma lista est� contida em outra lista:]  usa uma t�cnica simples de ir comparando sequencialmente. Caso ocorra um erro, a substring procurada � restaurada por meio de uma c�pia, presente
+no terceiro argumento.
+
+\begin{verbatim}
+ subs(A,B) :- sub(A,B,A).    
+ /* A lista A est� contida em B ? */
+ sub([],_,_).
+ sub([A|B] , [C|D] , Lcopia) :- A == C, 
+                                sub( B, D, Lcopia).
+ sub([A|_] , [C|D] , Lcopia) :- A \== C, 
+                                sub(Lcopia,D, Lcopia).
+\end{verbatim}
+Como exerc�cio, fa�a este predicado utilizando dois \texttt{append}.
+
+
+\newpage
+\item [Leitura de uma lista via teclado:] observe que  a cl�usula aterrada {\bf quase sempre} se encontra antes da cl�usula geral. Contudo, a leitura de uma lista � uma das raras exce��es em que o aterramento vem depois da regra geral recursiva.
+
+\begin{verbatim}
+le_lista( Lista ) :-
+   write('Digite <Enter> ou <Escape> para terminar: '),
+   write('  ===> '),
+   le_aux( Lista ).
+le_aux( [Char | Resto ] ) :-
+                      write('  '),
+                      get0(Char),
+                      testa(Char),
+                      put(Char),
+                      put(7),  /* beep */
+                      le_aux( Resto ).
+/* Condi��o da Parada */
+      le_aux( [ ] ) :- !.
+testa(13) :- !, fail.        /* Return */
+testa(10) :- !, fail.        /* New line ===> UNIX */
+testa(27) :- !, fail.        /* Escape */
+testa( _ )  :- true.
+\end{verbatim}
+
+H� outros casos com o aterramento depois da regra geral.
+
+\newpage
+\item[Removendo um item da lista:] Exlcui todas
+ocorr�ncias de um termo na lista. Junto com o {\tt uni�o} 
+({\em append}) este predicado tem v�rias utilidades. Observe
+os exemplos:
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+del_X_all(X, [],[]).
+del_X_all(X, [X|L], L1) :- del_X_all(X,L,L1).
+del_X_all(X, [Y|L1], [Y|L2]) :- del_X_all(X,L1,L2).
+
+
+?- del_X_all(3, [3,4,5,3,3,7,3],X).
+
+X = [4, 5, 7] 
+
+Yes
+?- del_X_all(8, [3,4,5,3,3,7,3],X).
+
+X = [3, 4, 5, 3, 3, 7, 3] 
+
+Yes
+?- del_X_all(3, [3],X).
+
+X = [] 
+
+Yes
+?- del_X_all(3, [],X).
+
+X = [] 
+
+Yes
+?- del_X_all(X, [3,4],Y).
+
+X = 3
+Y = [4] ;
+
+X = 4
+Y = [3] ;
+
+X = _G189
+Y = [3, 4] ;
+
+No
+?- 
+?- del_X_all(X, [3,4],[3]).
+
+X = 4 
+
+Yes
+
+\end{lstlisting}
+
+Observe que neste �ltimo exemplo  o predicado 
+{\tt del\_X\_all} deduziu o valor do termo {\tt X} 
+exclu�do no predicado. Ou seja, este � um
+dos muitos predicados que apresentam uma
+multi-funcionalidade.
+
+\newpage
+\item [Permuta��o:] Alguns predicados s�o dif�ceis em qualquer
+linguagem de programa\c{c}�o. Um destes � a permuta��o
+a qual � �til v�rios problemas. O predicado {\tt exlclui\_1a} excluia
+a primeira ocorr�ncia de um termo na lista, enquanto o  {\tt del\_X\_all}, visto anteriormente, exclui todas ocorr�ncias.
+
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+
+/* Permutacao de elementos */
+permutar([], []). /* Condicao de parada*/
+permutar([X|L], Lpermutada):-
+  	permutar(L, L1), 
+	exclui_1a(X, Lpermutada, L1).
+
+/* Exclui  X apenas em sua primeira ocorrencia */
+exclui_1a(X, [X|L], L).
+exclui_1a(X, [Y|L], [Y|L1]):- exclui_1a(X, L, L1).
+
+/* executando */
+init :- permutar([5,7,9],X), nl , write(X), fail.
+
+?- init.
+
+[5, 7, 9]
+[7, 5, 9]
+[7, 9, 5]
+[5, 9, 7]
+[9, 5, 7]
+[9, 7, 5]
+
+No
+?- 
+\end{lstlisting}
+
+\newpage
+\item [Partic�o:]
+
+\end{description}
+
+%%%%%%%% fim de listas...
+
+\section{Problemas de Buscas em IA}
+
+
+\begin{description}
+
+\item [\ding{248}] Fa�a muitos exerc�cios sobre listas e functores
+
+\item [\ding{248}] Combinando os functores as listas, qual � a sua utilidade?
+
+\item [\ding{248}] Resgate o exemplo da Cruz ... xx aulas atr�s
+
+\item [\ding{248}] Os problemas de buscas em  IA, basicamente se utilizam do
+n�cleo descrito abaixo, ou uma varia��o sobre o
+mesmo. Acompanhe a discuss�o com o professor,
+e veja o link \url{http://www.csupomona.edu/~jrfisher/www/prolog_tutorial/}.
+O n�cleo abaixo retirei deste s�tio. 
+
+\item [\ding{248}] Retrata exatamente/precisamente os 
+problemas de buscas em geral.
+
+\end{description}
+
+\newpage
+\subsection{{\em N�cleo M�gico}}
+
+\begin{center}
+\ding{248} Reflita sobre este c�digo, h� muito conhecimento
+embutido.
+\end{center}
+
+\vskip 1cm
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+ \begin{lstlisting}
+solve(P) :-
+      start(Start),
+      search(Start,[Start],Q),
+      reverse(Q,P).
+
+search(S,P,P) :- goal(S), !.         /* done                  */
+search(S,Visited,P) :-
+     next_state(S,Nxt),              /* generate next state   */
+     safe_state(Nxt),                /* check safety          */
+     no_loop(Nxt,Visited),           /* check for loop        */
+     search(Nxt,[Nxt|Visited],P).    /* continue searching... */
+
+no_loop(Nxt,Visited) :-
+      \+member(Nxt,Visited).
+
+\end{lstlisting}
+
+
+\newpage
+\subsection{Continuando com o {\em N�cleo M�gico}}
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, %% \tiny, %%%\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,
+                                % underlined bold black keyw
+    numbers=left, 
+     numberstyle=\tiny, % tamanho dos numeros das linhas
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{red}, % white comments
+     stringstyle=\ttfamily,      % typewriter type for string
+     showstringspaces=false,    % no special string spaces
+     language=Prolog,
+    frame=single, %% se quiser por um frame ao redor do codigo
+   framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+    backgroundcolor=\color{yellow}  % uma cor no fundo
+    }
+
+\begin{lstlisting}
+next_state(S,Nxt) :-  < fill in here >.
+safe_state(Nxt) :- < fill in here >.
+no_loop(Nxt,Visited) :- < fill in here >.     
+                       /* if different from default clause */
+start(...).
+goal(...).
+
+\end{lstlisting}
+
+
+\begin{description}
+
+\item [\ding{248}]  Logo, voce tem um c�digo {\em quase que padr�o} para resolver qualquer
+problema de buscas!
+
+\item [\ding{248}] Basicamente tudo que fiz que problemas em IA envolve 
+esta estrutura can�nina de c�digo {\em prologuiano}
+\end{description}
+
+
+\newpage
+
+\subsection{Resumindo esta Id�ia em uma Figura}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=12cm, height=7cm]{figuras/nos_estados_next.pdf}
+%%%prolog/scale=0.47
+\label{fig_nos_estados}
+\caption{N�s iniciais e finais do problema}
+\end{figure}
+
+
+\ding{248} Volte aos c�digos e reflita mais uma vez!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Reusando o Conhecimento de Listas e Functores}
+
+%\suppressfloats[t]
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.6]{figuras/grafo_mapa.pdf}
+%%prolog/
+\label{fig_grafo_mapa}
+\caption{Um mapa -- grafo cl�ssico}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resolvendo com  Busca em Profundidade}
+
+\ding{248} Acompanhe as explica��es dos c�digos em sala de aula!
+
+\lstinputlisting[caption={Grafo da Cidade}, 
+                  label={cod_grafos_busca_prof},
+                  language=Prolog,
+			        numbers=left, 
+                    numberstyle=\tiny, % tamanho dos numeros das linhas
+			fontadjust=true, %% ainda nao sei...
+			basicstyle = \small , %%% \scriptsize, % tamanho do codigo fonte  
+            tabsize = 4, %numero de espacos
+			lineskip = -1pt, % espacamento entre linhas
+			captionpos = b, % posi��o do caption
+			%%  float = {H}  %% codigo na mesma pagina
+			%%    basicstyle=\small,          % print whole listing small
+			keywordstyle=\color{black}\bfseries\underbar,    % underlined bold black keyword
+                       %%   identifierstyle=,           % nothing happens
+             commentstyle=\color{red}, % white comments
+             stringstyle=\ttfamily,      % typewriter type for strings
+                     %% showstringspaces=false     % no special string spaces
+             frame=single, %% se quiser por um frame ao redor do codigo
+             framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+              backgroundcolor=\color{yellow}  % uma cor no fundo.
+		 ]{pgms/grafo_mapa_profundidade.pl}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resolvendo com  Busca em Largura}
+
+\ding{248} Acompanhe as explica��es dos c�digos em sala de aula!
+
+\lstinputlisting[caption={Grafo da Cidade}, 
+                  label={cod_grafos_busca_largura},
+                  language=Prolog,
+			        numbers=left, 
+                    numberstyle=\tiny, % tamanho dos numeros das linhas
+			fontadjust=true, %% ainda nao sei...
+			basicstyle = \small , %%% \scriptsize, % tamanho do codigo fonte  
+            tabsize = 4, %numero de espacos
+			lineskip = -1pt, % espacamento entre linhas
+			captionpos = b, % posi��o do caption
+			%%  float = {H}  %% codigo na mesma pagina
+			%%    basicstyle=\small,          % print whole listing small
+			keywordstyle=\color{black}\bfseries\underbar,    % underlined bold black keyword
+                       %%   identifierstyle=,           % nothing happens
+             commentstyle=\color{red}, % white comments
+             stringstyle=\ttfamily,      % typewriter type for strings
+                     %% showstringspaces=false     % no special string spaces
+             frame=single, %% se quiser por um frame ao redor do codigo
+             framerule=2pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+              backgroundcolor=\color{yellow}  % uma cor no fundo.
+		 ]{pgms/grafo_mapa_largura.pl}
+		 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Dicas de Programa��o}
+
+\begin{description}
+
+\item [\ding{248}] Tenha um editor sens�vel a sintaxe do Prolog. Isto ajuda
+muito aos iniciantes.
+
+\item [\ding{248}] Ao carregar o programa no interpretador, certifique-se
+que n�o existam erros. Sen�o o c�digo com erro n�o � carregado completamente.
+
+\item [\ding{248}] Evite ficar pensando obstinadamente sobre um predicado
+que est� dando problema. Fa�a uma abordagem nova ou {\em v� andando}.
+Respire, saia de frente do computador, oxal�!
+
+\item [\ding{248}] Cuidado ao dar nomes de vari�veis. Use nomes significativos
+e curtos.
+
+\item [\ding{248}] Cuidar nos predicados proibidos de {\em backtraking}. Exemplo
+� o {\tt is}. Veja o que fazer para contornar, por exemplo:
+{\small
+\begin{verbatim}
+cor(X) :- X is random(5),   /* sem backtraking */
+          X > 0, !.
+cor(X) :- cor(X).
+\end{verbatim}
+}
+\item [\ding{248}] A cada predicado constru�do, teste! Trabalhe
+com o conceito de prototipa��o.
+\end{description}
+
+\section{Predicados {\em M�o-na-roda}}
+
+\ding{45} Na console digite {\tt ?- help(nome\_do\_predicado)} para detalhes, nos seguintes
+predicados {\em m�o-na-roda}.
+
+\begin{description}
+
+\item [\ding{248}] {\tt findall}, {\tt setof} e {\tt bagof}
+\item [\ding{248}] {\tt format}
+\item [\ding{248}] {\tt var} e {\tt nonvar}
+\item [\ding{248}] {\tt atom} e {\tt string}
+\item [\ding{248}] {\tt atomic} 
+\item [\ding{248}] {\tt ground}
+\item [\ding{248}] {\tt compound} e  {\tt functor}
+\item [\ding{248}] {\tt integer} e {\tt float}
+\item [\ding{248}] {\tt callable} e  {\tt call} 
+\newpage
+
+\item [\ding{248}] {\tt statistics} para estat�sticas
+do sistema, tempo de cpu, etc.
+{\small
+\begin{verbatim}
+  ......................
+  statistics(cputime,T1),
+  /* seus calculos */ .........
+  statistics(cputime ,T2),
+  Temp is T2 - T1, 
+  format('\n T1: ~f \t T2: ~f  msec', [T1, T2]),
+  format('\n Tempo total: ~10f  msec', Temp).
+\end{verbatim}
+}
+\item [\ding{248}] {\tt trace} e {\tt notrace} 
+
+\item [\ding{248}] {\tt spy} e {\tt nospy} faz uma depura\c{c}�o
+em um predicado em particular.
+
+\end{description}
+Os detalhes de uso deles voce descobre via {\tt ?- help} e {\tt apropos}, manual  e exemplos
+via {\em Google}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Predicados {\em Baixaria}}
+
+\begin{description}
+
+\item [\ding{248}] {\tt if -- then -- else }, at� tu?
+{\small
+\begin{verbatim}
+?- (23 > 45 -> write(23) ; write(45)).
+45
+true.
+\end{verbatim}
+}
+\item [\ding{248}] {\tt for}
+\item [\ding{248}] {\tt while}
+
+\end{description}
+
+
+
+
+\section{Gerando Programas Execut�veis (ou quase
+com o SWI-Prolog)}
+
+\ding{248} O Prolog gera execut�veis com velocidades
+compat�veis a linguagem C++, Delphi, e outras.
+Contudo, o SWI-Prolog pelo fato de ser um ``{\em
+freeware}'' (talvez), gera execut�veis que traz
+consigo o seu interpretador. Ou seja, um
+execut�vel no SWI-Prolog
+funciona como um Java, na base de um ``{\em
+bytecode}''. 
+
+
+\ding{248} Para desenvolver aplica��es
+comerciais ou de alto-desempenho, � interessante comprar
+um Prolog de algum dos muitos fabricantes.
+
+\ding{248} O $ECL^iPS^e$ � mantido pela CISCO, explorado
+comercialmente por esta, mas � gratuito e livre.
+
+\newpage
+\ding{248} A seguir � mostrado como gerar um ``{\em
+execut�vel}'' com o SWI-Prolog. Considere um
+programa exemplo, como este:
+\begin{verbatim}
+x(1).
+x(5).
+x(3).
+par(PAR) :- x(N1),
+            x(N2),
+            N1 =\= N2,
+            is(PAR , (N1+N2)),
+            write(PAR), write(' .... '), 
+            write(N1), write(' .... '),
+            write(N2), nl, fail.
+/*, fail. */
+par( 0 ) :- true.
+
+inicio :- nl, par(_),  halt.
+%% este halt � para sair do ambiente de interprete��o
+%% ao final
+\end{verbatim}
+
+\newpage
+Para o ambiente Linux, construa um dos dois {\em scripts} \/ que se seguem:
+{\small
+\begin{verbatim}
+#!/bin/sh
+base=~/pesquisa/livro/pgms
+PL=pl
+exec $PL -f none -t halt -g "load_files(['$base/impares'],[silent(true)])" \
+        -t inicio -- $*
+\end{verbatim}
+}
+
+ou
+
+{\small
+\begin{verbatim}
+#!/bin/sh
+pl --goal=inicio -t halt  --stand_alone=true -o saida.exe -c impares.pl
+\end{verbatim}
+}
+
+Detalhando:\\
+\ding{248} A op��o {\tt --goal=inicio} indica o ponto de in�cio que o interpretador come�ar
+a processar. Neste exemplo, o predicado chama-se {\tt inicio}.\\
+
+\ding{248} A op��o {\tt -t halt} indica um encerramento final do interpretador, 
+inclusive, no processamento do execut�vel.
+
+
+\newpage
+Execute um destes {\em scripts} na linha de comando do
+Linux, conforme a ilustra��o abaixo:
+{\small
+\begin{verbatim}
+[claudio@goedel pgms]$ sh comp1.script
+
+6 .... 1 .... 5
+4 .... 1 .... 3
+6 .... 5 .... 1
+8 .... 5 .... 3
+4 .... 3 .... 1
+8 .... 3 .... 5
+
+ou
+
+[claudio@goedel pgms]$ sh comp2.script
+% impares.pl compiled 0.00 sec, 1,524 bytes
+[claudio@goedel pgms]$ ./saida.exe
+
+6 .... 1 .... 5
+4 .... 1 .... 3
+6 .... 5 .... 1
+8 .... 5 .... 3
+4 .... 3 .... 1
+8 .... 3 .... 5
+[claudio@goedel pgms]$
+\end{verbatim}
+}
+
+Neste �ltimo caso um execut�vel foi gerado
+chamado ``{\em saida.exe}''.
+
+\newpage
+\ding{248} Estes dois scripts s�o equivalentes ao seguinte
+procedimento dentro do ambiente interpretado. Logo, este vai funcionar para outros SO's:
+
+
+\begin{verbatim}
+?- consult('impares.pl').
+% impares.pl compiled 0.00 sec, 1,556 bytes
+
+Yes
+?- qsave_program('nova_saida.exe', 
+     [goal=inicio, stand_alone=true, toplevel=halt]).
+Yes
+\end{verbatim}
+
+
+Aqui, o predicado ``{\em qsave\_program}''
+ gerou um execut�vel chamado de ``{\em
+nova\_saida.exe}''. Leia com aten��o o {\em
+help} deste predicado.
+
+A interface com linguagens como C, Java e outros �
+relativamente f�cil. Contudo, neste momento ser�
+omitido.
+
+\newpage
+\subsection{Ainda sobre Gerar Execut�veis}
+
+\ding{248} Mais recentemente, o compilador do swi-prolog, o qual emula
+uma m�quina virtual,  � chamado de {\em swipl}. Assim, um segundo
+exemplo completo de compila��o � dado por:
+
+\lstinputlisting[caption={Gerando um execut�vel}, 
+                  label={cod_fatorial},
+                  language=Prolog,
+			        numbers=left, 
+                    numberstyle=\tiny, % tamanho dos numeros das linhas
+			fontadjust=true, %% ainda nao sei...
+			basicstyle = \small , %%% \scriptsize, % tamanho do codigo fonte  
+                        tabsize = 4, %numero de espacos
+			lineskip = -0.1pt, % espacamento entre linhas
+			captionpos = b, % posi��o do caption
+			%%  float = {H}  %% codigo na mesma pagina
+			%%    basicstyle=\small,          % print whole listing small
+			keywordstyle=\color{black}\bfseries\underbar,    % underlined bold black keyword
+                       %%   identifierstyle=,           % nothing happens
+                      %%  commentstyle=\color{white}, % white comments
+             stringstyle=\ttfamily,      % typewriter type for strings
+                     %% showstringspaces=false     % no special string spaces
+             frame=single, %% se quiser por um frame ao redor do codigo
+             framerule=1pt,  % algo maior que 0
+		  %%morecomment=[s][\color{blue}]{/*}{*/}, %% cor diferente aos comentarios
+           backgroundcolor=\color{yellow}  % uma cor no fundo.
+		 ]{pgms/fatorial.pl}
+
+
+\newpage
+\section{Opera��es Especiais}
+
+\begin{description}
+
+\item [\ding{248}] Alterando a mem�ria de trabalho em tempo 
+de execu\c{c}�o. 
+
+\item [\ding{248}] Altera\c{c}�es de dados e linhas de c�digo
+de programa.
+
+\item [\ding{248}] Ou seja, isto permite que
+ um programa que se {\em auto-modifique}
+ 
+\end{description}
+
+Observe o exemplo que se segue:
+{\small
+\begin{verbatim}
+?- dynamic(algo_novo/1).
+Yes
+?-
+?- assert(algo_novo(  alo___mundo  )).
+Yes
+?-
+?- algo_novo(X).
+X = alo___mundo ;
+Yes
+?-
+\end{verbatim}
+}
+
+\newpage
+Basicamente, o que se precisa fazer para
+remover ou adicionar um fato ou regra � MT,
+bastam dois passos:
+
+\begin{enumerate}
+%\setlength{\itemsep}{-2pt}
+    \item Definir que este predicado �
+    din�mico na MT. Use o predicado: \\
+     \fbox{ {\bf dynamic(nome\_do\_novo/aridade)} }.
+    \item Pronto para usar, com o \textbf{assert} ou
+    \textbf{retract}.
+\end{enumerate}
+
+\newpage
+Veja outros exemplos:
+\begin{enumerate}
+%\setlength{\itemsep}{-5pt}
+\item Removendo uma regra ou fato da Mem�ria de Trabalho (MT):
+{\small
+\begin{verbatim}
+ ?- retract(uniao([A|B], C, [A|D]) :- uniao(B, C, D)).
+\end{verbatim}
+}
+
+\item Adicionando {\bf uma regra} ou {\bf fato} da MT:
+{\small
+\begin{verbatim}
+?- assertz(uniao(B, [A|C], [A|D]) :- uniao(B, C, D)).
+Correct to: `assertz( (uniao(B, [A|C], [A|D]):-uniao(B, C, D)))'?
+yes
+B = _G519
+A = _G513
+C = _G514
+D = _G517
+Yes
+\end{verbatim}
+}
+
+\item Finalmente, reusando um fato j�
+adicionado:
+{\small
+\begin{verbatim}
+?- assert('uma_regra(X) :- algo_novo(X).').
+Yes
+/* usando a regra rec�m inclu�da */
+?- uma_regra(Y).
+Y = alo___mundo ;
+Yes
+?-
+\end{verbatim}
+}
+\end{enumerate}
+
+\ding{248} Enfim, avalie o impacto do que representa {\bf incluir} ou {\bf excluir} uma regra durante a execu��o de um programa. Ou seja, potencialmente se constr�i um programa
+que se ``{\em auto-modifica}'' durante a sua execu��o!
+
+\section{Programando com ``{\em Eleg�ncia}''}
+
+H� um estilo de como programar {\bf bem}
+em Prolog? Claro, a resposta � um
+{\bf sim}. Contudo, esta eleg�ncia ou estilo de programa��o n�o
+� trivialmente expresso sob a forma de
+regras. Algumas dicas (experi�ncias
+diversas) s�o:
+
+\begin{itemize}
+%\setlength{\itemsep}{-5pt}
+\item Entenda {\bf profundamente} o problema
+que queres escrever em Prolog. Um
+problema mal entendido, dificilmente
+ser� bem implementado (se � que for);
+
+\item Escreva da mesma maneira que o
+problema � montado mentalmente. Assim
+como se fala, se escreve em Prolog.
+``{\bf Declare o problema, sem se preocupar como
+ele � calculado passo-a-passo }'', esta � uma das m�ximas do
+Prolog;
+
+\item Evite o uso de operadores
+tradicionais como: $>$, $<=$, $is$ \ldots etc, isto
+normalmente revela uma proximidade com a
+programa��o procedural. O foco do Prolog
+� \/ ``{\bf Casamento de Padr�es}''. Pense
+que dois objetos podem ser equivalentes
+ou diferentes, apenas isto.
+Logo, eles casam ou n�o;
+
+\item Quando uma implementa��o come�a
+ficar complicada, � porque alguma premissa assumida
+previamente, est� errada. Volte atr�s, e
+refa�a tudo sob um outro enfoque.
+Refazer um novo programa por inteiro, normalmente
+� mais simples do que ``{\em for�ar}''
+um problema mal estruturado, convergir
+em uma solu��o aceit�vel;
+
+\item Consulte os ``{\em grandes
+mestres}'' em Prolog. Aprender Prolog
+com programadores experientes � uma
+boa dica. Alguns conhecidos no Brasil:
+Pedro Porf�rio (porfirio@unifor.br),
+Edilson Ferneda (ferneda@pos.ucb.br).
+Finalmente, a lista de discuss�o do
+SWI-Prolog tamb�m � f�cil encontrar
+muitos peritos em Prolog.
+
+\end{itemize}
+
+
+
+\section{Sites Interessantes \label{sites}}
+
+\begin{itemize}
+%\setlength{\itemsep}{-3pt}
+\item  \url{http://www.cbl.leeds.ac.uk/~tamsin/Prologtutorial/}
+\item  \url{http://www.sju.edu/~jhodgson/ugai/}
+\item  \url{http://www.cee.hw.ac.uk/~alison/ai3notes/}
+\item  \url{http://dobrev.com/download.html}
+\item  \url{http://www.swi-prolog.org/}
+%\item  http://swi.psy.uva.nl/projects/xpce/download.html
+\item  \url{http://www.amzi.com} (tem v�rios artigos e tutoriais
+  que ilustram o uso e aprendizado do Prolog, respectivamente. Um site fortemente recomendado,
+  pois h� um farto material gratuito, incluindo
+  um ambiente de programa��o.)
+\item  \url{http://www.arity.com} tem um outro Prolog free
+\item  \url{http://www.ida.liu.se/~ulfni/lpp/}
+\item  Strawberry Prolog:  \url{http://www.dobrev.com/}
+\item  \url{http://www.cse.unsw.edu.au/~billw/cs9414/notes/prolog/intro.html}
+\item \url{http://www.mars-attacks.org/~boklm/prolog/}
+\end{itemize}
+
+
+\section{Alguns Bons Livros}
+
+\begin{itemize}
+%\setlength{\itemsep}{-3pt}
+\item Michael A. Convigton, Donald
+Nute, Andr� Vellino; {\em Prolog - Programming in Depth},
+Prentice-Hall, 1997;
+
+\item Ivan Bratko; {\em Prolog, Programming
+for Artificial Intelligence}, 2nd edition (or later if there is
+one), Addison-Wesley;
+
+\item W.F. Clocksin and C.S. Mellish;  {\em Programming in Prolog}, 3rd edition, Springer-Verlag;
+
+\item Leon Sterling and Ehud Shapiro; {\em The Art of Prolog}, MIT Press;
+
+\item Richard A. O'Keefe; {\em The Craft of Prolog}, MIT Press
+1990;
+
+\item  H� um t�tulo de um livro de IA, que �
+``{\em aproximadamente}'' �: ``{\em Solving Complexs Problems with Artificial
+Intelligence}'',  cuja linguagem utilizada nas solu��es � o Prolog.
+
+
+\end{itemize}
+%%
+
+\section{Sugest�es}
+
+
+\begin{center}
+\ding{248} Sugest�es de exemplos s�o bem-vindos\\
+\ding{248} Envie para: \url{claudio.sa@udesc.br}\\
+\end{center}
+
+\end{document}

@@ -1,0 +1,5 @@
+main :-     del_duplos([a,b,c,d,e], X1), write(X1) , nl,
+            del_duplos([a,a,c,d,d,d,d,d,e,e,e,e,e], X2), write(X2), nl,
+            del_duplos([], X3), write(X3), nl,
+             del_duplos([a,b,c,d,e], X4), write(X4), nl,
+            del_duplos([a,bb,b,b,b,b,c,b,b,bb, d,ee,e,e,e,e,e,e], X5), write(X5), nl.

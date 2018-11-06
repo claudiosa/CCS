@@ -1,0 +1,20 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Motiva\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@sectionintoc {2}{Hist\IeC {\'o}rico}{4}{0}{2}
+\beamer@sectionintoc {3}{Caracter\IeC {\'\i }sticas}{5}{0}{3}
+\beamer@sectionintoc {4}{Requisitos}{6}{0}{4}
+\beamer@sectionintoc {5}{Usando o Prolog}{7}{0}{5}
+\beamer@sectionintoc {6}{Elementos B\IeC {\'a}sicos}{9}{0}{6}
+\beamer@sectionintoc {7}{Estrutura de Programa}{15}{0}{7}
+\beamer@subsectionintoc {7}{1}{Fatos}{17}{0}{7}
+\beamer@subsectionintoc {7}{2}{Quest\IeC {\~o}es}{19}{0}{7}
+\beamer@subsectionintoc {7}{3}{Regras}{20}{0}{7}
+\beamer@sectionintoc {8}{Functores ou Fun\IeC {\c c}\IeC {\~o}es L\IeC {\'o}gicas}{29}{0}{8}
+\beamer@sectionintoc {9}{Recursividade}{38}{0}{9}
+\beamer@sectionintoc {10}{Listas}{56}{0}{10}
+\beamer@sectionintoc {11}{Problemas Cl\IeC {\'a}ssicos de Intelig\IeC {\^e}ncia Artificial}{91}{0}{11}
+\beamer@sectionintoc {12}{Predicados Extra-L\IeC {\'o}gicos}{97}{0}{12}
+\beamer@sectionintoc {13}{Refer\IeC {\^e}ncias}{101}{0}{13}
+\beamer@subsectionintoc {13}{1}{Sites Interessantes}{101}{0}{13}
+\beamer@subsectionintoc {13}{2}{Alguns Bons Livros}{102}{0}{13}

@@ -1,0 +1,6 @@
+[a, a, c, d, e]
+[a, a, c, d, d, d, d, d, e, e, e, e, e]
+[]
+[z, b, c, d, e]
+[b, a, b, b, b, b, b, b, c, b, b, bb, d, ee, b, b, b, b, b, b]
+[c, x, 2, 3, 4]

@@ -1,0 +1,156 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=30mm,right=30mm,top=15mm,bottom=15mm]{geometry}
+\usepackage{graphicx,url}
+\usepackage{color,comment, pifont}
+\usepackage{amssymb}
+
+\begin{comment}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\end{comment}
+
+\title{Lógica Matemática -- Trabalho Final -- 2014-2}
+\author{Rogério Eduardo da Silva, Claudio Cesar de Sá\\ Gabriela Nandi}
+\date{\today}
+
+\graphicspath{{/figures/}}   
+\DeclareGraphicsExtensions{{.jpg},{.png}}
+
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+
+\ding{224} Tarefa: Implementem os  02 (dois)  problemas dos problemas propostos abaixo.\\
+Entrega: definir data e forma com Prof. Rogério \\ 
+
+\ding{224} Implementação em SWI-Prolog ou Eclipse (www.eclipseclp.org) (ver a apostila do curso)\\
+
+\ding{224} Além dos códigos, sob forma de cometários as entradas e saídas com os testes de seus programas\\
+
+\ding{224} Os testes exaustivos no próprio código fonte vão demonstrar que seu programa está fazendo o que se solicita.
+
+
+\ding{224} Alguns fontes e materiais de apoio estão em:
+ \url{https://www.dropbox.com/home/cursos/lma/exercicios_prolog} ou \\
+  \url{http://www2.joinville.udesc.br/~coca/index.php/Main/LogicaMatematica}
+
+\end{flushleft}
+
+\begin{enumerate}
+\setlength\itemsep{0.5cm}
+\item Dicas de como se resolve manualmente:\\
+\url{http://www.valdiraguilera.net/problema-de-logica-esquema.html}
+
+\item Há exemplos bem detalhados do semestre passado\\
+
+\item Use a lista da disciplina para as dúvidas ou procure
+os professores \textbf{pessoalmente}\\
+
+\item Para que o \textit{código de honra} (evitar cópias de trabalhos) seja mantido,
+troquem os nomes dos personagens das estórias abaixo, por seus nomes e/ou de suas família/amigos etc. 
+
+\end{enumerate}
+
+\newpage
+\tableofcontents
+
+
+
+\newpage
+\section{Teste de QI de Einstein}
+
+ Fonte do problema proposto:
+ \url{http://rachacuca.com.br/logica/problemas/teste-de-einstein/}
+ (tem a montagem da tabela para irem entendendo e depurando o problema).\\
+
+{\em Albert Einstein criou este teste de QI (raciocínio lógico) no século 
+  passado e afirmou que 98\% da população mundial não é capaz de resolvê-lo}. 
+Acho que Einstein não
+faria tal afirmação, mas,  como o curso de LMA foi num bom nível este
+semestre, acho que voces vão resolver este problema. Vamos lá!
+
+Regras básicas para resolver o teste
+\begin{enumerate}
+\item Há 5 casas de diferentes cores;
+\item Em cada casa mora uma pessoa de uma diferente nacionalidade;
+\item Esses 5 proprietários bebem diferentes bebidas, fumam diferentes
+      tipos de cigarros e têm um certo animal de estimação;
+\item Nenhum deles têm o mesmo animal, fumam o mesmo cigarro ou bebem a mesma bebida.
+
+\end{enumerate}
+
+
+Sejam os fatos desta estória:
+\begin{enumerate}
+ %%  \item    \textbf{\textcolor{red}{Falta o enunciado dos FATOS}}
+\item    O Norueguês vive na primeira casa.
+\item    O Inglês vive na casa Vermelha.
+\item    O Sueco tem Cachorros como animais de estimação.
+\item    O Dinamarquês bebe Chá.
+\item    A casa Verde fica do lado esquerdo da casa Branca.
+\item    O homem que vive na casa Verde bebe Café.
+\item    O homem que fuma Pall Mall cria Pássaros.
+\item    O homem que vive na casa Amarela fuma Dunhill.
+\item    O homem que vive na casa do meio bebe Leite.
+\item    O homem que fuma Blends vive ao lado do que tem Gatos.
+\item    O homem que cria Cavalos vive ao lado do que fuma Dunhill.
+\item    O homem que fuma BlueMaster bebe Cerveja.
+\item    O Alemão fuma Prince.
+\item    O Norueguês vive ao lado da casa Azul.
+\item    O homem que fuma Blends é vizinho do que bebe Água.
+   
+\end{enumerate}
+
+Afinal, defina quem mora em cada casa, sua cor, nacionalidade, bebida predileta, 
+marca de cigarro e o seu animal de estimação.
+
+\newpage
+  \section{Resoluções de Ano Novo}
+  
+  
+   Fonte do problema proposto:
+ \url{http://rachacuca.com.br/logica/problemas/resolucoes-de-ano-novo/} 
+  (tem a montagem da tabela para irem entendendo e depurando o problema).
+
+Embora o final do ano não tenha chegado, as férias estão quase ai. Tirando
+um lado ``{\em nerd}'' da nossa área, eis um problema incrementado.
+Descubra quais são as resoluções de ano novo (férias) de cinco amigas.
+
+  
+Sejam os fatos desta estória:
+  
+\begin{enumerate}
+%%  \item    \textbf{\textcolor{red}{Falta o enunciado dos FATOS}}
+%%  \item 
+\item  A moça que quer viajar está ao lado de quem tem 24 anos.
+\item   A Clarissa está em algum lugar à esquerda de quem tem 23 anos.
+\item   A Vivian está exatamente à direita da mulher mais velha.
+\item   A namorada do Otávio é a mulher mais nova do grupo.
+\item   A moça que namora o Daniel está na última posição.
+\item   A Fabiana está em algum lugar entre quem tem 20 anos e quem quer viajar, nessa ordem.
+\item   Quem namora o Marcelo está ao lado da Vivian.
+\item   A Vivian está em algum lugar à esquerda de quem pretende economizar dinheiro.
+\item   Quem quer ler mais no ano novo está ao lado da Vivian.
+\item   Quem gostaria de emagrecer está na segunda posição.
+\item   A Thaís está ao lado da mulher que namora o Otávio.
+\item   A moça de bolsa amarela está exatamente à esquerda da Ana.
+\item   A mulher de 19 anos está ao lado da mulher de bolsa verde.
+\item   Quem tem a bolsa branca está em algum lugar entre a moça de 20 
+        anos e a de 26 anos, nessa ordem.
+\item   A cor da bolsa da Ana é vermelha.
+\item   A Thaís está ao lado da Fabiana.
+\item   A mulher de 26 anos está exatamente à esquerda da mulher que namora o Alexandre.
+\item   A mulher de bolsa verde está em algum lugar à direita da Thaís.
+
+\end{enumerate}  
+
+
+
+\end{document}
