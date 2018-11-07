@@ -2,37 +2,39 @@
 #include <stdlib.h>
 #include <math.h>
 
-/*
-void mediaaluno_POND(float *pesos,float matriz[N][K]);
-void media_classe();
-    float mediaturmaprova[2],
-          mediapond[9]={0,0,0,0,0,0,0,0,0,0},
-          notas[2];
-    float pesos[2]={0.2, 0.6, 0.2};
-*/
 #define N 5
-void funcao_le_matriz(float matriz[][N], int);
-void funcao_escreve_matriz(float matriz[][N], int);
-void funcao_zera_matriz(float matriz[][N] , int M );
-// o detalhe para passar matriz para as funções é que o primeiro par de colchetes
-// pode sempre ir vazio -- sem dimensão, e os demais preenchidos ===> funcao_le_matriz
 
+void imp_linha(void);    
+void func_le_matriz(float mat_notas[][N], int);
+void func_escreve_matriz(float mat_notas[][N], int);
+void func_zera_matriz(float mat_notas[][N] , int M );
+void func_media_matriz(float mat_notas[][N] , float media[], int M );
+float func_maior_nota(float v_media [] , int M) ;
+// O detalhe para passar matriz para as funções é que o primeiro par de colchetes
+// pode sempre ir vazio -- sem dimensão, e os demais preenchidos ===> func_le_matriz
+// E para matriz de 3 dimensoes ?
 
 int main(void)
 {
-
+    system("clear");
     int M, K;  // vira do arquivo texto
+
     printf("\nLinhas -- ALUNOS :  Colunas -- AVALIACOES: ");
-    scanf("%d ", &M);  // lendo
+    scanf("%d ", &M);  // lendo apenas as linhas
     printf("\nLinhas: %d Colunas: %d \n", M, N);
 
     // vamos criar e ler a matriz0
-    float matriz[M][N];
-    funcao_le_matriz( matriz, M );
-    //funcao_le_matriz( &matriz[0][0], M );
-    funcao_escreve_matriz( matriz, M );
-    funcao_zera_matriz( matriz ,  M );
-    funcao_escreve_matriz( matriz, M );
+    float mat_notas[M][N];
+    float v_media[M];
+    
+
+    func_le_matriz( mat_notas, M );
+    //func_le_matriz( &mat_notas[0][0], M );
+   // func_escreve_matriz( mat_notas, M );
+    //func_zera_matriz( mat_notas,  M );
+    func_media_matriz(mat_notas, v_media, M );
+    printf("\n Maior media: %.3f", func_maior_nota(v_media , M) );
+    func_escreve_matriz( mat_notas , M );
   //  media_alunoPOND(pesos,notas);
   //  media_classe(notas);
   //  media_finalturma(mediaturmaprova);
@@ -41,91 +43,86 @@ int main(void)
  return 1;
 
 }
-
-void funcao_le_matriz(float matriz[][N] , int M )
+/***********************************************************/
+void imp_linha(void)
+  {
+  printf("\n====================================");
+  return;    
+  }
+/***********************************************************/
+void func_le_matriz(float mat_notas[][N] , int M )
 { /* LEITURA */
   int i, j;
   for (i = 0; i < M; i++)
     for (j = 0; j < N; j++)
-			scanf("%f ", & matriz[i][j] );
+			scanf("%f ", & mat_notas[i][j] );
    return;
 }
-
-void funcao_zera_matriz(float matriz[][N] , int M )
+/***********************************************************/
+void func_zera_matriz(float mat_notas[][N] , int M )
 { /* LEITURA */
   int i, j;
   for (i = 0; i < M; i++)
     for (j = 0; j < N; j++)
-			 matriz[i][j] =0 ;
+			 mat_notas[i][j] =0 ;
+
    return;
 }
 /***********************************************************/
+void func_media_matriz(float mat_notas[][N] , float v_media[], int M )
 
-
+{ /* LEITURA */
+  int i, j;
+  float s_aux;
+  for (i = 0; i < M; i++)
+   {
+     s_aux = 0;
+     for (j = 0; j < N; j++) // soma as colunas
+     s_aux +=   mat_notas[i][j] ;
+   
+     v_media[i] = s_aux / N;
+    }
+   // IMPRIMINDO O VETOR DAS MEDIAS
+   for (i = 0; i < M; i++)
+   printf("\n Média do aluno %d : %0.2f" , i+1, v_media[i] );
+   
+   return;
+}
 
 /***********************************************************/
-void funcao_escreve_matriz(float matriz[][N] , int M)
+float func_maior_nota(float v_media [] , int M) 
+
+{
+  float  Maior_Media = v_media [0];
+ for(int i=0 ; i < M; i ++)
+ {
+ if( v_media [i] > Maior_Media  )
+   { //printf("\t TROCOU O MAIOR ...\n");
+    // printf("\t Maior media ate entao era: %0.2f \n", Maior_Media);
+     // printf("\t SERA TROCADA POR: %0.2f \n", v_media [i]);
+      Maior_Media = v_media [i];
+      //pos_MAIOR = i ;
+      }  
+  }    
+ return Maior_Media; // um float que eh o mesmo tipo da funcao
+}
+/***********************************************************/
+void func_escreve_matriz(float mat_notas[][N] , int M)
 {
   int i, j;
   /* ESCREVENDO */
+  imp_linha();
   for (i = 0; i < M; i++)
     {
-      printf ("\n Notas aluno %d ", i+1);
-	     for (j = 0; j < N; j++){
-		  printf ("\t: %0.2f",  matriz[i][j] );
+       printf ("\n Notas aluno %d ", i+1);
+	     
+       for (j = 0; j < N; j++){
+		   printf ("\t: %0.2f",  mat_notas[i][j] );
   	  }
   //  printf ("\n");
     }
-
-   return;
+  imp_linha();
+  return;
 }
 
-/*
-
-
-void media_alunoPOND(float *pesos[2],float *matriz[N][K]) //m�dia ponderada do aluno por prova
-{
-
-    printf("\n ========Media ponderada dos alunos nas provas =========\n");
-    for(int i=0;i<N;i++)
-    {
-        for(int j=0;j<K;j++)
-        {
-            mediapond[i]+= matriz[i][j]*pesos[j];
-        }
-        printf("Media aluno %d: %f\n",i+1,mediapond[i]);
-    }
-}
-void media_classe(float *notas) //m�dia aritmetica da classe por prova
-{
-    float somaturmaprova[2]={0,0,0};
-    printf("\n ========Media aritmetica da turma por prova =========\n");
-    for(int i=0;i<N;i++)
-    {
-        for(int t=0;t<K;t++)
-        {
-
-        somaturmaprova[t] += notas[t];
-
-        }
-    }
-    for(int i=0;i<K;i++)
-    {
-        mediaturmaprova[i]= somaturmaprova[i]/N;
-        printf("A media da turma na prova %d: %f\n",i+1,mediaturmaprova[i]);
-    }
-}
-
-void media_finalturma(float *mediaturmaprova)
-{
-    float somafinalturma, mediafinalturma;
-    printf("\n ==========Media final da turma ==========\n");
-    for(int i=0;i<K;i++)
-    {
-        somafinalturma += mediaturmaprova[i];
-    }
-    mediafinalturma = somafinalturma/10;
-    printf("\nA media final da turma e : %f\n", mediafinalturma);
-
-}
-*/
+/***********************************************************/
