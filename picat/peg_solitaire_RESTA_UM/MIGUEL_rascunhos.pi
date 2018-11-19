@@ -1,0 +1,138 @@
+main =>
+	A = {},
+	B = {},
+	Tabuleiro = {
+		{#,#,#,1,1,1,#,#,#}, % 1
+		{#,#,#,1,0,0,#,#,#}, % 2
+		{#,#,#,1,0,1,#,#,#}, % 3
+		{0,0,0,1,1,1,1,0,1}, % 4
+		{0,1,0,1,0,1,0,1,1}, % 5
+		{0,0,0,1,1,1,0,1,1}, % 6
+		{#,#,#,0,0,0,#,#,#}, % 7
+		{#,#,#,0,0,0,#,#,#}, % 8
+		{#,#,#,0,1,0,#,#,#}  % 9
+	   /*1 2 3 4 5 6 7 8 9*/
+		},
+
+
+	foreach(I in 1..len(Tabuleiro))
+		if(Tabuleiro[I,1] != #)then 	% Onde começa e onde acaba as laterais
+			A := A ++ {I}
+		end
+	end,
+
+	foreach(J in 1..len(Tabuleiro[1]))	% Onde começa e onde acaba o topo / base
+		if(Tabuleiro[1,J] != #)then
+			B := B ++ {J}
+		end
+	end,
+
+	L1 = [],
+	L2 = [],
+	Base = [],
+
+
+	foreach(P in 1..len(Tabuleiro)) % Recortando do Tabuleiro original
+		if(not membchk(P, B.to_list))then % Os blocos de cima e baixo
+			L1 := L1 ++ [slice(Tabuleiro[P], first(A), last(A))], %bloco que contém o topo/base
+			if(P mod 3 == 0 , P != len(Tabuleiro))then
+				L1 := L1 ++ "|"
+			end
+		end
+	end,
+
+	foreach(X in 1..L1.length)
+		if(L1[X] == '|')then
+			L1[X] := [],
+			foreach(Y in X+1..L1.length)
+				Base := Base ++ [L1[Y]],%Recortando a base do bloco que contém topo e base
+				L1[Y] := []
+			end
+		end
+	end,
+
+	Topo = L1.delete_all([]), %Recortando o topo do que restou do bloco que contém topo e base
+
+	foreach(I in 1..Topo.len)
+		Topo[I] := Topo[I].to_list
+	end,
+
+	foreach(I in 1..Base.len)
+		Base[I] := Base[I].to_list
+	end,
+
+	foreach(I in 1..Tabuleiro.length) %Recortando os blocos laterais
+		if(membchk(I, A.to_list))then
+			L2 := L2 ++ [slice(Tabuleiro[I], 1, Tabuleiro.length)],
+		end
+	end,
+
+	Temp = [],
+	foreach(I in 1..L2.len)
+		foreach(X in 1..L2[I].len)
+			if(not membchk(X, A.to_list))then
+				Temp := Temp++[L2[I,X]]
+			end
+		end,
+		Temp := Temp ++ "|"
+	end,
+
+	Hold = [],
+	Esquerda = [],
+	Direita = [],
+
+	foreach(X in 1..Temp.len)
+		if(Temp[X] != '|')then
+			Hold := Hold ++ [Temp[X]]
+		else
+			foreach(Y in 1..Hold.len)
+				if(Y <= Hold.len//2)then
+					Esquerda := Esquerda ++ [Hold[Y]]
+				else
+					Direita := Direita ++ [Hold[Y]]
+				end
+			end,
+			Hold := [],
+		end
+	end,
+
+	E = new_list(3),
+	D = new_list(3),
+
+	N := 1,
+	P := Esquerda.len//3,
+	foreach(I in 1..3)
+		E[I] = slice(Esquerda, N, P),
+		N := N + Esquerda.len//3,
+		P := P + 3,
+	end,
+	Esquerda := E,
+
+	N := 1,
+	P := Direita.len//3,
+	foreach(I in 1..3)
+		D[I] = slice(Direita, N, P),
+		N := N + Direita.len//3,
+		P := P + 3,
+	end,
+	Direita := D,
+
+	println(topo=Topo),
+	println(base=Base),
+	println(esquerda=Esquerda),
+	println(direita=Direita)
+
+
+	/*
+	Novo Plano:
+	Calcular onde começa o bloco de cima, vindo da esquerda,
+	Isso vai me dar o tamanho de todos os outros,
+	Usar a função slice para criar sub-arrays que vão conter estes blocos,
+	Achar uma posição que contenha uma peça,
+	Contar quantos 0's tem a partir dessa posição para todos os lados que seja possível realizar um movimento,
+	Se exceder 2 o movimento que gerou esta disposição de tabuleiro é ineficiente,
+	portanto deve ser descartado,
+	(Gera uma peg isolada)
+	.
+	*/
+.
