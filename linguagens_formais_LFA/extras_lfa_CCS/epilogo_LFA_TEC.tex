@@ -1,13 +1,8 @@
 
 \documentclass[10pt]{beamer} 
-\usetheme[pageofpages=of,% String used between the current page and the
-          % total page count.
-          alternativetitlepage=true,% Use the fancy title page.
-          %titlepagelogo=coca,% Logo for the first page.
-          titleline=true
-          ]{Torino}
-%\usetheme{Frankfurt}
-\usecolortheme{chameleon}
+%\usetheme{Warsaw}
+\usetheme{CambridgeUS}
+
 
 \usepackage{graphicx,hyperref,url}
 \usepackage[utf8]{inputenc}
@@ -104,80 +99,172 @@
 
 \begin{frame}[fragile]
 
-\frametitle{AFDs em todos os momentos}
+\frametitle{Contextualizando}
+
+\begin{itemize}
+	\item As figuras vieram de vários autores \textit{by Google}
+	\item Cabeçalhos e sequência -- do autor
+	\item Requisitos: Finalizando um curso de LFA ou de TEC
+\end{itemize}
+
+\end{frame}
+
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+
+\frametitle{Resolvendo Problemas}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.65\textheight,width=.7\textwidth]
+	{figuras/ciclo_problema_solucao.jpeg}
+	\caption{O  quê o cientista busca?}
+	%\label{ag_01}
+\end{figure}
+
+
+
+\end{frame}
+%-----------------------------------------------------------------------------
+
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+
+\frametitle{O Dilema dos Problemas  é:}
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[height =.65\textheight,width=.8\textwidth]
-{figuras/maquina_ON_OFF.png}
+{figuras/dilema_eh.jpg}
 %%%\caption{Agente situado versus a visão clássica de sistemas inteligentes}
 %\label{ag_01}
 \end{figure}
 
 \end{frame}
+%-----------------------------------------------------------------------------
+
+
+
+
 
 
 
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{Elementos do exemplo}
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[height =.65\textheight,width=.6\textwidth]
-{figuras/porta_aberta_fechada.png}
-%%%\caption{Agente situado versus a visão clássica de sistemas inteligentes}
-%\label{ag_01}
-\end{figure}
-
-\end{frame}
-%-----------------------------------------------------------------------------
-
-
-
-%-----------------------------------------------------------------------------
-\begin{frame}[fragile]
-
-\frametitle{Os estados de dormir -- fora de sala de aula}
-
+\frametitle{Os  Problemas -- Tipos}
 \begin{figure}[!ht]
 \centering
 \includegraphics[height =.65\textheight,width=.8\textwidth]
-{figuras/estados_trem_dormir.png}
-%%%\caption{Agente situado versus a visão clássica de sistemas inteligentes}
+{figuras/os_problemas.png}
+\caption{A área de algoritmos se preocupa com os  dificeis (complicados) e os simples (os ingênuos)}
 %\label{ag_01}
 \end{figure}
 
 \end{frame}
+
+
 %-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+
+\frametitle{A área da CC se preocupa com:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.65\textheight,width=.8\textwidth]
+	{figuras/modelos_complexidade_computabilidade.png}
+	\caption{Precisamos construir modelos e medir seu desempenho}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+%-----------------------------------------------------------------------------
+
 
 
 
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{Máquina de Café -- Refrigerante}
+\frametitle{A área da CC se preocupa com:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.65\textheight,width=.8\textwidth]
+	{figuras/modelos_complexidade_computabilidade.png}
+	\caption{Precisamos construir modelos e medir seu desempenho}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Um escopo de formalismos para CC:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.6\textheight,width=.9\textwidth]
+%	{figuras/theoretical_computer_science.pdf}
+		{figuras/theoretical_computer_science02.pdf}
+	%\caption{A área de algoritmos se preocupa com os  dificeis (complicados) e os simples (os ingênuos)}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+
+
+%-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{LFA -- Linguagens  Formais}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.5\textheight,width=.5\textwidth]
+	{figuras/Chomsky_Venn.jpg}
+	%\caption{}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+
+%\frametitle{Precisamos Mensurar esta Complexidade -- Dificuldade}
+\frametitle{Uma máquina \textit{ forte }e robusta: Máquina de Turing}
 \begin{figure}[!ht]
 \centering
 \includegraphics[height =.65\textheight,width=.8\textwidth]
-{figuras/maquina_refrigerante.pdf}
-\caption{Moedas de 5, 10 e 25. A bebida custa: 30. Máquina não dá troco.}
-%\label{ag_01}
-\end{figure}
-
-\end{frame}
-%-----------------------------------------------------------------------------
-
-
-\begin{frame}[fragile]
-
-\frametitle{Histórico da partida de tênis}
-\begin{figure}[!ht]
-\centering
-\includegraphics[height =.65\textheight,width=.8\textwidth]
-{figuras/01_jogo_tenis_MEF.png}
-\caption{$\Sigma = \{1,2\}$ -- Partida $\models w = 11221 ... 12 $}
+{figuras/turing_machine_mecanica.jpg}
+%%\caption{$\Sigma = \{1,2\}$ -- Partida $\models w = 11221 ... 12 $}
 %\label{ag_01}
 \end{figure}
 
@@ -191,7 +278,7 @@
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{Quase um epílogo ... para onde vamos}
+\frametitle{Especificamente interessa a área de algoritmos:}
 
 \begin{figure}[!ht]
 \centering
@@ -211,7 +298,7 @@ da existência de um algortimo que \textbf{SEMPRE} pare!}
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{Epílogo}
+\frametitle{Ampliando a visão anterior tem-se: linguagens, máquinas -- modelos abstratas  versus problemas resolvidos (total -- parcial) }
 
 \begin{figure}[!ht]
 \centering
@@ -225,7 +312,31 @@ da existência de um algortimo que \textbf{SEMPRE} pare!}
 %-----------------------------------------------------------------------------
 
 
+\begin{frame}[fragile]
+\frametitle{Em geral, o cientista de CC está focado em questões de:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.7\textheight,width=.8\textwidth]
+	{figuras/classes_de_problemas.png}
+	%\caption{}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Conclusões}
+\begin{itemize}
+	\item 
+		\item 
+			\item 
+\end{itemize}
+
+\end{frame}
+
+
 
 \end{document}
