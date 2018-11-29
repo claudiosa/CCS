@@ -3,6 +3,7 @@
 %\usetheme{Warsaw}
 \usetheme{CambridgeUS}
 
+\usepackage{animate}
 
 \usepackage{graphicx,hyperref,url}
 \usepackage[utf8]{inputenc}
@@ -176,7 +177,7 @@
 	\centering
 	\includegraphics[height =.65\textheight,width=.8\textwidth]
 	{figuras/modelos_complexidade_computabilidade.png}
-	\caption{Precisamos construir modelos e medir seu desempenho}
+	\caption{Precisamos construir modelos e medir seu desempenho!}
 	%\label{ag_01}
 \end{figure}
 
@@ -189,29 +190,17 @@
 
 
 %-----------------------------------------------------------------------------
-\begin{frame}[fragile]
-
-\frametitle{A área da CC se preocupa com:}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[height =.65\textheight,width=.8\textwidth]
-	{figuras/modelos_complexidade_computabilidade.png}
-	\caption{Precisamos construir modelos e medir seu desempenho}
-	%\label{ag_01}
-\end{figure}
-
-\end{frame}
 
 
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Um escopo de formalismos para CC:}
+\frametitle{Um escopo de formalismos da CC:}
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[height =.6\textheight,width=.9\textwidth]
 %	{figuras/theoretical_computer_science.pdf}
 		{figuras/theoretical_computer_science02.pdf}
-	%\caption{A área de algoritmos se preocupa com os  dificeis (complicados) e os simples (os ingênuos)}
+\caption{Basicamente um guia desta apresentação}
 	%\label{ag_01}
 \end{figure}
 
@@ -252,6 +241,60 @@
 \end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{Máquinas que calculam estas linguagens: }
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.5\textheight,width=.5\textwidth]
+	{figuras/circuitos_a_MT.png}
+	%\caption{}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Automatos de Estados Finitos}
+\begin{figure}[!ht]
+	\centering
+	
+\begin{minipage}[b]{0.475\linewidth}
+	\centering
+	%		\includegraphics[width=\textwidth]{a.png}
+	\includegraphics[width=\textwidth, height =.4\textheight]
+{figuras/afd_elementos.png}
+		\caption{Uma unidade de controle com estados finitos}
+	%		\label{fig:a}
+\end{minipage}
+\hspace{0.2cm}
+\begin{minipage}[b]{0.475\linewidth}
+	\centering
+	\includegraphics[width=\textwidth, height =.4\textheight]{maq_moedas.jpg}
+	\caption{Exemplo: maleiro e moedas}
+	%	\label{fig:b}
+\end{minipage}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Automatos de Pilha}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.5\textheight,width=.5\textwidth]
+	{figuras/ap_elementos.png}
+	%\caption{}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+
 
 
 %-----------------------------------------------------------------------------
@@ -259,11 +302,10 @@
 \begin{frame}[fragile]
 
 %\frametitle{Precisamos Mensurar esta Complexidade -- Dificuldade}
-\frametitle{Uma máquina \textit{ forte }e robusta: Máquina de Turing}
+\frametitle{Uma máquina \textit{ forte} e robusta: Máquina de Turing}
 \begin{figure}[!ht]
 \centering
-\includegraphics[height =.65\textheight,width=.8\textwidth]
-{figuras/turing_machine_mecanica.jpg}
+\includegraphics[height =.65\textheight,width=.8\textwidth]	{figuras/old_TM.jpeg}
 %%\caption{$\Sigma = \{1,2\}$ -- Partida $\models w = 11221 ... 12 $}
 %\label{ag_01}
 \end{figure}
@@ -275,30 +317,114 @@
 %-----------------------------------------------------------------------------
 
 
-%-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{Especificamente interessa a área de algoritmos:}
-
+%\frametitle{Precisamos Mensurar esta Complexidade -- Dificuldade}
+\frametitle{ Máquina de Turing  e seus conceitos computacionais}
 \begin{figure}[!ht]
-\centering
-\includegraphics[height =.65\textheight,width=.8\textwidth]
-{figuras/some+problems+have+no+algorithms_HALT.jpg}
-\caption{RE: reconhecíveis $\approx $ linguagens finitas ou não, mas sem garantias
-da existência de um algortimo que \textbf{SEMPRE} pare!}
-%\label{ag_01}
+	\centering
+	
+	\includegraphics[height =.65\textheight,width=.8\textwidth]
+	{figuras/turing_machine_mecanica.jpg}
+	\caption{Memória, entrada, saída, programa armazenado, escrita, etc.}
+%	 \animategraphics[loop,controls,width=.8\linewidth]{10}{figuras/move/maquina_movimento_MT01-}{0}{570}
+%%
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+%-----------------------------------------------------------------------------
+
+
+\begin{frame}[fragile]
+
+%\frametitle{Precisamos Mensurar esta Complexidade -- Dificuldade}
+\frametitle{ Máquina de Turing Universal : calcula tudo?}
+\begin{figure}[!ht]
+	\centering
+	
+	\includegraphics[height =.5\textheight,width=.8\textwidth]
+	{figuras/ex_calc_TM.png}
+	\caption{Se calcula tudo, então vai saber se uma outra máquina vai {\bf parar} ou \textbf{não}  sob um dada entrada?}
+	%	 %\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+
+%\frametitle{Precisamos Mensurar esta Complexidade -- Dificuldade}
+\frametitle{Máquina de Turing: Deterministica  x  Não-Determinística}
+\begin{figure}[!ht]
+	
+	\begin{minipage}[b]{0.475\linewidth}
+		\centering
+%		\includegraphics[width=\textwidth]{a.png}
+			\includegraphics[width=\textwidth, height =.4\textheight]
+		{figuras/determ_non_determ.png}
+%		\caption{Label for a}
+%		\label{fig:a}
+	\end{minipage}
+	\hspace{0.2cm}
+	\begin{minipage}[b]{0.475\linewidth}
+		\centering
+		\includegraphics[width=\textwidth, height =.4\textheight]{calculo_ND_MT.png}
+	%	\caption{Label for b}
+	%	\label{fig:b}
+	\end{minipage}
+
+	%	\caption{Memória, entrada, saída, programa armazenado, escrita, etc.}
+	%	 %\label{ag_01}
 \end{figure}
 
 \end{frame}
 
 
 
+%-----------------------------------------------------------------------------
+
+
+\begin{frame}[fragile]
+
+\frametitle{Assim, os   algoritmos  gastam tempo e memória sob uma determinada máquinas (modelo formal -- abstrato ou físico):}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.65\textheight,width=.8\textwidth]
+	{figuras/complexidade_algo.png}
+%	\caption{RE: reconhecíveis $\approx $ linguagens finitas ou não, mas sem garantias
+%		da existência de um algortimo que \textbf{SEMPRE} pare!}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+
+\frametitle{Máquinas que calculam sobre linguagens são resumidas em:}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.65\textheight,width=.85\textwidth]
+{figuras/some+problems+have+no+algorithms_HALT.jpg}
+\caption{RE: reconhecíveis $\approx $ linguagens finitas ou não, mas sem garantias da existência de um algortimo que \textbf{SEMPRE} pare!}
+%\label{ag_01}
+\end{figure}
+
+\end{frame}
 
 
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{Ampliando a visão anterior tem-se: linguagens, máquinas -- modelos abstratas  versus problemas resolvidos (total -- parcial) }
+\frametitle{Ampliando a visão anterior tem-se: linguagens, máquinas -- modelos abstratas  versus problemas resolvidos (total e parcial): }
 
 \begin{figure}[!ht]
 \centering
@@ -313,7 +439,7 @@ da existência de um algortimo que \textbf{SEMPRE} pare!}
 
 
 \begin{frame}[fragile]
-\frametitle{Em geral, o cientista de CC está focado em questões de:}
+\frametitle{Em geral, o cientista de CC está focado nas classes destes problemas:}
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[height =.7\textheight,width=.8\textwidth]
@@ -326,17 +452,19 @@ da existência de um algortimo que \textbf{SEMPRE} pare!}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{frame}[fragile]
 \frametitle{Conclusões}
 \begin{itemize}
-	\item 
-		\item 
-			\item 
+	\item Comentários são bem-vindos
+
+		\item Email:  claudio.sa@udesc.br ou no meu canal do Youtube
+	\pause
+	\item Área teórica da CC  é paradoxalmente  complicada--difícil, mas, bela e  sedutora!
 \end{itemize}
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}
