@@ -1,3 +1,13 @@
+
+
+Exame de ALP 2018-2:
+
+Dia 10/12 -- 2a. feira -- 13:30 hrs na K209 (a confirmar a sala)
+
+
+
+
+
 Comunicação no via EMAIL ou Whastaspp do prof: 47 99245 1825
 
 Para postar neste grupo, envie um e-mail para alp-ee@googlegroups.com
