@@ -71,7 +71,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title[Picat]{\fontsize{20}{30}\selectfont \textcolor{black}{Resumindo e Conectando a Teoria da Complexidade Computacional em Figuras}}
+\title[Picat]{\fontsize{20}{30}\selectfont \textcolor{black}{Resumindo e Conectando a Linguagens, Máquinas à Complexidade Computacional (em Figuras)}}
 
 \author[]{Claudio Cesar de Sá\\
      {\small \url{claudio.sa@udesc.br}}}
@@ -103,9 +103,11 @@
 \frametitle{Contextualizando}
 
 \begin{itemize}
-	\item As figuras vieram de vários autores \textit{by Google}
-	\item Cabeçalhos e sequência -- do autor
-	\item Requisitos: Finalizando um curso de LFA ou de TEC
+	\item Algumas figuras vieram de vários autores \textit{by Google}
+	\item Propositalmente, as mantive intactas!
+	\item Cabeçalho e sequência -- do autor
+	\item Comentários e ajuda: Cristiano Damiani
+	\item Requisitos: finalizando um curso de LFA ou de TEC (preferenciamente)
 \end{itemize}
 
 \end{frame}
@@ -119,8 +121,8 @@
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[height =.65\textheight,width=.7\textwidth]
-	{figuras/ciclo_problema_solucao.jpeg}
+	\includegraphics[height =.65\textheight,width=\textwidth]
+	{figuras/problem_implementation.pdf}
 	\caption{O  quê o cientista busca?}
 	%\label{ag_01}
 \end{figure}
@@ -135,7 +137,7 @@
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{O Dilema dos Problemas  é:}
+\frametitle{O \emph{Dilema} dos problemas  é:}
 
 \begin{figure}[!ht]
 \centering
@@ -157,12 +159,12 @@
 %-----------------------------------------------------------------------------
 \begin{frame}[fragile]
 
-\frametitle{Os  Problemas -- Tipos}
+\frametitle{Problemas $\times$ Complexidade}
 \begin{figure}[!ht]
 \centering
 \includegraphics[height =.65\textheight,width=.8\textwidth]
 {figuras/os_problemas.png}
-\caption{A área de algoritmos se preocupa com os  dificeis (complicados) e os simples (os ingênuos)}
+\caption{A área de Ciência da Computação (CC) se preocupa com os  dificeis (complicados) e os simples (os ingênuos) -- \emph{alguma estruturação!}}
 %\label{ag_01}
 \end{figure}
 
@@ -223,16 +225,11 @@
 %-----------------------------------------------------------------------------
 
 
-
-
-
-
-
 \begin{frame}[fragile]
 \frametitle{LFA -- Linguagens  Formais}
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[height =.5\textheight,width=.5\textwidth]
+	\includegraphics[height =.6\textheight,width=.5\textwidth]
 	{figuras/Chomsky_Venn.jpg}
 	%\caption{}
 	%\label{ag_01}
@@ -245,7 +242,7 @@
 \frametitle{Máquinas que calculam estas linguagens: }
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[height =.5\textheight,width=.5\textwidth]
+	\includegraphics[height =.6\textheight,width=.6\textwidth]
 	{figuras/circuitos_a_MT.png}
 	%\caption{}
 	%\label{ag_01}
@@ -391,7 +388,7 @@
 
 \begin{frame}[fragile]
 
-\frametitle{Assim, os   algoritmos  gastam tempo e memória sob uma determinada máquinas (modelo formal -- abstrato ou físico):}
+\frametitle{Assim, os   algoritmos  gastam tempo e memória sob uma determinada máquina (modelo formal -- abstrato ou física):}
 
 \begin{figure}[!ht]
 	\centering
@@ -437,9 +434,77 @@
 \end{frame}
 %-----------------------------------------------------------------------------
 
+%-----------------------------------------------------------------------------
+
 
 \begin{frame}[fragile]
-\frametitle{Em geral, o cientista de CC está focado nas classes destes problemas:}
+\frametitle{Como se relacionam estas linguagens e/ou problemas?}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.7\textheight,width=.8\textwidth]
+	{figuras/reducao01.jpg}
+	\caption{Problema B se reduz a A ou $ B \le A$}
+	%\label{ag_01}
+\end{figure}
+
+\end{frame}
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{A \emph{redução} é a \textbf{engrenagem} de se estabelecer propriedades, a existência e dificuldade de soluções entre problemas:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.7\textheight,width=.8\textwidth]
+	{figuras/reducao-classica.jpg}
+	\caption{Problema B se reduz a A ou $ B \le A$}
+	%\label{ag_01}
+\end{figure}
+\end{frame}
+%-----------------------------------------------------------------------------
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{O objetivo é tornar esta \emph{redução} (uma \textbf{engrenagem}) entre os problemas sem muita complexidade:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.7\textheight,width=.8\textwidth]
+	{figuras/reducao-via-mapeamento.jpg}
+	\caption{Problema B se reduz a A ou $ B \le A$}
+	%\label{ag_01}
+\end{figure}
+\end{frame}
+%-----------------------------------------------------------------------------
+
+%-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Exemplo de \emph{redução}:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.5\textheight,width=\textwidth]
+	{figuras/reducao-3cnf-clique.pdf}
+	\caption{Há uma \emph{engrenagem} (uma redução específica) nesta reduçao!}
+	%\label{ag_01}
+\end{figure}
+\end{frame}
+%
+%-----------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Muitos problemas podem ser reduzidos:}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height =.7\textheight,width=.6\textwidth]
+	{figuras/reducao-problemas.jpg}
+	\caption{Há uma \emph{engrenagem} (uma redução específica) nesta reduçao!}
+	%\label{ag_01}
+\end{figure}
+\end{frame}
+%
+
+
+\begin{frame}[fragile]
+\frametitle{Em geral, o cientista da CC está focado em reconhecer e resolver problemas de \emph{classes}:}
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[height =.7\textheight,width=.8\textwidth]
@@ -455,9 +520,16 @@
 \begin{frame}[fragile]
 \frametitle{Conclusões}
 \begin{itemize}
-	\item Comentários são bem-vindos
+    \item Tudo começou com alfabetos de símbolos, usados para  montar palavras e estas definem uma linguagem
+    \item Linguagens devem ser computadas sob máquinas abstractas
+    \item Linguagens $\Leftrightarrow$ problemas (se equivalem)
+    \item Estas precisam computadas sob máquinas abstractas, as quais definem a complexidade em se computar um problema
+    \item Há uma \emph{engrenagem} em se descobrir relações entre problemas: a \emph{redução}
+    \item ..........................................
+    
+	\item Comentários e dúvidas são bem-vindos
 
-		\item Email:  claudio.sa@udesc.br ou no meu canal do Youtube
+	\item Email:  claudio.sa@udesc.br ou no meu canal do Youtube
 	\pause
 	\item Área teórica da CC  é paradoxalmente  complicada--difícil, mas, bela e  sedutora!
 \end{itemize}
