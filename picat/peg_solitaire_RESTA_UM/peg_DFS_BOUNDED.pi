@@ -157,6 +157,8 @@ move(Grid, New_Grid, Action ) ?=>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* Get all feasible_movement in XY  grid from a cell with  VALID MOVEMENT */
 f_ALL_MOVETS( Map ) = L_mov  =>
+% in L_Mov ... all instantaneous  possible movements -- under a current state
+% for each new movement ... everything is recalculated
   L = (Map.length),
   C = (Map[1].length),
   %%printf(" MAX DIM: %d x %d ", L, C),
@@ -166,7 +168,10 @@ f_ALL_MOVETS( Map ) = L_mov  =>
       %%% VERTICAL  
      if ((I+2 =<L) , Map[I,J] == '1' , Map[I+1,J] == '1', Map[I+2,J] == '0' ) then  %110
         %% FAZER UMA HEURISTICA DE PROIBICAO AQUI .....
+      %%%  good_move(Map, jump_down, I, J),
+             
         Aux := f_insert(( jump_down ,I,J), Aux)
+        % in AUX has the NEW MOVEMENT ACCEPT under all possibilities
         % ,
         % printf("\n VERTICAL 110")
        
@@ -196,22 +201,35 @@ f_ALL_MOVETS( Map ) = L_mov  =>
    end , %% END  FOREACH
     %% printf("\n After the foerach "),
     %%% finally
-    L_mov = Aux .
+    L_mov = Aux . %% all possible current movement 
 
 f_ALL_MOVETS( _ ) = R => 
       printf("\n Problem in position function f_ALL_MOVETS \n"),
       R := [].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
-good_action_move( Map ) ?=>
+good_move( Map , Move, I, J) ?=>
      
   L = (Map.length),
   C = (Map[1].length),
   %%printf(" MAX DIM: %d x %d ", L, C),
-  Aux := [],
-  foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
-   (
-     Fazer a verificacao de movimento invalidos aqui....
+  %Aux := [],
+  %/foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
+   %  Fazer a verificacao de movimento invalidos aqui....
+   % pass in action   
+   %%if ((I+2 =<L) , Map[I,J] == '1' , Map[I+1,J] == '1', Map[I+2,J] == '0' ) then  %110
+   %%JUMP DOW 
+   if (Move == jump_down)
+   %% describe proibithive situations ....for this movement
+   %%
+   %%    x    x    x
+   %%    x    x    x
+   %%    1 or 1 or 1
+   %%
+
+
+
+
 
 good_action_move( _ ) =>
     printf("\n good_action_move \n"),
@@ -268,7 +286,7 @@ f_insert( X, L ) = R, L == []  => R=[ X ].
 f_insert( X, L ) = R, L != []  => R=[ X | L ].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% FROM HAKAN  ... for pretty printing --- LATER
+%%% FROM HAKAN  ... for pretty printing --- improved by CCS
 show_solution(InitGrid, Plan) => 
   Grid = copy_term(InitGrid),
   println("\nInit:"),                        
