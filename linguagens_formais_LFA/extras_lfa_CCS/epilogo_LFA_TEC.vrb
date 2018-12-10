@@ -1,16 +1,13 @@
-\frametitle{Conclusões}
+\frametitle{Agradecimentos}
 \begin{itemize}
-    \item Tudo começou com alfabetos de símbolos, usados para  montar palavras e estas definem uma linguagem
-    \item Linguagens devem ser computadas sob máquinas abstractas
-    \item Linguagens $\Leftrightarrow$ problemas (se equivalem)
-    \item Estas precisam computadas sob máquinas abstractas, as quais definem a complexidade em se computar um problema
-    \item Há uma \emph{engrenagem} em se descobrir relações entre problemas: a \emph{redução}
-    \item ..........................................
 
-	\item Comentários e dúvidas são bem-vindos
+    \item Obrigado
 
-	\item Email:  claudio.sa@udesc.br ou no meu canal do Youtube
-	\pause
-	\item Área teórica da CC  é paradoxalmente  complicada--difícil, mas, bela e  sedutora!
+	\item Comentários e dúvidas são muito bem-vindos
+
+	\item Email:  claudio.sa@udesc.br
+
+	\item Canal do Youtube: Claudio Cesar de Sá -- ccs1664@gmail.com
+	
 \end{itemize}
 
