@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
-PEG SOLITAIRE USING THE PICAT PLANNER -- CCS feb/2018
+PEG SOLITAIRE USING THE PICAT  -- CCS dez/2018
 The improvements and my mistakes are corrected by Hakan
 
 In the future .... explore heuristics such from a internet comment:
@@ -13,9 +13,10 @@ They propose 3 heuristics:
 This may be not the better heuristics for this problem, but seems to be a simple approach.
 
 */
+
 import os. %%% for OS command
 import util. %%% some functions
-%mport math.
+%import math.
 import datetime.  %%% cpu time
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -28,7 +29,7 @@ main ?=>
    %Map = read_Map("9x9_peg.txt") ,
    %Map = read_Map("another_7x7_37_peg.txt"), 
    Map = read_Map("7x7_peg.txt"),
-   %Map = read_Map("3x6_peg.txt") ,
+   %Map = read_Map("6x6_peg.txt") ,
    %Map = read_Map("4x6_peg.txt") ,
    /* 
    or
@@ -75,17 +76,18 @@ search_DFS( [Node | Partial_SOL], Solution , Upper) =>
     Upper >= 1,
    
    %% try to discover a movement
-    move( Node , New_NODE, New_Action ), %% Action: Wich movement
+    move( Node , New_NODE, (Action, I, J) ), %% Action: Wich movement
    % printf("\n Novo NO ou estado: %w" , Novo_nodo), 
-   % good_action_move(New_NODE),  %%% Nao funciona ainda 
-    
-    /* Check if this state was visited or no */
-   not ( member( New_NODE , [ Node | Partial_SOL ]  ) ),
-    %%printf(" \n NOVO NOH: %w %w %w", Novo_nodo, Nodo, Caminho),
-    New_Upper := (Upper-1),
+   % is it allowed movement?
+    good_move( New_NODE , Action, I, J ) == true,  %%% HEURISTIC
+    /* Check if this state was visited or no ==> unnecessary ... each movement
+    a new board is resulted */
+    % not ( member( New_NODE , [ Node | Partial_SOL ]  ) ),
+    % printf(" \n NOVO NOH: %w %w %w", Novo_nodo, Nodo, Caminho),
+    New_Upper := (Upper-1) , %% new depth
     search_DFS([New_NODE, Node | Partial_SOL], Solution, New_Upper).
 
-/*************************************************************/
+/*****µµµµµµµµ********************************************************/
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -104,7 +106,7 @@ final_check( Grid ) =>
           array_matrix_to_list(Grid) = List,
           %printf("final list: %w", List),
           %% CONDITIONS to the finish
-          1 == count_X_in_L( '1' , List ), 
+          2 == count_X_in_L( '1' , List ), 
 %         Grid[5,5] == '1', %%% CHANGE IT if necessary 9x9
 %         Grid[4,4] == '1', %%% CHANGE IT if necessary 7x7
 %         Grid[3,3] == '1', %%% CHANGE IT if necessary 5x5
@@ -122,6 +124,7 @@ final_check( Grid ) =>
 move(Grid, New_Grid, Action ) ?=>
   % print_map( Grid ), 
   Grid_TEMP = copy_term(Grid),
+  %% for a current state ... a current list with all feasible movements
   L_all_mov = f_ALL_MOVETS( Grid ),   %% ALL POSSIBLE MOVEMENTS
   %%%%% ????? select a good action or shring bad actions
   %%%%
@@ -151,7 +154,7 @@ move(Grid, New_Grid, Action ) ?=>
      Grid_TEMP[X+2, Y] := '1'
   
   end,
-  Action = (Action1, X, Y)  ,
+  Action = (Action1, X, Y)  ,%% an argument as tuple 3
   New_Grid = Grid_TEMP.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -207,34 +210,62 @@ f_ALL_MOVETS( _ ) = R =>
       printf("\n Problem in position function f_ALL_MOVETS \n"),
       R := [].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-/*
-good_move( Map , Move, I, J) ?=>
+
+good_move( Map , Move, I, J) = Answer =>
      
   L = (Map.length),
   C = (Map[1].length),
   %%printf(" MAX DIM: %d x %d ", L, C),
-  %Aux := [],
-  %/foreach(I in 1 .. L , J in 1 .. C) %%% MANY WILL CHOOSEN
-   %  Fazer a verificacao de movimento invalidos aqui....
-   % pass in action   
-   %%if ((I+2 =<L) , Map[I,J] == '1' , Map[I+1,J] == '1', Map[I+2,J] == '0' ) then  %110
-   %%JUMP DOW 
-   if (Move == jump_down)
+  %%JUMP DOW forbideen if: 
+   (
+   ( (Move == jump_down && I+2 == L ),
    %% describe proibithive situations ....for this movement
    %%
    %%    x    x    x
    %%    x    x    x
    %%    1 or 1 or 1
    %%
+   (
+    (Map[I+1,J+1] == '0', Map[I+2,J+1] == '0')
+    ;
+    (Map[I+1,J-1] == '0', Map[I+2,J-1] == '0') 
+   ))
+   ; 
+    %%JUMP UP forbideen if:  
+   (( Move == jump_up && I-2 == L ),
+   (
+    (Map[I-1,J+1] == '0', Map[I-2,J+1] == '0')
+    ;
+    (Map[I-1,J-1] == '0', Map[I-2,J-1] == '0') 
+   ))
+   ;
+   %%JUMP LEFT forbideen if:  
+   ((Move == jump_left && J-2 == C ), 
+   (
+    (Map[I-1,J-1] == '0', Map[I-1,J-2] == '0')
+    ;
+    (Map[I+1,J-1] == '0', Map[I+2,J-2] == '0') 
+   ))
+   ;
+   %%JUMP RIGHT forbideen if:  
+   ((Move == jump_right && J+2 == C ), 
+   (
+    (Map[I-1,J+1] == '0', Map[I-1,J+2] == '0')
+    ;
+    (Map[I+1,J+1] == '0', Map[I+2,J+2] == '0') 
+   ))
+   ),
+  %  printf("f"),
+    Answer = false
+  
+   ;
+    % printf("t"),
+    Answer = true
+   .
 
+%%good_move( _ , _, _, _) = true =>
+%%    printf("\n good move \n")
 
-
-
-
-good_action_move( _ ) =>
-    printf("\n good_action_move \n"),
-      .
-*/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% READING A FILE  with a MAP or Grid....
 read_Map(File_NAME) = Arr_2D  
@@ -261,7 +292,8 @@ print_Plan( Inv_Solucao ) =>
   Plan = reverse(  Inv_Solucao ),
   println("\n ONE SOLUTION: "),                        
   foreach( State in Plan)
-  print_map( State ).
+  print_map( State )
+  end.
 
 %% printing the GRID ....
 print_map( M ) =>

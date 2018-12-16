@@ -105,10 +105,12 @@
 \begin{itemize}
 	\item Algumas figuras vieram de vários autores \textit{by Google}
 	\item Propositalmente, as mantive originais!
-	\item Cabeçalho e sequência -- do autor
+	\item Cabeçalho e sequência dos {\em slides} -- minha responsabilidade
 	\item Comentários e ajuda: Cristiano Damiani
 	\item Requisitos: finalizando um curso de LFA ou de TEC (preferenciamente)
 	\item Esta apresentação disponível em \textbf{.tex} e \textbf{.pdf} em: \url{github.com/claudiosa/CCS/tree/master/linguagens_formais_LFA/extras_lfa_CCS}
+	\item Programa de gravação utilizado: \url{http://www.maartenbaert.be/simplescreenrecorder/}
+	\item Plataforma: Manjaro -- Linux
 \end{itemize}
 
 \end{frame}
@@ -371,14 +373,32 @@
 
 %\frametitle{Precisamos Mensurar esta Complexidade -- Dificuldade}
 \frametitle{ Máquina de Turing Universal : calcula tudo?}
-\begin{figure}[!ht]
+
+\begin{minipage}[t]{0.475\linewidth}
+ \begin{figure}[!ht]
 	\centering
-	
-	\includegraphics[height =.5\textheight,width=.8\textwidth]
+	\includegraphics[height =.6\textheight,width=.7\textwidth]
 	{figuras/ex_calc_TM.png}
 	\caption{Se calcula tudo, então vai saber se uma outra máquina vai {\bf parar} ou \textbf{não}  sob um dada entrada?}
-	%	 %\label{ag_01}
+	%%\label{ag_01}
 \end{figure}
+\end{minipage}
+\begin{minipage}[t]{0.475\linewidth}
+%\begin{block}
+\begin{itemize}
+\item Esta máquina hipotética tem suas limitações
+%%há problemas que ela não calcula.
+\item Por exemplo, dizer se ela  própria vai {\bf parar} ou não, quando sua
+entrada for a sua própria especificação!
+\item Este é o famoso problema da parada da Máquina de Turing ({\em the Halting Turing})
+\item Assim os problemas são {\bf decidíveis} ou {\bf reconhecíveis} (as vezes não param)
+\item Contudo, as MTs ajudaram a construir modelos  computacionais robustos e 
+{\bf consistentes} para computação!      
+\end{itemize}
+%\end{block}
+
+\end{minipage}
+
 
 \end{frame}
 
@@ -430,7 +450,7 @@ Buscas   $\lessdot$ \underline{ exponenciais } $\gtrdot$ na fita da MT,  da orde
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[height =.64\textheight,width=.8\textwidth]
-	{figuras/complexidade_algo.png}
+	{figuras/complexidade_algo.jpg}
 	\caption{Complexidade dos algoritmos quanto ao \textbf{tempo}.\\Tempo \textbf{não} pode ser reusado, já memória: \textbf{sim}!}
 	%\label{ag_01}
 \end{figure}
