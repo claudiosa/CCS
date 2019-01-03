@@ -110,11 +110,11 @@
 	\item Algumas figuras vieram de vários autores \textit{by Google}
 	\item Propositalmente, as mantive originais!
 	\item Cabeçalho e sequência dos {\em slides} -- minha responsabilidade
-
+%	\item Comentários e ajuda: Cristiano Damiani
 	\item Esta apresentação disponível em \textbf{.tex} e \textbf{.pdf} em: \url{github.com/claudiosa/CCS/tree/master/linguagens_formais_LFA/extras_lfa_CCS}
 	\item Programa de gravação utilizado: \url{http://www.maartenbaert.be/simplescreenrecorder/}
 	\item Plataforma: Manjaro -- Linux
-	\item Agradecimentos: Cristiano Damiani e outros
+	
 \end{itemize}
 
 \end{frame}
