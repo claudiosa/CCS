@@ -6,7 +6,8 @@ The improvements and my mistakes are corrected by Hakan
 In the future .... explore heuristics such from a internet comment:
 They propose 3 heuristics:
 
-1 - The number of nodes are available for the next step, considering which more available next's steps, better the node.
+1 - The number of nodes are available for the next step, considering which more  
+    available next's steps, better the node.
 2 - Number of isolated peg's - as few isolated peg's better the node.
 3 - Less peg's in the board better the node.
 
@@ -24,14 +25,14 @@ main ?=>
    Status = command("clear") ,
    printf("====================================== %d OK", Status),
    %% change here according your MAP or BOARD
-  % Map = read_Map("3x6_peg.txt") ,
-   %Map = read_Map("5x5_peg.txt") , % no solution
-   %Map = read_Map("9x9_peg.txt") ,
-   %Map = read_Map("another_7x7_37_peg.txt"), 
-   Map = read_Map("7x7_peg.txt"),
-   %Map = read_Map("MAP_03.txt") ,
+   % Map = read_Map("3x6_peg.txt") ,
+   % Map = read_Map("5x5_peg.txt") , % no solution
+    Map = read_Map("9x9_peg.txt") ,
+   % Map = read_Map("another_7x7_37_peg.txt"), 
+   % Map = read_Map("7x7_peg.txt"),
+   % Map = read_Map("MAP_03.txt") ,
    /* 
-   or
+   These maps are boads such:
     Map = {
      "1##100",
      "1##1##",
@@ -69,9 +70,9 @@ main =>  printf("\n None options from main !!!").
 % Auxiliary functions
 % a deep or bound  estimated for the search tree
 get_bound(Grid) = sum([1 : I in array_matrix_to_list(Grid), I=='1'])-1.   
-%% good heuristic
-%%% from HAKAN
-/*********** <<ACTION >> *************/
+%% good heuristic ... what is the depth for this search?
+%%% 
+/*********** << ACTION: comments >> *************/
 %%% IN FUNCTIONS: no backtrackable rules are allowed 
 %%% Backtrackable rules only in predicates
 
@@ -102,8 +103,15 @@ action(Grid,New_Grid, Action, Action_Cost) ?=>
   Grid_TEMP = copy_term(Grid),
   Action_Cost = 1,
   %% only once time is calculated ... all the movements in the board
-  L_all_mov =  f_feasible_moves( Grid ), %% THE HEURISTICS MUST BE HANDLED HERE
-  member( (Action1, X, Y) , L_all_mov),  %% THE HEURISTICS CAN BE HANDLED HERE CHOSING A GOOD MOVEMENT
+  L_all_mov =  f_feasible_moves( Grid ), 
+  member( (Action1, X, Y) , L_all_mov),    
+
+  %% THE HEURISTICS MUST BE HANDLED HERE
+
+  %% THE HEURISTICS CAN BE HANDLED HERE CHOSING A GOOD MOVEMENT
+  good_move( Grid , Action1, X, Y ) == true,  %%% 
+
+ 
   %% take one feasible movement/action in current moment
   %% a tuple (Action1, X, Y) from L_all_mov)
   if (Action1 == jump_right)   then
@@ -123,6 +131,7 @@ action(Grid,New_Grid, Action, Action_Cost) ?=>
      Grid_TEMP[X+1, Y] := '0',     
      Grid_TEMP[X+2, Y] := '1'
   end,
+
   Action = (Action1, X, Y) ,
   New_Grid = Grid_TEMP.
 
@@ -173,7 +182,60 @@ f_feasible_moves( _ ) = R =>
       printf("\n Problem in position function f_feasible_moves \n"),
       R := [].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+good_move( Map , Move, I, J) = Answer =>
+%% true or false     
+  L = (Map.length),
+  C = (Map[1].length),
+  %%printf(" MAX DIM: %d x %d ", L, C),
+  %%JUMP DOW forbideen if: 
+   (
+   ( (Move == jump_down && I+2 == L ),
+   %% describe proibithive situations ....for this movement
+   %%
+   %%    x    x    x
+   %%    x    x    x
+   %%    1 or 1 or 1
+   %%
+   (
+    (Map[I+1,J+1] == '0', Map[I+2,J+1] == '0')
+    ;
+    (Map[I+1,J-1] == '0', Map[I+2,J-1] == '0') 
+   ))
+   ; 
+    %%JUMP UP forbideen if:  
+   (( Move == jump_up && I-2 == L ),
+   (
+    (Map[I-1,J+1] == '0', Map[I-2,J+1] == '0')
+    ;
+    (Map[I-1,J-1] == '0', Map[I-2,J-1] == '0') 
+   ))
+   ;
+   %%JUMP LEFT forbideen if:  
+   ((Move == jump_left && J-2 == C ), 
+   (
+    (Map[I-1,J-1] == '0', Map[I-1,J-2] == '0')
+    ;
+    (Map[I+1,J-1] == '0', Map[I+2,J-2] == '0') 
+   ))
+   ;
+   %%JUMP RIGHT forbideen if:  
+   ((Move == jump_right && J+2 == C ), 
+   (
+    (Map[I-1,J+1] == '0', Map[I-1,J+2] == '0')
+    ;
+    (Map[I+1,J+1] == '0', Map[I+2,J+2] == '0') 
+   ))
+   ),
+  %  printf("f"),
+    Answer = false
+  
+   ;
+    % printf("t"),
+    Answer = true
+   .
 
+%%good_move( _ , _, _, _) = true =>
+%%    printf("\n good move \n")
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% READING A FILE  with a MAP or Grid....
@@ -218,8 +280,8 @@ count_X_in_L( X , [X|L] ) = count_X_in_L( X , L ) + 1 .
 count_X_in_L( X , [H|L] ) = Res => X !== H, 
                             Res = count_X_in_L( X , L ) .
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-f_insert( X, L ) = R, L == []  => R=[ X ].
-f_insert( X, L ) = R, L != []  => R=[ X | L ].
+f_insert( X, L ) = R, L == []  => R = [ X ].
+f_insert( X, L ) = R, L != []  => R = [ X | L ].
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% FROM HAKAN  ... for pretty printing 
