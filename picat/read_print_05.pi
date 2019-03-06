@@ -1,0 +1,21 @@
+%%
+%% contest programming examples
+%% usage: $ picat read_print_05.pi < input_02.txt 
+
+import util. % use split
+
+main =>
+  %%Num_casos = to_int(read_line()),   %%%OU
+  Num_casos = read_line().to_int(),
+  foreach (TC in 1..Num_casos)
+    Num_Entradas = read_line().to_int(),
+     % foreach (Caso in 1..Num_Entradas) %%% DESNECESSARIO
+      L = [to_int(W) : W in read_line().split()],
+      do_case(TC, Num_Entradas, L )
+      %end
+      
+  end.
+  
+ do_case(TC,  Num_Entradas, L ) =>
+     printf("\nCaso #%w: \nQuantos:%w ==> Lista: %w \n", TC,  Num_Entradas, L ).
+    
