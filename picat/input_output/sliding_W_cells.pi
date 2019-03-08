@@ -1,4 +1,4 @@
-
+%%% HERE the Window will be discovered
 
 import util. % use split
 import cp.
@@ -7,55 +7,42 @@ main =>
   %%Num_casos = to_int(read_line()),   %%%OU
   Num_casos = read_line().to_int(),
   foreach (TC in 1..Num_casos)
-    [N_Valores, W_Janela] = [to_int(W) : W in read_line().split()],
+  %%% mais de um inteiro na linha
+    %[N_Valores, W_Janela] = [to_int(W) : W in read_line().split()],
+    N_Valores = read_line().to_int(),
     % foreach (Caso in 1..N_Valores) %%% DESNECESSARIO
-    L = [to_int(W) : W in read_line().split()],
-    do_case(TC, N_Valores, W_Janela, L )
+    %%% N inteiros na linha
+    L = [ to_int(W) : W in read_line().split() ],
+    do_case( TC, N_Valores, L  )
     end.
 
-do_case(TC,  N_Valores,  W_Janela, L ) =>
+do_case(TC,  N_Valores,  L ) =>
     %% printf("\nCaso #%w: \nQuantos:%w : Janela:%w ==> Lista: %w \n", TC,  N_Valores,  W_Janela, L ),
-     model(TC, N_Valores,  W_Janela, L ) 
+     model(TC, N_Valores, L ) 
      .
    
-model(Caso, N_Valores,  W_Janela, L ) =>
+model(Caso, N_Valores,  L ) =>
     
     N_valores = to_array( L ), %% array de N_valores
-    Xs = new_array( N_Valores ), %% L tem N valores
-    Xs :: 0..1 ,
+    Xs = new_array( N_Valores ), %% L tem N valores 
+    Xs :: 0..1 , %% vetor de decisao
    
-    [Begin, End] :: 1 .. N_Valores,
+    [Begin, End, W_Janela] :: 1 .. N_Valores,
     End - Begin #= W_Janela - 1 ,
     End #>= Begin,
    
-    sum([ Xs[J] : J in 1..N_Valores] ) #= W_Janela ,
+    sum( [ Xs[J]: J in 1..N_Valores] ) #= W_Janela ,
         Sum #= sum([ (N_valores[J] * Xs[J]) : J in 1..N_Valores] ),
     
    %% from HAKAN's idea ... this line
-   /* WORKING FINE
+   %% WORKING FINE
     foreach (I in 1 .. N_Valores)
-         (I #>= Begin #/\ I #=< End) #<=> Xs[I] #= 1
+      (I #>= Begin #/\ I #=< End) #<=> Xs[I] #= 1
     end,    
-       
-    */
-   %%% by CCS and works fine also 
-     foreach (I in 2 .. (N_Valores-1)     )
-        (Xs[I] #= 1) #=> (Xs[I-1] #= 1 #\/ Xs[I+1] #= 1)
-     end,  
-   
-   %% the beginning ... some bugs
-   % (((Xs[1] #= 1) #/\ W_Janela #> 1)  #<=> (Xs[2] #= 1)),
-   % ((Xs[1] #= 1) #/\ W_Janela #= 1)  #<=> (Xs[2] #= 0)),
-   
-   %% the ending
-    %(((Xs[N_Valores] #= 1) #/\  W_Janela #> 1)  #<=> (Xs[N_Valores-1] #= 1);
-    % ((Xs[N_Valores] #= 1) #/\  W_Janela #= 1)  #<=> (Xs[N_Valores-1] #= 0)),
-      
-   
-       
+             
     solve( [$max(Sum)] , Xs ),
     %printf("\nCaso:%w | Janela:%w  | Xs: %w | SOMA: %w\n", Caso,  W_Janela, Xs, Sum )
-    printf("\nCaso:%w | SOMA: %w | Escolhas: ", Caso,  Sum ),
+    printf("\nCaso:%w | SOMA: %w | Janela:%w | Escolhas: ", Caso,  Sum , W_Janela  ),
     print_index_array(Xs,N_Valores), nl
     .
 
@@ -66,10 +53,7 @@ print_index_array(Xs,N_Valores) =>
          end
         end.  
       
-
-
-    
-    /*
+ /*
     TO BE STUDY in the FUTURE
          
    
