@@ -1,0 +1,83 @@
+
+import util. % use split
+import cp.
+
+main =>
+  %%Num_casos = to_int(read_line()),   %%%OU
+  Num_casos = read_line().to_int(),
+  foreach (TC in 1..Num_casos)
+    [Num_Entradas, W_Janela] = [to_int(W) : W in read_line().split()],
+    % foreach (Caso in 1..Num_Entradas) %%% DESNECESSARIO
+    L = [to_int(W) : W in read_line().split()],
+    do_case(TC, Num_Entradas, W_Janela, L )
+    end.
+
+do_case(TC,  Num_Entradas,  W_Janela, L ) =>
+    %% printf("\nCaso #%w: \nQuantos:%w : Janela:%w ==> Lista: %w \n", TC,  Num_Entradas,  W_Janela, L ),
+     model(TC, Num_Entradas,  W_Janela, L ) 
+     .
+  
+ 
+model(Caso, Num_Entradas,  W_Janela, L ) =>
+    
+    N_valores = to_array( L ), %% array de 
+    Xs = new_array( Num_Entradas ),
+    Xs :: 0..1 ,
+   
+  %  [Begin, End] :: 1 .. Num_Entradas,
+  %  End - Begin #= W_Janela - 1 ,
+   % End #>= Begin,
+   
+    sum([ Xs[J] : J in 1..Num_Entradas] ) #= W_Janela ,
+    
+    Sum #= sum([ (N_valores[J] * Xs[J]) : J in 1..Num_Entradas] ),
+    
+     foreach (I in 2 .. Num_Entradas-1)
+        (Xs[I] #= 1) #=> (Xs[I-1] #= 1 #\/ Xs[I+1] #= 1)
+     end,  
+    
+    
+    
+    solve([$max(Sum)],Xs),
+    printf("\nCaso:%w | Janela:%w  | Xs: %w | SOMA: %w\n", Caso,  W_Janela, Xs, Sum )
+    .
+    /*
+    foreach (I in 1 .. Num_Entradas)
+        Yes #= (I #>= Begin #/\ I #=< End),
+        if (Yes #= 1) then
+           %%%(Xs[I] #= 1 )
+           (Xs[I] #= 1) #=> (Xs[I-1] #= 1 #\/ Xs[I+1] #= 1)
+        end
+      end,     
+   
+   
+    if (Xs[1] #= 1) then
+        (Xs[2] #= 1)
+     end,
+   
+   
+   
+     foreach (I in 1 .. Num_Entradas)
+    %  foreach (I in 2 .. Num_Entradas-1) 
+      if (I == 1) then
+        (Xs[I] #= 1) #=> (Xs[I+1] #= 1)
+      
+      elseif  (I == Num_Entradas) then
+        (Xs[I] #= 1) #=> (Xs[I-1] #= 1)
+      
+      elseif ( (I > 1)  || (I < Num_Entradas) ) then
+        (Xs[I] #= 1) #=> (Xs[I-1] #= 1 #\/ Xs[I+1] #= 1)
+      else
+      printf("\n .........")
+         
+     end,     
+   
+   
+   
+    
+    */
+          
+    
+
+
+
