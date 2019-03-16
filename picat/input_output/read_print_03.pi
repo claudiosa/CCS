@@ -1,3 +1,6 @@
+/*
+testando leituras
+*/
 %% reading a integer in Picat
 main   =>
 	printf("\n  >> Oi Turma de ALP << \n "),

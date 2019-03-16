@@ -1,4 +1,4 @@
-
+%%% picat sliding_K_cells.pi < sliding_K_cells.txt   
 
 import util. % use split
 import cp.
@@ -21,7 +21,7 @@ do_case(TC,  N_Valores,  W_Janela, L ) =>
 model(Caso, N_Valores,  W_Janela, L ) =>
     
     N_valores = to_array( L ), %% array de N_valores
-    Xs = new_array( N_Valores ), %% L tem N valores
+    Xs = new_array( N_Valores ), %% L tem N valores em um array
     Xs :: 0..1 ,
    
     [Begin, End] :: 1 .. N_Valores,
@@ -32,27 +32,21 @@ model(Caso, N_Valores,  W_Janela, L ) =>
         Sum #= sum([ (N_valores[J] * Xs[J]) : J in 1..N_Valores] ),
     
    %% from HAKAN's idea ... this line
-   /* WORKING FINE
+   /* WORKS FINE
     foreach (I in 1 .. N_Valores)
          (I #>= Begin #/\ I #=< End) #<=> Xs[I] #= 1
     end,    
        
     */
    %%% by CCS and works fine also 
-     foreach (I in 2 .. (N_Valores-1)     )
+     foreach ( I in 2 .. (N_Valores-1) )
         (Xs[I] #= 1) #=> (Xs[I-1] #= 1 #\/ Xs[I+1] #= 1)
      end,  
    
-   %% the beginning ... some bugs
-   % (((Xs[1] #= 1) #/\ W_Janela #> 1)  #<=> (Xs[2] #= 1)),
-   % ((Xs[1] #= 1) #/\ W_Janela #= 1)  #<=> (Xs[2] #= 0)),
+   %% garante a continuidade se o tamanho da janela for igual o 
+   %% tamanho do vetor
+   ( ((Xs[1] #= 1) #/\ (Xs[N_Valores] #= 1))#<=>(W_Janela #= N_Valores)),
    
-   %% the ending
-    %(((Xs[N_Valores] #= 1) #/\  W_Janela #> 1)  #<=> (Xs[N_Valores-1] #= 1);
-    % ((Xs[N_Valores] #= 1) #/\  W_Janela #= 1)  #<=> (Xs[N_Valores-1] #= 0)),
-      
-   
-       
     solve( [$max(Sum)] , Xs ),
     %printf("\nCaso:%w | Janela:%w  | Xs: %w | SOMA: %w\n", Caso,  W_Janela, Xs, Sum )
     printf("\nCaso:%w | SOMA: %w | Escolhas: ", Caso,  Sum ),
@@ -69,7 +63,7 @@ print_index_array(Xs,N_Valores) =>
 
 
     
-    /*
+    /**********************************************
     TO BE STUDY in the FUTURE
          
    
@@ -89,8 +83,15 @@ print_index_array(Xs,N_Valores) =>
      end,     
    
    
-    
-    */
+   %% the beginning ... some bugs
+   % (((Xs[1] #= 1) #/\ W_Janela #> 1)  #<=> (Xs[2] #= 1)),
+   % ((Xs[1] #= 1) #/\ W_Janela #= 1)  #<=> (Xs[2] #= 0)),
+   
+   %% the ending
+    %(((Xs[N_Valores] #= 1) #/\  W_Janela #> 1)  #<=> (Xs[N_Valores-1] #= 1);
+    % ((Xs[N_Valores] #= 1) #/\  W_Janela #= 1)  #<=> (Xs[N_Valores-1] #= 0)),
+       
+    **********************************************/
           
     
 

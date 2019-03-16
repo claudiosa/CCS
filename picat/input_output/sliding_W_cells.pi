@@ -1,4 +1,5 @@
 %%% HERE the Window will be discovered
+%% $picat sliding_W_cells.pi < sliding_W_cells.txt   
 
 import util. % use split
 import cp.
@@ -35,7 +36,7 @@ model(Caso, N_Valores,  L ) =>
         Sum #= sum([ (N_valores[J] * Xs[J]) : J in 1..N_Valores] ),
     
    %% from HAKAN's idea ... this line
-   %% WORKING FINE
+   %% WORKS FINE .... 
     foreach (I in 1 .. N_Valores)
       (I #>= Begin #/\ I #=< End) #<=> Xs[I] #= 1
     end,    
@@ -52,29 +53,8 @@ print_index_array(Xs,N_Valores) =>
           printf("%w ", I)
          end
         end.  
-      
- /*
-    TO BE STUDY in the FUTURE
-         
-   
-     foreach (I in 1 .. N_Valores)
-    %  foreach (I in 2 .. N_Valores-1) 
-      if (I == 1) then
-        (Xs[I] #= 1) #=> (Xs[I+1] #= 1)
-      
-      elseif  (I == N_Valores) then
-        (Xs[I] #= 1) #=> (Xs[I-1] #= 1)
-      
-      elseif ( (I > 1)  || (I < N_Valores) ) then
-        (Xs[I] #= 1) #=> (Xs[I-1] #= 1 #\/ Xs[I+1] #= 1)
-      else
-      printf("\n .........")
-         
-     end,     
-   
-   
-    
-    */
+     
+ /*************************************/
           
     
 
