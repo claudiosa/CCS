@@ -1,0 +1,5 @@
+index (+,+,+)(+,+, -) (-,+,-) (-,-,+) (-,-, +) (+,-,+) (+,+,-) (-,-,-)
+and2(true,true,true).
+and2(true,false,false).
+and2(false,true,false).
+and2(false,false,false).

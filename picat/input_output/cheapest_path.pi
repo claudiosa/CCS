@@ -1,0 +1,214 @@
+/****
+
+Problem:: the cheapest cost to cross the river
+Proposed:: by Claudio C. de Sa
+
+Consider a river, plenty of rocks to jump over it,
+and reach the other river bank (other side).
+Each rock has a value or cost, represented by a number.
+This river and its rocks are represented by
+a matrix. 
+
+The jumps allowed is one cell (rock) adjacent each movement,
+and the directions are only over vertical and horizontals
+cells. 
+
+Consideration (just for become easy a visualization): 
+the path linking the both side, can be  start in any 
+rock of the first line/row of this matrix.
+As well as, the other side will be reached, when 
+a rock in the last line/row of this matrix will be
+reached (achieved). 
+
+The task choosing any departure rock from the top line/row,
+find the cheapest path to reach a rock in the last line/row.
+
+Example:
+
+5 4              ---> size of matrix
+1  21  99 99      ---> upper side of river
+99  1   2  3
+1  99  99  4
+99  1  99  1
+99 99   1  99     ---> lower side of river
+
+The decision-matrix as solution is given (build by-hand):
+
+0  1  0  0   --> the first rock choosen has 21
+0  1  1  1
+0  0  0  1
+0  0  0  1
+0  0  0  1  --> at the last rock choosen has 99
+
+The cost is:: 21+1+2+3+4+1+99
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TO RUN in Linux::
+
+$ picat  cheapest_path.pi < cheapest_path.input 
+
+%%% a standard input for contest programming of ACM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+****/
+%%% picat sliding_K_cells.pi < sliding_K_cells.txt   
+%%% 
+import os. %%% for OS command
+import util. % use split
+import cp.
+
+
+main ?=>
+  %%Num_cases = to_int(read_line()),   %%%OU
+  Num_cases = read_line().to_int(), % total de casos
+  foreach (TC in 1..Num_cases)
+    [Lines, Columns] = [to_int(W) : W in read_line().split()], %% tamanho da matrix
+    %%% READING A MATRIX
+    new_array(Lines, Columns ) = Arr_2D, %% creating an array 2D
+     foreach (I in 1..Lines)  %% reading a line 
+       Arr_2D [I] := [to_int(W) : W in read_line().split()]
+     end ,
+    do_case(TC, Arr_2D, Lines, Columns )
+  end.
+    
+main =>  printf("\n None options from main !!!").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% one case per time
+do_case(TC, Arr_2D, Lines, Columns ) =>
+    % Status = command("clear") ,
+    % printf("====================================== %d OK", Status),
+     printf("\nCase #%w : Lines: %w : Cols: %w \n", TC,  Lines, Columns ),
+    % printf(" \nMATIX #%w :",  Arr_2D)
+     print_matrix( Arr_2D, Lines, Columns  ),
+     model(Arr_2D, Lines, Columns ) .
+     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+model(M , Lin, Col ) ?=>
+
+%% X a decision matrix 
+     X = new_array(Lin, Col ),
+     X :: 0..1 ,
+
+     %%% Minimization on the sum 
+     Sum #= sum([ (M[I,J] * X[I,J]) : I in 1..Lin , J in 1..Col ] ),
+          
+   %%% Almost ALL lines must 1 or more cells choosen
+       foreach( I in 2 .. Lin-1 )
+          sum( [ X[I,J] : J in 1..Col] )  #>= 1 
+       end,  
+       
+   %%% The first and the last line ... only one cell is enough 
+       sum( [ X[1 , J] : J in 1..Col] )  #= 1 ,
+       sum( [ X[Lin , J] : J in 1..Col] )  #= 1 ,    
+  
+ %%%% conectivity in the first line
+    foreach ( J in 1 .. Col )
+       (X[1,J] #= 1) #<=>  (X[2 , J] #= 1) 
+     end,
+     
+ %%%% conectivity in the last line
+    foreach ( J in 1 .. Col )
+      (X[ (Lin-1), J] #= 1) #<=>  (X[Lin , J] #= 1) 
+     end,
+      
+
+  %%%% THESE CONSTRAINST are not sure .....     
+  %%% a path to be discover in the INNER of  the matrix
+  %% to connect any cell with ONE or more adjacent
+  %% maybe some conditions in the corner of the matrix
+  %% Maybe these constraints should be more dealt -- elaborated
+  %% to assure some contiguity ....
+   (  
+     foreach ( I in 2 .. Lin-1 )
+       foreach ( J in 2 .. Col-1 )
+          ( (X[I,J] #= 1) #<=>
+            ( X[I-1 , J] #= 1) #\/
+					  ( X[I+1 , J] #= 1) #\/ 
+            ( X[I , J-1] #= 1) #\/
+            ( X[I , J+1] #= 1)
+          )
+      end
+      end
+    %%%%%
+  ; %%% OR -- first COL
+   foreach ( I in 2 .. Lin-1 )
+         ( (X[I,1] #= 1) #<=> 
+          ( X[I-1 , 1] #= 1) 
+           #\/
+          ( X[I+1 , 1] #= 1)
+         )
+      end
+   ; %%% OR   --- last COL
+   foreach ( I in 2 .. Lin-1 )
+       ( (X[I,Col] #= 1) #<=> 
+         (X[I-1 , Col] #= 1) 
+          #\/
+         (X[I+1 , Col] #= 1)
+       )
+    end   
+   ) ,
+
+%%%% Avoiding isolate cells in middle of the matrix
+/*
+   foreach ( I in 2 .. Lin)
+       foreach ( J in 2 .. Col-1 )
+          ( (X[I,J] #= 1) #/\ (X[I-1 , J] #= 0) #/\ (X[I, J-1] #= 0) #/\
+            ( X[I , J+1] #= 0)  #<=>  0
+          )
+      end
+      end
+    ,
+    
+    
+   foreach ( I in 1 .. Lin-1 )
+       foreach ( J in 2 .. Col-1 )
+          ( (X[I,J] #= 1) #/\ ( X[I+1, J] #= 0) #/\ ( X[I, J-1] #= 0) #/\
+            (X[I , J+1] #= 0) #<=>  0
+          )
+      end
+      end
+   ,
+*/
+
+    %%%%%
+
+
+
+%%%% aglomerados
+  foreach ( I in 2 .. Lin-1 )
+       foreach ( J in 2 .. Col-1 )
+        (X[I,J] +  X[I,J+1] + X[I+1,J] + X[I+1,J+1]) #<= 4
+       end
+  end,
+     
+  
+ 
+    %%% just for testing       
+     %%Sum #>= 12 ,
+     %%Sum #<= 15 ,
+    solve( [$min(Sum)] , X ),
+    
+    printf("\n COST or SUM: %w ", Sum ),
+    print_matrix(X , Lin, Col )
+    .
+   
+model(_, _, _ ) => printf("\n This case in unsatisfatible under this model -- check again !!!\n").
+
+
+/******************************* AUX predicates **********************/
+print_matrix( M, L, C ) =>
+ %L = M.length,
+ %C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+   end.   
+
+%print_matrix( _, _, _ ) => printf("\n None options from PRINT !!!").
+
+ 

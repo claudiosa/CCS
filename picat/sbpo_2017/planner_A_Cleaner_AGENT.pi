@@ -131,9 +131,9 @@ action(Grid, New_Grid, Action, Action_Cost ) ?=>
     % println(gridXY4=Grid[X,Y]),    
     [_, Col] = [Grid.length , Grid[1].length ],
 
-       (Y < Col  ,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
-        Grid_TEMP[X,Y] := '*',			
-	    Grid_TEMP[X,Y+1] := 'c',       
+     (Y < Col  ,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
+     Grid_TEMP[X,Y] := '*',			
+     Grid_TEMP[X,Y+1] := 'c',       
 
     New_Grid = Grid_TEMP .  
 	
@@ -149,10 +149,10 @@ action(Grid, New_Grid, Action, Action_Cost ) ?=>
     position_c_XY( [X,Y], Grid ), %% take the position
     % println(gridXY5=Grid[X,Y]),    
     (X == 1  ,  (Grid[X+1,Y]=='*' ; Grid[X+1,Y]=='@') ),
-        Grid_TEMP[X,Y] := '*',			
-	    Grid_TEMP[X+1,Y] := 'c',       
+     Grid_TEMP[X,Y] := '*',			
+	   Grid_TEMP[X+1,Y] := 'c',       
 
-    New_Grid = Grid_TEMP .
+     New_Grid = Grid_TEMP .
 
 /** lower line **/
 action(Grid, New_Grid, Action, Action_Cost ) ?=>
@@ -165,8 +165,8 @@ action(Grid, New_Grid, Action, Action_Cost ) ?=>
     [Row, _] = [Grid.length , Grid[1].length ],
 
     (X == Row  ,  (Grid[X-1,Y]=='*' ; Grid[X-1,Y]=='@')),
-      Grid_TEMP[X,Y] := '*',			
-	  Grid_TEMP[X-1,Y] := 'c',       
+     Grid_TEMP[X,Y] := '*',			
+	   Grid_TEMP[X-1,Y] := 'c',       
 
     New_Grid = Grid_TEMP .
 
@@ -179,7 +179,7 @@ action(Grid, New_Grid, Action, Action_Cost ) ?=>
     position_c_XY( [X,Y], Grid ), %% take the position
     % println(gridXY7=Grid[X,Y]),    
     (Y == 1,  (Grid[X,Y+1]=='*' ; Grid[X,Y+1]=='@')),
-        Grid_TEMP[X,Y] := '*',			
+      Grid_TEMP[X,Y] := '*',			
 	    Grid_TEMP[X,Y+1] := 'c',       
 
     New_Grid = Grid_TEMP .
@@ -195,7 +195,7 @@ action(Grid, New_Grid, Action, Action_Cost ) ?=>
     [ _, Col] = [Grid.length , Grid[1].length ],
 
     (Y == Col  ,  (Grid[X,Y-1]=='*' ; Grid[X,Y-1]=='@')),
-        Grid_TEMP[X,Y] := '*',
+      Grid_TEMP[X,Y] := '*',
 	    Grid_TEMP[X,Y-1] := 'c',       
 
     New_Grid = Grid_TEMP .
