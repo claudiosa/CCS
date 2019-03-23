@@ -1,0 +1,31 @@
+import cp.
+main => modelo.
+	
+%main ?=> modelo, fail.	
+%main =>  true.	
+
+modelo => 
+    Variaveis = [X1,X2,X3,X4],
+    Variaveis :: 0 .. 10,    
+    printf("\n ..........."),
+  	(X1 + 1) #= (X2 + 2),
+    (X3 + 3) #>  X4,
+    imp_dominios(X1,X2,X3,X4),
+
+	% SEARCH
+	solve([ff], Variaveis),
+	printf("\n APOS a BUSCA-EXPANSÃO nas FOLHAS:
+	X1: %d\t X2: %d\t X3: %d\t X4: %d", X1,X2,X3,X4),
+	printf("\n .....................................")
+	.
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+imp_dominios(X1,X2,X3,X4) =>
+ printf("\n Dom_X1=%w\t Dom_X2=%w", fd_dom(X1),fd_dom(X2)),
+ printf("\t Dom_X3=%w\t Dom_X4=%w", fd_dom(X3),fd_dom(X4)),
+ printf("\n=================================================").
+
+imp_dominios(_,_,_,_) => 
+		printf("\n HOUSTON, we have problems").
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

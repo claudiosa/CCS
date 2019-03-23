@@ -93,108 +93,75 @@ model(M , Lin, Col ) ?=>
      %%% Minimization on the sum 
      Sum #= sum([ (M[I,J] * X[I,J]) : I in 1..Lin , J in 1..Col ] ),
           
+   %%% The first and the last line ... only one cell is marked
+       sum( [ X[1 , J] : J in 1..Col] )    #= 1 ,
+       sum( [ X[Lin , J] : J in 1..Col] )  #= 1 ,    
+
    %%% Almost ALL lines must 1 or more cells choosen
        foreach( I in 2 .. Lin-1 )
           sum( [ X[I,J] : J in 1..Col] )  #>= 1 
-       end,  
+        end,  
        
-   %%% The first and the last line ... only one cell is enough 
-       sum( [ X[1 , J] : J in 1..Col] )  #= 1 ,
-       sum( [ X[Lin , J] : J in 1..Col] )  #= 1 ,    
-  
- %%%% conectivity in the first line
+ %%%% conectivity in the first line with the second in any point
     foreach ( J in 1 .. Col )
-       (X[1,J] #= 1) #<=>  (X[2 , J] #= 1) 
-     end,
+      (X[1,J] #= 1) #=>  (X[2 , J] #= 1) 
+    end,
      
  %%%% conectivity in the last line
     foreach ( J in 1 .. Col )
-      (X[ (Lin-1), J] #= 1) #<=>  (X[Lin , J] #= 1) 
+    %%% I changed the order to
+      (X[Lin , J] #= 1) #=>  (X[(Lin-1) , J] #= 1) 
+    %%  instead of
+    %%  (X[(Lin-1) , J] #= 1) #=>  (X[Lin , J] #= 1) 
      end,
       
-
-  %%%% THESE CONSTRAINST are not sure .....     
   %%% a path to be discover in the INNER of  the matrix
-  %% to connect any cell with ONE or more adjacent
-  %% maybe some conditions in the corner of the matrix
-  %% Maybe these constraints should be more dealt -- elaborated
-  %% to assure some contiguity ....
-   (  
-     foreach ( I in 2 .. Lin-1 )
-       foreach ( J in 2 .. Col-1 )
-          ( (X[I,J] #= 1) #<=>
-            ( X[I-1 , J] #= 1) #\/
-					  ( X[I+1 , J] #= 1) #\/ 
-            ( X[I , J-1] #= 1) #\/
-            ( X[I , J+1] #= 1)
-          )
+  %%% The idea: some patterns are allways built to find a path
+  %%% these patterns has allways the value 3
+  %%% 3 points are allways considered, once that all points must be
+  %%% connected at least for 2 others - theirs neighbours
+  %%% Only a exeception, the first and last line... only one point
+  %%% To understand this idea ... please, do a draw
+ foreach ( I in 2 .. Lin-1 )
+     foreach ( J in 2 .. Col-1 )
+     ( % hakank: I added (...) around all implication statements
+       ((X[I,J] #= 1 #/\ X[I,J-1] #=1 ) #=> ((X[I+1,J] + X[I-1,J] + X[I,J+1]) #= 1)) %% pattern 1
+        #\/
+       ((X[I,J] #= 1 #/\ X[I,J+1] #= 1) #=> ((X[I+1,J] + X[I,J-1] + X[I-1,J]) #= 1)) %% pattern 4
+        #\/
+        ((X[I,J] #= 1 #/\ X[I-1,J]#= 1) #=> ((X[I-1,J] + X[I,J-1] + X[I,J+1]) #= 1)) %% pattern 2
+	      #\/
+        ((X[I,J] #= 1 #/\ X[I+1,J] #= 1) #=> ((X[I-1,J] +  X[I,J+1] + X[I,J-1]) #= 1)) %% pattern 3
+      )
       end
-      end
-    %%%%%
-  ; %%% OR -- first COL
-   foreach ( I in 2 .. Lin-1 )
-         ( (X[I,1] #= 1) #<=> 
-          ( X[I-1 , 1] #= 1) 
-           #\/
-          ( X[I+1 , 1] #= 1)
-         )
-      end
-   ; %%% OR   --- last COL
-   foreach ( I in 2 .. Lin-1 )
-       ( (X[I,Col] #= 1) #<=> 
-         (X[I-1 , Col] #= 1) 
-          #\/
-         (X[I+1 , Col] #= 1)
-       )
-    end   
-   ) ,
-
-%%%% Avoiding isolate cells in middle of the matrix
-/*
-   foreach ( I in 2 .. Lin)
-       foreach ( J in 2 .. Col-1 )
-          ( (X[I,J] #= 1) #/\ (X[I-1 , J] #= 0) #/\ (X[I, J-1] #= 0) #/\
-            ( X[I , J+1] #= 0)  #<=>  0
-          )
-      end
-      end
-    ,
-    
-    
-   foreach ( I in 1 .. Lin-1 )
-       foreach ( J in 2 .. Col-1 )
-          ( (X[I,J] #= 1) #/\ ( X[I+1, J] #= 0) #/\ ( X[I, J-1] #= 0) #/\
-            (X[I , J+1] #= 0) #<=>  0
-          )
-      end
-      end
-   ,
-*/
-
-    %%%%%
-
-
-
-%%%% aglomerados
+    end,
+ 
+ %%% first colunm ... none isolated point
   foreach ( I in 2 .. Lin-1 )
-       foreach ( J in 2 .. Col-1 )
-        (X[I,J] +  X[I,J+1] + X[I+1,J] + X[I+1,J+1]) #<= 4
-       end
+      (X[I,1] #= 1) #=> ((X[I-1,1] + X[I+1,1] + X[I,2])  #= 2 )
   end,
      
-  
+ %%% last colunm ... none isolated point
+  foreach ( I in 2 .. Lin-1 )
+      (X[I,Col] #= 1) #=> ((X[I-1,Col] + X[I+1,Col] + X[I,(Col-1)]) #= 2 )
+  end,
  
-    %%% just for testing       
-     %%Sum #>= 12 ,
-     %%Sum #<= 15 ,
-    solve( [$min(Sum)] , X ),
+ %% all points selected in the inner of matrix ... must be connected
+ foreach ( I in 2 .. Lin-1 )
+     foreach ( J in 2 .. Col-1 )
+     (X[I,J] #= 1) #=> ((X[I-1,J] + X[I+1,J] + X[I,J-1] + X[I,J+1])  #= 2 )
+     end
+ end,
     
-    printf("\n COST or SUM: %w ", Sum ),
-    print_matrix(X , Lin, Col )
-    .
-   
+ %%% the search
+ solve( [$min(Sum)] , X ),
+    
+  printf("\n PATH CHOOSEN \n"),
+  print_matrix(X , Lin, Col ),
+  printf("\n LOWEST COST or SUM: %w \n", Sum )
+  .
+       
 model(_, _, _ ) => printf("\n This case in unsatisfatible under this model -- check again !!!\n").
-
 
 /******************************* AUX predicates **********************/
 print_matrix( M, L, C ) =>
@@ -211,4 +178,4 @@ print_matrix( M, L, C ) =>
 
 %print_matrix( _, _, _ ) => printf("\n None options from PRINT !!!").
 
- 
+/******************************************************************************* */
