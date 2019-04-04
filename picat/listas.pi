@@ -1,0 +1,53 @@
+
+
+main ?=> Status = command("clear") ,
+		printf("====================================== %d", Status),
+        comprimento_01([a,b,c,d], X), 
+        printf("\n comprimento_01: %d " , X), 
+        printf("\n comprimento_02: %d " , comprimento_02([a,b,c,d]) ),
+        %pertence_01(a,[a,b,c,d]), 
+       % pertence_01(e,[a,b,c,d]), 
+        printf("\n pertence_02: %w " , pertence_02(a,[a,b,c,d])  ),   
+        printf("\n pertence_02: %w " , pertence_02(e,[a,b,c,d])  ),
+        uniao_01( [a,b,c,d], [x,y,w,z], U1 ), 
+        printf("\n uniao_01: %w " , U1), 
+        printf("\n uniao_02: %w " , uniao_02( [a,b,c,d], [x,y,w,z])), 
+        printf("\n====================================== \n")
+        .
+main =>  printf("\n Something Wrong !!!").
+
+% -- visao classica
+comprimento_01([],S) ?=> S = 0. 
+%%% em PROLOG, apenas comprimento_01([],0). PORQUÊ?
+comprimento_01([_|L],S)  => 
+             comprimento_01( L , Parcial ), 
+             S = 1 + Parcial.
+
+% -- visao funcional
+comprimento_02([]) = S => S = 0.
+comprimento_02([ _ |L]) = S  => 
+             S = 1 + comprimento_02( L ).
+
+% -- visao classica
+pertence_01( A, [A|_]) ?=> true. 
+% Novamente, backtracking CONTROLADO ... diferente do Prolog
+pertence_01(A,[B|L])  => 
+             A != B,
+             pertence_01(A,L).
+
+% -- visao funcional
+pertence_02( _ , [ ]) = X =>  X = false. 
+pertence_02( A, [A|_]) = X =>  X = true. 
+% CUIDAR ... nao hah ?
+pertence_02(A,[B|L]) = X => 
+             A != B,
+             X = pertence_02(A,L).
+
+% -- visao classica
+uniao_01( [] , X, Y ) ?=> Y = X. 
+uniao_01( [X|L1], L2, [X |L3 ] ) => uniao_01( L1, L2, L3 ).
+
+uniao_02( [], X ) = Y => Y = X. 
+uniao_02( [X|L1], L2 ) = L3 => L3 = [X |  uniao_02( L1, L2 )].
+
+

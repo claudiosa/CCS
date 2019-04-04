@@ -54,7 +54,6 @@ $ picat  cheapest_path.pi < cheapest_path.input
 %%% 
 import os. %%% for OS command
 import util. % use split
-%import cp.
 import sat.
 
 
@@ -73,6 +72,41 @@ main ?=>
     
 main =>  printf("\n None options from main !!!").
 
+
+% Run a random instance
+rand => 
+  nolog,
+  Lin = 16,
+  Col = 16,
+  MaxVal = 99,
+  random_problem(Lin,Col,MaxVal, M),
+  do_case(random, M, Lin, Col ),
+
+  nl.
+
+
+%
+% Generate a random problem matrix of size Rows x Cols with values 1..MaxVal
+%
+random_problem(Rows,Cols,MaxVal, M) =>
+  M1 = new_array(Rows,Cols),
+  % _ = random2(),
+  foreach(I in 1..Rows)
+    foreach(J in 1..Cols)
+      if frand() >= 0.8 then
+        % R = 1+random() mod MaxVal,
+        M1[I,J] := MaxVal
+      else
+        R = 1+random() mod 10,
+        M1[I,J] := R
+       end
+    end
+  end,
+  M = M1.array_matrix_to_list_matrix().
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% one case per time
 do_case(TC, Arr_2D, Lines, Columns ) =>
@@ -87,35 +121,56 @@ do_case(TC, Arr_2D, Lines, Columns ) =>
 
 model(M , Lin, Col ) ?=>
 
-%% X a decision matrix 
-     X = new_array(Lin, Col ),
-     X :: 0..1 ,
+  %% X a decision matrix 
+  X = new_array(Lin, Col ),
+  X :: 0..1,
 
-     %%% Minimization on the sum 
-     Sum #= sum([ (M[I,J] * X[I,J]) : I in 1..Lin , J in 1..Col ] ),
+  %%% Minimization on the sum 
+  Sum #= sum([ (M[I,J] * X[I,J]) : I in 1..Lin , J in 1..Col ] ),
+
+  SumX #= sum(X.vars),
+  println(sumX=SumX),
+  SumX #>= Lin,
           
-   %%% The first and the last line ... only one cell is marked
-       sum( [ X[1 , J] : J in 1..Col] )    #= 1 ,
-       sum( [ X[Lin , J] : J in 1..Col] )  #= 1 ,    
+  %%% The first and the last line ... only one cell is marked
+  sum( [ X[1 , J] : J in 1..Col] )    #= 1 ,
+  sum( [ X[Lin , J] : J in 1..Col] )  #= 1 ,    
 
-   %%% Almost ALL lines must 1 or more cells choosen
-       foreach( I in 2 .. Lin-1 )
-          sum( [ X[I,J] : J in 1..Col] )  #>= 1 
-        end,  
+  %%% Almost ALL lines must 1 or more cells choosen
+  foreach( I in 2 .. Lin-1 )
+     sum( [ X[I,J] : J in 1..Col] )  #>= 1 
+  end,  
        
- %%%% conectivity in the first line with the second in any point
-    foreach ( J in 1 .. Col )
-      (X[1,J] #= 1) #=>  (X[2 , J] #= 1) 
-    end,
+  %%%% conectivity in the first line with the second in any point
+  foreach ( J in 1 .. Col )
+    (X[1,J] #= 1) #=>  (X[2 , J] #= 1) 
+  end,
      
- %%%% conectivity in the last line
-    foreach ( J in 1 .. Col )
+  %%%% conectivity in the last line
+  foreach ( J in 1 .. Col )
     %%% I changed the order to
-      (X[Lin , J] #= 1) #=>  (X[(Lin-1) , J] #= 1) 
+    (X[Lin , J] #= 1) #=>  (X[(Lin-1) , J] #= 1) 
     %%  instead of
     %%  (X[(Lin-1) , J] #= 1) #=>  (X[Lin , J] #= 1) 
-     end,
-      
+  end,
+
+  %%% first colunm ... none isolated point
+  foreach ( I in 2 .. Lin-1 )
+    (X[I,1] #= 1) #=> ((X[I-1,1] + X[I+1,1] + X[I,2])  #= 2 )
+  end,
+     
+  %%% last colunm ... none isolated point
+  foreach ( I in 2 .. Lin-1 )
+    (X[I,Col] #= 1) #=> ((X[I-1,Col] + X[I+1,Col] + X[I,(Col-1)]) #= 2 )
+  end,
+ 
+  %% all points selected in the inner of matrix ... must be connected
+  foreach ( I in 2 .. Lin-1 )
+    foreach ( J in 2 .. Col-1 )
+      (X[I,J] #= 1) #=> ((X[I-1,J] + X[I+1,J] + X[I,J-1] + X[I,J+1])  #= 2 )
+    end
+  end,
+    
   %%% a path to be discover in the INNER of  the matrix
   %%% The idea: some patterns are allways built to find a path
   %%% these patterns has allways the value 3
@@ -123,42 +178,25 @@ model(M , Lin, Col ) ?=>
   %%% connected at least for 2 others - theirs neighbours
   %%% Only a exeception, the first and last line... only one point
   %%% To understand this idea ... please, do a draw
- foreach ( I in 2 .. Lin-1 )
-     foreach ( J in 2 .. Col-1 )
-     ( % hakank: I added (...) around all implication statements
+  foreach ( I in 2 .. Lin-1 )
+    foreach ( J in 2 .. Col-1 )
+     (
        ((X[I,J] #= 1 #/\ X[I,J-1] #=1 ) #=> ((X[I+1,J] + X[I-1,J] + X[I,J+1]) #= 1)) %% pattern 1
         #\/
        ((X[I,J] #= 1 #/\ X[I,J+1] #= 1) #=> ((X[I+1,J] + X[I,J-1] + X[I-1,J]) #= 1)) %% pattern 4
         #\/
-        ((X[I,J] #= 1 #/\ X[I-1,J]#= 1) #=> ((X[I-1,J] + X[I,J-1] + X[I,J+1]) #= 1)) %% pattern 2
-	      #\/
-        ((X[I,J] #= 1 #/\ X[I+1,J] #= 1) #=> ((X[I-1,J] +  X[I,J+1] + X[I,J-1]) #= 1)) %% pattern 3
+       ((X[I,J] #= 1 #/\ X[I-1,J]#= 1) #=> ((X[I-1,J] + X[I,J-1] + X[I,J+1]) #= 1)) %% pattern 2
+        #\/
+       ((X[I,J] #= 1 #/\ X[I+1,J] #= 1) #=> ((X[I-1,J] +  X[I,J+1] + X[I,J-1]) #= 1)) %% pattern 3
       )
-      end
-    end,
- 
- %%% first colunm ... none isolated point
-  foreach ( I in 2 .. Lin-1 )
-      (X[I,1] #= 1) #=> ((X[I-1,1] + X[I+1,1] + X[I,2])  #= 2 )
-  end,
-     
- %%% last colunm ... none isolated point
-  foreach ( I in 2 .. Lin-1 )
-      (X[I,Col] #= 1) #=> ((X[I-1,Col] + X[I+1,Col] + X[I,(Col-1)]) #= 2 )
-  end,
- 
- %% all points selected in the inner of matrix ... must be connected
- foreach ( I in 2 .. Lin-1 )
-     foreach ( J in 2 .. Col-1 )
-     (X[I,J] #= 1) #=> ((X[I-1,J] + X[I+1,J] + X[I,J-1] + X[I,J+1])  #= 2 )
      end
- end,
+  end,
     
- %%% the search
- solve( [$min(Sum)] , X ),
+  %%% the search
+  solve( $[degree,split,min(Sum),report(printf("Sum: %d\n", Sum))] , X ),
     
   printf("\n PATH CHOOSEN \n"),
-  print_matrix(X , Lin, Col ),
+  print_matrix01(X , Lin, Col ),
   printf("\n LOWEST COST or SUM: %w \n", Sum )
   .
        
@@ -166,17 +204,41 @@ model(_, _, _ ) => printf("\n This case in unsatisfatible under this model -- ch
 
 /******************************* AUX predicates **********************/
 print_matrix( M, L, C ) =>
- %L = M.length,
- %C = M[1].length,
+  %L = M.length,
+  %C = M[1].length,
   nl,
-   foreach(I in 1  .. L)
-     foreach(J in 1  ..  C)
-      printf("%w " , M[I,J] )
+  foreach(I in 1  .. L)
+    foreach(J in 1  ..  C)
+      printf("%2w " , M[I,J] )
      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
-     end,
-     nl
+    end,
+    nl
    end.   
 
 %print_matrix( _, _, _ ) => printf("\n None options from PRINT !!!").
 
 /******************************************************************************* */
+
+print_matrix01( M, L, C ) =>
+  nl,
+  foreach(I in 1  .. L)
+    foreach(J in 1  ..  C)
+      printf("%w" , M[I,J] )
+    end,
+    nl
+  end.   
+
+
+print_matrix_dom(M,L, C) =>
+  nl,
+  foreach(I in 1..L)
+    foreach(J in 1..C)
+      fd_min_max(M[I,J], Min, Max),
+      if Min == Max then
+         printf("  %d " , Min )
+      else 
+         printf("%d..%d " , Min, Max )
+      end
+    end,
+    nl
+  end.   
