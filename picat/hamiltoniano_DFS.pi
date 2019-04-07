@@ -1,0 +1,87 @@
+import datetime.
+import util.
+%% time( picat hamiltoniano_DFS.pi)
+
+/* pontos iniciais e finais do problema */
+index(-)
+destino( blumenau ).
+
+index(-)
+origem( joinville ).
+
+%% MAPA da região
+index(-,-)
+arco(joinville, sbs) .
+arco(joinville, itajai) .
+arco(jaragua, sbs) .
+arco(jaragua, blumenau) .
+arco(blumenau, itajai) .
+arco(brusque, itajai) .
+arco(brusque, blumenau) .
+
+/* Veja o diagrama  Cidades*/
+move_no(X,Y) ?=> arco(X,Y).
+move_no(X,Y)  => arco(Y,X).
+%move_no( _ , _) => 
+%       printf("\n move-no: NONE RULES WERE MATCHED ").
+/************************************************************/
+
+main  ?=>  
+    origem(X),    %%%write([X]),
+    destino(Y),
+    %T1 = current_time(),
+    busca_DFS( [X] , Solucao), %%% CPU TIME
+    %T2 = current_time(), 
+    /* X  é o nó inicial, logo entra na lista inicial */
+
+    %%Sol_invertida = reverse(  Solucao ), %% OR
+    reverse_2(Solucao, Sol_invertida),
+    
+    write_L(Sol_invertida),
+    length(Solucao) = Total,
+    Num_Movts := (Total -1),
+    %T_CPU :=T2-T1,
+    printf("\n Initial Position (state): %w ", X),
+    printf("\n Final  Position (state): %w", Y),
+    printf("\n Total of states: %d", Total), 
+    printf("\n Total of moviments: %w", Num_Movts),
+    %printf("\n CPU TIME INIC: %d  FIM %d",     T1, T2),
+    printf(" \n =========================================\n ")
+    .
+
+main => nl, write('No solution in the model  ... Houston we have a trouble!!!!' ) .
+
+/*************************************************************/
+%% cond. de parada.... o nó corrente é o desejado
+busca_DFS( [ No_corrente | Caminho] , L) ?=>
+     destino(No_final),
+%    the halting conditions
+     %%% condicao de parada 1
+	   No_corrente == No_final,
+     %   printf(" \n  == TESTE de PARADA passou   ==  "),
+	   L = [ No_corrente | Caminho ],
+     %%% condicao de parada 2
+	   length (L) ==  5,
+     write(L),
+     printf(" \n UMA SOLUCAO ....: OK\n ==>"). 
+
+busca_DFS(  [Nodo | Caminho], Solucao) =>
+            %%% exploring for a new movement
+           move_no(Nodo , Novo_nodo), 
+            %% test if this node was visited
+           not( member(Novo_nodo, [Nodo|Caminho]) ),
+           %printf(" \n novo %w %w %w", Novo_nodo, Nodo, Caminho),
+           busca_DFS(  [Novo_nodo , Nodo | Caminho ] , Solucao).
+
+/*************************************************************/
+
+ write_L([])  ?=> true.
+ write_L([X|L]) =>  printf("%w : ", X ),  write_L(L).
+					  					  
+/***********************************************************/
+
+reverse_2([],R) => R=[].
+reverse_2([A|B], Inverted) => reverse_2(B, X),
+                              append(X, [A], Inverted).
+/***********************************************************/                                                 
+
