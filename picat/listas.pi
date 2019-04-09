@@ -10,25 +10,38 @@ main ?=> Status = command("clear") ,
         printf("\n pertence_02: %w " , pertence_02(a,[a,b,c,d])  ),   
         printf("\n pertence_02: %w " , pertence_02(e,[a,b,c,d])  ),
         uniao_01( [a,b,c,d], [x,y,w,z], U1 ), 
-        printf("\n uniao_01: %w " , U1), 
+%        uniao_01( U2, [x,y,w,z], [a,b,c,d, x,y,w,z] ), 
+        printf("\n a. uniao_01: %w " , U1), 
+%        printf("\n b. uniao_01: %w " , U2), 
         printf("\n uniao_02: %w " , uniao_02( [a,b,c,d], [x,y,w,z])), 
+        
+        add_X_lista_01( e, [a,b,c,d], Z1),
+        
+        printf("\n a. add_X_01: %w " , Z1), 
+        printf("\n a. add_X_02: %w " , add_X_lista_02( e, [a,b,c,d] )),
+        printf("\n b. add_X_02: %w " , add_X_lista_02( d, [a,b,c,d] )),
+        printf("\n a. Geração de listas: %w " , [I :  I in 1..20] ), 
+        printf("\n b. Geração de listas: %w " , [I :  I in 1..20, I>10, I<20] ), 
+        printf("\n a. Geração de vetor 1D: %w " , {I :  I in 1 .. 7}), 
+        printf("\n a. Geração de vetor 2D: %w " , {(I,J) :  I in 1 .. 2, J in 11 .. 12}), 
         printf("\n====================================== \n")
         .
 main =>  printf("\n Something Wrong !!!").
 
-% -- visao classica
-comprimento_01([],S) ?=> S = 0. 
+% -- visao lógica
+comprimento_01([],N) ?=> N = 0. 
 %%% em PROLOG, apenas comprimento_01([],0). PORQUÊ?
-comprimento_01([_|L],S)  => 
+comprimento_01([_|L],N)  => 
              comprimento_01( L , Parcial ), 
-             S = 1 + Parcial.
+             N = 1 + Parcial.
 
 % -- visao funcional
-comprimento_02([]) = S => S = 0.
-comprimento_02([ _ |L]) = S  => 
-             S = 1 + comprimento_02( L ).
+%comprimento_02([]) = S => S = 0.
+comprimento_02( [ ] ) = 0.
+comprimento_02([ _ | L ]) = N  => 
+             N = 1 + comprimento_02( L ).
 
-% -- visao classica
+% -- visao lógica
 pertence_01( A, [A|_]) ?=> true. 
 % Novamente, backtracking CONTROLADO ... diferente do Prolog
 pertence_01(A,[B|L])  => 
@@ -36,18 +49,45 @@ pertence_01(A,[B|L])  =>
              pertence_01(A,L).
 
 % -- visao funcional
-pertence_02( _ , [ ]) = X =>  X = false. 
-pertence_02( A, [A|_]) = X =>  X = true. 
-% CUIDAR ... nao hah ?
-pertence_02(A,[B|L]) = X => 
+%pertence_02( _ , [ ]) = X =>  X = false. 
+%pertence_02( A, [A|_]) = X =>  X = true. 
+pertence_02( _ , [ ]) = false. 
+pertence_02( A, [A|_]) = true. 
+% CUIDAR ... em funcoes nao hah ? em ?=> ... 
+% sem backtracking em funcoes
+pertence_02(A, [B|L]) = X => 
              A != B,
              X = pertence_02(A,L).
 
-% -- visao classica
+% -- visao lógica
 uniao_01( [] , X, Y ) ?=> Y = X. 
-uniao_01( [X|L1], L2, [X |L3 ] ) => uniao_01( L1, L2, L3 ).
+uniao_01( A , L2, R  ) =>  A = [X|L1] , 
+                           R = [X|L3] , 
+                           uniao_01( L1, L2, L3 ).
 
-uniao_02( [], X ) = Y => Y = X. 
-uniao_02( [X|L1], L2 ) = L3 => L3 = [X |  uniao_02( L1, L2 )].
+%uniao_02( [], X ) = Y => Y = X. 
+uniao_02( [], X ) = X. 
+uniao_02( [X|L1], L2 ) = L3 => L3 = [X | uniao_02( L1, L2 )].
+
+
+%% adiciona X no inicio da lista se este não estiver na lista
+add_X_lista_01(X, [ ], Z )  ?=> Z = [X]. 
+add_X_lista_01(X, Y, Z) ?=>
+          pertence_01(X, Y),
+          Z = Y.
+add_X_lista_01(X, Y, Z) =>
+          Z = [ X | Y ].
+
+
+
+add_X_lista_02(X, [ ]) = [X]. 
+add_X_lista_02(X, Y) = Z =>
+          pertence_02(X, Y) = true,
+          Z = Y;
+          Z = [ X | Y ].
+          
+%%add_X_lista_02(X, Y) = Z => Z = X ++ Y.
+          %%Z = [ X | Y ].
+
 
 
