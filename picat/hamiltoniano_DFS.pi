@@ -6,6 +6,8 @@ import util.
 /* NOS iniciais e finais do problema */
 index(-)
 destino( blumenau ).
+%destino( brusque ).
+
 index(-)
 origem( joinville ).
 
@@ -13,10 +15,14 @@ origem( joinville ).
 index(-,-)
 arco(joinville, sao_bento)  .
 arco(joinville, itajai)     .
+arco(joinville, jaragua)     .
+arco(joinville, luiz_alves)     .
 arco(jaragua, sao_bento)    .
 arco(jaragua, blumenau)     .
+%%arco(sao_bento, blumenau)     .
 arco(jaragua, luiz_alves)   .
 arco(itajai, luiz_alves)    . 
+arco(blumenau, luiz_alves)    . 
 arco(blumenau, itajai)      .
 arco(brusque, itajai)       .
 arco(brusque, blumenau)     .
