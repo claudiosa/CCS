@@ -1,0 +1,159 @@
+/* 
+
+  2x3-puzzle in Picat.
+
+  This is a stripped down 8-puzzle,
+  inspired by the Prolog code in Thinking as Computation. 
+
+  This Picat model was created by Hakan Kjellerstrand, hakank@gmail.com
+  See also my Picat page: http://www.hakank.org/picat/
+
+*/
+%
+%%% Fully rewritten by CCS 
+% 
+
+/*
+
+A  B  C 
+D  E  F
+*/
+
+%%%%%%%%%
+%   1 5 %
+% 4 3 2 %
+%%%%%%%%%
+
+import datetime.
+import planner.
+
+/* pontos iniciais e finais do problema */
+index(-)
+estado_inicial( [0,1,5,4,3,2]  ).
+
+%% funcao final do planner
+final( [1,2,3,4,5,0] ) => true .
+
+% Up <-> Down
+/* Describing the possible actions ==> for the planner */
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    ( A == 0 ),  %% conj. condicoes
+    S1 = [D,B,C, 0,E,F], 
+    Acao = ($up(D),S1). %%a acao + estado modificado
+
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (A == 0 ),  %% conj. condicoes
+    S1 = [0,B,C, A,E,F],
+    Acao = ($dow(A),S1). %%a acao + estado modificado
+
+
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (B == 0 ),  %% conj. condicoes
+    S1 = [A,E,C, D,0,F],
+    Acao = ($up(E) , S1). %%a acao + estado modificado
+    
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (E == 0 ),  %% conj. condicoes
+    S1 = [A,0,C, D,B,F],
+    Acao = ($dow(B), S1). %%a acao + estado modificado
+   
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (C == 0 ),  %% conj. condicoes
+    S1 = [A,B,F, D,E,0],
+    Acao = ($up(F), S1). %%a acao + estado modificado
+    
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (F == 0 ),  %% conj. condicoes
+    S1 = [A,B,0, D,E,C],
+    Acao = ($dow(C), S1). %%a acao + estado modificado
+    
+% Left <-> Right
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (A == 0),  %% conj. condicoes
+    S1 = [B,0,C, D,E,F],
+    Acao = ($left(B), S1). %%a acao + estado modificado
+    
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (B == 0),  %% conj. condicoes
+    S1 = [0,A,C, D,E,F],
+    Acao = ($right(A), S1). %%a acao + estado modificado
+   
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (B == 0),  %% conj. condicoes
+    S1 = [A,C,0, D,E,F],
+    Acao = ($left(C), S1). %%a acao + estado modificado
+   
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (C == 0),  %% conj. condicoes
+    S1 = [A,0,B, D,E,F],
+    Acao = ($right(B), S1). %%a acao + estado modificado
+    
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (D == 0),  %% conj. condicoes
+    S1 = [A,B,C, E,0,F],
+     Acao = ($left(E), S1). %%a acao + estado modificado
+    
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (E == 0),  %% conj. condicoes
+    S1 = [A,B,C, 0,D,F],
+    Acao = ($right(D), S1). %%a acao + estado modificado
+    
+
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (E == 0),  %% conj. condicoes
+    S1 = [A,B,C, D,F,0],
+    Acao = ($left(F), S1). %%a acao + estado modificado
+    
+action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
+    Custo_Acao = 1,
+    (F == 0),  %% conj. condicoes
+    S1 = [A,B,C, D,0,E],
+    Acao = ($right(E), S1). %%a acao + estado modificado
+    
+%%%%%%%%%%%%%%%%% the main call %%%%%%%%%
+main  ?=>  
+    estado_inicial( Q ),
+   
+    best_plan_unbounded( Q , Sol_Acoes), 
+    %%println(Sol_Acoes),
+        
+    printf("\n Estado Inicial: "),
+    w_Quadro( Q ), 
+    w_L_Estado( Sol_Acoes ), 
+  
+    Total := length(Sol_Acoes) ,
+    Num_Movts := (Total -1) ,
+    printf("\n Initial  (state): %w ", Q),
+    printf("\n Total de acoes: %d", Total), 
+    printf(" \n =========================================\n ")
+    .
+   
+main => nl, write('No solution in the model !!!!' ) .
+
+/* ************************************************************/
+w_Quadro([A,B,C, D,E,F])=>
+  printf("\n %w %w %w\n %w %w %w\n", A,B,C, D,E,F).
+    
+w_L_Estado([] )  ?=> true.
+w_L_Estado( [(A,Q) | L ]) =>  
+   printf("\nAcao: %w", A),
+   w_Quadro(Q),
+   w_L_Estado( L ).   
+%%% Use um foreach da proxima vez
+/************************************************************/
+ write_L([])  ?=> true.
+ write_L([X|L]) =>  writeln( X ),  write_L(L).
+/* ************************************************************ */
