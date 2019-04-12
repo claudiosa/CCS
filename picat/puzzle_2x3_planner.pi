@@ -14,7 +14,6 @@
 % 
 
 /*
-
 A  B  C 
 D  E  F
 */
@@ -35,7 +34,7 @@ estado_inicial( [0,1,5,4,3,2]  ).
 final( [1,2,3,4,5,0] ) => true .
 
 % Up <-> Down
-/* Describing the possible actions ==> for the planner */
+/* Descrevendo as possiveis acoes para o planner */
 action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
     Custo_Acao = 1,
     ( A == 0 ),  %% conj. condicoes
@@ -44,7 +43,7 @@ action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
 
 action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
     Custo_Acao = 1,
-    (A == 0 ),  %% conj. condicoes
+    ( A == 0 ),  %% conj. condicoes
     S1 = [0,B,C, A,E,F],
     Acao = ($dow(A),S1). %%a acao + estado modificado
 
@@ -128,7 +127,7 @@ main  ?=>
     estado_inicial( Q ),
    
     best_plan_unbounded( Q , Sol_Acoes), 
-    %%println(Sol_Acoes),
+    println(sol=Sol_Acoes),
         
     printf("\n Estado Inicial: "),
     w_Quadro( Q ), 
@@ -136,12 +135,13 @@ main  ?=>
   
     Total := length(Sol_Acoes) ,
     Num_Movts := (Total -1) ,
-    printf("\n Initial  (state): %w ", Q),
+    printf("\n Inicial  (estado): %w ", Q),
     printf("\n Total de acoes: %d", Total), 
     printf(" \n =========================================\n ")
+    %%% , fail descomente para multiplas solucoes
     .
    
-main => nl, write('No solution in the model !!!!' ) .
+main => printf("\n Para uma solução .... !!!!" ) .
 
 /* ************************************************************/
 w_Quadro([A,B,C, D,E,F])=>
