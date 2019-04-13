@@ -1,5 +1,5 @@
-% Soma como predicado
-
+/* Soma como predicado
+*/
 main ?=> Status = command("clear") ,
 		printf("====================================== %d", Status),
         soma_p1(7, X), 
@@ -18,8 +18,8 @@ main =>  printf("\n Something Wrong !!!").
 /* recursividade CLASSICA -- prolog like*/
 soma_p1(0,S) ?=> S = 0.   % regra backtrackable
 soma_p1(1,S) ?=> S = 1.   % regra backtrackable
-// regras de aterramento ou parada da recursao
-// grounding clauses
+%// regras de aterramento ou parada da recursao
+%// grounding clauses
 
 
 soma_p1( N, S ) => N > 0, %%% regra recursiva
