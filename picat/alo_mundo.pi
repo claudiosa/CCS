@@ -1,0 +1,4 @@
+main => msg_01  , 
+        msg_02 .
+msg_01 =>  printf("  ALO MUNDO!!! ").
+msg_02 =>  printf("\n  FIM \n").

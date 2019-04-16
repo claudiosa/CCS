@@ -1,0 +1,57 @@
+import cp.
+
+% main => modelo	.
+% main ?=> modelo, fail.	
+% main =>  true.	
+
+main =>
+    L = findall(_, $modelo),
+    writef("\n Total de solucoes:  %d \n", length(L)) .
+
+    
+modelo => 
+    PAR = 382,
+    Variaveis = [N1,N2],
+    % Gerando um domino soh de primos
+    % L_dom = [I : I in 1..1000, eh_primo(I) == true],   %OU
+    L_dom = [I : I in 1..1000, prime(I)],
+	  Variaveis :: L_dom,
+    
+    % RESTRICOES
+    N1 #!= N2,
+    N1 #< PAR,  
+    N2 #< PAR,
+    N1 + N2 #= PAR,
+  
+	% A BUSCA
+	solve([ff], Variaveis),
+  % UMA SAIDA
+	printf("\n  N1: %d\t N2: %d", N1,N2),
+	printf("\n.....................................")
+	.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% by CCS
+eh_primo(2) = R => R = true.
+eh_primo(3) = R => R = true.
+eh_primo(N) = R =>
+    N > 3,
+    Chave := 1,
+    foreach (I in 2..sqrt(N))
+      if (N mod I == 0) then
+       Chave := 0
+      end
+    end,
+    if (Chave == 0) then
+    R = false
+    else
+    R = true
+    end.
+
+%% by NENG-FA
+prime(2) => true.
+prime(3) => true.
+prime(N),N > 3 =>
+    foreach (I in 3..2..sqrt(N))
+       N mod I != 0
+    end.
