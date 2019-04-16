@@ -13,7 +13,7 @@ modelo =>
     PAR = 382,
     Variaveis = [N1,N2],
     % Gerando um domino soh de primos
-    % L_dom = [I : I in 1..1000, eh_primo(I) == true],   %OU
+    % L_dom = [I : I in 1..1000, eh_primo(I) == true],  %OU
     L_dom = [I : I in 1..1000, prime(I)],
 	  Variaveis :: L_dom,
     
@@ -37,7 +37,7 @@ eh_primo(3) = R => R = true.
 eh_primo(N) = R =>
     N > 3,
     Chave := 1,
-    foreach (I in 2..sqrt(N))
+    foreach (I in 3..2..sqrt(N))
       if (N mod I == 0) then
        Chave := 0
       end
@@ -53,6 +53,8 @@ prime(2) => true.
 prime(3) => true.
 prime(N),N > 3 =>
     foreach (I in 3..2..sqrt(N))
+    %% Começa com 3 e incremento de 2 
+    %% pois todo primo é impar menos o 2
        N mod I != 0
     end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
