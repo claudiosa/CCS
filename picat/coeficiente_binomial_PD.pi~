@@ -1,8 +1,0 @@
-
-import datetime.
-import utils.
-
-table
-c(_, 0) = 1.
-c(N, N) = 1.
-c(N,K) = c(N-1, K-1) + c(N-1, K).
