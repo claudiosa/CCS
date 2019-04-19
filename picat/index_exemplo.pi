@@ -1,0 +1,15 @@
+index (+,+,+) (+,+, -) (-,+,-) (-,-,+) (-,-, +) (+,-,+) (+,+,-) (-,-,-)
+%(-,-,-) %% NENHUM argumento instanciao -- UTIL
+%(+,+,+) %% TODOS ARGUMENTOS DEVEM ESTAR INSTANCIADOS
+%(+,+, -) (-,+,-) (-,-,+) (-,-, +) (+,-,+) (+,+,-) (-,-,-)
+and2(true,true,true).
+and2(true,false,false).
+and2(false,true,false).
+and2(false,false,false).
+
+main ?=>
+       and2(X,Y,Z), % and eh reservado
+       printf("\n X: %w \t Y: %w \t Z: %w", X, Y, Z),
+       fail.
+main =>       
+       println("\n FIM"). 

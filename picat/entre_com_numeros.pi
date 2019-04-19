@@ -1,0 +1,42 @@
+contas_F0(X1, X2, X3) = Z, (number(X1), 
+                           number(X2), 
+                           number(X3)) =>
+    if (X1 < X2 && X2 < X3) then
+    Z  =  (X2 + X3)
+    else
+    Z  =  X1
+    end.
+    
+/* REVER
+
+contas_F0(X1, X2, X3) = Z , (number(X1), 
+                           number(X2), 
+                           number(X3)) =>
+ */   
+
+contas_P0(X1, X2, X3, Z) ?=>
+    number(X1),
+    number(X2),
+    number(X3),
+    X1 < X2,
+    X2 < X3,
+    Z  =  (X2 + X3).
+    
+contas_P0(X1, _, _, Z) =>
+   Z = X1.    
+
+
+main ?=>
+       contas_P0(1,2,3,Z1),
+       contas_P0(4,2,3,Z2),
+       printf("\n Z1: %d \t Z2: %d", Z1, Z2),
+       printf("\n F0_contas :%d" , contas_F0(1,2,3)),
+       printf("\n F0_contas :%d" , contas_F0(4,2,3)).
+       
+main =>       
+       println("\n FIM"). 
+
+
+
+
+    

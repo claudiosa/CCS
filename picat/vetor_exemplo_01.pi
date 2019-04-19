@@ -1,0 +1,13 @@
+main =>
+ L = [(A, I) : A in [a, b], I in 1 .. 2],
+ V = {(I, A) : A in [a, b], I in 1 .. 2},
+ printf("\nL: %w  \nV: %w\n", L, V),
+ imp_vetor(V).
+
+imp_vetor (M) => 
+Tam = M.length,  %% tamanho de M
+  nl,
+   foreach(I in 1  .. Tam )
+     printf("V(%d):%w \t" , I, M[I] )
+    end,
+  nl.
