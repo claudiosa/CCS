@@ -1,0 +1,11 @@
+
+main =>
+       X = 3, 
+       Y = 4,
+       um_predicado(X,Y,Z),
+       R = uma_funcao(X,Y),
+       printf("\n Z: %d \t R: %d", Z, R),
+       println("\n FIM"). 
+       
+um_predicado(X,Y,Z) => Z = X + Y.
+uma_funcao(X,Y) = R => R = X + Y.
