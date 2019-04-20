@@ -1,0 +1,18 @@
+The Picat interpreter uses the getline program written by Chris Thewalt. 
+The getline program memorizes up to 100 of the most recent queries that 
+the users have typed, and allows users to recall past queries and edit 
+the current query by using Emacs editing commands. 
+The following gives the editing commands:
+
+
+ctrl-f	Move the cursor one position forward.
+ctrl-b	Move the cursor one position backward.
+ctrl-a	Move the cursor to the beginning of the line.
+ctrl-e	Move the cursor to the end of the line.
+ctrl-d	Delete the character under the cursor.
+ctrl-h	Delete the character to the left of the cursor.
+ctrl-k	Delete the characters to the right of the cursor.
+ctrl-u	Delete the whole line.
+ctrl-p	Load the previous query in the buffer.
+ctrl-n	Load the next query in the buffer.
+Note that the command ctrl-d terminates the interpreter if the line is empty and the cursor is located in the beginning of the line.
