@@ -1,0 +1,8 @@
+main(LISTA_Args) =>  
+        print(" =========================== \n"),  
+        foreach (X in LISTA_Args)  
+            printf("%w\n", X)  
+        end,
+        printf("Ou em lista: %w\n", LISTA_Args)  
+        .
+%%%%%%%uso $ picat  exemplo_args_console.pi 1 2 3 4
