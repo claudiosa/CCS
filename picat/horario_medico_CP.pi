@@ -1,0 +1,55 @@
+import cp.
+
+main =>  modelo	.
+% main ?=> modelo, fail.	
+% main =>  true.	
+
+%main =>
+%    L = findall(_, $modelo),
+%    writef("\n Total de solucoes:  %d \n", length(L)) .
+
+    
+modelo => 
+    
+    Dias = 5,
+    Horarios = 4,
+    L_dom = [oftalmo, otorrino, pediatra,  gineco, cardio, geral ],
+	 
+    Quadro = new_array(Horarios, Dias ),
+    print_matrix(Quadro , Horarios, Dias ),
+    
+    Quadro :: 1 .. L_dom.len ,
+    
+    %% Ninguém trabalha horarios seguidos -- nem em sala diferentes
+    foreach ( J in 1 .. Dias )
+      all_different( [Quadro[I,J] : I in 1..Horarios] )
+    end,  
+    
+    foreach ( J in 1 .. Dias-1 )
+     [Quadro[I,J]: I in 1..Horarios] #!= [Quadro[I,J+1]: I in 1..Horarios] 
+    end,  
+    
+    
+    
+    
+	% A BUSCA
+	solve([ff], Quadro),
+  % UMA SAIDA
+	
+  printf("\n Uma escolha \n"),
+  print_matrix(Quadro , Horarios, Dias ),
+	printf("\n.....................................")
+	.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_matrix( M, L, C ) =>
+ %L = M.length,
+ %C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+   end.   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
