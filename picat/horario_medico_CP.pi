@@ -1,8 +1,8 @@
 import cp.
 
-main =>  modelo	.
-% main ?=> modelo, fail.	
-% main =>  true.	
+%main =>  modelo	.
+ main ?=> modelo. 
+ main =>  printf("\n FIM").	
 
 %main =>
 %    L = findall(_, $modelo),
@@ -10,46 +10,96 @@ main =>  modelo	.
 
     
 modelo => 
-    
-    Dias = 5,
+    Dias = 5, % segunda=1, ...., sexta-feira = 5
     Horarios = 4,
-    L_dom = [oftalmo, otorrino, pediatra,  gineco, cardio, geral ],
+    L_dom = [ oftalmo, otorrino, pediatra,  gineco, 
+%                1        2          3         4
+              cardio, dermato, clin_geral ],
+%                5       6        7
 	 
-    Quadro = new_array(Horarios, Dias ),
-    print_matrix(Quadro , Horarios, Dias ),
+   Quadro = new_array(Horarios, Dias ), 
+   Quadro :: 1 .. L_dom.len , %% operador . "eh colado"
     
-    Quadro :: 1 .. L_dom.len ,
+    %% O medico 2 NUNCA trabalha no 1o. horario
+    foreach ( J in 1 .. Dias ) 
+        Quadro[1,J] #!= 2
+    end,
+    
+    %% O medico 5 NUNCA trabalha no 4o. horario
+    foreach ( J in 1 .. Dias ) 
+        Quadro[4,J] #!= 5
+    end,
+  
+    %% O medico 6 soh vem na 6a. feira
+    %foreach ( I in 1 .. Horarios ) 
+    %    Quadro[I,2] #= 6
+    %end, 
+  
+    %% O Clin Geral deve vir o maior numero de dias ... TODOS
+    %% esta restricao eh matematicamente 
+     foreach ( I in 1 .. Horarios )
+       member(7,[Quadro[I,J] : J in 1..Dias]) 
+     end,  
     
     %% Ninguém trabalha horarios seguidos -- nem em sala diferentes
     foreach ( J in 1 .. Dias )
-      all_different( [Quadro[I,J] : I in 1..Horarios] )
+        all_different( [Quadro[I,J] : I in 1..Horarios] )
     end,  
+   
+    %% Ninguém trabalha horarios seguidos -- nem em sala diferentes
+     foreach ( I in 1 .. Horarios )
+        all_different( [Quadro[I,J] : J in 1..Dias] )
+     end,  
     
-    foreach ( J in 1 .. Dias-1 )
-     [Quadro[I,J]: I in 1..Horarios] #!= [Quadro[I,J+1]: I in 1..Horarios] 
-    end,  
+     % foreach ( J in 1 .. Dias )
+      % count([Quadro[I,J] : I in 1..Horarios],3)
+       % increasing([Quadro[I,J] : I in 1..Horarios])
+     %  table_in ([Quadro[I,2] : I in 1..Horarios], [{1,2}]),
+    % end,  
     
-    
-    
+   % count(V ,DV ars): The number of times V occurs in DV ars, where DV ars is a list of domain variables.
+   % sum( : I in 1..NumSkiers, 
+   %            XI = X[I], element(XI,SkiHeights,SXI)]),
+   % sum(Quadro[I,J] : I in 1..Horarios, : J in 1..Dias)
     
 	% A BUSCA
 	solve([ff], Quadro),
   % UMA SAIDA
 	
-  printf("\n Uma escolha \n"),
-  print_matrix(Quadro , Horarios, Dias ),
-	printf("\n.....................................")
+   printf("\n Uma escolha:"),
+   print_matrix( Quadro ),
+   print_matrix_NAMES( Quadro , L_dom ),
+	 printf("....................................\n.")
 	.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-print_matrix( M, L, C ) =>
- %L = M.length,
- %C = M[1].length,
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
   nl,
    foreach(I in 1  .. L)
      foreach(J in 1  ..  C)
       printf("%w " , M[I,J] )
+      %printf("%w " , print_n_lista( M[I,J], L) )
      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
      end,
      nl
-   end.   
+   end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+print_matrix_NAMES( M, Lista ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("%w " , M[I,J] )
+      printf(":%w \t" , print_n_lista( M[I,J], Lista) )
+     % printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+   end.
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_n_lista( _, [] ) =  [].
+print_n_lista( 1, [A|_] ) = A.
+print_n_lista( N, [A|B] ) = print_n_lista( (N-1), B ) .
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
