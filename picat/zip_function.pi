@@ -1,0 +1,19 @@
+
+main =>  
+  %%% mesmo tamanho
+  L1 = [2, 3, 5, 10,20],
+  L2 = [4, 6, 8],
+  zip01(L1,L2),
+  zip02,
+  zip01(L2,L1).
+  
+ zip01(L1,L2) =>
+    foreach(Pair in zip(L2, L1))  
+        println(Pair)  
+    end. 
+
+
+zip02 =>
+    foreach(Pair in zip(22..24 , [a,b,c,d]) )  
+        println(Pair)  
+    end. 
