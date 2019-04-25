@@ -1,0 +1,98 @@
+/*
+  Traveling salesperson problem in Picat.
+  Inspired by the code from lecture notes
+  Ulf Nilsson: Transparencies for the course TDDD08 Logic
+  Programming, page 6f
+  http://www.ida.liu.se/~TDDD08/misc/ulfni.slides/oh10.pdf
+
+  However this version use foreach/list comprehensions.
+
+  Model created by Hakan Kjellerstrand, hakank@gmail.com
+  
+*/
+
+import cp, util.
+
+matriz_adj(Matrix) =>
+   Matrix = 
+       [[ 0, 4, 8,10, 7,14,15],
+        [ 4, 0, 7, 7,10,12, 5],
+        [ 8, 7, 0, 4, 6, 8,10],
+        [10, 7, 4, 0, 2, 5, 8],
+        [ 7,10, 6, 2, 0, 6, 7],
+        [14,12, 8, 5, 6, 0, 5],
+        [15, 5,10, 8, 7, 5, 0]].
+
+main => exe01.
+%main => exe02, exe03.  
+
+exe01 =>
+	tsp_test(nilsson, Cidades, Custo) , 
+  printf("Cidades: %w\tCusto: %w", Cidades, Custo),
+  matriz_adj(Matriz_Custo),
+  show_tour(Cidades, Matriz_Custo).
+  
+exe02 => 
+    Todas_Sol = findall( Uma_Sol , $circ_ex(Uma_Sol)),
+    foreach( X in Todas_Sol )
+      printf("\n Sol %w", X),
+    end,
+    printf("\n Total de SOL: %d", Todas_Sol.len).  
+    
+exe03 => 
+    Todas_Sol = findall(Uma_Sol , $element_ex(Uma_Sol)),
+    foreach( X in Todas_Sol )
+      printf("\n Sol %w", X),
+    end,
+    printf("\n Total de SOL: %d", Todas_Sol.len).  
+	
+%
+% Original formulation from Nilsson cited above.
+%
+tsp_test(nilsson, Cidades, Custo) =>
+   
+   Cidades   = [X1,X2,X3,X4,X5,X6,X7],
+   element(X1,[ 0, 4, 8,10, 7,14,15],C1),
+   element(X2,[ 4, 0, 7, 7,10,12, 5],C2),
+   element(X3,[ 8, 7, 0, 4, 6, 8,10],C3),
+   element(X4,[10, 7, 4, 0, 2, 5, 8],C4),
+   element(X5,[ 7,10, 6, 2, 0, 6, 7],C5),
+   element(X6,[14,12, 8, 5, 6, 0, 5],C6),
+   element(X7,[15, 5,10, 8, 7, 5, 0],C7),
+   Custo #= C1+C2+C3+C4+C5+C6+C7,
+   circuit(Cidades),
+   solve([$min(Custo)], Cidades).
+
+%
+% print the tour
+%
+show_tour(Cidades, Matriz_Custo) =>
+   City = 1, % start from city 1
+   N = 0,
+   S_parcial = 0,
+   printf("\n A viagem: \n"),
+   while(N < Cidades.len) 
+     City2 = Cidades[City],
+     Cost2 := Matriz_Custo[City,City2],
+     S_parcial := S_parcial + Cost2,
+     printf("Da cidade %d --> %d custa: %d\t Acumulado: %d\n", 
+             City,City2,Cost2, S_parcial),
+     N := N + 1,
+     City := City2
+   end,
+   nl.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% explica circuit
+circ_ex(L) =>
+    L = [X1,X2,X3,X4], 
+    L :: 1..4, %% NUM de indices da lista
+    circuit(L),
+    solve(L).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% explica elemet
+element_ex(Vars)  =>  
+    X :: 1..4, %% NUM de indices da lista
+    element(X , [22, 33, 44, 55], Index),
+    Vars = [X , Index],
+    solve(Vars).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
