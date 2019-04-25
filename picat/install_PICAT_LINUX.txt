@@ -32,3 +32,17 @@ Resumindo:
 4. Link: ln -s /usr/share/Picat/picat picat   (como root)
 
 PRONTO!
+
+ATUALIZANDO ....
+
+Baixar a nova versao ... por exemplo 
+$ tar -xvf picat26_linux64.tar.gz
+$ su
+Senha:
+whereis picat
+picat: /usr/bin/picat
+# ls -al /usr/bin/picat
+lrwxrwxrwx 1 root root 22 jan 15  2018 /usr/bin/picat -> /usr/local/Picat/picat
+# rm -R /usr/local/Picat/
+# mv Picat/ /usr/local/
+

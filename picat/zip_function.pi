@@ -5,7 +5,8 @@ main =>
   L2 = [4, 6, 8],
   zip01(L1,L2),
   zip02,
-  zip01(L2,L1).
+  zip01(L2,L1),
+  printf(" Direto >>>> %w ", zip(L2, L1,[a,b,c]) ).
   
  zip01(L1,L2) =>
     foreach(Pair in zip(L2, L1))  
