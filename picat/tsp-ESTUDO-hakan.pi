@@ -27,6 +27,7 @@ main => exe01.
 %main => exe02, exe03.  
 
 exe01 =>
+  %% os dados encontram-se no modelo
 	tsp_test(nilsson, Cidades, Custo) , 
   printf("Cidades: %w\tCusto: %w", Cidades, Custo),
   matriz_adj(Matriz_Custo),
@@ -48,10 +49,10 @@ exe03 =>
 	
 %
 % Original formulation from Nilsson cited above.
-%
+% Codifificado por HAKAN e CCS
 tsp_test(nilsson, Cidades, Custo) =>
-   
    Cidades   = [X1,X2,X3,X4,X5,X6,X7],
+   %% a matriz adjacencia - do mapa - 7 cidades
    element(X1,[ 0, 4, 8,10, 7,14,15],C1),
    element(X2,[ 4, 0, 7, 7,10,12, 5],C2),
    element(X3,[ 8, 7, 0, 4, 6, 8,10],C3),
@@ -59,8 +60,8 @@ tsp_test(nilsson, Cidades, Custo) =>
    element(X5,[ 7,10, 6, 2, 0, 6, 7],C5),
    element(X6,[14,12, 8, 5, 6, 0, 5],C6),
    element(X7,[15, 5,10, 8, 7, 5, 0],C7),
-   Custo #= C1+C2+C3+C4+C5+C6+C7,
-   circuit(Cidades),
+   Custo #= C1+C2+C3+C4+C5+C6+C7 ,
+   circuit( Cidades ) ,
    solve([$min(Custo)], Cidades).
 
 %
