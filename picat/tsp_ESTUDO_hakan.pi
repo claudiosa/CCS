@@ -24,7 +24,7 @@ matriz_adj(Matrix) =>
         [15, 5,10, 8, 7, 5, 0]].
 
 main => exe01.
-%main => exe02, exe03.  
+%%main => exe04. %exe02, exe03, exe04.  
 
 exe01 =>
   %% os dados encontram-se no modelo
@@ -36,17 +36,26 @@ exe01 =>
 exe02 => 
     Todas_Sol = findall( Uma_Sol , $circ_ex(Uma_Sol)),
     foreach( X in Todas_Sol )
-      printf("\n Sol %w", X),
+      printf("\n Sol %w", X)
     end,
     printf("\n Total de SOL: %d", Todas_Sol.len).  
-    
+
+
 exe03 => 
+    Todas_Sol = findall( Uma_Sol , $circ_meu(Uma_Sol)),
+    foreach( X in Todas_Sol )
+      printf("\n Sol %w", X)
+    end,
+    printf("\n Total de SOL: %d", Todas_Sol.len).  
+        
+exe04 => 
     Todas_Sol = findall(Uma_Sol , $element_ex(Uma_Sol)),
     foreach( X in Todas_Sol )
-      printf("\n Sol %w", X),
+      printf("\n Sol %w", X)
     end,
     printf("\n Total de SOL: %d", Todas_Sol.len).  
 	
+   
 %
 % Original formulation from Nilsson cited above.
 % Codifificado por HAKAN e CCS
@@ -89,6 +98,12 @@ circ_ex(L) =>
     L :: 1..4, %% NUM de indices da lista
     circuit(L),
     solve(L).
+    
+circ_meu(L) =>
+    L = [X1,X2,X3,X4], 
+    L :: 1..4, %% NUM de indices da lista
+    meu_circuito(L),
+    solve(L).    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% explica elemet
 element_ex(Vars)  =>  
@@ -97,3 +112,18 @@ element_ex(Vars)  =>
     Vars = [X , Index],
     solve(Vars).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+
+meu_circuito(L) =>
+    
+    Tam = L.length,
+    V = to_array(L),
+    printf("\n Array: %w", V),
+    all_different(V),
+    printf("\n Array diff: %w", V),
+    X :: 1..Tam,
+    foreach(I in 1..Tam)
+      ( V[I] #= X ) #/\ (I #!= X),
+      bind_vars(V[I],X) 
+  end.
+  
+

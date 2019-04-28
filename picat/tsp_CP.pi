@@ -31,7 +31,7 @@ tsp_D(Matriz, Cidades, M_Decisao, Custo) =>
    Len = Matriz.length, %% N x N cidades
    % printf("N cidades: %d", Len),
 
-   Cidades = new_list(Len), %%% 1a. dimensao
+   Cidades = new_list(Len), %%% UMA dimensao
    Cidades :: 1..Len,
    % grafo de DECISAO que representa o resultado dos nos escolhidos
    M_Decisao = new_array (Len, Len),
@@ -39,7 +39,8 @@ tsp_D(Matriz, Cidades, M_Decisao, Custo) =>
    
    % calculate upper and lower bounds of the Costs list -- HAKAN
    % repensar MELHORAR .....
-   SOMA_Dists = sum([Matriz[I,J] : I in 1..Len, J in 1..Len, Matriz[I,J] > 0]),
+   SOMA_Dists = sum([Matriz[I,J] : I in 1..Len, 
+                J in 1..Len, Matriz[I,J] > 0]),
    MinDist = 0,
    MaxDist = SOMA_Dists,
    printf("\n ...DISTS %d", SOMA_Dists),
@@ -48,25 +49,27 @@ tsp_D(Matriz, Cidades, M_Decisao, Custo) =>
    
 % Aceitar somente arcos como resultados válidos aqueles 
 % existentes no GRAFO ORIGINAL
-% Se arco= 0 entao não há conexão
+% Se NAO HOUVER CONEXAO ou  ARCO = 0 entao não há conexão
   foreach(I in 1..Len , J  in 1..Len)
     (Matriz[I,J] #= 0) #=> (M_Decisao[I,J] #= 0)
   end,    
-  
+
+% Para todas linhas, a soma das colunas é igual a 1    
 % Todo noh tem um proximo no, ou UMA aresta .. ex: 3 -> 4
 % e não 3 --> 5, 3 --> 6 ... uma escolha de saída
 % UMA: uma saida como caminho a ser traçado
- foreach(I in 1..Len)
+   foreach(I in 1..Len)
       sum([M_Decisao[I,J] : J in 1..Len, I != J]) #= 1
- end,     
+   end,     
   
+% Para todas colunas, a soma das linhas é igual a 1    
 % TODO noh destino de algum outro no .. ex: 5 -> 3  ...
 %% e  nao podera ter mais 4 -> 3, 6 -> 3
-% UM: uma chegada ao nó de destino e somente 1 chegada
- foreach(J in 1..Len)
-      sum([M_Decisao[I,J] : I in 1..Len, I != J]) #= 1
- end,     
-  
+% UMA: uma chegada ao nó de destino e somente 1 chegada
+  foreach(J in 1..Len)
+   sum([M_Decisao[I,J] : I in 1..Len, I != J]) #= 1
+  end,     
+
   %% Relacionar as escolhas da M_Decisao com a
   %% Sequencia das Cidades. 
   foreach(I in 1..Len , J  in 1..Len)
@@ -124,7 +127,7 @@ show_tour(Cidades, Matriz_Custo) =>
    nl.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-   /*
+/*
   ESTUDE a equivalencia   
    foreach(I in 1..Len , J  in 1..Len)
        (Matriz[I,J] #= 0) #=> (M_Decisao[I,J] #= 0)
