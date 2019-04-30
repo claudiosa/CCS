@@ -1,0 +1,57 @@
+import util. % usado no split
+import cp.
+
+main =>
+  %% Num_casos = to_int(read_line()),   %%% OU
+  Num_casos = read_line().to_int(),
+  foreach (Cont in 1..Num_casos)
+    [N_Val_Vet, W_Janela]=[to_int(W) : W in read_line().split()],
+    %% N_Val_Vet eh quantos valores terao em L ... NAO USADO
+    L = [to_int(W) : W in read_line().split()], 
+    %% Uma linha de valores inteiros
+    modelo(Cont, W_Janela, L )
+  end  .
+   
+modelo(Caso,  W_Janela, L ) =>
+  
+  Vetor_Val = to_array( L ), %% array de N_valores
+  Tam = L.len,   %% tamanho da lista
+  Xs = new_array( Tam ), %% um vetor de tamanho de L 
+  Xs :: 0..1 ,
+  
+  [Begin, End] :: 1 .. Tam,
+  End - Begin #= W_Janela - 1 ,
+  End #>= Begin,
+  
+  % R1: serao selecionados W_Janela 1's do vetor Xs
+  sum([ Xs[J] : J in 1..Tam] ) #= W_Janela ,
+  
+  % R2: se a janela W_Janela > 1 entao hah 2 1's seguidos
+  foreach ( I in 2 .. (Tam-1) )
+  (Xs[I] #= 1) #=> (Xs[I-1] #= 1 #\/ Xs[I+1] #= 1)
+  end,  
+  
+  %% R3: garante a continuidade se o tamanho da janela for igual o 
+  %% tamanho do vetor
+  ( ((Xs[1] #= 1) #/\ (Xs[Tam] #= 1)) #<=> (W_Janela #= Tam)),
+  
+  % R4: funcao otimizadora
+  F_Soma #= sum([ (Vetor_Val[J] * Xs[J]) : J in 1..Tam] ),
+  
+  solve( [ $max(F_Soma) ] , Xs ),
+  printf("\nCaso:%d | SOMA: %d | Janela:%d |  Escolhas: ", Caso,  F_Soma,  W_Janela ),
+  print_index_array(Xs), nl
+  .
+
+print_index_array(Xs) =>
+   Tam = Xs.len,
+   foreach (I in 1 .. Tam)
+    if (Xs[I] == 1) then
+      printf("%d ", I)
+     end
+    end.  
+  
+
+
+
+
