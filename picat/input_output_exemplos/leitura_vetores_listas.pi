@@ -1,0 +1,43 @@
+import util. % use split
+main => 
+        le_vetor_01(X1),
+        printf("\nVETOR LIDO: %w ", X1),
+        le_vetor_02(X2),
+        printf("\nVETOR LIDO: %w ", X2),
+        le_lista_01(Y),
+        printf("\nLISTA LIDA: %w ", Y),
+        le_lista_02(W),
+        printf("\nLISTA LIDA 2: %w " , W)
+         .
+
+le_vetor_01 ( V ) =>
+  printf("\nDIGITE tamanho da entrada: "),
+  Tam = read_int(),
+  V = new_array( Tam ), % cria um vetor
+  printf("\nDIGITE os %d VALORES do vetor: ", Tam),
+  foreach (I in 1..Tam)
+        V[I] = read_int()
+  end.
+  %printf("\nVETOR: %w ", V).
+  
+le_vetor_02 ( V ) =>  
+  printf("\nLendo um vetor qualquer de inteiros na linha: "),
+  V = { to_int(W) : W in read_line().split() }.
+  % OU
+  %L = [ to_int(W) : W in read_line().split()],
+  %V = to_array( L ).
+    
+le_lista_01 ( L ) =>  
+  printf("\nLendo lista de inteiros na linha: "),
+  L = [ to_int(W) : W in read_line().split()].
+  
+le_lista_02 (List) =>  
+    printf("\nLista inteiros e 0 encerra: "),
+    L := [] ,
+    E := read_int() ,
+    while (E != 0)  
+        L := [E|L],  
+        E := read_int()  
+    end,  
+    List = L .
+  
