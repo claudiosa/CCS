@@ -1,0 +1,27 @@
+
+%%% FATOS ... = Mapa
+index(-, -) 
+amigo( a, b )      .
+amigo( a, c )      .
+amigo( c, d )      .
+amigo( b, d )      .
+amigo( d, e )      .
+
+% As regra da LPO agora em PICAT ... ver as formulas em LPO
+amizade_1(X,Y) ?=> amigo(X,Y) .
+amizade_1(X,Y)  => amigo(X,Z) ,   amizade_1(Z,Y) .
+
+
+
+listar_todos  ?=>     %%% this rule is backtrackable
+          amizade_1(X,Y)                         ,  %% and
+          printf("\n X: %w ---> Y: %w ", X,Y)  ,   %% and
+          false.
+
+listar_todos => 
+          printf("\n ")  ,
+          true. %% the final rule of above
+
+%% aconselhavel o ... uso do main
+main => 
+     listar_todos  .
