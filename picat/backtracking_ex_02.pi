@@ -5,52 +5,52 @@ index(-)  % fatos instanciados como retorno
     p(1).  p(3).   p(5).
 	
 index(-)  % fatos instanciados como retorno
-    q(7).  q(11).  q(13).
+    q(7).  q(4).  q(13).
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-algum_num(X, Y, Z) ?=>     %%% this rule is backtrackable
+algum_num(X, Y, Z) ?=> % ? esta regra tem backtracking
       p(X),
       q(Y),
       Z = 3,
       ((X + Y) mod Z) == 0.
 
-algum_num(X, Y, Z) ?=>     %%% this rule is backtrackable
+algum_num(X, Y, Z) ?=>  % ? esta regra tem backtracking
       p(X),
       q(Y),
       Z = 4,
       ((X + Y) mod Z) == 0.
 
-algum_num(X, Y, Z) =>  %%% this rule is NOT backtrackable
+algum_num(X, Y, Z) =>  % esta regra NAO tem backtracking
       p(X),
       q(Y),
       Z = 5,
       ((X + Y) mod Z) == 0.
 
 % CUIDAR AQUI
-%algum_num(_, _, _)  =>     %%% this rule is NOT backtrackable
-%        printf("\n NAO HA MAIS MULTIPLOS de 3, 4 ou 5").    
+%algum_num(_, _, _)  =>     
+%     printf("\n NAO HA MAIS MULTIPLOS de 3, 4 ou 5").    
 %%%%%%%%%%%%%%%%%%%%%%%%%n%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%
-main ?=>  
+main ?=>  % main com backtracking
    algum_num( X, Y, Z),
    imp(X,Y,Z),
-   false.
+   false.     % força TODAS respostas 
    
 main => imp_tracejados(40).   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
-   
 imp(X,Y,Z) =>    
    if ( Z == 3 ) then
-      printf("\n X:%d  Y:%d \t X+Y:%d eh MULTIPLO de: %d", X,Y,(X+Y), Z)  
+      printf("\n X:%d  Y:%d \tX+Y:%d é MULTIPLO de:%d", X,Y,(X+Y), Z)  
    elseif ( Z == 4 ) then    
-      printf("\n X:%d  Y:%d \t X+Y:%d eh MULTIPLO de: %d", X,Y,(X+Y), Z)  
+      printf("\n X:%d  Y:%d \tX+Y:%d é MULTIPLO de:%d", X,Y,(X+Y), Z)  
    else
-      printf("\n X:%d  Y:%d \t X+Y:%d eh MULTIPLO de: %d", X,Y,(X+Y), Z)  
+      printf("\n X:%d  Y:%d \tX+Y:%d é MULTIPLO de:%d", X,Y,(X+Y), Z)  
    end.      
-       
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 imp_tracejados(N) =>
    nl,
    foreach(I in 1..N)
      printf("=")
-   end.  
+   end,
+   nl.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
