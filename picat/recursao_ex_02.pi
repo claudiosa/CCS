@@ -1,0 +1,18 @@
+main => 
+        writeln( fat = fatorial ( 8 ) ) , 
+        writeln( fib = fiboNacci ( 9 ) ) ,
+        writeln( soma = soma_0_N (10) )  .
+
+fatorial(0) = 1.
+fatorial(1) = 1.
+fatorial(N) = N * fatorial(N-1).
+
+
+fiboNacci(0) = 0.
+fiboNacci(1) = 1.
+fiboNacci(N) = fiboNacci(N-1) + fiboNacci(N-2).
+
+soma_0_N(0) = 0.
+soma_0_N(1) = 1.
+soma_0_N(N) = N + soma_0_N(N-1).
+

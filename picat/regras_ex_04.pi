@@ -1,0 +1,30 @@
+main => regra_01(7)  ,  regra_01(-4) ,
+        regra_01( 0 ) , regra_01( 1) ,
+        regra_01(44) .
+        
+regra_01(0)          ?=> printf("\n CHEGOU A 0 !!!").
+regra_01(N) , N < 0  ?=> printf("\n EH UM NEGATIVO !!!").
+regra_01(N) , N > 10 ?=> printf("\n EH MAIOR QUE 10 !!!").
+regra_01(N) , N <= 10 =>  printf("\n NUM de 0 a 10 :%d", N).
+          
+%% =<  EH IGUAL a <= :: sobrecarga
+%% >= EH IGUAL => :: sobrecarga
+%%% $ picat regras_ex_04.pi
+        
+
+/*    
+
+$ picat regras_ex_04.pi 
+
+ NUM de 0 a 10 :7
+ EH UM NEGATIVO !!!
+ CHEGOU A 0 !!!
+ NUM de 0 a 10 :1
+ EH MAIOR QUE 10 !!!
+      
+regra_02(0)          =>   printf("\n  Chegou a 0 !!! ").
+regra_02(N)  =>  N < 0,  printf("\n  EH UM NEGATIVO !!! ").
+regra_02(N)  =>  N > 0, 
+          printf("\t :%d ", N),
+          regra_02(N-1).
+*/
