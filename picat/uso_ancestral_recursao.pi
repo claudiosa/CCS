@@ -1,0 +1,27 @@
+index(-,-) (+,-) (-,+)
+ancestral(ana,maria).
+ancestral(pedro,maria).
+ancestral(maria,paula).
+ancestral(paula,lucas).
+ancestral(lucas, eduarda).
+
+index(-)
+mulher(ana).
+mulher(maria).
+mulher(paula).
+mulher(eduarda).
+homem(pedro).
+homem(lucas).
+
+mae(X,Y) => ancestral(X,Y), mulher(X).
+pai(X,Y) => ancestral(X,Y), homem(X).
+avos(X,Y) => ancestral(X,Z), ancestral(Z,Y).
+
+descende_de(X,Y) ?=> ancestral(Y,X).
+descende_de(X,Y) => ancestral(Y,Z), descende_de(X,Z).
+
+main ?=>
+      descende_de(X,Y),
+      prinitf("\n => %w descende de %w" , X,Y),
+      false. 
+main =>  true.    
