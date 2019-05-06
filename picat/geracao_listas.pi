@@ -1,0 +1,20 @@
+
+
+main => Status = command("clear") ,
+		printf("====================================== %d", Status),
+    L0 = [I :  I in 10..20],
+    L1 = [I :  I in 10..2..20],
+    L2 = [I :  I in 1..20, I>10, I<20],
+    L3 = [(A,I) : A in [a,b], I in 1..10, I mod 2 == 0],
+    L4 = [(I,J,K) :  I in 1..2, J in 3..7, K in 1..10, I+J < K],
+    printf("\n L0 : %w " , L0),
+    printf("\n L1 : %w " , L1),
+    printf("\n L2 : %w " , L2),
+    printf("\n L3 : %w " , L3),
+    printf("\n L4 : %w " , L4),
+    printf("\n FIM\n").
+    
+    
+    
+    %V1 = {I :  I in 1 .. 7},
+    %V2 = {(I,J) :  I in 1 .. 2, J in 11 .. 12},
