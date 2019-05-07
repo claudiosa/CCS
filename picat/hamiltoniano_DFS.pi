@@ -35,10 +35,9 @@ as_cidades([brusque, blumenau, itajai, luiz_alves,
 /* BI-DIRECIONALIDADE DOS ARCOS */
 move_no(X,Y) ?=> arco(X,Y).
 move_no(X,Y)  => arco(Y,X).
-move_no( _ , _) => 
-       printf("\n move_no: NONE RULES WERE MATCHED ").
+%move_no( _ , _) => 
+%       printf("\n move_no: NONE RULES WERE MATCHED ").
 /************************************************************/
-
 main ?=>  
     %%%_ = statistics_all(), % inicializa todas estatísticas
     statistics(runtime,_), % faz uma marca do 1o. statistics
