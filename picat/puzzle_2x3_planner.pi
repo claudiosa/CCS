@@ -6,7 +6,6 @@
   inspired by the Prolog code in Thinking as Computation. 
 
   This Picat model was created by Hakan Kjellerstrand, hakank@gmail.com
-  See also my Picat page: http://www.hakank.org/picat/
 
 */
 %
@@ -43,7 +42,7 @@ action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
 
 action([A,B,C, D,E,F], S1, Acao, Custo_Acao ) ?=>
     Custo_Acao = 1,
-    ( A == 0 ),  %% conj. condicoes
+    ( D == 0 ),  %% conj. condicoes
     S1 = [0,B,C, A,E,F],
     Acao = ($dow(A),S1). %%a acao + estado modificado
 
@@ -132,10 +131,10 @@ main  ?=>
     printf("\n Estado Inicial: "),
     w_Quadro( Q ), 
     w_L_Estado( Sol_Acoes ), 
-  
     Total := length(Sol_Acoes) ,
     Num_Movts := (Total -1) ,
     printf("\n Inicial  (estado): %w ", Q),
+    
     printf("\n Total de acoes: %d", Total), 
     printf(" \n =========================================\n ")
     %%% , fail descomente para multiplas solucoes
