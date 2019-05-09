@@ -10,7 +10,7 @@ c(N,K) = c(N-1, K-1) + c(N-1, K).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%% the main call %%%%%%%%%
-main  ?=>  
+main =>  
     statistics(runtime,_), % faz uma marca do 1o. statistics
     N = 10, %% ateh uns 30 ... são números grandes
 
@@ -27,10 +27,8 @@ main  ?=>
     printf("\n OVERALL PICAT CPU time %f em SEGUNDOS ", T_Picat_ON/1000.0),
     
     printf(" \n =========================================\n ")
-    %%% , fail descomente para multiplas solucoes
     .
-main => printf("\n Para uma solução .... !!!!" ) .
-
+   
 /*
 
   K = 1,
