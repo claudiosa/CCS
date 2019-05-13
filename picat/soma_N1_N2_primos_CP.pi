@@ -1,7 +1,7 @@
 import cp.
 
 % main => modelo	.
-% main ?=> modelo, fail.	
+% main ?=> modelo, false.	
 % main =>  true.	
 
 main =>
