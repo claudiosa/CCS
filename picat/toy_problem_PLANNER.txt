@@ -1,0 +1,173 @@
+%%%By ccs and Roger -- DCC UDESC
+% the problem ...
+
+/*
+     X2      X5
+    /    \    /    \
+X1     X4       X7
+   \     /    \     /
+     X3      X6
+*/
+
+/**** COMMENTS ***
+Busca em Profundidade com Prolog
+	Onde a posicao inicial era: b,a,c,_,_,_,_ 
+	 A posicao final era: _,_,_,_,c,a,b
+	 Total de estados: 29
+	 Total de movimentos: 28
+	 T1: 24.480552 	 T2: 24.481631  msec
+	 Tempo total: 0.0010792490  msec
+	true.
+
+Busca em Largura OTIMO com Prolog
+	 A posicao final era: _,_,_,_,c,a,b
+	 Total de estados: 9
+	 Total de movimentos: 8
+	 T1: 2.290018 	 T2: 24.449603  msec
+	 Tempo total: 22.1595845060  msec
+
+em PICAT without PLANNER
+ Posicao inicial (estado): bacoooo 
+ Posicao final (estado): oooocba
+ Total de estados: 81
+ Total de movimentos: 80 
+ ======================
+ 
+real	0m0.032s
+user	0m0.024s
+sys	0m0.004s
+
+COM O PLANNER
+[ccs@gerzat picat]$ picat amarelinha_planner.pi 
+
+CPU time 0.003 seconds.
+
+['X4 <-> X2','X1 <-> X2','X4 <-> X6','X4 <-> X2','X4 <-> X5','X4 <-> X3','X5 <-> X7','X4 <-> X5']
+'X4 <-> X2'
+'X1 <-> X2'
+'X4 <-> X6'
+'X4 <-> X2'
+'X4 <-> X5'
+'X4 <-> X3'
+'X5 <-> X7'
+'X4 <-> X5'
+
+ Initial Position (state): bacoooo 
+ Final  Position (state): oooocab
+ Total of states: 8
+ Total of moviments: 7
+ CPU TIME INIC: time(10,14,48)  FIM time(10,14,48) 
+ =========================================
+
+*/
+
+import datetime.
+import planner.
+
+/* pontos iniciais e finais do problema */
+index(-)
+pt_origem(  [  b ,  a ,  c , o , o , o , o ]  ).
+
+index(-)
+pt_final( [o , o, o, o, c, a, b] ).
+
+%% for the planner
+final( [o, o, o, o, c, a, b] ) => true .
+
+
+/* movimentos permitidos  ===> veja o diagrama*/
+% $ picat amarelinha_planner.pi 
+%['X4 <-> X2','X1 <-> X2','X4 <-> X6','X4 <-> X2','X6 <-> X7','X4 <-> X6','X4 <-> X3','X4 <-> X5']
+/*
+   X2    X5
+X1    X4    X7
+   X3    X6
+*/
+
+/* Describing the possible actions ==> for the planner */
+action([ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    Action = 'X4 <-> X2', %% a description
+	((X2 == o, X4 !=o) ;  (X4 == o, X2 != o)),  %% conditions
+	S1 = [ X1,X4,X3,X2,X5,X6,X7 ].   %% results
+	
+action( [ X1,X2,X3,X4,X5,X6,X7 ] , S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    Action = 'X4 <-> X3',
+	((X3 == o, X4 !=o) ;  (X4 == o, X3 != o)), 
+	S1 =  [ X1,X2,X4,X3,X5,X6,X7 ] .
+	
+action( [ X1,X2,X3,X4,X5,X6,X7 ] , S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    Action = 'X1 <-> X2',
+       	(X2 == o, X1 !=o),
+	%%%  (X1 == o, X2 != o)), 
+       S1 = [ X2,X1,X3,X4,X5,X6,X7 ] .
+       
+action( [ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    Action = 'X3 <-> X1',
+       X3 == o, (X1 != o),
+       S1 = [ X3,X2,X1,X4,X5,X6,X7 ].
+
+action( [ X1,X2,X3,X4,X5,X6,X7 ],  S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    Action = 'X4 <-> X6',
+	((X6 == o, X4 !=o) ;  (X4 == o, X6 != o)), 
+	S1 =  [ X1,X2,X3,X6,X5,X4,X7 ] .
+
+action( [ X1,X2,X3,X4,X5,X6,X7 ] , S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    Action = 'X4 <-> X5',
+	((X5 == o, X4 !=o) ;  (X4 == o, X5 != o)), 
+        S1 =  [ X1,X2,X3,X5,X4,X6,X7 ].
+			
+action( [ X1,X2,X3,X4,X5,X6,X7 ], S1, Action, Action_Cost ) ?=>
+    Action_Cost = 1,
+    Action = 'X5 <-> X7',
+	((X5 == o, X7 !=o) ;  (X7 == o, X5 != o)), 
+	S1 =  [ X1,X2,X3,X4,X7,X6,X5] .
+ 
+action( [ X1,X2,X3,X4,X5,X6,X7 ]  , S1, Action, Action_Cost ) =>
+    Action_Cost = 1,
+    Action = 'X6 <-> X7',
+      	((X6 == o, X7 !=o) ;  (X7 == o, X6 != o)), 
+         S1 =  [X1,X2,X3,X4,X5,X7,X6].
+
+%%%%%%%%%%%%%%%%% the main call %%%%%%%%%
+main  ?=>  
+    pt_origem(X),    %%%write([X]),
+    pt_final(Y),
+    T1 = current_time(),
+    time(best_plan_unbounded( X , Solucao)), %%% CPU TIME
+    T2 = current_time(), 
+
+    write(Solucao), nl,
+    write_L(Solucao), 
+  
+    Total := length(Solucao) ,
+    Num_Movts := (Total -1) ,
+   % T_CPU :=T2-T1, %%% think in something better
+    printf("\n Initial Position (state): %w ", X),
+    printf("\n Final  Position (state): %w", Y),
+    printf("\n Total of states: %d", Total), 
+    printf("\n Total of moviments: %w", Num_Movts),
+    printf("\n CPU TIME INIC: %w  FIM %w",     T1, T2),
+    printf(" \n =========================================\n ")
+    .
+   
+main => nl, write('No solution in the model  ... Houston we have a trouble!!!!' ) .
+
+/* ************************************************************/
+/*
+      X2       X5
+    /    \   /    \
+  X1       X4      X7
+   \     /   \    /
+     X3        X6
+*/
+
+/************************************************************/
+ write_L([])  ?=> true.
+ write_L([X|L]) =>  writeln( X ),  write_L(L).
+/* ************************************************************ */
