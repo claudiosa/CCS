@@ -1,0 +1,87 @@
+/*
+Reference of this PROBLEM
+https://www.techiedelight.com/longest-alternating-subsequence/
+THE PROLOG SOLUTION ....
+Running in swipl :
+?- ['alternate_sequence.pl'].
+true.
+
+?- main.
+
+ ==> [8,9,4,5,2,4]
+ ==> [8,9,4,5,3,4]
+ ==> [8,9,4,7,2,4]
+ ==> [8,9,4,7,3,4]
+ ==> [8,9,5,7,2,4]
+ ==> [8,9,5,7,3,4]
+ ==> [8,9,6,7,2,4]
+ ==> [8,9,6,7,3,4]
+true.
+
+?- 
+*/
+
+main => 
+   %seq_m([8,9,6,4,5,7,3,2,4], X ),
+   %w_lst(X). 
+   All_Sol_1 = findall( X, $seq_m([8,9,6,4,5,7,3,2,4], X )),
+   w_lst(All_Sol_1), nl.
+ /* %%% uncomment if you wish 
+   nl,
+   write('STARTING with the HIGH values'),
+    All_Sol_2 = findall( X, $seq_m([8,9,6,4,5,7,3,2,4], X )),
+   w_lst(All_Sol_2), nl.
+  */
+  
+%%% LESSON: backtracking and pattern-matching in the RETURN... in backing
+%%% interesting to compare with PROLOG solution   
+%%%%%%%%%%%%%%%%%%%%
+seq_m([ ], X ) ?=>  X = [].
+seq_m([A],  X ) ?=>  X = [A].
+
+seq_m([A , B | L1], Return_L) ?=>
+     A < B ,
+     Return_L = [A | L2],
+     seq_M([B | L1],  L2). %% alternate OK
+ 
+seq_m([A , B | L1], L2) ?=>  %%% advance keeping A
+     A > B,  
+     seq_m([A | L1], L2).
+%%OR
+seq_m([A , B | L1], L2) => %%% advance keeping B
+     A > B,  
+     seq_m([B | L1], L2).
+
+%seq_m( _, _) => printf("\n seq_m .....................").   
+%% OR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+seq_M([ ], X ) ?=>  X = [].
+seq_M([A], X ) ?=>  X = [A].
+%seq_M([A,B], [A,B]):- A > B.
+
+%%% if NOT  ... advance for the next
+%%% if OK each two ... advance
+seq_M([ A, B | L1], Return_L )  ?=>
+      A > B,
+      Return_L = [A | L2],
+      seq_m([B | L1],  L2). %% alternate OK
+
+seq_M([ A , B | L1], L2) , A < B ?=> %%% advance keeping A
+     seq_M([ A |L1], L2).
+%%OR
+seq_M([ A , B | L1], L2) , A < B => %%% advance keeping B
+     seq_M([ B |L1], L2).
+
+%seq_M( _, _) => printf("\n seq_M .....................").   
+/*
+**********************************************************************
+*/     
+
+%% or use it
+w_lst( X ) ?=>  X = [].
+w_lst([X|L]) => 
+                printf("\n ==> "), 
+                write(X), 
+                w_lst(L).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

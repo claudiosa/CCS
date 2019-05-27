@@ -1,0 +1,65 @@
+%%% Entendendo BACKTRACKING
+main => regra(10).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+regra( 0 ) ?=>  printf("\n Chegou a 0 --- ZERO ") .
+
+regra( X ) ?=>     %%% this rule is NOT backtrackable
+         X > 7,
+         println(xX_1 = X ),
+         regra( X - 1 ).  
+
+regra( X ) ?=>     %%% this rule is NOT backtrackable
+         X == 7,
+         println(xX_2 = X ),
+         regra( X - 1 ).  
+
+regra( X ) ?=>     %%% this rule is NOT backtrackable
+         X < 7,
+         X > 3,
+         println(xX_3 = X ),
+         regra( X - 1 ).  
+
+regra( X ) =>     %%% this rule is NOT backtrackable
+         X <= 3,
+         println(xX_4 = X ),
+         regra( X - 1 ).  
+        	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+/*
+
+{Trace mode}
+Picat> main race mode}
+Picat> 
+Picat> cl('backtracking_ex_03')
+Compiling:: backtracking_ex_03.pi
+backtracking_ex_03.pi compiled in 0 milliseconds
+loading...
+
+yes
+
+{Trace mode}
+Picat> main 
+ +     spy
+ -     nospy
+ <     reset print depth to 10
+ < i   set print depth to i
+ a     abort
+ h     help
+<cr>   creep
+ c     creep
+ h     help
+ ?     help
+ l     leap
+ n     nodebug
+ r     repeat creep
+ s     skip
+ t     backtrace
+ t i   backtrace from call #i
+ u     undo, retrying the current call
+ u i   undo, retrying call #i
+
+   Call: (34) regra(2) ?c
+   Call: (35) 2 > 7 ?a
+{Trace mode}
+Picat> 
+*/
