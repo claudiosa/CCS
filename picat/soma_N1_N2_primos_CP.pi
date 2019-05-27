@@ -21,6 +21,7 @@ modelo =>
     N1 #!= N2,
     N1 #< PAR,  
     N2 #< PAR,
+    N1 #<= N2, %%% breaking simmetries
     N1 + N2 #= PAR,
   
 	% A BUSCA
