@@ -1,0 +1,82 @@
+%%% $ swipl -t main -q -f flights_DFS.pl
+
+%% DATABASE -- graph encode
+
+flight( fresno, seattle).
+flight( fresno, albany).
+flight( fresno, boston).
+
+flight( seattle, omaha).
+flight( seattle, dallas).
+
+flight( omaha, albany).
+flight( omaha, atlanta).
+
+flight( albany, dallas).
+flight( albany, seattle ).
+
+flight( dallas, albany ).
+flight( dallas, seattle ).
+
+flight( atlanta, boston ).
+flight( atlanta, albany ).
+flight( atlanta, dallas ).
+
+
+route(A, B ) :- flight( A, B).
+route(A, B ) :- flight( A, C), route(C, B ).
+
+%%%$ swipl -q -f hello.pl -t main
+/*  *****************************************   */
+main  :- 
+       go_01
+      % go_02
+       .
+
+go_01 :- route(fresno, atlanta), 
+         write('  YES '), !.
+go_01 :- 
+         write(' NO ').
+
+
+go_02 :- route(fresno, X), 
+         write(' Fresno to  ==> '), write(X),
+         false.
+go_02 :- true.
+
+/* inicio do pgm :: cond. inicial e parada ... definidas */
+
+ /* condicao de parada no estado final  */
+  %search_DFS( [X|L] , [X|L] ) :-  
+		%X == estado(dir_2B,dir_2B,dir_2B,dir_2B),
+    %nl,
+    %write(' ........... ONE SOLUTION WAS FOUND ........').
+
+ /* compara... hah casamento entre o   estado corrente e final ? */
+
+/* aqui é o cerne do processo de busca */
+  %search_DFS([Current_State | VisitedPath], Solution  ):-
+/* ache um movimento:: Find a move */
+        %move(Current_State,Nextstate),     
+      
+    /* Verifique se é valido */
+        %not( inseguro(Nextstate) ),      
+    
+/* Verifique se já não esteve em uma tentativa anteriores */
+	%not( eh_menbro(Nextstate,VisitedPath) ),  
+        
+/* encontre recursivamente outro movimento */
+	%search_DFS([Nextstate, Current_State |VisitedPath], Solution ).
+ qt_move([],0) .
+ qt_move([_|L],N) :- qt_move(L,N1), N is N1 + 1.
+
+  eh_menbro(X,[X|_]):-!.
+  eh_menbro(X,[_|L]):-eh_menbro(X,L).
+
+  write_path( [H1,H2|T] ) :-
+        write_move(H1,H2),
+        write_path([H2|T]).
+  write_path( [] ).
+
+
+
