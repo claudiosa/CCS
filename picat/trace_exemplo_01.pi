@@ -17,11 +17,9 @@ regra(X,Y, R) =>
       R = X + Y.
 %%%%%%%%%xq%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=> 
-    %% X + Y = 22
-
-    %trace,
+    X + Y = 22
+%   trace,
     regra(X,Y, 22) , 
-
 %    notrace,
     printf("\n X: %w Y: %w ", X, Y)  ,  
     false.
