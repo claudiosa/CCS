@@ -1,27 +1,23 @@
 %%%$ picat trace_exemplo_01.pi 
-index(-)      % these facts are not ordered
-     p(2).
-     p(1).
-     p(0).
-    
-index(-)      % these facts are not ordered
-     q(20).
-     q(22).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-regra(X,Y, R) =>   
-      p(X),
-    %  spy($q/1) ,
-      q(Y),
-    %  nospy,
-    %  write('..... calcula ....'),
-      R = X + Y.
-%%%%%%%%%xq%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 main ?=> 
-    X + Y = 22
-%   trace,
     regra(X,Y, 22) , 
-%    notrace,
     printf("\n X: %w Y: %w ", X, Y)  ,  
     false.
 main =>  printf("\n Não há mais soluções! \n").  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+regra(X, Y, R) =>   
+       p(X),
+    %  spy($q/1) ,
+       q(Y),
+    %  nospy,
+    %  write('..... calcula ....'),
+       R = X + Y.
+%%%%%%%%%xq%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+index ( - )      % these facts are not ordered
+     p(2).
+     p(1).
+     p(0).
+index ( - )      % these facts are not ordered
+     q(20).
+     q(22).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
