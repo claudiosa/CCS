@@ -1,5 +1,0 @@
-main :-     ad_depois([3,4,5,6], 5, 77, X1), write(X1) , nl,
-            ad_depois([], 5, 77, X2), write(X2), nl,
-            ad_depois([9], 5, 77, X3), write(X3), nl,
-            ad_depois([a,b,c,d,e], c, 77, X4), write(X4), nl,
-            ad_depois([a,b,d,e], c, 77, X5), write(X5), nl.

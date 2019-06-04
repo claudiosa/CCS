@@ -1,5 +1,0 @@
-le_aux( [ ] ) :- !.
-testa(13) :- !, fail.
-testa(10) :- !, fail.
-testa(27) :- !, fail.
-testa( _ )  :- true.

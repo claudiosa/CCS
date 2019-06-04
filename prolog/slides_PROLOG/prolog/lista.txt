@@ -1,6 +1,0 @@
-eh_uma_lista( [ ] ).
-eh_uma_lista( [X | T ] ) :- 
-		eh_uma_lista( T ).
-
-?- eh_lista( [a,b,c] ).
-yes

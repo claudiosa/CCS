@@ -1,8 +1,0 @@
-
-main :- 
-       num_l(1, X1), write(X1) , nl,
-	   num_l(10, X2), write(X2), nl,
-	   num_l(2, X3), write(X3), nl,
-	   num_l(0, X4) , write(X4), nl,
-	   num_l(3, X5), write(X5), nl,
-	   num_l(7,  X6 ),  write(X6) , nl.

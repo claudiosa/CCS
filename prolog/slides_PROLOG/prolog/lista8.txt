@@ -1,5 +1,0 @@
-escreve_lista( [ ] ).
-escreve_lista( [ Head | Tail ] ) :-
-                   		write( ' : ' ),
-                   		put( Head ),
-                   		escreve_lista( Tail ).

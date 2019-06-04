@@ -1,4 +1,0 @@
-xinvertex(A, Z) :- reverse(A, [ ], Z).
-reverse( [], Z, Z).
-reverse( [A | X ],Acumulador, Z) :-
-         reverse(X, [A|Acumulador], Z).

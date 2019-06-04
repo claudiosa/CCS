@@ -1,5 +1,0 @@
-main :-     med_lista([3,4,5,6],X1), write(X1) , nl,
-            med_lista([3,-4,-5,6],X2), write(X2), nl,
-            med_lista([999],X3), write(X3), nl,
-            med_lista([],X4), write(X4), nl,
-            med_lista([3,4,5,65,6,7,8, 999],X5), write(X5), nl.

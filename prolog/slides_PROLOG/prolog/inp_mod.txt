@@ -1,5 +1,0 @@
-main :- mult(6,3),  nl,
-        mult(7,4),  nl,
-        mult(32,2), nl,
-        mult(17,7), nl.
-%%        halt.

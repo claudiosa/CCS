@@ -1,6 +1,0 @@
-menor(_,[]) :- write('sua_lista_estah_vazia').
-menor(A,[A]).
-menor(A,[A,B]):- A =< B.
-menor(B,[A,B]):- B =< A.
-menor(X, [A , B | C] ) :- A < B, menor(X, [A|C]).
-menor(X, [A , B | C] ) :- B =< A, menor(X, [B|C]).
