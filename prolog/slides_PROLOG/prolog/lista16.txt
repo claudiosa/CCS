@@ -1,6 +1,0 @@
- subs(A,B) :- sub(A,B,A).    
- sub([],_,_).
- sub([A|B] , [C|D] , Lcopia) :- A == C, 
-                     sub( B, D, Lcopia).
- sub([A|_] , [C|D] , Lcopia) :- A \== C, 
-                     sub(Lcopia,D, Lcopia).

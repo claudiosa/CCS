@@ -1,5 +1,0 @@
-?- divide([a,b,c,d,e],L1,L2).
-L1=[a,c]      L2=[b,d,e]
-
-?- divide(L , [ a , b ], [ c , d ]).
-L=[a, c, b, d]

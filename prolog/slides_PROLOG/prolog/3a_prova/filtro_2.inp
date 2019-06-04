@@ -1,8 +1,0 @@
-
-main :- 
-       filtro_2(1, [(1,2),(b,2), (2,4),(2,x)], X1), write(X1) , nl,
-	   filtro_2(2, [(1,2),(b,2), (2,4),(2,x)], X2), write(X2), nl,
-	   filtro_2(3, [(1,2),(b,2), (2,4),(2,x)], X3), write(X3), nl,
-	   filtro_2(4, [(1,2),(b,2), (2,4),(2,x)], X4) , write(X4), nl,
-	   filtro_2(0, [(1,2),(b,2), (2,4),(2,x)], X5), write(X5), nl,
-	   filtro_2(2, [],  X6 ),  write(X6) , nl.

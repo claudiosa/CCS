@@ -1,8 +1,0 @@
-
-%% swipl --goal=main -t halt -o saida.exe -c xxx
-main :-
-   f_91(3,X1),write(X1),nl,
-   f_91(-3,X2),write(X2),nl,
-   f_91(113,X3),write(X3),nl,
-   f_91(91,X4),write(X4),nl, 
-   f_91(191,X5),write(X5),nl.

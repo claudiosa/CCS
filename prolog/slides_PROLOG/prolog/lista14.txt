@@ -1,4 +1,0 @@
-naive_reverse( [ ] , [ ] ).
-naive_reverse( [ H  | T ], Reversed ) :-
-        		naive_reverse( T , R ),
-        		append( R , [ H ], Reversed ).

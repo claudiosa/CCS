@@ -1,3 +1,0 @@
-del_X_all(X,[],[]).
-del_X_all(X,[X|L],L1) :- del_X_all(X,L,L1).
-del_X_all(X,[Y|L1],[Y|L2]) :- del_X_all(X,L1,L2).

@@ -1,4 +1,0 @@
-sim
-nao
-sim
-nao

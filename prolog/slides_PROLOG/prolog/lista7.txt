@@ -1,3 +1,0 @@
-cor(X) :- X is random(5), 
-          X > 0, !.
-cor(X) :- cor(X).

@@ -1,8 +1,0 @@
-
-%% swipl --goal=main -t halt -o saida.exe -c xxx
-main :- 
-        imp_div(3),nl,
-        imp_div(-3),nl,
-        imp_div(14),nl,
-        imp_div(0),nl,
-        imp_div(66),nl.

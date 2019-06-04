@@ -1,7 +1,0 @@
-uniao([],X,X).
-uniao([X|L1],L2,[X|L3]) :- uniao( L1, L2, L3).
-
-O ``goal'':
-?- uniao([a,c,e],[b,d], W).
-W=[a,c,e,b,d]
-yes

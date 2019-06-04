@@ -1,5 +1,0 @@
-main :- elem_resto( a , [1,2,3, a , 3.4567 , 4, 5 ,a ], X1), write(X1) , nl,
-        elem_resto( b , [1,2,3, a , 3.4567 , 4, a, 5 ] , X2), write(X2), nl,
-         elem_resto( b , [], X3), write(X3), nl,
-          elem_resto( b , [ b ], X4), write(X4), nl,
-          elem_resto( a , [a, 1,2,3, a , 3.4567 , a, 4, a, 5 ], X5), write(X5), nl.
