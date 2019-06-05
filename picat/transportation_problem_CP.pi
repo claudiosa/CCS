@@ -1,0 +1,70 @@
+%% Transportation Problem
+%% REFERENCE for this problem
+%% https://www.me.utexas.edu/~jensen/models/network/net8.html
+%% Author: Claudio Cesar de Sá
+import cp.
+
+ main ?=> model,
+ printf("\n....................................\n").
+  
+ main =>  printf("\n THE END").	
+
+%main =>
+%    L = findall(_, $modelo),
+%    writef("\n Total de solucoes:  %d \n", length(L)) .
+    
+model => 
+    C = 3, % Demands or consumers --- COLUNS
+    S = 3,  % Suppliers or sources -- ROWS
+    %% see the figures in the site 
+    % https://www.me.utexas.edu/~jensen/models/network/net8.html
+    LARGE = 9999, %% NO CONNECTION .... 
+    Data_M = new_array(S, C), %% Lin x Col
+    Data_M = { {3, 1, LARGE}, 
+               {4, 2, 4},  
+               {LARGE, 3, 3}
+             },   
+   
+    X_Matrix = new_array(S, C), %% Rowx x Colun
+    X_Matrix :: 0 .. LARGE, %%% include 0 YES due 
+    %% some arcs are not select
+           
+    % All the sources MUST respect their generation capacity
+    sum([X_Matrix[1,J] : J in 1..C]) #= 5,
+    sum([X_Matrix[2,J] : J in 1..C]) #= 7,
+    sum([X_Matrix[3,J] : J in 1..C]) #= 3,
+    
+    % All the consumers/demands MUST respect their reception capacity
+    sum([X_Matrix[I,1] : I in 1..S]) #<= 7,
+    sum([X_Matrix[I,2] : I in 1..S]) #<= 3,
+    sum([X_Matrix[I,3] : I in 1..S]) #<= 5,
+    
+    foreach(I in 1..S , J  in 1..C)
+    ( X_Matrix[I,J] #>= 0 )
+    end, 
+       
+ %% Cost function to be minimized
+  Cost_F #= sum([Data_M[I,J] * X_Matrix[I,J] : 
+                I in 1..S , J  in 1..C]),
+
+  %% Vars for search
+  %Vars = [X_Matrix], 
+  solve([$min(Cost_F)], X_Matrix ),
+  
+  % UMA SAIDA
+  printf("\n Cost Solution: %d" , Cost_F),
+  print_matrix( X_Matrix ).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
