@@ -1,0 +1,36 @@
+%%%glpsol --lp transp_prob.pk > saida_transportation_MIP.txt
+GLPSOL: GLPK LP/MIP Solver, v4.65
+Parameter(s) specified in the command line:
+ --lp transp_prob.pk
+Reading problem data from 'transp_prob.pk'...
+36 rows, 10 columns, 57 non-zeros
+10 integer variables, none of which are binary
+62 lines were read
+GLPK Integer Optimizer, v4.65
+36 rows, 10 columns, 57 non-zeros
+10 integer variables, none of which are binary
+Preprocessing...
+7 rows, 10 columns, 28 non-zeros
+10 integer variables, none of which are binary
+Scaling...
+ A: min|aij| =  1.000e+00  max|aij| =  9.999e+03  ratio =  9.999e+03
+GM: min|aij| =  1.000e-01  max|aij| =  1.000e+01  ratio =  9.999e+01
+EQ: min|aij| =  1.000e-02  max|aij| =  1.000e+00  ratio =  9.999e+01
+2N: min|aij| =  7.812e-03  max|aij| =  1.221e+00  ratio =  1.562e+02
+Constructing initial basis...
+Size of triangular part is 7
+Solving LP relaxation...
+GLPK Simplex Optimizer, v4.65
+7 rows, 10 columns, 28 non-zeros
+      0: obj =   5.003200000e+04 inf =   3.000e+00 (2)
+      4: obj =   4.600000000e+01 inf =   0.000e+00 (0)
+*     5: obj =   4.600000000e+01 inf =   0.000e+00 (0)
+OPTIMAL LP SOLUTION FOUND
+Integer optimization begins...
+Long-step dual simplex will be used
++     5: mip =     not found yet >=              -inf        (1; 0)
++     5: >>>>>   4.600000000e+01 >=   4.600000000e+01   0.0% (1; 0)
++     5: mip =   4.600000000e+01 >=     tree is empty   0.0% (0; 1)
+INTEGER OPTIMAL SOLUTION FOUND
+Time used:   0.0 secs
+Memory used: 0.1 Mb (71940 bytes)

@@ -1,4 +1,5 @@
 %%%$ picat trace_exemplo_01.pi 
+%% cl('trace_exemplo_01').
 main ?=> 
     regra(X,Y, 22) , 
     printf("\n X: %w Y: %w ", X, Y)  ,  
@@ -7,10 +8,7 @@ main =>  printf("\n Não há mais soluções! \n").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 regra(X, Y, R) =>   
        p(X),
-    %  spy($q/1) ,
        q(Y),
-    %  nospy,
-    %  write('..... calcula ....'),
        R = X + Y.
 %%%%%%%%%xq%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 index ( - )      % these facts are not ordered

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="opl.launchType">
+<stringAttribute key="opl.debugModel.ATTR_ELEMENT_ID" value="=wha\rehouse_01RCon\figu\rações de ExecuçãorCon\figu\ração1"/>
+<stringAttribute key="opl.debugModel.ATTR_PROJECT" value="wharehouse_01"/>
+<stringAttribute key="opl.debugModel.ATTR_RUN_CONFIG" value="Configuração1"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/wharehouse_01"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>

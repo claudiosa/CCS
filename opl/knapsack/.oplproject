@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+	<version>1.0</version>
+	<description>A simple knapsack model, Integer Programming</description>
+	<configs>
+		<config default="true" name="Default Configuration" category="opl">
+			<ref name="knapsack.dat" type="data">
+			</ref>
+			<ref name="knapsack.mod" type="model">
+			</ref>
+		</config>
+		<config default="false" name="Solve using CPLEX priorities" category="opl">
+			<ref name="knapsackp.dat" type="data">
+			</ref>
+			<ref name="knapsackp.mod" type="model">
+			</ref>
+		</config>
+		<config default="false" name="Configura&amp;#231;&amp;#227;o1" category="opl">
+		</config>
+	</configs>
+	
+</project>

@@ -2,8 +2,9 @@
 %% REFERENCE for this problem
 %% https://www.me.utexas.edu/~jensen/models/network/net8.html
 %% Author: Claudio Cesar de Sá
-import cp.
-
+%  cl('transportation_problem_CP').
+%import cp.
+import mip.
  main ?=> model,
  printf("\n....................................\n").
   
@@ -49,11 +50,14 @@ model =>
 
   %% Vars for search
   %Vars = [X_Matrix], 
-  solve([$min(Cost_F)], X_Matrix ),
-  
+  solve([$min(Cost_F), dump('saida_CPLEX.txt')], X_Matrix ),
+  %solve([$min(Cost_F), dump], X_Matrix ),
+ %% solve([$min(Cost_F), tmp], X_Matrix ),
   % UMA SAIDA
-  printf("\n Cost Solution: %d" , Cost_F),
+  %printf("\n Cost Solution: %f" , Cost_F),
+  println(cost_f = Cost_F),
   print_matrix( X_Matrix ).
+ % dump('saida.txt').
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_matrix( M ) =>
  L = M.length,
@@ -61,7 +65,12 @@ print_matrix( M ) =>
   nl,
    foreach(I in 1  .. L)
      foreach(J in 1  ..  C)
-      printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      print('x('), print(I),
+      print(','), write(J),
+      print(') = '),
+      write( M[I,J] ), print("       ")
+      
      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
      end,
      nl

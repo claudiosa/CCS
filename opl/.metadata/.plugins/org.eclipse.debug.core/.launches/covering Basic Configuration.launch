@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="opl.launchType">
+<stringAttribute key="opl.debugModel.ATTR_ELEMENT_ID" value="=cove\ringRCon\figu\rações de ExecuçãorBasic Con\figu\ration"/>
+<stringAttribute key="opl.debugModel.ATTR_PROJECT" value="covering"/>
+<stringAttribute key="opl.debugModel.ATTR_RUN_CONFIG" value="Basic Configuration"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/covering"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>
