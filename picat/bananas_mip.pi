@@ -9,9 +9,9 @@ go =>
             X #>= 0.17,
             Y #>= 0.17,
             
-           % Y #= (X*2)*0.17,
+            Y #= (X*2)*0.17,
           
-           Y #= (quad(X)) * 0.17,
+           %Y #= (quad(X)) * 0.17, %%% NO NO NO
             solve(Vars),
             println(Vars),
             nl.

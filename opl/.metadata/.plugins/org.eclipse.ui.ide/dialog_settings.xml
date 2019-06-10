@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="" key="IloExternalProjectImportWizard.STORE_ROOT_ARCHIVE"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="" key="IloExternalProjectImportWizard.STORE_ROOT_DIRECTORY"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/ccs/principal/CCS/opl/benders"/>
+			<item value="/opt/ibm/ILOG/CPLEX_Studio129/opl/examples/opl/benders"/>
+			<item value="/home/ccs/principal/CCS/opl/covering"/>
+			<item value="/opt/ibm/ILOG/CPLEX_Studio129/opl/examples/opl/covering"/>
+			<item value="/home/ccs/principal/CCS/opl/deposito01"/>
+			<item value="/opt/ibm/ILOG/CPLEX_Studio129/opl/examples/opl/production"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="ilog.odms.ide.ui.wizards.NewOplProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="ilog.odms.ide.ui.OPL"/>
+		</list>
+	</section>
+</section>

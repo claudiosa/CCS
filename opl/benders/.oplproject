@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+	<version>1.0</version>
+	<description>A benders decomposition example - Experimental. </description>
+	<configs>
+		<config default="false" name="Benders main" category="opl">
+			<ref name="benders_main.mod" type="model">
+			</ref>
+			<ref name="benders.dat" type="data">
+			</ref>
+		</config>
+		<config default="true" name="Benders Basic" category="opl">
+			<ref name="benders.mod" type="model">
+			</ref>
+			<ref name="benders.dat" type="data">
+			</ref>
+		</config>
+	</configs>
+	
+</project>

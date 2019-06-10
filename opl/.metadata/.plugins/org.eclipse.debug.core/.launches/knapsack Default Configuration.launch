@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="opl.launchType">
+<stringAttribute key="opl.debugModel.ATTR_ELEMENT_ID" value="=knapsackRCon\figu\rações de ExecuçãorDe\fault Con\figu\ration"/>
+<stringAttribute key="opl.debugModel.ATTR_PROJECT" value="knapsack"/>
+<stringAttribute key="opl.debugModel.ATTR_RUN_CONFIG" value="Default Configuration"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/knapsack"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>

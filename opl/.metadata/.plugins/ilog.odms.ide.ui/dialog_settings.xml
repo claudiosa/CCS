@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="IloSamplesWizard">
+		<item value="/home/ccs/principal/CCS/opl" key="ilog.odms.ide.samples.opl.STORE_COPY_LOCATION"/>
+		<section name="expanded">
+			<section name="Complexidade">
+				<list key="Complexidade">
+					<item value="Básico"/>
+				</list>
+			</section>
+		</section>
+	</section>
+	<section name="IloNewOplProjectWizard">
+		<item value="/home/ccs/principal/CCS/opl/" key="IloNewOplProjectWizard.STORE_ROOT_DIRECTORY"/>
+	</section>
+	<section name="OplSearchPage">
+		<item value="1" key="HISTORY_SIZE"/>
+		<item value="false" key="CASE_SENSITIVE"/>
+		<section name="HISTORY0">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="0" key="scope"/>
+			<item value="transportation" key="pattern"/>
+			<item value="2" key="limitTo"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+</section>

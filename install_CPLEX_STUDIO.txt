@@ -1,0 +1,6 @@
+
+/usr/bin
+[gerzat bin]#
+ln -s /opt/ibm/ILOG/CPLEX_Studio129/opl/oplide/oplide studioIBM
+
+ln -s /opt/ibm/ILOG/CPLEX_Studio129/opl/oplide/oplide ibm_opl

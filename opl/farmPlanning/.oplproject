@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <version>1.0</version>
+  <description>Farm Planning, Linear Programming</description>  
+  <configs>
+    <config name="Basic Configuration" default="true" category="opl">
+      <ref name="farmPlanning.dat" type="data"/>
+      <ref name="farmPlanning.mod" type="model"/>
+    </config>
+  </configs>
+</project>
