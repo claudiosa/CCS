@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_WG-QkIsoEemG7MOTAyfUqw" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_WG-QkYsoEemG7MOTAyfUqw" bindingContexts="_WHE-RosoEemG7MOTAyfUqw">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;benders.mod&quot; tooltip=&quot;benders/benders.mod&quot;>&#xA;&lt;persistable path=&quot;/benders/benders.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;covering.dat&quot; tooltip=&quot;covering/covering.dat&quot;>&#xA;&lt;persistable path=&quot;/covering/covering.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;covering.mod&quot; tooltip=&quot;covering/covering.mod&quot;>&#xA;&lt;persistable path=&quot;/covering/covering.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;depositoOK.dat&quot; tooltip=&quot;depositoOK/depositoOK.dat&quot;>&#xA;&lt;persistable path=&quot;/depositoOK/depositoOK.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;depositoOK.mod&quot; tooltip=&quot;depositoOK/depositoOK.mod&quot;>&#xA;&lt;persistable path=&quot;/depositoOK/depositoOK.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;farmPlanning.mod&quot; tooltip=&quot;farmPlanning/farmPlanning.mod&quot;>&#xA;&lt;persistable path=&quot;/farmPlanning/farmPlanning.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;farmPlanning.dat&quot; tooltip=&quot;farmPlanning/farmPlanning.dat&quot;>&#xA;&lt;persistable path=&quot;/farmPlanning/farmPlanning.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;readme.txt&quot; tooltip=&quot;farmPlanning/readme.txt&quot;>&#xA;&lt;persistable path=&quot;/farmPlanning/readme.txt&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;deposito01.dat&quot; tooltip=&quot;/home/ccs/principal/CCS/opl/deposito01/deposito01.dat&quot;>&#xA;&lt;persistable uri=&quot;file:/home/ccs/principal/CCS/opl/deposito01/deposito01.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;deposito01.mod&quot; tooltip=&quot;/home/ccs/principal/CCS/opl/deposito01/deposito01.mod&quot;>&#xA;&lt;persistable uri=&quot;file:/home/ccs/principal/CCS/opl/deposito01/deposito01.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;deposito01.mod&quot; tooltip=&quot;deposito01/deposito01.mod&quot;>&#xA;&lt;persistable path=&quot;/deposito01/deposito01.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;.project&quot; tooltip=&quot;/home/ccs/principal/CCS/opl/deposito01/.project&quot;>&#xA;&lt;persistable uri=&quot;file:/home/ccs/principal/CCS/opl/deposito01/.project&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;warehouse.dat&quot; tooltip=&quot;warehouse/warehouse.dat&quot;>&#xA;&lt;persistable path=&quot;/warehouse/warehouse.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;warehouse.mod&quot; tooltip=&quot;warehouse/warehouse.mod&quot;>&#xA;&lt;persistable path=&quot;/warehouse/warehouse.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;deposito01.dat&quot; tooltip=&quot;deposito01/deposito01.dat&quot;>&#xA;&lt;persistable path=&quot;/deposito01/deposito01.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;transport.mod&quot; tooltip=&quot;transport/transport.mod&quot;>&#xA;&lt;persistable path=&quot;/transport/transport.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;covering.mod&quot; tooltip=&quot;covering/covering.mod&quot;>&#xA;&lt;persistable path=&quot;/covering/covering.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;benders_main.mod&quot; tooltip=&quot;benders/benders_main.mod&quot;>&#xA;&lt;persistable path=&quot;/benders/benders_main.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;transport.dat&quot; tooltip=&quot;transport/transport.dat&quot;>&#xA;&lt;persistable path=&quot;/transport/transport.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.SettingEditor&quot; name=&quot;transport.ops&quot; tooltip=&quot;transport/transport.ops&quot;>&#xA;&lt;persistable path=&quot;/transport/transport.ops&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;benders.mod&quot; tooltip=&quot;benders/benders.mod&quot;>&#xA;&lt;persistable path=&quot;/benders/benders.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;covering.dat&quot; tooltip=&quot;covering/covering.dat&quot;>&#xA;&lt;persistable path=&quot;/covering/covering.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;depositoOK.dat&quot; tooltip=&quot;depositoOK/depositoOK.dat&quot;>&#xA;&lt;persistable path=&quot;/depositoOK/depositoOK.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;depositoOK.mod&quot; tooltip=&quot;depositoOK/depositoOK.mod&quot;>&#xA;&lt;persistable path=&quot;/depositoOK/depositoOK.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;farmPlanning.mod&quot; tooltip=&quot;farmPlanning/farmPlanning.mod&quot;>&#xA;&lt;persistable path=&quot;/farmPlanning/farmPlanning.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;farmPlanning.dat&quot; tooltip=&quot;farmPlanning/farmPlanning.dat&quot;>&#xA;&lt;persistable path=&quot;/farmPlanning/farmPlanning.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;readme.txt&quot; tooltip=&quot;farmPlanning/readme.txt&quot;>&#xA;&lt;persistable path=&quot;/farmPlanning/readme.txt&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.DataEditor&quot; name=&quot;deposito01.dat&quot; tooltip=&quot;/home/ccs/principal/CCS/opl/deposito01/deposito01.dat&quot;>&#xA;&lt;persistable uri=&quot;file:/home/ccs/principal/CCS/opl/deposito01/deposito01.dat&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;deposito01.mod&quot; tooltip=&quot;/home/ccs/principal/CCS/opl/deposito01/deposito01.mod&quot;>&#xA;&lt;persistable uri=&quot;file:/home/ccs/principal/CCS/opl/deposito01/deposito01.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;ilog.odms.ide.ui.editors.ModelEditor&quot; name=&quot;deposito01.mod&quot; tooltip=&quot;deposito01/deposito01.mod&quot;>&#xA;&lt;persistable path=&quot;/deposito01/deposito01.mod&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_WG-QkYsoEemG7MOTAyfUqw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_WG-QkosoEemG7MOTAyfUqw" x="47" y="27" width="1254" height="723">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_WG-QkYsoEemG7MOTAyfUqw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_WG-QkosoEemG7MOTAyfUqw" x="19" y="32" width="1248" height="771">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -48,44 +48,45 @@
           <tags>persp.actionSet:org.eclipse.debug.ui.launchActionSet</tags>
           <tags>persp.viewSC:ilog.odms.ide.server.ui.ServersView</tags>
           <tags>persp.viewSC:ilog.odms.ide.oaas.ui.ServersView</tags>
+          <tags>persp.actionSet:org.eclipse.debug.ui.debugActionSet</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_WG-QlYsoEemG7MOTAyfUqw" selectedElement="_WG-QlosoEemG7MOTAyfUqw" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_WG-QlosoEemG7MOTAyfUqw" containerData="3234" selectedElement="_WG-Ql4soEemG7MOTAyfUqw">
-              <children xsi:type="basic:PartStack" xmi:id="_WG-Ql4soEemG7MOTAyfUqw" elementId="topLeft" containerData="3929" selectedElement="_WG-QmIsoEemG7MOTAyfUqw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_WG-QlosoEemG7MOTAyfUqw" containerData="3097" selectedElement="_WG-Ql4soEemG7MOTAyfUqw">
+              <children xsi:type="basic:PartStack" xmi:id="_WG-Ql4soEemG7MOTAyfUqw" elementId="topLeft" containerData="5235" selectedElement="_WG-QmIsoEemG7MOTAyfUqw">
                 <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_WG-QmIsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.navigator.OplProjectExplorer" ref="_WG_e3IsoEemG7MOTAyfUqw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_WG-QmYsoEemG7MOTAyfUqw" elementId="org.eclipse.ui.navigator.ProjectExplorer" toBeRendered="false" ref="_WHAF14soEemG7MOTAyfUqw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_WG-QmosoEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_WHAF2IsoEemG7MOTAyfUqw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_WG-Qm4soEemG7MOTAyfUqw" elementId="org.eclipse.debug.ui.DebugView" ref="_WHAs9IsoEemG7MOTAyfUqw"/>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_WG-3oIsoEemG7MOTAyfUqw" elementId="projBrowser" containerData="6071" selectedElement="_WG-3oYsoEemG7MOTAyfUqw">
+              <children xsi:type="basic:PartStack" xmi:id="_WG-3oIsoEemG7MOTAyfUqw" elementId="projBrowser" containerData="4765" selectedElement="_WG-3oYsoEemG7MOTAyfUqw">
                 <children xsi:type="advanced:Placeholder" xmi:id="_WG-3oYsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ProblemBrowserView" ref="_WHAF64soEemG7MOTAyfUqw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_WG-3oosoEemG7MOTAyfUqw" elementId="org.eclipse.debug.ui.VariableView" ref="_WHAs94soEemG7MOTAyfUqw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_WG-3o4soEemG7MOTAyfUqw" elementId="org.eclipse.debug.ui.BreakpointView" ref="_WHAs-osoEemG7MOTAyfUqw"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_WG-3pIsoEemG7MOTAyfUqw" containerData="6766" selectedElement="_WG-3pYsoEemG7MOTAyfUqw">
-              <children xsi:type="basic:PartSashContainer" xmi:id="_WG-3pYsoEemG7MOTAyfUqw" containerData="6124" selectedElement="_WG-3posoEemG7MOTAyfUqw" horizontal="true">
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3posoEemG7MOTAyfUqw" elementId="org.eclipse.ui.editorss" containerData="6381" ref="_WG_e2osoEemG7MOTAyfUqw"/>
-                <children xsi:type="basic:PartSashContainer" xmi:id="_WG-3p4soEemG7MOTAyfUqw" containerData="3619" selectedElement="_WG-3qIsoEemG7MOTAyfUqw">
-                  <children xsi:type="basic:PartStack" xmi:id="_WG-3qIsoEemG7MOTAyfUqw" elementId="topRight" containerData="8000" selectedElement="_WG-3qYsoEemG7MOTAyfUqw">
-                    <children xsi:type="advanced:Placeholder" xmi:id="_WG-3qYsoEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.ContentOutline" ref="_WHAF2YsoEemG7MOTAyfUqw"/>
-                  </children>
-                  <children xsi:type="basic:PartStack" xmi:id="_WG-3qosoEemG7MOTAyfUqw" elementId="projerties" containerData="2000" selectedElement="_WG-3q4soEemG7MOTAyfUqw">
-                    <children xsi:type="advanced:Placeholder" xmi:id="_WG-3q4soEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.PropertySheet" ref="_WHAF3YsoEemG7MOTAyfUqw"/>
-                  </children>
+            <children xsi:type="basic:PartSashContainer" xmi:id="_WG-3pYsoEemG7MOTAyfUqw" containerData="6903" selectedElement="_1YLOIIviEem8ffdG2mNxKQ" horizontal="true">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_1YLOIIviEem8ffdG2mNxKQ" containerData="5879" selectedElement="_WG-3posoEemG7MOTAyfUqw">
+                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3posoEemG7MOTAyfUqw" elementId="org.eclipse.ui.editorss" containerData="5000" ref="_WG_e2osoEemG7MOTAyfUqw"/>
+                <children xsi:type="basic:PartStack" xmi:id="_WG-3rIsoEemG7MOTAyfUqw" elementId="bottomRight" containerData="5000" selectedElement="_WG-3rosoEemG7MOTAyfUqw">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3rYsoEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.ProblemView" ref="_WHAF9YsoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3rosoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ScriptLogView" ref="_WHAGBYsoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3r4soEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.SolutionsView" ref="_WHAs1IsoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3sIsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ConflictsView" ref="_WHAs2osoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3sYsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.RelaxationsView" ref="_WHAs34soEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3sosoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.EngineLogView" ref="_WHAs5IsoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3s4soEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.StatisticsView" ref="_WHAs6osoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3tIsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ProfilerView" ref="_WHAs7YsoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3tYsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.server.ui.ServersView" ref="_WHAs_YsoEemG7MOTAyfUqw"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3tosoEemG7MOTAyfUqw" elementId="ilog.odms.ide.oaas.ui.ServersView" ref="_WHAs_osoEemG7MOTAyfUqw"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_WG-3rIsoEemG7MOTAyfUqw" elementId="bottomRight" containerData="3876" selectedElement="_WG-3rosoEemG7MOTAyfUqw">
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3rYsoEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.ProblemView" ref="_WHAF9YsoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3rosoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ScriptLogView" ref="_WHAGBYsoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3r4soEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.SolutionsView" ref="_WHAs1IsoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3sIsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ConflictsView" ref="_WHAs2osoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3sYsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.RelaxationsView" ref="_WHAs34soEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3sosoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.EngineLogView" ref="_WHAs5IsoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3s4soEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.StatisticsView" ref="_WHAs6osoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3tIsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ProfilerView" ref="_WHAs7YsoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3tYsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.server.ui.ServersView" ref="_WHAs_YsoEemG7MOTAyfUqw"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_WG-3tosoEemG7MOTAyfUqw" elementId="ilog.odms.ide.oaas.ui.ServersView" ref="_WHAs_osoEemG7MOTAyfUqw"/>
+              <children xsi:type="basic:PartSashContainer" xmi:id="_WG-3p4soEemG7MOTAyfUqw" containerData="2275" selectedElement="_WG-3qIsoEemG7MOTAyfUqw">
+                <children xsi:type="basic:PartStack" xmi:id="_WG-3qIsoEemG7MOTAyfUqw" elementId="topRight" containerData="8000" selectedElement="_WG-3qYsoEemG7MOTAyfUqw">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3qYsoEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.ContentOutline" ref="_WHAF2YsoEemG7MOTAyfUqw"/>
+                </children>
+                <children xsi:type="basic:PartStack" xmi:id="_WG-3qosoEemG7MOTAyfUqw" elementId="projerties" containerData="2000" selectedElement="_WG-3q4soEemG7MOTAyfUqw">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_WG-3q4soEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.PropertySheet" ref="_WHAF3YsoEemG7MOTAyfUqw"/>
+                </children>
               </children>
             </children>
           </children>
@@ -196,9 +197,10 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_WHAF9YsoEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problemas" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/problems_view.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.ProblemsView"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.ide"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problemas&quot;>&#xA;&lt;expanded>&#xA;&lt;category IMemento.internal.id=&quot;Avisos (3 itens)&quot;/>&#xA;&lt;/expanded>&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;105&quot; org.eclipse.ui.ide.markerType=&quot;314&quot; org.eclipse.ui.ide.pathField=&quot;140&quot; org.eclipse.ui.ide.resourceField=&quot;105&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;487&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problemas&quot;>&#xA;&lt;expanded>&#xA;&lt;category IMemento.internal.id=&quot;Erros&quot;/>&#xA;&lt;category IMemento.internal.id=&quot;Erros (1 item)&quot;/>&#xA;&lt;/expanded>&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;105&quot; org.eclipse.ui.ide.markerType=&quot;314&quot; org.eclipse.ui.ide.pathField=&quot;140&quot; org.eclipse.ui.ide.resourceField=&quot;105&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;487&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Geral</tags>
+      <tags>highlighted</tags>
       <menus xmi:id="_WHAF9osoEemG7MOTAyfUqw" elementId="org.eclipse.ui.views.ProblemView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -280,7 +282,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:OPL</tags>
-      <tags>highlighted</tags>
       <menus xmi:id="_WHAs5YsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.EngineLogView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -289,7 +290,7 @@
         <tags>menuContribution:popup</tags>
         <tags>popup:ilog.odms.ide.ui.views.EngineLogView</tags>
       </menus>
-      <toolbar xmi:id="_WHAs54soEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.EngineLogView"/>
+      <toolbar xmi:id="_WHAs54soEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.EngineLogView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_WHAs6osoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.StatisticsView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Estat&#xed;sticas" iconURI="platform:/plugin/ilog.odms.ide.ui/icons/full/eview16/statistics.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="ilog.odms.ide.ui.views.statistics.IloStatisticsView"/>
@@ -297,12 +298,11 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:OPL</tags>
-      <tags>highlighted</tags>
       <menus xmi:id="_WHAs64soEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.StatisticsView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_WHAs7IsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.StatisticsView"/>
+      <toolbar xmi:id="_WHAs7IsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.StatisticsView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_WHAs7YsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ProfilerView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Gerenciador de Perfis" iconURI="platform:/plugin/ilog.odms.ide.ui/icons/full/eview16/profiler.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="ilog.odms.ide.ui.views.profiler.IloProfilerView"/>
@@ -310,7 +310,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view detailedMemory=&quot;false&quot; memoryThreshold=&quot;20&quot; timeThreshold=&quot;20&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:OPL</tags>
-      <tags>highlighted</tags>
       <menus xmi:id="_WHAs7osoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ProfilerView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -319,7 +318,7 @@
         <tags>menuContribution:popup</tags>
         <tags>popup:ilog.odms.ide.ui.views.ProfilerView</tags>
       </menus>
-      <toolbar xmi:id="_WHAs8IsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ProfilerView"/>
+      <toolbar xmi:id="_WHAs8IsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.ui.views.ProfilerView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_WHAs9IsoEemG7MOTAyfUqw" elementId="org.eclipse.debug.ui.DebugView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Depurar" iconURI="platform:/plugin/org.eclipse.debug.ui/icons/full/eview16/debug_view.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.debug.internal.ui.views.launch.LaunchView"/>
@@ -360,14 +359,26 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_WHAs_YsoEemG7MOTAyfUqw" elementId="ilog.odms.ide.server.ui.ServersView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Servidores CPLEX" iconURI="platform:/plugin/ilog.odms.ide.server.ui/icons/full/obj16/servers.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="ilog.odms.ide.server.ui.views.ServersView"/>
       <persistedState key="originalCompatibilityViewBundle" value="ilog.odms.ide.server.ui"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view filteredDefaultServer=&quot;true&quot; filteredEmptyApplications=&quot;false&quot; filteredProcessedJobs=&quot;false&quot; filteredUserJobs=&quot;false&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:OPL</tags>
+      <menus xmi:id="_m0NY8IvjEem8ffdG2mNxKQ" elementId="ilog.odms.ide.server.ui.ServersView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_m0OAAIvjEem8ffdG2mNxKQ" elementId="ilog.odms.ide.server.ui.ServersView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_WHAs_osoEemG7MOTAyfUqw" elementId="ilog.odms.ide.oaas.ui.ServersView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="DOcplexcloud" iconURI="platform:/plugin/ilog.odms.ide.oaas.ui/icons/full/obj16/servers.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="ilog.odms.ide.oaas.ui.views.OaasServersView"/>
       <persistedState key="originalCompatibilityViewBundle" value="ilog.odms.ide.oaas.ui"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:OPL</tags>
+      <menus xmi:id="_mYoQMIvjEem8ffdG2mNxKQ" elementId="ilog.odms.ide.oaas.ui.ServersView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_mYo3QIvjEem8ffdG2mNxKQ" elementId="ilog.odms.ide.oaas.ui.ServersView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_WHAs_4soEemG7MOTAyfUqw" elementId="org.eclipse.search.ui.views.SearchView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Procurar" iconURI="platform:/plugin/org.eclipse.search/icons/full/eview16/searchres.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.search"/>

@@ -1,0 +1,4 @@
+thisOplModel_getElementInfos = <"false" "false" "false" "true" "false" "false" 6 6 "3">;
+thisOplModel_getElementType = 0;
+thisOplModel_getValue = "3";
+getLocationInfos = <"/home/ccs/principal/CCS/opl/transport/transport.mod" 15 15 1 19>;

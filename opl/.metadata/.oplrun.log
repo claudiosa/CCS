@@ -175,3 +175,171 @@ Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS
 
 !ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 00:35:08.297
 !MESSAGE Run Benders Basic in /home/ccs/principal/CCS/opl/benders
+!SESSION 2019-06-10 21:27:13.483 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:27:13.558
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+
+!ENTRY ilog.odms.ide.opllang.remote 4 0 2019-06-10 21:27:14.575
+!MESSAGE run failed
+!STACK 0
+ilog.concert.IloException: Falha no processamento.
+	at ilog.opl.opl_lang_wrapJNI.IloOplModel_getModel(Native Method)
+	at ilog.opl.IloOplModel.getModel(IloOplModel.java:562)
+	at ilog.odms.ide.opllang.run.IloAbstractRunShell.loadModel(IloAbstractRunShell.java:1207)
+	at ilog.odms.ide.opllang.remote.IloOplRunConfigRunner.doProcessModel(IloOplRunConfigRunner.java:156)
+	at ilog.odms.ide.opllang.remote.IloOplRunConfigRunner.doRun(IloOplRunConfigRunner.java:377)
+	at ilog.odms.ide.opllang.run.IloAbstractRunShell$2.run(IloAbstractRunShell.java:1597)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SESSION 2019-06-10 21:29:18.499 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:29:18.525
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:41:27.958 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:41:27.983
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:46:52.574 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:46:52.600
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:47:52.298 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:47:52.325
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:49:01.762 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:49:01.822
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:49:54.099 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:49:54.125
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:52:10.465 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:52:10.492
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:53:02.171 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:53:02.198
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:54:59.891 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:54:59.918
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:57:40.634 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:57:40.659
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 21:58:42.393 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 21:58:42.420
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-10 22:00:14.204 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 22:00:14.231
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport

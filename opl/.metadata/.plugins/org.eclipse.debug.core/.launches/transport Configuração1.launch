@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="opl.launchType">
+<stringAttribute key="opl.debugModel.ATTR_ELEMENT_ID" value="=t\ranspo\rtRCon\figu\rações de ExecuçãorCon\figu\ração1"/>
+<stringAttribute key="opl.debugModel.ATTR_PROJECT" value="transport"/>
+<stringAttribute key="opl.debugModel.ATTR_RUN_CONFIG" value="Configuração1"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/transport"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>

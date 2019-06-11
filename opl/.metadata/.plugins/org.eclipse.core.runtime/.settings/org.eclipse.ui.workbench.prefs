@@ -1,2 +1,10 @@
 //org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
 eclipse.preferences.version=1
+org.eclipse.compare.contentmergeviewer.TextMergeViewer=1|Monospace|14.0|0|GTK|1|;
+org.eclipse.debug.ui.DetailPaneFont=1|Monospace|14.0|0|GTK|1|;
+org.eclipse.debug.ui.MemoryViewTableFont=1|Monospace|14.0|0|GTK|1|;
+org.eclipse.debug.ui.consoleFont=1|Monospace|14.0|0|GTK|1|;
+org.eclipse.jface.textfont=1|Monospace|14.0|0|GTK|1|;
+org.eclipse.wst.jsdt.internal.ui.compare.JavaMergeViewer=1|Monospace|14.0|0|GTK|1|;
+org.eclipse.wst.jsdt.ui.editors.textfont=1|Monospace|14.0|0|GTK|1|;
+pref_console_font=1|Monospace|14.0|0|GTK|1|;
