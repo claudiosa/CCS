@@ -1,0 +1,54 @@
+/*********************************************
+ * OPL 12.9.0.0 Model
+ * Author: ccs
+ * Creation Date: 10 de jun de 2019 at 19:24:22
+ *********************************************/
+/*
+    C = 3, % Demands or consumers --- COLUNS
+    S = 3,  % Suppliers or sources -- ROWS
+    %% see the figures in the site 
+    % https://www.me.utexas.edu/~jensen/models/network/net8.html
+    LARGE = 9999, %% NO CONNECTION .... 
+    Data_M = new_array(S, C), %% Lin x Col
+    Data_M = { {3, 1, LARGE}, 
+               {4, 2, 4},  
+               {LARGE, 3, 3}
+             },   
+
+*/
+
+// came from a file . dat
+int Sources = ...; 
+int Destination = ...;
+
+range R_rows = 1..Sources;
+range R_cols = 1..Destination;
+
+// int Demand[Destination]= ...;
+// int Output[Sources]= ... ;
+int Shipcost[i in R_rows][j in R_cols]= ...;
+
+//assert sum(s in R_rows) Output[s] == sum (d in R_cols) Demand[d];
+// Decision var
+dvar int VAR_Ship[i in R_rows][j in R_cols] in 0..1;
+
+minimize 
+
+sum(s in R_rows, d in R_cols) Shipcost[s][d] * VAR_Ship[s][d];
+
+subject to 
+{
+forall( s in R_cols , d in R_rows )
+sum(d in Destination)
+Ship[s][d]<=Output[s];
+forall( s in R_cols , d in R_rows )
+sum(s in R_cols)
+Ship[s][d]>=Demand[d];
+forall( s in R_cols , d in Destination )
+Ship[s][d]>=0;
+}     
+execute DISPLAY
+{
+writeln("Ship=",Ship)
+}
+ 

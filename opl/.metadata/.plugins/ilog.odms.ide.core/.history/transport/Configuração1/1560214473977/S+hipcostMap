@@ -1,0 +1,5 @@
+getInfo = <2 9 "false">;
+getColumnsInfo = {<"true" 6 "">};
+getValueColumns = 1;
+getValues = {<"3"> <"1"> <"9999"> <"4"> <"2"> <"4"> <"9999"> <"3"> <"3">};
+

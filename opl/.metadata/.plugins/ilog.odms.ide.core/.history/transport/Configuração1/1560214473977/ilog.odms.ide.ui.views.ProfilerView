@@ -1,0 +1,43 @@
+profile = {<0 "" "null" "ROOT" 0.300659894943237 0.248443126678467 1515808
+             175120 1 25> <1 "transport" "null" "READ_DEFINITION" 0.0000298023223876953
+             0.0000298023223876953 0 256 1 1> <1 "Configuração1-0x7f940c0790c8"
+             "null" "LOAD_MODEL" 0.00842905044555664 0.00573372840881348
+             68912 60312 1 11> <2 "/home/ccs/principal/CCS/opl/transport/transport.dat"
+             "null" "LOAD_DATA" 0.0018928050994873 0.000460386276245117
+             53216 36680 1 6> <3 "Sources" "15:1-19 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.000153303146362305 0.000153303146362305 32416 0
+             1 1> <3 "Destination" "16:1-23 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.0000591278076171875 0.0000591278076171875 0 0 1
+             1> <3 "Shipcost" "25:1-45 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.0012199878692627 0.000820398330688477 384 3720 1
+             3> <4 "R_rows" "18:16-26 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.000308752059936523 0.000308752059936523 304 520
+             1 1> <4 "R_cols" "19:16-30 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.0000908374786376953 0.0000908374786376953 80 488
+             1 1> <2 "" "null" "PRE_PROCESSING" 0.0000426769256591797
+             0.0000426769256591797 0 312 1 1> <2 "objetive_function" "31:1-28 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.0000844001770019531 0.0000844001770019531 0 568
+             1 1> <2 "VAR_Ship" "29:1-57 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.000675439834594727 0.000581741333007812 0 4840 1
+             2> <3 "LARGE" "21:13-17 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "INIT" 0.0000936985015869141 0.0000936985015869141 0 168
+             1 1> <1 "Configuração1-0x7f940c0790c8" "null" "EXTRACT"
+             0.00297188758850098 0.00264501571655273 178256 23760 1 2>
+             <2 "" "33:1-34:18 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "OBJECTIVE" 0.000326871871948242 0.000326871871948242 9792
+             288 1 1> <1 "MIP Optimization" "null" "CPLEX" 0.0352189540863037
+             0.032412052154541 1515808 250544 1 8> <2 "Pre Solve" "null"
+             "CPLEX" 0.00123810768127441 0.00123810768127441 16080 16080
+             1 1> <2 "Solve LP Relaxation" "null" "CPLEX" 0.000570297241210938
+             0.00043034553527832 103568 103568 1 2> <3 "Pre Solve" "null"
+             "CPLEX" 0.000139951705932617 0.000139951705932617 5408 5408
+             1 1> <2 "Probing" "null" "CPLEX" 0.0000669956207275391 0.0000669956207275391
+             224 224 1 1> <2 "Pre Solve" "null" "CPLEX" 0.000626802444458008
+             0.000626802444458008 0 14032 1 1> <2 "Solve LP Relaxation"
+             "null" "CPLEX" 0.000304698944091797 0.000175714492797852
+             0 0 1 2> <3 "Solve LP Relaxation" "null" "CPLEX" 0.000128984451293945
+             0.000128984451293945 0 0 1 1> <1 "" "null" "POST_PROCESSING"
+             0.00556707382202148 0.000887155532836914 5888 3760 1 2> <2
+             "DISPLAY" "74:1-8 /home/ccs/principal/CCS/opl/transport/transport.mod"
+             "EXECUTE" 0.00467991828918457 0.00467991828918457 5600 2048
+             1 1>};
