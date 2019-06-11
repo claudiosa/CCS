@@ -3,7 +3,7 @@
 %% https://www.me.utexas.edu/~jensen/models/network/net8.html
 %% Author: Claudio Cesar de Sá
 %  cl('transportation_problem_CP').
-%import cp.
+% import cp.
 import mip.
  main ?=> model,
  printf("\n....................................\n").
@@ -47,17 +47,18 @@ model =>
  %% Cost function to be minimized
   Cost_F #= sum([Data_M[I,J] * X_Matrix[I,J] : 
                 I in 1..S , J  in 1..C]),
-
+  
   %% Vars for search
   %Vars = [X_Matrix], 
-  solve([$min(Cost_F), dump('saida_CPLEX.txt')], X_Matrix ),
-  %solve([$min(Cost_F), dump], X_Matrix ),
- %% solve([$min(Cost_F), tmp], X_Matrix ),
-  % UMA SAIDA
+  %% USING THE MIP module
+  %solve($[min(Cost_F), dump('output_CPLEX_1.txt') ], X_Matrix ),
+  solve( $[ min(Cost_F) , tmp('output_CPLEX_2.lp')], X_Matrix ),
+  % solve( $[min(Cost_F), dump], X_Matrix ),
+  % solve( $ [min(Cost_F), tmp], X_Matrix ), % UMA SAIDA
   %printf("\n Cost Solution: %f" , Cost_F),
   println(cost_f = Cost_F),
   print_matrix( X_Matrix ).
- % dump('saida.txt').
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_matrix( M ) =>
  L = M.length,
