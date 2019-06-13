@@ -1,0 +1,23 @@
+/*********************************************
+ * OPL 12.9.0.0 Data
+ * Author: ccs
+ * Creation Date: 10 de jun de 2019 at 19:24:22
+ https://www.me.utexas.edu/~jensen/models/network/net8.html
+ *********************************************/
+// DATA FILE ... adapt as you wish 
+Sources = 3;
+Destination = 3;
+
+// No types HERE
+ Output = [5,7,3]  ;
+ Demand = [7,3,5]  ;
+
+LARGE = 9999;
+// No types or indexes HERE
+Cost_Matrix = [
+			 [3, 1, 9999], 
+             [4, 2, 4],  
+             [9999, 3, 3]
+          ];   
+ 
+// NOT ALLOWED LARGE in the MATRIX  

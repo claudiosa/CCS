@@ -343,3 +343,65 @@ Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS
 
 !ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-10 22:00:14.231
 !MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transport
+!SESSION 2019-06-13 11:31:04.959 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-13 11:31:05.031
+!MESSAGE Run Configuração_PADRAO in /home/ccs/principal/CCS/opl/transportation_V2
+
+!ENTRY ilog.odms.ide.opllang.remote 4 0 2019-06-13 11:31:05.391
+!MESSAGE load failed
+!STACK 1
+org.eclipse.core.runtime.CoreException: load failed
+	at ilog.odms.ide.opllang.remote.IloOplRunConfigRunner.doSetUpModel(IloOplRunConfigRunner.java:146)
+	at ilog.odms.ide.opllang.remote.IloOplRunConfigRunner.doRun(IloOplRunConfigRunner.java:374)
+	at ilog.odms.ide.opllang.run.IloAbstractRunShell$2.run(IloAbstractRunShell.java:1597)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: ilog.concert.IloException: A configuração de execução "Configuração_PADRAO" é inválida.
+	at ilog.opl.opl_lang_wrapJNI.IloOplRunConfiguration_getCppOplModel(Native Method)
+	at ilog.opl.IloOplRunConfiguration.getCppOplModel(IloOplRunConfiguration.java:226)
+	at ilog.opl.IloOplRunConfiguration.getOplModel(IloOplRunConfiguration.java:116)
+	at ilog.odms.ide.opllang.remote.IloOplRunConfigRunner.doSetUpModel(IloOplRunConfigRunner.java:140)
+	... 3 more
+!SUBENTRY 1 ilog.odms.ide.opllang.remote 4 0 2019-06-13 11:31:05.404
+!MESSAGE load failed
+!STACK 0
+ilog.concert.IloException: A configuração de execução "Configuração_PADRAO" é inválida.
+	at ilog.opl.opl_lang_wrapJNI.IloOplRunConfiguration_getCppOplModel(Native Method)
+	at ilog.opl.IloOplRunConfiguration.getCppOplModel(IloOplRunConfiguration.java:226)
+	at ilog.opl.IloOplRunConfiguration.getOplModel(IloOplRunConfiguration.java:116)
+	at ilog.odms.ide.opllang.remote.IloOplRunConfigRunner.doSetUpModel(IloOplRunConfigRunner.java:140)
+	at ilog.odms.ide.opllang.remote.IloOplRunConfigRunner.doRun(IloOplRunConfigRunner.java:374)
+	at ilog.odms.ide.opllang.run.IloAbstractRunShell$2.run(IloAbstractRunShell.java:1597)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SESSION 2019-06-13 11:38:32.148 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-13 11:38:32.186
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transportation_V3
+!SESSION 2019-06-13 11:41:03.880 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=8.0.5.27 - pxa6480sr5fp27-20190104_01(SR5 FP27)
+JRE 1.8.0 Linux amd64-64-Bit Compressed References 20181219_405297 (JIT enabled, AOT enabled)
+OpenJ9   - 3f2d574
+OMR      - 109ba5b
+IBM      - e2996d1
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_BR
+Command-line arguments:  -clean -nl pt_BR -configuration /home/ccs/principal/CCS/opl/.metadata/workspace_oplrun
+
+!ENTRY ilog.odms.ide.opllang.remote 1 0 2019-06-13 11:41:03.916
+!MESSAGE Run Configuração1 in /home/ccs/principal/CCS/opl/transportation_V3

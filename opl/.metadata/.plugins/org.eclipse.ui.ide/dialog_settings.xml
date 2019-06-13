@@ -7,6 +7,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<item value="" key="IloExternalProjectImportWizard.STORE_ROOT_DIRECTORY"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/ccs/principal/CCS/opl"/>
 			<item value="/home/ccs/principal/CCS/opl/benders"/>
 			<item value="/opt/ibm/ILOG/CPLEX_Studio129/opl/examples/opl/benders"/>
 			<item value="/home/ccs/principal/CCS/opl/covering"/>
@@ -21,6 +22,8 @@
 	<section name="NewWizardAction">
 		<item value="ilog.odms.ide.ui.wizards.NewOplProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.team.cvs.ui.newWizards"/>
 			<item value="ilog.odms.ide.ui.OPL"/>
 		</list>
 	</section>

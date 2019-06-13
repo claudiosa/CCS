@@ -1,0 +1,46 @@
+profile = {<0 "" "null" "ROOT" 0.40986704826355 0.353243350982666 2197792
+             174480 1 27> <1 "transportation_V3" "null" "READ_DEFINITION"
+             0.0000319480895996094 0.0000319480895996094 0 256 1 1> <1
+             "Configuração1-0x7f7cc40a2908" "null" "LOAD_MODEL" 0.00635790824890137
+             0.00174808502197266 68528 58344 1 13> <2 "/home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.dat"
+             "null" "LOAD_DATA" 0.00389575958251953 0.000666618347167969
+             59440 38880 1 9> <3 "Sources" "12:1-20 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.000154256820678711 0.000154256820678711 32416 0
+             1 1> <3 "Destination" "13:1-24 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.0000598430633544922 0.0000598430633544922 0 0 1
+             1> <3 "Output" "21:1-31 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.00239920616149902 0.000438213348388672 10400 1640
+             1 2> <4 "R_rows" "17:16-26 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.00196099281311035 0.00196099281311035 4960 520 1
+             1> <3 "Demand" "22:1-30 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.000249862670898438 0.000169754028320312 0 1560 1
+             2> <4 "R_cols" "18:16-30 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.000080108642578125 0.000080108642578125 0 488 1
+             1> <3 "LARGE" "15:1-18 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.0000598430633544922 0.0000598430633544922 0 0 1
+             1> <3 "Cost_Matrix" "25:1-48 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.000306129455566406 0.000306129455566406 0 2504 1
+             1> <2 "" "null" "PRE_PROCESSING" 0.0000429153442382812 0.0000429153442382812
+             0 312 1 1> <2 "objetive_function" "31:1-28 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.000122308731079102 0.000122308731079102 0 568 1
+             1> <2 "VAR_Ship" "28:1-57 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "INIT" 0.000548839569091797 0.000548839569091797 0 4592 1
+             1> <1 "Configuração1-0x7f7cc40a2908" "null" "EXTRACT" 0.0029747486114502
+             0.00259971618652344 177328 25088 1 2> <2 "" "33:1-34:18 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "OBJECTIVE" 0.000375032424926758 0.000375032424926758 9792
+             288 1 1> <1 "MIP Optimization" "null" "CPLEX" 0.0361571311950684
+             0.0333645343780518 1513488 247824 1 8> <2 "Pre Solve" "null"
+             "CPLEX" 0.00130891799926758 0.00130891799926758 16080 16080
+             1 1> <2 "Solve LP Relaxation" "null" "CPLEX" 0.000517845153808594
+             0.000376701354980469 102656 102656 1 2> <3 "Pre Solve" "null"
+             "CPLEX" 0.000141143798828125 0.000141143798828125 5408 5408
+             1 1> <2 "Probing" "null" "CPLEX" 0.0000681877136230469 0.0000681877136230469
+             224 224 1 1> <2 "Pre Solve" "null" "CPLEX" 0.000596761703491211
+             0.000596761703491211 0 14672 1 1> <2 "Solve LP Relaxation"
+             "null" "CPLEX" 0.000300884246826172 0.000173807144165039
+             0 0 1 2> <3 "Solve LP Relaxation" "null" "CPLEX" 0.000127077102661133
+             0.000127077102661133 0 0 1 1> <1 "" "null" "POST_PROCESSING"
+             0.0111019611358643 0.000930070877075195 10688 3760 1 2> <2
+             "DISPLAY" "57:1-8 /home/ccs/principal/CCS/opl/transportation_V3/transportation_V3.mod"
+             "EXECUTE" 0.0101718902587891 0.0101718902587891 10688 2048
+             1 1>};

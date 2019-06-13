@@ -1,0 +1,58 @@
+
+<<< setup
+
+
+<<< generate
+
+Tried aggregator 2 times.
+MIP Presolve eliminated 9 rows and 0 columns.
+MIP Presolve modified 9 coefficients.
+Aggregator did 1 substitutions.
+Reduced MIP has 6 rows, 9 columns, and 18 nonzeros.
+Reduced MIP has 0 binaries, 9 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0,00 sec. (0,03 ticks)
+Found incumbent of value 52,000000 after 0,00 sec. (0,04 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6 rows, 9 columns, and 18 nonzeros.
+Reduced MIP has 0 binaries, 9 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0,00 sec. (0,01 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 2 threads.
+Root relaxation solution time = 0,00 sec. (0,01 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                           52,0000       36,0000            30,77%
+*     0     0      integral     0       46,0000       46,0000        2    0,00%
+Elapsed time = 0,01 sec. (0,07 ticks, tree = 0,00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0,01 sec. (0,07 ticks)
+Parallel b&c, 2 threads:
+  Real time             =    0,00 sec. (0,00 ticks)
+  Sync time (average)   =    0,00 sec.
+  Wait time (average)   =    0,00 sec.
+                          ------------
+Total (root+branch&cut) =    0,01 sec. (0,07 ticks)
+
+<<< solve
+
+
+OBJECTIVE: 46
+Objetive Function = 46
+DECISION MATRIX = [[2 3 0]
+         [5 0 2]
+         [0 0 3]]
+
+	 Goes_TO[1][1] = 2	 Goes_TO[1][2] = 3	 Goes_TO[1][3] = 0
+	 Goes_TO[2][1] = 5	 Goes_TO[2][2] = 0	 Goes_TO[2][3] = 2
+	 Goes_TO[3][1] = 0	 Goes_TO[3][2] = 0	 Goes_TO[3][3] = 3
+==== THE END ===
+
+<<< post process
+
+
+<<< done
+

@@ -26,4 +26,7 @@
 			</list>
 		</section>
 	</section>
+	<section name="IloNewRunConfigWizard">
+		<item value="true" key="IloNewRunConfigWizard.STORE_SET_AS_DEFAULT"/>
+	</section>
 </section>
