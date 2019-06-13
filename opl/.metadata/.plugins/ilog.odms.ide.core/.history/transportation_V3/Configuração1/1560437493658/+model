@@ -1,0 +1,3 @@
+thisOplModel_getElements = {"Sources" "Destination" "R_rows" "Output" "R_cols" "Demand" "LARGE" "Cost_Matrix" "objetive_function" "VAR_Ship"};
+thisOplModel_getSolutions = {<2 "true" {46} -1> <3 "true" {46} 0> <3 "true" {52} 1>};
+getInfo = <"true" "true" "true" "true" "false">;

@@ -1,0 +1,14 @@
+// solution (optimal) with objective 46
+// Quality Incumbent solution:
+// MILP objective                                 4,6000000000e+01
+// MILP solution norm |x| (Total, Max)            6,10000e+01  4,60000e+01
+// MILP solution error (Ax=b) (Total, Max)        0,00000e+00  0,00000e+00
+// MILP x bound error (Total, Max)                0,00000e+00  0,00000e+00
+// MILP x integrality error (Total, Max)          0,00000e+00  0,00000e+00
+// MILP slack bound error (Total, Max)            0,00000e+00  0,00000e+00
+// 
+
+objetive_function = 46;
+VAR_Ship = [[2 3 0]
+             [5 0 2]
+             [0 0 3]];
