@@ -1,0 +1,45 @@
+[ccs@gerzat transportation_CCS]$ ./test_main ASSP3_3.lp 
+Found incumbent of value 4556.000000 after 0.00 sec. (0.00 ticks)
+Found incumbent of value 1635.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6 rows, 9 columns, and 18 nonzeros.
+Reduced MIP has 9 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Probing time = 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6 rows, 9 columns, and 18 nonzeros.
+Reduced MIP has 9 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Probing time = 0.00 sec. (0.00 ticks)
+Clique table members: 6.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 2 threads.
+Root relaxation solution time = 0.00 sec. (0.01 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         1635.0000        0.0000           100.00%
+*     0     0      integral     0     1506.0000     1506.0000        1    0.00%
+Elapsed time = 0.01 sec. (0.06 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.01 sec. (0.06 ticks)
+Parallel b&c, 2 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.01 sec. (0.06 ticks)
+Solution status 101.
+Objective value 1506
+x_ 0: =                 0
+x_ 1: =                 1
+x_ 2: =                -0
+x_ 3: =                 0
+x_ 4: =                -0
+x_ 5: =                 1
+x_ 6: =                 1
+x_ 7: =                 0
+x_ 8: =                -0
