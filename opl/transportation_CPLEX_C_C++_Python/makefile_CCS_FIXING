@@ -1,0 +1,21 @@
+############################# Makefile ##########################
+#CFLAGS = -Wextra -W -Wall -std=c99 -pedantic 
+CFLAGS =  -Wextra -std=c99 -pedantic 
+CC=gcc
+#PKG = `pkg-config --cflags --libs glib-2.0`
+PKG = `pkg-config --libs glib-2.0` 
+all: relocavel.exe
+
+relocavel.exe: transport.o
+	 $(CC) $(CFLAGS) \
+    -L/opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic \
+    -lcplex -lilocplex -lilocplex -lm -lpthread $(PKG) -o transport.o 
+
+transport.o: transport.c
+	 $(CC) $(CFLAGS) \
+	-I/opt/ibm/ILOG/CPLEX_Studio129/cplex/include \
+    -g -DIL_STD $(PKG) -c transport.c
+
+clean:
+	rm *.o *.exe
+############################# Makefile ##########################
