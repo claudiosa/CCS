@@ -1,12 +1,13 @@
 %%% A - star: f = g + h
 %%% BEST : f = g (heuristic to the END)
 %%% IMPLEMENT BEST FIRST ALGORITHM
-%%% $ swipl -q -f hello.pl -t main
+%%% Problem: find the best path
 %%% swipl -q -t main -f maze_BEST_FS.pl 
 %%% INITIAL CODE FROM https://stackoverflow.com/questions/16076778/prolog-maze-solving-algorithm
 %%% good IDEA for a Maze or graphs problem
 
 %%% THIS IDEA is cool
+/*
 w(0,0). w(1,0).
 w(0,1). w(1,1). w(2,1). w(3,1). w(4,1). w(5,1).
         w(1,2).         w(3,2).         w(5,2).
@@ -16,6 +17,21 @@ w(0,4). w(1,4). w(2,4).         w(4,4). w(5,4).
 
 %%% Add by CCS
 start_point(0,0). %%% departure, initial ... 
+end_point(4,5). %% arrival, exit, end ...
+
+*/
+
+
+%%% Bad enviroment
+w(0,0). w(1,0).  w(2,0). w(3,0). w(4,0). w(5,0). 
+w(0,1).                                  w(5,1). 
+w(0,2). w(1,2).  w(2,2). w(3,2).         w(5,2).
+w(0,3). w(1,3).  w(2,3). w(3,3).         w(5,3).
+w(0,4). w(1,4).  w(2,4). w(3,4).         w(5,4).
+w(0,5). w(1,5).  w(2,5). w(3,5).         w(5,5).
+
+%%% Add by CCS
+start_point(0,5). %%% departure, initial ... 
 end_point(5,5). %% arrival, exit, end ...
 
 
@@ -31,7 +47,7 @@ next_w(X0,Y0,X,Y0) :- X is X0-1. %%% UP
  
 %%% MY contribution and corrections    
 %%% one_solution(Solution) :-
- main :-    
+one_solution(Solution) :-    
           start_point(X0,Y0),
           %%%             NODE  OPEN       CLOSE, SOL
           search_BEST_FS( X0, Y0, [(X0,Y0)], [], Path),
@@ -41,11 +57,10 @@ next_w(X0,Y0,X,Y0) :- X is X0-1. %%% UP
           heuristic_sum(Solution, S),
           format("\n LOWEST SUM is: ~d", S)
           .
-main:- format("\n NONE SOLUTION\n").
 
-%
-% main :- findall(X, one_solution(X), L),
-%         imp_lst(L).            
+
+main :- findall(X, one_solution(X), L),
+        imp_lst(L).            
 
 %%% KERNEL of SEARCH
 search_BEST_FS(X,Y , Path , _ , Path) :-
@@ -60,9 +75,9 @@ search_BEST_FS( X0,Y0 , [(X0,Y0) | L_CLOSED], L_OPEN, SOL ) :-
     
     expand_current_node( (X0,Y0), ALL , Expanded_NODE),
         
-    append( L_OPEN, Expanded_NODE, L ), %% NEIGHBOURG
-    heuristic_EVAL( L , L_Heur),
-    my_sort(L_Heur, L_Sorted),
+    append( L_OPEN, Expanded_NODE, L ), %% NEIGHBOURG NEW
+    heuristic_EVAL( L , L_VAL_Heuristic),
+    my_sort(L_VAL_Heuristic , L_Sorted),
     
     %% choice the best candidate
     L_Sorted = [(Xbest,Ybest)/_| _ ], %%% by unification 
@@ -82,15 +97,15 @@ search_BEST_FS( X0,Y0 , [(X0,Y0) | L_CLOSED], L_OPEN, SOL ) :-
 %%% OPEN AND CLOSED .... to avoid circularity
 expand_current_node( (X0,Y0), ALL , L_out) :-
    
-     findall( (X1,Y1)  , 
+     findall( (X1,Y1)  , %%% build a list with this pair 
       (  
-         d(X0,Y0,X1,Y1), %%% conexao
-         \+ member(  (X1,Y1) , [ (X0,Y0) | ALL] )
+         d(X0,Y0,X1,Y1), %%% conection or next movement
+         \+ member( (X1,Y1) , [ (X0,Y0) | ALL] ) %% not member in QUEUE or closed
        ), 
       L_out ),
       ! ,
-      format("\n [X0,Y0]: [~w,~w]", [X0,Y0]),
-      format("\n Expanded :: ~w", [L_out ])
+      format("\n [Xc,Yc]: [~w,~w]", [X0,Y0]),
+      format("==> Expanded :: ~w", [L_out ])
       .
      
 
@@ -104,32 +119,35 @@ heuristic_EVAL([(X1,Y1)|L], [(X1,Y1)/H1 | L_H ]) :-
 choice_the_best(L_H, (X_best,Y_best)) :-
       min_value(L_H, (X_best,Y_best) ).
 
-my_sort([ ]):- format("\n SORT: this list is EMPTY"), !.
-my_sort([ T ] , [ T ] ). %% ONE VALUE
+
+my_sort([ ], _ ):- format("\n SORT: this list is EMPTY"), !.
+my_sort([ T ] , [ T ] ) :- !. %% ONE VALUE
 %% TWO
-my_sort([(X1,Y1)/H1 , (X2,Y2)/H2], [(X1,Y1)/H1, (X2,Y2)/H2 ] ):-
- H1 =< H2 . %% 
+my_sort([(X1,Y1)/H1 , (X2,Y2)/H2], [(X1,Y1)/H1, (X2,Y2)/H2 ] ):- H1 =< H2 , !. 
 %% TWO
-my_sort([(X1,Y1)/H1, (X2,Y2)/H2], [(X2,Y2)/H2,  (X1,Y1)/H1] ):-
- H1 > H2 . %% 
-%% TWO
-my_sort([ H | L_1 ], [ MIN_UNKNOW | L_2] ) :- 
-      min_value( [ H | L_1 ] ,  MIN_UNKNOW),
-      delete([H | L_1], MIN_UNKNOW, L_res),
-      my_sort(L_res ,  L_2 ).
+my_sort([(X1,Y1)/H1, (X2,Y2)/H2], [(X2,Y2)/H2,  (X1,Y1)/H1] ):-  H1 > H2 , !.
+%% GENERIC
+my_sort( L_1 , [ MIN_UNKNOW | L_2] ) :- 
+      min_value(  L_1  ,  MIN_UNKNOW), 
+%     format("\n L_1 is:\n ~w", [L_1]), 
+%     write(MIN_UNKNOW),  
+      delete( L_1, MIN_UNKNOW, L_res),
+%      format("\n L_res is:\n ~w", [L_res]), 
+      my_sort( L_res ,  L_2 ).
+
+
+
 
       
 %%% FINDING THE MINIMAL HEURISTIC VALUE      
 
-min_value([ ], _ ):- format("\n this list is EMPTY"), !.
-
-min_value([ T ], T ). %% RETURNING HERE THE MINIMAL VALUE
-
-min_value([(X1,Y1)/H1, (X2,Y2)/H2 | L_H ], MIN_UNKNOW ) :- 
+% min_value([ ], _ ):- format("\n this list is EMPTY"), !.
+min_value([ T ], T ) :- !.  %% RETURNING HERE THE MINIMAL VALUE
+min_value([(X1,Y1)/H1, (_,_)/H2 | L_H ], MIN_UNKNOW ) :- 
       H1 =< H2, 
-      min_value([(X1,Y1)/H1 | L_H ], MIN_UNKNOW ). 
-      
-min_value([(X1,Y1)/H1, (X2,Y2)/H2 | L_H ], MIN_UNKNOW ) :- 
+      min_value([(X1,Y1)/H1 | L_H ], MIN_UNKNOW ), !. 
+     
+min_value([(_,_)/H1, (X2,Y2)/H2 | L_H ], MIN_UNKNOW ) :- 
       H1 > H2, 
       min_value([(X2,Y2)/H2 | L_H ], MIN_UNKNOW ).
     
@@ -149,7 +167,7 @@ heuristic_sum([(X1,Y1)|L], S) :-
         .  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%          
-%% STUDIES
+%% STUDIES for this problem
 %%%%%%%%%%
 my_min_test([],_ ) :- print("\n empty list"). 
 my_min_test([X] , X ):- !.
@@ -161,8 +179,16 @@ my_min_test([H1 , H2 | L_H ], Min ) :-
       H1 > H2, 
       my_min_test([H2 | L_H ], Min).
 
-go :-my_min_test([3,4,1,6], X), print("\n X"), write(X).
+go1 :-my_min_test([3,4,1,6], X), format("\n X"), write(X).
+go3 :- min_value([(a,b)/1, (a,b)/4,(a,b)/1,(a,b)/1], X), format("\n X: "), write(X).
 
+go5 :- my_sort([(a,b)/3], X), format("\n X: "), write(X).
+go6 :- my_sort([], X), format("\n X: "), write(X).
+go7 :- my_sort([(a,b)/4, (a,b)/3], X), format("\n X: "), write(X).
+go8 :- my_sort([(a,b)/3,(a,b)/4,(a,b)/1,(a,b)/6], X), format("\n X: "), write(X).
+
+
+/*
 
 
 del_min_value( _ , [], []) :- !.
@@ -175,8 +201,6 @@ del_min_value( (X1,Y1)/H1 ,[ (X2,Y2)/H2 | L_1 ] , L_2 ) :-
        del_min_value( (X1,Y1)/H1, L_1, L_2 ).
        
 
-
-/*
 $ swipl -q -t main -f maze_DFS.pl 
 A SOLUTION is:
  [ (0,0), (0,1), (1,1), (1,2), (1,3), (1,4), (2,4), (2,5), (3,5), (4,5)]
