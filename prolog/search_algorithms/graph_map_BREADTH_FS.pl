@@ -1,4 +1,6 @@
 /* 
+
+swipl -q -t main -f graph_map_BREADTH_FS
 BUSCA EM LARGURA - PROBLEMA DO MAPA
 */
 /******************************************
@@ -36,12 +38,15 @@ conexao(X,Y) :- a(Y,X).
 no_origem(casa).
 no_destino(parque).
 /*************************************************************/
-inicio(Sol_invertida) :-  
-    statistics(cputime,T1),
+a_solution(Sol_invertida) :-  
+ %   statistics(cputime,T1),
     no_origem(No_inicial),
-    busca_L([[No_inicial]], Solucao), /* lista de lista */
+    search_BREADTH([[No_inicial]], Solucao), /* lista de lista */
     /* Nó inicial: entra na lista inicial */
-    reverse(Solucao, Sol_invertida),
+    reverse(Solucao, Sol_invertida).
+  
+/*  
+    DEVIDO AO BACKTRACKING REMOVER ISTO
     length(Sol_invertida, Total),
    	no_destino(FIM), nl,
    	format('\n CAMINHO PERCORRIDO: ~w ', [Sol_invertida]),
@@ -54,37 +59,40 @@ inicio(Sol_invertida) :-
     Temp is T2 - T1, 
     format('\n T1: ~f \t T2: ~f  msec', [T1, T2]),
     format('\n Tempo total: ~10f  msec', Temp).
-	
+*/	
 
-inicio('Nao hah mais solucoes'):- !.
+a_solution(' NAO HAH MAIS SOLUCOES\n\n'):- !.
        /* para terminar com yes */    
 /*********************************************************/
-todas_solucoes:- findall(X, inicio(X), L), 
+all_sol:- findall(X, a_solution(X), L), 
                  write('\n RESUMO DAS SOLUCOES :'),
                  w_L(L).
 /*************************************************************/
 %% condição de parada.... o nó corrente é o desejado
-busca_L(  [ [No_corrente|Caminho] |_] , [No_corrente | Caminho ] ):-
+search_BREADTH(  [ [No_corrente|Caminho] |_] , [No_corrente | Caminho ] ):-
           no_destino(No_final),
           member(No_final, [No_corrente|Caminho]). 
           %% termina a busca...
 
 /* parte recursiva geral  => DETALHE: LISTA DE LISTA */
-busca_L([Nodo|Caminho],Solucao):-
-         expandir(Nodo, Expansao_do_NODO ),
+search_BREADTH([Nodo|Caminho],Solucao):-
+         expanding_NODE(Nodo, Expansao_do_NODO ),
          /* na primeira vez Caminho = [] */
          append(Caminho, Expansao_do_NODO, Novos_caminhos),
          /* observar que o append está ao contrário....  fazendo
          que no próximo passo Nodo, seja um proximo deste nível */
-         busca_L(Novos_caminhos , Solucao).
+         search_BREADTH(Novos_caminhos , Solucao).
 
-expandir([Nodo|Caminho],Novos_caminhos) :-
+expanding_NODE([Nodo|Caminho], Novos_caminhos) :-
          findall([Novo_nodo, Nodo|Caminho],
          (conexao(Nodo, Novo_nodo),
           not(member(Novo_nodo,[Nodo|Caminho]))),
-          Novos_caminhos), !. /* ultima linha do findall */
+          Novos_caminhos), !. 
+          /* ultima linha do findall */
 
-expandir(_,[]):- !.
+%%% expande e adiciona TODOS NAO VISITADOS AINDA
+
+expanding_NODE(_,[]):- !.
 
 /******************************************************/
 w_L([]).
