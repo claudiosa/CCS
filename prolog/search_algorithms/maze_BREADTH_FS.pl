@@ -1,6 +1,6 @@
 %%% A - star: f = g + h
 %%% BEST : f = g (heuristic to the END)
-%%% IMPLEMENT BEST FIRST ALGORITHM
+%%% IMPLEMENT BREADTH FIRST ALGORITHM
 %%% Problem: find the best path
 %%% swipl -q -t main -f maze_BREADTH_FS.pl 
 %%% INITIAL CODE FROM https://stackoverflow.com/questions/16076778/prolog-maze-solving-algorithm
@@ -36,6 +36,8 @@ end_point(5,5). %% arrival, exit, end ...
 
 
 %%%% GREAT IDEA 
+%%% there is conection if ... next_w ... and new w(X,Y) must be true or valid.
+%%% failure in the rule .. not by tail.
 d(X0,Y0,X,Y) :- next_w(X0,Y0,X,Y), w(X,Y).
 %%% ONLY ALLOWED MOVEMENTS
 next_w(X0,Y0,X0,Y) :- Y is Y0+1. %%% RIGHT 
@@ -46,63 +48,64 @@ next_w(X0,Y0,X,Y0) :- X is X0-1. %%% UP
  
  
 %%% MY contribution and corrections    
-%%% one_solution(Solution) :-
-%one_solution(Solution) :-    
-go :-
-          start_point(X0,Y0),
-          %%%             NODE  OPEN       CLOSE, SOL
-          search_BREADTH_FS( X0, Y0, [(X0,Y0)], [], Path),
-          %%% LIST OF LIST ... many possible paths will be explored
-          reverse(Path, Solution),
-          print(Solution).
-
-
 main :- findall(X, one_solution(X), L),
         imp_lst(L).            
 
+%%%  one_solution(Solution) :-    %%% uncomment to use the main
+
+best_sol :-
+          start_point(X0,Y0),
+          %%%  NODE  OPEN CLOSE, SOL
+          search_BREADTH_FS( [[ (X0,Y0) ]],  Path),
+          %%% LIST OF LIST ... many possible paths will be explored
+          reverse(Path, Solution),
+          print(Solution),
+          format("\n =============================").
+
 %%% KERNEL of SEARCH
-search_BREADTH_FS(X,Y , Path , _ , Path) :-
-           end_point(X,Y),
-           format("\n FOUND A SOLUTION\n"),
-           !.
+search_BREADTH_FS([ [(X,Y)| BEST_Path] | _ ] , [(X,Y) | BEST_Path ] ):-
+        end_point(X,Y),
+        format("\n FOUND A SOLUTION\n"), 
+        !. %% 
 
-%search_BREADTH_FS(CURRENT , CLOSED,  OPEN, SOL )
-search_BREADTH_FS( X0,Y0 , [(X0,Y0) | L_CLOSED], L_OPEN, SOL ) :-
+%%% CURR_NODE --- a sequence of nodes ... by level
+%%% [ CURR_NODE  | L_CLOSED ] = [ [ path1 ],[ path2 ],[ ],[ ],[path-n ]]
+search_BREADTH_FS( [ CURR_NODE  | L_CLOSED ], SOL ) :-
     
-    %append( L_OPEN, L_CLOSED, ALL ), %%% to avoid circularity
-    
-    expand_current_node( (X0,Y0), L_CLOSED , Expanded_NODE, (X1,Y1) ),
-        
-    append( L_OPEN, Expanded_NODE, L_OPEN_NEW ), %% NEIGHBOURG NEW
-    format("\n OPEN: ~w\t OPEN_NEW: \t ~w CLOSED: ~w \n", [ L_OPEN, L_OPEN_NEW, L_CLOSED ]),
+    expand_current_node(  CURR_NODE , Expanded_NODE ),
+%%% A queue here appended ... LISTS of LISTS ... many paths   
+    append( L_CLOSED, Expanded_NODE, L_OPEN_NEW ),
+%% NEIGHBOURG NEW
+% format("\n CURR_NODE_L: ~w\t OPEN_NEW: \t ~w CLOSED: ~w \n", [ CURR_NODE , L_OPEN_NEW, L_CLOSED ]),
+% format("\n LISTS_of_LISTS_OPEN_NEW: ~w ", [ L_OPEN_NEW ]),
+    search_BREADTH_FS( L_OPEN_NEW , SOL).
+ %%% a list of list with all possible paths in this transversal tree by level
 
-    search_BREADTH_FS( X1, Y1,
-                   [(X1,Y1),(X0,Y0)| L_CLOSED], 
-                   L_OPEN_NEW, SOL).
+
+expand_current_node( [ (X0,Y0) | L_CLOSE ], L_Expanded) :-
+  findall(
+       [(X1,Y1), (X0,Y0) | L_CLOSE ],
+     ( 
+       d(X0,Y0, X1,Y1) , %%% conection or next movement
+       not( member( (X1,Y1) , [ (X0,Y0) | L_CLOSE ]) )
+      ),
+      L_Expanded
+    )
+    , 
+    %%%% ultima linha do findall 
+     format("\n [Xc,Yc]: [~w,~w]", [X0,Y0]),
+     format("==> Expanded :: ~w", [L_Expanded ] )
+     , 
+    
+     !. 
+     
+%%% expande e adiciona TODOS NAO VISITADOS AINDA
+expand_current_node(_,[]):- !.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% end of KERNEL 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% expanding for immediate neighbours NOT VISITED YET
-%%% OPEN AND CLOSED .... to avoid circularity
-expand_current_node( (X0,Y0), ALL , L_out, (X1,Y1) ) :-
-   
-     findall( (X1,Y1)  , %%% build a list with this pair 
-      (  
-         d(X0,Y0,X1,Y1), %%% conection or next movement
-         \+ member( (X1,Y1) , [ (X0,Y0) | ALL] ) %% not member in QUEUE or closed
-       ), 
-      L_out ),
-      [(X1,Y1) | _ ] = L_out, %%% unificacao
-      format("\n [Xc,Yc]: [~w,~w]", [X1,Y1]),
-      format("==> Expanded :: ~w", [L_out ])
-      .
-     
-
-
 imp_lst([]).
 imp_lst([Cabeca|Cauda]):- 
          format("\n A SOLUTION is:\n ~w", [Cabeca]), 
          imp_lst(Cauda).
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
