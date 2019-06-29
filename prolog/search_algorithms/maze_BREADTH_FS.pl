@@ -48,8 +48,10 @@ next_w(X0,Y0,X,Y0) :- X is X0-1. %%% UP
  
  
 %%% MY contribution and corrections    
-main :- findall(X, one_solution(X), L),
-        imp_lst(L).            
+main :-  best_sol.
+
+%%%     findall(X, best_sol(X), L),
+%%%     imp_lst(L).            
 
 %%%  one_solution(Solution) :-    %%% uncomment to use the main
 
@@ -60,7 +62,7 @@ best_sol :-
           %%% LIST OF LIST ... many possible paths will be explored
           reverse(Path, Solution),
           print(Solution),
-          format("\n =============================").
+          format("\n =============================\n").
 
 %%% KERNEL of SEARCH
 search_BREADTH_FS([ [(X,Y)| BEST_Path] | _ ] , [(X,Y) | BEST_Path ] ):-
@@ -91,10 +93,10 @@ expand_current_node( [ (X0,Y0) | L_CLOSE ], L_Expanded) :-
       ),
       L_Expanded
     )
-    , 
-    %%%% ultima linha do findall 
-     format("\n [Xc,Yc]: [~w,~w]", [X0,Y0]),
-     format("==> Expanded :: ~w", [L_Expanded ] )
+%    , 
+%    %%%% ultima linha do findall 
+%     format("\n [Xc,Yc]: [~w,~w]", [X0,Y0]),
+%     format("==> Expanded :: ~w", [L_Expanded ] )
      , 
     
      !. 
