@@ -1,5 +1,6 @@
 % $ swipl -t main -q -f xxxxx
-
+% $  swipl -t main -q -f maze.pl %%% to run directly in console
+% the maze MUST have a exit (e) and (y)
 % :- use_module(library(matrix)).
 % :- use_module(library(ffimatrix)).
 %% use_module(library(list_util)).
@@ -32,7 +33,6 @@ go :-
 	format("\n Work this INPUT file as a Matrix \n"),
 	print_Map(L),
 	%%%write(L),nl,
-	
 	do_edges(L, Rows),
 	%findall( (X,Y), w(X,Y), L_arcs),
 	%format("\n ARCS: ~w \n", [L_arcs]),
@@ -310,23 +310,10 @@ replace_N_X([H|T], I, X, [H|R]):-
 	  replace_N_X(T, NI, X, R), !.
 replace_N_X(L, _, _, L).
 
-    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
 
 
 
-
-
-
-
-
-/*
-
-size_of_Map([H|L], X, Y) :-
-     atom_length(H, X ),
-	 atom_length([H|L], All),
-	 Y is All / X ,
-	 format("\n SIZE: ~d: ~d: ~d", [X,Y,All]).
-*/
 
 
 
