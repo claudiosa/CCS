@@ -86,7 +86,7 @@ aux_print( [], M_out) :-
 	 format("\n THE END \n").
         
 aux_print( [(X,Y)| L], M) :-
-     put_value_XY_M( X, Y, M , '*', M_out ),
+     put_value_XY_M( X, Y, M , '.', M_out ),
      aux_print( L , M_out). 	 
 
 
