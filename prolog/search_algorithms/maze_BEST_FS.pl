@@ -135,9 +135,6 @@ my_sort( L_1 , [ MIN_UNKNOW | L_2] ) :-
 %      format("\n L_res is:\n ~w", [L_res]), 
       my_sort( L_res ,  L_2 ).
 
-
-
-
       
 %%% FINDING THE MINIMAL HEURISTIC VALUE      
 
