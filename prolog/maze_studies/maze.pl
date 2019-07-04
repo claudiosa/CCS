@@ -7,7 +7,7 @@
 :- dynamic w/2.
 :- dynamic start_point/2, end_point/2.
 %  /usr/lib/swi-prolog/library this dir
-:- use_module(library(lists), [reverse/2,flatten/2,nth0/3  ]).
+:- use_module(library(lists), [reverse/2, flatten/2, nth0/3  ]).
 
 
 clear_all :-
@@ -21,24 +21,24 @@ main :- go.
 
 go :-
     clear_all ,
-    get_Maze(Maze, Rows, Cols),
+  get_Maze(Maze, Rows, Cols),
 	format("\n From INPUT file ...\n"),
 	print_Map(Maze),
 	num_Rows(Maze, Rows),
 	num_Cols(Maze, Cols),
-    format("\n SIZE: ~d: ~d", [Rows, Cols]),
+  format("\n SIZE: ~d: ~d", [Rows, Cols]),
 	grid_Atom_Lists(Maze, Rows, L),
 	nl,
 	
-	format("\n Work this INPUT file as a Matrix \n"),
-	print_Map(L),
-	%%%write(L),nl,
-	do_edges(L, Rows),
-	%findall( (X,Y), w(X,Y), L_arcs),
-	%format("\n ARCS: ~w \n", [L_arcs]),
-    bfs_sol(Solution),
-	print_Sol_Maze(Solution, L)
-	.
+	 format("\n Work this INPUT file as a Matrix \n"),
+	 print_Map(L),
+	 %%%write(L),nl,
+	 do_edges(L, Rows),
+	 %findall( (X,Y), w(X,Y), L_arcs),
+	 %format("\n ARCS: ~w \n", [L_arcs]),
+   bfs_sol(Solution),
+	 print_Sol_Maze(Solution, L)
+	 .
 	
 	%%%%%%%%%TESTS
     %%% Maze of atoms in List or true Matrix
@@ -86,7 +86,7 @@ aux_print( [], M_out) :-
 	 format("\n THE END \n").
         
 aux_print( [(X,Y)| L], M) :-
-     put_value_XY_M( X, Y, M , '*', M_out ),
+     put_value_XY_M( X, Y, M , '.', M_out ),
      aux_print( L , M_out). 	 
 
 
@@ -141,7 +141,8 @@ search_BREADTH_FS([ [(X,Y)| BEST_Path] | _ ] , [(X,Y) | BEST_Path ] ):-
         end_point(X,Y),
         format("\n FOUND THE BEST SOLUTION\n"), 
         !. %% 
-
+%%% please check for the initial and END or EXIT point and
+%% the existence of PATH
 %%% CURR_NODE --- a sequence of nodes ... by level
 %%% [ CURR_NODE  | L_CLOSED ] = [ [ path1 ],[ path2 ],[ ],[ ],[path-n ]]
 search_BREADTH_FS( [ CURR_NODE  | L_CLOSED ], SOL ) :-
@@ -166,7 +167,6 @@ expand_current_node( [ (X0,Y0) | L_CLOSE ], L_Expanded) :-
       L_Expanded
     )
 %    , 
-%    %%%% ultima linha do findall 
 %     format("\n [Xc,Yc]: [~w,~w]", [X0,Y0]),
 %     format("==> Expanded :: ~w", [L_Expanded ] )
      , 
@@ -178,6 +178,8 @@ expand_current_node(_,[]):- !.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
+
+It is missing .....
 game :-
   % print board -- initial/end positions in the file
   % Run BFS ... get the best option
@@ -198,7 +200,7 @@ game :-
 %%%% READING FROM A FILE ... convert in line ... atoms etc
 %%% a list of atom
 get_Maze(Maze, Rows, Cols) :-
-    File ="inp2.txt", %% change HERE 
+    File ="inp3.txt", %% change HERE 
     open(File , read, Str),
     read_file(Str , Maze),
     close(Str),
@@ -233,7 +235,6 @@ print_Map_02([H | L ]) :-
     atom_chars( Atom , H), %%% list to ATOM
     format("\n  ~w ", Atom),
     print_Map_02(L).
-	
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% OK
