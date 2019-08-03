@@ -1,0 +1,6 @@
+PICATg Syntax Highlighting
+==========================
+
+Converting from  Prolog->SWI-Prolog syntax
+to PICAT 
+by ccs1664@gmail.com (Claudio Sá -- a raw conversion)
