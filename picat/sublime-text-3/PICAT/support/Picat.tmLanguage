@@ -10,7 +10,7 @@
 		<string>picat</string>
 	</array>
 	<key>name</key>
-	<string>SWI-Prolog</string>
+	<string>Picat</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -19,7 +19,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;=:-)\s*</string>
+			<string>(?&lt;==>)\s*</string>
 			<key>end</key>
 			<string>(\.)</string>
 			<key>endCaptures</key>
@@ -68,7 +68,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?=.*:-.*)</string>
+			<string>^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?=.*=>.*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -83,7 +83,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>((\)?))\s*(:-)</string>
+			<string>((\)?))\s*(=>)</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -211,7 +211,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*([a-zA-Z][a-zA-Z0-9_]*)(\(?)(?!.*(:-|--&gt;).*)</string>
+			<string>^\s*([a-zA-Z][a-zA-Z0-9_]*)(\(?)(?!.*(=>|--&gt;).*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -291,7 +291,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(op|findall|write|nl|writeln|fail|use_module|module)\b</string>
+					<string>\b(findall|printf|write|nl|writeln|fail|false|import|use_module|module)\b</string>
 					<key>name</key>
 					<string>keyword.other</string>
 				</dict>

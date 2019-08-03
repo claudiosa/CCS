@@ -1,3 +1,30 @@
+# Picat syntax highlighting for Sublime Text 3 #
+# This Picat with a highlighting syntax is for Sublime Text 3
+# Without ANY warranty of this process and files configuration
+# I did it based in the Prolog package for Sublime
+
+1. Copy the file: https://github.com/claudiosa/CCS/blob/master/picat/sublime-text-3/support/Picat.tmLanguage
+2. Copy only this file in ~/.config/sublime-text-3/Packages/User/
+3. Starts the Sublime with a Picat file
+(this procedure is based in a Prolog installation -- see below -- it did not work for me)
+
+It  works for me:
+
+1. Copy the content from this Directory -- https://github.com/claudiosa/CCS/tree/master/picat/sublime-text-3/
+2. There is a directory called Picat, copy it   in  ~/.config/sublime-text-3/Cache/
+   Copy all the contents into this directory
+3.    Starts the Sublime with a Picat file
+(this procedure works OK)
+
+ANY IMPROVEMENTS are wellcome
+
+
+
+
+
+
+
+
 # Prolog syntax highlighting for Sublime Text 2 & 3 #
 
 This package provides syntax highlighting and automated build for the logic

@@ -1,4 +1,4 @@
-# [PackageDev] target_format: plist, ext: tmLanguage
+# [PackageDev] target_format: plist, ext: tmLanguage 
 comment: This Source Code Form is subject to the terms of the Mozilla Public License,
   v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
   one at http://mozilla.org/MPL/2.0/.
@@ -11,7 +11,7 @@ patterns:
 - include: '#comments'
 
 - name: meta.clause.body.picat
-  begin: (?<=:-)\s*
+  begin: (?<==>)\s*
   end: '(\.)'
   endCaptures:
     '1': {name: keyword.control.clause.bodyend.picat}
@@ -26,11 +26,11 @@ patterns:
     match: .
 
 - name: meta.clause.head.picat
-  begin: ^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?=.*:-.*)
+  begin: ^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?=.*=>.*)
   beginCaptures:
     '1': {name: entity.name.function.clause.picat}
     '2': {name: punctuation.definition.parameters.begin}
-  end: ((\)?))\s*(:-)
+  end: ((\)?))\s*(=>)
   endCaptures:
     '1': {name: punctuation.definition.parameters.end}
     '3': {name: keyword.control.clause.bodybegin.picat}
@@ -68,7 +68,7 @@ patterns:
     match: .
 
 - name: meta.fact.picat
-  begin: ^\s*([a-zA-Z][a-zA-Z0-9_]*)(\(?)(?!.*(:-|-->).*)
+  begin: ^\s*([a-zA-Z][a-zA-Z0-9_]*)(\(?)(?!.*(=>|-->).*)
   beginCaptures:
     '1': {name: entity.name.function.fact.picat}
     '2': {name: punctuation.definition.parameters.begin}
