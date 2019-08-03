@@ -1,0 +1,143 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+comment: This Source Code Form is subject to the terms of the Mozilla Public License,
+  v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
+  one at http://mozilla.org/MPL/2.0/.
+name: PICAT
+scopeName: source.picat
+fileTypes: [pi, picat]
+uuid: df89928b-6612-475a-b414-f319d9b98664
+
+patterns:
+- include: '#comments'
+
+- name: meta.clause.body.picat
+  begin: (?<=:-)\s*
+  end: '(\.)'
+  endCaptures:
+    '1': {name: keyword.control.clause.bodyend.picat}
+  patterns:
+  - include: '#comments'
+  - include: '#builtin'
+  - include: '#controlandkeywords'
+  - include: '#atom'
+  - include: '#variable'
+  - include: '#constants'
+  - name: meta.clause.body.picat
+    match: .
+
+- name: meta.clause.head.picat
+  begin: ^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?=.*:-.*)
+  beginCaptures:
+    '1': {name: entity.name.function.clause.picat}
+    '2': {name: punctuation.definition.parameters.begin}
+  end: ((\)?))\s*(:-)
+  endCaptures:
+    '1': {name: punctuation.definition.parameters.end}
+    '3': {name: keyword.control.clause.bodybegin.picat}
+  patterns:
+  - include: '#atom'
+  - include: '#variable'
+  - include: '#constants'
+
+- name: meta.dcg.head.picat
+  begin: ^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?=.*-->.*)
+  beginCaptures:
+    '1': {name: entity.name.function.dcg.picat}
+    '2': {name: punctuation.definition.parameters.begin}
+  end: ((\)?))\s*(-->)
+  endCaptures:
+    '1': {name: punctuation.definition.parameters.end}
+    '3': {name: keyword.control.dcg.bodybegin.picat}
+  patterns:
+  - include: '#atom'
+  - include: '#variable'
+  - include: '#constants'
+
+- name: meta.dcg.body.picat
+  begin: (?<=-->)\s*
+  end: '(\.)'
+  endCaptures:
+    '1': {name: keyword.control.dcg.bodyend.picat}
+  patterns:
+  - include: '#comments'
+  - include: '#controlandkeywords'
+  - include: '#atom'
+  - include: '#variable'
+  - include: '#constants'
+  - name: meta.dcg.body.picat
+    match: .
+
+- name: meta.fact.picat
+  begin: ^\s*([a-zA-Z][a-zA-Z0-9_]*)(\(?)(?!.*(:-|-->).*)
+  beginCaptures:
+    '1': {name: entity.name.function.fact.picat}
+    '2': {name: punctuation.definition.parameters.begin}
+  end: ((\)?))\s*(\.)(?!\d+)
+  endCaptures:
+    '1': {name: punctuation.definition.parameters.end}
+    '3': {name: keyword.control.fact.end.picat}
+  patterns:
+  - include: '#atom'
+  - include: '#variable'
+  - include: '#constants'
+
+repository:
+  atom:
+    patterns:
+    - name: constant.other.atom.simple.picat
+      match: (?<![a-zA-Z0-9_])[a-z][a-zA-Z0-9_]*(?!\s*\(|[a-zA-Z0-9_])
+    - name: constant.other.atom.quoted.picat
+      match: "'.*?'"
+    - name: constant.other.atom.emptylist.picat
+      match: \[\]
+
+  builtin:
+    patterns:
+    - name: keyword.other
+      match: \b(op|findall|write|nl|writeln|fail|use_module|module)\b
+
+  comments:
+    patterns:
+    - name: comment.line.percent-sign.picat
+      match: '%.*'
+    - name: comment.block.picat
+      begin: /\*
+      end: \*/
+      captures:
+        '0': {name: punctuation.definition.comment.picat}
+
+  constants:
+    patterns:
+    - name: constant.numeric.integer.picat
+      match: (?<![a-zA-Z]|/)(\d+|(\d+\.\d+))
+    - name: string.quoted.double.picat
+      match: '".*?"'
+
+  controlandkeywords:
+    patterns:
+    - name: meta.if.picat
+      begin: (->)
+      beginCaptures:
+        '1': {name: keyword.control.if.picat}
+      end: (;)
+      endCaptures:
+        '1': {name: keyword.control.else.picat}
+      patterns:
+      - include: $self
+      - include: '#builtin'
+      - include: '#comments'
+      - include: '#atom'
+      - include: '#variable'
+      - name: meta.if.body.picat
+        match: .
+    - name: keyword.control.cut.picat
+      match: '!'
+    - name: keyword.operator.picat
+      match: (\s(is)\s)|=:=|=?\\?=|\\\+|@?>|@?=?<|\+|\*|\-
+
+  variable:
+    patterns:
+    - name: variable.parameter.uppercase.picat
+      match: (?<![a-zA-Z0-9_])[_A-Z][a-zA-Z0-9_]*
+    - name: variable.language.anonymous.picat
+      match: (?<!\w)_

@@ -1,12 +1,13 @@
 main ?=> Status = command("clear") ,
 		printf("====================================== %d \n\n", Status),
-        %%imp_ast(20)
+    %%imp_ast(20)
 		%imp_ret(5,2), 
 		%imp_triang_1(7),
 		triang_2(5),nl,
 		triang_3(17),
 		nl
     .
+
 main =>  printf("\n Profs are humans !!!").   
 
 
@@ -65,17 +66,3 @@ imp_tri_C(_, _) =>  printf("\n\n Fim do ISOCELES !!!").
 
 triang_3(X) => imp_tri_C(X,0).
 /******************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
