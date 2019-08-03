@@ -1,17 +1,22 @@
 main => msg_01  , 
         msg_02  ,
         teste01 ,
-        teste02 
-        . %% ;
+        teste02 ,
+        teste03
+        .
 msg_01 =>  printf("  ALO MUNDO!!! ").
 msg_02 =>  printf("\n  FIM \n").
 
-teste01 => R := 3/4 , writeln(resp = R).
+teste01 => 
+           R := 3/4 , 
+           writeln(resp01 = R).
 
 teste02 => if( 8 > 4 ) then 
-             R = "SIM" end, 
-             writeln(resp = R).
+             R = "SIM" 
+           end, 
+           writeln(resp02 = R).
 
-teste03 => X := 3, Y := 4 ,  
+teste03 => X := 3, 
+           Y := 4 ,  
            R := (X+Y),
-           writeln(resp = R).
+           writeln(resp03 = R).

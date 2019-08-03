@@ -144,7 +144,7 @@ apr_iterativo(N, H, No_atual, [No_atual|Historia], Base, No_Inicial, _ ) :-
  
 apenas_sol_OK_prof_limitada(N, Hnew , No_atual, [No_atual|Historia], Sol) :-
     profundidade_limitada(N, Hnew , No_atual, [No_atual|Historia], Sol),
-	objetivo(X),
+	  objetivo(X),
     nonvar(Sol),
     member(X, Sol).
 
