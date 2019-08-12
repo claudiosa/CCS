@@ -3,7 +3,7 @@
 # Without ANY warranty of this process and files configuration
 # I did it based in the Prolog package for Sublime
 
-1. Copy the file: https://github.com/claudiosa/CCS/blob/master/picat/sublime-text-3/PICAT/support/Picat.tmLanguage
+1. Copy the file: https://github.com/claudiosa/CCS/blob/master/picat/sublime-text-3/Picat/support/Picat.tmLanguage
 2. Copy only this file in ~/.config/sublime-text-3/Packages/User/
 3. Starts the Sublime with a Picat file
 (this procedure is based in a Prolog installation -- read the instructions below -- it did not work for me)
@@ -11,14 +11,16 @@
 It  works for me:
 
 1. Copy the content from this Directory -- https://github.com/claudiosa/CCS/tree/master/picat/sublime-text-3/
-2. There is a directory called PICAT, copy it  in  ~/.config/sublime-text-3/Cache/
-   or move  this directory PICAT/ ....  with all the pre-defined languages in Cache/
+2. There is a directory called "Picat", copy it  in  ~/.config/sublime-text-3/Cache/
+   or move  this directory picat/ ....  with all the pre-defined languages in Cache/
+   Example: cp -R Picat/  ~/.config/sublime-text-3/Cache/
+   or cp -r Picat/  ~/.config/sublime-text-3/Cache/
 3. Starts the Sublime with a Picat file
    (this procedure works fine)
 
 ANY IMPROVEMENTS are wellcome 
 
-Claudio Sá
+Claudio Sá -- ccs1664@gmail.com
 
 
 #############################################################################
