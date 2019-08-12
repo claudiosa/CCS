@@ -1,0 +1,9 @@
+In this new release is possible to create each predicate in differents cells and after execute the program.
+
+Also it is possible to list, delete or update a predicate.
+
+You can find a few examples in:
+https://gitlab.com/minicz/ipicat/tree/master/examples
+
+The instructions to install can be find in:
+https://pypi.org/project/ipicat/
