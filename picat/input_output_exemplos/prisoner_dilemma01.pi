@@ -1,0 +1,29 @@
+%%% picat sliding_K_cells.pi < sliding_K_cells.txt   
+
+%import util. % use split
+
+main =>
+  %%Num_casos = to_int(read_line()),   %%%OU
+  Num_casos = read_line().to_int(),
+  foreach (Count in 1..Num_casos)
+
+    Player01 = read_char(),
+    Skip = read_char(), %% \n
+    %% read_term(), ===> to list
+    %% read_file_lines(),
+    %% 
+    %[to_char(W) : W in read_line()],
+    % foreach (Caso in 1..N_Valores) %%% DESNECESSARIO
+    do_case(Count, Player01 )
+    end.
+
+do_case(Count, Player01 ) =>
+    
+    printf("\nCase #%d: \t Value:%c ", Count,  Player01)
+    %model(TC, N_Valores,  W_Janela, L ) 
+    .
+  
+
+
+
+

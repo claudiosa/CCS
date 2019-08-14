@@ -1,6 +1,6 @@
 main ?=> Status = command("clear") ,
 		printf("====================================== %d \n\n", Status),
-    %%imp_ast(20)
+    %%imp_ast(20) 
 		%imp_ret(5,2), 
 		%imp_triang_1(7),
 		triang_2(5),nl,

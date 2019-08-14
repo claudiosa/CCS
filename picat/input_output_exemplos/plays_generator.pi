@@ -1,0 +1,18 @@
+%% CASES Generator  ...
+%% 
+main =>
+  %%Num_casos = to_int(read_line()),   %%%OU
+ % printf("\n How many cases ... would you like: " ),
+
+  Num_cases = read_int(),
+  printf("%d", Num_cases),
+  foreach (Count in 1..Num_cases)
+    R = 1 + random() mod 2,
+    %printf("\n%d", R),
+    if(R == 1) then
+      printf("\nC"),
+    else
+      printf("\nD"),  
+    end
+    
+  end.
