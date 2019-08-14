@@ -1,3 +1,4 @@
+
 # [PackageDev] target_format: plist, ext: tmLanguage 
 comment: This Source Code Form is subject to the terms of the Mozilla Public License,
   v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
@@ -94,7 +95,7 @@ repository:
   builtin:
     patterns:
     - name: keyword.other
-      match: \b(op|findall|write|nl|writeln|fail|use_module|module)\b
+      match: \b(op|findall|write|nl|writeln|fail|false|use_module|module|foreach|printf|while|end|if)\b
 
   comments:
     patterns:
