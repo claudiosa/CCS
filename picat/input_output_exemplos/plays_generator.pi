@@ -8,11 +8,11 @@ main =>
   printf("%d", Num_cases),
   foreach (Count in 1..Num_cases)
     R = 1 + random() mod 2,
-    %printf("\n%d", R),
+    % printf("\n%d", R),
     if(R == 1) then
-      printf("\nC"),
+      printf("\nC"), %%% CONFESS
     else
-      printf("\nD"),  
+      printf("\nS"), %%% SILENT  
     end
     
   end.
