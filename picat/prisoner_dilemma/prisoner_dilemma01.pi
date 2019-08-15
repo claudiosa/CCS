@@ -15,9 +15,9 @@ main =>
   printf("\n==> ROUND: %d: ", Count),
   
   %printf("\n What is your decision? Confess or stay Silent?(C/S) : "),
-  PrisonerA = read_char(),
-  Skip_LF = read_char(), %% due CRLF
-    
+  PrisonerA = read_char_CRLF(),
+
+
    %% STRATEGY : the B is against A (opposite) 
    %%% lowercase(Char)
    %%% DESCRIBE A STRATEGY HERE
@@ -68,3 +68,8 @@ if(PrisonerAYears==PrisonerBYears) then
 end
 .
  
+read_char_CRLF() = X =>
+     X =read_char(),
+     _ = read_char().
+  
+
