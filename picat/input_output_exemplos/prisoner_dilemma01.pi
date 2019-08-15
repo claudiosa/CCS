@@ -1,29 +1,72 @@
-%%% picat sliding_K_cells.pi < sliding_K_cells.txt   
-
-%import util. % use split
-
+%
+%%$ picat prisoner_dilemma01.pi < input_prisoner_10.txt 
+% 
 main =>
-  %%Num_casos = to_int(read_line()),   %%%OU
-  Num_casos = read_line().to_int(),
-  foreach (Count in 1..Num_casos)
-
-    Player01 = read_char(),
-    Skip = read_char(), %% \n
-    %% read_term(), ===> to list
-    %% read_file_lines(),
-    %% 
-    %[to_char(W) : W in read_line()],
-    % foreach (Caso in 1..N_Valores) %%% DESNECESSARIO
-    do_case(Count, Player01 )
-    end.
-
-do_case(Count, Player01 ) =>
-    
-    printf("\nCase #%d: \t Value:%c ", Count,  Player01)
-    %model(TC, N_Valores,  W_Janela, L ) 
-    .
   
+  PrisonerAYears := 0,
+  PrisonerBYears := 0,
+  
+  %%Num_casos = to_int(read_line()),   %%% OU
+  %printf("Enter the number of ROUNDS you want to play: "),
+  
+  Num_Rounds = read_int(),
 
+  foreach (Count in 1..Num_Rounds)
+  
+  printf("==> ROUND: %d: ", Count),
+  
+  %printf("\n What is your decision? Confess or stay Silent?(C/S) : "),
+  PrisonerA = read_char(),
+  Skip_LF = read_char(), %% due CRLF
+    
+   %% STRATEGY : the B is against A (opposite) 
+   %%% lowercase(Char)
+   %%% DESCRIBE A STRATEGY HERE
+    if ((PrisonerA=='C') || (PrisonerA=='c')) then
+    (
+        PrisonerB :='S', %%% 
+        PrisonerAYears := PrisonerAYears+5,
+        PrisonerBYears := PrisonerBYears+0,
+        printf("\n Prisoner A (you) chose: Confess. Prisoner B (the opponent) chose: Confess."),
+        printf("\n Prisoner A (you) is currently in for: %d years." , PrisonerAYears),
+        printf("\n Prisoner B (the opponent) is currently in for: %d years." , PrisonerBYears)
+    )
 
+    elseif((PrisonerA=='S') || (PrisonerA=='s')) then
+    (
+        PrisonerB := 'C',  %%%%'S'
+        PrisonerAYears := PrisonerAYears+0,
+        PrisonerBYears := PrisonerBYears+5,
+        printf("\n Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess."),
+        printf("\n Prisoner A (you) is currently in for: %d years.", PrisonerAYears),
+        printf("\n Prisoner B (the opponent) is currently in for: %d years." , PrisonerBYears)
+    )
+    end  %% if  
+  %%% FOR THE FUTURE
+    end, %%%  foreachF
 
+%%%%%%%%%%%END   
+printf("\n THE ROUNDS HAVE COME TO AN END."),
+printf("\n Prisoner A (you) is currently in for: %d years." , PrisonerAYears),
+printf("\n Prisoner B (the opponent) is currently in for: %d years." , PrisonerBYears),
 
+if(PrisonerAYears>PrisonerBYears) then
+(
+  printf("\n You have to stay in prison longer. You lose.")
+)  
+end, 
+
+if(PrisonerAYears<PrisonerBYears) then
+(
+  printf("\n The opponent has to stay in prison longer. You win.")
+)
+end, 
+
+if(PrisonerAYears==PrisonerBYears) then
+(
+  printf("\n You both are staying in prison for the same amount of time. Its a tie.")
+)
+end
+
+.
+ 
