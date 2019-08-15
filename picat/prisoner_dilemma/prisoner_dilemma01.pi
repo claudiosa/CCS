@@ -1,5 +1,5 @@
 %
-%%$ picat prisoner_dilemma01.pi < input_prisoner_10.txt 
+%%$ picat prisoner_dilemma01.pi < input_prisoner_10.txt > output.txt
 % 
 main =>
   
@@ -8,12 +8,11 @@ main =>
   
   %%Num_casos = to_int(read_line()),   %%% OU
   %printf("Enter the number of ROUNDS you want to play: "),
-  
   Num_Rounds = read_int(),
 
   foreach (Count in 1..Num_Rounds)
   
-  printf("==> ROUND: %d: ", Count),
+  printf("\n==> ROUND: %d: ", Count),
   
   %printf("\n What is your decision? Confess or stay Silent?(C/S) : "),
   PrisonerA = read_char(),
@@ -41,12 +40,12 @@ main =>
         printf("\n Prisoner A (you) is currently in for: %d years.", PrisonerAYears),
         printf("\n Prisoner B (the opponent) is currently in for: %d years." , PrisonerBYears)
     )
-    end  %% if  
+    end  %% end if  
   %%% FOR THE FUTURE
-    end, %%%  foreachF
+    end, %%%  foreach
 
 %%%%%%%%%%%END   
-printf("\n THE ROUNDS HAVE COME TO AN END."),
+printf("\n\n THE ROUNDS HAVE COME TO AN END."),
 printf("\n Prisoner A (you) is currently in for: %d years." , PrisonerAYears),
 printf("\n Prisoner B (the opponent) is currently in for: %d years." , PrisonerBYears),
 
@@ -67,6 +66,5 @@ if(PrisonerAYears==PrisonerBYears) then
   printf("\n You both are staying in prison for the same amount of time. Its a tie.")
 )
 end
-
 .
  

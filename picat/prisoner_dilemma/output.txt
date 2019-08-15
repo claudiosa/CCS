@@ -1,0 +1,46 @@
+
+==> ROUND: 1: 
+ Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 0 years.
+ Prisoner B (the opponent) is currently in for: 5 years.
+==> ROUND: 2: 
+ Prisoner A (you) chose: Confess. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 5 years.
+ Prisoner B (the opponent) is currently in for: 5 years.
+==> ROUND: 3: 
+ Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 5 years.
+ Prisoner B (the opponent) is currently in for: 10 years.
+==> ROUND: 4: 
+ Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 5 years.
+ Prisoner B (the opponent) is currently in for: 15 years.
+==> ROUND: 5: 
+ Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 5 years.
+ Prisoner B (the opponent) is currently in for: 20 years.
+==> ROUND: 6: 
+ Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 5 years.
+ Prisoner B (the opponent) is currently in for: 25 years.
+==> ROUND: 7: 
+ Prisoner A (you) chose: Confess. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 10 years.
+ Prisoner B (the opponent) is currently in for: 25 years.
+==> ROUND: 8: 
+ Prisoner A (you) chose: Confess. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 15 years.
+ Prisoner B (the opponent) is currently in for: 25 years.
+==> ROUND: 9: 
+ Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 15 years.
+ Prisoner B (the opponent) is currently in for: 30 years.
+==> ROUND: 10: 
+ Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
+ Prisoner A (you) is currently in for: 15 years.
+ Prisoner B (the opponent) is currently in for: 35 years.
+
+ THE ROUNDS HAVE COME TO AN END.
+ Prisoner A (you) is currently in for: 15 years.
+ Prisoner B (the opponent) is currently in for: 35 years.
+ The opponent has to stay in prison longer. You win.
