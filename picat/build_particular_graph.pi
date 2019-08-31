@@ -1,0 +1,62 @@
+
+import util.
+import cp.
+
+main => go.
+
+go =>
+   Communities = 9,
+   Size_Com = 5, %% Size Community
+   Size =  Communities * Size_Com,
+   %Graph = new_array(Communities, Size_Com ),
+   X1_Graph = new_array(Size),
+   X1_Graph :: 1 .. Size,
+   X2_CN = new_array(Communities), %% CENTER NODES of each communityt
+   X2_CN :: 1 .. Size,
+  % all_different(X1_Graph),
+  % the central NODE was positioned 
+   foreach(I in 1..1..Communities)
+       X1_Graph[((5 * I) - 2)] #= ((5 * I) - 2),
+       X2_CN[I] #= ((5 * I) - 2)
+   end,
+ 
+ %%% Differences in the community
+ /*
+ foreach(I in 1..1..Communities)
+     all_different(  
+       [
+       X1_Graph[(X2_CN[I] - 2)],
+       X1_Graph[(X2_CN[I] - 1)],
+       X1_Graph[ X2_CN[I]     ],
+       X1_Graph[(X2_CN[I] + 1)],
+       X1_Graph[(X2_CN[I] + 2)]
+      ]
+    ) 
+  end,
+ */
+
+foreach(I in 1..1..Communities)
+       X1_Graph[(X2_CN[I] - 2)] #= (Size_Com*I) mod (Size+1),
+       X1_Graph[(X2_CN[I] - 1)] #= (Size_Com*I*2) mod (Size+1),
+       % X1_Graph[ X2_CN[I]     ],
+       X1_Graph[(X2_CN[I] + 1)] #= (Size_Com*I*3) mod (Size+1),
+       X1_Graph[(X2_CN[I] + 2)] #= (Size_Com*I*4) mod (Size+1),
+      ]
+    ) 
+  end,
+ 
+
+
+
+/*
+   foreach(I in 1..Size, J in Size..1)
+     if(I > 2)  && (I< (Size-2) )
+       X1_Graph[] #= ((5 * I) - 2)
+   end,
+*/
+
+   Vars = X1_Graph++X2_CN,
+   solve([],Vars),
+   
+   printf("\n Array diff: %w", X1_Graph),
+   printf("\n Central Nodes: %w", X2_CN).
