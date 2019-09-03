@@ -1,46 +1,37 @@
 
-==> ROUND: 1: 
- Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 0 years.
- Prisoner B (the opponent) is currently in for: 5 years.
-==> ROUND: 2: 
- Prisoner A (you) chose: Confess. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 5 years.
- Prisoner B (the opponent) is currently in for: 5 years.
-==> ROUND: 3: 
- Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 5 years.
- Prisoner B (the opponent) is currently in for: 10 years.
-==> ROUND: 4: 
- Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 5 years.
- Prisoner B (the opponent) is currently in for: 15 years.
-==> ROUND: 5: 
- Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 5 years.
- Prisoner B (the opponent) is currently in for: 20 years.
-==> ROUND: 6: 
- Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 5 years.
- Prisoner B (the opponent) is currently in for: 25 years.
-==> ROUND: 7: 
- Prisoner A (you) chose: Confess. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 10 years.
- Prisoner B (the opponent) is currently in for: 25 years.
-==> ROUND: 8: 
- Prisoner A (you) chose: Confess. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 15 years.
- Prisoner B (the opponent) is currently in for: 25 years.
-==> ROUND: 9: 
- Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 15 years.
- Prisoner B (the opponent) is currently in for: 30 years.
-==> ROUND: 10: 
- Prisoner A (you) chose: Silence. Prisoner B (the opponent) chose: Confess.
- Prisoner A (you) is currently in for: 15 years.
- Prisoner B (the opponent) is currently in for: 35 years.
-
- THE ROUNDS HAVE COME TO AN END.
- Prisoner A (you) is currently in for: 15 years.
- Prisoner B (the opponent) is currently in for: 35 years.
- The opponent has to stay in prison longer. You win.
+ CENTRAL NODES: [1,6,11,16]
+ Extern Nodes (L3): [2,3,4,5,7,8,9,10,12,13,14,15,17,18,19,20]
+ Aux: {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0}
+ ==>I: 2 | KI: 1 | Brute .. Next: 22 
+ ==>I: 3 | KI: 1 | Brute .. Next: 23 
+ ==>I: 4 | KI: 1 | Brute .. Next: 24 
+ ==>I: 5 | KI: 1 | Brute .. Next: 25 
+ ==>I: 7 | KI: 2 | Brute .. Next: 22 
+ ==>I: 8 | KI: 2 | Brute .. Next: 23 
+ ==>I: 9 | KI: 2 | Brute .. Next: 24 
+ ==>I: 10 | KI: 2 | Brute .. Next: 25 
+ Neighbours Central: {{2,3,4,5},{3,1,4,20},{2,1,5,19},{2,1,5,18},{3,1,4,17},{7,8,9,10},{8,6,9,15},{7,6,10,14},{7,6,10,13},{8,6,9,12},{12,13,14,15},{13,11,14,10},{12,11,15,9},{12,11,15,8},{13,11,14,7},{17,18,19,20},{18,16,19,5},{17,16,20,4},{17,16,20,3},{18,16,19,2}}
+ Central Nodes of each graph-5: {1,6,11,16}
+ 
+ NEIGHBOURS:
+      : 1  : 2  : 3  : 4 
+NODE 1 : 2 3 4 5 
+NODE 2 : 3 1 4 20 
+NODE 3 : 2 1 5 19 
+NODE 4 : 2 1 5 18 
+NODE 5 : 3 1 4 17 
+NODE 6 : 7 8 9 10 
+NODE 7 : 8 6 9 15 
+NODE 8 : 7 6 10 14 
+NODE 9 : 7 6 10 13 
+NODE 10 : 8 6 9 12 
+NODE 11 : 12 13 14 15 
+NODE 12 : 13 11 14 10 
+NODE 13 : 12 11 15 9 
+NODE 14 : 12 11 15 8 
+NODE 15 : 13 11 14 7 
+NODE 16 : 17 18 19 20 
+NODE 17 : 18 16 19 5 
+NODE 18 : 17 16 20 4 
+NODE 19 : 17 16 20 3 
+NODE 20 : 18 16 19 2 

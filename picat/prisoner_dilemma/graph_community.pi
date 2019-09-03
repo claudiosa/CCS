@@ -1,5 +1,6 @@
-%Picat> cl('graph_community').
-
+%% TO RUN
+% Picat> cl('graph_community').
+% $ picat graph_community.pi 
 import util.
 %import cp.
 
@@ -66,6 +67,7 @@ go =>
   %%    ) 
   %%  end,
 
+  
  % L3 = findall([X,Y], var(Graph[X,Y]) ), 
  % printf("\n L3: %w", L3),
 L3 := [], 
@@ -81,32 +83,82 @@ foreach(I in 1..Size)
 end,         
 printf("\n Extern Nodes (L3): %w", L3),
 
-%%% Daux :: 1..Size,
+%%% Marks the over each internal nodes
+Aux = aux_vet_with_zero(Size),
+foreach(I in L2)
+	Aux[I] := 1
+end,
+
+printf("\n Aux: %w", Aux),
+
+%%%% Marks over the others
+foreach(I in 1..Size)
+	%(Size-Size_K))
+(
+ if(Aux[I] == 0) then %% node not marked
+  (
+   Aux[I] := 1, %%% mark as visited	
+   KI = which_community(I, Size_K ),
+   
+   %%% THIS FUNCTION IS NOT OK
+   %Next = (Size_K * (K_com - KI) + I) mod (Size + KI),
+   % mod (Size+1),
+   Next = (Size_K *(K_com - KI + 1 ) + I),
+   %%  mod (Size+1), %%%  mod Size_K),
+   
+
+   printf("\n ==>I: %d | KI: %d | Brute .. Next: %d ", I, KI, Next),
+   %%%(Next =< Size) 
+   if( Next > Size ) then
+     (
+       while(Next > Size) %% limit of vector
+        Next := Next - 1
+       end,	
+       %% find a empty cell again  to change with I
+       while( Aux[Next] == 1 ) %% empty cell
+       Next := Next - 1
+       end
+      ) 
+    end,
+     
+   if( Aux[Next] == 0 ) then %% not marked yet
+   (
+       Graph[I, 4] = Next,
+       Graph[Next, 4] = I,
+       Aux[Next] := 1
+   )
+   else
+   ( %% advance up to next free cell 
+     while( Aux[Next] == 1 )
+      Next := Next+1
+      end,
+       printf("\n ==>Empty Cell: [%d] = %d ", I, Aux[Next]),
+       printf("\n ==>I: %d | KI: %d | Next: %d ", I, KI, Next),
+       printf("\n Aux: %w", Aux),
+       %%% mark the free cells as occupied
+       Graph[I, 4] = Next,
+       Graph[Next, 4] = I,
+       Aux[ Next ] := 1  
+     )
+ 	end
+  
+  )% if
+ end
+) % foreach
+end,
 
 %%% HOW TO DO THE CONNECTION NODES? 
 %%% NOT SOLVE YET ...
-%foreach(I in [1,2,4])
- %foreach(I in L2)
-  %foreach(J in 1..Degree)
- % ( %% left most corner 
- %  	Graph[I,4] =  ((I*5)  mod Size ) + 1,
- %   Graph[((I*5)  mod Size ) + 1, 4] = I ,
- %   printf("\n I: %d (I*5)  mod Size ) + 1: %d", I, ((I*5)  mod Size ) + 1)  
-     % Graph[(I-1), 4] =  (I+8)  mod (Size + 1), 
-     % Graph[(I+1), 4] =  (I+13) mod (Size + 1),
-     % Graph[(I+2), 4] =  (I+18) mod (Size + 1)
- %  ) 
- % end,
 
    printf("\n Neighbours Central: %w", Graph),
-   printf("\n Central Nodes: %w", X2_CN),
+   printf("\n Central Nodes of each graph-5: %w", X2_CN),
    print_matrix( Graph ).
 
 
 print_matrix( M ) =>
   L = M.length,
   C = M[1].length,
-  printf("\n \n Neighbours:\n     "),
+  printf("\n \n NEIGHBOURS:\n     "),
   foreach(J in 1  .. C)
     printf(" : %d ", J)
   end,
@@ -120,3 +172,11 @@ print_matrix( M ) =>
     nl
   end.   
   
+which_community(I, Size_K) = X =>
+         X = round((I-1) div (Size_K))+1.
+
+aux_vet_with_zero(N) = X =>
+   X = new_array(N),
+   foreach(I in 1 .. N)
+    X[I] := 0
+   end.
