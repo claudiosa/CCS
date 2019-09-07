@@ -2,17 +2,17 @@
 % Picat> cl('graph_community').
 % $ picat graph_community.pi 
 import util.
-%import cp.
+import cp.
 
 main => go.
 
 go =>
    
-   K_com = 4, %%% Number of Community
-   Size_K = 5, %% Size Community
-   Size =  K_com * Size_K,
-   Degree = Size_K - 1, %%% Neighbours
-   Graph = new_array(Size, Degree ),
+   K_com = 4 , %%% Number of Community
+   Size_K = 5 , %% Size Community
+   Size =  K_com * Size_K ,
+   Degree = Size_K - 1 , %%% Neighbours
+   Graph = new_array( Size, Degree ),
    X2_CN = new_array(K_com), %% CENTER NODES of each communityt
    
   % all_different(X1_Graph),
@@ -56,18 +56,6 @@ go =>
      ) 
    end,
 
-
-  %% foreach(I in [3,8])
-  %%    %foreach(J in 1..Degree)
-  %%   ( %% left most corner 
-  %%     Graph[(I-2), 4] =  (I+3)  mod (Size + 1),
-  %%     Graph[(I-1), 4] =  (I+8)  mod (Size + 1), 
-  %%     Graph[(I+1), 4] =  (I+13) mod (Size + 1),
-  %%     Graph[(I+2), 4] =  (I+18) mod (Size + 1)
-  %%    ) 
-  %%  end,
-
-  
  % L3 = findall([X,Y], var(Graph[X,Y]) ), 
  % printf("\n L3: %w", L3),
 L3 := [], 
@@ -83,15 +71,93 @@ foreach(I in 1..Size)
 end,         
 printf("\n Extern Nodes (L3): %w", L3),
 
+
+X_Extern = new_array(Size), %% CENTER NODES of each communityt
+X_Extern :: 1..Size,
+foreach(I in L2)
+	X_Extern[I] #= I
+end,
+printf("\n X_Extern: %w", X_Extern),
+
+
+% Diffs :: Size_K..(Size-Size_K),
+Diffs :: 2..Size,
+%J :: L3,
+foreach(I in L3, J in L3)
+  (
+  	%member(J,L3),
+  	I !== J,
+  	abs(I-J) #= Diffs,
+    %I #!= J + Size_K,
+  	%J #= Aux, %+Size_K,
+  	(X_Extern[I] #= J) #<=> (X_Extern[J] #= I)
+  	 %J #!= I,
+    %X_Extern[I] #= J
+  )
+end,
+
+%all_distinct(X_Extern),
+
+
+%%% HOW TO DO THE CONNECTION NODES? 
+%%% NOT SOLVE YET ...
+
+   printf("\n Neighbours Central: %w", Graph),
+   printf("\n Central Nodes of each graph-5: %w", X2_CN),
+   print_matrix( Graph ),
+   %Vars = X_Extern ++ Diffs
+   append(X_Extern, [Diffs],Vars),
+   solve(Vars),
+   printf("\n X_Extern: %w", X_Extern)   
+
+   .
+
+%% increasing constraint
+increasing(List, N) =>
+  foreach(I in 2..N) 
+  List[I-1] #=< List[I] 
+  end.
+
+print_matrix( M ) =>
+  L = M.length,
+  C = M[1].length,
+  printf("\n \n NEIGHBOURS:\n     "),
+  foreach(J in 1  .. C)
+    printf(" : %d ", J)
+  end,
+  nl,
+  foreach(I in 1  .. L)
+   printf("NODE %w : ", I),
+    foreach(J in 1  ..  C)
+      printf("%w " , M[I,J] )
+    %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- OK
+      end,
+    nl
+  end.   
+  
+which_community(I, Size_K) = X =>
+         X = round((I-1) div (Size_K))+1.
+
+aux_vet_with_zero(N) = X =>
+   X = new_array(N),
+   foreach(I in 1 .. N)
+    X[I] := 0
+   end.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% others
+ /*
+
 %%% Marks the over each internal nodes
 Aux = aux_vet_with_zero(Size),
 foreach(I in L2)
 	Aux[I] := 1
 end,
-
 printf("\n Aux: %w", Aux),
 
-%%%% Marks over the others
+
+   %%%% Marks over the others
 foreach(I in 1..Size)
 	%(Size-Size_K))
 (
@@ -147,36 +213,4 @@ foreach(I in 1..Size)
 ) % foreach
 end,
 
-%%% HOW TO DO THE CONNECTION NODES? 
-%%% NOT SOLVE YET ...
-
-   printf("\n Neighbours Central: %w", Graph),
-   printf("\n Central Nodes of each graph-5: %w", X2_CN),
-   print_matrix( Graph ).
-
-
-print_matrix( M ) =>
-  L = M.length,
-  C = M[1].length,
-  printf("\n \n NEIGHBOURS:\n     "),
-  foreach(J in 1  .. C)
-    printf(" : %d ", J)
-  end,
-  nl,
-  foreach(I in 1  .. L)
-   printf("NODE %w : ", I),
-    foreach(J in 1  ..  C)
-      printf("%w " , M[I,J] )
-    %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- OK
-      end,
-    nl
-  end.   
-  
-which_community(I, Size_K) = X =>
-         X = round((I-1) div (Size_K))+1.
-
-aux_vet_with_zero(N) = X =>
-   X = new_array(N),
-   foreach(I in 1 .. N)
-    X[I] := 0
-   end.
+*/
