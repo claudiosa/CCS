@@ -23,7 +23,7 @@ go =>
    end,
 
   rows(X2_CN) = L2,
-  printf("\n CENTRAL NODES: %w", L2),
+  printf("\n CENTRAL NODES (L2): %w", L2),
 %%% NEIGHBOURS OF CENTRAL NODE IN EACH COMMUNITY
   foreach(I in L2)
      (
@@ -70,32 +70,39 @@ foreach(I in 1..Size)
   end
 end,         
 printf("\n Extern Nodes (L3): %w", L3),
+printf("\n Quantity of Extern Nodes (L3): %d", L3.length),
 
 
-X_Extern = new_array(Size), %% CENTER NODES of each communityt
+%%%
+%%X_Extern = new_array(L3.length), %% CENTER NODES of each communityt
+X_Extern = new_array(Size), %% all array
 X_Extern :: 1..Size,
+
 foreach(I in L2)
 	X_Extern[I] #= I
 end,
+
 printf("\n X_Extern: %w", X_Extern),
 
 
 % Diffs :: Size_K..(Size-Size_K),
 Diffs :: 2..Size,
-%J :: L3,
-foreach(I in L3, J in L3)
+J ::  1..Size,
+foreach(I in L3)
   (
   	%member(J,L3),
-  	I !== J,
-  	abs(I-J) #= Diffs,
+  	I #!= J,
+  	%abs(I-J) #>= Size_K,
     %I #!= J + Size_K,
   	%J #= Aux, %+Size_K,
-  	(X_Extern[I] #= J) #<=> (X_Extern[J] #= I)
+  	(X_Extern[I] #= J)
+  	
+  	%%#<=> (X_Extern[J] #= I)
   	 %J #!= I,
     %X_Extern[I] #= J
   )
 end,
-
+%all_different(X_Extern),
 %all_distinct(X_Extern),
 
 
@@ -106,7 +113,7 @@ end,
    printf("\n Central Nodes of each graph-5: %w", X2_CN),
    print_matrix( Graph ),
    %Vars = X_Extern ++ Diffs
-   append(X_Extern, [Diffs],Vars),
+   append(X_Extern, [J],Vars),
    solve(Vars),
    printf("\n X_Extern: %w", X_Extern)   
 
