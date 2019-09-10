@@ -86,22 +86,25 @@ printf("\n X_Extern: %w", X_Extern),
 
 
 % Diffs :: Size_K..(Size-Size_K),
-Diffs :: 2..Size,
-J ::  1..Size,
+Diffs :: 1..Size,
 foreach(I in L3)
   (
   	%member(J,L3),
-  	I #!= J,
+  	%if( I != J) then
+  	%(
   	%abs(I-J) #>= Size_K,
     %I #!= J + Size_K,
   	%J #= Aux, %+Size_K,
-  	(X_Extern[I] #= J)
-  	
+  	X_Extern[I] #= I %+Diffs
+  %	X_Extern[abs(I - Diffs)] #= I 
   	%%#<=> (X_Extern[J] #= I)
-  	 %J #!= I,
+  	%J #!= I,
     %X_Extern[I] #= J
+    %)
+    %end
   )
 end,
+
 %all_different(X_Extern),
 %all_distinct(X_Extern),
 
@@ -113,7 +116,7 @@ end,
    printf("\n Central Nodes of each graph-5: %w", X2_CN),
    print_matrix( Graph ),
    %Vars = X_Extern ++ Diffs
-   append(X_Extern, [J],Vars),
+   append(X_Extern, [Diffs], Vars ),
    solve(Vars),
    printf("\n X_Extern: %w", X_Extern)   
 
