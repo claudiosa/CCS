@@ -1,0 +1,105 @@
+/*
+
+  See mail from Claudio 20190910
+
+  Here's my interpretation of the problem. I'm still not sure
+  I've understood the problem correctly.
+
+  The first solution:
+  x_nodes = {1,7,8,12,17,6,2,3,13,18,11,4,9,19,20,16,5,10,14,15}
+  [i = 1,group = 1,xI = 1,link_to_group = 1]
+  [i = 2,group = 1,xI = 7,link_to_group = 2]
+  [i = 3,group = 1,xI = 8,link_to_group = 2]
+  [i = 4,group = 1,xI = 12,link_to_group = 3]
+  [i = 5,group = 1,xI = 17,link_to_group = 4]
+  [i = 6,group = 2,xI = 6,link_to_group = 2]
+  [i = 7,group = 2,xI = 2,link_to_group = 1]
+  [i = 8,group = 2,xI = 3,link_to_group = 1]
+  [i = 9,group = 2,xI = 13,link_to_group = 3]
+  [i = 10,group = 2,xI = 18,link_to_group = 4]
+  [i = 11,group = 3,xI = 11,link_to_group = 3]
+  [i = 12,group = 3,xI = 4,link_to_group = 1]
+  [i = 13,group = 3,xI = 9,link_to_group = 2]
+  [i = 14,group = 3,xI = 19,link_to_group = 4]
+  [i = 15,group = 3,xI = 20,link_to_group = 4]
+  [i = 16,group = 4,xI = 16,link_to_group = 4]
+  [i = 17,group = 4,xI = 5,link_to_group = 1]
+  [i = 18,group = 4,xI = 10,link_to_group = 2]
+  [i = 19,group = 4,xI = 14,link_to_group = 3]
+  [i = 20,group = 4,xI = 15,link_to_group = 3]
+
+  Time: 0.001s
+
+
+  Time for other problem sizes:
+  A solution of K_com 14 x Size_K 15: 0.1s.
+  A solution of K_com 24 x Size_K 25: 6.4s.
+
+
+  This Picat model was created by Hakan Kjellerstrand, hakank@gmail.com
+  See also my Picat page: http://www.hakank.org/picat/
+
+
+*/
+
+import util.
+import cp.
+
+main => go.
+
+go =>
+   nolog,
+   K_com = 6 , %%% Number of Community or CLASSES
+   Size_K = 5 , %% Size Community of CLASSES
+   Size =  K_com * Size_K ,
+   
+   X_Nodes = new_array(Size),
+   X_Nodes :: 1..Size,
+
+   % Which group does a node belong to?
+   Groups = flatten([[ I : _ in 1..Size_K] : I in 1..K_com ]),
+   println(groups=Groups),
+
+   all_different(X_Nodes),
+
+   % Anchor nodes
+   L_anchor = [(I*Size_K)+1 : I in 0..(K_com-1)],
+   println(l_anchor = L_anchor),
+
+   %% Assign the "anchor" nodes (first in each class)
+   foreach(I in L_anchor)
+     X_Nodes[I] #= I
+   end,
+   
+   assignment(X_Nodes,X_Nodes),
+
+   % The non anchor nodes:
+   % - cannot link to a node in the same group
+   % - cannot link to itself
+   foreach(I in 1..Size, not(member(I,L_anchor)))
+      % Cannot link to a node in the same group
+      element(X_Nodes[I],Groups,G), % the group that X_Nodes[I] link to
+      G #!= Groups[I]
+      % , X_Nodes[I] #!= I % Only the L_anchor nodes can link to themselves. Not needed.
+   end,
+   
+   % For each group there must be K_com different values of links to groups, i.e.
+   % some node in the group must link to each of the other groups.
+   foreach(G in 1..K_com)
+      % The nodes in group G
+      ThisGroup = [I : I in 1..Size, Groups[I] == G],
+      println(node_group=ThisGroup),
+      % The group that a node link to
+      LinkGroups = [T : I in ThisGroup, element(X_Nodes[I], Groups,T)],
+      nvalue(K_com ,LinkGroups)
+   end,
+
+   Vars = X_Nodes.to_list,
+   println(solve),
+   solve($[ff], Vars),
+
+   println(x_nodes=X_Nodes),
+   foreach(I in 1 .. Size)
+      println([i=I,group=Groups[I], xI=X_Nodes[I],link_to_group=Groups[X_Nodes[I]] ])
+   end,
+   nl.
