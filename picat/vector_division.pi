@@ -1,0 +1,66 @@
+%% TO RUN
+% Picat> cl('vector_division').
+% $ picat  
+import util.
+import cp.
+
+main => go.
+
+go =>
+   
+   K_com = 4 , %%% Number of Community or CLASSES
+   Size_K = 5 , %% Size Community of CLASSES
+   Size =  K_com * Size_K ,
+   X_Nodes = new_array(Size), %% all array
+   X_Nodes :: 1..Size,
+    
+
+printf("\n (X_Nodes): %w", X_Nodes),
+printf("\n Quantity of Extern Nodes : %d", X_Nodes.length),
+
+
+%%% the INITIAL NODE in each class FIXED ... OK
+foreach(I in 1..5..X_Nodes.length)
+  	X_Nodes[I] #= I
+end,
+%%% always in this position ....
+
+printf("\n\n Before X_Extern: %w", X_Nodes),
+
+%%% to improve LATER
+L_anchor = [1,6,11,16], %%% from previous constraint
+
+%% % Diffs :: Size_K..(Size-Size_K),
+  Half := round(Size/2),
+  Diffs :: 2..Size-1,
+ 
+  %foreach(I in 2..(Half+Size_K) )
+  %foreach(I in 2..(Size-Size_K))
+%%% NOT SOLVE YET ...
+  foreach(I in 2..Half )
+    (
+    if(  not(member(I, L_anchor) ) ) then %% not defined yet
+%%     %% in the previous constraint
+    	  (
+         X_Nodes[I] #=  Diffs + I
+%%%%     X_Nodes[abs(I - Diffs)] #= I 
+%% %%   	%%#<=> (X_Nodes[J] #= I)
+%% %%   	%J #!= I,
+%% %%     %X_Nodes[I] #= J
+         )
+       end
+      )
+     end,
+
+
+all_different(X_Nodes),
+  
+   %Vars = X_Extern ++ Diffs
+   append([X_Nodes], [Diffs], Vars ),
+   solve(Vars),
+   printf("\n After the solver X_Nodes: \n\n"),  
+   foreach(I in 1 .. Size)
+   printf(" X[%d]:%d ||", I, X_Nodes[I])
+   end    
+   %  printf("\n After solver X_Nodes: %w", X_Nodes)   
+   .
