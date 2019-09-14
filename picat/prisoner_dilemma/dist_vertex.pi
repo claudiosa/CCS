@@ -1,0 +1,84 @@
+
+module dist_vertex.
+import util.
+import cp.
+%import sat.
+main => go.
+
+go =>
+   nolog,
+   K_com =  160 , %%% Number of Community or CLASSES
+   Size_K = 5 , %% Size Community of CLASSES
+   printf("\n Next Vector: %w", dist_vertex(K_com, Size_K))
+   .
+
+   %%% VECTOR 
+   dist_vertex(K_com, Size_K) = Res =>
+   
+   Size =  K_com * Size_K ,
+   X_Nodes = new_array(Size),
+   X_Nodes :: 1..Size,
+
+   % Which group does a node belong to?
+   Groups = flatten([[ I : _ in 1..Size_K] : I in 1..K_com ]),
+   println(groups=Groups),
+
+   all_different(X_Nodes),
+
+   % Anchor nodes
+   L_anchor = [(I*Size_K)+1 : I in 0..(K_com-1)],
+   println(l_anchor = L_anchor),
+
+   %% Assign the "anchor" nodes (first in each class)
+   foreach(I in L_anchor)
+     X_Nodes[I] #= I
+   end,
+   
+   %%% 
+   assignment(X_Nodes,X_Nodes),
+
+   % The non anchor nodes:
+   % - cannot link to a node in the same group
+   % - cannot link to itself
+   
+   foreach(I in 1..Size , not(member(I,L_anchor) ))
+      % Cannot link to a node in the same group
+      element(X_Nodes[I], Groups, G), % the group that X_Nodes[I] link to
+      G #!= Groups[I]
+      % , X_Nodes[I] #!= I % Only the L_anchor nodes can link to themselves. Not needed.
+   end,
+   
+   % For each group there must be K_com different values of links to groups, i.e.
+   % some node in the group must link to each of the other groups.
+   /*
+   foreach(G in 1..K_com)
+      % The nodes in group G
+      ThisGroup = [I : I in 1..Size, Groups[I] == G],
+      println(node_group=ThisGroup),
+      % The group that a node link to
+      LinkGroups = [T : I in ThisGroup, element(X_Nodes[I], Groups,T)],
+      nvalue(K_com , LinkGroups)
+   end,
+   */
+   %Vars = X_Nodes.to_list,
+   Vars = to_list( X_Nodes ),
+   
+   println(solve),
+   %%% All_SOL = solve_all([], Vars),
+   solve($[ff], Vars),
+   
+   /*
+   println(x_nodes=X_Nodes),
+   foreach(I in 1 .. Size)
+      println([i=I,group=Groups[I], xI=X_Nodes[I],link_to_group=Groups[X_Nodes[I]] ])
+   end,
+   nl,
+   */
+   foreach(I in 1 .. Size)
+      if ( member(X_Nodes[I] , L_anchor) ) then
+      	  printf("\n ========================\n")
+      end,		
+      printf("X[%d] = %d ", I, X_Nodes[I] )
+   end,
+  
+   Res = X_Nodes.
