@@ -1,0 +1,150 @@
+
+>>>>>>> f441afd672c7a5ff20c128eec6ebf2d3fc2003c8
+
+%% % Diffs :: Size_K..(Size-Size_K),
+%% Diffs :: 2..Size,
+%% J ::  1..Size,
+%% foreach(I in L3)
+%%   (
+%%    %member(J,L3),
+%%    I #!= J,
+%%    %abs(I-J) #>= Size_K,
+%%     %I #!= J + Size_K,
+%%    %J #= Aux, %+Size_K,
+%%    (X_Extern[I] #= J)
+    
+%%    %%#<=> (X_Extern[J] #= I)
+%%     %J #!= I,
+%%     %X_Extern[I] #= J
+%%   )
+%% end,
+%% %all_different(X_Extern),
+%% %all_distinct(X_Extern),
+
+
+%% %%% HOW TO DO THE CONNECTION NODES? 
+%% %%% NOT SOLVE YET ...
+
+%%    printf("\n Neighbours Central: %w", Graph),
+%%    printf("\n Central Nodes of each graph-5: %w", X2_CN),
+%%    print_matrix( Graph ),
+%%    %Vars = X_Extern ++ Diffs
+%%    append(X_Extern, [J],Vars),
+%%    solve(Vars),
+%%    printf("\n X_Extern: %w", X_Extern)   
+
+%%    .
+
+
+
+%%% Marks the over each internal nodes
+Aux = aux_vet_with_zero(Size),
+foreach(I in L2)
+  Aux[I] := 1
+end,
+printf("\n Aux: %w", Aux),
+
+
+   %%%% Marks over the others
+foreach(I in 1..Size)
+  %(Size-Size_K))
+(
+ if(Aux[I] == 0) then %% node not marked
+  (
+   Aux[I] := 1, %%% mark as visited 
+   KI = which_community(I, Size_K ),
+   
+   %%% THIS FUNCTION IS NOT OK
+   %Next = (Size_K * (K_com - KI) + I) mod (Size + KI),
+   % mod (Size+1),
+   Next = (Size_K *(K_com - KI + 1 ) + I),
+   %%  mod (Size+1), %%%  mod Size_K),
+   
+
+   printf("\n ==>I: %d | KI: %d | Brute .. Next: %d ", I, KI, Next),
+   %%%(Next =< Size) 
+   if( Next > Size ) then
+     (
+       while(Next > Size) %% limit of vector
+        Next := Next - 1
+       end, 
+       %% find a empty cell again  to change with I
+       while( Aux[Next] == 1 ) %% empty cell
+       Next := Next - 1
+       end
+      ) 
+    end,
+     
+   if( Aux[Next] == 0 ) then %% not marked yet
+   (
+       Graph[I, 4] = Next,
+       Graph[Next, 4] = I,
+       Aux[Next] := 1
+   )
+   else
+   ( %% advance up to next free cell 
+     while( Aux[Next] == 1 )
+      Next := Next+1
+      end,
+       printf("\n ==>Empty Cell: [%d] = %d ", I, Aux[Next]),
+       printf("\n ==>I: %d | KI: %d | Next: %d ", I, KI, Next),
+       printf("\n Aux: %w", Aux),
+       %%% mark the free cells as occupied
+       Graph[I, 4] = Next,
+       Graph[Next, 4] = I,
+       Aux[ Next ] := 1  
+     )
+  end
+  
+  )% if
+ end
+) % foreach
+end,
+
+*/
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% others
+ /*
+
+% Diffs :: Size_K..(Size-Size_K),
+Diffs :: 1..Size,
+foreach(I in L3)
+  (
+    %member(J,L3),
+    %if( I != J) then
+    %(
+    %abs(I-J) #>= Size_K,
+    %I #!= J + Size_K,
+    %J #= Aux, %+Size_K,
+    X_Extern[I] #= I %+Diffs
+  % X_Extern[abs(I - Diffs)] #= I 
+    %%#<=> (X_Extern[J] #= I)
+    %J #!= I,
+    %X_Extern[I] #= J
+    %)
+    %end
+  )
+end,
+
+%all_different(X_Extern),
+%all_distinct(X_Extern),
+
+pairs(L3, 4, Lpairs),
+
+printf("\n Lpairs %w",  Lpairs).
+
+pairs(X, _ , Y) => X == [], Y = [].
+pairs( X , _ , Y) => X == [A,B], Y =  [ (A,B) ] .
+pairs([A|L1], K , [ (A,B) | L3] ) ?=>
+  printf("\n ==> A %d K %d  ", A,K),
+  Pos = (A+K),
+  %% mod ((L1.length)+A),
+  nth(Pos, [A|L1], B),
+  printf("\n ==> A %d B %d Pos %d ", A,B,Pos),
+  L2 = delete( L1 , B),
+  pairs( L2, B, L3).
+
+<<<<<<< HEAD
+=======
