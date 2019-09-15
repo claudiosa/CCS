@@ -6,26 +6,27 @@ import cp.
 main => go.
 
 go =>
-   nolog,
-   K_com =  160 , %%% Number of Community or CLASSES
-   Size_K = 5 , %% Size Community of CLASSES
+  % nolog,
+   K_com =  160 , %%% Number of Community or CLASSES or Groups
+   Size_K = 5 , %% Size Community of CLASSES--Groups
    printf("\n Next Vector: %w", dist_vertex(K_com, Size_K))
    .
 
-   %%% VECTOR 
+   %%% FUNCTIONS VECTOR 
    dist_vertex(K_com, Size_K) = Res =>
    
    Size =  K_com * Size_K ,
    X_Nodes = new_array(Size),
    X_Nodes :: 1..Size,
-
+     
    % Which group does a node belong to?
-   Groups = flatten([[ I : _ in 1..Size_K] : I in 1..K_com ]),
-   println(groups=Groups),
-
-   all_different(X_Nodes),
-
-   % Anchor nodes
+   All_Groups = [[ I : _ in 1..Size_K] : I in 1..K_com ],
+   printf("\nAll_Groups -- a LIST of lists %w", All_Groups),
+   
+   Groups = flatten(All_Groups),
+   println(groups_and_positions=Groups),
+      
+   % Anchor nodes -- OK
    L_anchor = [(I*Size_K)+1 : I in 0..(K_com-1)],
    println(l_anchor = L_anchor),
 
@@ -35,22 +36,36 @@ go =>
    end,
    
    %%% 
+   all_different(X_Nodes),
    assignment(X_Nodes,X_Nodes),
-
+   
    % The non anchor nodes:
    % - cannot link to a node in the same group
    % - cannot link to itself
-   
    foreach(I in 1..Size , not(member(I,L_anchor) ))
       % Cannot link to a node in the same group
-      element(X_Nodes[I], Groups, G), % the group that X_Nodes[I] link to
-      G #!= Groups[I]
-      % , X_Nodes[I] #!= I % Only the L_anchor nodes can link to themselves. Not needed.
+      element(X_Nodes[I], Groups, Value_G ), % the group that X_Nodes[I] link to
+      Value_G #!= Groups[I]
+      %,X_Nodes[I] #!= I % Only the L_anchor nodes can link to themselves. Not needed.
    end,
    
    % For each group there must be K_com different values of links to groups, i.e.
    % some node in the group must link to each of the other groups.
-   /*
+/*   
+ foreach(G in 1..K_com)
+      % The nodes in group G
+      ThisGroup = [I : I in 1..Size, Groups[I] == G],
+      if( K_com >= Size_K ) then
+      (
+        all_different(ThisGroup)
+        %, printf("\t x-")
+      )	
+      end,
+      println(thisGroup=ThisGroup)
+   end,   
+*/
+/* %%% very SLOW ... 
+   %% REMOVE --- takes a lot of time
    foreach(G in 1..K_com)
       % The nodes in group G
       ThisGroup = [I : I in 1..Size, Groups[I] == G],
@@ -59,26 +74,37 @@ go =>
       LinkGroups = [T : I in ThisGroup, element(X_Nodes[I], Groups,T)],
       nvalue(K_com , LinkGroups)
    end,
-   */
+ */
+
    %Vars = X_Nodes.to_list,
    Vars = to_list( X_Nodes ),
    
-   println(solve),
+   %println(solve_X_Nodes = X_Nodes),
    %%% All_SOL = solve_all([], Vars),
    solve($[ff], Vars),
-   
    /*
+   HAKAN
    println(x_nodes=X_Nodes),
    foreach(I in 1 .. Size)
       println([i=I,group=Groups[I], xI=X_Nodes[I],link_to_group=Groups[X_Nodes[I]] ])
    end,
    nl,
    */
+   
    foreach(I in 1 .. Size)
       if ( member(X_Nodes[I] , L_anchor) ) then
-      	  printf("\n ========================\n")
+         print_n(30),
       end,		
-      printf("X[%d] = %d ", I, X_Nodes[I] )
+      printf("X[%d]: %d->G:%d ", I, X_Nodes[I], Groups[X_Nodes[I]] )
    end,
-  
+   nl, 
    Res = X_Nodes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRINT
+print_n(N) =>
+   nl,
+   foreach(I in 1 .. N)
+      printf("=")
+   end,
+   nl.   
+
