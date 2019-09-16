@@ -14,9 +14,9 @@ go =>
    Size =  K_com * Size_K ,
    Degree = Size_K - 1 , %%% Neighbours
    Graph = new_array( Size, Degree ),
-   X2_CN = new_array(K_com), %% CENTER NODES of each communityt
 
-   
+   X2_CN = new_array(K_com), %% CENTER NODES of each communityt
+   Extern_Nodes = new_array( Size ),
   % all_different(X1_Graph),
   % THE CENTRAL NODE ARE INITILIZED
    foreach(I in 1..K_com)
@@ -57,19 +57,23 @@ go =>
       Graph[(I+4), 3] =  (I+3) 
      ) 
    end,
-         
-printf("\n Extern Nodes (L3): %w", L3),
-printf("\n Quantity of Extern Nodes (L3): %d", L3.length),
+ 
+ Extern_Nodes = dist_vertex(K_com, Size_K),      
+ printf("\n Extern Nodes (L3): %w", Extern_Nodes),
 
+ foreach(I in 1..Size)
+  if( Extern_Nodes[I] != I) then
+    (
+      Graph[I, 4] =  Extern_Nodes[I]
+    ) 
+  end
+  end,  
 
+%printf("\n Quantity of Extern Nodes (L3): %d", L3.length),
+  
    printf("\n Neighbours Central: %w", Graph),
    printf("\n Central Nodes of each graph-5: %w", X2_CN),
-   print_matrix( Graph ),
-   %Vars = X_Extern ++ Diffs
-   append(X_Extern, [Diffs], Vars ),
-   solve(Vars),
-   printf("\n X_Extern: %w", X_Extern)   
-
+   print_matrix( Graph ).
 
 
 
@@ -106,6 +110,3 @@ aux_vet_with_zero(N) = X =>
    foreach(I in 1 .. N)
     X[I] := 0
    end.
-
-
-
