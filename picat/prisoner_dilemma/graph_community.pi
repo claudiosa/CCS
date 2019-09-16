@@ -1,25 +1,31 @@
 %% TO RUN
 % Picat> cl('graph_community').
 % $ picat graph_community.pi 
+module graph_community.
 import dist_vertex.
 import util.
-import cp.
 
 main => go.
 
 go =>
    
-   K_com = 4 , %%% Number of Community
+   K_com = 10 , %%% Number of Community
    Size_K = 5 , %% Size Community
-   Size =  K_com * Size_K ,
-   Degree = Size_K - 1 , %%% Neighbours
-   Graph = new_array( Size, Degree ),
+   Graph = build_graph(Size_K, K_com),
+   print_matrix( Graph ).
+
+build_graph(Size_K, K_com) = Res =>   
+
+   Size =  K_com * Size_K , %% ALL NODES 
+   N_Neigh = (Size_K - 1), %%% Neighbours -- connections
+   Graph = new_array( Size, N_Neigh ),
 
    X2_CN = new_array(K_com), %% CENTER NODES of each communityt
    Extern_Nodes = new_array( Size ),
   % all_different(X1_Graph),
+  
   % THE CENTRAL NODE ARE INITILIZED
-   foreach(I in 1..K_com)
+  foreach(I in 1..K_com)
        X2_CN[I] = ((Size_K * I) - 4)
        %%% see the community topology
    end,
@@ -59,21 +65,23 @@ go =>
    end,
  
  Extern_Nodes = dist_vertex(K_com, Size_K),      
- printf("\n Extern Nodes (L3): %w", Extern_Nodes),
+ printf("\n Dist Vertex -- Extern : %w", Extern_Nodes),
 
  foreach(I in 1..Size)
+ %if( not( member(Extern_Nodes[I], L2)) ) then 
   if( Extern_Nodes[I] != I) then
-    (
-      Graph[I, 4] =  Extern_Nodes[I]
-    ) 
+  (
+    Graph[I, 4] = Extern_Nodes[I]
+  ) 
   end
-  end,  
+ end,  
+  %printf("\n Quantity of Extern Nodes (L3): %d", L3.length),
 
-%printf("\n Quantity of Extern Nodes (L3): %d", L3.length),
-  
-   printf("\n Neighbours Central: %w", Graph),
-   printf("\n Central Nodes of each graph-5: %w", X2_CN),
-   print_matrix( Graph ).
+   Res = Graph.  
+   
+   %printf("\n Neighbours Central: %w", Graph),
+   %printf("\n Central Nodes of each graph-5: %w", X2_CN),
+   %print_matrix( Graph ).
 
 
 
@@ -94,14 +102,15 @@ print_matrix( M ) =>
   end,
   nl,
   foreach(I in 1  .. L)
-   printf("NODE %w : ", I),
+   printf("NODE %d : ", I),
     foreach(J in 1  ..  C)
-      printf("%w " , M[I,J] )
+      printf("%d " , M[I,J] )
     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- OK
       end,
     nl
   end.   
-  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% AUX functions %%%%%%%%%%%%%%%%%%%%%%  
 which_community(I, Size_K) = X =>
          X = round((I-1) div (Size_K))+1.
 
@@ -110,3 +119,4 @@ aux_vet_with_zero(N) = X =>
    foreach(I in 1 .. N)
     X[I] := 0
    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
