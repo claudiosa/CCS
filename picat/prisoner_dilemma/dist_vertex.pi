@@ -1,8 +1,8 @@
-
 module dist_vertex.
 import util.
 import cp.
 %import sat.
+/*
 main => go.
 
 go =>
@@ -11,7 +11,7 @@ go =>
    Size_K = 5 , %% Size Community of CLASSES--Groups
    printf("\n Next Vector: %w", dist_vertex(K_com, Size_K))
    .
-
+*/
    %%% FUNCTIONS VECTOR 
    dist_vertex(K_com, Size_K) = Res =>
    
@@ -37,10 +37,10 @@ go =>
    
    %%% 
    all_different(X_Nodes),
-   assignment(X_Nodes,X_Nodes),
+   assignment(X_Nodes, X_Nodes),
    
    % The non anchor nodes:
-   % - cannot link to a node in the same group
+   % - cannot link to a node in the same group --- it is ENOUGH
    % - cannot link to itself
    foreach(I in 1..Size , not(member(I,L_anchor) ))
       % Cannot link to a node in the same group
@@ -51,7 +51,12 @@ go =>
    
    % For each group there must be K_com different values of links to groups, i.e.
    % some node in the group must link to each of the other groups.
-/*   
+ 
+ %%% this constraint has not any effects  ...
+ %%% the previous constraint it is enough
+ %% I am not sure if necessary because any
+ %% VAR constraint is related or connected
+ %%
  foreach(G in 1..K_com)
       % The nodes in group G
       ThisGroup = [I : I in 1..Size, Groups[I] == G],
@@ -63,9 +68,11 @@ go =>
       end,
       println(thisGroup=ThisGroup)
    end,   
-*/
-/* %%% very SLOW ... 
-   %% REMOVE --- takes a lot of time
+
+/* 
+   %%% very  very SLOW ... 
+   %% I REMOVE it --- takes a lot of time
+   %%% NO DIFFERENCE at the end result in small values
    foreach(G in 1..K_com)
       % The nodes in group G
       ThisGroup = [I : I in 1..Size, Groups[I] == G],
@@ -75,15 +82,15 @@ go =>
       nvalue(K_com , LinkGroups)
    end,
  */
-
    %Vars = X_Nodes.to_list,
    Vars = to_list( X_Nodes ),
-   
+ 
    %println(solve_X_Nodes = X_Nodes),
    %%% All_SOL = solve_all([], Vars),
    solve($[ff], Vars),
+   
    /*
-   HAKAN
+   by HAKAN
    println(x_nodes=X_Nodes),
    foreach(I in 1 .. Size)
       println([i=I,group=Groups[I], xI=X_Nodes[I],link_to_group=Groups[X_Nodes[I]] ])
@@ -107,4 +114,4 @@ print_n(N) =>
       printf("=")
    end,
    nl.   
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRINT

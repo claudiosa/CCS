@@ -1,0 +1,582 @@
+label(('$damon_load',0)).
+label(('$damon_load',0,-1)).
+    allocate_det(0,4,([],0),4).
+label(('$damon_load',0,1)).
+    para_c(c(util)).
+    call0(('$picat_ensure_loaded',1),4).
+    para_c(c(cp)).
+    call0(('$picat_ensure_loaded',1),4).
+    last_call(1,('$picat_insert_loaded',1),c(dist_vertex),4).
+    return_det.
+label(('$damon_load',0,3)).
+    fail.
+label(('$damon_load',0,4)).
+    fail0.
+label(('$damon_load',0,5)).
+    cut_fail.
+label((dist_vertex__ds,4)).
+label((dist_vertex__ds,4,-1)).
+    allocate_det(4,6,([],0),4).
+label((dist_vertex__ds,4,1)).
+label((dist_vertex__ds,4,2)).
+    hash(4,0,0,(dist_vertex__ds,4,6)).
+    pred((dist_vertex__ds,4,2),4,3,(dist_vertex__ds,4,6)).
+    arglabel(c,print_n,(dist_vertex__ds,4,3)).
+    arglabel(c,dist_vertex,(dist_vertex__ds,4,4)).
+    arglabel(c,'_$all',(dist_vertex__ds,4,5)).
+label((dist_vertex__ds,4,3)).
+    hash_jmpn_constant(c(print_n),(dist_vertex__ds,4,6)).
+    jmpn_eq_constant(3,c(1),(dist_vertex__ds,4,6),(dist_vertex__ds,4,6)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$dist_vertex$$print_n')).
+label((dist_vertex__ds,4,4)).
+    hash_jmpn_constant(c(dist_vertex),(dist_vertex__ds,4,6)).
+    jmpn_eq_constant(3,c(2),(dist_vertex__ds,4,6),(dist_vertex__ds,4,6)).
+    unify_constant(2,c(func)).
+    unify_constant_return_det(1,c('e$$dist_vertex$$f$$dist_vertex')).
+label((dist_vertex__ds,4,5)).
+    hash_jmpn_constant(c('_$all'),(dist_vertex__ds,4,6)).
+    jmpn_eq_constant(3,c(100),(dist_vertex__ds,4,6),(dist_vertex__ds,4,6)).
+    unify_comp_list(1,2,v(-4),v(-5)).
+    unify_struct_arg_c(-5,(/,2),c(print_n)).
+    unify_arg_c(c(1)).
+    unify_struct_arg_c(-4,(/,2),c(dist_vertex)).
+    unify_arg_c(c(2)).
+    return_det.
+label((dist_vertex__ds,4,6)).
+    fail.
+label((dist_vertex__ds,4,7)).
+    fail0.
+label((dist_vertex__ds,4,8)).
+    cut_fail.
+label(('e$$dist_vertex$$f$$dist_vertex',3)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,-1)).
+    allocate_det(3,33,([],0),4).
+label(('e$$dist_vertex$$f$$dist_vertex',3,1)).
+    mul_uuv(2,1,-4).
+    move_value(-5,-4).
+    move_value(-5,-5).
+    move_var(-4).
+    jmpn_int_y(-5,('e$$dist_vertex$$f$$dist_vertex',3,2)).
+    jmpn_ge_ui(-5,0,('e$$dist_vertex$$f$$dist_vertex',3,2)).
+    jmpn_ge_ui(-5,1250,('e$$dist_vertex$$f$$dist_vertex',3,4)).
+    para_u(-5).
+    call0((garbage_collect,1),6).
+    jmp(('e$$dist_vertex$$f$$dist_vertex',3,5)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,4)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,5)).
+    functor(u(-4),c({}),u(-5)).
+    move_var(-6).
+    jmp(('e$$dist_vertex$$f$$dist_vertex',3,3)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,2)).
+    move_struct(-6,(nonnegative_integer_expected,1)).
+    build_arg_u(-5).
+    para_uc(-6,c(new_array)).
+    call0((handle_exception,2),7).
+label(('e$$dist_vertex$$f$$dist_vertex',3,3)).
+    move_value(-6,-4).
+    move_struct(-7,(..,2)).
+    build_arg_2c(c(1),c(1)).
+    move_struct(-8,(..,2)).
+    build_arg_2u(-7,-5).
+    para_c(c(cp)).
+    para_uu(-6,-8).
+    call0(('_$_picat_in',3),9).
+    move_var(-10).
+    move_value(-9,-10).
+    para_cuuv(c(1),2,-10,-11).
+    para_u(1).
+    call0((h___dist_vertexdist_vertex_2_1_2,5),12).
+    unify_nil(-11).
+    move_value(-12,-9).
+    move_comp_list(-13,33,c('\n'),c('A'),c(l),c(l),c('_'),c('G'),c(r),c(o),c(u),c(p),c(s),c(' '),c(-),c(-),c(' '),c(a),c(' '),c('L'),c('I'),c('S'),c('T'),c(' '),c(o),c(f),c(' '),c(l),c(i),c(s),c(t),c(s),c(' '),c('%'),c(w)).
+    para_uu(-13,-12).
+    call0((picat_printf,2),14).
+    para_v(-14).
+    para_u(-12).
+    call0(('e$$picat_lib_aux$$f$$flatten',2),15).
+    move_value(-15,-14).
+    move_struct(-16,(=,2)).
+    build_arg_c(c(groups_and_positions)).
+    build_arg_u(-15).
+    para_c(c(user)).
+    para_u(-16).
+    call0((picat_println,2),17).
+    move_var(-18).
+    move_value(-17,-18).
+    para_v(-19).
+    para_uv(2,-20).
+    call0(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3),21).
+    move_vars(-22,-21).
+    jmp_var_y(-19,('e$$dist_vertex$$f$$dist_vertex',3,6)).
+    para_c(c(0)).
+    para_uuu(-20,-18,-21).
+    para_u(1).
+    call0((h___dist_vertexdist_vertex_2_1_3,5),23).
+    unify_value(-21,-22).
+    jmp(('e$$dist_vertex$$f$$dist_vertex',3,7)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,6)).
+    unify_value(-18,-22).
+label(('e$$dist_vertex$$f$$dist_vertex',3,7)).
+    unify_nil(-22).
+    move_value(-23,-17).
+    move_struct(-24,(=,2)).
+    build_arg_c(c(l_anchor)).
+    build_arg_u(-23).
+    para_c(c(user)).
+    para_u(-24).
+    call0((picat_println,2),25).
+    move_vars(-28,-25).
+    builtin1(264,('e$$dist_vertex$$f$$dist_vertex',3,8),u(-23)).
+    unify_value(-25,-23).
+    para_uu(-25,-6).
+    call0((h___dist_vertexdist_vertex_2_1_4,2),29).
+    jmp(('e$$dist_vertex$$f$$dist_vertex',3,9)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,8)).
+    builtin1(262,('e$$dist_vertex$$f$$dist_vertex',3,10),u(-23)).
+    unify_value(-26,-23).
+    functor(u(-26),u(-27),u(-28)).
+    para_c(c(1)).
+    para_uuu(-28,-26,-6).
+    call0((h___dist_vertexdist_vertex_2_1_5,4),29).
+    jmp(('e$$dist_vertex$$f$$dist_vertex',3,11)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,10)).
+    para_uu(-23,-25).
+    call0((picat_iterator_collection_to_list,2),29).
+    para_uu(-25,-6).
+    call0((h___dist_vertexdist_vertex_2_1_4,2),29).
+label(('e$$dist_vertex$$f$$dist_vertex',3,11)).
+label(('e$$dist_vertex$$f$$dist_vertex',3,9)).
+    para_u(-6).
+    call0(('e$$cp$$all_different',1),29).
+    para_uu(-6,-6).
+    call0(('e$$cp$$assignment',2),29).
+    para_c(c(1)).
+    para_uuu(-5,-15,-6).
+    para_u(-23).
+    call0((h___dist_vertexdist_vertex_2_1_6,5),29).
+    para_c(c(1)).
+    para_uuu(2,1,2).
+    para_uu(-15,-5).
+    call0((h___dist_vertexdist_vertex_2_1_8,6),29).
+    para_uv(-6,-29).
+    call0((picat_to_list,2),30).
+    move_value(-30,-29).
+    move_comp_list1(-31,c(ff)).
+    para_uu(-31,-30).
+    call0(('e$$cp$$solve',2),32).
+    para_c(c(1)).
+    para_uuu(-5,-15,-23).
+    para_u(-6).
+    call0((h___dist_vertexdist_vertex_2_1_9,5),32).
+    para_c(c(user)).
+    call0((nl,1),32).
+    move_value(-32,-6).
+    unify_value_return_det(3,-32).
+    return_det.
+label(('e$$dist_vertex$$f$$dist_vertex',3,12)).
+    move_struct0(-4,(dist_vertex,2)).
+    build_arg_2u(2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$dist_vertex$$f$$dist_vertex',3,14)).
+    fail.
+label(('e$$dist_vertex$$f$$dist_vertex',3,15)).
+    fail0.
+label(('e$$dist_vertex$$f$$dist_vertex',3,16)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_1,5)).
+label((h___dist_vertexdist_vertex_2_1_1,5,-1)).
+    allocate_det(5,5,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_1,5,1)).
+    jmpn_gt_uu(5,4,(h___dist_vertexdist_vertex_2_1_1,5,2)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_1,5,2)).
+    unify_cons_uv0(3,1,-4).
+    move_value(3,-4).
+    add_u1v(5,-4).
+    move_value(5,-4).
+    tr_det_call0((h___dist_vertexdist_vertex_2_1_1,5,1),5).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_1,5,4)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_1,5,5)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_1,5,6)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_2,5)).
+label((h___dist_vertexdist_vertex_2_1_2,5,-1)).
+    allocate_det(5,10,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_2,5,1)).
+    jmpn_gt_uu(5,4,(h___dist_vertexdist_vertex_2_1_2,5,2)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_2,5,2)).
+    move_var(-5).
+    move_value(-4,-5).
+    para_cuuv(c(1),1,-5,-6).
+    para_u(5).
+    call0((h___dist_vertexdist_vertex_2_1_1,5),7).
+    unify_nil(-6).
+    unify_cons(3,u(-4),v(-5)).
+    move_value(-7,-5).
+    add_u1v(5,-8).
+    move_value(-9,-8).
+    tr_det_call2_au((h___dist_vertexdist_vertex_2_1_2,5,1),1,3,5,-9,4,-7,2,1,10).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_2,5,4)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_2,5,5)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_2,5,6)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_3,5)).
+label((h___dist_vertexdist_vertex_2_1_3,5,-1)).
+    allocate_det(5,6,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_3,5,1)).
+    jmpn_gt_uu(5,4,(h___dist_vertexdist_vertex_2_1_3,5,2)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_3,5,2)).
+    mul_uuv(5,1,-4).
+    move_value(-5,-4).
+    add1(-5).
+    move_value(-4,-5).
+    unify_cons_uv0(3,-4,-5).
+    move_value(3,-5).
+    add_u1v(5,-5).
+    move_value(5,-5).
+    tr_det_call0((h___dist_vertexdist_vertex_2_1_3,5,1),6).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_3,5,4)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_3,5,5)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_3,5,6)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_4,2)).
+label((h___dist_vertexdist_vertex_2_1_4,2,-1)).
+    allocate_det(2,7,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_4,2,1)).
+    switch_cons_vv(2,(h___dist_vertexdist_vertex_2_1_4,2,5),(h___dist_vertexdist_vertex_2_1_4,2,6),(h___dist_vertexdist_vertex_2_1_4,2,6),-4,-5).
+    builtin3(273,(h___dist_vertexdist_vertex_2_1_4,2,8),u(-4),u(1),v(-6)).
+    para_uu(-6,-4).
+    call0(('e$$cp$$#=',2),7).
+    tr_det_call1_au((h___dist_vertexdist_vertex_2_1_4,2,1),1,2,-5,1,7).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_4,2,3)).
+    tr_det_call1_au((h___dist_vertexdist_vertex_2_1_4,2,1),1,2,-5,1,6).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_4,2,5)).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_4,2,6)).
+    last_call(2,(picat_check_list,2),u(2),c(iterator),4).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_4,2,8)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_4,2,9)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_4,2,10)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_5,4)).
+label((h___dist_vertexdist_vertex_2_1_5,4,-1)).
+    allocate_det(4,6,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_5,4,1)).
+    jmpn_gt_uu(4,3,(h___dist_vertexdist_vertex_2_1_5,4,2)).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_5,4,2)).
+    arg(4,2,-4).
+    move_value(-4,-4).
+    builtin3(273,(h___dist_vertexdist_vertex_2_1_5,4,6),u(-4),u(1),v(-5)).
+    para_uu(-5,-4).
+    call0(('e$$cp$$#=',2),6).
+    add_u1v(4,-5).
+    move_value(-4,-5).
+    tr_det_call1_au((h___dist_vertexdist_vertex_2_1_5,4,1),1,4,-4,3,2,1,6).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_5,4,4)).
+    add_u1v(4,-4).
+    move_value(4,-4).
+    tr_det_call0((h___dist_vertexdist_vertex_2_1_5,4,1),5).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_5,4,6)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_5,4,7)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_5,4,8)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_6,5)).
+label((h___dist_vertexdist_vertex_2_1_6,5,-1)).
+    allocate_det(5,12,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_6,5,1)).
+    jmpn_gt_uu(5,4,(h___dist_vertexdist_vertex_2_1_6,5,2)).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_6,5,2)).
+    para_v(-4).
+    para_uu(1,5).
+    call0((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3),5).
+    move_vars(-7,-5).
+    jmp_var_y(-4,(h___dist_vertexdist_vertex_2_1_6,5,3)).
+    builtin3(273,(h___dist_vertexdist_vertex_2_1_6,5,6),u(5),u(2),v(-8)).
+    unify_value(-5,-8).
+    para_uuu(-5,3,-6).
+    call0(('e$$cp$$element',3),9).
+    builtin3(273,(h___dist_vertexdist_vertex_2_1_6,5,6),u(5),u(3),v(-9)).
+    unify_value(-7,-9).
+    para_uu(-6,-7).
+    call0(('e$$cp$$#!=',2),10).
+    jmp((h___dist_vertexdist_vertex_2_1_6,5,4)).
+label((h___dist_vertexdist_vertex_2_1_6,5,3)).
+    move_vars(-9,-8).
+label((h___dist_vertexdist_vertex_2_1_6,5,4)).
+    add_u1v(5,-10).
+    move_value(-11,-10).
+    tr_det_call1_au((h___dist_vertexdist_vertex_2_1_6,5,1),1,5,-11,4,3,2,1,12).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_6,5,6)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_6,5,7)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_6,5,8)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_7,6)).
+label((h___dist_vertexdist_vertex_2_1_7,6,-1)).
+    allocate_det(6,9,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_7,6,1)).
+    jmpn_gt_uu(6,5,(h___dist_vertexdist_vertex_2_1_7,6,2)).
+    unify_value_return_det(3,4).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_7,6,2)).
+    para_v(-4).
+    para_uuu(2,1,6).
+    call0((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4),5).
+    move_var(-5).
+    jmp_var_y(-4,(h___dist_vertexdist_vertex_2_1_7,6,3)).
+    unify_cons_uu(4,6,-5).
+    unify_arg_read_u(-5).
+    jmp((h___dist_vertexdist_vertex_2_1_7,6,4)).
+label((h___dist_vertexdist_vertex_2_1_7,6,3)).
+    unify_value(4,-5).
+label((h___dist_vertexdist_vertex_2_1_7,6,4)).
+    move_value(-6,-5).
+    add_u1v(6,-7).
+    move_value(-8,-7).
+    tr_det_call2_au((h___dist_vertexdist_vertex_2_1_7,6,1),1,3,6,-8,5,-6,3,2,1,9).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_7,6,6)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_7,6,7)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_7,6,8)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_8,6)).
+label((h___dist_vertexdist_vertex_2_1_8,6,-1)).
+    allocate_det(6,10,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_8,6,1)).
+    jmpn_gt_uu(6,5,(h___dist_vertexdist_vertex_2_1_8,6,2)).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_8,6,2)).
+    move_var(-5).
+    move_value(-4,-5).
+    para_cuuv(c(1),1,-5,-6).
+    para_uu(6,2).
+    call0((h___dist_vertexdist_vertex_2_1_7,6),7).
+    unify_nil(-6).
+    move_value(-5,-4).
+    jmpn_ge_uu(3,4,(h___dist_vertexdist_vertex_2_1_8,6,3)).
+    para_u(-5).
+    call0(('e$$cp$$all_different',1),7).
+    jmp((h___dist_vertexdist_vertex_2_1_8,6,4)).
+label((h___dist_vertexdist_vertex_2_1_8,6,3)).
+label((h___dist_vertexdist_vertex_2_1_8,6,4)).
+    move_struct(-7,(=,2)).
+    build_arg_c(c(thisGroup)).
+    build_arg_u(-5).
+    para_c(c(user)).
+    para_u(-7).
+    call0((picat_println,2),8).
+    add_u1v(6,-8).
+    move_value(-9,-8).
+    tr_det_call1_au((h___dist_vertexdist_vertex_2_1_8,6,1),1,6,-9,5,4,3,2,1,10).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_8,6,6)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_8,6,7)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_8,6,8)).
+    cut_fail.
+label((h___dist_vertexdist_vertex_2_1_9,5)).
+label((h___dist_vertexdist_vertex_2_1_9,5,-1)).
+    allocate_det(5,11,([],0),4).
+label((h___dist_vertexdist_vertex_2_1_9,5,1)).
+    jmpn_gt_uu(5,4,(h___dist_vertexdist_vertex_2_1_9,5,2)).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_9,5,2)).
+    para_v(-4).
+    para_uuu(2,1,5).
+    call0((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4),5).
+    jmp_var_y(-4,(h___dist_vertexdist_vertex_2_1_9,5,3)).
+    para_c(c(30)).
+    call0(('e$$dist_vertex$$print_n',1),5).
+    jmp((h___dist_vertexdist_vertex_2_1_9,5,4)).
+label((h___dist_vertexdist_vertex_2_1_9,5,3)).
+label((h___dist_vertexdist_vertex_2_1_9,5,4)).
+    builtin3(273,(h___dist_vertexdist_vertex_2_1_9,5,6),u(5),u(1),v(-5)).
+    builtin3(273,(h___dist_vertexdist_vertex_2_1_9,5,6),u(5),u(1),v(-6)).
+    builtin3(273,(h___dist_vertexdist_vertex_2_1_9,5,6),u(-6),u(3),v(-7)).
+    move_comp_list(-8,16,c('X'),c('['),c('%'),c(d),c(']'),c(:),c(' '),c('%'),c(d),c(-),c(>),c('G'),c(:),c('%'),c(d),c(' ')).
+    para_uuu(-8,5,-5).
+    para_u(-7).
+    call0((picat_printf,4),9).
+    add_u1v(5,-9).
+    move_value(-10,-9).
+    tr_det_call1_au((h___dist_vertexdist_vertex_2_1_9,5,1),1,5,-10,4,3,2,1,11).
+    return_det.
+label((h___dist_vertexdist_vertex_2_1_9,5,6)).
+    fail.
+label((h___dist_vertexdist_vertex_2_1_9,5,7)).
+    fail0.
+label((h___dist_vertexdist_vertex_2_1_9,5,8)).
+    cut_fail.
+label(('e$$dist_vertex$$print_n',1)).
+label(('e$$dist_vertex$$print_n',1,-1)).
+    allocate_det(1,4,([],0),4).
+label(('e$$dist_vertex$$print_n',1,1)).
+    para_c(c(user)).
+    call0((nl,1),4).
+    para_c(c(1)).
+    para_u(1).
+    call0((h___dist_vertexprint_n_1_1_1,2),4).
+    last_call(1,(nl,1),c(user),4).
+    return_det.
+label(('e$$dist_vertex$$print_n',1,3)).
+    fail.
+label(('e$$dist_vertex$$print_n',1,4)).
+    fail0.
+label(('e$$dist_vertex$$print_n',1,5)).
+    cut_fail.
+label((h___dist_vertexprint_n_1_1_1,2)).
+label((h___dist_vertexprint_n_1_1_1,2,-1)).
+    allocate_det(2,6,([],0),4).
+label((h___dist_vertexprint_n_1_1_1,2,1)).
+    jmpn_gt_uu(2,1,(h___dist_vertexprint_n_1_1_1,2,2)).
+    return_det.
+label((h___dist_vertexprint_n_1_1_1,2,2)).
+    move_comp_list1(-4,c(=)).
+    para_u(-4).
+    call0((picat_printf,1),5).
+    add_u1v(2,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___dist_vertexprint_n_1_1_1,2,1),1,2,-5,1,6).
+    return_det.
+label((h___dist_vertexprint_n_1_1_1,2,4)).
+    fail.
+label((h___dist_vertexprint_n_1_1_1,2,5)).
+    fail0.
+label((h___dist_vertexprint_n_1_1_1,2,6)).
+    cut_fail.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2)).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,0)).
+    nondet(2).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,1)).
+    bp_fork((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,2)).
+    para_uu(1,2).
+    call0((member,2),9).
+    cut.
+    fail.
+    return_det.
+    noop1(9).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,2)).
+    cut_return.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,3)).
+    fail.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,4)).
+    fail0.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,5)).
+    cut_fail.
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4)).
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,-1)).
+    allocate_nondet(4,10,([],0),9).
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,0)).
+    nondet(4).
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,1)).
+    bp_fork((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,2)).
+    builtin3(273,(dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,4),u(1),u(2),v(-9)).
+    para_uu(-9,3).
+    call0((member,2),10).
+    cut.
+    unify_constant_return_det(4,c(1)).
+    noop1(9).
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,2)).
+    cut_return.
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,3)).
+    fail.
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,4)).
+    fail0.
+label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,5)).
+    cut_fail.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3)).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,0)).
+    nondet(3).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,1)).
+    bp_fork((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,2)).
+    para_uu(2,1).
+    call0((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,2)).
+    cut_return.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,3)).
+    fail.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,4)).
+    fail0.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,5)).
+    cut_fail.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3)).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,0)).
+    nondet(3).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,1)).
+    bp_fork(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,2)).
+    sub_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,2)).
+    cut_return.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,3)).
+    fail.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,4)).
+    fail0.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,5)).
+    cut_fail.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4)).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,-1)).
+    allocate_nondet(4,10,([],0),9).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,0)).
+    nondet(4).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,1)).
+    bp_fork((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,2)).
+    builtin3(273,(dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4),u(1),u(2),v(-9)).
+    jmpn_id_uu(-9,3,(dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4)).
+    cut0.
+    unify_constant_return_det(4,c(1)).
+    noop1(9).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,2)).
+    cut_return.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,3)).
+    fail.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4)).
+    fail0.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,5)).
+    cut_fail.
