@@ -2,7 +2,7 @@
 % Picat> cl('graph_community').
 % $ picat graph_community.pi 
 module graph_community.
-import dist_vertex.
+import dist_vertex.   %%% module CONEXION of extern NODES 
 import util.
 
 main => go.
@@ -64,6 +64,7 @@ build_graph(Size_K, K_com) = Res =>
      ) 
    end,
  
+ %%% module CONEXION of extern NODES 
  Extern_Nodes = dist_vertex(K_com, Size_K),      
  printf("\n Dist Vertex -- Extern : %w", Extern_Nodes),
 
@@ -82,9 +83,6 @@ build_graph(Size_K, K_com) = Res =>
    %printf("\n Neighbours Central: %w", Graph),
    %printf("\n Central Nodes of each graph-5: %w", X2_CN),
    %print_matrix( Graph ).
-
-
-
 
 
 %% increasing constraint

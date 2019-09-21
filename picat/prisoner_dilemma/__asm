@@ -21,27 +21,27 @@ label((dist_vertex__ds,4,1)).
 label((dist_vertex__ds,4,2)).
     hash(4,0,0,(dist_vertex__ds,4,6)).
     pred((dist_vertex__ds,4,2),4,3,(dist_vertex__ds,4,6)).
-    arglabel(c,print_n,(dist_vertex__ds,4,3)).
-    arglabel(c,dist_vertex,(dist_vertex__ds,4,4)).
+    arglabel(c,dist_vertex,(dist_vertex__ds,4,3)).
+    arglabel(c,print_n,(dist_vertex__ds,4,4)).
     arglabel(c,'_$all',(dist_vertex__ds,4,5)).
 label((dist_vertex__ds,4,3)).
-    hash_jmpn_constant(c(print_n),(dist_vertex__ds,4,6)).
-    jmpn_eq_constant(3,c(1),(dist_vertex__ds,4,6),(dist_vertex__ds,4,6)).
-    unify_constant(2,c(pred)).
-    unify_constant_return_det(1,c('e$$dist_vertex$$print_n')).
-label((dist_vertex__ds,4,4)).
     hash_jmpn_constant(c(dist_vertex),(dist_vertex__ds,4,6)).
     jmpn_eq_constant(3,c(2),(dist_vertex__ds,4,6),(dist_vertex__ds,4,6)).
     unify_constant(2,c(func)).
     unify_constant_return_det(1,c('e$$dist_vertex$$f$$dist_vertex')).
+label((dist_vertex__ds,4,4)).
+    hash_jmpn_constant(c(print_n),(dist_vertex__ds,4,6)).
+    jmpn_eq_constant(3,c(1),(dist_vertex__ds,4,6),(dist_vertex__ds,4,6)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$dist_vertex$$print_n')).
 label((dist_vertex__ds,4,5)).
     hash_jmpn_constant(c('_$all'),(dist_vertex__ds,4,6)).
     jmpn_eq_constant(3,c(100),(dist_vertex__ds,4,6),(dist_vertex__ds,4,6)).
     unify_comp_list(1,2,v(-4),v(-5)).
-    unify_struct_arg_c(-5,(/,2),c(print_n)).
-    unify_arg_c(c(1)).
-    unify_struct_arg_c(-4,(/,2),c(dist_vertex)).
+    unify_struct_arg_c(-5,(/,2),c(dist_vertex)).
     unify_arg_c(c(2)).
+    unify_struct_arg_c(-4,(/,2),c(print_n)).
+    unify_arg_c(c(1)).
     return_det.
 label((dist_vertex__ds,4,6)).
     fail.
@@ -478,6 +478,66 @@ label((h___dist_vertexprint_n_1_1_1,2,5)).
     fail0.
 label((h___dist_vertexprint_n_1_1_1,2,6)).
     cut_fail.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3)).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,0)).
+    nondet(3).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,1)).
+    bp_fork(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,2)).
+    sub_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,2)).
+    cut_return.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,3)).
+    fail.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,4)).
+    fail0.
+label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,5)).
+    cut_fail.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3)).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,0)).
+    nondet(3).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,1)).
+    bp_fork((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,2)).
+    para_uu(2,1).
+    call0((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,2)).
+    cut_return.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,3)).
+    fail.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,4)).
+    fail0.
+label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,5)).
+    cut_fail.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4)).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,-1)).
+    allocate_nondet(4,10,([],0),9).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,0)).
+    nondet(4).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,1)).
+    bp_fork((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,2)).
+    builtin3(273,(dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4),u(1),u(2),v(-9)).
+    jmpn_id_uu(-9,3,(dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4)).
+    cut0.
+    unify_constant_return_det(4,c(1)).
+    noop1(9).
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,2)).
+    cut_return.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,3)).
+    fail.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4)).
+    fail0.
+label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,5)).
+    cut_fail.
 label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2)).
 label((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2,-1)).
     allocate_nondet(2,9,([],0),9).
@@ -519,64 +579,4 @@ label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,3)).
 label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,4)).
     fail0.
 label((dh___dist_vertexdist_vertex_2_1_9_5_0__1,4,5)).
-    cut_fail.
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3)).
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,-1)).
-    allocate_nondet(3,9,([],0),9).
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,0)).
-    nondet(3).
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,1)).
-    bp_fork((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,2)).
-    para_uu(2,1).
-    call0((dh___dist_vertexdist_vertex_2_1_6_5_0__2,2),9).
-    cut.
-    unify_constant_return_det(3,c(1)).
-    noop1(9).
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,2)).
-    cut_return.
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,3)).
-    fail.
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,4)).
-    fail0.
-label((dh___dist_vertexdist_vertex_2_1_6_5_0__1,3,5)).
-    cut_fail.
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3)).
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,-1)).
-    allocate_nondet(3,10,([],0),9).
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,0)).
-    nondet(3).
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,1)).
-    bp_fork(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,2)).
-    sub_u1v(2,-9).
-    unify_value_cut(1,-9).
-    cut0.
-    unify_constant_return_det(3,c(1)).
-    noop1(9).
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,2)).
-    cut_return.
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,3)).
-    fail.
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,4)).
-    fail0.
-label(('de$$dist_vertex$$f$$dist_vertex_3_0__1',3,5)).
-    cut_fail.
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4)).
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,-1)).
-    allocate_nondet(4,10,([],0),9).
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,0)).
-    nondet(4).
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,1)).
-    bp_fork((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,2)).
-    builtin3(273,(dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4),u(1),u(2),v(-9)).
-    jmpn_id_uu(-9,3,(dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4)).
-    cut0.
-    unify_constant_return_det(4,c(1)).
-    noop1(9).
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,2)).
-    cut_return.
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,3)).
-    fail.
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,4)).
-    fail0.
-label((dh___dist_vertexdist_vertex_2_1_7_6_0__1,4,5)).
     cut_fail.
