@@ -1,19 +1,21 @@
-module dist_vertex.
+
+% module dist_vertex.
 import util.
 import cp.
-%import sat.
-/*
+% import sat.
 main => go.
 
 go =>
   % nolog,
    K_com =  160 , %%% Number of Community or CLASSES or Groups
+   % K_com =  17 , %%% Number of Community or CLASSES or Groups
+   % K_com =  6 , %%% Number of Community or CLASSES or Groups
+   
    Size_K = 5 , %% Size Community of CLASSES--Groups
-   printf("\n Next Vector: %w", dist_vertex(K_com, Size_K))
-   .
-*/
-   %%% FUNCTIONS VECTOR 
-   dist_vertex(K_com, Size_K) = Res =>
+   printf("\n Next Vector: %w", dist_vertex(K_com, Size_K)).
+
+%%% FUNCTIONS VECTOR 
+dist_vertex(K_com, Size_K) = Res =>
    
    Size =  K_com * Size_K ,
    X_Nodes = new_array(Size),
@@ -34,10 +36,38 @@ go =>
    foreach(I in L_anchor)
      X_Nodes[I] #= I
    end,
+
+   % Ensure that two node links to each other.
+   % Only an anchor node links to itself.
+   assignment(X_Nodes, X_Nodes),
+   
+   %%% very  very SLOW ... 
+   %% I REMOVE it --- takes a lot of time
+   %%% NO DIFFERENCE at the end result in small values
+   %%
+   %% hakank: I rewrote this a little:
+   %%  - added if( K_com >= Size_K )
+   %%  - replaced nvalue/2 with all_different
+   %% Now it does make a difference for small values, e.g. K_com = 6, and Size_K = 5
+   %% And it's quite fast: 2.7s for K_com = 160 and Size_K = 5
+   %% Also, note that I moved this from the last place in the program to this place.
+   %% This is the "balance" constraint.
+   %%
+   foreach(G in 1..K_com)
+      if( K_com >= Size_K ) then
+        % The nodes in group G
+        ThisGroup = [I : I in 1..Size, Groups[I] == G],
+        println(node_group=ThisGroup),
+        % The group that a node link to
+        LinkGroups = [T : I in ThisGroup, element(X_Nodes[I], Groups,T)],
+        all_different(LinkGroups)
+        %% nvalue(K_com , LinkGroups)
+      end
+   end,
    
    %%% 
    all_different(X_Nodes),
-   assignment(X_Nodes, X_Nodes),
+
    
    % The non anchor nodes:
    % - cannot link to a node in the same group --- it is ENOUGH
@@ -52,43 +82,47 @@ go =>
    % For each group there must be K_com different values of links to groups, i.e.
    % some node in the group must link to each of the other groups.
  
- %%% this constraint has not any effects  ...
- %%% the previous constraint it is enough
- %% I am not sure if necessary because any
- %% VAR constraint is related or connected
- %%
- foreach(G in 1..K_com)
+   %%% this constraint has not any effects  ...
+   %%% the previous constraint it is enough
+   %% I am not sure if necessary because any
+   %% VAR constraint is related or connected
+   %%
+   %% hakank:
+   %% This constraint don't have any effect at all.
+   %% It just states that the index of every member in this group
+   %% is different,which is - of course - true, since we
+   %% generated the list that way.
+   %% So I comment this.
+   /*
+   foreach(G in 1..K_com)
       % The nodes in group G
       ThisGroup = [I : I in 1..Size, Groups[I] == G],
+      println(thisGroup=ThisGroup),
       if( K_com >= Size_K ) then
       (
         all_different(ThisGroup)
         %, printf("\t x-")
       )	
-      end,
-      println(thisGroup=ThisGroup)
-   end,   
+      end
 
-/* 
-   %%% very  very SLOW ... 
-   %% I REMOVE it --- takes a lot of time
-   %%% NO DIFFERENCE at the end result in small values
-   foreach(G in 1..K_com)
-      % The nodes in group G
-      ThisGroup = [I : I in 1..Size, Groups[I] == G],
-      println(node_group=ThisGroup),
-      % The group that a node link to
-      LinkGroups = [T : I in ThisGroup, element(X_Nodes[I], Groups,T)],
-      nvalue(K_com , LinkGroups)
-   end,
- */
+    end,   
+   */
+   
+   %% hakank:
+   %% TESTING: This shows that it's possible that
+   %% two nodes in the same group links to the same group, i.e.
+   %% that can be unbalanced. This is why I wrote the constraint
+   %% below, which is - I admit - very slow.
+   %% X_Nodes[2] #= 7, X_Nodes[3] #= 8,
+
    %Vars = X_Nodes.to_list,
    Vars = to_list( X_Nodes ),
  
    %println(solve_X_Nodes = X_Nodes),
    %%% All_SOL = solve_all([], Vars),
-   solve($[ff], Vars),
-   
+   % solve($[ff], Vars),
+   solve($[], Vars),   
+
    /*
    by HAKAN
    println(x_nodes=X_Nodes),
@@ -100,13 +134,13 @@ go =>
    
    foreach(I in 1 .. Size)
       if ( member(X_Nodes[I] , L_anchor) ) then
-         print_n(30),
+         print_n(30)
       end,		
       printf("X[%d]: %d->G:%d ", I, X_Nodes[I], Groups[X_Nodes[I]] )
    end,
    nl,
-/*
- %% hakank: show how many nodes in a group links to the same (other) group.
+
+   %% hakank: show how many nodes in a group links to the same (other) group.
    %% I.e. "balance checking".
    println("\n\nChecking linking to other groups. "),
    foreach(G in 1..K_com)
@@ -123,10 +157,9 @@ go =>
       end  
    end,
    nl,
-*/
-
 
    Res = X_Nodes.
+   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRINT
 print_n(N) =>
