@@ -4,6 +4,7 @@
 module graph_community.
 import dist_vertex.   %%% module CONEXION of extern NODES 
 import util.
+
 /*
 main => go.
 
@@ -14,6 +15,7 @@ go =>
    Graph = build_graph(Size_K, K_com),
    print_matrix( Graph ).
 */
+
 build_graph(Size_K, K_com) = Res =>   
 
    Size =  K_com * Size_K , %% ALL NODES 
