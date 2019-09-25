@@ -1,0 +1,50 @@
+% cl('prisoner_dilemma_N').
+module prisoner_dilemma_N.
+import graph_community.
+import dist_vertex.   %%% module CONEXION of extern NODES 
+import util.
+
+
+main => go.
+
+go =>
+   
+   K_com = 10 , %%% Number of Community
+   Size_K = 5 , %% Size Community
+  % Graph = build_graph(Size_K, K_com),
+   %print_matrix( Graph )
+   Size = K_com * Size_K,
+   printf("\n %d * %d = %d", K_com, Size_K, Size),
+   Initial_C_D_Nodes = new_array( Size ),
+  % Fitness_F_Nodes = new_array( Size ),
+   % Weight_Neighbour_Nodes = new_array( Size, Size_K ),
+
+   %% Initial values for Initial_
+   foreach(I in 1..Size_K..Size)
+     ( 
+         X = randon_return_C_or_D(),
+         printf("\n i:%d X: %w", I, X), 
+
+       foreach(J in 0..Size_K )
+       	(  writeln(j= J),
+       	 Initial_C_D_Nodes[ I+J ] = X,
+       	 printf("\n Initial %d = %w " , (I+J), Initial_C_D_Nodes[I+J] )
+       	) 
+       end 
+      
+     ) %% end extern foechac
+    end,
+  
+  printf("\n Initial_ values %w", Initial_C_D_Nodes)
+ .
+
+
+
+randon_return_C_or_D = X =>
+ (  R = 1 + random() mod 2,
+     if(R == 1) then
+         X = c  %%% CONFESS
+         else
+         X = d %%% SILENT  
+      end
+  ).    
