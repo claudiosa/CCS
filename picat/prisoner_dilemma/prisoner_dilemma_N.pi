@@ -11,6 +11,12 @@ go =>
    
    K_com = 10 , %%% Number of Community
    Size_K = 5 , %% Size Community
+   %%% other parameters
+   %% C_c = 3  >>> according of the paper....
+   %% B = 5
+   %% I_i =
+
+
   % Graph = build_graph(Size_K, K_com),
    %print_matrix( Graph )
    Size = K_com * Size_K,
@@ -19,23 +25,29 @@ go =>
   % Fitness_F_Nodes = new_array( Size ),
    % Weight_Neighbour_Nodes = new_array( Size, Size_K ),
 
-   %% Initial values for Initial_
-   foreach(I in 1..Size_K..Size)
+   %% Populating the Class -- Initial
+   % Anchor nodes -- OK
+   L_anchor = [(I*Size_K)+1 : I in 0..(K_com-1)],
+   %foreach(I in 1..Size_K..Size)
+   foreach(I in L_anchor)
      ( 
-         X = randon_return_C_or_D(),
-         printf("\n i:%d X: %w", I, X), 
+       X = randon_return_C_or_D(),
+       printf("\n Anchor: %d X: %w", I, X), %% to be comment
 
-       foreach(J in 0..Size_K )
-       	(  writeln(j= J),
-       	 Initial_C_D_Nodes[ I+J ] = X,
-       	 printf("\n Initial %d = %w " , (I+J), Initial_C_D_Nodes[I+J] )
+       foreach(J in 0..(Size_K-1) )
+       	(  %writeln(j= J),
+           Initial_C_D_Nodes[ I+J ] = X,
+       	   printf("\n Initial %d = %w " , (I+J), Initial_C_D_Nodes[I+J] )
+       	   %% to be comment
        	) 
        end 
       
      ) %% end extern foechac
     end,
-  
-  printf("\n Initial_ values %w", Initial_C_D_Nodes)
+   printf("\n Initial_C_D_Values %w", Initial_C_D_Nodes)
+ 
+
+
  .
 
 
