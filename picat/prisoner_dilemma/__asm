@@ -21,51 +21,51 @@ label((graph_community__ds,4,1)).
 label((graph_community__ds,4,2)).
     hash(4,0,0,(graph_community__ds,4,9)).
     pred((graph_community__ds,4,2),4,6,(graph_community__ds,4,9)).
-    arglabel(c,build_graph,(graph_community__ds,4,3)).
-    arglabel(c,aux_vet_with_zero,(graph_community__ds,4,4)).
-    arglabel(c,print_matrix,(graph_community__ds,4,5)).
-    arglabel(c,which_community,(graph_community__ds,4,6)).
-    arglabel(c,increasing,(graph_community__ds,4,7)).
+    arglabel(c,aux_vet_with_zero,(graph_community__ds,4,3)).
+    arglabel(c,which_community,(graph_community__ds,4,4)).
+    arglabel(c,increasing,(graph_community__ds,4,5)).
+    arglabel(c,build_graph,(graph_community__ds,4,6)).
+    arglabel(c,print_matrix,(graph_community__ds,4,7)).
     arglabel(c,'_$all',(graph_community__ds,4,8)).
 label((graph_community__ds,4,3)).
-    hash_jmpn_constant(c(build_graph),(graph_community__ds,4,9)).
-    jmpn_eq_constant(3,c(2),(graph_community__ds,4,9),(graph_community__ds,4,9)).
-    unify_constant(2,c(func)).
-    unify_constant_return_det(1,c('e$$graph_community$$f$$build_graph')).
-label((graph_community__ds,4,4)).
     hash_jmpn_constant(c(aux_vet_with_zero),(graph_community__ds,4,9)).
     jmpn_eq_constant(3,c(1),(graph_community__ds,4,9),(graph_community__ds,4,9)).
     unify_constant(2,c(func)).
     unify_constant_return_det(1,c('e$$graph_community$$f$$aux_vet_with_zero')).
-label((graph_community__ds,4,5)).
-    hash_jmpn_constant(c(print_matrix),(graph_community__ds,4,9)).
-    jmpn_eq_constant(3,c(1),(graph_community__ds,4,9),(graph_community__ds,4,9)).
-    unify_constant(2,c(pred)).
-    unify_constant_return_det(1,c('e$$graph_community$$print_matrix')).
-label((graph_community__ds,4,6)).
+label((graph_community__ds,4,4)).
     hash_jmpn_constant(c(which_community),(graph_community__ds,4,9)).
     jmpn_eq_constant(3,c(2),(graph_community__ds,4,9),(graph_community__ds,4,9)).
     unify_constant(2,c(func)).
     unify_constant_return_det(1,c('e$$graph_community$$f$$which_community')).
-label((graph_community__ds,4,7)).
+label((graph_community__ds,4,5)).
     hash_jmpn_constant(c(increasing),(graph_community__ds,4,9)).
     jmpn_eq_constant(3,c(2),(graph_community__ds,4,9),(graph_community__ds,4,9)).
     unify_constant(2,c(pred)).
     unify_constant_return_det(1,c('e$$graph_community$$increasing')).
+label((graph_community__ds,4,6)).
+    hash_jmpn_constant(c(build_graph),(graph_community__ds,4,9)).
+    jmpn_eq_constant(3,c(2),(graph_community__ds,4,9),(graph_community__ds,4,9)).
+    unify_constant(2,c(func)).
+    unify_constant_return_det(1,c('e$$graph_community$$f$$build_graph')).
+label((graph_community__ds,4,7)).
+    hash_jmpn_constant(c(print_matrix),(graph_community__ds,4,9)).
+    jmpn_eq_constant(3,c(1),(graph_community__ds,4,9),(graph_community__ds,4,9)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$graph_community$$print_matrix')).
 label((graph_community__ds,4,8)).
     hash_jmpn_constant(c('_$all'),(graph_community__ds,4,9)).
     jmpn_eq_constant(3,c(100),(graph_community__ds,4,9),(graph_community__ds,4,9)).
     unify_comp_list(1,5,v(-4),v(-5),v(-6),v(-7),v(-8)).
-    unify_struct_arg_c(-8,(/,2),c(build_graph)).
-    unify_arg_c(c(2)).
-    unify_struct_arg_c(-7,(/,2),c(aux_vet_with_zero)).
+    unify_struct_arg_c(-8,(/,2),c(aux_vet_with_zero)).
     unify_arg_c(c(1)).
-    unify_struct_arg_c(-6,(/,2),c(print_matrix)).
+    unify_struct_arg_c(-7,(/,2),c(which_community)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-6,(/,2),c(increasing)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-5,(/,2),c(build_graph)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-4,(/,2),c(print_matrix)).
     unify_arg_c(c(1)).
-    unify_struct_arg_c(-5,(/,2),c(which_community)).
-    unify_arg_c(c(2)).
-    unify_struct_arg_c(-4,(/,2),c(increasing)).
-    unify_arg_c(c(2)).
     return_det.
 label((graph_community__ds,4,9)).
     fail.

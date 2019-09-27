@@ -20,35 +20,87 @@ go =>
   % Graph = build_graph(Size_K, K_com),
    %print_matrix( Graph )
    Size = K_com * Size_K,
-   printf("\n %d * %d = %d", K_com, Size_K, Size),
+   printf("\n K_com: %d * Size_K: %d = Size: %d", K_com, Size_K, Size),
    Initial_C_D_Nodes = new_array( Size ),
-  % Fitness_F_Nodes = new_array( Size ),
-   % Weight_Neighbour_Nodes = new_array( Size, Size_K ),
+   Fitness_F_Nodes = new_array( Size ),
+  % Weight_Neighbour_Nodes = new_array( Size, Size_K ),
+   Initial_C_D_Nodes = f_start_C_D_vector( Size_K, K_com ),
+   printf("\n Initial_C_D_Values %w", Initial_C_D_Nodes),
 
-   %% Populating the Class -- Initial
+   I_cooperation := f_Numbers_Cooperation ( Initial_C_D_Nodes ),
+   printf("\n I_cooperation : %d ",  I_cooperation),
+   %printf("\n I cooperation %w", f_Numbers_Cooperation ( Initial_C_D_Nodes ))
+   %%% DATA FROM THE ARTICLE
+   B :=  Size - I_cooperation, %% defection
+   Cc_constant = 3,
+   F_Coop_Ag := (B*I_cooperation)/Size - Cc_constant,
+   F_Def_Ag :=  F_Coop_Ag + Cc_constant,
+   
+   printf("\n F_Coop_Ag: %f | F_Def_Ag: %f  ", F_Coop_Ag, F_Def_Ag),
+
+   p_Populate_Fit_Nodes_Init(Fitness_F_Nodes, Initial_C_D_Nodes, F_Coop_Ag, F_Def_Ag),
+   printf("\n Fitness_F_Nodes: %w", Fitness_F_Nodes)
+ .
+
+
+
+
+
+
+
+p_Populate_Fit_Nodes_Init(Fit_Nodes, C_D_Nodes, V_Coop_Ag, V_Def_Ag) =>
+     N = Fit_Nodes.length,
+     foreach(I in 1..N)
+     ( 
+       if(C_D_Nodes[I] == c) then
+       	Fit_Nodes[I] = V_Coop_Ag
+       else
+       	Fit_Nodes[I] = V_Def_Ag	
+       end 
+     )
+ end.   
+
+
+
+
+f_Numbers_Cooperation ( V ) = X =>
+     N = V.length,
+     X = 0,
+     foreach(I in 1..N, V[I] == c)
+     (
+       X := X + 1  %%% CONFESS
+     ) 
+     end %%% don't forget  
+  %  writeln(temp= X)
+     .
+
+   
+
+      
+
+
+f_start_C_D_vector( Size_K, K_com ) = X => 
+  %% Populating the Class -- Initial
    % Anchor nodes -- OK
+   Initial_C_D_Nodes = new_array( K_com * Size_K ),
    L_anchor = [(I*Size_K)+1 : I in 0..(K_com-1)],
    %foreach(I in 1..Size_K..Size)
    foreach(I in L_anchor)
      ( 
        X = randon_return_C_or_D(),
-       printf("\n Anchor: %d X: %w", I, X), %% to be comment
-
+      % printf("\n Anchor: %d X: %w", I, X), %% to be comment
        foreach(J in 0..(Size_K-1) )
        	(  %writeln(j= J),
-           Initial_C_D_Nodes[ I+J ] = X,
-       	   printf("\n Initial %d = %w " , (I+J), Initial_C_D_Nodes[I+J] )
+           Initial_C_D_Nodes[ I+J ] = X
+       % , printf("\n Initial %d = %w " , (I+J), Initial_C_D_Nodes[I+J] )
        	   %% to be comment
        	) 
        end 
-      
-     ) %% end extern foechac
+      ) %% end extern foechac
     end,
-   printf("\n Initial_C_D_Values %w", Initial_C_D_Nodes)
+   
+   X = Initial_C_D_Nodes.
  
-
-
- .
 
 
 
