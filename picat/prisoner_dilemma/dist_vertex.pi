@@ -21,10 +21,10 @@ go =>
      
    % Which group does a node belong to?
    All_Groups = [[ I : _ in 1..Size_K] : I in 1..K_com ],
-   printf("\nAll_Groups -- a LIST of lists %w", All_Groups),
+  % printf("\nAll_Groups -- a LIST of lists %w", All_Groups),
    
    Groups = flatten(All_Groups),
-   println(groups_and_positions=Groups),
+   %println(groups_and_positions=Groups),
       
    % Anchor nodes -- OK
    L_anchor = [(I*Size_K)+1 : I in 0..(K_com-1)],
@@ -58,15 +58,16 @@ go =>
  %% VAR constraint is related or connected
  %%
  foreach(G in 1..K_com)
-      % The nodes in group G
+   (   % The nodes in group G
       ThisGroup = [I : I in 1..Size, Groups[I] == G],
       if( K_com >= Size_K ) then
       (
         all_different(ThisGroup)
         %, printf("\t x-")
       )	
-      end,
-      println(thisGroup=ThisGroup)
+      end
+     %, println(thisGroup=ThisGroup)
+    ) 
    end,   
 
 /* 
