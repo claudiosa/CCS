@@ -68,7 +68,7 @@ build_graph(Size_K, K_com) = Res =>
  
  %%% module CONEXION of extern NODES 
  Extern_Nodes = dist_vertex(K_com, Size_K),      
- printf("\n Dist Vertex -- Extern : %w", Extern_Nodes),
+ % printf("\n Dist Vertex -- Extern : %w", Extern_Nodes),
 
  foreach(I in 1..Size)
  %if( not( member(Extern_Nodes[I], L2)) ) then 

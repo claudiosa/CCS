@@ -17,19 +17,21 @@ go =>
    %% I_i =
 
 
-  % Graph = build_graph(Size_K, K_com),
-   %print_matrix( Graph )
+   Graph = build_graph(Size_K, K_com),
+   printf("\n Graph: %w", Graph),
+  %%% print_matrix( Graph ),
    Size = K_com * Size_K,
    printf("\n K_com: %d * Size_K: %d = Size: %d", K_com, Size_K, Size),
    Initial_C_D_Nodes = new_array( Size ),
    Fitness_F_Nodes = new_array( Size ),
-  % Weight_Neighbour_Nodes = new_array( Size, Size_K ),
-   Initial_C_D_Nodes = f_start_C_D_vector( Size_K, K_com ),
+   Weight_Neighbour_Nodes = new_array( Size, (Size_K-1) ),   
+
+   Initial_C_D_Nodes = f_init_C_D_vector( Size_K, K_com ),
    printf("\n Initial_C_D_Values %w", Initial_C_D_Nodes),
 
-   I_cooperation := f_Numbers_Cooperation ( Initial_C_D_Nodes ),
+   I_cooperation := f_how_many_in_Coop ( Initial_C_D_Nodes ),
    printf("\n I_cooperation : %d ",  I_cooperation),
-   %printf("\n I cooperation %w", f_Numbers_Cooperation ( Initial_C_D_Nodes ))
+   %printf("\n I cooperation %w", f_how_many_in_Coop ( Initial_C_D_Nodes ))
    %%% DATA FROM THE ARTICLE
    B :=  Size - I_cooperation, %% defection
    Cc_constant = 3,
@@ -38,17 +40,35 @@ go =>
    
    printf("\n F_Coop_Ag: %f | F_Def_Ag: %f  ", F_Coop_Ag, F_Def_Ag),
 
-   p_Populate_Fit_Nodes_Init(Fitness_F_Nodes, Initial_C_D_Nodes, F_Coop_Ag, F_Def_Ag),
-   printf("\n Fitness_F_Nodes: %w", Fitness_F_Nodes)
+   init_fitness_nodes(Fitness_F_Nodes, Initial_C_D_Nodes, F_Coop_Ag, F_Def_Ag),
+   printf("\n Fitness_F_Nodes: %w", Fitness_F_Nodes),
+
+   w_weight_conexions_init(Weight_Neighbour_Nodes) ,  
+   printf("\n Weight_Neighbour_Nodes: %w", Weight_Neighbour_Nodes)
+
+
+
  .
 
 
+ w_weight_conexions_init(M_Weight) =>
+     Rows = M_Weight.length,
+     Cols = M_Weight[1].length,
+     foreach(I in 1..Rows)
+     ( 
+       foreach(J in 1..Cols)
+       (
+         M_Weight[I,J] = randon_number_1_N(99)/100
+        )
+        end 
+       )
+     end.   
+   
 
 
 
 
-
-p_Populate_Fit_Nodes_Init(Fit_Nodes, C_D_Nodes, V_Coop_Ag, V_Def_Ag) =>
+init_fitness_nodes(Fit_Nodes, C_D_Nodes, V_Coop_Ag, V_Def_Ag) =>
      N = Fit_Nodes.length,
      foreach(I in 1..N)
      ( 
@@ -63,7 +83,7 @@ p_Populate_Fit_Nodes_Init(Fit_Nodes, C_D_Nodes, V_Coop_Ag, V_Def_Ag) =>
 
 
 
-f_Numbers_Cooperation ( V ) = X =>
+f_how_many_in_Coop ( V ) = X =>
      N = V.length,
      X = 0,
      foreach(I in 1..N, V[I] == c)
@@ -79,7 +99,7 @@ f_Numbers_Cooperation ( V ) = X =>
       
 
 
-f_start_C_D_vector( Size_K, K_com ) = X => 
+f_init_C_D_vector( Size_K, K_com ) = X => 
   %% Populating the Class -- Initial
    % Anchor nodes -- OK
    Initial_C_D_Nodes = new_array( K_com * Size_K ),
@@ -112,3 +132,7 @@ randon_return_C_or_D = X =>
          X = d %%% SILENT  
       end
   ).    
+
+
+ randon_number_1_N (N) = R =>
+   R = 1 + random() mod N.    
