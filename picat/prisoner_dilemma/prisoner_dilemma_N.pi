@@ -9,13 +9,12 @@ main => go.
 
 go =>
    
-   K_com = 10 , %%% Number of Community
+   K_com = 5 , %%% Number of Community
    Size_K = 5 , %% Size Community
    %%% other parameters
    %% C_c = 3  >>> according of the paper....
    %% B = 5
    %% I_i =
-
 
    Graph = build_graph(Size_K, K_com),
    printf("\n Graph: %w", Graph),
@@ -23,7 +22,7 @@ go =>
    Size = K_com * Size_K,
    printf("\n K_com: %d * Size_K: %d = Size: %d", K_com, Size_K, Size),
    Initial_C_D_Nodes = new_array( Size ),
-   Fitness_F_Nodes = new_array( Size ),
+   Fitness_F_Ag = new_array( Size ),
    Weight_Neighbour_Nodes = new_array( Size, (Size_K-1) ),   
 
    Initial_C_D_Nodes = f_init_C_D_vector( Size_K, K_com ),
@@ -40,15 +39,71 @@ go =>
    
    printf("\n F_Coop_Ag: %f | F_Def_Ag: %f  ", F_Coop_Ag, F_Def_Ag),
 
-   init_fitness_nodes(Fitness_F_Nodes, Initial_C_D_Nodes, F_Coop_Ag, F_Def_Ag),
-   printf("\n Fitness_F_Nodes: %w", Fitness_F_Nodes),
+   init_fitness_nodes(Fitness_F_Ag, Initial_C_D_Nodes, F_Coop_Ag, F_Def_Ag),
+   printf("\n Fitness_F_Ag: %w", Fitness_F_Ag),
 
    w_weight_conexions_init(Weight_Neighbour_Nodes) ,  
-   printf("\n Weight_Neighbour_Nodes: %w", Weight_Neighbour_Nodes)
+   printf("\n Weight_Neighbour_Nodes: %w", Weight_Neighbour_Nodes),
 
 
+ N_Steps := 10,
+   while( N_Steps > 0 )
+     (
+       foreach(I in 1..Size )
+       ( 
+         L_Neighbour := [1,2,3,4], %%% the neighbour nodes ... 1fst ... 4f 	
+         %% For rule 6 -- pag 162 
+         % for each agent i (x)
+         % choice a strong agent y stocastic... 1 .. 4
+         % update its f(x)
+         Y = randon_number_1_N(4),%%% 1 .. 4
+         others_from_L( L_Neighbour, Y , P1 , P2 , P3),
+         %printf("\n I: %d Y: %d", I,Y),
+       
+         Fitness_F_Ag[I] := ( Weight_Neighbour_Nodes[I,Y] * Fitness_F_Ag[Graph[I,Y]] )
+                            / 
+                            ( (Weight_Neighbour_Nodes[I,P1] * Fitness_F_Ag[Graph[I,P1]])
+                              +	
+                              (Weight_Neighbour_Nodes[I,P2] * Fitness_F_Ag[Graph[I,P2]])
+	                          + 
+                              (Weight_Neighbour_Nodes[I,P3] * Fitness_F_Ag[Graph[I,P3]])
+                             )
+        
+       	) 
+        end, %%% do foreach
+        N_Steps := N_Steps -1
+     ) end, %%% do while
+%Picat> X = 7.543, writef("%6.2f", X).
+%  7.54X = 7.543
 
+      printf("\n Final Fitness_F_Ag\n"),
+      foreach(I in 1..Size )
+       ( 
+         printf("\t Fitness_F_Ag[%d]: %4.3f", I, Fitness_F_Ag[I])
+       ) 
+       end
+   %printf("\n NEW Fitness_F_Ag: %4.2f", Fitness_F_Ag)
+   % writef("\n%4.2", Fitness_F_Ag)
  .
+
+/* 
+
+( Weight_Neighbour_Nodes[I,Graph[I,Y]] * Fitness_F_Ag[Graph[I,Y]]  ) / 
+                ( (Weight_Neighbour_Nodes[I,Graph[I,P1]] * Fitness_F_Ag[Graph[I,P1]])
+                  +	
+                  (Weight_Neighbour_Nodes[I,Graph[I,P2]] * Fitness_F_Ag[Graph[I,P2]])
+                  + 
+                  (Weight_Neighbour_Nodes[I,Graph[I,P3]] * Fitness_F_Ag[Graph[I,P3]])
+                         )
+
+*/          
+
+
+ 
+%% simplest way
+ others_from_L(Full,Y, P1,P2,P3) =>
+    L = delete(Full,Y),
+    L = [P1,P2,P3].
 
 
  w_weight_conexions_init(M_Weight) =>
@@ -57,7 +112,7 @@ go =>
      foreach(I in 1..Rows)
      ( 
        foreach(J in 1..Cols)
-       (
+       ( %%% some random value .... 0.1 up to 0.99
          M_Weight[I,J] = randon_number_1_N(99)/100
         )
         end 
