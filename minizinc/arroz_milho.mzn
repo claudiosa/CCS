@@ -4,6 +4,7 @@ var int : lucro;
 
 constraint 
   areaArroz <= 3;
+  
 constraint 
   areaMilho <= 4;
 
@@ -14,8 +15,10 @@ constraint
 constraint 
    lucro == 5*areaArroz + 2*areaMilho;
 
-%solve maximize lucro;
-solve satisfy;
+solve maximize lucro;
+%% solve satisfy;
 
-output ["Area Arroz: ",show(areaArroz),"\nArea Milho: ",show(areaMilho), "\nLUCRO: ",show(lucro)];
+output ["Area Arroz: ",show(areaArroz),
+        "\n Area Milho: ",show(areaMilho),
+         "\n LUCRO: ",show(lucro)];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
