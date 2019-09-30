@@ -40,13 +40,13 @@ go =>
    printf("\n F_Coop_Ag: %6.2f | F_Def_Ag: %6.2f  ", F_Coop_Ag, F_Def_Ag),
 
    init_fitness_nodes(Fitness_F_Ag, Initial_C_D_Nodes, F_Coop_Ag, F_Def_Ag),
-   printf("\n Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
+   printf("\n INITIAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
 
    w_weight_conexions_init(Weight_Neighbour_Nodes) ,  
-   printf("\n Weight_Neighbour_Nodes: %w", Weight_Neighbour_Nodes),
+  % printf("\n Weight_Neighbour_Nodes: %w", Weight_Neighbour_Nodes),
    %% take care to print vector of NUMBERS
 
- N_Steps := 1,
+ N_Steps := 200,
    while( N_Steps > 0 )
      (
        foreach(I in 1..Size )
@@ -58,68 +58,111 @@ go =>
          % update its f(x)
          Y = randon_number_1_N(4),%%% 1 .. 4
          others_from_L( L_Neighbour, Y , P1 , P2 , P3),
-         printf("\n I: %d Y: %d", I,Y),
+         %printf("\n I: NEXT Z %d Y: %d", I,Y),
        
-         Prob_I := ( Weight_Neighbour_Nodes[I,Y] * Fitness_F_Ag[Graph[I,Y]] )
-                     / 
-                   ( (Weight_Neighbour_Nodes[I,P1] * Fitness_F_Ag[Graph[I,P1]])
-                     +	
-                   (Weight_Neighbour_Nodes[I,P2] * Fitness_F_Ag[Graph[I,P2]])
-	                 + 
-                   (Weight_Neighbour_Nodes[I,P3] * Fitness_F_Ag[Graph[I,P3]])
-                   )  ,
-   
+         %% FORMULA 6 page ... 161
+         Prob_I := 
+         (Weight_Neighbour_Nodes[I,Y] * Fitness_F_Ag[Graph[I,Y]] )
+         / 
+         ( (Weight_Neighbour_Nodes[I,P1] * Fitness_F_Ag[Graph[I,P1]])
+           +	
+         ( Weight_Neighbour_Nodes[I,P2] * Fitness_F_Ag[Graph[I,P2]])
+         + 
+         ( Weight_Neighbour_Nodes[I,P3] * Fitness_F_Ag[Graph[I,P3]])
+         )  ,
 
+
+       /*
         println(prob_I= Prob_I), 
         printf("\n I -> Y: %d -> %d W: %4.3f", I , Graph[I,Y], Weight_Neighbour_Nodes[I,Y]),
         printf("\n I-> %d W: %4.3f", Graph[I,P1], Weight_Neighbour_Nodes[I,P1]),
         printf("\n I-> %d W: %4.3f", Graph[I,P2], Weight_Neighbour_Nodes[I,P2]),
         printf("\n I-> %d W: %4.3f", Graph[I,P3], Weight_Neighbour_Nodes[I,P3]),
-        Previous_Fit := Fitness_F_Ag[I],
+        
         println(previous= Previous_Fit),
         Fitness_F_Ag[I] := roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag )
+        Fitness_F_Ag[I] := New
+      */
+    Previous_Fit := Fitness_F_Ag[I], 
+    Rand_N := randon_number_1_N(99)/100,
+    %println(random = Rand_N),
+    %println(prob = Prob_I),
+   
+    if (Rand_N < Prob_I) then %%% so Change
+       (
+       % printf("\n ==> Fit %4.2f F_Coop_Ag: %6.2f | F_Def_Ag: %6.2f  ", Previous_Fit , F_Coop_Ag, F_Def_Ag),
+        % if(round(Previous_Fit) == round(F_Coop_Ag)) then
+        if(abs(Previous_Fit - F_Coop_Ag) < 3 ) then
+          Fitness_F_Ag[I] := F_Def_Ag  %% was Coop
+          else 
+          Fitness_F_Ag[I] := F_Coop_Ag
+         end    
+        )
+        else
+       true %% no change
+       end
+      /****************** IMMEDIATE neighbours ENDED ********/
 
-       	) 
+      
+
+
+
+
+
+
+
+
+
+
+
+        ) 
         end, %%% do foreach
         N_Steps := N_Steps -1
      ) end, %%% do while
 %Picat> X = 7.543, writef("%6.2f", X).
 %  7.54X = 7.543
-
+     printf("\n FINAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
       printf("\n Final Fitness_F_Ag\n"),
-      foreach(I in 1..Size )
-       ( 
-         printf("\t Fitness_F_Ag[%d]: %4.2f", I, Fitness_F_Ag[I])
-       ) 
-       end
+      f_print_V( Fitness_F_Ag )      
    %printf("\n NEW Fitness_F_Ag: %4.2f", Fitness_F_Ag)
    % writef("\n%4.2", Fitness_F_Ag)
  .
 
 
 
- roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag ) = X =>
+
+
+f_print_V( V ) =>
+   Size = V.length,
+   foreach(I in 1..Size )
+  ( 
+   printf("\t V[%d]: %4.2f", I, V[I])
+   ) 
+  end.
+
+ roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag ) = New =>
     Rand_N := randon_number_1_N(99)/100,
     println(random = Rand_N),
     println(prob = Prob_I),
+   
     if (Rand_N < Prob_I) then %%% so Change
        (
        	%printf("\n ==> Fit %4.2f F_Coop_Ag: %6.2f | F_Def_Ag: %6.2f  ", Previous_Fit, F_Coop_Ag, F_Def_Ag),
          %if(round(Previous_Fit) == round(F_Coop_Ag)) then
          if(abs(Previous_Fit - F_Coop_Ag) < 3 ) then
-         	Y := F_Def_Ag ,
+         	Y := F_Def_Ag , %% was Coop
          	write(' x ')
          else	
-            Y := F_Coop_Ag ,
-            write(' y ')
+          Y := F_Coop_Ag ,
+           write(' y ')
          end    
        )
       else
        true %% no change
-    end, %% IF
+    end,
+    New := Y. %% IF
 
-     X = Y.
-
+     
      
        
 
@@ -208,7 +251,7 @@ f_init_C_D_vector( Size_K, K_com ) = X =>
 
 
 randon_return_C_or_D = X =>
- (  R = 1 + random() mod 2,
+ (  R := 1 + random() mod 2,
      if(R == 1) then
          X = c  %%% CONFESS
          else
@@ -218,4 +261,4 @@ randon_return_C_or_D = X =>
 
 
  randon_number_1_N (N) = R =>
-   R = 1 + random() mod N.    
+   R := 1 + random() mod N.    
