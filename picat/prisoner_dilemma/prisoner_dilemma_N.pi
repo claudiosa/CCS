@@ -4,13 +4,14 @@ import graph_community.
 import dist_vertex.   %%% module CONEXION of extern NODES 
 import util.
 
-
 main => go.
 
 go =>
    
-   K_com = 10 , %%% Number of Community
-   Size_K = 5 , %% Size Community
+  K_com = 10 , %%% Number of Communitities
+  N_Steps := 5, %% steps for running
+
+  Size_K = 5 , %% Size Community -- FIXED ...
    %%% other parameters
    %% C_c = 3  >>> according of the paper....
    %% B = 5
@@ -32,8 +33,8 @@ go =>
    printf("\n I_cooperation : %d ",  I_cooperation),
    %printf("\n I cooperation %w", f_how_many_in_Coop ( Initial_C_D_Nodes ))
    %%% DATA FROM THE ARTICLE
-   B := Size - I_cooperation, %% defection
-   Cc_constant = 3,
+   B := Size - I_cooperation, %% in Defection
+   Cc_constant = 3,  %% from paper
    F_Coop_Ag := (B*I_cooperation)/Size - Cc_constant,
    F_Def_Ag :=  F_Coop_Ag + Cc_constant,
    
@@ -46,9 +47,7 @@ go =>
    printf("\n Weight_Betw_Ag: %w", Weight_Betw_Ag),
    %% take care to print vector of NUMBERS
 
- N_Steps := 5,
-
-   %while( N_Steps > 0 )
+   %while( N_Steps > 0 )  %% OR
    foreach(J in 1..N_Steps )
     (
      foreach(I in 1..Size )
@@ -58,10 +57,10 @@ go =>
          % for each agent i (x)
          % choice a strong agent y stocastic... 1 .. 4
          % update its f(x)
-         Y = randon_number_1_N(4), %%% 1 .. 4
+         Y = random_number_1_N(4), %%% 1 .. 4
          others_from_L( L_Neighbour, Y , P1 , P2 , P3),
          %printf("\n I: NEXT Z %d Y: %d", I,Y),
-       
+        /****************** IMMEDIATE NEIGHBOURS ********/    
          %% FORMULA 6 page ... 161
          Prob_I := 
          (Weight_Betw_Ag[I,Y] * Fitness_F_Ag[Graph[I,Y]] )
@@ -75,9 +74,17 @@ go =>
          ,
 
         if (Prob_I > 1) then
-           println(prob___1 = Prob_I)
-        end,
+           ( %%% to INSPECT ... 
+           printf("\n Run: %d\t prob___1: %4.2f", J, Prob_I ), 
+           printf("\n Fitness_F_Ag: %4.3f",Fitness_F_Ag[I]),    
+           printf("\n I -> Y: %d -> %d W: %4.3f", I , Graph[I,Y], Weight_Betw_Ag[I,Y]),
+           printf("\n I-> %d W: %4.3f", Graph[I,P1], Weight_Betw_Ag[I,P1]),
+           printf("\n I-> %d W: %4.3f", Graph[I,P2], Weight_Betw_Ag[I,P2]),
+           printf("\n I-> %d W: %4.3f", Graph[I,P3], Weight_Betw_Ag[I,P3])
         
+           )
+        end,
+        /****************** AGENTS NEIGHBOURS FROM OTHERS Communitities ********/    
         %% FORMULA 7 page ... 161
         Prob_II := 
         (Weight_Betw_Ag[I,Y] * Fitness_F_Ag[Graph[I,Y]] )
@@ -94,22 +101,18 @@ go =>
         end,
                 
        /*
+        %%% FOR DEBBUGING ....
         println(prob_I= Prob_I), 
-        printf("\n I -> Y: %d -> %d W: %4.3f", I , Graph[I,Y], Weight_Betw_Ag[I,Y]),
-        printf("\n I-> %d W: %4.3f", Graph[I,P1], Weight_Betw_Ag[I,P1]),
-        printf("\n I-> %d W: %4.3f", Graph[I,P2], Weight_Betw_Ag[I,P2]),
-        printf("\n I-> %d W: %4.3f", Graph[I,P3], Weight_Betw_Ag[I,P3]),
-        
         println(previous= Previous_Fit),
         Fitness_F_Ag[I] := roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag )
         Fitness_F_Ag[I] := New
       */
 
     Previous_Fit := Fitness_F_Ag[I], 
-    Rand_N := randon_number_1_N(99)/100,
+    Rand_N := random_number_1_N(99)/100,
     %println(random = Rand_N),
     %Fitness_F_Ag[I] := roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag )
-      
+    %%% To include Prob_II HERE  -- further
    if (Rand_N < Prob_I) then %%% so Change
       (
        % printf("\n ==> Fit %4.2f F_Coop_Ag: %6.2f | F_Def_Ag: %6.2f  ", Previous_Fit , F_Coop_Ag, F_Def_Ag),
@@ -122,30 +125,26 @@ go =>
         )
      end
     %%% Counting ... How many F_Def_Ag
-   
-
-
-    /****************** IMMEDIATE neighbours ENDED ********/
+    /****************** END  *********************/
     ) 
     end, %%% do foreach
      count_Coop ( Fitness_F_Ag,  F_Coop_Ag, N_C, N_D ),
-     printf("\n Step: %d \t Coop: %d \t Defec: %d", J , N_C, N_D)
-    % N_Steps := N_Steps -1
+     printf("\n RUNs: %d \t Coop: %d \t Defec: %d", J , N_C, N_D)
+    % N_Steps := N_Steps -1 %% for while
 
    ) end, %%% do while
 
-
-%Picat> X = 7.543, writef("%6.2f", X).
-%  7.54X = 7.543
      printf("\n FINAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
      printf("\n Final Fitness_F_Ag\n"),
      f_print_V( Fitness_F_Ag )      
+   .
    %printf("\n NEW Fitness_F_Ag: %4.2f", Fitness_F_Ag)
    % writef("\n%4.2", Fitness_F_Ag)
- .
+   %Picat> X = 7.543, writef("%6.2f", X).
+   %7.54X = 7.543
 
 /*********************************************************/
-
+%%%%%%%%%%%%%%%%% Counting Coop and Defeact in a single vector
  count_Coop ( V,  F_Coop_Ag, N_C, N_D ) =>
   Size = V.length,
   Temp1 := 0,
@@ -164,7 +163,7 @@ go =>
   N_D = Temp2.  %Size - N_C.
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Printing a single vector
 
 f_print_V( V ) =>
    Size = V.length,
@@ -175,7 +174,7 @@ f_print_V( V ) =>
   end.
 
  roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag ) = New =>
-    Rand_N := randon_number_1_N(99)/100,
+    Rand_N := random_number_1_N(99)/100,
     println(random = Rand_N),
     println(prob = Prob_I),
    
@@ -198,15 +197,14 @@ f_print_V( V ) =>
 
 
 
- %randon_number_1_N (N) = R =>
+ %random_number_1_N (N) = R =>
  %  R = 1 + random() mod N.    
- 
-%% simplest way
+ %% simplest way
  others_from_L(Full,Y, P1,P2,P3) =>
     L = delete(Full,Y),
     L = [P1,P2,P3].
 
-
+%% initial weight conexions between agents
  w_weight_conexions_init(M_Weight) =>
      Rows = M_Weight.length,
      Cols = M_Weight[1].length,
@@ -214,13 +212,13 @@ f_print_V( V ) =>
      ( 
        foreach(J in 1..Cols)
        ( %%% some random value .... 0.1 up to 0.99
-         M_Weight[I,J] = randon_number_1_N(99)/100
+         M_Weight[I,J] = random_number_1_N(99)/100
         )
         end 
        )
    end.   
 
-
+%%%%%%%%%%%% initial fittnes values
 init_fitness_nodes(Fit_Nodes, C_D_Nodes, V_Coop_Ag, V_Def_Ag) =>
      N = Fit_Nodes.length,
      foreach(I in 1..N)
@@ -232,10 +230,7 @@ init_fitness_nodes(Fit_Nodes, C_D_Nodes, V_Coop_Ag, V_Def_Ag) =>
        end 
      )
  end.   
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 f_how_many_in_Coop ( V ) = X =>
      N = V.length,
      X = 0,
@@ -246,12 +241,8 @@ f_how_many_in_Coop ( V ) = X =>
      end %%% don't forget  
   %  writeln(temp= X)
      .
-
-   
-
-      
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     
+%% to populate each agent with c and d ... return X .. single vector
 f_init_C_D_vector( Size_K, K_com ) = X => 
   %% Populating the Class -- Initial
    % Anchor nodes -- OK
@@ -260,7 +251,7 @@ f_init_C_D_vector( Size_K, K_com ) = X =>
    %foreach(I in 1..Size_K..Size)
    foreach(I in L_anchor)
      ( 
-       X = randon_return_C_or_D(),
+       X = random_return_C_or_D(),
       % printf("\n Anchor: %d X: %w", I, X), %% to be comment
        foreach(J in 0..(Size_K-1) )
        	(  %writeln(j= J),
@@ -271,13 +262,11 @@ f_init_C_D_vector( Size_K, K_com ) = X =>
        end 
       ) %% end extern foechac
     end,
-   
    X = Initial_C_D_Nodes.
  
-
-
-
-randon_return_C_or_D = X =>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% generator of c or d ... initial population
+random_return_C_or_D = X =>
  (  R := 1 + random() mod 2,
      if(R == 1) then
          X = c  %%% CONFESS
@@ -286,6 +275,7 @@ randon_return_C_or_D = X =>
       end
   ).    
 
-
- randon_number_1_N (N) = R =>
-   R := 1 + random() mod N.    
+%%%%%%%%%%%%%% a single random number %%%%%%%%%%%%%%
+ random_number_1_N (N) = R =>
+   R := 1 + random() mod N.  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     
