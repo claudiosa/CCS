@@ -32,7 +32,7 @@ go =>
    printf("\n I_cooperation : %d ",  I_cooperation),
    %printf("\n I cooperation %w", f_how_many_in_Coop ( Initial_C_D_Nodes ))
    %%% DATA FROM THE ARTICLE
-   B :=  Size - I_cooperation, %% defection
+   B := Size - I_cooperation, %% defection
    Cc_constant = 3,
    F_Coop_Ag := (B*I_cooperation)/Size - Cc_constant,
    F_Def_Ag :=  F_Coop_Ag + Cc_constant,
@@ -43,11 +43,13 @@ go =>
    printf("\n INITIAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
 
    w_weight_conexions_init(Weight_Betw_Ag) ,  
-  % printf("\n Weight_Betw_Ag: %w", Weight_Betw_Ag),
+   printf("\n Weight_Betw_Ag: %w", Weight_Betw_Ag),
    %% take care to print vector of NUMBERS
 
- N_Steps := 1,
-   while( N_Steps > 0 )
+ N_Steps := 5,
+
+   %while( N_Steps > 0 )
+   foreach(J in 1..N_Steps )
     (
      foreach(I in 1..Size )
       ( 
@@ -56,7 +58,7 @@ go =>
          % for each agent i (x)
          % choice a strong agent y stocastic... 1 .. 4
          % update its f(x)
-         Y = randon_number_1_N(4),%%% 1 .. 4
+         Y = randon_number_1_N(4), %%% 1 .. 4
          others_from_L( L_Neighbour, Y , P1 , P2 , P3),
          %printf("\n I: NEXT Z %d Y: %d", I,Y),
        
@@ -73,9 +75,10 @@ go =>
          ,
 
         if (Prob_I > 1) then
-          println(prob___1 = Prob_I)
+           println(prob___1 = Prob_I)
         end,
-         %% FORMULA 7 page ... 161
+        
+        %% FORMULA 7 page ... 161
         Prob_II := 
         (Weight_Betw_Ag[I,Y] * Fitness_F_Ag[Graph[I,Y]] )
         / 
@@ -86,7 +89,7 @@ go =>
         (Weight_Betw_Ag[I,P3] * Weight_Betw_Ag[Graph[I,P3],4]* Fitness_F_Ag[Graph[Graph[I,P3],4]])
         ) ,
 
-        if (Prob_II/10 > 1) then %%%% due 
+        if (Prob_II/10 > 1) then %%%% due small fraction
           println(prob___2 = Prob_II)
         end,
                 
@@ -108,7 +111,7 @@ go =>
     %Fitness_F_Ag[I] := roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag )
       
    if (Rand_N < Prob_I) then %%% so Change
-       (
+      (
        % printf("\n ==> Fit %4.2f F_Coop_Ag: %6.2f | F_Def_Ag: %6.2f  ", Previous_Fit , F_Coop_Ag, F_Def_Ag),
         % if(round(Previous_Fit) == round(F_Coop_Ag)) then
         if(abs(Previous_Fit - F_Coop_Ag) < 3 ) then
@@ -118,20 +121,48 @@ go =>
          end    
         )
      end
-    
+    %%% Counting ... How many F_Def_Ag
+   
+
+
     /****************** IMMEDIATE neighbours ENDED ********/
     ) 
     end, %%% do foreach
-        N_Steps := N_Steps -1
+     count_Coop ( Fitness_F_Ag,  F_Coop_Ag, N_C, N_D ),
+     printf("\n Step: %d \t Coop: %d \t Defec: %d", J , N_C, N_D)
+    % N_Steps := N_Steps -1
+
    ) end, %%% do while
+
+
 %Picat> X = 7.543, writef("%6.2f", X).
 %  7.54X = 7.543
      printf("\n FINAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
-      printf("\n Final Fitness_F_Ag\n"),
-      f_print_V( Fitness_F_Ag )      
+     printf("\n Final Fitness_F_Ag\n"),
+     f_print_V( Fitness_F_Ag )      
    %printf("\n NEW Fitness_F_Ag: %4.2f", Fitness_F_Ag)
    % writef("\n%4.2", Fitness_F_Ag)
  .
+
+/*********************************************************/
+
+ count_Coop ( V,  F_Coop_Ag, N_C, N_D ) =>
+  Size = V.length,
+  Temp1 := 0,
+  Temp2 := 0,
+  foreach(I in 1..Size )
+   ( 
+    if(V[I] == F_Coop_Ag ) then
+        Temp1 := Temp1 + 1
+       end,
+    if(V[I] != F_Coop_Ag ) then
+        Temp2 := Temp2 + 1
+       end
+    ) 
+  end,
+  N_C = Temp1,
+  N_D = Temp2.  %Size - N_C.
+
 
 
 
@@ -165,10 +196,6 @@ f_print_V( V ) =>
      end,
     New := Y. %% IF
 
-     
-     
-       
-
 
 
  %randon_number_1_N (N) = R =>
@@ -192,9 +219,6 @@ f_print_V( V ) =>
         end 
        )
    end.   
-   
-
-
 
 
 init_fitness_nodes(Fit_Nodes, C_D_Nodes, V_Coop_Ag, V_Def_Ag) =>
@@ -240,7 +264,7 @@ f_init_C_D_vector( Size_K, K_com ) = X =>
       % printf("\n Anchor: %d X: %w", I, X), %% to be comment
        foreach(J in 0..(Size_K-1) )
        	(  %writeln(j= J),
-           Initial_C_D_Nodes[ I+J ] = X
+           Initial_C_D_Nodes[I+J] = X
        % , printf("\n Initial %d = %w " , (I+J), Initial_C_D_Nodes[I+J] )
        	   %% to be comment
        	) 
