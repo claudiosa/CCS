@@ -1,19 +1,19 @@
 ---
 ## Main of CCS
 
-This main directory with codes of many programming languages.  
+This main directory with some codes of programming languages that I work or worked!
 Take and enjoy it!  
 
-cc  
+cc  - Claudio Cesar
 
 ---
 
-Fazendo Download de diretórios em particular (Para os alunos)  
+Fazendo Download de diretÃ³rios em particular (Para os alunos)  
 
 
 1. Escolha o diretorio do seu interesse  
 
-2. Vá para o site de download -> https://minhaskamal.github.io/DownGit
+2. VÃ¡ para o site de download -> https://minhaskamal.github.io/DownGit
 
 3. Melhore e retorne
 
@@ -23,10 +23,10 @@ Fazendo Download de diretórios em particular (Para os alunos)
 
 <dl>
 <ol>
-    <li> Escolha o diretório a ser copiado</li>
-    <li> Copie este endereço do GitHub</li>
-    <li> <a href="https://minhaskamal.github.io/DownGit"> Vá para este site ... </a></li>
-    <li> Cole o endereço desejado</li>
+    <li> Escolha o diretÃ³rio a ser copiado</li>
+    <li> Copie este endereÃ§o do GitHub</li>
+    <li> <a href="https://minhaskamal.github.io/DownGit"> VÃ¡ para este site ... </a></li>
+    <li> Cole o endereÃ§o desejado</li>
     <li> Boa sorte!</li>
 </ol>
 </dl>
@@ -38,7 +38,7 @@ Fazendo Download de diretórios em particular (Para os alunos)
 
 1. Crie uma conta no [github](https://github.com/)
 
-2. Vá para o repositório do [CC](https://github.com/claudiosa/CCS), isto fará uma copia _sua_
+2. VÃ¡ para o repositÃ³rio do [CCS](https://github.com/claudiosa/CCS), isto farÃ¡ uma copia _sua_
 
 3. Execute um git clone no seu terminal:
     ```
@@ -52,7 +52,7 @@ Fazendo Download de diretórios em particular (Para os alunos)
     ```
     git status
     ```
-    para ver os arquivos que foram modificados. Por exemplo, para a edição deste texto eu tive:
+    para ver os arquivos que foram modificados. Por exemplo, para a ediÃ§Ã£o deste texto eu tive:
     ```
     On branch master
     Your branch is up-to-date with 'origin/master'.
@@ -77,15 +77,15 @@ Fazendo Download de diretórios em particular (Para os alunos)
     git commit -m 'Mensagem aqui explicando o que voce modificou'
     ```
 
-7. Agora basta enviar as modificações para o _seu_ github:
+7. Agora basta enviar as modificaÃ§Ãµes para o _seu_ github:
     ```
     git push
     ```
     na primeira vez que voce executar este comando, pode acontecer dele pedir para executar outro comando, basta copiar e colar.
 
-8. Agora basta ir para o seu repositorio no (github)[https://github.com/], clicle em _pull requests_. Ali vai aparecer as moduficações que voce fez.
-    Clique em _new pull request_. Depois em _create pull request_. Explique na caixa de texto o que você modificou. E clique novamente em _create pull request_. Pronto!
+8. Agora basta ir para o seu repositorio no (github)[https://github.com/], clicle em _pull requests_. Ali vai aparecer as moduficaÃ§Ãµes que voce fez.
+    Clique em _new pull request_. Depois em _create pull request_. Explique na caixa de texto o que vocÃª modificou. E clique novamente em _create pull request_. Pronto!
 
-9. Agora é só o __CC__ aceitar a modificação.
+9. Agora Ã© sÃ³ o __CC__ aceitar a modificaÃ§Ã£o.
 
 ---
