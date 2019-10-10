@@ -1,16 +1,33 @@
+/*
+Abstract. N-player prisoner dilemma games have been adopted and
+studied as a representation of many social dilemmas. They capture a
+larger class of social dilemmas than the traditional two-player prisoner’s
+dilemma. In N-player games, defection is the individually rational strat-
+egy and normally emerges as the dominant strategy in evolutionary sim-
+ulations of agents playing the game.
+In this paper, we discuss the effect of
+
+Stable Cooperation in the N-Player Prisoner’s
+Dilemma: The Importance of Community
+Structure
+Colm O’Riordan 1 and Humphrey Sorensen 2
+
+Coded by Claudio Cesar de Sá -- 2019
+*/
 % cl('prisoner_dilemma_N').
 module prisoner_dilemma_N.
 import graph_community.
 import dist_vertex.   %%% module CONEXION of extern NODES 
 import util.
 
-main => go.
-
-go =>
-   
+ %main(L_input) ?=>
+    %[K_com, N_Steps] = L_input,
+  %printf("Read it ... V1: %w \t V2: %w\n", K_com, N_Steps),
+ 
+main ?=>   
   K_com = 10 , %%% Number of Communitities
-  N_Steps := 5, %% steps for running
-
+  N_Steps := 300, %% steps for running
+  
   Size_K = 5 , %% Size Community -- FIXED ...
    %%% other parameters
    %% C_c = 3  >>> according of the paper....
@@ -41,14 +58,15 @@ go =>
    printf("\n F_Coop_Ag: %6.2f | F_Def_Ag: %6.2f  ", F_Coop_Ag, F_Def_Ag),
 
    init_fitness_nodes(Fitness_F_Ag, Initial_C_D_Nodes, F_Coop_Ag, F_Def_Ag),
-   printf("\n INITIAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
-
+   printf("\n INITIAL Fitness_F_Ag: " ),
+   %% take care to print vector of NUMBERS
+   f_print_V(Fitness_F_Ag),
    w_weight_conexions_init(Weight_Betw_Ag) ,  
    printf("\n Weight_Betw_Ag: %w", Weight_Betw_Ag),
    %% take care to print vector of NUMBERS
 
    %while( N_Steps > 0 )  %% OR
-   foreach(J in 1..N_Steps )
+  foreach(J in 1..N_Steps )
     (
      foreach(I in 1..Size )
       ( 
@@ -72,7 +90,7 @@ go =>
          ( Weight_Betw_Ag[I,P3] * Fitness_F_Ag[Graph[I,P3]])
          )  
          ,
-
+        /*
         if (Prob_I > 1) then
            ( %%% to INSPECT ... 
            printf("\n Run: %d\t prob___1: %4.2f", J, Prob_I ), 
@@ -84,6 +102,7 @@ go =>
         
            )
         end,
+        */
         /****************** AGENTS NEIGHBOURS FROM OTHERS Communitities ********/    
         %% FORMULA 7 page ... 161
         Prob_II := 
@@ -95,53 +114,63 @@ go =>
         + 
         (Weight_Betw_Ag[I,P3] * Weight_Betw_Ag[Graph[I,P3],4]* Fitness_F_Ag[Graph[Graph[I,P3],4]])
         ) ,
-
-        if (Prob_II/10 > 1) then %%%% due small fraction
-          println(prob___2 = Prob_II)
+            
+        Final_Prob := (Prob_I + Prob_II)/(K_com),
+        %% /max(Prob_I , Prob_II),
+        %% K_com,
+        %% divide for some value
+        %% printf("\n P1: %f P2: %f Pf: %f \t ", Prob_I, Prob_II, Final_Prob),
+        if (Final_Prob >= 1) then %%%% due small fraction
+          println(prob__final__gt1 = Final_Prob)
         end,
-                
-       /*
-        %%% FOR DEBBUGING ....
-        println(prob_I= Prob_I), 
-        println(previous= Previous_Fit),
-        Fitness_F_Ag[I] := roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag )
-        Fitness_F_Ag[I] := New
-      */
-
+       
     Previous_Fit := Fitness_F_Ag[I], 
+   
     Rand_N := random_number_1_N(99)/100,
-    %println(random = Rand_N),
-    %Fitness_F_Ag[I] := roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag )
-    %%% To include Prob_II HERE  -- further
-   if (Rand_N < Prob_I) then %%% so Change
+    % println(random = Rand_N),
+    %% the roullete_whell ... does not work ... why?
+    % Fitness_F_Ag[I] = roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag )
+        
+   if (Rand_N < Final_Prob) then %%% so Change
       (
+       write('*'), 
        % printf("\n ==> Fit %4.2f F_Coop_Ag: %6.2f | F_Def_Ag: %6.2f  ", Previous_Fit , F_Coop_Ag, F_Def_Ag),
-        % if(round(Previous_Fit) == round(F_Coop_Ag)) then
-        if(abs(Previous_Fit - F_Coop_Ag) < 3 ) then
-          Fitness_F_Ag[I] := F_Def_Ag  %% was Coop
+        %%% The agent changes its strategy 
+        %%%% Comparing 
+         if( Previous_Fit < F_Def_Ag ) then
+          Fitness_F_Ag[I] := F_Def_Ag  %% It was Cooperate agent
           else 
-          Fitness_F_Ag[I] := F_Coop_Ag
+          Fitness_F_Ag[I] := F_Coop_Ag %% otherwise ... Defeact agent
          end    
         )
-     end
-    %%% Counting ... How many F_Def_Ag
-    /****************** END  *********************/
+     end %%% END if
+    
+    /******************   *********************/
+    %  printf("\t Final_Prob ... by AGENT or node: %f", Final_Prob)
     ) 
-    end, %%% do foreach
-     count_Coop ( Fitness_F_Ag,  F_Coop_Ag, N_C, N_D ),
-     printf("\n RUNs: %d \t Coop: %d \t Defec: %d", J , N_C, N_D)
-    % N_Steps := N_Steps -1 %% for while
+    end, %%% END for the NODES --- evaluations nodes
+    %%% Counting ... How many F_Def_Ag
+    count_Coop ( Fitness_F_Ag,  F_Coop_Ag, N_C, N_D ),
+    printf("\n RUNs: %d \t Coop: %d \t Defec: %d", J , N_C, N_D)
+     
+    %N_Steps := N_Steps - 1 %% for while
 
-   ) end, %%% do while
+   ) end, %%% END for the STEPS
 
-     printf("\n FINAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
-     printf("\n Final Fitness_F_Ag\n"),
-     f_print_V( Fitness_F_Ag )      
+    % printf("\n FINAL Fitness_F_Ag: %w", Fitness_F_Ag), %% take care to print vector of NUMBERS
+    % printf("\n Final Fitness_F_Ag\n"),
+    % f_print_V( Fitness_F_Ag ),
+    count_Coop ( Fitness_F_Ag,  F_Coop_Ag, N_C, N_D ),
+    printf("\n Finally \t Coop: %d \t Defec: %d\n ",  N_C, N_D)        
+    %%%writef("Final_Prob: %6.3f ", Final_Prob) %% it is out of loop
    .
+   %%%%%%%%% all the variables MUST BE INSTANCED
    %printf("\n NEW Fitness_F_Ag: %4.2f", Fitness_F_Ag)
    % writef("\n%4.2", Fitness_F_Ag)
    %Picat> X = 7.543, writef("%6.2f", X).
    %7.54X = 7.543
+    
+main =>  printf("\n None options from main !!!").
 
 /*********************************************************/
 %%%%%%%%%%%%%%%%% Counting Coop and Defeact in a single vector
@@ -167,11 +196,11 @@ go =>
 
 f_print_V( V ) =>
    Size = V.length,
-   foreach(I in 1..Size )
+  foreach(I in 1..Size )
   ( 
    printf("\t V[%d]: %4.2f", I, V[I])
-   ) 
-  end.
+  ) 
+  end, nl.
 
  roullete_whell(Prob_I, Previous_Fit, F_Coop_Ag , F_Def_Ag ) = New =>
     Rand_N := random_number_1_N(99)/100,

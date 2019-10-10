@@ -1,18 +1,145 @@
+/*
+  Comment on the "balancing constraint".
+
+  Using solve($[], Vars) for the [160,6] problem we got these group assignments.
+  I.e. in the first group the nodes are linked to groups 1,  2,  3,  4,  5 respectively,
+  and group 2 has the group links 2,  1,  3,  4,  5.
+
+  It seems that the groupings are cliques: i.e. members in group 1..5, links only to
+  group 1..5; members in group 6..10 only links to group 6..10, etc.
+  
+  This might be a problem since there is no connections outside of these cliques.
+
+  All assignments of the groups of 5 seems to follow these simple rules (for this specific example of Size_K = 5):
+
+  n  : [  n, n+1,  n+2, n+3, n+4]
+  n+1: [n+1,   n,  n+2, n+3, n+4] 
+  n+2: [n+2,   n,  n+1, n+3, n+4] 
+  n+3: [n+3,   n,  n+1, n+2, n+4] 
+  n+4: [n+4,   n,  n+1, n+2, n+3] 
+
+  If this is an acceptable solution to the problem, then one might try to make a simple algorithm for it.
+
+
+  1: [  1,  2,  3,  4,  5]   links in groups 1..5
+  2: [  2,  1,  3,  4,  5]
+  3: [  3,  1,  2,  4,  5]
+  4: [  4,  1,  2,  3,  5]
+  5: [  5,  1,  2,  3,  4]
+
+  6: [  6,  7,  8,  9, 10]   links in groups 6..10
+  7: [  7,  6,  8,  9, 10]
+  8: [  8,  6,  7,  9, 10]
+  9: [  9,  6,  7,  8, 10]
+ 10: [ 10,  6,  7,  8,  9]
+
+ 11: [ 11, 12, 13, 14, 15]   links in groups 11..15
+ 12: [ 12, 11, 13, 14, 15]
+ 13: [ 13, 11, 12, 14, 15]
+ 14: [ 14, 11, 12, 13, 15]
+ 15: [ 15, 11, 12, 13, 14]
+
+ ...
+
+ A possible fix for this is to ensure that the groups that are linked to in
+ the same group in "further away", for example with the constraint marked
+ "NEW CONSTRAINT" 
+
+   % ...
+   foreach(G in 1..K_com)
+      if( K_com >= Size_K ) then
+        % The nodes in group G
+        ThisGroup = [I : I in 1..Size, Groups[I] == G],
+        println(node_group=ThisGroup),
+        % The group that a node link to
+        LinkGroups = [T : I in ThisGroup, element(X_Nodes[I], Groups,T)],
+        all_different(LinkGroups),
+        %% NEW CONSTRAINT:
+        %% Ensure that the 2..Size_K element link to further groups
+        foreach(K in 2..Size_K) 
+          abs(LinkGroups[K]-G) #>= (K-1)*Size_K
+        end,
+        %% nvalue(K_com , LinkGroups)
+      end
+   end,
+   % ...
+
+  It's little slower (2.2s instead of 1.3s) but is seems to be much more balanced:
+
+  1: [  1,  6, 11, 16, 21]
+  2: [  2,  7, 12, 17, 22]
+  3: [  3,  8, 13, 18, 23]
+  4: [  4,  9, 14, 19, 24]
+  5: [  5, 10, 15, 20, 25]
+
+  6: [  6,  1, 16, 21, 26]
+  7: [  7,  2, 17, 22, 27]
+  8: [  8,  3, 18, 23, 28]
+  9: [  9,  4, 19, 24, 29]
+ 10: [ 10,  5, 20, 25, 30]
+
+ 11: [ 11,  1, 26, 27, 31]
+ 12: [ 12,  2, 27, 28, 32]
+ 13: [ 13,  3, 28, 29, 33]
+ 14: [ 14,  4, 29, 30, 34]
+ 15: [ 15,  5, 30, 31, 35]
+ ...
+
+
+ The pattern in each 5 group seems to be quite regular now as well.
+
+ Hmm, testing with other sizes, e.g. [180,5] makes this quite slow.
+ An faster approach is to just require that the second node in the group
+ is further away:
+
+             % ...
+             abs(LinkGroups[2]-G) #>= Size_K,
+             % ...
+
+ This generates the following solution:
+  1: [  1,  6,  2,  3,  4]
+  2: [  2,  7,  1,  3,  4]
+  3: [  3,  8,  1,  2,  4]
+  4: [  4,  9,  1,  2,  3]
+  5: [  5, 10,  6,  7,  8]
+
+  6: [  6,  1,  5,  7,  8]
+  7: [  7,  2,  5,  6,  8]
+  8: [  8,  3,  5,  6,  7]
+  9: [  9,  4, 10, 11, 12]
+ 10: [ 10,  5,  9, 11, 12]
+
+ 11: [ 11, 16,  9, 10, 12]
+ 12: [ 12, 17,  9, 10, 11]
+ 13: [ 13, 18, 14, 15, 16]
+ 14: [ 14, 19, 13, 15, 16]
+ 15: [ 15, 20, 13, 14, 16]
+
+  I.e. the second node in each group link to a "clique" further away.
+ One can experiment with different sizes e.g.
+
+      abs(LinkGroups[2]-G) #>= 2*Size_K,
+ or
+      abs(LinkGroups[2]-G) #>= 3*Size_K,
+
+*/
+
 
 % module dist_vertex.
 import util.
 import cp.
-% import sat.
+%  import sat.
 main => go.
 
 go =>
   % nolog,
-   K_com =  160 , %%% Number of Community or CLASSES or Groups
+   % K_com =  160 , %%% Number of Community or CLASSES or Groups
    % K_com =  17 , %%% Number of Community or CLASSES or Groups
    % K_com =  6 , %%% Number of Community or CLASSES or Groups
+   K_com = 10,
    
    Size_K = 5 , %% Size Community of CLASSES--Groups
-   printf("\n Next Vector: %w", dist_vertex(K_com, Size_K)).
+   printf("\n Next Vector: %w\n", dist_vertex(K_com, Size_K)).
 
 %%% FUNCTIONS VECTOR 
 dist_vertex(K_com, Size_K) = Res =>
@@ -23,14 +150,14 @@ dist_vertex(K_com, Size_K) = Res =>
      
    % Which group does a node belong to?
    All_Groups = [[ I : _ in 1..Size_K] : I in 1..K_com ],
-   printf("\nAll_Groups -- a LIST of lists %w", All_Groups),
+   % printf("\nAll_Groups -- a LIST of lists %w", All_Groups),
    
    Groups = flatten(All_Groups),
-   println(groups_and_positions=Groups),
+   % println(groups_and_positions=Groups),
       
    % Anchor nodes -- OK
    L_anchor = [(I*Size_K)+1 : I in 0..(K_com-1)],
-   println(l_anchor = L_anchor),
+   % println(l_anchor = L_anchor),
 
    %% Assign the "anchor" nodes (first in each class)
    foreach(I in L_anchor)
@@ -60,8 +187,15 @@ dist_vertex(K_com, Size_K) = Res =>
         println(node_group=ThisGroup),
         % The group that a node link to
         LinkGroups = [T : I in ThisGroup, element(X_Nodes[I], Groups,T)],
+        %% NEW CONSTRAINT:
+        %% Ensure that the 2..Size_K element link to further groups
+        %% This is too slow for larger varlue of K_com
+        % foreach(K in 2..Size_K) 
+        %   abs(LinkGroups[K]-G) #>= (K-1)*Size_K
+        % end,
+        %% Just ensure that the second node links "further away")
+        abs(LinkGroups[2]-G) #>= Size_K,
         all_different(LinkGroups)
-        %% nvalue(K_com , LinkGroups)
       end
    end,
    
@@ -121,7 +255,8 @@ dist_vertex(K_com, Size_K) = Res =>
    %println(solve_X_Nodes = X_Nodes),
    %%% All_SOL = solve_all([], Vars),
    % solve($[ff], Vars),
-   solve($[], Vars),   
+   % solve($[ff,split], Vars),
+   solve($[], Vars),      
 
    /*
    by HAKAN
@@ -158,13 +293,66 @@ dist_vertex(K_com, Size_K) = Res =>
    end,
    nl,
 
+   % Show only the group links
+   nl,
+   println("\n\nShow group links. "),
+   foreach(G in 1..K_com)
+      ThisGroup = [I : I in 1..Size, Groups[I] == G],
+      % The group that a node link to
+      LinkGroups = [to_fstring("%3d",T) : I in ThisGroup, element(X_Nodes[I], Groups,T)],
+      printf("%3d: %w\n", G, LinkGroups),
+      if G mod Size_K == 0 then
+        nl
+      end
+   end,
+   nl,
+
+   %
+   % Print the links to a .dot format
+   % https://graphviz.gitlab.io/
+   %
+   % $ dot -Tpdf dist_vertex_claudio.dot -o dist_vertex_claudio.pdf
+   % $ neato -Tpdf dist_vertex_claudio.dot -o dist_vertex_claudio.pdf   
+   % $ sfdp -Tpdf dist_vertex_claudio.dot -o dist_vertex_claudio.pdf
+   % $ fdp -Tpdf dist_vertex_claudio.dot -o dist_vertex_claudio.pdf
+   % $ twopi -Tpdf dist_vertex_claudio.dot -o dist_vertex_claudio.pdf      
+   % $ circo -Tpdf dist_vertex_claudio.dot -o dist_vertex_claudio.pdf
+   %
+   DotFile = "dist_vertex_claudio.dot",
+   printf("\nThe links in .dot format: %w\n",DotFile),
+   Writer = open(DotFile,write),
+   println(Writer,"digraph links {"),
+   println(Writer,"{\n  node [margin=0 fontcolor=blue fontsize=12 width=0.5 shape=dot style=filled]\n}"),
+   Dot = new_map(),
+   foreach(G in 1..K_com)
+     % printf("%d (group %d) -> %d (group: %d) \n",I,Groups[I], X_Nodes[I], Groups[X_Nodes[I]])
+     ThisGroup = [I : I in 1..Size, Groups[I] == G],
+     printf(Writer,"subgraph cluster_%d {\n", G),
+     foreach(T in ThisGroup)
+        foreach(S in ThisGroup, S != T)
+           if not(Dot.has_key([T,S].sort)) then
+              printf(Writer, "%d -> %d\n",S,T),
+              Dot.put([S,T].sort,1)
+           end
+        end
+     end,
+     println(Writer,"}"),
+   end,
+   foreach(T in 1..Size, T != X_Nodes[T])
+      if not(Dot.has_key([T,X_Nodes[T]].sort)) then
+          printf(Writer, "%d -> %d;\n", T, X_Nodes[T]),
+          Dot.put([T,X_Nodes[T]].sort,1)
+      end
+   end,
+   println(Writer,"}\n"),
+   close(Writer),
    Res = X_Nodes.
    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRINT
 print_n(N) =>
    nl,
-   foreach(I in 1 .. N)
+   foreach(_ in 1 .. N)
       printf("=")
    end,
    nl.   
