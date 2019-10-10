@@ -6,11 +6,13 @@
 1. Copy the directory: https://github.com/claudiosa/CCS/blob/master/picat/sublime-text-3/Picat/
 Use a wget to do it ...
 For example wget -????? sublimepicat.tar.gz https://....
-In Picat/ contains  all the configuration for Picat's syntax (I am still working on it)
+In Picat/ contains  all the configuration for Picat's syntax (I am working on it)
+
 
 2. Copy only this directory Picat/ in ~/.config/sublime-text-3/Packages/
 
 3. Re-starts, if it is the case, the Sublime 
+
 
 OLD method for installation:
 
@@ -33,6 +35,7 @@ Claudio Sá -- ccs1664@gmail.com
 
 #############################################################################
 #### ALMOST ORIGINAL
+
 
 # Prolog syntax highlighting for Sublime Text 2 & 3 #
 

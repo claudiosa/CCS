@@ -1,0 +1,7 @@
+%%% USE as ... $ picat test_inputs.pi < inp_test.txt
+import util. % use split
+main( L ) =>
+  
+  [V1, V2] = L, %% tamanho da matrix
+  printf("Read it ... V1: %w \t V2: %w\n", V1, V2).
+
