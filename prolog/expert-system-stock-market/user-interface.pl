@@ -1,3 +1,13 @@
+
+% swipl -q -f main_tictactoe_game.pl -t main
+
+:- use_module(library(ansi_term)).
+
+%% to start automactically
+:- initialization(main).
+
+:- ensure_loaded(knowledge).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%     main program      %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,7 +25,8 @@ run:-
 % begin :
 
 % consult K-Base :
-:- consult('K-Base.pl').
+:- consult('kb.pl').
+
 
 % tool for saving users answers :
 :- dynamic(progress/2).
@@ -23,8 +34,9 @@ run:-
 % make welcome :
 welcome:-
 	write('######################################'),nl,
-	write('##   Bienvenu,                      ##'),nl,
-	write('##   Vous pouvez choisir un numéro. ##'),nl,
+	write('##   Hi ,                      ##'),nl,
+	write('##   It is prototype -- Stock Market. ##'),nl,
+	write('##   Expert System  ##'),nl,
 	write('######################################'),nl,
 	nl.
 
@@ -38,6 +50,48 @@ undo_reset.
 search_solution(X) :- 
     solution(X),!. 
 
+
+menul(2):-
+    nl,nl,
+    write('Podaj chorobe, aby sprawdzic czy mamy ja w bazie:'), nl,
+    read_line_to_codes(user_input,MenuCodes),
+    wyszukaj(MenuCodes),
+    halt
+
+start:-
+    write('Jak masz na imie?'), nl,
+    read_line_to_codes(user_input,Codes1),
+    capitalize(Codes1,Codes2)
+    ->
+    atom_codes(Name,Codes2),
+    write('Ile masz lat?'), nl,
+    read_line_to_codes(user_input,WiekPacjenta),
+    atom_codes(WiekPacjenta2,WiekPacjenta),
+    atom_number(WiekPacjenta2, WiekPac),
+    istBiggerThen(WiekPac,50),
+    repeat,
+    abolish(known/3),
+    dynamic(known/3),
+    retractall(known/3),
+    diagnose(Name), nl, nl,
+    write('Chcesz sprobowac ponownie? (t/n)'), nl,
+    read_line_to_codes(user_input,MenuCodes),
+    string_codes(Resp,MenuCodes),
+    \+ Resp= "t", nl, nl,
+    write('Dzieki za wspolprace'),
+    abolish(known,3),
+    abolish(wiek,1),
+    halt.
+
+
+
+
+
+
+
+
+
+
 % question mechanism :
 ask(Question, Answer, Choices) :-
   print_question(Question),
@@ -46,6 +100,12 @@ ask(Question, Answer, Choices) :-
   parse(Index, Choices, Response),
   asserta(progress(Question, Response)),
   Response = Answer.
+
+
+
+
+
+
 
 % make a list of choices :
 choices_list([], _).
@@ -66,104 +126,4 @@ parse(Index, [_|Rest], Answer) :-
   NextIndex is Index - 1,
   parse(NextIndex, Rest, Answer).
 
-% end.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%   program domaines    %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% begin :
-% 1° :
-strategie(Answer) :-
-  progress(strategie, Answer).
-strategie(Answer) :-
-  \+ progress(strategie, _),
-  ask(
-  	  strategie, 
-  	  Answer, 
-  	  [strategie_choice_1, 
-  	  strategie_choice_2, 
-  	  strategie_choice_3,
-  	  strategie_choice_4,
-  	  strategie_choice_5,
-  	  rien_de_tout_cela]
-  	).
-  	
-% 2° :
-marketing(Answer):-
-	progress(marketing, Answer).
-marketing(Answer):-
-	\+ progress(marketing,_),
-	ask(
-		marketing,
-		Answer,
-		[marketing_choice_1,
-		marketing_choice_2,
-		marketing_choice_3,
-		marketing_choice_4,
-		marketing_choice_5,
-		marketing_choice_6,
-		marketing_choice_7,
-		marketing_choice_8,
-		rien_de_tout_cela]
-	).
-
-% 3° :
-finances(Answer):-
-	progress(finances, Answer).
-finances(Answer):-
-	\+ progress(finances,_),
-	ask(
-		finances,
-		Answer,
-		[finances_choice_1,
-		finances_choice_2,
-		finances_choice_3,
-		finances_choice_4,
-		rien_de_tout_cela]
-	).
-	
-% 4° :
-ressources_humaines(Answer):-
-	progress(ressources_humaines, Answer).
-ressources_humaines(Answer):-
-	\+ progress(ressources_humaines,_),
-	ask(
-		ressources_humaines,
-		Answer,
-		[ressources_humaines_choice_1,
-		ressources_humaines_choice_2,
-		ressources_humaines_choice_3,
-		ressources_humaines_choice_4,
-		ressources_humaines_choice_5,
-		rien_de_tout_cela]
-	).
-	
-% 5° :
-technologie_equipement(Answer):-
-	progress(technologie_equipement, Answer).
-technologie_equipement(Answer):-
-	\+ progress(technologie_equipement,_),
-	ask(
-		technologie_equipement,
-		Answer,
-		[technologie_equipement_choice_1,
-		technologie_equipement_choice_2,
-		technologie_equipement_choice_3,
-		rien_de_tout_cela]
-	).
-	
-% 6° :
-exploitation(Answer):-
-	progress(exploitation, Answer).
-exploitation(Answer):-
-	\+ progress(exploitation,_),
-	ask(
-		exploitation,
-		Answer,
-		[exploitation_choice_1,
-		exploitation_choice_2,
-		exploitation_choice_3,
-		exploitation_choice_4,
-		rien_de_tout_cela]
-	).
 % end.
