@@ -4,19 +4,23 @@
 :- use_module(library(ansi_term)).
 
 %% to start automactically
-:- initialization(main).
+%:- initialization(main).
 
-:- ensure_loaded(knowledge).
+%:- ensure_loaded(kl).
+:- ensure_loaded(input_output_predicates).
+% consult K-Base :
+%:- consult('kb.pl').
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%     main program      %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % begin :
 run:-
-	welcome,
-	undo_reset,
-    search_solution(X),
-    print_solution(X).
+	welcome(X),
+	menu( X ).
+%	undo_reset,
+%%    search_solution(X),
+ %   print_solution(X).
 % end.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,21 +28,25 @@ run:-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % begin :
 
-% consult K-Base :
-:- consult('kb.pl').
-
 
 % tool for saving users answers :
 :- dynamic(progress/2).
 
 % make welcome :
-welcome:-
-	write('######################################'),nl,
-	write('##   Hi ,                      ##'),nl,
-	write('##   It is prototype -- Stock Market. ##'),nl,
-	write('##   Expert System  ##'),nl,
-	write('######################################'),nl,
-	nl.
+welcome(X):-
+    cls,
+	write('#############################'),nl,
+	write('##   Hi,  it is prototype  ##'),nl,
+	write('##      Stock Market       ##'),nl,
+	write('##     Expert System       ##'),nl,
+	write('##############################'),nl,
+	nl,
+	flush_output,
+    get_single_char(X). 
+    %read_line_to_codes(user_input,X),
+    %write(Y).
+	
+
 
 % reset program :
 undo_reset :-
@@ -50,13 +58,51 @@ undo_reset.
 search_solution(X) :- 
     solution(X),!. 
 
+%% COLORS availble
+%%% black, red, green, yellow, blue, magenta, cyan, white
+
+menu('0').    /* para terminar este menu principal */
+menu( _ ) :-
+        repeat,    /* repeat until */ 
+        cls,
+        ansi_format([bold,fg(green)],'\n     <<< Attributes Menu >>>    ',[]), 
+        ansi_format([bold,fg(green)],'\n   <<< Choice the Evidences >>>    ',[]), 
+        ansi_format([bold,fg( magenta)],'\n 1 - Month ',[]),
+        ansi_format([bold,fg( magenta)],'\n 2 - Open ',[]),
+        ansi_format([bold,fg( magenta)],'\n 3 - High ',[]),
+        ansi_format([bold,fg( magenta)],'\n 4 - Low ',[]),
+        ansi_format([bold,fg( magenta)],'\n 5 - Close ',[]),
+        ansi_format([bold,fg( magenta)],'\n 6 - Volume ',[]),
+        ansi_format([bold,fg( magenta)],'\n 7 - Inflation Rate ',[]),
+        ansi_format([bold,fg(green)],'\n 8 - Would you like conclude ?',[]),
+        ansi_format([bold,fg(green)],'\n 9 - More evidences ?',[]),
+        ansi_format([bold,fg(red)],'\n 0 - To exit',[]),
+        ansi_format([bold,fg(yellow)],'\n Type one of the options abore [0-9] ==> ',[]),
+        read_option(Y),
+        action(Y),
+        menu(Y).     /* chamada recursiva */
+
+
+
+action('0') :- nl, abort. %%%halt.
+action(_) :- ansi_format([bold,fg(yellow)],
+	         '\n ##### NOT READY YET #######',[]),
+	         get_single_char(_).
+
+
+
+
+
+
+/*
+
 
 menul(2):-
     nl,nl,
     write('Podaj chorobe, aby sprawdzic czy mamy ja w bazie:'), nl,
     read_line_to_codes(user_input,MenuCodes),
     wyszukaj(MenuCodes),
-    halt
+    halt.
 
 start:-
     write('Jak masz na imie?'), nl,
@@ -127,3 +173,4 @@ parse(Index, [_|Rest], Answer) :-
   parse(NextIndex, Rest, Answer).
 
 % end.
+*/
