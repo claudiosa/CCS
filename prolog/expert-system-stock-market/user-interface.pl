@@ -1,14 +1,15 @@
 
 % swipl -q -f main_tictactoe_game.pl -t main
 
-:- use_module(library(ansi_term)).
+
 
 %% to start automactically
 %:- initialization(main).
 
 %:- ensure_loaded(kb).
 %:- ensure_loaded(input_output_predicates).
-% consult K-Base :
+% consult 2 others files :
+:- use_module(library(ansi_term)).
 :- reconsult('kb.pl').
 :- reconsult('input_output_predicates.pl').
 :- dynamic(if_/2).
@@ -17,34 +18,23 @@
 %%%%     main program      %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % begin :
-run:-
+
+run :-
 	welcome(X),
 	menu( X ).
-%	undo_reset,
-%%    search_solution(X),
- %   print_solution(X).
-% end.
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%   program process    %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% begin :
-
-
-% tool for saving users answers :
-
 
 % make welcome :
 welcome(X):-
   cls,
 	write('#############################'),nl,
-	write('##   Hi,  it is prototype  ##'),nl,
+	write('##   Hi, it is prototype   ##'),nl,
 	write('##      Stock Market       ##'),nl,
 	write('##     Expert System       ##'),nl,
 	write('##############################'),nl,
 	nl,
   reset,
 	flush_output,
+  format("\n Press any key ... "),
   get_single_char(X). 
   %read_line_to_codes(user_input,X),
   %write(Y).
@@ -52,10 +42,14 @@ welcome(X):-
 
 
 % reset program :
+%reset :-
+%  retractall(if_/2),
+%  write('Data Base Cleaned .... ').
+  % reset program :
 reset :-
-  retractall(if_/2),
-  write('Data Base Cleaned .... ').
-  
+  retract(if_(_, _)),
+  fail.
+reset :- write(' ==> Data Base Cleaned .... ').
 %% COLORS availble
 %%% black, red, green, yellow, blue, magenta, cyan, white
 
@@ -72,8 +66,8 @@ menu( _ ) :-
         ansi_format([bold,fg( magenta)],'\n 5 - Close ',[]),
         ansi_format([bold,fg( magenta)],'\n 6 - Volume ',[]),
         ansi_format([bold,fg( magenta)],'\n 7 - Inflation Rate ',[]),
-        ansi_format([bold,fg(green)],'\n 8 - More evidences ?',[]),
-        ansi_format([bold,fg(green)],'\n 9 - Would you like conclude ?',[]),
+        ansi_format([bold,fg(green)],'\n ¿ 8 - Evidences  Collected ?',[]),
+        ansi_format([bold,fg(green)],'\n ¿ 9 - Would you like conclude ?',[]),
         ansi_format([bold,fg(red)],'\n 0 - To exit',[]),
         ansi_format([bold,fg(yellow)],'\n Type one of the options abore [0-9] ==> ',[]),
         read_option(Y),
@@ -85,11 +79,12 @@ menu( _ ) :-
 
 
 action('0') :- nl, 
-               abolish(if_/2), 
+               reset, 
                abort. %%%halt.
 
+/* ACTIONS for the MENU */
 action('1') :-
-
+   retractall(if_(month,_)), %%% to assure the last input of this Attribute
    atrib_values(month, L_values), %%%[previous_month, 6_month_ago]).
    print_L_values(L_values),
    read_Value(Value),
@@ -97,17 +92,82 @@ action('1') :-
    ansi_format([bold, fg(yellow)],
   '\n This fact was added: month/~w ',[Value]),
    get_single_char(_).
+
+
+action('2') :-
+   retractall(if_(open,_)), %%% to assure the last input of this Attribute
+   atrib_values(open, L_values), %%%[previous_month, 6_month_ago]).
+   print_L_values(L_values),
+   read_Value(Value),
+   asserta(if_(open, Value) ),
+   ansi_format([bold, fg(yellow)],
+  '\n This fact was added: open/~w ',[Value]),
+   get_single_char(_).
+
+action('3') :-
+   retractall(if_(high,_)), %%% to assure the last input of this Attribute
+   atrib_values(high, L_values), %%%[previous_month, 6_month_ago]).
+   print_L_values(L_values),
+   read_Value(Value),
+   asserta(if_(high, Value) ),
+   ansi_format([bold, fg(yellow)],
+  '\n This fact was added: high/~w ',[Value]),
+   get_single_char(_).
+
+action('4') :-
+   retractall(if_(low,_)), %%% to assure the last input of this Attribute
+   atrib_values(low, L_values), %%%[previous_month, 6_month_ago]).
+   print_L_values(L_values),
+   read_Value(Value),
+   asserta(if_(low, Value) ),
+   ansi_format([bold, fg(yellow)],
+  '\n This fact was added: low/~w ',[Value]),
+   get_single_char(_).
+
+
+action('5') :-
+   retractall(if_(close,_)), %%% to assure the last input of this Attribute
+   atrib_values(close, L_values), %%%[previous_month, 6_month_ago]).
+   print_L_values(L_values),
+   read_Value(Value),
+   asserta(if_(close, Value) ),
+   ansi_format([bold, fg(yellow)],
+  '\n This fact was added: close/~w ',[Value]),
+   get_single_char(_).
+
+
+action('6') :-
+   retractall(if_(volume,_)), %%% to assure the last input of this Attribute
+   atrib_values(volume, L_values), %%%[previous_month, 6_month_ago]).
+   print_L_values(L_values),
+   read_Value(Value),
+   asserta(if_(volume, Value) ),
+   ansi_format([bold, fg(yellow)],
+  '\n This fact was added: volume/~w ',[Value]),
+   get_single_char(_).
+
+
+action('7') :-
+   retractall(if_(inflation_rate,_)), %%% to assure the last input of this Attribute
+   atrib_values(inflation_rate, L_values), %%%[previous_month, 6_month_ago]).
+   print_L_values(L_values),
+   read_Value(Value),
+   asserta(if_(inflation_rate, Value) ),
+   ansi_format([bold, fg(yellow)],
+  '\n This fact was added: inflation_rate/~w ',[Value]),
+   get_single_char(_).
+
    
-action('8') :- true. %%% back main menu
+action('8') :- collecting_if_data( L ),
+               ansi_format([bold, fg(green)],'\n Collected until now : ~w',[L]),
+               get_single_char(_). %%% back main menu
 
 action('9') :-
    format("\n Recomendation:"),
-   collecting_data( L ),
-   write(L),
-   rule( if_(L), then_(Recomendation) ),
-   ansi_format([bold, fg(yellow)], '\n => ~w',[Recomendation]),
+   conclusions(All_Conclusions),
+   print_Conclusions(All_Conclusions),
    get_single_char(_), 
-   abolish(if_/2), !.
+   retractall(if_/2), !.
 
 action('9') :-
    ansi_format([bold, fg(yellow)], '\n No conclusion yet ',[]),
@@ -120,48 +180,6 @@ action(_) :- ansi_format([bold,fg(yellow)],
 
 
 /*
-
-
-menul(2):-
-    nl,nl,
-    write('Podaj chorobe, aby sprawdzic czy mamy ja w bazie:'), nl,
-    read_line_to_codes(user_input,MenuCodes),
-    wyszukaj(MenuCodes),
-    halt.
-
-start:-
-    write('Jak masz na imie?'), nl,
-    read_line_to_codes(user_input,Codes1),
-    capitalize(Codes1,Codes2)
-    ->
-    atom_codes(Name,Codes2),
-    write('Ile masz lat?'), nl,
-    read_line_to_codes(user_input,WiekPacjenta),
-    atom_codes(WiekPacjenta2,WiekPacjenta),
-    atom_number(WiekPacjenta2, WiekPac),
-    istBiggerThen(WiekPac,50),
-    repeat,
-    abolish(known/3),
-    dynamic(known/3),
-    retractall(known/3),
-    diagnose(Name), nl, nl,
-    write('Chcesz sprobowac ponownie? (t/n)'), nl,
-    read_line_to_codes(user_input,MenuCodes),
-    string_codes(Resp,MenuCodes),
-    \+ Resp= "t", nl, nl,
-    write('Dzieki za wspolprace'),
-    abolish(known,3),
-    abolish(wiek,1),
-    halt.
-
-
-
-
-
-
-
-
-
 
 % question mechanism :
 ask(Question, Answer, Choices) :-
