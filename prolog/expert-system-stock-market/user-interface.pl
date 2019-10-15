@@ -6,10 +6,12 @@
 %% to start automactically
 %:- initialization(main).
 
-%:- ensure_loaded(kl).
-:- ensure_loaded(input_output_predicates).
+%:- ensure_loaded(kb).
+%:- ensure_loaded(input_output_predicates).
 % consult K-Base :
-%:- consult('kb.pl').
+:- reconsult('kb.pl').
+:- reconsult('input_output_predicates.pl').
+:- dynamic(if_/2).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%     main program      %%%%
@@ -30,34 +32,30 @@ run:-
 
 
 % tool for saving users answers :
-:- dynamic(progress/2).
+
 
 % make welcome :
 welcome(X):-
-    cls,
+  cls,
 	write('#############################'),nl,
 	write('##   Hi,  it is prototype  ##'),nl,
 	write('##      Stock Market       ##'),nl,
 	write('##     Expert System       ##'),nl,
 	write('##############################'),nl,
 	nl,
+  reset,
 	flush_output,
-    get_single_char(X). 
-    %read_line_to_codes(user_input,X),
-    %write(Y).
+  get_single_char(X). 
+  %read_line_to_codes(user_input,X),
+  %write(Y).
 	
 
 
 % reset program :
-undo_reset :-
-  retract(progress(_, _)),
-  fail.
-undo_reset.
-
-% search solution :
-search_solution(X) :- 
-    solution(X),!. 
-
+reset :-
+  retractall(if_/2),
+  write('Data Base Cleaned .... ').
+  
 %% COLORS availble
 %%% black, red, green, yellow, blue, magenta, cyan, white
 
@@ -74,24 +72,51 @@ menu( _ ) :-
         ansi_format([bold,fg( magenta)],'\n 5 - Close ',[]),
         ansi_format([bold,fg( magenta)],'\n 6 - Volume ',[]),
         ansi_format([bold,fg( magenta)],'\n 7 - Inflation Rate ',[]),
-        ansi_format([bold,fg(green)],'\n 8 - Would you like conclude ?',[]),
-        ansi_format([bold,fg(green)],'\n 9 - More evidences ?',[]),
+        ansi_format([bold,fg(green)],'\n 8 - More evidences ?',[]),
+        ansi_format([bold,fg(green)],'\n 9 - Would you like conclude ?',[]),
         ansi_format([bold,fg(red)],'\n 0 - To exit',[]),
         ansi_format([bold,fg(yellow)],'\n Type one of the options abore [0-9] ==> ',[]),
         read_option(Y),
+       % trace,
         action(Y),
+       % notrace,
         menu(Y).     /* chamada recursiva */
 
 
 
-action('0') :- nl, abort. %%%halt.
+action('0') :- nl, 
+               abolish(if_/2), 
+               abort. %%%halt.
+
+action('1') :-
+
+   atrib_values(month, L_values), %%%[previous_month, 6_month_ago]).
+   print_L_values(L_values),
+   read_Value(Value),
+   asserta( if_(month, Value) ),
+   ansi_format([bold, fg(yellow)],
+  '\n This fact was added: month/~w ',[Value]),
+   get_single_char(_).
+   
+action('8') :- true. %%% back main menu
+
+action('9') :-
+   format("\n Recomendation:"),
+   collecting_data( L ),
+   write(L),
+   rule( if_(L), then_(Recomendation) ),
+   ansi_format([bold, fg(yellow)], '\n => ~w',[Recomendation]),
+   get_single_char(_), 
+   abolish(if_/2), !.
+
+action('9') :-
+   ansi_format([bold, fg(yellow)], '\n No conclusion yet ',[]),
+   ansi_format([bold, fg(yellow)], '\n Feed the evidences ',[]),
+   get_single_char(_).
+
 action(_) :- ansi_format([bold,fg(yellow)],
-	         '\n ##### NOT READY YET #######',[]),
-	         get_single_char(_).
-
-
-
-
+           '\n ##### NOT READY YET #######',[]),
+           get_single_char(_).
 
 
 /*
@@ -146,11 +171,6 @@ ask(Question, Answer, Choices) :-
   parse(Index, Choices, Response),
   asserta(progress(Question, Response)),
   Response = Answer.
-
-
-
-
-
 
 
 % make a list of choices :
