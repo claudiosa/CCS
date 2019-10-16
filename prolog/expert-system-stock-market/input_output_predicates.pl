@@ -10,7 +10,7 @@ read_option(Y_LowerCase) :-
   get_single_char(Y) , %% works fine
   atom_char(X,Y) ,     %% OK
   downcase_atom(X, Y_LowerCase), %% convert to Lower_Case
-  member(Y_LowerCase, ['0','1', '2', '3', '4', '5', '6', '7', '8','9' ]),
+  member(Y_LowerCase, ['0','1','2','3', '4', '5', '6', '7', '8','9' ]),
   %format("\n Keypressed =>  (key: ~w) (ascii code: ~w) ", [X,Y] ),
   write(Y_LowerCase), ! .
 
@@ -20,14 +20,14 @@ read_option(Keypressed) :-
 
 %%% show the options of each attribute
 print_L_values([]) :- ansi_format([bold,fg(yellow)],
-                    '\n =================== END VALUES ===================', []).
+                  '\n =================== END VALUES ===================', []).
 print_L_values([First|Rest]) :-
  %   format("\n => ~w", First),
      ansi_format([bold,fg(yellow)],'\n => ~w', [First]),
      print_L_values(Rest). 
 
 print_Conclusions([]) :- ansi_format([bold,fg(yellow)],
-                      '\n =================== END CONCLUSIONS ===================', []).
+                    '\n =================== END CONCLUSIONS ===================', []).
 print_Conclusions([First|Rest]) :-
     ansi_format([bold,fg(yellow)],'\n => ~w', [First]),
     print_Conclusions(Rest). 
@@ -35,8 +35,8 @@ print_Conclusions([First|Rest]) :-
 %%%% without syntax verification ----
 %read_Value([First|Rest], Value) :-
 read_Value( Value ) :-
-    ansi_format([bold,fg(red)],'\n Experimental Reading ... must be improved', []),
-    format("\n EXACTLY as written ABOVE =>  "),
+    ansi_format([bold,fg(red)],'\n Experimental readings ... must be improved in the', []),
+    format("\n TYPE EXACTLY as written ABOVE and Enter (^) =>  "),
     read_line_to_codes(user_input, VarCodes), %%% read and jump line
     atom_codes(Value, VarCodes).
 
