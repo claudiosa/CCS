@@ -10,7 +10,7 @@
 		<string>picat</string>
 	</array>
 	<key>name</key>
-	<string>Picat</string>
+	<string>PICAT</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -291,7 +291,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(findall|printf|write|nl|writeln|fail|false|import|use_module|module)\b</string>
+					<string>\b(op|findall|write|nl|writeln|fail|true|false|use_module|module|foreach|printf|do|while|end|if|then|else|elseif|table|import|private|mode|rem|div|in|array|new_array|index)\b</string>
 					<key>name</key>
 					<string>keyword.other</string>
 				</dict>
