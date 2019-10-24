@@ -1,16 +1,17 @@
-# Picat syntax highlighting for Sublime Text 3 #
-# This Picat with a highlighting syntax is for Sublime Text 3
-# Without ANY warranty of this process and files configuration
+# The Picat with a highlighting syntax for Sublime Text 3
+# Please, without ANY warranty of this process and files configuration
 # I did it based in the Prolog package for Sublime
 
-1. Copy the directory: https://github.com/claudiosa/CCS/blob/master/picat/sublime-text-3/Picat/
-Use a wget to do it ...
-For example wget -????? sublimepicat.tar.gz https://....
-In Picat/ contains  all the configuration for Picat's syntax (I am still working on it)
+1. From https://github.com/claudiosa/CCS/blob/master/picat/sublime-text-3/
+   Copy the directory  Picat/...
+   In the directory Picat/... contains   all the configuration for Picat's syntax (I am still working on it)
 
-2. Copy only this directory Picat/ in ~/.config/sublime-text-3/Packages/
+2. Copy ALL this directory Picat/ in ~/.config/sublime-text-3/Packages/
 
-3. Re-starts, if it is the case, the Sublime 
+3. Re-starts the Sublime, if it is the case, the Sublime 
+
+4. Confirm the manual installation is OK, by the options in Sublime:  View -> Syntax -> ...
+   the PICAT syntax is one option.
 
 OLD method for installation:
 
@@ -29,7 +30,6 @@ where is all the configuration for Picat's syntax (I am working on it)
 ANY IMPROVEMENTS are wellcome 
 
 Claudio Sá -- ccs1664@gmail.com
-
 
 #############################################################################
 #### ALMOST ORIGINAL
