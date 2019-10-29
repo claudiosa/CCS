@@ -3,14 +3,14 @@
 
 par int: size = 3; %%% new versions of Minizinc
 
-enum Letters = {a,b,c,d,e};
+enum Letters = {a, b, c, d, e};
 enum Some_Num = { '77' , '88' , '99' } ;
 
 %%var set of Letters: var_X;
 
 array[1..size] of var Letters: var_X; %%% one array withe size fixed
 
-%array[1]  of set_1: var_Y; %%% one array withe size fixed
+array[1]  of set_1: var_Y; %%% one array withe size fixed
 
 var set of Letters : set_1; %%% VARIABLE size
 var set of Some_Num : set_2; %%% VARIABLE size
@@ -48,8 +48,8 @@ output[
 %       "\n X_letters: "++show(var_X)++
        "\n set_1: "++show(set_1) ++
         "\n set_2: "++show(set_2) 
-       %%++
- %      "\n var_Y: "++show(var_Y)
+  %     ++
+  %     "\n var_Y: "++show(var_Y)
        ];
 
 
