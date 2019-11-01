@@ -1,0 +1,24 @@
+Haskell - Erratas
+
+Página - 23
+Na Figura 1.1, no lado do domínio, troque o número 3 por 8.
+
+Página - 40
+era: soma(n-1)+1 : n>1	
+Substituir o +1 por +n.
+
+Página - 125
+-	No texto a referência correta é sobre a Tabela 8.1, e não 8.3 (cuja tabela não existe. Vou ver porquê o LaTeX fez isto!)
+
+Página - 154
+-	Na função filtrar, onde aparece filtrar f xs , é apenas filtrar f x Ou troque todos os x por xs. O x é a cauda da lista (a:x) Na última linha: filtrar_2 f lista = [ a | a <- lista, f a] ou filtrar_2 f lista = [ a | a <- lista, (f a) = True]
+
+Página - 167
+-	A função imp_cavalo2 poderia ser ainda reescrita como: 
+       imp_cavalo_3 x = putStr (uma_soh_lista (mapear (concatena " " ) x )) ou ainda como: imp_cavalo_4 = putStr . uma_soh_lista . mapear (concatena " ") onde a função ma_soh_lista é definida por: uma_soh_lista xs = foldr (++) [] xs
+
+Página - 180
+-	Na Tabela 10.2, na 3a. linha e 3a. coluna, troque Float por Bool.
+
+Página - 220
+-	O nome físico do arquivo que será importado deve ser o mesmo nome do módulo definido pelo usuário. Assim, no trecho um nome qualquer desta página, leia-se: o mesmo nome do módulo e de seu respectivo arquivo.
