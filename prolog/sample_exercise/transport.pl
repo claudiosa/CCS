@@ -21,8 +21,8 @@ travel(From, To) :-
         trip(From, To, Dist),
         format("\n From => ~w \t To => ~w \t Cost: ~d", [From, To, Dist]). 
 
-direct(X,Y,D) :-  boat(X,Y,D) ;  
-                  bus(X,Y,D) ;
+direct(X,Y,D) :-  boat(X,Y,D)  ;  
+                  bus(X,Y,D)   ;
                   train(X,Y,D) ;
                   plane(X,Y,D) .
 
