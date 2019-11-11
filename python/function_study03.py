@@ -9,41 +9,42 @@ def fib_01 (n):
     print () ## jump line ....
     return 
 
-#### NOT OK yet
+#### 
 def fib_02 (n):
     a = 0
     b = 1
-    fib = a
-    while (fib < n):
-    	print(fib, end = '->')
-#    	print(b, end = '->')
-    	fib = a + b
-    	a = b
-    	b = fib     
+    print(a, end = '->')
+    while (b < n):
+    	previous = a
+    	a = b ## update a ... AS FIB
+    	b = a + previous   
+    	print(a, end = '->')
     print () ## jump line ....
     return 
-#### NOT OK yet
+####  OK now
 def fib_03 (n):
-	if (n < 2 ):
-		return (n)
+	if(n == 0):
+		return (0)
+	if(n == 1):
+		return (1)
+	
 	return ( fib_03 (n-2) + fib_03 (n-1) )
 
-'''
-  for (int k = 1; k < n; k++)
-				  {	
-					int t;
-					t = i + j;
-					i = j;
-					j = t;
-				  }
+### function as parameter ....
+def n_calls(n, function):
+    while (n >= 0):
+        print ('This function in: ', n, ' \tis: ', function(n) )
+        n = n - 1 
+    return 
 
-'''
+
 def main_X ():
     print (" \t ==> STARTING the MAIN <==")
     #print ('fatorial: ')  ,  print( fatorial(3) )
     fib_01(40)
     fib_02(40)
-    print('\n recursive : ' , fib_03(4) )
+    print('\n RECURSIVE : ' , fib_03(6) )
+    n_calls(10,fib_03)
     python_is ()
     print (" \t ==> END OF MAIN <==")
 
