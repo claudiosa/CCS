@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+
+%The fix is to use "longtable" instead of "deluxetable". To do this, you need to add a "\usepackage{longtable}" into the document preamble. 
+
+\usepackage{longtable}
+\begin{document}
+
+
+
+\begin{center}
+	\begin{longtable}{lll}
+		%Here is the caption, the stuff in [] is the table of contents entry,
+		%the stuff in {} is the title that will appear on the first page of the
+		%table.
+		\caption[Feasible triples for a highly variable Grid]{Feasible triples
+			for highly variable Grid, MLMMH.}
+		\label{grid_mlmmh} \\
+		
+		%This is the header for the first page of the table...
+		\hline \hline \\[2ex]
+		\multicolumn{1}{c}{\textbf{Time (s)}} &
+		\multicolumn{1}{c}{\textbf{Triple chosen}} &
+		\multicolumn{1}{c}{\textbf{Other feasible triples}} \\[0.5ex] \hline
+		\\[-1.8ex]
+		\endfirsthead
+		
+		%This is the header for the remaining page(s) of the table...
+		\multicolumn{3}{c}{{\tablename} \thetable{} -- Continued} \\[0.5ex]
+		\hline \hline \\[-2ex]
+		\multicolumn{1}{c}{\textbf{Time (s)}} &
+		\multicolumn{1}{c}{\textbf{Triple chosen}} &
+		\multicolumn{1}{c}{\textbf{Other feasible triples}} \\[0.5ex] \hline
+		\\[-1.8ex]
+		\endhead
+		
+		%This is the footer for all pages except the last page of the table...
+		\multicolumn{3}{l}{{Continued on Next Page\ldots}} \\
+		\endfoot
+		
+		%This is the footer for the last page of the table...
+		\\[-1.8ex] \hline \hline
+		\endlastfoot
+		
+		%Now the data...
+		0      & (1, 11, 13725) & (1, 12, 10980), (1, 13, 8235), (2, 2, 0), (3, 1, 0) \\
+		2745   & (1, 12, 10980) & (1, 13, 8235), (2, 2, 0), (2, 3, 0), (3, 1, 0) \\
+		5490   & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+		8235   & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+		% <data removed>
+		164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+	\end{longtable}
+\end{center}
+
+THE end...
+
+\end{document}

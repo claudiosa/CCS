@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{placeins}
+%\usepackage[options]{}
+\begin{document}
+\begin{figure}[!h]
+\centering	
+\includegraphics[width=60mm, height=60mm]{portrait_leonardo.jpg}
+%{/home/ccs/Downloads/freelance_temp/portrait_leonardo.jpg}
+
+\caption{testing}
+\end{figure}
+
+
+\begin{minipage}[t]{0.4\linewidth}
+	TEST 01
+	\vspace{\baselineskip}
+	%% \DTMdate{$info.birthday$}\\
+	%% $info.nationality$\\
+	%% $info.maritalStatus$\\
+\end{minipage}
+% COLUMN 2
+\begin{minipage}[t]{0.4\linewidth}
+	\vspace{.63cm}
+	TEST 02
+	\hspace{\fill}
+\end{minipage}
+% COLUMN 3
+\begin{minipage}[t]{0.2\linewidth}
+	\vspace{-1.4cm}
+	\begin{flushright}
+		%\begin{tikzpicture}
+		%\node[circle,inner sep=1.15cm,fill overzoom image=\photo] (A) {}; 
+		%\end{tikzpicture}
+		\includegraphics[width=10mm, height=10mm]{portrait_leonardo.jpg}
+	\end{flushright}
+\end{minipage}
+
+\end{document}
