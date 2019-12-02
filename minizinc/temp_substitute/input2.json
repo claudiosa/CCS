@@ -1,0 +1,58 @@
+{
+  "substitutes": [
+    {
+      "id": 1,
+      "unavailabilities": []
+    },
+    {
+      "id": 2,
+      "unavailabilities": [
+        {
+          "starts_at": 540,
+          "ends_at": 600
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "unavailabilities": [
+        {
+          "starts_at": 480,
+          "ends_at": 540
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "starts_at": 480,
+      "ends_at": 540
+    },
+    {
+      "id": 2,
+      "starts_at": 480,
+      "ends_at": 540
+    },
+    {
+      "id": 3,
+      "starts_at": 540,
+      "ends_at": 600
+    },
+    {
+      "id": 4,
+      "starts_at": 540,
+      "ends_at": 600
+    },
+    {
+      "id": 5,
+      "starts_at": 600,
+      "ends_at": 660
+    },
+    {
+      "id": 6,
+      "starts_at": 720,
+      "ends_at": 780
+    }
+  ]
+}
