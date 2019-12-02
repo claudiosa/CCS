@@ -24,8 +24,11 @@ constraint
           
        ( time_table[i] = j ) <->    
         (
-         (lessons[i,1] >= unavailabilities[j,2])
+         ( 
+% the start lesson is AFTER of  the end unavailability time
+           lessons[i,1] >= unavailabilities[j,2])
           \/
+% the end lesson is BEFORE  of  the start unavailability time
          (lessons[i,2] <= unavailabilities[j,1])
         )  
        ) 
@@ -33,7 +36,8 @@ constraint
 
 
 constraint
- forall ( i, j in Lessons where i < j)
+ exists ( i, j in Lessons where i < j)
+% forall ( i, j in Lessons where i < j)
   (
    ( time_table[i] = time_table[j] )   <->   
      no_overlap_lessons(lessons[i,1], lessons[i,2],

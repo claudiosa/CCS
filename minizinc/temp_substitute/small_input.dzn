@@ -1,0 +1,17 @@
+
+n_substitutes = 2;
+n_lessons = 4;
+
+unavailabilities =
+%%%%   Start , End
+    [| 540, 600,
+     | 480, 540
+    |];
+
+lessons = 
+%%%%  Start , End
+    [| 540 , 600 ,  %% 2
+     | 600 , 660 ,  %% 1, 2
+     | 350 , 490    %% 1, 2
+     | 545 , 590    %% 1, 2  
+    |];
