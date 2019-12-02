@@ -8,6 +8,7 @@
 
 */
 include "globals.mzn"; 
+
 set of int: Timeslots = 1..8; %%% 1..4 -- MORNING .... 5..8 : AFTERNON
 set of int: Teachers = 1..3; 
 
