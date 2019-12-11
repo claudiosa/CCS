@@ -13,8 +13,8 @@ array [Substitutes,1..2] of int: unavailabilities;
 array [Lessons,1..2] of int: lessons ;
 
 %%% VAR : time-table ... which substitute in which lesson
-array[ Lessons ] of var Substitutes : time_table ;
-
+array[ Lessons ] of var Substitutes : schedule_profs ;
+var int:   Num_Subs;
 
 constraint
     forall ( i in Lessons )
@@ -22,7 +22,7 @@ constraint
      exists ( j in Substitutes )
       (
           
-       ( time_table[i] = j ) <->    
+       ( schedule_profs[i] = j ) <->    
         (
          ( 
 % the start lesson is AFTER of  the end unavailability time
@@ -39,10 +39,16 @@ constraint
  exists ( i, j in Lessons where i < j)
 % forall ( i, j in Lessons where i < j)
   (
-   ( time_table[i] = time_table[j] )   <->   
+   ( schedule_profs[i] = schedule_profs[j] )   <->   
      no_overlap_lessons(lessons[i,1], lessons[i,2],
-                      lessons[j,1], lessons[j,2])
+                        lessons[j,1], lessons[j,2])
   );
+
+
+constraint
+   Num_Subs = nvalue(schedule_profs);
+%%%function var int: nvalue(array [int] of var int: x)
+%% return Returns the number of distinct values in x .
 
 
 % no overlapping slots function
@@ -51,6 +57,13 @@ predicate  no_overlap_lessons(int: start_1, int: end_1, int: start_2, int: end_2
   (end_1 <= start_2) \/ (end_2  <= start_1);
 
 
+%%%%%%%%%%%%%% ALL PAR due DATA par
+function par int: get_Hour_time(par int: time   )
+                  = time div 60 ;
+
+
+function par int: get_Min_time( par int: time )
+                  = time - 60 * get_Hour_time (time) ;
 
 /*
 constraint forall(s1, s2 in SQUARE where s1 < s2)
@@ -60,10 +73,18 @@ constraint forall(s1, s2 in SQUARE where s1 < s2)
                   y[s2] + s2 <= y[s1]);
 
 */
-solve satisfy;
-
+%solve satisfy;
+%solve maximize  Num_Subs;
+ solve minimize  Num_Subs;
 
 output [ show(unavailabilities) ++ "\n"++
          show(lessons) ++ "\n"++
-         show(time_table)
+         show(schedule_profs)++ "\n Number of Substitutes: "++
+         show( Num_Subs)++ "\n"++            
+         "\n START Hour:" ++
+         show(get_Hour_time(lessons[4,1]))++"\t Min:"++                 
+         show( get_Min_time(lessons[4,1]))
+         ++"\n END Hour:"++
+         show(get_Hour_time(lessons[4,2]))++"\t Min:"++                 
+         show( get_Min_time(lessons[4,2]))
        ] ;
