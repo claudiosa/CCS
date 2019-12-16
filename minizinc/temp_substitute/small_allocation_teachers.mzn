@@ -36,12 +36,20 @@ constraint
 
 
 constraint
- exists ( i, j in Lessons where i < j)
-% forall ( i, j in Lessons where i < j)
+ forall ( i, j in Lessons where i < j)
   (
-   ( schedule_profs[i] = schedule_profs[j] )   <->   
-     no_overlap_lessons(lessons[i,1], lessons[i,2],
-                        lessons[j,1], lessons[j,2])
+  (no_overlap_lessons(lessons[i,1], lessons[i,2],
+                     lessons[j,1], lessons[j,2]) == false
+  )  %%% if some overlaped lesson == true ... ===> VIOLATION
+  
+                                    
+%  (overlap_lessons(lessons[i,1], lessons[i,2],
+%                   lessons[j,1], lessons[j,2]) == true)
+%% it does not works yet ....
+
+    ->                    
+   ( schedule_profs[i] != schedule_profs[j] )   
+   %%% true if some lesson is overlaped
   );
 
 
@@ -53,8 +61,19 @@ constraint
 
 % no overlapping slots function
 predicate  no_overlap_lessons(int: start_1, int: end_1, int: start_2, int: end_2) = 
+   ((end_1 <= start_2) \/ (end_2  <= start_1))
+  ;
 
-  (end_1 <= start_2) \/ (end_2  <= start_1);
+
+predicate  overlap_lessons(int: start_1, int: end_1, int: start_2, int: end_2) = 
+  (
+   ((end_1 <= start_2) == true)
+   \/ 
+   ((end_2  <= start_1) == true)
+  ) 
+   %%% some of shifts time were violated
+  ;
+
 
 
 %%%%%%%%%%%%%% ALL PAR due DATA par
@@ -65,17 +84,11 @@ function par int: get_Hour_time(par int: time   )
 function par int: get_Min_time( par int: time )
                   = time - 60 * get_Hour_time (time) ;
 
-/*
-constraint forall(s1, s2 in SQUARE where s1 < s2)
-                 (x[s1] + s1 <= x[s2] \/
-                  x[s2] + s2 <= x[s1] \/  
-                  y[s1] + s1 <= y[s2] \/ 
-                  y[s2] + s2 <= y[s1]);
 
-*/
-%solve satisfy;
+%%%% all the optimization possible  
+ solve satisfy;
 %solve maximize  Num_Subs;
- solve minimize  Num_Subs;
+% solve minimize  Num_Subs;
 
 output [ show(unavailabilities) ++ "\n"++
          show(lessons) ++ "\n"++
