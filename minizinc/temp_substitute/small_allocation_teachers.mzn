@@ -86,9 +86,9 @@ function par int: get_Min_time( par int: time )
 
 
 %%%% all the optimization possible  
- solve satisfy;
+% solve satisfy;
 %solve maximize  Num_Subs;
-% solve minimize  Num_Subs;
+ solve minimize  Num_Subs;
 
 output [ show(unavailabilities) ++ "\n"++
          show(lessons) ++ "\n"++
