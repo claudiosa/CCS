@@ -26,17 +26,17 @@ def channeling_example():
   # constraints
   #
   ### Erro aqui ....
-  '''
-  model.Add((x + 2 >= 5).OnlyEnforceIf( vetor_BOOL[0] ) )
-  model.Add((x  >= y).OnlyEnforceIf( vetor_BOOL[1] ) )
-  model.Add((z  < y).OnlyEnforceIf (vetor_BOOL[2] ) )
-  '''
-  model.Add((vetor_BOOL[0] or vetor_BOOL[0] or vetor_BOOL[0]) == True)
+  ### x >= 5 then vetor_Bool[0] <- true
+  model.Add(x >= 5).OnlyEnforceIf( vetor_BOOL[0] ) 
+  model.Add(8 >= y).OnlyEnforceIf( vetor_BOOL[1] ) 
+  model.Add(z > 7).OnlyEnforceIf ( vetor_BOOL[2] ) 
+  
+  model.Add((vetor_BOOL[0] and vetor_BOOL[0] and vetor_BOOL[0]) == True)
   
   #
   # search and result
   #
-   # Create a solver and solve with a fixed search.
+  # Create a solver and solve with a fixed search.
   solver = cp_model.CpSolver()
   solver.parameters.max_time_in_seconds = 10.0
   status = solver.Solve(model)
@@ -46,24 +46,14 @@ def channeling_example():
   print('y = %i' % solver.Value(y))
   print('z = %i' % solver.Value(z))
   print('V = %i' % solver.Value(vetor_BOOL))
-
-''' 
-  num_solutions = 0
-
-  while solver.NextSolution():
-    num_solutions += 1
-    print('vetor_BOOL:', [vetor_BOOL[i].Value() for i in range(n)])
-
-## solver.EndSearch()
-  
+  ##print('vetor_BOOL:', [vetor_BOOL[i] for i in range(n)])
+  print('vetor_BOOL:', [solver.Value(vetor_BOOL[i]) for i in range(n)])
+  #print('vetor_BOOL:', [solver.BoolValue(vetor_BOOL[i]) for i in range(n)])
   print('\n\n** Statistics **')
-  print('num_solutions:', num_solutions)
-  print('failures:', solver.Failures())
-  print('branches:', solver.Branches())
-  print('WallTime:', solver.WallTime(), 'ms')
-  # print(f'  - branches        : {solver.NumBranches()}')
-  # print(f'  - wall time       : {solver.WallTime()} s')
-'''
+  print('  - conflicts : %i' % solver.NumConflicts())
+  print('  - branches  : %i' % solver.NumBranches())
+  print('  - wall time : %f s' % solver.WallTime())
+  
 
 if __name__ == '__main__':
   channeling_example()
