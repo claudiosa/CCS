@@ -20,5 +20,6 @@ print('Minutos: ', minutos)
 
 print('Em minutos ...:', convert_timestamp_MINUTES(dt_object) )
 print('Exemplo 02 minutos ...:', convert_timestamp_MINUTES( datetime.fromtimestamp(1574556698) ))
-
+data_2 = datetime.fromtimestamp(1574556698) 
+print('Time_2: ', data_2)
 
