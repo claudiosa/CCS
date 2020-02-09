@@ -1,0 +1,55 @@
+%%% by CCS -- to linux system
+
+main ?=> 
+	menu.
+main => printf("\n HOUSTON ... Something Wrong !!!").
+
+%%% SEMPRE VERDADE ... o predicado abaixo NUNCA falha
+repita ?=>  true.
+repita => repita.
+
+menu ?=>
+    repita,
+    %%% pode ser incluido a limpeza de TELA AQUI ....
+    Status = command("clear") ,
+%	  printf("====================================== %d\n", Status),
+    show_options,
+    Opcao_INT = read_int(),
+    Opcao_INT > 0,
+    Opcao_INT < 8,
+    opcao(Opcao_INT),
+    false
+    .
+     
+menu => 
+    printf("\n ALGO ERRADO nas opcoes ou na leitura ... \n NUNCA esta mensagem deve aparecer!").
+
+
+show_options =>
+    printf("======================================"),
+    printf("\n 1 - Suspender o computador"),
+    printf("\n 2 - Hibernar o computador"),
+    printf("\n 3 - Desligar o computador"),
+    printf("\n 4 - Reinicializar o computador"),
+    printf("\n 7 - Sair deste programa"),
+    printf("\n Digite uma das opções: ") .
+
+
+/************ AS OPCOES ***************/
+opcao(7) => write('.......SAINDO.........'), 
+            nl, 
+            halt. %% exit
+opcao(1) => Status = command("systemctl suspend") ,
+	printf("====================================== %d\n", Status).
+opcao(2) => Status = command("systemctl hibernate") ,
+	printf("====================================== %d\n", Status).
+opcao(3) => Status = command("systemctl halt") ,
+	printf("====================================== %d\n", Status).
+opcao(4) => Status = command("systemctl reboot") ,
+	printf("====================================== %d\n", Status).
+
+opcao(5) => Status = command("ls") ,
+	printf("====================================== %d\n", Status),
+  Status2 = command("pause") .
+
+/* Muitos detalhes sobre recursao neste exemplo */
