@@ -83,7 +83,7 @@ def model_war_cable():
 
 def my_print_VARS( weight, V_DEC, weight_A, weight_B, less_DIF, solver_OUT  ):
 
-        print('MIN = %i' % solver_OUT.Value(less_DIF))
+        print('Difference : %i' % solver_OUT.Value(less_DIF))
 
         print(f'weight_A:%i || weight_B:%i ' 
             % ( 
@@ -93,12 +93,13 @@ def my_print_VARS( weight, V_DEC, weight_A, weight_B, less_DIF, solver_OUT  ):
         
         for index in range(len(weight)): 
             if (solver_OUT.Value(V_DEC[index]) == 0):
-                print(f'A: V[%i] : %i ' % (index, solver_OUT.Value(weight[index]) ))
+                print(f'A: V[%i] : %i ==> A' % (index, solver_OUT.Value(weight[index]) ) )
             else:
-                print(f'B: V[%i] : %i ' % (index, solver_OUT.Value(weight[index]) ))
+                print(f'B: V[%i] : %i ==> B' % (index, solver_OUT.Value(weight[index]) ) )
 
+        print("\nDecision Vector is given  by: ")     
         for index in range(len(weight)): 
-            print(f'Decision by B[%i] : %i ' % (index, solver_OUT.Value(V_DEC[index]) ), end =  '')            
+            print(f'V[%i]:%i || ' % (index, solver_OUT.Value(V_DEC[index]) ), end =  '')            
 
         print('\n\n** Final Statistics **')
         print('  - conflicts : %i' % solver_OUT.NumConflicts())
