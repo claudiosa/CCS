@@ -1,51 +1,67 @@
 #### BY CCS to studies
 
 '''
-swing's problem -- war cable
+Problem Formulation 
+
+Powerco has three electric power plants that supply the needs of four cities.† Each power plant can supply the following numbers of kilowatt-hours (kwh) of electricity: plant 1—35 million; plant 2—50 million; plant 3—40 million (see Table 1). The peak power demands in these cities, which occur at the same time (2 P.M.), are as follows (in kwh): city 1—45 million; city 2—20 million; city 3—30 million; city 4—30 million. The costs of sending 1 million kwh of electricity from plant to city depend on the distance the electricity must travel. Formulate an LP to minimize the cost of meeting each city’s peak power demand.
+
+
+Solution: To formulate Powerco’s problem as
+ an LP, we begin by defining a variable for each decision 
+ that Powerco must make. Because Powerco must determine 
+ how much power is sent from each plant to each city,
+  we define (for i  1, 2, 3 and j  1, 2, 3, 4)
+
+xij:  number of (million) kwh produced at plant i and 
+sent to city j
+
+ http://www.producao.ufrgs.br/arquivos/disciplinas/382_winston_cap_7_transportation.pdf
 
 '''
 
 ###VERY VERY IMPORTANT
 from ortools.sat.python import cp_model
 
-## learning Python
-def half(N) :
-    return ( N // 2) ### integer DIV 
 
 # model_most_money
-def model_war_cable():
-    t = 'model__war_cable'###
+def model_powereco_plant():
+    t = 'model_powereco_plant'###
     ## creating a model
     the_model = cp_model.CpModel()
 
     # DATA ---
-    weight = [ 77, 97, 120, 45, 57, 96, 100, 59 ]
-    size = len (weight) ## learning Python
-    midle = half (size) ## learning Python
-    weight_TOTAL = sum(weight) ## learning Python
+    C1 = 35 ### Capacity of a supplier ... 1 up to 3
+    C2 = 50
+    C3 = 40
+    suppliers = 3
+    cities = 4
+    
+    
     ### should be come from a file
     
     #### VARIABLES
     ## ANOTHER IDEA AROUND THIS
-    #side_A = [the_model.NewIntVar(0, max(weight), 'x[%i]' % i) for i in range(midle)]
+    x = [the_model.NewIntVar(0, C1, 'x[1][%j]' % j) for j in range(cities) ,
+         the_model.NewIntVar(0, C2, 'x[2][%j]' % j) for j in range(cities) ,
+         the_model.NewIntVar(0, C3, 'x[3][%j]' % j) for j in range(cities) ]
+        ]
     #side_B = [the_model.NewIntVar(0, max(weight), 'x[%i]' % i) for i in range(size - midle)]
     
-    # Vars about the weight in A and B
-    weight_A = the_model.NewIntVar(0, weight_TOTAL, 'Weight in A side')
-    weight_B = the_model.NewIntVar(0, weight_TOTAL, 'Weight in B side')
-    ### to be used in ABS constraint
-    temp_AUX = the_model.NewIntVar(-weight_TOTAL, weight_TOTAL, 'temporary')
+    # 
+    cost = the_model.NewIntVar(0, 999999, 'cost function')
+
+
+    
 
     # Binary Decision Vector : 0/1
-    V_DEC =  [the_model.NewIntVar(0, 1, 'v[%i]' % i) for i in range(size)]
-    less_DIF = the_model.NewIntVar(0, max(weight), 'DIFF')
-   
-    # CONSTRAINTS ADDED of the problem
     
-    ## Select ONE SIDE ...in this case side B -- my choice
-    # A = midle
-    # B = size - midle
-    ### THE MOST important constraint ... only (size-midle) with 1  will be selected
+    # CONSTRAINTS ADDED of the problem
+
+    ####x11 + x12 + x13 + x14 <= C1; %(Plant 1 supply constraint)
+    for j in range(cities):
+        the_model.Add(sum(matrixV_DEC[i]         
+
+
     the_model.Add((size-midle) == sum(V_DEC[i] for i in range(size) )  )
 
     ### due some 1's are selected ... how much we have in B 
