@@ -22,10 +22,9 @@ sent to city j
 ###VERY VERY IMPORTANT
 from ortools.sat.python import cp_model
 
-
 # model_most_money
 def model_powereco_plant():
-    t = 'model_powereco_plant'###
+    t = 'model_powereco_plant'  ### onde usar isto ....
     ## creating a model
     the_model = cp_model.CpModel()
 
@@ -33,56 +32,74 @@ def model_powereco_plant():
     C1 = 35 ### Capacity of a supplier ... 1 up to 3
     C2 = 50
     C3 = 40
-    suppliers = 3
-    cities = 4
-    
-    
+    suppliers = 3 ### discard 0 index so 3
+    cities = 4   ### discard 0 index so 4
+    '''
+    custo =  
+    8*x11 +  6*x12 + 10*x13 + 9*x14 +
+    9*x21 +  12*x22 + 13*x23 + 7*x24+
+    14*x31 + 9*x32 + 16*x33 + 5*x34;
+    '''
+    ## transmission cost between suppliers (i) and cities (j)
+    cost = [ 
+            [8,  6,  10, 9],
+            [9,  12, 13, 7],
+            [14, 9,  16, 5]
+           ]
+
     ### should be come from a file
     
     #### VARIABLES
-    ## ANOTHER IDEA AROUND THIS
-    x = [the_model.NewIntVar(0, C1, 'x[1][%j]' % j) for j in range(cities) ,
-         the_model.NewIntVar(0, C2, 'x[2][%j]' % j) for j in range(cities) ,
-         the_model.NewIntVar(0, C3, 'x[3][%j]' % j) for j in range(cities) ]
+    ## ANOTHER IDEA AROUND THIS --- how much is going from i to j?
+    ### Example x=[[s.NumVar(0,C[i][j],'')for j in range(n)]for i in range(n)
+    x = [
+         [the_model.NewIntVar(0, C1, 'x[0][%i]' %i) for i in range(cities)] ,
+         [the_model.NewIntVar(0, C2, 'x[1][%i]' %i) for i in range(cities)] ,
+         [the_model.NewIntVar(0, C3, 'x[2][%i]' %i) for i in range(cities)] 
         ]
-    #side_B = [the_model.NewIntVar(0, max(weight), 'x[%i]' % i) for i in range(size - midle)]
-    
+    ### range(start, range ) --- start in specific index   
+    ### index accept ... only "i" .... WHY ....
     # 
-    cost = the_model.NewIntVar(0, 999999, 'cost function')
-
-
-    
-
-    # Binary Decision Vector : 0/1
+    f_objective = the_model.NewIntVar (0, 999999, 'cost function')
     
     # CONSTRAINTS ADDED of the problem
 
     ####x11 + x12 + x13 + x14 <= C1; %(Plant 1 supply constraint)
-    for j in range(cities):
-        the_model.Add(sum(matrixV_DEC[i]         
+    ## C capacity of each Suppliers
+    the_model.Add(sum(x[0][j] for j in range(cities)) <= C1)         
+    the_model.Add(sum(x[1][j] for j in range(cities)) <= C2)
+    the_model.Add(sum(x[2][j] for j in range(cities)) <= C3)
 
+    '''
+      x11 + x21 + x31 >= 45    /\
+      x12 + x22 + x32 >= 20    /\
+      x13 + x23 + x33 >= 30    /\ 
+      x14 + x24 + x34 >= 30     ;
+      >>> for i in range(1,4):    print(i)  ## learning Python
+        ... 
+        1
+        2
+        3
+    '''
+    ### Demand of each city 1..4 .... from these suppliers
+    the_model.Add(sum(x[i][0] for i in range(suppliers)) >= 45)  
+    the_model.Add(sum(x[i][1] for i in range(suppliers)) >= 20)  
+    the_model.Add(sum(x[i][2] for i in range(suppliers)) >= 30)
+    the_model.Add(sum(x[i][3] for i in range(suppliers)) >= 30)
 
-    the_model.Add((size-midle) == sum(V_DEC[i] for i in range(size) )  )
-
-    ### due some 1's are selected ... how much we have in B 
-    the_model.Add(weight_B == sum((weight[i] * V_DEC[i]) for i in range(size) )      )
-    
-    ## Obviously that weight A is ...
-    the_model.Add(weight_A == (weight_TOTAL - weight_B) )
-
-  
-    ### to use a ABS constraint about an absolut difference
-    the_model.Add(temp_AUX == (weight_A - weight_B))
-    ## Reading in OR-TOOLS manual
-    ### AddAbsEquality(x, y) --> x = abs(y)
-    the_model.AddAbsEquality(less_DIF, temp_AUX)
-    # NOT ALLOWED ...     
-    #the_model.AddAbsEquality(less_DIF , (weight_A - weight_B))
+    ### Objective Function
+    the_model.Add(
+        f_objective == sum(
+            (cost[i][j] * x[i][j]) \
+            for i in range(suppliers) \
+            for j in  range(cities)
+            )### of sum 
+        )## of Add
     
 
     ### optmization  function or objective function 
     # OR:  the_model.Maximize(-less_DIF) 
-    the_model.Minimize(less_DIF)
+    the_model.Minimize(f_objective)
 
     ### data_from_model = call the solver for model s
     # code calls the solver
@@ -93,7 +110,7 @@ def model_powereco_plant():
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
         raise ValueError("No solution was found for the given input values")
     else :
-        my_print_VARS( weight, V_DEC, weight_A, weight_B, less_DIF, solver_OUT )
+        my_print_VARS( x , suppliers, cities,  f_objective, solver_OUT )
         print("\n END SOLVER and Model ")
         print_t(40)
 
@@ -102,34 +119,23 @@ def model_powereco_plant():
 
 ### PRINTING FUNCTION
 ## learning Python
-def my_print_VARS( weight, V_DEC, weight_A, weight_B, less_DIF, solver_OUT  ):
+def my_print_VARS( x, m, n, f_objective, solver_OUT  ):
 
-        print('Difference abs(A-B) : %i' % solver_OUT.Value(less_DIF))
-
-        print(f'weight_A:%i || weight_B:%i ' 
-            % ( 
-                solver_OUT.Value(weight_A), 
-                solver_OUT.Value(weight_B),
-            ) ),
+    print('Min sum of x : %i' % solver_OUT.Value(f_objective))
+    
+    print("\n  ================= Matrix X =================")
+    for i in range(m): 
+        for j in range(n): 
+            print(f' x[%i][%i] : %i\t' % (i+1, j+1, solver_OUT.Value( x[i][j] ) ), end =  '' )
+        print("\n ======================")
+## learning Python            
         
-        for index in range(len(weight)): 
-            if (solver_OUT.Value(V_DEC[index]) == 0):
-                print(f'A: V[%i] : %i ==> A' % (index, solver_OUT.Value(weight[index]) ) )
-            else:
-                print(f'B: V[%i] : %i ==> B' % (index, solver_OUT.Value(weight[index]) ) )
-
-        print("\nDecision Vector is given  by: ")   
-        print('V_DEC  by: ', V_DEC)   
-        ###print('V_DEC  by: ', solver_OUT.Value(V_DEC) ) ## Not works
-        for index in range(len(weight)): 
-            print(f'V[%i]:%i || ' % (index, solver_OUT.Value(V_DEC[index]) ), end =  '')            
-
-        print('\n\n** Final Statistics **')
-        print('  - conflicts : %i' % solver_OUT.NumConflicts())
-        print('  - branches  : %i' % solver_OUT.NumBranches())
-        print('  - wall time : %f s' % solver_OUT.WallTime())
-        print("\n END PRINTING \n ===================================")
-        return ###### end function
+    print('\n\n** Final Statistics **')
+    print('  - conflicts : %i' % solver_OUT.NumConflicts())
+    print('  - branches  : %i' % solver_OUT.NumBranches())
+    print('  - wall time : %f s' % solver_OUT.WallTime())
+    print("\n END PRINTING \n ===================================")
+    return ###### end function
 
 #### print =================
 ## learning Python
@@ -141,12 +147,10 @@ def print_t(n):
     return
 
 if __name__ == '__main__':
-    print("\n=============== RESULTS ====================")
-    model_war_cable()
+    print("\n =============== RESULTS ====================")
+    model_powereco_plant()
     #print(f'\n END MAIN \n %s' % print_t(40))
     print(f'\n END MAIN ')
     print_t(40)
     # return ###### end function
-
-
-   
+ 
