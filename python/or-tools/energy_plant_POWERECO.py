@@ -1,10 +1,20 @@
 #### BY CCS to studies
-
 '''
 Problem Formulation 
 
-Powerco has three electric power plants that supply the needs of four cities.† Each power plant can supply the following numbers of kilowatt-hours (kwh) of electricity: plant 1—35 million; plant 2—50 million; plant 3—40 million (see Table 1). The peak power demands in these cities, which occur at the same time (2 P.M.), are as follows (in kwh): city 1—45 million; city 2—20 million; city 3—30 million; city 4—30 million. The costs of sending 1 million kwh of electricity from plant to city depend on the distance the electricity must travel. Formulate an LP to minimize the cost of meeting each city’s peak power demand.
-
+Powerco has three electric power plants that supply 
+the needs of four cities.† Each power plant can supply 
+the following numbers of kilowatt-hours (kwh) of electricity: 
+plant 1—35 million; plant 2—50 million; plant 3—40 million 
+(see Table 1). The peak power demands in these cities, 
+which occur at the same time (2 P.M.), are as follows 
+(in kwh): city 1—45 million; city 2—20 million; 
+city 3—30 million; city 4—30 million.
+ The costs of sending 1 million kwh 
+ of electricity from plant to city 
+ depend on the distance the electricity
+  must travel. Formulate an LP to minimize the cost of 
+  meeting each city’s peak power demand.
 
 Solution: To formulate Powerco’s problem as
  an LP, we begin by defining a variable for each decision 
@@ -24,7 +34,7 @@ from ortools.sat.python import cp_model
 
 # model_most_money
 def model_powereco_plant():
-    t = 'model_powereco_plant'  ### onde usar isto ....
+    t = 'model_powereco_plant'  ### onde usar isto ....????
     ## creating a model
     the_model = cp_model.CpModel()
 
@@ -32,23 +42,23 @@ def model_powereco_plant():
     C1 = 35 ### Capacity of a supplier ... 1 up to 3
     C2 = 50
     C3 = 40
-    suppliers = 3 ### discard 0 index so 3
-    cities = 4   ### discard 0 index so 4
+    suppliers = 3 ### index 0 up to 2
+    cities = 4   ### 0 .. 3 
     '''
     custo =  
     8*x11 +  6*x12 + 10*x13 + 9*x14 +
     9*x21 +  12*x22 + 13*x23 + 7*x24+
     14*x31 + 9*x32 + 16*x33 + 5*x34;
     '''
-    ## transmission cost between suppliers (i) and cities (j)
+    ## transmission cost between suppliers (i -- rows) and cities (j--cols)
     cost = [ 
             [8,  6,  10, 9],
             [9,  12, 13, 7],
             [14, 9,  16, 5]
            ]
 
-    ### should be come from a file
-    
+    ### Should be come from a file
+    NINE_NINE = 999999 ### a constant
     #### VARIABLES
     ## ANOTHER IDEA AROUND THIS --- how much is going from i to j?
     ### Example x=[[s.NumVar(0,C[i][j],'')for j in range(n)]for i in range(n)
@@ -58,12 +68,10 @@ def model_powereco_plant():
          [the_model.NewIntVar(0, C3, 'x[2][%i]' % INDEX_3) for INDEX_3 in range(cities)] 
         ]
     ### range(start, range ) --- start in specific index   
-    ### index accept ... only "i" .... WHY ....
     # 
-    f_objective = the_model.NewIntVar (0, 999999, 'cost function')
+    f_objective = the_model.NewIntVar (0, NINE_NINE, 'cost function')
     
-    # CONSTRAINTS ADDED of the problem
-
+    # CONSTRAINTS ADDED 
     ####x11 + x12 + x13 + x14 <= C1; %(Plant 1 supply constraint)
     ## C capacity of each Suppliers
     the_model.Add(sum(x[0][j] for j in range(cities)) <= C1)         
@@ -81,7 +89,7 @@ def model_powereco_plant():
         2
         3
     '''
-    ### Demand of each city 1..4 .... from these suppliers
+    ### Demand of each City 1..4 .... from these suppliers
     the_model.Add(sum(x[i][0] for i in range(suppliers)) >= 45)  
     the_model.Add(sum(x[i][1] for i in range(suppliers)) >= 20)  
     the_model.Add(sum(x[i][2] for i in range(suppliers)) >= 30)
