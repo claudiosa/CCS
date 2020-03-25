@@ -13,8 +13,8 @@ def half(N) :
     return ( N // 2) ### integer DIV 
 
 # model_most_money
-def model_war_cable():
-    t = 'model__war_cable'###
+def model_tug_of_war():
+    t = 'model__tug_of_war'###
     ## creating a model
     the_model = cp_model.CpModel()
 
@@ -126,7 +126,7 @@ def print_t(n):
 
 if __name__ == '__main__':
     print("\n=============== RESULTS ====================")
-    model_war_cable()
+    model_tug_of_war()
     #print(f'\n END MAIN \n %s' % print_t(40))
     print(f'\n END MAIN ')
     print_t(40)
