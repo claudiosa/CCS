@@ -53,9 +53,9 @@ def model_powereco_plant():
     ## ANOTHER IDEA AROUND THIS --- how much is going from i to j?
     ### Example x=[[s.NumVar(0,C[i][j],'')for j in range(n)]for i in range(n)
     x = [
-         [the_model.NewIntVar(0, C1, 'x[0][%i]' %i) for i in range(cities)] ,
-         [the_model.NewIntVar(0, C2, 'x[1][%i]' %i) for i in range(cities)] ,
-         [the_model.NewIntVar(0, C3, 'x[2][%i]' %i) for i in range(cities)] 
+         [the_model.NewIntVar(0, C1, 'x[0][%i]' % INDEX_1) for INDEX_1 in range(cities)] ,
+         [the_model.NewIntVar(0, C2, 'x[1][%i]' % INDEX_2) for INDEX_2 in range(cities)] ,
+         [the_model.NewIntVar(0, C3, 'x[2][%i]' % INDEX_3) for INDEX_3 in range(cities)] 
         ]
     ### range(start, range ) --- start in specific index   
     ### index accept ... only "i" .... WHY ....
