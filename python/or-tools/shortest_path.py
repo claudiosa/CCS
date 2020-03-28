@@ -5,19 +5,8 @@ Problem Formulation
 
 % Model from 
 % Taha "Introduction to Operations Research", page 245f .
+# Data from Hakan Kjellerstrand in MINIZINC
 
-
-Data from Hakan Kjellerstrand in MINIZINC
-n     = 15;  % number of nodes ( n x n matrix)
-start = 1;   % start node
-end   = 15;  % end node
-M     = 999; % large number
-
-% distance
-d =
-array2d(1..n, 1..n,
-[
-  M, 1,........
 '''
 
 ###VERY VERY IMPORTANT
@@ -30,13 +19,13 @@ def model_shortest_path():
     the_model = cp_model.CpModel()
     # DATA --- from HAKAN
     n     = 15  #  number of nodes ( n x n matrix)
-    start = 1   #  start node
-    end   = 15  #  end node
-    M     = 999 #  large number
+    start = 0   #  start node -- attention here ... Python start in 
+    end   = 14  #  end node
+    M     = 999 #  large number ... means NO CONNECTION
     # all_nodes = list(range(n)) ## by HAKAN
     ### distance i x j
     d = [ 
-        [M, 1, M, M, M, M, M, M, 1, M, M, M, M, M, M],
+        [500, 1, M, M, M, M, M, M, 1, M, M, M, M, M, M],
         [M, M, 1, M, M, M, M, M, M, M, M, M, M, M, M],
         [M, M, M, 1, M, M, M, M, 1, M, M, M, M, M, M],
         [M, M, M, M, 1, M, M, M, M, M, M, M, M, M, M],
@@ -112,16 +101,16 @@ def model_shortest_path():
 
     ##  do not loops -- main diagonal   
     for i in range(n):
-        the_model.Add( x[i][i] == 0)
+        the_model.Add( x[i][i] == 0 )
 
     ## IF M exist then ... no connection i in this pair i,j ... once M is LARGER
     ## no connection in x
     for i in range(n):
         for j in  range(n):
             if (d[i][j] >= M):
-                the_model.Add( x[i][j] == 0)
-            else:
-                the_model.Add( x[i][j] >= 0)
+                the_model.Add( x[i][j] == 0) ### NO CONNECTION ALLOWED
+            else:   
+                the_model.Add( x[i][j] >= 0) ### 0 or 1 -- general case
     ## from Minizinc code of Hakan
 
     ### Objective Function => objective to minimize
@@ -145,13 +134,12 @@ def model_shortest_path():
     '''
     db = solver.Phase(x, solver.INT_VAR_DEFAULT, solver.INT_VALUE_DEFAULT)
     '''
-
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
         print("\n UNFEASIBLE ")
         raise ValueError("No solution was found for the given input values")
 
     else :
-        my_print_VARS( x , n, n,  f_objective, solver_OUT , rhs)
+        my_print_VARS( x , n, n,  f_objective, solver_OUT , rhs, inpFlow, outFlow )
         print("\n END SOLVER and Model ")
         print_t(40)
 
@@ -160,23 +148,32 @@ def model_shortest_path():
 
 ### PRINTING FUNCTION
 ## learning Python
-def my_print_VARS( x, m, n, f_objective, solver_OUT,rhs ):
+def my_print_VARS( x, m, n, f_objective, solver_OUT, rhs, inpFlow, outFlow ):
 
-    print('Min sum of x : %i' % solver_OUT.Value(f_objective))
-    print('RHS vector : %i' % solver_OUT.Value(rhs) )
+    print('Min sum of x : %i' % solver_OUT.Value(f_objective) )
+    print('RHS vector : ', [solver_OUT.Value(rhs[i]) for i in range(n)] )
+    print('Inp Flow vector : ', [solver_OUT.Value(inpFlow[i]) for i in range(n)] )
+    print('Out Flow vector : ', [solver_OUT.Value(outFlow[i]) for i in range(n)] )
 
-    print("\n  ================= Matrix X =================")
+    print("\n ================= Decision Matrix X ==================")
+    print(end =  '    ')
+    ####### HEADLINE
+    for i in range(n):
+        print(f'  %i' % ((i+1)%10), end =  '')
+
     for i in range(m): 
+        print(f'\n %i: '  %(i+1) , end =  '' )
         for j in range(n): 
-            print(f' x[%i][%i] : %i\t' % (i+1, j+1, solver_OUT.Value( x[i][j] ) ), end =  '' )
-        print("\n ======================")
+            ## print(f' x[%i][%i] : %i\t' % (i+1, j+1, solver_OUT.Value( x[i][j] ) ), end =  '' )
+            print(f'  %i' % ( solver_OUT.Value( x[i][j] ) ), end =  '' )
+        #print("\n ======================")
 ## learning Python            
         
     print('\n\n** Final Statistics **')
     print('  - conflicts : %i' % solver_OUT.NumConflicts())
     print('  - branches  : %i' % solver_OUT.NumBranches())
     print('  - wall time : %f s' % solver_OUT.WallTime())
-    print("\n END PRINTING \n ===================================")
+    print("\n END PRINTING \n===================================")
     return ###### end function
 
 #### print =================
@@ -189,7 +186,7 @@ def print_t(n):
     return
 
 if __name__ == '__main__':
-    print("\n =============== RESULTS ====================")
+    print("\n=============== RESULTS ====================")
     model_shortest_path()
     #print(f'\n END MAIN \n %s' % print_t(40))
     print(f'\n END MAIN ')
