@@ -49,27 +49,18 @@ def model_shortest_path():
             for j in range(n) ] \
             for i in range(n)
         ]
-       
     ### range(start, range ) --- start in specific index   
     ### index accept ... only "i" .... WHY ....
     # 
     f_objective = the_model.NewIntVar (0, 999999, 'cost function')
   
-    # array[1..n] of var 0..1: outFlow;
-    # array[1..n] of var 0..1: inFlow;
+    # array[1..n] of var 0..1: outFlow  AND array[1..n] of var 0..1: inFlow;
     outFlow = [the_model.NewIntVar (0, 1, 'Output Flow:[%i]' ) for i in range(n) ]
     inpFlow = [the_model.NewIntVar (0, 1, 'Input Flow:[%i]' ) for i in range(n) ]
 
     ## see the Taha books'
     # CONSTRAINTS ADDED of the problem
-    
-    ### applied in flux cauculus
-    '''
-    look the figures ... or the theory on LP integer
-    '''
-    the_model.Add( inpFlow[start] == 1 )
-    the_model.Add( outFlow[end] == 1 )
-    
+            
     ### calculate in flow -- OUT -- in a row versus for all the cols
     ## output Flow of all nodes ... sum of a column of a row i:
     for i in [x for x in range(n) if (x != end) ]:
@@ -85,9 +76,14 @@ def model_shortest_path():
             if  (d[i][j] < M) ] ) )
     
     # outflow = inflow
-    the_model.Add( sum( [outFlow[i] for i in range(n)] ) ==  \
-                   sum( [inpFlow[i] for i in range(n)] ) \
-                  )
+    ## Input - Output flow must be the equal ... 
+    for i in [x for x in range(n) if ((x != start) and (x != end)) ]:  
+        ## removing the start and end nodes form Flow cauculus
+        the_model.Add( (inpFlow[i] - outFlow[i]) == 0) 
+
+    ## EXCEPT in start and end nodes:
+    the_model.Add( inpFlow[start] - outFlow[start] == -1 )
+    the_model.Add( inpFlow[end] - outFlow[end] == 1 )
     
     ##  do not loops over the same node -- main diagonal in the matrix
     for i in range(n):  
@@ -98,10 +94,10 @@ def model_shortest_path():
     
     for i in range(n):
         for j in  range(n):
-            if (d[i][j] >= M):   ### M is BIG ... no connection
+            if (d[i][j] >= M):   ### M is BIG ... NO connection
                 the_model.Add( x[i][j] == 0) ### NO CONNECTION ALLOWED
             else:   
-                the_model.Add( x[i][j] >= 0) ### 0 or 1 -- general case
+                the_model.Add( x[i][j] >= 0) ### 0 or 1 -- GENERAL CASE
     
     
     ### Objective Function => objective to minimize
@@ -109,8 +105,8 @@ def model_shortest_path():
         f_objective == sum( (d[i][j] * x[i][j]) \
             for i in range(n) \
             for j in  range(n)
-            )### of sum 
-        )## of Add
+            ) ### of sum 
+        ) ## of Add
     
     ### optmization  function or objective function 
     # OR:  the_model.Maximize(-less_DIF) 
@@ -130,7 +126,7 @@ def model_shortest_path():
 
     else :
         my_print_VARS( x, n, n,  f_objective, solver_OUT , inpFlow, outFlow )
-        print("\n END SOLVER and Model ")
+        print("\n END SOLVER and Model ", end="")
         print_t(40)
 
     return ###### end function
@@ -143,10 +139,11 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
     print('Min sum of x : %i' % solver_OUT.Value(f_objective) )
     print('Inp Flow vector : ', [solver_OUT.Value(inpFlow[i]) for i in range(n)] )
     print('Out Flow vector : ', [solver_OUT.Value(outFlow[i]) for i in range(n)] )
-
+    ### printing the sequence of the nodes choosen
+    sequence_connection(inpFlow,outFlow, solver_OUT)
     print("\n ================= Decision Matrix X ==================")
     print(end =  '    ')
-    ####### HEADLINE
+    ####### HEADLINE -- TOP of matrix
     for i in range(n):
         print(f'  %i' % ((i+1)%10), end =  '')
 
@@ -165,7 +162,22 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
     print("\n END PRINTING \n===================================")
     return ###### end function
 
-#### print =================
+# =====================================================================================
+#### reports =================
+
+## learning Python
+### printing the sequence of the nodes choosen
+def sequence_connection ( v1, v2, solver_OUT ):
+    size = len(v1)
+    or_vetor = [solver_OUT.Value(v1[i]) or solver_OUT.Value(v2[i]) for i in range(size)]
+    print(f'Inp OR Out => Sequence Vector ', [or_vetor[i] for i in range(size)])
+    
+    print("Sequence of Shortest PATH:")
+    for index in range(size):
+        if (or_vetor[index] == 1):
+            print(f'-> %i' %(index+1) , end =  '')
+    return
+
 ## learning Python
 def print_t(n):
     print()
@@ -178,6 +190,6 @@ if __name__ == '__main__':
     print("\n=============== RESULTS ====================")
     model_shortest_path()
     #print(f'\n END MAIN \n %s' % print_t(40))
-    print(f'\n END MAIN ')
+    print(f'\n END MAIN ', end="")
     print_t(40)
     # return ###### end function 
