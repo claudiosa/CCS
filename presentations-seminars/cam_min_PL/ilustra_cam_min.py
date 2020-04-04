@@ -19,14 +19,14 @@ def modelo_cam_min():
     # Uma função caminho 
     f_CAM = modelo.NewIntVar(-999, 999, 'f_MIN')
 
-    # RESTRICOES ADICIONADAS PARA OS FLUXOS DE ENTRADA
-    # E SAÍDA DE CADA NÓ DEVEM SER IGUAIS ... uma aresta por vez eh
-    # SELECIONADA
+    # RESTRICOES ADICIONADAS PARA OS FLUXOS DE ENTRADA(inp)
+    # E SAÍDA (out) DE CADA NÓ DEVEM SER IGUAIS ... 
+    # Uma aresta por vez eh SELECIONADA
     
-    modelo.Add( 1 == (x_12 + x_13 ) )
-    modelo.Add( (x_12 + x_32) == (x_23 + x_24) )
-    modelo.Add( (x_13 + x_23) == (x_32 + x_34 ) )
-    modelo.Add( (x_24 + x_34) == 1) 
+    modelo.Add( 1 == (x_12 + x_13 ) )               # nó 1
+    modelo.Add( (x_12 + x_32) == (x_23 + x_24) )    # nó 2
+    modelo.Add( (x_13 + x_23) == (x_32 + x_34 ) )   # nó 3
+    modelo.Add( (x_24 + x_34) == 1)                 # nó 4
     
     ### FUNCAO DO CAMINHO
     modelo.Add( f_CAM ==             
@@ -47,7 +47,7 @@ def modelo_cam_min():
     ## CUIDAR o que se deseja ... uma solução ou a ótima
     if status in (cp_model.OPTIMAL , cp_model.FEASIBLE):
        # print('MIN da função objectivo: %i' % solver_SEARCH.ObjectiveValue())
-        my_print_VARS(f_CAM, 
+        my_print_VARS(  f_CAM, 
                         x_12, x_13, x_23 ,     
                         x_24, x_32, x_34 ,    
                         solver_SEARCH )
