@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.3.25)  3 APR 2020 16:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.3.25)  4 APR 2020 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,10 +1010,10 @@ Package pdftex.def Info: ../ia_combinatoria/figures/classes_problemas.pdf  used
 File: figures/linear-programming-example.pdf Graphic file (type pdf)
 <use figures/linear-programming-example.pdf>
 Package pdftex.def Info: figures/linear-programming-example.pdf  used on input 
-line 181.
+line 182.
 (pdftex.def)             Requested size: 276.56013pt x 209.93051pt.
 
-Overfull \vbox (2.20181pt too high) detected at line 181
+Overfull \vbox (2.20181pt too high) detected at line 182
  []
 
 [4
@@ -1023,7 +1023,7 @@ Overfull \vbox (2.20181pt too high) detected at line 181
 File: figures/01_elementos_de_um_grafo.pdf Graphic file (type pdf)
 <use figures/01_elementos_de_um_grafo.pdf>
 Package pdftex.def Info: figures/01_elementos_de_um_grafo.pdf  used on input li
-ne 196.
+ne 197.
 (pdftex.def)             Requested size: 234.60199pt x 161.48781pt.
  [5
 
@@ -1031,7 +1031,7 @@ ne 196.
 <figures/02_grafo_com_pesos.pdf, id=193, 357.97742pt x 415.5525pt>
 File: figures/02_grafo_com_pesos.pdf Graphic file (type pdf)
 <use figures/02_grafo_com_pesos.pdf>
-Package pdftex.def Info: figures/02_grafo_com_pesos.pdf  used on input line 207
+Package pdftex.def Info: figures/02_grafo_com_pesos.pdf  used on input line 208
 .
 (pdftex.def)             Requested size: 245.83574pt x 161.48781pt.
  [6
@@ -1041,7 +1041,7 @@ Package pdftex.def Info: figures/02_grafo_com_pesos.pdf  used on input line 207
 File: figures/03_variavel_decisao_uso.pdf Graphic file (type pdf)
 <use figures/03_variavel_decisao_uso.pdf>
 Package pdftex.def Info: figures/03_variavel_decisao_uso.pdf  used on input lin
-e 218.
+e 219.
 (pdftex.def)             Requested size: 245.83759pt x 215.31462pt.
  [7
 
@@ -1050,7 +1050,7 @@ e 218.
 File: figures/04_matriz_decisao_uso.pdf Graphic file (type pdf)
 <use figures/04_matriz_decisao_uso.pdf>
 Package pdftex.def Info: figures/04_matriz_decisao_uso.pdf  used on input line 
-227.
+228.
 (pdftex.def)             Requested size: 245.83691pt x 215.3222pt.
  [8
 
@@ -1058,7 +1058,7 @@ Package pdftex.def Info: figures/04_matriz_decisao_uso.pdf  used on input line
 <figures/05_um_caminho.pdf, id=280, 384.7173pt x 480.59549pt>
 File: figures/05_um_caminho.pdf Graphic file (type pdf)
 <use figures/05_um_caminho.pdf>
-Package pdftex.def Info: figures/05_um_caminho.pdf  used on input line 237.
+Package pdftex.def Info: figures/05_um_caminho.pdf  used on input line 238.
 (pdftex.def)             Requested size: 245.83665pt x 215.31264pt.
  [9
 
@@ -1067,7 +1067,7 @@ Package pdftex.def Info: figures/05_um_caminho.pdf  used on input line 237.
 File: figures/06_um_caminho_e_matriz.pdf Graphic file (type pdf)
 <use figures/06_um_caminho_e_matriz.pdf>
 Package pdftex.def Info: figures/06_um_caminho_e_matriz.pdf  used on input line
- 248.
+ 249.
 (pdftex.def)             Requested size: 245.83691pt x 215.31168pt.
  [10
 
@@ -1075,7 +1075,7 @@ Package pdftex.def Info: figures/06_um_caminho_e_matriz.pdf  used on input line
 <figures/07_formalizando.pdf, id=336, 430.9701pt x 509.50351pt>
 File: figures/07_formalizando.pdf Graphic file (type pdf)
 <use figures/07_formalizando.pdf>
-Package pdftex.def Info: figures/07_formalizando.pdf  used on input line 258.
+Package pdftex.def Info: figures/07_formalizando.pdf  used on input line 259.
 (pdftex.def)             Requested size: 245.82648pt x 215.31166pt.
  [11
 
@@ -1083,27 +1083,27 @@ Package pdftex.def Info: figures/07_formalizando.pdf  used on input line 258.
 <figures/08_fluxo_por_no.pdf, id=364, 390.4989pt x 482.7636pt>
 File: figures/08_fluxo_por_no.pdf Graphic file (type pdf)
 <use figures/08_fluxo_por_no.pdf>
-Package pdftex.def Info: figures/08_fluxo_por_no.pdf  used on input line 269.
+Package pdftex.def Info: figures/08_fluxo_por_no.pdf  used on input line 270.
 (pdftex.def)             Requested size: 245.83685pt x 215.31898pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 269.
+(Font)              <14.4> on input line 270.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 269.
+(Font)              <10> on input line 270.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 269.
+(Font)              <7> on input line 270.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 269.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 270.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 269.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 270.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 269.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 270.
  [12
 
  <./figures/08_fluxo_por_no.pdf>]
 <figures/09_equacoes_finais.pdf, id=393, 367.61339pt x 543.95218pt>
 File: figures/09_equacoes_finais.pdf Graphic file (type pdf)
 <use figures/09_equacoes_finais.pdf>
-Package pdftex.def Info: figures/09_equacoes_finais.pdf  used on input line 280
+Package pdftex.def Info: figures/09_equacoes_finais.pdf  used on input line 281
 .
 (pdftex.def)             Requested size: 245.8341pt x 215.3194pt.
  [13
@@ -1122,13 +1122,13 @@ Package pdftex.def Info: figures/09_equacoes_finais.pdf  used on input line 280
 \tf@snm=\write9
 \openout9 = `cam_min_PL.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 334.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 334.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 333.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 333.
  (./cam_min_PL.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 334.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 334.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 333.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 333.
 Package rerunfilecheck Info: File `cam_min_PL.out' has not changed.
-(rerunfilecheck)             Checksum: 119CE283CC1C47B0C63BAB0D837688B4;276.
+(rerunfilecheck)             Checksum: 45C827BA404BDD3743E76C293B806A0E;273.
  ) 
 Here is how much of TeX's memory you used:
  20098 strings out of 492167
@@ -1146,7 +1146,7 @@ lm/lmss8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on cam_min_PL.pdf (15 pages, 4513215 bytes).
+Output written on cam_min_PL.pdf (15 pages, 4513248 bytes).
 PDF statistics:
  516 PDF objects out of 1000 (max. 8388607)
  454 compressed objects within 5 object streams
