@@ -1,0 +1,3 @@
+\babel@toc {portuges}{}
+\beamer@sectionintoc {1}{Relembrando}{3}{0}{1}
+\beamer@sectionintoc {2}{Implementação}{4}{0}{2}
