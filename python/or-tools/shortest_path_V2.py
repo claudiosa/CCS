@@ -15,7 +15,24 @@ def model_shortest_path():
     t = 'model_assignment'  ### onde usar isto ....
     ## creating a model
     the_model = cp_model.CpModel()
-    # DATA --- from HAKAN
+    
+    # Example 01
+    n     = 4  #  number of nodes ( n x n matrix)
+    start = 0   #  start node -- attention here ... Python start in 
+    end   = 3  #  end -- destination node
+    M     = 999 #  large number ... means NO CONNECTION
+    # all_nodes = list(range(n)) ## by HAKAN
+    ### distance i x j
+    d = [ 
+        [0, 10, 5, M],
+        [M, 0,  3, 6],
+        [M, 4,  0, 20],
+        [M, M,  M, 0]
+        ]
+
+    '''
+    # Example 02
+    # DATA --- from HAKAN 
     n     = 15  #  number of nodes ( n x n matrix)
     start = 0   #  start node -- attention here ... Python start in 
     end   = 14  #  end -- destination node
@@ -40,7 +57,7 @@ def model_shortest_path():
         [M, M, M, M, M, M, M, M, M, M, M, M, M, M, M]
         ]
     ### should be come from a file
-    
+    '''
     #### VARIABLES
     ## array[1..n, 1..n] of var 0..1: x; % the resulting matrix, 1 if connected, 0 else
     ## the resulting connection matrix
@@ -64,20 +81,25 @@ def model_shortest_path():
     ### calculate in flow -- OUT -- in a row versus for all the cols
     ## output Flow of all nodes ... sum of a column of a row i:
     for i in [x for x in range(n) if (x != end) ]:
-        the_model.Add( outFlow[i] == sum([ x[i][j] \
-            for j in range(n) \
+        the_model.Add( outFlow[i] == sum([ x[i][j] 
+            for j in range(n) 
             if (d[i][j] < M) ] ) )
 
     ### calculate in flow -- IN        
     ## HERE is a column ... sum all the rows of this column
-    for j in  [x for x in range(n) if (x != start) ]:
-        the_model.Add( inpFlow[j] == sum([ x[i][j] \
-            for i in range(n) \
-            if  (d[i][j] < M) ] ) )
+    #for j in  [x for x in range(n) if (x != start) ]:
+    # values_without_start = filter(lambda x: x != start, range(n))
+    for j in range(n):
+        if (j != start):
+            the_model.Add( inpFlow[j] == sum([ x[i][j]  \
+                for i in range(n)                       \
+                if  (d[i][j] < M) ] ) )
     
     # outflow = inflow
-    ## Input - Output flow must be the equal ... 
-    for i in [x for x in range(n) if ((x != start) and (x != end)) ]:  
+    #  Input - Output flow must be the equal ... 
+    # values_without_start_end = [x for x in range(n) if (x != start) and (x != end)]    
+    values_without_start_end = filter(lambda x: (x != start) and (x != end), range(n))
+    for i in  values_without_start_end :  
         ## removing the start and end nodes form Flow cauculus
         the_model.Add( (inpFlow[i] - outFlow[i]) == 0) 
 
@@ -120,15 +142,23 @@ def model_shortest_path():
     '''
     db = solver.Phase(x, solver.INT_VAR_DEFAULT, solver.INT_VALUE_DEFAULT)
     '''
-    if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
-        print("\n UNFEASIBLE ")
+    
+    if status in (cp_model.OPTIMAL , cp_model.FEASIBLE):
+        my_print_VARS( x, n, n,  f_objective, solver_OUT , inpFlow, outFlow )
+        
+    elif (status == cp_model.INFEASIBLE) :   ##não é UNFEASIBLE 
+        print(" INSATISFATÍVEL ")
         raise ValueError("No solution was found for the given input values")
 
-    else :
-        my_print_VARS( x, n, n,  f_objective, solver_OUT , inpFlow, outFlow )
-        print("\n END SOLVER and Model ", end="")
-        print_t(40)
-
+    elif (status == cp_model.UNKNOWN) :
+        raise ValueError("The status of the model is unknown because a search limit was reached. ")
+    
+    else:
+        raise ValueError(" .... INVALID  MODEL ....")                        
+    
+    ### end of if ....
+    print("END SOLVER and MODEL ")
+    print_t(40)
     return ###### end function
 
 
@@ -140,7 +170,7 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
     print('Inp Flow vector : ', [solver_OUT.Value(inpFlow[i]) for i in range(n)] )
     print('Out Flow vector : ', [solver_OUT.Value(outFlow[i]) for i in range(n)] )
     ### printing the sequence of the nodes choosen
-    sequence_connection(inpFlow,outFlow, solver_OUT)
+    sequence_connection(inpFlow, outFlow, solver_OUT)
     print("\n ================= Decision Matrix X ==================")
     print(end =  '    ')
     ####### HEADLINE -- TOP of matrix
@@ -152,7 +182,10 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
         for j in range(n): 
             ## print(f' x[%i][%i] : %i\t' % (i+1, j+1, solver_OUT.Value( x[i][j] ) ), end =  '' )
             print(f'  %i' % ( solver_OUT.Value( x[i][j] ) ), end =  '' )
-        #print("\n ======================")
+    print("\n ============== SEQUENCE OF NODES ========= ")
+    ### to be improved
+    sequence_visiting ( x,  n, solver_OUT )
+
 ## learning Python            
         
     print('\n\n** Final Statistics **')
@@ -166,7 +199,16 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
 #### reports =================
 
 ## learning Python
+def sequence_visiting ( x,  n, solver_OUT ):
+    for i in range(n):
+        for j in range(n):
+            if (solver_OUT.Value( x[i][j] ) == 1):
+                 print((i+1),' -> ',(j+1) )
+
+######### TO BE IMPROVED
+
 ### printing the sequence of the nodes choosen
+### it does not fine
 def sequence_connection ( v1, v2, solver_OUT ):
     size = len(v1)
     or_vetor = [solver_OUT.Value(v1[i]) or solver_OUT.Value(v2[i]) for i in range(size)]
