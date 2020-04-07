@@ -22,10 +22,11 @@ def model_max_flow():
     t = 'model_max_flow'  ### onde usar isto ....
     ## creating a model
     the_model = cp_model.CpModel()
-    
+
     # Example 01
+    # DATA --- from HAKAN 
     n     = 5  #  number of nodes ( n x n matrix)
-    start = 0  #  start node -- attention here ... Python start in 
+    start = 0  #  start node -- attention here ... Python start in 0
     end   = 4  #  end -- destination node
     
     # all_nodes = list(range(n)) ## by HAKAN
@@ -37,8 +38,9 @@ def model_max_flow():
         [0,  0,  5,  0, 20],
         [0,  0,  0,  0,  0]
         ]
+
     THE_BIGGEST = max(map(max, c))        
-    # DATA --- from HAKAN 
+   
     '''
     # Example 02
     
@@ -65,56 +67,68 @@ def model_max_flow():
 
     ## see the Taha books'
     # CONSTRAINTS ADDED of the problem
-            
-    
+     
     ## all the flow MUST be positives and less than the capacity
     for i in range(n):
         for j in  range(n):
             the_model.Add( 
             (x[i][j] >= 0) and (x[i][j] <= c[i][j])
             ) 
-
+    
     ## output flow in each node  ... if exist something flowing throw out           
     for i in range(n):
         the_model.Add( outFlow[i] == sum( [ x[i][j]  
             for j in range(n) if (c[i][j] > 0) ] ) )
+    ## It will flow out if exist something as output in this node           
 
     ### calculate in flow -- IN        
     ## HERE is a column ... sum all the rows of this column
     #for j in  [x for x in range(n) if (x != start) ]:
     # values_without_start = filter(lambda x: x != start, range(n))
-    for j in range(n):
-        the_model.Add( inpFlow[j] == sum([ x[i][j]  
-            for i in range(n)  if  (c[i][j] > 0) ] ) )
+    for i in range(n):
+        the_model.Add( inpFlow[i] == sum([ x[j][i]  
+            for j in range(n)  if  (c[j][i] > 0) ] ) )
+    ## Exist some flow only if exist some node arriving in i
+    # HERE is the column considered            
     
     # outflow = inflow
     #  Input - Output flow must be the equal ... 
-    # values_without_start_end = [x for x in range(n) if (x != start) and (x != end)]    
-    without_start_end = filter(lambda x: (x != start) and (x != end), range(n))
+    without_start_end = [x for x in range(n) if (x != start) and (x != end)]    
+    #without_start_end = filter(lambda x: (x != start) and (x != end), range(n))
+    print('\n the nodes' , without_start_end)
     for i in  without_start_end :  
         ## removing the start and end nodes form Flow cauculus
         the_model.Add( (inpFlow[i] - outFlow[i]) == 0) 
+    
 
-    
-    ### No flow arriving in start
-    the_model.Add( 0 ==
-        sum( [x[i][start] for i in range(n) if (c[i][start] > 0)] ) 
-        )
-    
-    ### No flow departure from end
+    #the_model.Add( (inpFlow[start] == 0) and 
+    #                (outFlow[end] == 0)  )
+
+    ### None flow arriving in the start node
     the_model.Add( 
-        sum( [x[end][i] for i in range(n) if (c[end][i] > 0) ] )
+        sum( [x[i][start] for i in range(n) if (c[i][start] > 0)] ) 
+        == 0 )
+    
+    ### None flow departure from the end node
+    the_model.Add( 
+        sum( [x[end][j] for j in range(n) if (c[end][j] > 0) ] )
         == 0 )
 
+
     ### Objective Function => objective to minimize
+    '''
     the_model.Add(
         f_objective == sum( [x[start][j] 
-            for j in  range(n) if (c[start][j] > 0)
+            for j in  range(n) if (c[start][j] >= 0)
             ]) ### of sum 
         ) ## of Add
+    '''
+    ## EXCEPT in start and end nodes:
+    the_model.Add( (inpFlow[start] - outFlow[start]) == -f_objective )
+    #the_model.Add( (inpFlow[end] - outFlow[end]) == f_objective )
     
     ### optmization  function or objective function 
-    # OR:  the_model.Maximize(-less_DIF) 
+   
     the_model.Maximize( f_objective )
 
     ### data_from_model = call the solver for model s
@@ -167,7 +181,7 @@ def my_print_VARS( x,  n, f_objective, solver_OUT, inpFlow, outFlow ):
             print(f'  %i' % ( solver_OUT.Value( x[i][j] ) ), end =  '' )
     print("\n ============== SEQUENCE OF NODES ========= ")
     ### to be improved
-    #sequence_visiting ( x,  n, solver_OUT )
+    
 
 ## learning Python            
         
@@ -180,28 +194,6 @@ def my_print_VARS( x,  n, f_objective, solver_OUT, inpFlow, outFlow ):
 
 # =====================================================================================
 #### reports =================
-
-## learning Python
-def sequence_visiting ( x,  n, solver_OUT ):
-    for i in range(n):
-        for j in range(n):
-            if (solver_OUT.Value( x[i][j] ) == 1):
-                 print((i+1),' -> ',(j+1) )
-
-######### TO BE IMPROVED
-
-### printing the sequence of the nodes choosen
-### it does not fine
-def sequence_connection ( v1, v2, solver_OUT ):
-    size = len(v1)
-    or_vetor = [solver_OUT.Value(v1[i]) or solver_OUT.Value(v2[i]) for i in range(size)]
-    print(f'Inp OR Out => Sequence Vector ', [or_vetor[i] for i in range(size)])
-    
-    print("Sequence of Shortest PATH:")
-    for index in range(size):
-        if (or_vetor[index] == 1):
-            print(f'-> %i' %(index+1) , end =  '')
-    return
 
 ## learning Python
 def print_t(n):
