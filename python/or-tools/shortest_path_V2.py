@@ -91,8 +91,8 @@ def model_shortest_path():
     # values_without_start = filter(lambda x: x != start, range(n))
     for j in range(n):
         if (j != start):
-            the_model.Add( inpFlow[j] == sum([ x[i][j]  \
-                for i in range(n)                       \
+            the_model.Add( inpFlow[j] == sum([ x[i][j]  
+                for i in range(n)                       
                 if  (d[i][j] < M) ] ) )
     
     # outflow = inflow
@@ -124,9 +124,9 @@ def model_shortest_path():
     
     ### Objective Function => objective to minimize
     the_model.Add(
-        f_objective == sum( (d[i][j] * x[i][j]) \
-            for i in range(n) \
-            for j in  range(n)
+        f_objective == sum( (d[i][j] * x[i][j]) 
+            for i in range(n) 
+            for j in range(n)
             ) ### of sum 
         ) ## of Add
     
