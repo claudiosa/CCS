@@ -2,22 +2,27 @@
 
 '''
 Problem Formulation 
-% Model from 
-% Taha "Introduction to Operations Research", page 
-% Max flow problem in Minizinc.
-% 
+% Model from :
+
+"Optimization Modelling A Practical Approach"
+Ruhul A. Sarker Charles S. Newton
+AND
+Taha "Introduction to Operations Research" (PORTUGESE edition - 8 nth.)
+Max flow problem in Minizinc.
+
+HELP FROM HAKAN:
 % From http://taha.ineg.uark.edu/maxflo.txt
 % Taha "Introduction to Operations Research", Example 6.4-2)
 % (ported from the AMPL code)
 % 
-% Model created by Hakan Kjellerstrand, hakank@bonetmail.com
+% Model created by Hakan Kjellerstrand, hakank@bonetmail.com 
 % See also my MiniZinc page: http://www.hakank.org/minizinc
 '''
 
 ###VERY VERY IMPORTANT
 from ortools.sat.python import cp_model
 
-# model_most_money
+# function defining the model
 def model_max_flow():
     t = 'model_max_flow'  ### onde usar isto ....
     ## creating a model
@@ -39,7 +44,9 @@ def model_max_flow():
         [0,  0,  0,  0,  0]
         ]
 
-    THE_BIGGEST = max(map(max, c))        
+    A_BIG_VALUE = sum(map(sum, c))  * 2
+    ## for * 2 warranty      
+    ##= max(map(max, c))        
    
     '''
     # Example 02
@@ -48,11 +55,11 @@ def model_max_flow():
     ### should be come from a file
     '''
     #### VARIABLES
-    ## array[1..n, 1..n] of var 0..1: x; % the resulting matrix, 1 if connected, 0 else
-    ## the resulting connection matrix
+    ## a decision matrix x .... the kernel of the solution
+    ## how much flow is going from i (row) to j (column)
 
     x = [
-         [the_model.NewIntVar(0, THE_BIGGEST, 'x[i][j]' ) \
+         [the_model.NewIntVar(0, A_BIG_VALUE, 'x[i][j]' ) \
             for j in range(n) ] \
             for i in range(n)
         ]
@@ -61,9 +68,10 @@ def model_max_flow():
     # 
     f_objective = the_model.NewIntVar (0, 999999, 'cost function')
   
+    # solution based in flow in each node
     # array[1..n] of var 0..1: outFlow  AND array[1..n] of var 0..1: inFlow;
-    outFlow = [the_model.NewIntVar (0, THE_BIGGEST, 'Output Flow:[%i]' ) for i in range(n) ]
-    inpFlow = [the_model.NewIntVar (0, THE_BIGGEST, 'Input Flow:[%i]' ) for i in range(n) ]
+    outFlow = [the_model.NewIntVar (0, A_BIG_VALUE, 'Output Flow:[%i]' ) for i in range(n) ]
+    inpFlow = [the_model.NewIntVar (0, A_BIG_VALUE, 'Input Flow:[%i]' ) for i in range(n) ]
 
     ## see the Taha books'
     # CONSTRAINTS ADDED of the problem
@@ -75,7 +83,7 @@ def model_max_flow():
             (x[i][j] >= 0) and (x[i][j] <= c[i][j])
             ) 
     
-    ## output flow in each node  ... if exist something flowing throw out           
+    ## output flow in each node i ... if exist something flowing throw out from i          
     for i in range(n):
         the_model.Add( outFlow[i] == sum( [ x[i][j]  
             for j in range(n) if (c[i][j] > 0) ] ) )
@@ -84,7 +92,6 @@ def model_max_flow():
     ### calculate in flow -- IN        
     ## HERE is a column ... sum all the rows of this column
     #for j in  [x for x in range(n) if (x != start) ]:
-    # values_without_start = filter(lambda x: x != start, range(n))
     for i in range(n):
         the_model.Add( inpFlow[i] == sum([ x[j][i]  
             for j in range(n)  if  (c[j][i] > 0) ] ) )
@@ -92,16 +99,16 @@ def model_max_flow():
     # HERE is the column considered            
     
     # outflow = inflow
-    #  Input - Output flow must be the equal ... 
+    # Input - Output flow must be the equal for all nodes except
     without_start_end = [x for x in range(n) if (x != start) and (x != end)]    
     #without_start_end = filter(lambda x: (x != start) and (x != end), range(n))
-    print('\n the nodes' , without_start_end)
+    #print('\n the nodes' , without_start_end)
     for i in  without_start_end :  
         ## removing the start and end nodes form Flow cauculus
         the_model.Add( (inpFlow[i] - outFlow[i]) == 0) 
     
-
-    #the_model.Add( (inpFlow[start] == 0) and 
+    # not necessary ... already calculed
+    # the_model.Add( (inpFlow[start] == 0) and 
     #                (outFlow[end] == 0)  )
 
     ### None flow arriving in the start node
@@ -114,19 +121,14 @@ def model_max_flow():
         sum( [x[end][j] for j in range(n) if (c[end][j] > 0) ] )
         == 0 )
 
-
-    ### Objective Function => objective to minimize
+    ### Objective Function => objective to minimize/maximize
     '''
-    the_model.Add(
-        f_objective == sum( [x[start][j] 
-            for j in  range(n) if (c[start][j] >= 0)
-            ]) ### of sum 
-        ) ## of Add
+    the max flow is defined by: the flow max arriving at the END node or
+    the  flow max departuring from the START node
     '''
-    ## EXCEPT in start and end nodes:
+    ## for instance:
     the_model.Add( (inpFlow[start] - outFlow[start]) == -f_objective )
     #the_model.Add( (inpFlow[end] - outFlow[end]) == f_objective )
-    
     ### optmization  function or objective function 
    
     the_model.Maximize( f_objective )
@@ -163,11 +165,10 @@ def model_max_flow():
 ## learning Python
 def my_print_VARS( x,  n, f_objective, solver_OUT, inpFlow, outFlow ):
 
-    print('Max sum of x : %i' % solver_OUT.Value(f_objective) )
+    print('Max FLOW for this graph : %i' % solver_OUT.Value(f_objective) )
     print('Inp Flow vector : ', [solver_OUT.Value(inpFlow[i]) for i in range(n)] )
     print('Out Flow vector : ', [solver_OUT.Value(outFlow[i]) for i in range(n)] )
-    ### printing the sequence of the nodes choosen
-    #sequence_connection(inpFlow, outFlow, solver_OUT)
+        
     print("\n ================= Decision Matrix X ==================")
     print(end =  '    ')
     ####### HEADLINE -- TOP of matrix
