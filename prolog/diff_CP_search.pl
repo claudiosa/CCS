@@ -3,8 +3,21 @@
 
 %%$ time(swipl -f diff_CP_search.pl -t go1)
 
-%% a trap 
+%% TRAP of PL
 %%$ time(swipl -f diff_CP_search.pl -t go2)
+$ time(swipl -f diff_CP_search.pl -t go2)
+..............
+after almost 3 min
+..............
+===============
+[9,5,6,7,1,0,8,2]
+===============
+% halt
+
+real	2m17,524s
+user	2m17,164s
+sys	0m0,047s
+
 
 %% with CP
 $ time(swipl -f diff_CP_search.pl -t go)
@@ -29,28 +42,29 @@ solve(L_inp, L_sol) :-
     %% test_XYZ(L_sol). %% for go1
     test_sum(L_sol).
 
-%% Um dominio
+%% a domain
 dom( [0,1,2,3,4,5,6,7,8,9] ).
 
-% um search
+% a search and assignment
 search_value( [] , []) :- !.
 search_value([ _ |L1], [X|L2]) :-
     dom(D),
     member(X,D),
     search_value(L1, L2).
 
-%% uma condicao logica
+%% a logical condition
 my_different([]).
 my_different([H|T]) :- not(member(H,T)),
                      my_different(T).
 
-%% uma condicao logica
+%% a toy condition
 test_XYZ([X,Y,Z]) :-
     X >= 0,
     Y >= 1,
     (X + Y) =:= Z.
   
 %[9,5,6,7,1,0,8,2]
+%% test of SUM
 test_sum([S,E,N,D,M,O,R,Y]) :-
     MONEY is (10000*M + 1000*O + 100*N + 10*E + Y),
     M \= 0,
@@ -59,19 +73,21 @@ test_sum([S,E,N,D,M,O,R,Y]) :-
     1000 * M + 100 * O + 10 * R + E) =:=  MONEY.
 
 %
-% Plain CLP ===> HAKAN
+% Plain CLP ===> HAKAN ===> modified by CCS
 %
 go :-
     writeln(digits_most_before=Digits),
     send_more_money_CLP(Digits),
     writeln(digits_before=Digits),
     %% HERE YOU MUST CHANGE A LOT ...
-    %% see the labeling/2
-    search_CP([ max , down ],Digits),
+    %% see the labeling/2 ===> options of variable choice
+    %% and selection from domain
+    search_CP([ max , down ], Digits),
     writeln(digits_after=Digits).
 
+
 search_CP(Options, Vars):-
-    labeling(Options, Vars).
+    labeling(Options, Vars). %%% HERE the biggest difference
 
 /*
 Like all_distinct/1, but with weaker propagation. 
@@ -81,6 +97,7 @@ ince all_distinct/1 is
  and propagates much more strongly.
 
 */
+
 send_more_money_CLP(Digits) :-
     Digits = [S,E,N,D,M,O,R,Y],
     Digits ins 0..9,
@@ -94,5 +111,6 @@ send_more_money_CLP(Digits) :-
     #= 10000*M + 1000*O + 100*N + 10*E + Y.
 
 /*
+ATTENTION HERE:
 https://www.swi-prolog.org/pldoc/doc_for?object=labeling/2
 */
