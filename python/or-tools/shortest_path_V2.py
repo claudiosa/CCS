@@ -185,6 +185,8 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
     print("\n ============== SEQUENCE OF NODES ========= ")
     ### to be improved
     sequence_visiting ( x,  n, solver_OUT )
+    ##sequence_by_LUCAS ( x,  solver_OUT )
+
 
 ## learning Python            
         
@@ -203,7 +205,7 @@ def sequence_visiting ( x,  n, solver_OUT ):
     for i in range(n):
         for j in range(n):
             if (solver_OUT.Value( x[i][j] ) == 1):
-                 print((i+1),' -> ',(j+1) )
+                 print((i+1),' --> ',(j+1) )
 
 ######### TO BE IMPROVED
 
