@@ -1,5 +1,4 @@
 
-
 ## all  except ...
 '''
 k1 = [x for x in range(90) if ((x != 5) and x < 19)]
@@ -13,3 +12,9 @@ for i in k2:
 
 v = [3,4,5]
 print(len(v))
+n = len(v)
+for i in range(n):
+    #print( 'range N:%i -> %i %s'  %(n , i, v)  )	
+    print(f'range N:%i -> %i %s'  %(n , i, v)  )	
+
+#       print(' (%i, %i, %i)' % (item, value, color), end='')

@@ -39,10 +39,12 @@ def model_TSP():
     ### should be come from a file
     '''
     #### VARIABLES
-    #  to store ONE TRIP
-    tour = [ the_model.NewIntVar(0, n, 'tour[i]' ) 
+    #  to store ONE TRIP ==> take care with the MAX value
+    tour = [ the_model.NewIntVar(0, (n-1), 'tour[i]' ) 
              for i in range(n)
             ]
+    ### go from 0 up to (n-1)
+    #             
     x = [
          [the_model.NewIntVar(0, 1, 'x[i][j]' ) 
             for j in range(n) ] 
@@ -75,7 +77,18 @@ def model_TSP():
     
     #MakeAllDifferent: If 'stronger_propagation' is true, stronger, and potentially slower propagation will occur. This API will be deprecated in the future.
     #the_model.MakeAllDifferent(tour)
-    the_model.AddAllDifferent(tour)
+    the_model.AddAllDifferent( tour)
+    
+    ### connecting x - decision with the tour vector
+    '''
+    for i in L_NODES:
+        for j in  L_NODES:
+            if (x[i][j] == 1):   ### 
+                the_model.Add( tour[i] == j)
+    '''
+    
+    #    the_model.AddCircuit( tour )
+    my_circ( tour, the_model)
 
 
     ### Objective Function => objective to minimize
@@ -117,7 +130,17 @@ def model_TSP():
     print_t(40)
     return ###### end function
 
-
+def my_circ( c, the_model):
+    #https://acrogenesis.com/or-tools/documentation/user_manual/manual/introduction/theory.html
+    
+    n = len(c)
+    print("INDEX MAX" , (n-1))
+    x = the_model.NewIntVar(0, (n-1), 'aux' ) 
+    for i in range(n):
+        ###the_model.Add( c[i] != x and c[x] != i ) 
+        the_model.Add( c[i] != x and c[i] != i )  
+             
+    
 ### PRINTING FUNCTION
 ## learning Python
 def my_print_VARS( x, m, n, f_objective, solver_OUT , tour ):
@@ -150,6 +173,7 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT , tour ):
     print('  - conflicts : %i' % solver_OUT.NumConflicts())
     print('  - branches  : %i' % solver_OUT.NumBranches())
     print('  - wall time : %f s' % solver_OUT.WallTime())
+    print('  - user time : %f s' % solver_OUT.UserTime())
     print("\n END PRINTING \n===================================")
     return ###### end function
 
