@@ -1,7 +1,7 @@
 /*
   Traveling salesperson problem in Picat.
   Inspired by the code from lecture notes
-  Ulf Nilsson: Transparencies for the course TDDD08 Logic
+  Ulf Nilsson: Transparencies for the course 	TDDD08 Logic
   Programming, page 6f
   http://www.ida.liu.se/~TDDD08/misc/ulfni.slides/oh10.pdf
 
@@ -99,11 +99,10 @@ circ_ex(L) =>
     circuit(L),
     solve(L).
     
-circ_meu(L) =>
-    L = [X1,X2,X3,X4], 
-    L :: 1..4, %% NUM de indices da lista
-    meu_circuito(L),
-    solve(L).    
+go_1 =>
+    L = [1,2,3,4], 
+    meu_circuito(L).
+    %solve(L).    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% explica elemet
 element_ex(Vars)  =>  
@@ -117,13 +116,24 @@ meu_circuito(L) =>
     
     Tam = L.length,
     V = to_array(L),
+    V :: 1..Tam	,
     printf("\n Array: %w", V),
-    all_different(V),
-    printf("\n Array diff: %w", V),
+    
     X :: 1..Tam,
     foreach(I in 1..Tam)
-      ( V[I] #= X ) #/\ (I #!= X),
-      bind_vars(V[I],X) 
-  end.
+     %%%  V[I] #= X ,
+       	%I #!= X,
+	V[I] #= X 	
+       %bind_vars(V[I],X)		 
+    end,
+
+    % all_different(V),
+    solve([V,X]),
+    printf("\n Array diff: %w", V)
+    . 
+
+ % #/\ (I #!= X),
+ %     bind_vars(V[I],X) 
+  
   
 
