@@ -79,6 +79,9 @@ def model_TSP():
     #the_model.MakeAllDifferent(tour)
     the_model.AddAllDifferent( tour)
     
+    #the_model.Add( is_a_circuit( tour ) )
+    is_a_circuit(tour)
+    
     ### connecting x - decision with the tour vector
     '''
     %% Relacionar as escolhas da M_Decisao com a
@@ -87,7 +90,6 @@ def model_TSP():
       ( M_Decisao[I,J] #= 1 ) #<=> ( Cidades[I] #= J )
      end,    
 
-
     for i in L_NODES:
         for j in  L_NODES:
             if (x[i][j] == 1):   ### 
@@ -95,7 +97,7 @@ def model_TSP():
     '''
     
     #    the_model.AddCircuit( tour )
-    my_circ( tour, the_model)
+    #my_circ( tour, the_model)
 
 
     ### Objective Function => objective to minimize
@@ -146,7 +148,26 @@ def my_circ( c, the_model):
     for i in range(n):
         ###the_model.Add( c[i] != x and c[x] != i ) 
         the_model.Add( c[i] != x and c[i] != i )  
-             
+
+def is_a_circuit ( x ):
+    n = len(x)
+    step, i = 0 , 0 ### any position
+    v = []
+    v = [0  for i in range(n)]    
+    v[i] = 1 ## mark sequentially
+    
+    while (step < n):
+        next = x[i]
+        v[next] = 1
+        i = next
+        step = step + 1
+        #print(f'i: %i \t next: %i \t step: %i v: %s ' %(i, next, step, v))
+        
+    if ( sum(v) == n ):
+        return True
+    else:
+        return False
+
     
 ### PRINTING FUNCTION
 ## learning Python
