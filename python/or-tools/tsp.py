@@ -81,6 +81,13 @@ def model_TSP():
     
     ### connecting x - decision with the tour vector
     '''
+    %% Relacionar as escolhas da M_Decisao com a
+    %% Sequencia das Cidades. 
+     foreach(I in 1..Len , J  in 1..Len)
+      ( M_Decisao[I,J] #= 1 ) #<=> ( Cidades[I] #= J )
+     end,    
+
+
     for i in L_NODES:
         for j in  L_NODES:
             if (x[i][j] == 1):   ### 
