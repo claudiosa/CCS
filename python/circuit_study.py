@@ -2,7 +2,7 @@
 
 
 
-def eh_circuito_de_i(x,i):
+def is_a_circuit_from_i(x,i):
     n = len(x)
     step = 0
     v = []
@@ -17,10 +17,10 @@ def eh_circuito_de_i(x,i):
         print(f'i: %i \t next: %i \t step: %i v: %s ' %(i, next, step, v))
         
     if ( sum(v) == n ):
-        print('eh ciclo')
+        print('It is a cicle')
         print(v)
     else:
-        print("nao")
+        print("NO")
         print(v)
 
 
@@ -43,15 +43,17 @@ def is_a_circuit(x):
     else:
         return False
 
-
 Y1 =   [1, 3, 0, 2]
 ### OK
-print('Y quantas linhas ',  len(Y1))    
-#print('Y quantas colunas ',  len(Y[0]))    
-eh_circuito_de_i(Y1,0)
+# print('Y quantas linhas ',  len(Y1))    
+# print('Y quantas colunas ',  len(Y[0]))    
+is_a_circuit_from_i(Y1,0)
 
 Y2 =   [1, 3, 0, 2, 5,6,4]
-eh_circuito_de_i(Y2,4)
+is_a_circuit_from_i(Y2,4)
+Y3 = [3, 5, 4, 2, 1, 0]
+is_a_circuit_from_i(Y3,0)
 
-print("is circuit", is_a_circuit(Y1))
-print("is circuit", is_a_circuit(Y2))
+print("Y1: is circuit", is_a_circuit(Y1))
+print("Y2: is circuit", is_a_circuit(Y2))
+print("Y3: is circuit", is_a_circuit(Y3))
