@@ -14,8 +14,12 @@ ancestral(X,Y) :- pai(X,Y).
 ancestral(X,Y) :- pai(X,Z) , ancestral(Z,Y).
 /** REUSANDO o codigo **/
 descendente(X,Y) :- ancestral(Y,X).
-/*
- ?- ancestral(X,Y), write(X), 
-    write('  -->   '), write(Y),
-    nl, fail.
- */
+
+listar_todos :-
+   ancestral(X,Y), 
+   write(X),  write('  -->   '), write(Y),
+    nl, 
+    fail.
+
+listar_todos :- true.
+ 

@@ -15,7 +15,6 @@ from ortools.sat.python import cp_model
 
 # model_most_money
 def model_TSP():
-    t = 'model_TSP'  ### onde usar isto ....
     ## creating a model
     the_model = cp_model.CpModel()
     '''    
@@ -34,7 +33,7 @@ def model_TSP():
         ]; 
     '''
 # Example 02
-    n  = 7  #  number of nodes ( n x n matrix)
+    
     # all_nodes = list(range(n)) ## by HAKAN
     ### distance i x j
     #    1   2   3   4   5   6  7
@@ -47,17 +46,18 @@ def model_TSP():
         [14,12, 8, 5, 6, 0, 5],
         [15, 5,10, 8, 7, 5, 0]
         ] 
-    
-    L_NODES = list(range(n))
-    '''
-    # Example 02
+
+    n = len(d[0]) #  number of nodes ( n x n matrix)
+    L_NODES = list(range(n)) ### 0...(n-1)
+    print(f'L_NODES (RANGE) :' ,  L_NODES )
+    print(f'L_NODES (RANGE) : %s'  %( L_NODES) )
     ### should be come from a file
-    '''
+    
     #### VARIABLES
     #  to store ONE TRIP ==> take care with the MAX value
-    tour = [ the_model.NewIntVar(0, (n-1), 'tour[i]' ) 
+    tour = [ the_model.NewIntVar(0, (n-1), 'tour[i]' )  
              for i in range(n)
-            ]
+           ]
     ### go from 0 up to (n-1)
     #             
     x = [
@@ -89,8 +89,7 @@ def model_TSP():
     for i in L_NODES:
         the_model.Add( x[i][i] == 0 ) 
     
-    
-    #the_model.AddAllDifferent( tour )
+    #the_model.AddAllDifferent( tour ) ### unecessary
     
     circuit_HAKAN(the_model, tour)
     ### TESTING
@@ -133,14 +132,14 @@ def model_TSP():
     solver_OUT.parameters.max_time_in_seconds = 10
     status = solver_OUT.Solve(the_model)
     '''
-    db = solver.Phase(x, solver.INT_VAR_DEFAULT, solver.INT_VALUE_DEFAULT)
+    LATER = solver.Phase(x, solver.INT_VAR_DEFAULT, solver.INT_VALUE_DEFAULT)
     '''
     
     if status in (cp_model.OPTIMAL , cp_model.FEASIBLE):
         my_print_VARS( x, n, n,  f_objective, solver_OUT , tour  )
         
     elif (status == cp_model.INFEASIBLE) :   ##não é UNFEASIBLE 
-        print(" INSATISFATÍVEL ")
+        print(" UNSATISFATIBLE ")
         raise ValueError("No solution was found for the given input values")
 
     elif (status == cp_model.UNKNOWN) :
@@ -154,7 +153,7 @@ def model_TSP():
     print_t(40)
     return ###### end function
 
-###############
+############################################################
 def circuit_HAKAN(solver, x):
         n = len(x)
         ## MODIFIED here by CCS
@@ -184,47 +183,11 @@ def circuit_HAKAN(solver, x):
 
         # when i = n-1 it must be 0
         solver.Add(z[n - 1] == 0)
-###############
-
-###############
-def my_circ( c, the_model):
-    #https://acrogenesis.com/or-tools/documentation/user_manual/manual/introduction/theory.html
-    
-    n = len(c)
-    print("INDEX MAX" , (n-1))
-    x = the_model.NewIntVar(0, (n-1), 'aux' ) 
-    for i in range(n):
-        ###the_model.Add( c[i] != x and c[x] != i ) 
-        the_model.Add( c[i] != x and c[i] != i )  
-###############
-def is_a_circuit (model, x ):
-    
-    n = len(x)
-    step, i = 0 , 0 ### any position
-    v = []
-    v = [0  for i in range(n)]    
-    v[i] = 1 ## mark sequentially
-    
-    next = model.NewIntVar(0,(n-1),"")
-    
-    while (step < n):
-        model.Add( next ==  x[i] )
-        temp =   model.Value(next)
-        v[ temp ] = 1
-        i = model.Value(next)
-        step = step + 1
-        #print(f'i: %i \t next: %i \t step: %i v: %s ' %(i, next, step, v))
-        
-    if ( sum(v) == n ):
-        return True
-    else:
-        return False
-###############
-
+##############################
 def equivalence_constraint(model , x, y ):
-    model.AddImplication(x,y)
-    model.AddImplication(y,x)
-###############
+        model.AddImplication(x,y)
+        model.AddImplication(y,x)
+##############################
 
 ### PRINTING FUNCTION
 ## learning Python
@@ -248,10 +211,8 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT , tour ):
             print(f'  %i' % ( solver_OUT.Value( x[i][j] ) ), end =  '' )
     print("\n ============== SEQUENCE OF NODES ========= ")
     ### to be improved
+  
    
-    ##sequence_by_LUCAS ( x,  solver_OUT )
-
-
 ## learning Python            
         
     print('\n\n** Final Statistics **')

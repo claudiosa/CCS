@@ -99,10 +99,6 @@ circ_ex(L) =>
     circuit(L),
     solve(L).
     
-go_1 =>
-    L = [1,2,3,4], 
-    meu_circuito(L).
-    %solve(L).    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% explica elemet
 element_ex(Vars)  =>  
@@ -111,29 +107,3 @@ element_ex(Vars)  =>
     Vars = [X , Index],
     solve(Vars).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
-
-meu_circuito(L) =>
-    
-    Tam = L.length,
-    V = to_array(L),
-    V :: 1..Tam	,
-    printf("\n Array: %w", V),
-    
-    X :: 1..Tam,
-    foreach(I in 1..Tam)
-     %%%  V[I] #= X ,
-       	%I #!= X,
-	V[I] #= X 	
-       %bind_vars(V[I],X)		 
-    end,
-
-    % all_different(V),
-    solve([V,X]),
-    printf("\n Array diff: %w", V)
-    . 
-
- % #/\ (I #!= X),
- %     bind_vars(V[I],X) 
-  
-  
-
