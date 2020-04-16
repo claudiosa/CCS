@@ -18,8 +18,8 @@ descendente(X,Y) :- ancestral(Y,X).
 listar_todos :-
    ancestral(X,Y), 
    write(X),  write('  -->   '), write(Y),
-    nl, 
-    fail.
+   nl, 
+   fail. /**** UM DOS CASOS DE BOM USO DO FAIL ****/
 
 listar_todos :- true.
  
