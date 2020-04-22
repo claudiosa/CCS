@@ -3,7 +3,8 @@
 '''
 Problem Formulation 
 % Model from 
-% Taha "Introduction to Operations Research", page 245f .
+% Taha "Introduction to Operations Research"
+% Adding the flow of input equal output in all nodes
 
 '''
 
@@ -12,12 +13,12 @@ from ortools.sat.python import cp_model
 
 # model_most_money
 def model_shortest_path():
-    t = 'model_assignment'  ### onde usar isto ....
+    
     ## creating a model
     the_model = cp_model.CpModel()
     
     # Example 01
-    n     = 4  #  number of nodes ( n x n matrix)
+    # n     = 4  #  number of nodes ( n x n matrix)
     start = 0   #  start node -- attention here ... Python start in 
     end   = 3  #  end -- destination node
     M     = 999 #  large number ... means NO CONNECTION
@@ -29,7 +30,9 @@ def model_shortest_path():
         [M, 4,  0, 20],
         [M, M,  M, 0]
         ]
-
+    # from slides
+    n = len(d) ## number of cities
+    L_NODES = list(range(n)) ### 0...(n-1)
     '''
     # Example 02
     # DATA --- from HAKAN 
@@ -62,8 +65,8 @@ def model_shortest_path():
     ## array[1..n, 1..n] of var 0..1: x; % the resulting matrix, 1 if connected, 0 else
     ## the resulting connection matrix
     x = [
-         [the_model.NewIntVar(0, 1, 'x[i][j]' ) \
-            for j in range(n) ] \
+         [the_model.NewIntVar(0, 1, 'x[i][j]' )   \
+            for j in range(n) ]                    \
             for i in range(n)
         ]
     ### range(start, range ) --- start in specific index   
@@ -72,8 +75,8 @@ def model_shortest_path():
     f_objective = the_model.NewIntVar (0, 999999, 'cost function')
   
     # array[1..n] of var 0..1: outFlow  AND array[1..n] of var 0..1: inFlow;
-    outFlow = [the_model.NewIntVar (0, 1, 'Output Flow:[%i]' ) for i in range(n) ]
-    inpFlow = [the_model.NewIntVar (0, 1, 'Input Flow:[%i]' ) for i in range(n) ]
+    outFlow = [the_model.NewIntVar (0, 1, 'Output Flow:[%i]' ) for i in L_NODES ]
+    inpFlow = [the_model.NewIntVar (0, 1, 'Input Flow:[%i]' ) for i in L_NODES ]
 
     ## see the Taha books'
     # CONSTRAINTS ADDED of the problem
@@ -82,8 +85,7 @@ def model_shortest_path():
     ## output Flow of all nodes ... sum of a column of a row i:
     for i in [x for x in range(n) if (x != end) ]:
         the_model.Add( outFlow[i] == sum([ x[i][j] 
-            for j in range(n) 
-            if (d[i][j] < M) ] ) )
+            for j in range(n) if (d[i][j] < M) ] ) )
 
     ### calculate in flow -- IN        
     ## HERE is a column ... sum all the rows of this column
@@ -92,8 +94,7 @@ def model_shortest_path():
     for j in range(n):
         if (j != start):
             the_model.Add( inpFlow[j] == sum([ x[i][j]  
-                for i in range(n)                       
-                if  (d[i][j] < M) ] ) )
+                for i in range(n)  if  (d[i][j] < M) ] ) )
     
     # outflow = inflow
     #  Input - Output flow must be the equal ... 
@@ -169,8 +170,8 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
     print('Min sum of x : %i' % solver_OUT.Value(f_objective) )
     print('Inp Flow vector : ', [solver_OUT.Value(inpFlow[i]) for i in range(n)] )
     print('Out Flow vector : ', [solver_OUT.Value(outFlow[i]) for i in range(n)] )
-    ### printing the sequence of the nodes choosen
-    sequence_connection(inpFlow, outFlow, solver_OUT)
+    ### printing the sequence of the node -- TODO
+    
     print("\n ================= Decision Matrix X ==================")
     print(end =  '    ')
     ####### HEADLINE -- TOP of matrix
@@ -182,10 +183,12 @@ def my_print_VARS( x, m, n, f_objective, solver_OUT, inpFlow, outFlow ):
         for j in range(n): 
             ## print(f' x[%i][%i] : %i\t' % (i+1, j+1, solver_OUT.Value( x[i][j] ) ), end =  '' )
             print(f'  %i' % ( solver_OUT.Value( x[i][j] ) ), end =  '' )
+    
+    print("\n ============== VISITED NODES ========= ")
+    visited_nodes(inpFlow, outFlow, solver_OUT)
     print("\n ============== SEQUENCE OF NODES ========= ")
-    ### to be improved
     sequence_visiting ( x,  n, solver_OUT )
-    ##sequence_by_LUCAS ( x,  solver_OUT )
+     ##sequence_by_LUCAS ( x,  solver_OUT )
 
 
 ## learning Python            
@@ -211,19 +214,18 @@ def sequence_visiting ( x,  n, solver_OUT ):
 
 ### printing the sequence of the nodes choosen
 ### it does not fine
-def sequence_connection ( v1, v2, solver_OUT ):
+def visited_nodes ( v1, v2, solver_OUT ):
     size = len(v1)
     or_vetor = [solver_OUT.Value(v1[i]) or solver_OUT.Value(v2[i]) for i in range(size)]
-    print(f'Inp OR Out => Sequence Vector ', [or_vetor[i] for i in range(size)])
+    print('\n Inp FLOW OR Out FLOW => Visited nodes (NOT in SEQUENCE):') 
+    for i in range(size):
+        if (or_vetor[i] == 1):
+            print(f'node[%i]: %i' %(i , or_vetor[i]))
     
-    print("Sequence of Shortest PATH:")
-    for index in range(size):
-        if (or_vetor[index] == 1):
-            print(f'-> %i' %(index+1) , end =  '')
     return
 
 ## learning Python
-def print_t(n):
+def print_t(n):   ## imprime  n tracejados
     print()
     for i in range(n):
         print('=', end="")
