@@ -1,17 +1,15 @@
-#### BY CCS to studies
-
+#### BY CCS
 '''
 Problem Formulation 
 % Model from 
 % Taha "Introduction to Operations Research"
 % Adding the flow of input equal output in all nodes
-
 '''
 
 ###VERY VERY IMPORTANT
 from ortools.sat.python import cp_model
 
-# model_most_money
+# model_FUNCTION
 def model_shortest_path():
     
     ## creating a model
@@ -19,7 +17,7 @@ def model_shortest_path():
     
     # Example 01
     # n     = 4  #  number of nodes ( n x n matrix)
-    start = 0   #  start node -- attention here ... Python start in 
+    start = 0  #  start node -- attention here ... Python start in 
     end   = 3  #  end -- destination node
     M     = 999 #  large number ... means NO CONNECTION
     # all_nodes = list(range(n)) ## by HAKAN
