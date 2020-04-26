@@ -1,3 +1,0 @@
-\babel@toc {portuges}{}
-\beamer@sectionintoc {1}{As Restrições}{3}{0}{1}
-\beamer@sectionintoc {2}{Implementação}{8}{0}{2}

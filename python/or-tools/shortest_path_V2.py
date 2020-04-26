@@ -64,8 +64,8 @@ def model_shortest_path():
     ## the resulting connection matrix
     x = [
          [the_model.NewIntVar(0, 1, 'x[i][j]' )   \
-            for j in range(n) ]                    \
-            for i in range(n)
+            for i in range(n) ]                    \
+            for j in range(n)
         ]
     ### range(start, range ) --- start in specific index   
     ### index accept ... only "i" .... WHY ....
