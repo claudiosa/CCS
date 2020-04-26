@@ -1,5 +1,0 @@
-\babel@toc {portuges}{}
-\beamer@sectionintoc {1}{Classes de Problemas}{3}{0}{1}
-\beamer@sectionintoc {2}{Programação Linear}{4}{0}{2}
-\beamer@sectionintoc {3}{Problema do Caminho Mínimo}{5}{0}{3}
-\beamer@sectionintoc {4}{Próximos Passos}{14}{0}{4}
