@@ -33,11 +33,12 @@ w(0,5). w(1,5).  w(2,5). w(3,5).         w(5,5).
 %%% Add by CCS
 start_point(0,5). %%% departure, initial ... 
 end_point(5,5). %% arrival, exit, end ...
-
+%% $ swipl -q -f maze_BEST_FS.pl -t main
 
 %%%% GREAT IDEA 
 d(X0,Y0,X,Y) :- next_w(X0,Y0,X,Y), w(X,Y).
 %%% ONLY ALLOWED MOVEMENTS
+%% the cut was added by me
 next_w(X0,Y0,X0,Y) :- Y is Y0+1. %%% RIGHT 
 next_w(X0,Y0,X,Y0) :- X is X0+1. %%% DOWN
 next_w(X0,Y0,X0,Y) :- Y is Y0-1. %%% LEFT
@@ -49,18 +50,21 @@ next_w(X0,Y0,X,Y0) :- X is X0-1. %%% UP
 %%% one_solution(Solution) :-
 one_solution(Solution) :-    
           start_point(X0,Y0),
-          %%%             NODE  OPEN       CLOSE, SOL
+          %%% NODE  OPEN       CLOSE, SOL
           search_BEST_FS( X0, Y0, [(X0,Y0)], [], Path),
           %%% LIST OF LIST ... many possible paths will be explored
           reverse(Path, Solution),
           print(Solution),
           heuristic_sum(Solution, S),
-          format("\n LOWEST SUM is: ~d", S)
+          format("\n An  UPPER BOUND (a worst case) is: ~d", S)
           .
 
-
-main :- findall(X, one_solution(X), L),
-        imp_lst(L).            
+main :- %% findall(X, one_solution(X), L),
+        one_solution(L), nl,
+        writeln(one_solution_is  :L),
+        length(L, Cost),
+        writeln(true_cost :Cost),
+        format("\n ============================= \n").
 
 %%% KERNEL of SEARCH
 search_BEST_FS(X,Y , Path , _ , Path) :-
@@ -72,7 +76,6 @@ search_BEST_FS(X,Y , Path , _ , Path) :-
 search_BEST_FS( X0,Y0 , [(X0,Y0) | L_CLOSED], L_OPEN, SOL ) :-
     
     append( L_OPEN, L_CLOSED, ALL ), %%% to avoid circularity
-    
     expand_current_node( (X0,Y0), ALL , Expanded_NODE),
         
     append( L_OPEN, Expanded_NODE, L ), %% NEIGHBOURG NEW
@@ -170,7 +173,7 @@ my_min_test([],_ ) :- print("\n empty list").
 my_min_test([X] , X ):- !.
 my_min_test([H1 , H2 | L_H ], Min ) :-
     H1 =< H2,
-    my_min_test([H1 | L_H ], Min ).
+    my_min_test([H1 | L_H ], Min ), !.
 
 my_min_test([H1 , H2 | L_H ], Min ) :- 
       H1 > H2, 
