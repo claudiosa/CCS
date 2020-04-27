@@ -42,9 +42,9 @@ next_w(X0,Y0,X,Y0) :- X is X0-1. %%% UP
 
 %search_DFS(X,Y,X,Y,Path,Path).
 search_DFS(X,Y,Path,Path) :-
-           end_point(X,Y).
-           %,
-           %format("\n FOUND A SOLUTION\n").
+        end_point(X,Y),
+        format("\n ... FOUND A SOLUTION (HALT condition) ...\n"), 
+        !.
 
 search_DFS(X0,Y0,SoFar,Path) :-
     d(X0,Y0,X1,Y1),
@@ -52,21 +52,31 @@ search_DFS(X0,Y0,SoFar,Path) :-
     search_DFS(X1,Y1,[ (X1,Y1)|SoFar],Path).
     
 %%% MY contribution and corrections    
-one_solution(Solution) :-
+one_solution(Path) :-
+        start_point(X0,Y0),
+        search_DFS(X0,Y0, [(X0,Y0)],Path)
+        %% PATH in reverse order
+        ,
+        !. %%% FOR ONLY AND FIRST SOLUTION
+        %% UNCOMMENT this green cut 
+   
+ main :- 
+        % findall(X, one_solution(X), L),
+        % imp_lst(L).            
     
-          start_point(X0,Y0),
-          search_DFS(X0,Y0, [(X0,Y0)],Path),
-          reverse(Path, Solution).
-          %,   write(Solution).
+        one_solution(Path),
+        reverse(Path, Solution),
+        %print(Solution),
+        writeln('A SOLUTION' : Solution),
+        writeln(one_solution_is  :Solution),
+        length(Solution, Cost),
+        writeln('COST (steps)' :Cost),
+        format("\n ============================= \n").
 
- main :- findall(X, one_solution(X), L),
-         imp_lst(L).            
-    
-
-
+%%%%%%%%%%%%          %%%%%%%%%%%%          %%%%%%%%%%%%          
+%% AUX
 imp_lst([]).
 imp_lst([Cabeca|Cauda]):- 
          format("\n A SOLUTION is:\n ~w", [Cabeca]), 
          imp_lst(Cauda).
-
-%%%%%%%%%%%%          
+%%%%%%%%%%%%          %%%%%%%%%%%%          %%%%%%%%%%%%          

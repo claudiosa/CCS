@@ -56,18 +56,22 @@ main :-  best_sol.
 %%%  one_solution(Solution) :-    %%% uncomment to use the main
 
 best_sol :-
-          start_point(X0,Y0),
-          %%%  NODE  OPEN CLOSE, SOL
-          search_BREADTH_FS( [[ (X0,Y0) ]],  Path),
-          %%% LIST OF LIST ... many possible paths will be explored
-          reverse(Path, Solution),
-          print(Solution),
-          format("\n =============================\n").
+        start_point(X0,Y0),
+        %%%  NODE  OPEN CLOSE, SOL
+        search_BREADTH_FS( [[ (X0,Y0) ]],  Path),
+        %%% LIST OF LIST ... many possible paths will be explored
+        reverse(Path, Solution),
+        %print(Solution),
+        writeln('THE SOLUTION' : Solution),
+        writeln(one_solution_is  :Solution),
+        length(Solution, Cost),
+        writeln('lower_bound (steps)' :Cost),
+        format("\n ============================= \n").
 
 %%% KERNEL of SEARCH
 search_BREADTH_FS([ [(X,Y)| BEST_Path] | _ ] , [(X,Y) | BEST_Path ] ):-
         end_point(X,Y),
-        format("\n FOUND A SOLUTION\n"), 
+        format("\n ... FOUND A SOLUTION (halt condition) ...\n"), 
         !. %% 
 
 %%% CURR_NODE --- a sequence of nodes ... by level

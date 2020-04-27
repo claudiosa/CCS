@@ -8,6 +8,11 @@ Ruhul A. Sarker Charles S. Newton
 AND
 Taha "Introduction to Operations Research" (PORTUGESE edition - 8 nth.)
 
+
+* tmp = model.NewBoolVar("")
+* model.Add(x == y).OnlyEnforceIf(tmp)
+* model.Add(x != y).OnlyEnforceIf(tmp.Not())
+
 '''
 
 ###VERY VERY IMPORTANT
