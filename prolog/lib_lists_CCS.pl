@@ -1,19 +1,20 @@
+%%% the greatesth
+maior( [] ,0) :- !.
+maior( [M] , M ) :- !.
+maior( [M , K], M ) :- M >= K , !.
+maior( [M|R] ,N ) :- maior( R , K ) ,
+                      maior( [K , M] , N).
 
-uniao([],X,X).
+/*   UNION ...  L1, L2, Lretorno --- append */ 
+uniao([],X,X) :- !.
+uniao(X,[],X) :- !.
 uniao([X|L1],L2,[X|L3]) :- uniao( L1, L2, L3).
 
 
-
-/*  JORGE.PL
-    Shelved on the 21st of December 1987
-*/
-
-
-/*
-List processing predicates Contributed by
-J.G. Forero @ Reading University Computer Science Dept.
-
-*/
+comp([], 0) :- !.
+comp([_ | L], N) :- 
+                    comp(L, N1),
+                    N is (N1+1).
 
 
 /*  marka( In, Elem, X, Out) iff input list In will change to output list Out
@@ -21,7 +22,6 @@ J.G. Forero @ Reading University Computer Science Dept.
     Fails if In does not contain Elem.
 */
 marka( [Elem|T], Elem, X, [Elem,X|T] ).
-
 marka( [H|T], Elem, X, [H|T1] ) :-
     marka( T, Elem, X, T1 ).
 
@@ -32,10 +32,7 @@ marka( [H|T], Elem, X, [H|T1] ) :-
 */
 normal( In, Out ) :-
     normal( In, [], Out ).
-
-
 normal( [], L, L ).
-
 normal( A, L, [A|L] ) :-
     var( A ), !.
 
@@ -51,7 +48,7 @@ normal( [H|T], Sofar, Result ) :-
     occurrences
     of any element by one occurrence of that element.
 */
-doubl( [], []).
+doubl( [], [])  :- !.
 
 doubl( [ Elem, Elem| X], [ Elem| Y]) :-
    doubl( X, Y).
@@ -64,7 +61,7 @@ doubl( [ X| R1], [ X| R2]) :-
     member_rest( Elem, List, Rest) iff Elem is a member
     of List and Rest is the rest of the list following Elem.
 */
-member_rest( Elem, [ Elem| Rest], Rest).
+member_rest( Elem, [ Elem| Rest], Rest)  :- !.
 
 member_rest( Elem, [ _| Rest], Rest_rest) :-
    member_rest( Elem, Rest, Rest_rest).
@@ -91,7 +88,7 @@ sublist([Elem | Rest], Start, End, Sublist) :-
     a new prefix into Part on each resatisfaction, starting with [].
     At least one of Part and Whole must be instantiated.
 */
-prefix([], _).
+prefix([], _)  :- !.
 
 prefix([Elem|Reso],[Elem|Resto]) :-
    prefix(Reso,Resto).
@@ -101,7 +98,7 @@ prefix([Elem|Reso],[Elem|Resto]) :-
     in the List.  List must be instantiated, as must at least one of
     Elem and Number.
 */
-position([ Elem | Rest ], Elem, 1 ).
+position([ Elem | _ ], Elem, 1 ) :- !.
 
 position([ _ | Rest ], Elem, Number ) :-
     var(Number),
@@ -119,3 +116,41 @@ position([ _ | Rest ], Elem, Number ) :-
 */
 islist( [] ) :- !.
 islist( [_|_] ).
+
+
+/* Permutacao de elementos */
+
+permutar([], []) :- !. /* Condicao de parada*/
+permutar([X|L], Lpermutada):-
+  	permutar(L, L1), 
+	exclui_1a(X, Lpermutada, L1).
+
+
+/* Exclui  X apenas em sua primeira ocorrencia */
+exclui_1a(X, [X|L], L)  :- !.
+exclui_1a(X, [Y|L], [Y|L1]):- exclui_1a(X, L, L1).
+
+/* executando */
+init :- permutar([5,7,9],X), nl , write(X), fail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% all X in L
+del_X_all( _ , [],[]) :- !.
+del_X_all(X, [X|L], L1) :- del_X_all(X,L,L1).
+del_X_all(X, [Y|L1], [Y|L2]) :- del_X_all(X,L1,L2).
+
+%!  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AUX by CCS
+my_sort_UP( [] , []) :- !.
+my_sort_UP(L1, [ X | D]) :-
+    max_list(L1 , X ),
+    my_delete(L1 , X, L2),
+    my_sort_UP(L2 , D ).
+
+
+%  remove ONLY ONE X ... not all
+my_delete( [A], A , [] ) :- !.
+my_delete([A|B], A, B) :- !. %%% Return at the firs occurrence
+my_delete([A|B], X, [A|C]) :-
+    A \== X,
+    my_delete(B, X, C).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
