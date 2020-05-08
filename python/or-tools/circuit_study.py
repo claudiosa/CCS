@@ -1,14 +1,4 @@
 #### BY CCS to studies
-'''
-Problem Formulation 
-% Model from :
-
-"Optimization Modelling A Practical Approach"
-Ruhul A. Sarker Charles S. Newton
-AND
-Taha "Introduction to Operations Research" (PORTUGESE edition - 8 nth.)
-
-'''
 
 ###VERY VERY IMPORTANT
 from ortools.sat.python import cp_model
@@ -23,19 +13,47 @@ def model_CIRCUIT():
             for i in range(n)
             ]
     
-    #circuit_HAKAN(the_model, tour)
+    a =  the_model.NewBoolVar('a')
+    b =  the_model.NewBoolVar('b')
     ### TESTING
-    the_model.AddCircuit( tour )
-    #my_circ( tour, the_model)
-    #the_model.AddImplication
+    the_model.AddAllDifferent( tour )
+    ## to do
+    # the_model.Add(is_a_circuit( tour, the_model ) == True)
+   
+
+
+    ## ONLY if a True ...  
+    the_model.Add(  a == True)
+    the_model.Add( tour[2] + tour[3] == 7).OnlyEnforceIf(a)
+   
+
+    ## ONLY if a False ... 
+    the_model.Add( tour[0] + tour[1] == 7).OnlyEnforceIf(b.Not())
+    the_model.Add(  b == False)
+      
+    #the_model.AddBoolOr([a.Not(),b.Not()]) ## DEFAULT is True
+    the_model.AddBoolAnd([a , b.Not()]) ## DEFAULT is True
+   
         
     
+ ####   ################################################
+    ## VERY important ....
+    ## take care with the branch in TOUR
+     # Search for x values in increasing order.
+    the_model.AddDecisionStrategy(tour, cp_model.CHOOSE_FIRST, 
+                              cp_model.SELECT_MIN_VALUE)
+    
+   # Create a solver and solve with a fixed search.
     solver_OUT = cp_model.CpSolver()
+
+    # Force the solver to follow the decision strategy exactly.
+    solver_OUT.parameters.search_branching = cp_model.FIXED_SEARCH
+   
     solver_OUT.parameters.max_time_in_seconds = 10
     status = solver_OUT.Solve(the_model)
-    
+####################################################    
     if status in (cp_model.OPTIMAL , cp_model.FEASIBLE):
-        my_print_VARS( tour, n, solver_OUT  )
+        my_print_VARS( a, b, tour, n, solver_OUT  )
         
     elif (status == cp_model.INFEASIBLE) :   ##não é UNFEASIBLE 
         print(" INSATISFATÍVEL ")
@@ -50,66 +68,25 @@ def model_CIRCUIT():
     ### end of if ....
     print("END SOLVER and MODEL ")
     print_t(40)
-    return ###### end function
+    return 
+###### end function MODEL
 
-###############
-def circuit_HAKAN(solver, x):
-        n = len(x)
-        ## MODIFIED here by CCS
-        z = [solver.NewIntVar(0, n - 1, "z%i" % i) for i in range(n)]
-        ## MODIFIED here by CCS
-        solver.AddAllDifferent(x)
-        solver.AddAllDifferent(z)
-
-        # put the orbit of x[0] in in z[0..n-1]
-        solver.Add(z[0] == x[0])
-        for i in range(1, n - 1):
-            # The following constraint give the error
-            # "TypeError: list indices must be integers, not IntVar"
-            # solver.Add(z[i] == x[z[i-1]])
-
-            # solution: use Element instead
-            #solver.Add(z[i] == solver.Element(x, z[i - 1]))
-            ## MODIFIED here by CCS
-            solver.AddElement(z[i-1] , x, z[i])
-
-        #
-        # Note: At least one of the following two constraint must be set.
-        #
-        # may not be 0 for i < n-1
-        for i in range(1, n - 1):
-            solver.Add(z[i] != 0)
-
-        # when i = n-1 it must be 0
-        solver.Add(z[n - 1] == 0)
-###############
-
-###############
-def my_circ( c, the_model):
-    #https://acrogenesis.com/or-tools/documentation/user_manual/manual/introduction/theory.html
+def is_a_circuit(x, the_model):
     
-    n = len(c)
-    print("INDEX MAX" , (n-1))
-    x = the_model.NewIntVar(0, (n-1), 'aux' ) 
-    for i in range(n):
-        ###the_model.Add( c[i] != x and c[x] != i ) 
-        the_model.Add( c[i] != x and c[i] != i )  
-###############
-def is_a_circuit (model, x ):
-    
+    the_model.AddAllDifferent( x )
     n = len(x)
     step, i = 0 , 0 ### any position
     v = []
     v = [0  for i in range(n)]    
     v[i] = 1 ## mark sequentially
     
-    next = model.NewIntVar(0,(n-1),"")
-    
     while (step < n):
-        model.Add( next ==  x[i] )
-        temp =   model.Value(next)
-        v[ temp ] = 1
-        i = model.Value(next)
+        #solver.AddElement(z[i-1] , x, z[i])
+
+        next = the_model.x[i]
+        #the_model.Add(next == x[i])
+        v[next] = 1
+        i = next
         step = step + 1
         #print(f'i: %i \t next: %i \t step: %i v: %s ' %(i, next, step, v))
         
@@ -117,17 +94,14 @@ def is_a_circuit (model, x ):
         return True
     else:
         return False
-###############
-
-def equivalence_constraint(model , x, y ):
-    model.AddImplication(x,y)
-    model.AddImplication(y,x)
-###############
+##############################
 
 ### PRINTING FUNCTION
 ## learning Python
-def my_print_VARS( tour, n, solver_OUT ):
+def my_print_VARS( a, b,  tour, n, solver_OUT ):
 
+    print('A : ', solver_OUT.Value(a) )
+    print('B : ', solver_OUT.Value(b) )
     print("\n ============== SEQUENCE OF NODES ========= ") 
     print('TOUR : ', [solver_OUT.Value(tour[i]) for i in range(n)] )
    
@@ -161,3 +135,13 @@ if __name__ == '__main__':
     print(f'\n END MAIN ', end="")
     print_t(40)
     # return ###### end function 
+
+
+
+'''
+    
+def AddInverse(self, variables, inverse_variables)
+Adds Inverse(variables, inverse_variables).
+
+# An inverse constraint enforces that if variables[i] is assigned a value j, then inverse_variables[j] is assigned a value i. And vice versa.
+'''

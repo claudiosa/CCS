@@ -109,12 +109,14 @@ def model_TSP():
      foreach(I in 1..Len , J  in 1..Len)
       ( M_Decisao[I,J] #= 1 ) #<=> ( Cidades[I] #= J )
      end,    
-    
+    '''
+    '''
     for i in L_NODES:
         for j in  L_NODES:
             ##if (x[i][j] == 1):    
             ### equivalence_constraint(the_model, tour[i] == j, x[i][j] == 1 )
-            #the_model.Add( (x[i][j] == 1) == (tour[i] == j))
+            the_model.AddBoolAnd( [(x[i][j]) , (tour[i] == j)] )
+            
             the_model.Add( x[i][j] == 1)
             the_model.Add( tour[i] == j)
     '''

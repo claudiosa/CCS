@@ -1,7 +1,3 @@
-
-
-
-
 def is_a_circuit_from_i(x,i):
     n = len(x)
     step = 0
