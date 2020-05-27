@@ -77,7 +77,7 @@ sublist(List, 1, End, Sublist) :-
   prefix(Sublist, List),
   length(Sublist, End).
 
-sublist([Elem | Rest], Start, End, Sublist) :-
+sublist([_ | Rest], Start, End, Sublist) :-
   sublist(Rest, Startx, Endx, Sublist),
   Start is Startx + 1,
   End is Endx + 1.
@@ -98,6 +98,7 @@ prefix([Elem|Reso],[Elem|Resto]) :-
     in the List.  List must be instantiated, as must at least one of
     Elem and Number.
 */
+
 position([ Elem | _ ], Elem, 1 ) :- !.
 
 position([ _ | Rest ], Elem, Number ) :-
@@ -110,8 +111,90 @@ position([ _ | Rest ], Elem, Number ) :-
     N_minus is Number - 1,
     position(Rest, Elem, N_minus).
 
+%%% value_from_index(i,i,?)
+value_from_index(Number , _ , _ ) :-
+    Number =< 0 ,
+    format("\n Negative INDEX").
 
-/*  islist(List) iff List is a List. (Really just checks for [] and
+value_from_index( 1, [ Elem | _ ], Elem ) :- !.
+
+value_from_index(Number, [ _ | Rest ], Elem ) :-
+    N_minus is Number - 1,
+    value_from_index(N_minus, Rest, Elem).
+
+/*
+    Check if a list form a circuit - True or False
+    delete([3,4,5],5,X)
+    ?- circuit([3,1,2]).
+    true.
+
+    ?- circuit([4,1,2,3]).
+    true.
+ 
+*/
+ %%% verifiy if the list is a circuit
+circuit(X) :- 
+    indexes_DIFF_values(X),
+    is_a_circuit( X ,X ) .
+
+%%% NONE VALUE can be pointing for itself
+indexes_DIFF_values(X) :- 
+    length(X , N),
+%   N > 1,
+    reverse(X , Y),
+    diff_value_index(N,Y).
+
+%ndexes_DIFF_values(_) :- false.
+%%%
+%%%rcuit([4,3,2,1]).
+%% indexes differs of its own value
+
+diff_value_index(0,[]) :- !.
+diff_value_index(1,[1]) :- !.    
+diff_value_index(N, [ A | L ] ) :-
+    N \== A, %%% none index can be point to itself
+    N_minus is (N-1),
+    diff_value_index( N_minus, L ).
+
+%%% check if it is a circuit - true or false
+is_a_circuit([1], _) :- !.
+is_a_circuit([A|L1], Ancor) :-
+    value_from_index(A, Ancor, B) ,
+    delete(L1,B,L2) ,
+    is_a_circuit([B|L2] , Ancor).
+
+all_permutations(X, L) :- findall(Y, permutation(X,Y), L).
+/*
+?- findall(X, permutation([1,2,3],X)  , L).
+L = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]].
+*/
+%%% generator of circuits with size N
+gen_circuits(N, L):- 
+    make_A_list(N, X),
+    all_permutations(X, L_per),
+    circuit_filter(L_per, L).
+  
+
+%%%% filter from L ... only lists that are circuits
+circuit_filter([], []) :- !.
+circuit_filter([C |L1], [C|L2]) :-
+    circuit(C),
+    circuit_filter(L1,L2), 
+    !.
+
+%% C is not a circuit in L
+circuit_filter([ _ |L1], L2) :-
+      circuit_filter(L1,L2).
+
+
+make_A_list(0,[]) :-!.
+make_A_list(N, [N|L]):-
+    N_minus is (N-1),
+    make_A_list(N_minus, L).
+
+
+/*
+    islist(List) iff List is a List. (Really just checks for [] and
     that the main functor is '.')
 */
 islist( [] ) :- !.
