@@ -100,7 +100,6 @@ prefix([Elem|Reso],[Elem|Resto]) :-
 */
 
 position([ Elem | _ ], Elem, 1 ) :- !.
-
 position([ _ | Rest ], Elem, Number ) :-
     var(Number),
     !,
@@ -114,12 +113,12 @@ position([ _ | Rest ], Elem, Number ) :-
 %%% value_from_index(i,i,?)
 value_from_index(Number , _ , _ ) :-
     Number =< 0 ,
-    format("\n Negative INDEX").
+    format("\n Negative INDEX"), !.
 
 value_from_index( 1, [ Elem | _ ], Elem ) :- !.
 
 value_from_index(Number, [ _ | Rest ], Elem ) :-
-    N_minus is Number - 1,
+    N_minus is (Number - 1),
     value_from_index(N_minus, Rest, Elem).
 
 /*
@@ -138,17 +137,16 @@ circuit(X) :-
     is_a_circuit( X ,X ) .
 
 %%% NONE VALUE can be pointing for itself
-indexes_DIFF_values(X) :- 
-    length(X , N),
+indexes_DIFF_values(L_X) :- 
+    length(L_X , N), %% 
 %   N > 1,
-    reverse(X , Y),
-    diff_value_index(N,Y).
+    reverse(L_X , L_Y),
+    diff_value_index(N,L_Y).
 
 %ndexes_DIFF_values(_) :- false.
-%%%
-%%%rcuit([4,3,2,1]).
-%% indexes differs of its own value
-
+%%
+%% circuit([4,3,2,1]).
+%% check if the indexes differs of its own value
 diff_value_index(0,[]) :- !.
 diff_value_index(1,[1]) :- !.    
 diff_value_index(N, [ A | L ] ) :-
@@ -158,9 +156,11 @@ diff_value_index(N, [ A | L ] ) :-
 
 %%% check if it is a circuit - true or false
 is_a_circuit([1], _) :- !.
+is_a_circuit([1|L], _) :- nonvar(L), !, false.
 is_a_circuit([A|L1], Ancor) :-
     value_from_index(A, Ancor, B) ,
     delete(L1,B,L2) ,
+    %(B \== 1 , L2 \==[] ), %% if B==1 ... it must be the last
     is_a_circuit([B|L2] , Ancor).
 
 all_permutations(X, L) :- findall(Y, permutation(X,Y), L).
@@ -173,7 +173,12 @@ gen_circuits(N, L):-
     make_A_list(N, X),
     all_permutations(X, L_per),
     circuit_filter(L_per, L).
-  
+ /*
+ ?- gen_circuits(3, L), write(L).
+[[3,1,2],[2,3,1]]
+L = [[3, 1, 2], [2, 3, 1]].
+*/
+
 
 %%%% filter from L ... only lists that are circuits
 circuit_filter([], []) :- !.
@@ -186,12 +191,11 @@ circuit_filter([C |L1], [C|L2]) :-
 circuit_filter([ _ |L1], L2) :-
       circuit_filter(L1,L2).
 
-
+%%% simple list [N, ..., 1]
 make_A_list(0,[]) :-!.
 make_A_list(N, [N|L]):-
     N_minus is (N-1),
     make_A_list(N_minus, L).
-
 
 /*
     islist(List) iff List is a List. (Really just checks for [] and
