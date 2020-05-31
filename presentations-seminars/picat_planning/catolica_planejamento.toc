@@ -1,10 +1,10 @@
 \babel@toc {brazilian}{}
 \beamer@sectionintoc {1}{Introdução}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Estrutura da Linguagem}{11}{0}{1}
-\beamer@subsubsectionintoc {1}{1}{1}{Paradigmas}{16}{0}{1}
-\beamer@subsubsectionintoc {1}{1}{2}{Usando Picat}{33}{0}{1}
-\beamer@sectionintoc {2}{Planejamento}{49}{0}{2}
-\beamer@sectionintoc {3}{Conclusões}{93}{0}{3}
-\beamer@subsectionintoc {3}{1}{Ficou Faltando}{101}{0}{3}
-\beamer@subsectionintoc {3}{2}{Dicas de Programação}{104}{0}{3}
-\beamer@subsectionintoc {3}{3}{Agradecimentos}{109}{0}{3}
+\beamer@subsectionintoc {1}{1}{Estrutura da Linguagem}{9}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{1}{Paradigmas}{14}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{2}{Usando Picat}{31}{0}{1}
+\beamer@sectionintoc {2}{Planejamento}{47}{0}{2}
+\beamer@sectionintoc {3}{Conclusões}{94}{0}{3}
+\beamer@subsectionintoc {3}{1}{Ficou Faltando}{102}{0}{3}
+\beamer@subsectionintoc {3}{2}{Dicas de Programação}{105}{0}{3}
+\beamer@subsectionintoc {3}{3}{Agradecimentos}{110}{0}{3}
