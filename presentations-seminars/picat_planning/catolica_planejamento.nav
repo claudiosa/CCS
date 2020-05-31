@@ -9,112 +9,118 @@
 \headcommand {\beamer@framepages {3}{3}}
 \headcommand {\slideentry {1}{0}{2}{4/7}{}{0}}
 \headcommand {\beamer@framepages {4}{7}}
-\headcommand {\slideentry {1}{0}{3}{8/10}{}{0}}
-\headcommand {\beamer@framepages {8}{10}}
-\headcommand {\beamer@subsectionpages {3}{10}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{11}{Estrutura da Linguagem}}
-\headcommand {\slideentry {1}{1}{1}{11/12}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {11}{12}}
-\headcommand {\slideentry {1}{1}{2}{13/15}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {13}{15}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{1}{1}{16}{Paradigmas}}
-\headcommand {\slideentry {1}{1}{3}{16/19}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {16}{19}}
-\headcommand {\slideentry {1}{1}{4}{20/22}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {20}{22}}
-\headcommand {\slideentry {1}{1}{5}{23/25}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {23}{25}}
-\headcommand {\slideentry {1}{1}{6}{26/31}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {26}{31}}
-\headcommand {\slideentry {1}{1}{7}{32/32}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {32}{32}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{1}{2}{33}{Usando Picat}}
-\headcommand {\slideentry {1}{1}{8}{33/34}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {33}{34}}
-\headcommand {\slideentry {1}{1}{9}{35/35}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {35}{35}}
-\headcommand {\slideentry {1}{1}{10}{36/37}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {36}{37}}
-\headcommand {\slideentry {1}{1}{11}{38/38}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {38}{38}}
-\headcommand {\slideentry {1}{1}{12}{39/41}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {39}{41}}
-\headcommand {\slideentry {1}{1}{13}{42/45}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {42}{45}}
-\headcommand {\slideentry {1}{1}{14}{46/48}{Estrutura da Linguagem}{0}}
-\headcommand {\beamer@framepages {46}{48}}
-\headcommand {\beamer@sectionpages {3}{48}}
-\headcommand {\beamer@subsectionpages {11}{48}}
-\headcommand {\sectionentry {2}{Planejamento}{49}{Planejamento}{0}}
-\headcommand {\slideentry {2}{0}{1}{49/49}{}{0}}
-\headcommand {\beamer@framepages {49}{49}}
-\headcommand {\slideentry {2}{0}{2}{50/55}{}{0}}
-\headcommand {\beamer@framepages {50}{55}}
-\headcommand {\slideentry {2}{0}{3}{56/60}{}{0}}
-\headcommand {\beamer@framepages {56}{60}}
-\headcommand {\slideentry {2}{0}{4}{61/64}{}{0}}
-\headcommand {\beamer@framepages {61}{64}}
-\headcommand {\slideentry {2}{0}{5}{65/65}{}{0}}
-\headcommand {\beamer@framepages {65}{65}}
-\headcommand {\slideentry {2}{0}{6}{66/66}{}{0}}
+\headcommand {\slideentry {1}{0}{3}{8/8}{}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsectionpages {3}{8}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{9}{Estrutura da Linguagem}}
+\headcommand {\slideentry {1}{1}{1}{9/10}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {9}{10}}
+\headcommand {\slideentry {1}{1}{2}{11/13}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {11}{13}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{1}{1}{14}{Paradigmas}}
+\headcommand {\slideentry {1}{1}{3}{14/17}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {14}{17}}
+\headcommand {\slideentry {1}{1}{4}{18/20}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {18}{20}}
+\headcommand {\slideentry {1}{1}{5}{21/23}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {21}{23}}
+\headcommand {\slideentry {1}{1}{6}{24/29}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {24}{29}}
+\headcommand {\slideentry {1}{1}{7}{30/30}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{1}{2}{31}{Usando Picat}}
+\headcommand {\slideentry {1}{1}{8}{31/32}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {31}{32}}
+\headcommand {\slideentry {1}{1}{9}{33/33}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\slideentry {1}{1}{10}{34/35}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {34}{35}}
+\headcommand {\slideentry {1}{1}{11}{36/36}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {1}{1}{12}{37/39}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {37}{39}}
+\headcommand {\slideentry {1}{1}{13}{40/43}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {40}{43}}
+\headcommand {\slideentry {1}{1}{14}{44/46}{Estrutura da Linguagem}{0}}
+\headcommand {\beamer@framepages {44}{46}}
+\headcommand {\beamer@sectionpages {3}{46}}
+\headcommand {\beamer@subsectionpages {9}{46}}
+\headcommand {\sectionentry {2}{Planejamento}{47}{Planejamento}{0}}
+\headcommand {\slideentry {2}{0}{1}{47/47}{}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {2}{0}{2}{48/53}{}{0}}
+\headcommand {\beamer@framepages {48}{53}}
+\headcommand {\slideentry {2}{0}{3}{54/58}{}{0}}
+\headcommand {\beamer@framepages {54}{58}}
+\headcommand {\slideentry {2}{0}{4}{59/59}{}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {2}{0}{5}{60/60}{}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\slideentry {2}{0}{6}{61/61}{}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\slideentry {2}{0}{7}{62/65}{}{0}}
+\headcommand {\beamer@framepages {62}{65}}
+\headcommand {\slideentry {2}{0}{8}{66/66}{}{0}}
 \headcommand {\beamer@framepages {66}{66}}
-\headcommand {\slideentry {2}{0}{7}{67/67}{}{0}}
+\headcommand {\slideentry {2}{0}{9}{67/67}{}{0}}
 \headcommand {\beamer@framepages {67}{67}}
-\headcommand {\slideentry {2}{0}{8}{68/68}{}{0}}
+\headcommand {\slideentry {2}{0}{10}{68/68}{}{0}}
 \headcommand {\beamer@framepages {68}{68}}
-\headcommand {\slideentry {2}{0}{8}{68/69}{}{0}}
-\headcommand {\beamer@framepages {68}{69}}
-\headcommand {\slideentry {2}{0}{8}{68/70}{}{0}}
-\headcommand {\beamer@framepages {68}{70}}
-\headcommand {\slideentry {2}{0}{9}{71/71}{}{0}}
-\headcommand {\beamer@framepages {71}{71}}
-\headcommand {\slideentry {2}{0}{9}{71/72}{}{0}}
-\headcommand {\beamer@framepages {71}{72}}
-\headcommand {\slideentry {2}{0}{10}{73/73}{}{0}}
-\headcommand {\beamer@framepages {73}{73}}
-\headcommand {\slideentry {2}{0}{10}{73/74}{}{0}}
-\headcommand {\beamer@framepages {73}{74}}
-\headcommand {\slideentry {2}{0}{10}{73/75}{}{0}}
-\headcommand {\beamer@framepages {73}{75}}
-\headcommand {\slideentry {2}{0}{10}{73/76}{}{0}}
-\headcommand {\beamer@framepages {73}{76}}
-\headcommand {\slideentry {2}{0}{10}{73/77}{}{0}}
-\headcommand {\beamer@framepages {73}{77}}
-\headcommand {\slideentry {2}{0}{11}{78/78}{}{0}}
-\headcommand {\beamer@framepages {78}{78}}
-\headcommand {\slideentry {2}{0}{12}{79/79}{}{0}}
+\headcommand {\slideentry {2}{0}{11}{69/69}{}{0}}
+\headcommand {\beamer@framepages {69}{69}}
+\headcommand {\slideentry {2}{0}{11}{69/70}{}{0}}
+\headcommand {\beamer@framepages {69}{70}}
+\headcommand {\slideentry {2}{0}{11}{69/71}{}{0}}
+\headcommand {\beamer@framepages {69}{71}}
+\headcommand {\slideentry {2}{0}{12}{72/72}{}{0}}
+\headcommand {\beamer@framepages {72}{72}}
+\headcommand {\slideentry {2}{0}{12}{72/73}{}{0}}
+\headcommand {\beamer@framepages {72}{73}}
+\headcommand {\slideentry {2}{0}{13}{74/74}{}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\slideentry {2}{0}{13}{74/75}{}{0}}
+\headcommand {\beamer@framepages {74}{75}}
+\headcommand {\slideentry {2}{0}{13}{74/76}{}{0}}
+\headcommand {\beamer@framepages {74}{76}}
+\headcommand {\slideentry {2}{0}{13}{74/77}{}{0}}
+\headcommand {\beamer@framepages {74}{77}}
+\headcommand {\slideentry {2}{0}{13}{74/78}{}{0}}
+\headcommand {\beamer@framepages {74}{78}}
+\headcommand {\slideentry {2}{0}{14}{79/79}{}{0}}
 \headcommand {\beamer@framepages {79}{79}}
-\headcommand {\slideentry {2}{0}{12}{79/80}{}{0}}
-\headcommand {\beamer@framepages {79}{80}}
-\headcommand {\slideentry {2}{0}{13}{81/84}{}{0}}
-\headcommand {\beamer@framepages {81}{84}}
-\headcommand {\slideentry {2}{0}{14}{85/87}{}{0}}
-\headcommand {\beamer@framepages {85}{87}}
-\headcommand {\slideentry {2}{0}{15}{88/92}{}{0}}
-\headcommand {\beamer@framepages {88}{92}}
-\headcommand {\beamer@sectionpages {49}{92}}
-\headcommand {\beamer@subsectionpages {49}{92}}
-\headcommand {\sectionentry {3}{Conclusões}{93}{Conclusões}{0}}
-\headcommand {\slideentry {3}{0}{1}{93/93}{}{0}}
-\headcommand {\beamer@framepages {93}{93}}
-\headcommand {\slideentry {3}{0}{2}{94/100}{}{0}}
-\headcommand {\beamer@framepages {94}{100}}
-\headcommand {\beamer@subsectionpages {93}{100}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{101}{Ficou Faltando}}
-\headcommand {\slideentry {3}{1}{1}{101/103}{Ficou Faltando}{0}}
-\headcommand {\beamer@framepages {101}{103}}
-\headcommand {\beamer@subsectionpages {101}{103}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{104}{Dicas de Programação}}
-\headcommand {\slideentry {3}{2}{1}{104/108}{Dicas de Programação}{0}}
-\headcommand {\beamer@framepages {104}{108}}
-\headcommand {\beamer@subsectionpages {104}{108}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{109}{Agradecimentos}}
-\headcommand {\slideentry {3}{3}{1}{109/112}{Agradecimentos}{0}}
-\headcommand {\beamer@framepages {109}{112}}
+\headcommand {\slideentry {2}{0}{15}{80/80}{}{0}}
+\headcommand {\beamer@framepages {80}{80}}
+\headcommand {\slideentry {2}{0}{15}{80/81}{}{0}}
+\headcommand {\beamer@framepages {80}{81}}
+\headcommand {\slideentry {2}{0}{16}{82/85}{}{0}}
+\headcommand {\beamer@framepages {82}{85}}
+\headcommand {\slideentry {2}{0}{17}{86/88}{}{0}}
+\headcommand {\beamer@framepages {86}{88}}
+\headcommand {\slideentry {2}{0}{18}{89/93}{}{0}}
+\headcommand {\beamer@framepages {89}{93}}
+\headcommand {\beamer@sectionpages {47}{93}}
+\headcommand {\beamer@subsectionpages {47}{93}}
+\headcommand {\sectionentry {3}{Conclusões}{94}{Conclusões}{0}}
+\headcommand {\slideentry {3}{0}{1}{94/94}{}{0}}
+\headcommand {\beamer@framepages {94}{94}}
+\headcommand {\slideentry {3}{0}{2}{95/101}{}{0}}
+\headcommand {\beamer@framepages {95}{101}}
+\headcommand {\beamer@subsectionpages {94}{101}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{102}{Ficou Faltando}}
+\headcommand {\slideentry {3}{1}{1}{102/104}{Ficou Faltando}{0}}
+\headcommand {\beamer@framepages {102}{104}}
+\headcommand {\beamer@subsectionpages {102}{104}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{105}{Dicas de Programação}}
+\headcommand {\slideentry {3}{2}{1}{105/109}{Dicas de Programação}{0}}
+\headcommand {\beamer@framepages {105}{109}}
+\headcommand {\beamer@subsectionpages {105}{109}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{110}{Agradecimentos}}
+\headcommand {\slideentry {3}{3}{1}{110/112}{Agradecimentos}{0}}
+\headcommand {\beamer@framepages {110}{112}}
 \headcommand {\slideentry {3}{3}{2}{113/113}{Agradecimentos}{0}}
 \headcommand {\beamer@framepages {113}{113}}
 \headcommand {\beamer@partpages {1}{113}}
-\headcommand {\beamer@subsectionpages {109}{113}}
-\headcommand {\beamer@sectionpages {93}{113}}
+\headcommand {\beamer@subsectionpages {110}{113}}
+\headcommand {\beamer@sectionpages {94}{113}}
 \headcommand {\beamer@documentpages {113}}
-\headcommand {\gdef \inserttotalframenumber {48}}
+\headcommand {\gdef \inserttotalframenumber {51}}
