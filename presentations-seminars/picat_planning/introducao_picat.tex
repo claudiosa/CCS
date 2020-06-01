@@ -24,6 +24,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\subsection{Histórico}
 
 \begin{frame}
 
@@ -48,6 +49,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{\textit{Links Iniciais}}
 \begin{frame}[fragile]
   \frametitle{Links do PICAT}
 
@@ -77,8 +79,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
 \subsection{Estrutura da Linguagem}
 
 \begin{frame}
@@ -92,8 +92,8 @@
          são associadas com linguagens lógicas, como Prolog, B-Prolog, Goedel, etc
         
         \pause
-        \item Picat é uma linguagem essencialmente multiparadigma,
-        abrangendo partes de vários paradigmas de programação: declarativo (lógico e funcional) e     imperativo
+        \item Picat é uma linguagem essencialmente \underline{\textbf{multiparadigma}},
+        abrangendo partes de vários paradigmas de programação: \underline{declarativo} (lógico e funcional) e    \underline{ imperativo}
         
         %\item Esta combinação de características declarativas e imperativas permite
         %o desenvolvimento de softwares mais produtivos, mas que ainda possam ser altamente 
@@ -105,6 +105,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Multiparadigma}
 \begin{frame}[fragile]
     \frametitle{O que é ser Multiparadigma ?}
 
@@ -131,7 +132,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Paradigmas}
+\subsection{Outros Paradigmas}
 \begin{frame}[fragile]
 	\frametitle{Paradigma Lógico}
     
@@ -213,7 +214,7 @@
 		\end{columns}
 	\end{figure}
 
-\textbf{\textcolor{red}{Retomar aqui ...}}    
+\textbf{\textcolor{red}{Até aqui ...}}    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -221,7 +222,7 @@
 \begin{frame}[fragile]
     \frametitle{Algumas Características:}
 
-
+\textbf{\textcolor{red}{Retornar aqui ....}}
     \begin{itemize}
     
     \pause 
@@ -229,8 +230,7 @@
       
           \pause 
       \item Velocidade de execução em um ambiente \textit{interpretado} (há
-      uma \textit{máquina
-      virtual} como Python, Java e alguns Prologs)
+      uma \textit{máquina   virtual} como Python, Java e alguns Prologs)
       
           \pause 
       \item Disponibilidade em vários sistemas operacionais e arquiteturas
@@ -247,39 +247,142 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Comparativo com Outras Linguagens}
+
+\begin{frame}[fragile]
+	\frametitle{Comparativo com Outras Linguagens}
+	
+	
+	\begin{itemize}
+
+	\item Muitos conceitos herdados do Prolog (criado em 1969 e largamente utilizado em muitos projeto)
+	\item Como Picat teve origem no B-Prolog, sintaxe, backtracking, ..., muitas semelhanças
+	\pause
+	\item Variáveis: letras Maiúsculas
+	\item Átomos, predicados, functores ....: letras minúsculas
+   \item  Algumas estruturas sofisticas construídas a partir de listas: mapas, filtros, dicionários, etc
+   \item Código eficiente
+	\pause
+	
+   \item Detalhe: comunidade do Prolog, enorme, já a do Picat, centenas (?)
+   \item {\bf \textcolor{red}{Quanto as outras linguagens de outros paradigmas?}}
+
+      
+\end{itemize}
+\end{frame}
 
 
+\begin{frame}[fragile]
+	\frametitle{Picat $\times$ Haskell  -- cortesia do Neng-Fa}
+
+\vspace{-0.5 cm}
+%\begin{flushleft}
+
+%\begin{table}
+	%	\begin{center}
+		%	\caption{\label{tab:tab1}Picat compared to Haskell}
+    \begin{scriptsize}
+	\hspace*{-9 mm}\begin{tabular}{|l|l|l|} \cline{1-3}
+					& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\bf Picat} &  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\bf Haskell} \\ \cline{1-3}
+					Variables & logic \& dynamic & single-assignment \& static \\
+					Numbers & \texttt{1},\  \texttt{0b11},\  \texttt{0o77},\  \texttt{0xff},\  \texttt{1.0},\  \texttt{1.0e10} & \texttt{1},\  \texttt{0o77},\  \texttt{0xff},\  \texttt{1.0},\  \texttt{1.0e10}\\
+					Atoms   & \texttt{abc},\  \texttt{'A'},\  \texttt{'123'} & n/a \\
+					Lists   & \texttt{[1,2,3]},\ \texttt{new\_list(10)} & \texttt{[1,2,3]}\\
+					\ \ \ (add first) &  \texttt{L = [a$|$L0]} & \texttt{lst = ('a':lst0)}\\
+					\ \ \ (add last) &  \texttt{L = [a$|$L1]},\ \texttt{L1 = [b$|$L2]} & n/a \\
+					\ \ \ (index) & \texttt{L[3]}  & \texttt{lst!!2}\\
+					\ \ \ (slice) & \texttt{L[2..3]}  & take 2 \$ drop 1 \$ lst \\
+					\ \ \ (concatenate) & \texttt{L1++L2}  &  \texttt{lst1++lst2}\\    
+					\ \ \ (comprehension) &  \texttt{[X : X in 0..10,\  even(X)]} & \texttt{[x $|$ x $<$- [0..10],\  (even x)]} \\
+					\ \ \ (pattern-matching) & \texttt{L = [H$|$T]}  & \texttt{(h:t) = lst}\\
+					Ranges  & \texttt{1..10},\ \texttt{10..-1..1} & \texttt{[1..10]},\ \texttt{[10,9..1]} \\
+					Strings & \texttt{"abc" = [a,b,c]} & \texttt{"abc" = ['a','b','c']} \\
+					Tuples & \texttt{\{a,1,[]\}} & \texttt{(a,1,[])}\\
+					Hashtables   & \texttt{new\_map([a=1,\ b=2])} & \texttt{Data.HashTable} \\
+					Unification   & \texttt{[X,b] = [a,Y]} & n/a\\
+					Backtracking   & \texttt{member(X,\ [a,b,c])} & n/a \\ \cline{1-3}        
+				\end{tabular}
+			\end{scriptsize}
+	%	\end{center}
+ %% \end{table}
+%\end{flushleft}	
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Picat $\times$  Python  -- cortesia do Neng-Fa}
+	
+\vspace{-0.5 cm}
+%\begin{flushleft}
+%\begin{table}
+
+\begin{scriptsize}
+
+	%	\caption{\label{tab:tab1}Picat compared to Python}
+	\hspace*{-9 mm}\begin{tabular}{|l|l|l|} \cline{1-3}
+				& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\bf Picat} &  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  {\bf Python} \\ \cline{1-3}
+				Variables & logic \& dynamic & imperative \& dynamic \\
+				Numbers & \texttt{1},\  \texttt{0b11},\  \texttt{0o77},\  \texttt{0xff},\  \texttt{1.0},\  \texttt{1.0e10} & \texttt{1},\  \texttt{0o77},\  \texttt{0xff},\  \texttt{1.0},\  \texttt{1.0e10} \\
+				Atoms   & \texttt{abc},\  \texttt{'A'},\  \texttt{'123'} & n/a \\
+				Lists   & \texttt{[1,2,3]},\ \texttt{new\_list(10)} & \texttt{[1,2,3]} \\
+				\ \ \ (add first) &  \texttt{L = [a$|$L0]}& \texttt{lst.insert(0,'a')} \\
+				\ \ \ (add last) &  \texttt{L = [a$|$L1]},\ \texttt{L1 = [b$|$L2]} & \texttt{lst.append('a')},\ \texttt{lst.append('b')} \\
+				\ \ \ (index) & \texttt{L[3]}  & \texttt{lst[2]} \\
+				\ \ \ (slice) & \texttt{L[2..3]}  & \texttt{lst[1:3]} \\
+				\ \ \ (concatenate) & \texttt{L1++L2}  & \texttt{lst1+lst2} \\    
+				\ \ \ (comprehension) &  \texttt{[X : X in 0..10,\  even(X)]}  & \texttt{[x for x in range(11) if even(x)]} \\
+				\ \ \ (pattern-matching) & \texttt{L = [H$|$T]}  & \texttt{(h,*t) = lst} \\
+				Ranges  & \texttt{1..10},\ \texttt{10..-1..1} & \texttt{range(1,11)},\ \texttt{range(10,0,-1)} \\
+				Strings & \texttt{"abc" = [a,b,c]} & \texttt{"abc" = 'abc'} \\
+				Tuples & \texttt{\{a,1,[]\}} & \texttt{(a,1,[])} \\
+				Hashtables   & \texttt{new\_map([a=1,\ b=2])} & \texttt{\{'a':1,\  'b':2\}} \\
+				Unification   & \texttt{[X,b] = [a,Y]} & n/a \\
+				Backtracking   & \texttt{member(X,\ [a,b,c])} &  n/a \\ \cline{1-3}        
+			\end{tabular}
+		\end{scriptsize}
+	
+%\end{table}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Acrônimo de \textbf{P.I.C.A.T.}}
 \begin{frame}	 [fragile]
 
    \frametitle{Acrônimo de \textbf{P.I.C.A.T.}}
   
-  
-  \begin{block}{}
-  		\begin{description}
+\hspace*{-10 mm}
+\begin{flushleft}
+	
+\begin{description}[align=left]
+	
 
- \item [\textbf{P}:] \textit{Pattern-matching}:  Utiliza o conceito de \textit{casamento de 
+ \item [\textbf{P}: ] {\bf \textcolor{red}{\textit{Pattern-matching}}}:  Utiliza o conceito de \textit{casamento de 
 padrões} entre objetos, bem como os conceitos da \textit{unificação} da LPO
 
-\item [\textbf{I}:] \textit{Intuitive}: Oferece estruturas de decisão, atribuição e laços de
+\item [\textbf{I}: ] {\bf \textcolor{blue}{\textit{Intuitive}}}: Oferece estruturas de decisão, atribuição e laços de
 repetição, etc. Análogo há outras linguagens de programação mais populares
 
-\item [\textbf{C}:] \textit{Constraints}: Suporta a programação por restrições (PR) para 	
+\item [\textbf{C}: ] {\bf \textcolor{violet}{\textit{Constraints}}}: Suporta a programação por restrições (PR) para 	
 problemas combinatórios
 
- \item [\textbf{A}:] \textit{Actors}: Suporte as chamadas a eventos, chamada via \textit{atores}
+ \item [\textbf{A}: ] {\bf \textcolor{green}{\textit{Actors}}}: Suporte as chamadas a eventos, chamada via \textit{atores}
 
-\item [\textbf{T}:] \textit{Tabling}: Implementa a técnica de \textit{memoization} com 
+\item [\textbf{T}: ] {\bf \textcolor{brown}{\textit{Tabling}}}: Implementa a técnica de \textit{memoization} com 
 soluções imediatas para problemas de Programação Dinâmica (PD).
-
   \end{description}	
- \end{block}
+
+\end{flushleft}
   
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Usando Picat}
+\subsection{Usando Picat}
 
 \begin{frame}[fragile]
   \frametitle{Usando Picat}
@@ -311,7 +414,7 @@ soluções imediatas para problemas de Programação Dinâmica (PD).
 
 
 
-
+\subsection{ \textit{Alô Mundo!}}
 \begin{frame}[fragile]
 \frametitle{Exemplo -- \textit{Alô Mundo!}}
 
@@ -433,12 +536,11 @@ Picat>
 \end{frame}
 
 
+\subsection{Reflexões}
 \begin{frame}[fragile]
 \frametitle{Reflexões}
 
 \begin{itemize}
-
-
 
       \pause
       \item Para próxima seção esteja com o Picat instalado em seu 
