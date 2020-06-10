@@ -3,12 +3,12 @@ type Cadastro = ([Char], Int)
 
 pessoa :: Int -> Cadastro
 pessoa rg
-	| rg == 1 = ("João Silva", 12)
+	| rg == 1 = ("Joao Silva", 12)
 	| rg == 2 = ("Jonas Souza", 51)
 	| rg == 3 = ("Jocileide Strauss", 21)
 	| otherwise = error "Nao existe este numero de registro"
 
--- questão 1.a
+-- questï¿½o 1.a
 
 separa_nome (x,_) = x
 idade ( _ , i ) = i
@@ -29,7 +29,7 @@ menor_idade w
 
 
 
--- questão 1.b
+-- questï¿½o 1.b
 
 div2 x y | y == 0 = error "Nao existe" 
 	 | x < y = 0 
@@ -42,7 +42,7 @@ soma_idade n = idade (pessoa n) + soma_idade (n-1)
 media_idade:: Int -> Int
 media_idade w =  div2 (soma_idade w) w
 
--- questão 1.c
+-- questï¿½o 1.c
 
 maior:: Int -> Int -> Int
 maior x y
@@ -60,9 +60,9 @@ maior_idade w
 
 
 
--- questão 2.a
+-- questï¿½o 2.a
 
--- versão 1
+-- versï¿½o 1
 
 maior_nome_aux:: Cadastro -> [Cadastro] -> Cadastro
 maior_nome_aux a [] = a
@@ -75,7 +75,7 @@ maior_nome1 [] = error "colocar uma lista de entrada"
 maior_nome1 (a:b) = maior_nome_aux a b
 
 
--- versão 2
+-- versï¿½o 2
 maior_nome2:: [Cadastro] -> Cadastro
 maior_nome2 [] = error "colocar uma lista de entrada"
 maior_nome2 (a:[]) = a
@@ -83,7 +83,7 @@ maior_nome2 (a:b)
 	| length (separa_nome a) > length (separa_nome (maior_nome2 b)) = a
 	| otherwise = maior_nome2 b 
 
--- questão 2.b
+-- questï¿½o 2.b
 
 separa_idade (_,y) = y
 
@@ -102,7 +102,7 @@ verificaMaior (a:b) c
 maiorMenor:: [Cadastro] -> (Cadastro, Cadastro)
 maiorMenor (a:b) = (verificaMaior b a, verificaMenor b a)
 
--- questão 2.c
+-- questï¿½o 2.c
 compara_inicio :: Char -> [Char] -> Bool
 compara_inicio _ [] = True
 compara_inicio x (c:d)
@@ -117,7 +117,7 @@ comeca_nome x (a:b)
 		where y = separa_nome a
 
 
--- questão 3
+-- questï¿½o 3
 soma_moedas:: [Int] -> Int
 soma_moedas [] = 0
 soma_moedas (a:b) = a + soma_moedas b
@@ -143,7 +143,7 @@ cafe (a:b)
 	| otherwise = ("Desculpe! faltaram moedas! favor colocar" ,(100 - (soma_moedas (a:b))))
 
 
--- questão 4
+-- questï¿½o 4
 
 ou_exclusivo:: Int -> [Int] -> [Int]
 ou_exclusivo x [] = []
@@ -157,7 +157,7 @@ video [] (c:d) = []
 video (a:b) [] =[]
 video (a:b) (c:d) = ((ou_exclusivo a (c:d)) : (video b (c:d)))
 
--- questão 5
+-- questï¿½o 5
 
 qtas_vezes:: Int -> [Int] -> Int
 qtas_vezes _ [] = 0 
@@ -178,14 +178,14 @@ nao_unicos (a:b)
 	| (qtas_vezes a (a:b)) > 1 = (a : (nao_unicos (remove_todos a (a:b))))
 	| otherwise = nao_unicos (remove_todos a (a:b))
 
--- questão 6
+-- questï¿½o 6
 
 
--- a função remove_todos e qtas_vezes já foram implementadas na questão 5
+-- a funï¿½ï¿½o remove_todos e qtas_vezes jï¿½ foram implementadas na questï¿½o 5
 
 
 num_ocorr [] = []
 num_ocorr (a:b) = ((a, qtas_vezes a (a:b)) : (num_ocorr (remove_todos a (a:b))))
 
--- [("João Silva", 12),("Jonas Souza", 51), ("Jocileide Strauss", 21)]
+-- [("Joï¿½o Silva", 12),("Jonas Souza", 51), ("Jocileide Strauss", 21)]
 
