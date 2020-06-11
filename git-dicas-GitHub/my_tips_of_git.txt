@@ -8,6 +8,18 @@ After enabling credential caching, it will be cached for 7200 seconds (2 hour).
 
 $ git config --list --show-origin
 if OK ...
+Check in Step 1: move to root directory
+
+cd ~/
+create a file .git-credentials
+
+Add this content to that file with you usename password and githosting URL
+
+https://user:pass@example.com
+Then execute the command
+
+git config --global credential.helper store
+.................................................
 
 OR
 simply
