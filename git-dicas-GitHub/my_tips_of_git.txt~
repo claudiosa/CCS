@@ -1,4 +1,17 @@
 
+$ git config credential.helper store
+$ git push https://github.com/claudiosa/CCS.git
+You should also specify caching expire,
+
+git config --global credential.helper 'cache --timeout 7200'
+After enabling credential caching, it will be cached for 7200 seconds (2 hour).
+OR
+simply
+ssh://git@github.com/claudiosa/CCS.git
+
+
+
+
 %% conf global
 git config --global user.name "Claudio Cesar de Sá"
 
