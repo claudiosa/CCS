@@ -6,6 +6,15 @@ You should also specify caching expire,
 git config --global credential.helper 'cache --timeout 7200'
 After enabling credential caching, it will be cached for 7200 seconds (2 hour).
 
+$ git config --list --show-origin
+if OK ...
+
+OR
+simply
+ssh://git@github.com/claudiosa/CCS.git
+
+
+
 
 %% conf global
 git config --global user.name "Claudio Cesar de Sá"
