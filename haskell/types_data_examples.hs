@@ -47,3 +47,5 @@ vector_of_car = [car_01, car_02]                               --
 -- Similar of enumerate in C
 data New_Const_Constants = Zero | One | Two -- starting with Capital letters
     deriving (Eq, Show)
+
+{-- ********************************************************** --}
