@@ -54,7 +54,7 @@ def model_TSP():
 
     n = len(d[0]) #  number of nodes ( n x n matrix)
     L_NODES = list(range(n)) ### 0...(n-1)
-    print(f'L_NODES (RANGE) :' ,  L_NODES )
+    # print(f'L_NODES (RANGE) :' ,  L_NODES )
     print(f'L_NODES (RANGE) : %s'  %( L_NODES) )
     ### should be come from a file
     
@@ -64,7 +64,8 @@ def model_TSP():
              for i in range(n)
            ]
     ### go from 0 up to (n-1)
-    #             
+    # Decision VAR ... a matrix ..source -> target/next ...x[source][next]
+    # should be bring at values of tour
     x = [
          [the_model.NewIntVar(0, 1, 'x[i][j]' ) 
             for j in range(n) ] 
@@ -98,19 +99,20 @@ def model_TSP():
     
     circuit_HAKAN(the_model, tour)
     ### TESTING
-    #the_model.AddCircuit( tour[0] )
     #my_circ( tour, the_model)
     #the_model.AddImplication
         
     ### connecting x - decision with the tour vector
     '''
-    %% Relacionar as escolhas da M_Decisao com a
-    %% Sequencia das Cidades. 
+    ## Here is my difficulty: how  relate  tour and x variables?
+
+    ## As I did in PICAT (and Minizinc) program that runs sucessfully
      foreach(I in 1..Len , J  in 1..Len)
-      ( M_Decisao[I,J] #= 1 ) #<=> ( Cidades[I] #= J )
+      ( x[I,J] #= 1 ) #<=> ( tour[I] #= J )
      end,    
     '''
     '''
+    ## HERE my tentatives ....
     for i in L_NODES:
         for j in  L_NODES:
             ##if (x[i][j] == 1):    
@@ -119,6 +121,9 @@ def model_TSP():
             
             the_model.Add( x[i][j] == 1)
             the_model.Add( tour[i] == j)
+    ### with these constraints the models is unsatisfatible
+    I imagine that x brings some constraints and tour also,
+    where the sequence of cities must be the same.
     '''
 
     ### Objective Function => objective to minimize
