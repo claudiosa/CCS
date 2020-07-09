@@ -1,0 +1,13 @@
+
+
+From: https://tsplib95.readthedocs.io/en/stable/pages/installation.html
+
+$  pip install tsplib95
+$ python convert_data_TSP_to_matrix_distance.py   > qa194_matrix.txt
+
+and dj38.tsp to dj38_matrix.txt
+
+
+To run naive_TSP.py
+
+$ python  naive_TSP.py xxxx_input.txt
