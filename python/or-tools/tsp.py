@@ -111,20 +111,28 @@ def model_TSP():
       ( x[I,J] #= 1 ) #<=> ( tour[I] #= J )
      end,    
     '''
-    '''
+    
     ## HERE my tentatives ....
     for i in L_NODES:
         for j in  L_NODES:
-            ##if (x[i][j] == 1):    
-            ### equivalence_constraint(the_model, tour[i] == j, x[i][j] == 1 )
-            the_model.AddBoolAnd( [(x[i][j]) , (tour[i] == j)] )
+            # Declare our intermediate boolean variable.
+            b = the_model.NewBoolVar('b')
+            ## IDEA from https://developers.google.com/optimization/cp/channeling
+            # Implement b == ((x[i][j] == 1) == (tour[i] == j)) ===> true
+            the_model.Add((x[i][j] == 1) == (tour[i] == j) ).OnlyEnforceIf(b)
+            the_model.Add((x[i][j] == 0) == (tour[i] != j)).OnlyEnforceIf(b.Not())
             
-            the_model.Add( x[i][j] == 1)
-            the_model.Add( tour[i] == j)
+            # if (x[i][j] == 1):
+            #    the_model.Add( tour[i] == j)
+            ### equivalence_constraint(the_model, tour[i] == j, x[i][j] == 1 )
+            ##    the_model.AddBoolAnd( [(x[i][j]) , (tour[i] == j)] )
+            # OR
+            # the_model.Add( x[i][j] == 1)
+                
     ### with these constraints the models is unsatisfatible
-    I imagine that x brings some constraints and tour also,
-    where the sequence of cities must be the same.
-    '''
+    ##I imagine that x brings some constraints and tour also,
+    ##where the sequence of cities must be the same.
+    
 
     ### Objective Function => objective to minimize
     the_model.Add(
