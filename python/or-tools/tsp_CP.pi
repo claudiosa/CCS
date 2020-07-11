@@ -3,7 +3,7 @@
 import cp,util.
 
 matriz_adj(Matrix) =>
-/*
+
 Matrix = 
        [[ 0, 4, 8,10, 7,14,15],
         [ 4, 0, 7, 7,10,12, 5],
@@ -12,15 +12,15 @@ Matrix =
         [ 7,10, 6, 2, 0, 6, 7],
         [14,12, 8, 5, 6, 0, 5],
         [15, 5,10, 8, 7, 5, 0]].
-*/
 
+/*
 Matrix = 
        [[0, 10, 15, 20],
        [10, 0, 35, 25],
        [15, 35, 0, 30],
        [20, 25, 30, 0]].
 
-
+*/
 main => 
   matriz_adj(Matriz), %% leitura dos dados
   %tsp_D( Inp, Out, Out, Out),
