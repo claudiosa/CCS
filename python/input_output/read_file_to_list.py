@@ -27,4 +27,6 @@ print("\nOnly the values: ", my_dictionary.values(), end="")
 for elem in  my_dictionary:              
     print("||",elem+1,":", my_dictionary[elem], end="")
 
+#  listOfItems = dictOfElements.items()    TODOS
+
 print("\n Sucess")            
