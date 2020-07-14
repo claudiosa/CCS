@@ -1,5 +1,20 @@
 import sys
 
+INP_FILE = sys.argv[1]   #### list format ....38_XY.dat and 
+
+
+def get_matrix():
+   
+    with open(INP_FILE, 'r') as file:
+        matrix = file.read()
+        print("\n read it: ", matrix)
+   
+    file.close()   
+    ###print("1> Input format", coords)        
+    return(matrix)
+
+
+
 def main(argc : int, argv : list) -> int :
     if argc < 2:
         print('Usage: python3 %s inputFile' % (argv[0]))
