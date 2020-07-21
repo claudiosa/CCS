@@ -50,6 +50,10 @@ is_a_circuit_from_i(Y2,4)
 Y3 = [3, 5, 4, 2, 1, 0]
 is_a_circuit_from_i(Y3,0)
 
+Y4 = [1, 3, 4, 2, 12, 8, 5, 19, 7, 0, 11, 6, 14, 9, 23, 10, 15, 16, 17, 24, 13, 27, 21, 18, 25, 22, 30, 26, 20, 28, 35, 29, 37, 32, 31, 33, 34, 36]
+is_a_circuit_from_i(Y4,0)
+
 print("Y1: is circuit", is_a_circuit(Y1))
 print("Y2: is circuit", is_a_circuit(Y2))
 print("Y3: is circuit", is_a_circuit(Y3))
+print("Y4: is circuit", is_a_circuit(Y4))

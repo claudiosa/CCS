@@ -20,19 +20,19 @@ from ortools.sat.python import cp_model
 
 INP_FILE = sys.argv[1]   #### formatted ...
 
+### reading a file in raw format .... matrix "like"
 def get_matrix():
     matrix = []
     with open(INP_FILE, 'r') as file:
-        # temp = file.read()
-        #  matrix = [[int(num) for num in line.split(',')] for line in file ]
-        #  matrix = [ [int(num) for num in line.split(',')] for line in file if line.strip() != "" ]
         for line in file.readlines():
-            matrix.append( [ int (x) for x in line.split(',')  if line.strip() != '\n'] )
+            matrix.append( [ int(x) for x in line.split()] )
+        #print("\n read it: ", matrix)
 
-    #print("\n read it: ", matrix)
-   
     file.close()   
     return(matrix)
+    #  temp = file.read()
+    #  matrix = [[int(num) for num in line.split(',')] for line in file ]
+    #  matrix = [ [int(num) for num in line.split(',')] for line in file if line.strip() != "" ]
 
 
 # model_most_money
@@ -54,7 +54,7 @@ def model_TSP():
          [ 14, 13, 8,  8,  10, 0  ]
         ]; 
     '''
-# Example 02
+    # Example 02
     
     # all_nodes = list(range(n)) ## by HAKAN
     ### distance i x j
@@ -70,15 +70,14 @@ def model_TSP():
         [15, 5,10, 8, 7, 5, 0]
         ] 
     '''
-    d =  get_matrix()
-    #d = [map(int, row) for row in file]
-    #d =      
+    d =  get_matrix() ## distance between cities
+    
     n = len(d[0]) #  number of nodes ( n x n matrix)
     print("Num of nodes: ", n, " ==> number of lines from input file")
     L_NODES = list(range(n)) ### 0...(n-1)
     # print(f'L_NODES (RANGE) :' ,  L_NODES )
-    print(f'L_NODES (RANGE) : %s'  %( L_NODES) )
-    ### should be come from a file
+    print(f'L_NODES (RANGE: 0 up to (n-1)) : %s'  %( L_NODES) )
+    ### come from a file ......
     
     #### VARIABLES
     #  to store ONE TRIP ==> take care with the MAX value
@@ -166,7 +165,7 @@ def model_TSP():
     ### data_from_model = call the solver for model s
     # code calls the solver
     solver_OUT = cp_model.CpSolver()
-    solver_OUT.parameters.max_time_in_seconds = 10
+    solver_OUT.parameters.max_time_in_seconds = 1000
     status = solver_OUT.Solve(the_model)
     '''
     LATER = solver.Phase(x, solver.INT_VAR_DEFAULT, solver.INT_VALUE_DEFAULT)
@@ -231,7 +230,9 @@ def equivalence_constraint(model , x, y ):
 def my_print_VARS( x, m, n, f_objective, solver_OUT , tour ):
 
     print('Min sum of x : %i' % solver_OUT.Value(f_objective) )
+
     print('TOUR or Cycle : ', [(solver_OUT.Value(tour[i])+1) for i in range(n)] )
+    print('Zero Index    : ', [(solver_OUT.Value(tour[i])) for i in range(n)] )
     ### printing the sequence of the nodes choosen
     print("\n ================= Decision Matrix X ==================")
     print(end =  '    ')
@@ -268,7 +269,7 @@ def sequence_visiting ( x,  n, solver_OUT ):
             if (solver_OUT.Value( x[i][j] ) == 1):
                  print((i+1),' --> ',(j+1) )
 
-######### TO BE IMPROVED
+######### TO BE IMPROVED --- no ready
 
 ### printing the sequence of the nodes choosen
 ### it does not fine
@@ -282,6 +283,12 @@ def sequence_connection ( v1, v2, solver_OUT ):
         if (or_vetor[index] == 1):
             print(f'-> %i' %(index+1) , end =  '')
     return
+
+'''
+   [3, 1, 8, 9, 7, 10, 6, 4, 5, 2]   => custo=186 (MINIZINC)
+   Min sum of x : 186
+   [2, 10, 1, 8, 9, 7, 5, 3, 4, 6] ===> 
+'''
 
 ## learning Python
 def print_t(n):
@@ -298,4 +305,9 @@ if __name__ == '__main__':
     #print(f'\n END MAIN \n %s' % print_t(40))
     print(f'\n END MAIN ', end="")
     print_t(40)
-    # return ###### end function 
+    # return ###### end function
+
+    
+
+
+    
