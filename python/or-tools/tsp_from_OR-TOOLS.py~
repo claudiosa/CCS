@@ -31,7 +31,6 @@ def main():
     """Entry point of the program."""
 
     DISTANCE_MATRIX = get_matrix()
-    print("\n Matrix: ", *DISTANCE_MATRIX)
     num_nodes = len(DISTANCE_MATRIX)
     all_nodes = range(num_nodes)
     print('Num nodes =', num_nodes)

@@ -18,9 +18,9 @@ last_node = len(all_nodes)
 #dist_i_j = problem.get_weight(i, j)
 #print(f'NUMBER of NODES: %i \n' % (last_node))
 print(f'%i ' % (last_node))
-for i in range(last_node-1):
+for i in range(last_node):
     print("[", end='')
-    for j in range(last_node-1):
+    for j in range(last_node):
         #print(f' %i' % (problem.get_weight(i+1, j+1) ), end='')
         print( problem.get_weight(i+1, j+1),"," , end='')
     print("],") # ONE LINE ONLY
