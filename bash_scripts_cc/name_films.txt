@@ -1,0 +1,17 @@
+
+This will only work if the files have the same resolution and the same video and audio formats.
+
+ffmpeg -f concat -i name_films.txt -c copy output.mp4
+
+ffmpeg -i "concat:file1.mp4|file2.mp4|file3.mp4" MyFineOutput.mp4
+
+This will only work if the files have the same resolution and the same video and audio formats.
+
+
+
+file 'vid01.mp4'
+file 'vid02.mp4'
+file 'vid03.mp4'
+file 'vid04.mp4' 
+file 'vid05.mp4'
+file 'vid06.mp4'
