@@ -1,0 +1,653 @@
+#EXTM3U
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france BIP TV
+http://biptv.tv/live/biptvstream_orig/index.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined FR 24 News,alliptvlinks.com makkah
+http://f24hls-i.akamaihd.net/hls/live/221196/F24_AR_LO_HLS/master_900.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france IL TV
+http://live.creacast.com/iltv/smil:iltv.smil/chunklist_w1664108633_b1096000.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france LA CHAINE NORMANDE
+http://live.lachainenormande.fr/live/lcn/livestream/chunklist_w600527248.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france TVPI
+http://streamcast.oc3n.net:1935/TVPI/myStream700.sdp/chunklist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) 13eme RUE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56252.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) 13eme RUE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56251.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) 6Ter
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56189.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) 6Ter HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56188.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) 6ter FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56187.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) AB Moteur HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56377.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) AB Moteurs
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56378.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) AB1
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56435.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) AB1 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56434.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ACTION
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56250.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ACTION HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56249.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ANIMAUX
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56273.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ANIMAUX HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56272.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ARTE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56195.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ARTE FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56193.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ARTE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56194.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BET HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56446.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BFM
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56459.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BFM Business
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56439.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BFM Business HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56438.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BFM HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56458.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BOING
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56414.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BOOMERANG HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56411.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) BRAVA HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56447.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) C NEWS
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56461.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) C NEWS HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56460.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) C8
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56205.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) C8 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56204.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL J
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56416.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL J HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56415.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56211.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS CINEMA
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56214.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS CINEMA FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56212.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS CINEMA HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56213.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS DECALE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56217.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS DECALE FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56215.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS DECALE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56216.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS FAMILY
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56220.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS FAMILY FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56218.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS FAMILY HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56219.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56209.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56210.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS SERIES
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56223.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS SERIES FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56221.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CANAL PLUS SERIES HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56222.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CHASSE&PECHE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56301.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CHASSE&PECHE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56300.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CHERIE 25
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56198.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CHERIE25 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56197.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE FRISSON
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56232.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE CLASSIC
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56228.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE CLASSIC HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56227.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE CLUB
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56226.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE CLUB HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56225.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE EMOTION
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56236.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE EMOTION HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56235.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE FAMIZ
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56230.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE FAMIZ HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56229.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE FRISSON HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56231.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE POLAR
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56234.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE POLAR HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56233.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE PREMIERE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56238.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CINE PREMIERE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56237.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CRIME DISTRICT
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56309.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CRIME DISTRICT HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56308.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CStar
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56207.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CStar HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56206.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CartoonNetwork
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56410.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) CartoonNetwork HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56409.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Cherie25 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56196.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Comedie
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56433.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Comedie HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56432.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISCOVERY
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56281.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISCOVERY HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56280.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISCOVERY INVESTIGATION
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56311.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISCOVERY INVESTIGATION HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56310.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISCOVERY SCIENCE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56283.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISCOVERY SCIENCE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56282.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY CHANNEL
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56392.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY CHANNEL HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56391.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY CINEMA
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56394.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY CINEMA HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56393.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY JUNIOR
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56398.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY JUNIOR HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56397.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY XD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56396.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) DISNEY XD HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56395.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Discovery Family HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56426.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) E! Entertainment
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56441.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) E! Entertainment HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56440.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ELLE GIRL HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56448.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) EQUIDIA LIFE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56376.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) EQUIDIA LIFE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56375.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) EURONEWS
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56465.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) EURONEWS HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56464.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Equidia Live
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56374.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Equidia Live HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56373.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Equipe 21
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56368.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Equipe21 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56367.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 2 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56172.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 2 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56173.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 3 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56175.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 3 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56176.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 4 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56178.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 4 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56179.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 5 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56181.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE 5 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56182.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE INFO HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56466.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE O
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56186.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE O FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56184.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE O HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56185.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE.24
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56463.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE.24 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56462.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE2
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56174.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE3
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56177.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE4
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56180.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) FRANCE5
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56183.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) GAME ONE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56424.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) GAME ONE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56423.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) GULLI
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56418.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) GULLI HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56417.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Golf Channel
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56372.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Golf Channel HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56371.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Golf Plus
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56370.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Golf Plus HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56369.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) HISTOIRE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56303.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) HISTOIRE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56302.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) J-ONE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56386.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) J-ONE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56385.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) LCI
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56455.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) LCI HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56454.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) LCP
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56457.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) LCP HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56456.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) M6
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56171.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) M6 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56169.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) M6 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56170.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) M6 MUSIC
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56469.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) M6 MUSIC HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56468.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MANGAS TV
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56420.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MANGAS TV HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56419.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MCM
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56471.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MCM HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56470.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MCM TOP
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56473.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MCM TOP HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56472.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MEZZO FR HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56482.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MEZZO LIVE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56483.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MTV Dance
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56481.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MTV Dance HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56480.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MTV FRANCE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56477.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MTV FRANCE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56476.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MTV Hits
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56479.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) MTV Hits HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56478.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) My Cuisine HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56445.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NAT GEO WILD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56277.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NATIONAL GEO
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56279.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NATIONAL GEO HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56278.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NICKELODEON
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56404.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NICKELODEON 4TEEN
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56406.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NICKELODEON 4TEEN HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56405.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NICKELODEON HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56403.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NICKELODEON JUNIOR
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56408.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NICKELODEON JUNIOR HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56407.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NRJ12
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56201.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) NRJ12 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56199.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS CHOC
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56242.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS CHOC HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56241.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS CITY
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56244.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS CITY HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56243.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS Geants
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56248.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS Geants HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56247.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS MAX
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56246.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) OCS MAX HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56245.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ONE TV HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56450.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PARAMOUNT CHANNEL
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56266.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PARAMOUNT CHANNEL HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56265.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PARIS PREMIERE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56240.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PARIS PREMIERE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56239.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PLANET PLUS
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56285.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PLANET PLUS HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56284.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PLANETE A&E
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56289.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PLANETE A&E HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56288.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PLANETE CI
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56287.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) PLANETE CI HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56286.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Piwi
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56388.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Piwi HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56387.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) RFM TV HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56451.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) RMC Decouverte
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56293.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) RMC Decouverte HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56292.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) RMC STORY
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56291.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) RMC STORY HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56290.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ROUGE TV
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56270.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) ROUGE TV HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56269.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) RTL9
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56256.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) RTL9 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56255.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SCIENCE ET VIE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56295.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SCIENCE ET VIE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56294.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SEASON
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56299.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SEASON HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56298.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SERIE CLUB FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56263.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SERIE CLUB HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56264.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SYFY
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56258.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) SYFY HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56257.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TCM CINEMA
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56262.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TCM CINEMA HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56261.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TELETOON
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56400.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TELETOON HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56399.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TELETOON PLUS
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56402.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TELETOON PLUS HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56401.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TEVA
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56429.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TEVA HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56428.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56163.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1 +1
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56165.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1 +1 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56164.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56161.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56162.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1 Series Film HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56167.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1 Series Films
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56168.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TF1 Series Films FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56166.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TFX
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56254.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TFX HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56253.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TIJI
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56390.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TMC
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56260.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TMC HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56259.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TOUTE L'HISTOIRE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56305.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TOUTE_L'HISTOIRE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56304.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TRACE Urban
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56443.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TRACE Urban HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56442.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TV5 MONDE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56203.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TV5 MONDE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56202.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) TVM3 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56452.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Toonami
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56422.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Toonami HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56421.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Trek
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56307.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Trek HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56306.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Tv Breizh
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56431.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Tv Breizh HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56430.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Ushuaia
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56275.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) Ushuaia HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56274.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) VOYAGE
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56297.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) VOYAGE HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56296.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) W9
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56192.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) W9 FHD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56190.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) W9 HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56191.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) WEO
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56437.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france (FR) WEO HD
+http://vt.protoniumtv.net:1997/live/qaozen/UpVeFDki8N/56436.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france ANIMAUX
+http://dimapro.cz:8080/live/522bnbccddxcgfdc/GAacHX257Y/522.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france ARTE,alliptvlinks.com FR | ARTE
+https://edge-1192-ch-gv.filmon.com/live/1729.high.stream/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Alpe d’Huez TV,alliptvlinks.com FR | Alpe d’Huez TV
+https://edge10.vedge.infomaniak.com/livecast/ik:adhtv/chunklist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france CANAL J
+http://dimapro.cz:8080/live/522bnbccddxcgfdc/GAacHX257Y/489.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france CDirect,alliptvlinks.com FR | CDirect
+http://cms-streamaniak.top/Cdirect/CDIRECT/index.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france D5 TV,alliptvlinks.com FR | D5 TV
+https://live.creacast.com/d5tv/smil:d5tv.smil/chunklist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france D5 TV
+https://live.creacast.com/d5tv/smil:d5tv.smil/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france DISNEY CINEMA HD
+http://epiciptvrestreamer.com:8000/kami/kami/186
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france DISNEY XD HD
+http://epiciptvrestreamer.com:8000/kami/kami/184
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Discovery Family FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/16921
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Discovery Investigation FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/9034
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Discovery Science FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5682
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Disney Channel +1 FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/12947
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Disney Channel FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5681
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Disney Cinema FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/12946
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Disney Junior FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5679
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Disney XD FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/16920
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france EURONEWS HD
+http://epiciptvrestreamer.com:8000/kami/kami/180
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | France 3 Alpes,alliptvlinks.com France 3 Alpes
+https://edge-1192-ch-gv.filmon.com/live/3893.high.stream/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | France 3 Rhône-Alpes,alliptvlinks.com France 3 Rhône-Alpes
+https://edge-1192-ch-gv.filmon.com/live/3890.high.stream/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | France Info,alliptvlinks.com France Info
+https://edge-1192-ch-gv.filmon.com/live/3887.high.stream/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | France Ô,alliptvlinks.com France Ô
+https://edge-1192-ch-gv.filmon.com/live/3884.high.stream/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | Gong,alliptvlinks.com GONG
+http://51.254.215.79/appflux/gong/GONG/gong_1280/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | Gulli,alliptvlinks.com Gulli
+https://gulli-hls-live.akamaized.net/gulli.isml/gulli-audio102_fre=64000-video=900000.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | LCI,alliptvlinks.com LCI
+https://lci-hls-live-ssl.tf1.fr/lci/1/hls/live_2328.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | MDL,alliptvlinks.com MDL
+http://tv.mondeduloisir.fr:1935/tixtv/smil:web.smil/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | MYComedy,alliptvlinks.com MYComedy
+http://live.creacast.com/mycomedy/smil:mycomedy.smil/chunklist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | TF1,alliptvlinks.com TF1
+https://tf1-hls-live-ssl.tf1.fr/tf1/1/hls/live_2328.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | TF1 Séries Films,alliptvlinks.com TF1 Séries Films,alliptvlinks.com TF1 S�ries Films
+https://tsf-hls-live-ssl.tf1.fr/tsf/1/hls/live_2328.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | TFX,alliptvlinks.com TFX
+https://tfx-hls-live-ssl.tf1.fr/tfx/1/hls/live_2328.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | TMC,alliptvlinks.com TMC
+https://tmc-hls-live-ssl.tf1.fr/tmc/1/hls/live_2328.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | TZiK,alliptvlinks.com TZiK
+https://54627d4fc5996.streamlock.net/tzik/tzik/chunklist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | viaMirabelle,alliptvlinks.com viaMirabelle
+https://live.creacast.com/mirabelletv/smil:mirabelletv.smil/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FR | viàMATÉLÉ,alliptvlinks.com viàMATÉLÉ
+https://streamer01.myvideoplace.tv/streamer02/hls/MATL_VLOC_PAD_100919_medium/index.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france France 24 (ENG) ,alliptvlinks.com FRANCE 24 EN HD
+http://f24hls-i.akamaihd.net/hls/live/221147/F24_EN_HI_HLS/master_2000.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FRANCE 24 HD
+http://epiciptvrestreamer.com:8000/kami/kami/179
+#EXTINF:0 tvg-country="united kingdom"tvg-logo=""group-title="Undefined",alliptvlinks.com united kingdom FRANCE 24 HD
+http://vt.protoniumtv.net:1997/qaozen/UpVeFDki8N/9505
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FRANCE 2HD
+http://epiciptvrestreamer.com:8000/kami/kami/178
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FRANCE 3HD
+http://epiciptvrestreamer.com:8000/kami/kami/177
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FRANCE 4HD
+http://epiciptvrestreamer.com:8000/kami/kami/176
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FRANCE 5HD
+http://epiciptvrestreamer.com:8000/kami/kami/175
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france FRANCE O HD
+http://epiciptvrestreamer.com:8000/kami/kami/174
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france France 2 FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5669
+#EXTINF:0 tvg-country="united kingdom"tvg-logo=""group-title="Undefined",alliptvlinks.com united kingdom France 24 (SD)
+http://iptv1.privateiptv.club:80/live/freeview/freeview/853.m3u8
+#EXTINF:0 tvg-country="united kingdom"tvg-logo=""group-title="Undefined",alliptvlinks.com united kingdom France 24 (SD)
+http://iptv1.privateiptv.club:80/freeview/freeview/853
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france France 24 French
+https://static.france24.com/live/F24_FR_HI_HLS/live_tv.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france France 3 FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/12858
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france France 4 FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5667
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france France 5 FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5666
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france France O FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5664
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Grand Lille TV HD
+http://str81.creacast.com/grandlilletv/high/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Holygod TV Europe & Middle East
+https://dcunilive47-lh.akamaihd.net/i/dclive_1@739146/master.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france ILTV
+https://str81.creacast.com/iltv/high/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france MYComedy
+https://live.creacast.com/mycomedy/smil:mycomedy.smil/playlist.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france NAT GEO WILD HD
+http://epiciptvrestreamer.com:8000/kami/kami/157
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france NATIONAL GEO HD
+http://epiciptvrestreamer.com:8000/kami/kami/156
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france NICKELODEON HD
+http://epiciptvrestreamer.com:8000/kami/kami/155
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france NICKELODEON JUN HD
+http://epiciptvrestreamer.com:8000/kami/kami/154
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Nat Geo HD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/8632
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france Nat Geo Wild HD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5645
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france National Geographic HD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5644
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france RT France
+https://rt-france.secure.footprint.net/1107.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france TF1 FHD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/12857
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france TF1 HD FR
+http://tv.gloryiptv.itv.world:8080/fh41r35sss/ghtyuio67/5610
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france TV5Monde Info
+https://v3plusinfo247hls-i.akamaihd.net/hls/live/218877/v3plusinfo247hls/index.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france TV5Monde Pacifique
+https://tv5pacifiqueen-i.akamaihd.net/hls/live/630175-b/tv5pacifiqueen/master.m3u8
+#EXTINF:0 tvg-country="france"tvg-logo=""group-title="Undefined",alliptvlinks.com france TV7 Colmar
+https://tv7.hdr-tv.com/live/tv7/livestream/playlist.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined France 24 (Opt-1)
+http://f24hls-i.akamaihd.net/hls/live/221192/F24_FR_LO_HLS/master_900.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined France24
+http://static.france24.com/live/F24_FR_LO_HLS/live_web.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined France 2 HD
+http://176.10.117.3:5000/play/a02v
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined France 24,alliptvlinks.com France 24 en Espa?ol
+http://static.france24.com/live/F24_ES_LO_HLS/live_web.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined France 24 (ESP)
+http://f24hls-i.akamaihd.net/hls/live/520845/F24_ES_HI_HLS/master_2000.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined France 24 (FR)
+http://f24hls-i.akamaihd.net/hls/live/221146/F24_FR_HI_HLS/master_2000.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined France 3 HD
+http://176.10.117.3:5000/play/a02w
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined RT France
+http://rt-france.secure.footprint.net/1107_2500Kb.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined TV MANA (FR)
+http://c2.manasat.com:1935/eglise-online/frances3/playlist.m3u8
+#EXTINF:0 tvg-country="undefined"tvg-logo=""group-title="Undefined",alliptvlinks.com undefined TVPi (FR)
+http://streamcast.oc3n.net:1935/TVPI/myStream700.sdp/playlist.m3u8

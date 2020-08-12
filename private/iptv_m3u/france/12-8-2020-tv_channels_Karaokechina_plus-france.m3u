@@ -1,0 +1,611 @@
+#EXTM3U
+#EXTINF:-1 tvg-id=""tvg-name="########## France ##########"tvg-logo="http://195.154.221.171/picons/france.png"group-title="France",alliptvlinks.com ########## France ##########
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/2526
+#EXTINF:-1 tvg-id="RTS Un HD FR"tvg-name="RTS Un HD FR"tvg-logo="http://195.154.221.171/picons/rtsunhdfr.png"group-title="France",alliptvlinks.com RTS Un HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/424
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="RTS Deux HD FR"tvg-logo="http://195.154.221.171/picons/rtsdeuxhdfr.png"group-title="France",alliptvlinks.com RTS Deux HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/423
+#EXTINF:-1 tvg-id="TF1 FR"tvg-name="TF1 FR"tvg-logo="http://195.154.221.171/picons/tf1fr.png"group-title="France",alliptvlinks.com TF1 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/440
+#EXTINF:-1 tvg-id="TF1 FR"tvg-name="TF1 HD FR"tvg-logo="http://195.154.221.171/picons/tf1hdfr.png"group-title="France",alliptvlinks.com TF1 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/441
+#EXTINF:-1 tvg-id="France 2 FR"tvg-name="France 2 FR"tvg-logo="http://195.154.221.171/picons/france2.png"group-title="France",alliptvlinks.com France 2 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/438
+#EXTINF:-1 tvg-id="France 2 FR"tvg-name="France 2 HD FR"tvg-logo="http://195.154.221.171/picons/france2hd.png"group-title="France",alliptvlinks.com France 2 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/439
+#EXTINF:-1 tvg-id="France 3 FR"tvg-name="France 3 FR"tvg-logo="http://195.154.221.171/picons/france3.png"group-title="France",alliptvlinks.com France 3 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/436
+#EXTINF:-1 tvg-id="France 3 FR"tvg-name="France 3 HD FR"tvg-logo="http://195.154.221.171/picons/france3hd.png"group-title="France",alliptvlinks.com France 3 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/437
+#EXTINF:-1 tvg-id="France 4 FR"tvg-name="France 4 HD FR"tvg-logo="http://195.154.221.171/picons/france4hd.png"group-title="France",alliptvlinks.com France 4 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/435
+#EXTINF:-1 tvg-id="France 5 FR"tvg-name="France 5 FR"tvg-logo="http://195.154.221.171/picons/france5.png"group-title="France",alliptvlinks.com France 5 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/434
+#EXTINF:-1 tvg-id="M6 FR"tvg-name="M6 FR"tvg-logo="http://195.154.221.171/picons/m6fr.png"group-title="France",alliptvlinks.com M6 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/431
+#EXTINF:-1 tvg-id="M6 FR"tvg-name="M6 HD FR"tvg-logo="http://195.154.221.171/picons/m6hdfr.png"group-title="France",alliptvlinks.com M6 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/432
+#EXTINF:-1 tvg-id="Syfy HD FR"tvg-name="Syfy FR"tvg-logo="http://195.154.221.171/picons/syfyfr.png"group-title="France",alliptvlinks.com Syfy FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1447
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="TFX FHD FR"tvg-logo="http://195.154.221.171/picons/nt1fr.png"group-title="France",alliptvlinks.com TFX FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1406
+#EXTINF:-1 tvg-id="NT1 FR"tvg-name="TFX FR"tvg-logo="http://195.154.221.171/picons/nt1hdfr.png"group-title="France",alliptvlinks.com TFX FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1446
+#EXTINF:-1 tvg-id="W9 FR"tvg-name="W9 HD FR"tvg-logo="http://195.154.221.171/picons/w9hdfr.png"group-title="France",alliptvlinks.com W9 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/430
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="HD1 FR"tvg-logo="http://195.154.221.171/picons/hd1fr.png"group-title="France",alliptvlinks.com HD1 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1473
+#EXTINF:-1 tvg-id="Canal 8 FR"tvg-name="C-8 HD FR"tvg-logo="http://195.154.221.171/picons/c8hdfr.png"group-title="France",alliptvlinks.com C-8 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/428
+#EXTINF:-1 tvg-id="Canal Star FR"tvg-name="C-Star FR"tvg-logo="http://195.154.221.171/picons/cstarfr.png"group-title="France",alliptvlinks.com C-Star FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1401
+#EXTINF:-1 tvg-id="Canal Star FR"tvg-name="C-Star HD FR"tvg-logo="http://195.154.221.171/picons/cstarhdfr.png"group-title="France",alliptvlinks.com C-Star HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1381
+#EXTINF:-1 tvg-id="6ter FR"tvg-name="6ter FR"tvg-logo="http://195.154.221.171/picons/6terfr.png"group-title="France",alliptvlinks.com 6ter FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/425
+#EXTINF:-1 tvg-id="6ter FR"tvg-name="6ter HD FR"tvg-logo="http://195.154.221.171/picons/6terhdfr.png"group-title="France",alliptvlinks.com 6ter HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/426
+#EXTINF:-1 tvg-id="RTL 9 FR"tvg-name="RTL 9 FR"tvg-logo="http://195.154.221.171/picons/rtl9fr.png"group-title="France",alliptvlinks.com RTL 9 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1442
+#EXTINF:-1 tvg-id="Cherie 25 FR"tvg-name="Chérie 25 FR"tvg-logo="http://195.154.221.171/picons/cherie25fr.png"group-title="France",alliptvlinks.com Chérie 25 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1444
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="13eme Rue FR"tvg-logo="http://195.154.221.171/picons/13emeruefr.png"group-title="France",alliptvlinks.com 13eme Rue FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1452
+#EXTINF:-1 tvg-id="AB1 HD FR"tvg-name="AB1 HD FR"tvg-logo="http://195.154.221.171/picons/ab1fr.png"group-title="France",alliptvlinks.com AB1 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1405
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="AB3 FR"tvg-logo="http://195.154.221.171/picons/ab3fr.png"group-title="France",alliptvlinks.com AB3 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4077
+#EXTINF:-1 tvg-id="NRJ 12 FR"tvg-name="NRJ 12 HD FR"tvg-logo="http://195.154.221.171/picons/nrj12fr.png"group-title="France",alliptvlinks.com NRJ 12 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1443
+#EXTINF:-1 tvg-id="E! FR"tvg-name="E! FR"tvg-logo="http://195.154.221.171/picons/efr.png"group-title="France",alliptvlinks.com E! FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1379
+#EXTINF:-1 tvg-id="ElleGirl FR"tvg-name="Elle Girl HD FR"tvg-logo="http://195.154.221.171/picons/ellegirl.png"group-title="France",alliptvlinks.com Elle Girl HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8785
+#EXTINF:-1 tvg-id="Seasons FR"tvg-name="Seasons HD FR"tvg-logo="http://195.154.221.171/picons/seasons.png"group-title="France",alliptvlinks.com Seasons HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1433
+#EXTINF:-1 tvg-id="serieclub FR"tvg-name="serieclub FR"tvg-logo="http://195.154.221.171/picons/serieclubfr.png"group-title="France",alliptvlinks.com serieclub FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1449
+#EXTINF:-1 tvg-id="ComediePlus FR"tvg-name="Comédie+ HD FR"tvg-logo="http://195.154.221.171/picons/comedieplusfr.png"group-title="France",alliptvlinks.com Comédie+ HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1410
+#EXTINF:-1 tvg-id="CANALPlus FR"tvg-name="CANAL+ HD FR"tvg-logo="http://195.154.221.171/picons/canalplushdfr.png"group-title="France",alliptvlinks.com CANAL+ HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1471
+#EXTINF:-1 tvg-id="CANALPlus Cinema FR"tvg-name="CANAL+ Cinema HD FR"tvg-logo="http://195.154.221.171/picons/canalpluscinemahdfr.png"group-title="France",alliptvlinks.com CANAL+ Cinema HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1470
+#EXTINF:-1 tvg-id="CANALPlus Decale FR"tvg-name="CANAL+ Decale HD FR"tvg-logo="http://195.154.221.171/picons/canalplusdecalehdfr.png"group-title="France",alliptvlinks.com CANAL+ Decale HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1469
+#EXTINF:-1 tvg-id="CANALPlus Family FR"tvg-name="CANAL+ Family HD FR"tvg-logo="http://195.154.221.171/picons/canalplusfamilyhdfr.png"group-title="France",alliptvlinks.com CANAL+ Family HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1468
+#EXTINF:-1 tvg-id="CANALPlus Series FR"tvg-name="CANAL+ Series HD FR"tvg-logo="http://195.154.221.171/picons/canalplusserieshdfr.png"group-title="France",alliptvlinks.com CANAL+ Series HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1466
+#EXTINF:-1 tvg-id="CinePlus Classic FR"tvg-name="Ciné+ Classic HD FR"tvg-logo="http://195.154.221.171/picons/cineplusclassichdfr.png"group-title="France",alliptvlinks.com Ciné+ Classic HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1462
+#EXTINF:-1 tvg-id="Cine FX FR"tvg-name="Ciné FX HD FR"tvg-logo="http://195.154.221.171/picons/cinefxfr.png"group-title="France",alliptvlinks.com Ciné FX HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1459
+#EXTINF:-1 tvg-id="Cine Polar FR"tvg-name="Ciné Polar HD FR"tvg-logo="http://195.154.221.171/picons/cinepolarfr.png"group-title="France",alliptvlinks.com Ciné Polar HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1460
+#EXTINF:-1 tvg-id="CinePlus Emotion HD FR"tvg-name="Ciné+ Emotion HD FR"tvg-logo="http://195.154.221.171/picons/cineplusemotionhdfr.png"group-title="France",alliptvlinks.com Ciné+ Emotion HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1464
+#EXTINF:-1 tvg-id="CinePlus Famiz HD FR"tvg-name="Ciné+ Famiz FR"tvg-logo="http://195.154.221.171/picons/cineplusfamizfr.png"group-title="France",alliptvlinks.com Ciné+ Famiz FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1467
+#EXTINF:-1 tvg-id="CinePlus Famiz HD FR"tvg-name="Ciné+ Famiz HD FR"tvg-logo="http://195.154.221.171/picons/cineplusfamizhdfr.png"group-title="France",alliptvlinks.com Ciné+ Famiz HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4102
+#EXTINF:-1 tvg-id="CinePlus Frisson HD FR"tvg-name="Ciné+ Frisson HD FR"tvg-logo="http://195.154.221.171/picons/cineplusfrissonhdfr.png"group-title="France",alliptvlinks.com Ciné+ Frisson HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1465
+#EXTINF:-1 tvg-id="CinePlus Premier HD FR"tvg-name="Ciné+ Premier HD FR"tvg-logo="http://195.154.221.171/picons/cinepluspremierhdfr.png"group-title="France",alliptvlinks.com Ciné+ Premier HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1463
+#EXTINF:-1 tvg-id=""tvg-name="Canal Play 1 HD FR"tvg-logo="http://195.154.221.171/picons/canalplay.png"group-title="France",alliptvlinks.com Canal Play 1 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4126
+#EXTINF:-1 tvg-id=""tvg-name="Canal Play 2 HD FR"tvg-logo="http://195.154.221.171/picons/canalplay.png"group-title="France",alliptvlinks.com Canal Play 2 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4125
+#EXTINF:-1 tvg-id=""tvg-name="Canal Play 3 HD FR"tvg-logo="http://195.154.221.171/picons/canalplay.png"group-title="France",alliptvlinks.com Canal Play 3 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4124
+#EXTINF:-1 tvg-id=""tvg-name="Canal Play 4 HD FR"tvg-logo="http://195.154.221.171/picons/canalplay.png"group-title="France",alliptvlinks.com Canal Play 4 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4123
+#EXTINF:-1 tvg-id=""tvg-name="Canal Play 5 HD FR"tvg-logo="http://195.154.221.171/picons/canalplay.png"group-title="France",alliptvlinks.com Canal Play 5 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4122
+#EXTINF:-1 tvg-id=""tvg-name="À La Carte 1 HD FR"tvg-logo="http://195.154.221.171/picons/alacarte.png"group-title="France",alliptvlinks.com À La Carte 1 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4141
+#EXTINF:-1 tvg-id=""tvg-name="À La Carte 2 HD FR"tvg-logo="http://195.154.221.171/picons/alacarte.png"group-title="France",alliptvlinks.com À La Carte 2 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4140
+#EXTINF:-1 tvg-id=""tvg-name="À La Carte 3 HD FR"tvg-logo="http://195.154.221.171/picons/alacarte.png"group-title="France",alliptvlinks.com À La Carte 3 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4139
+#EXTINF:-1 tvg-id=""tvg-name="À La Carte 4 HD FR"tvg-logo="http://195.154.221.171/picons/alacarte.png"group-title="France",alliptvlinks.com À La Carte 4 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4138
+#EXTINF:-1 tvg-id=""tvg-name="À La Carte 5 HD FR"tvg-logo="http://195.154.221.171/picons/alacarte.png"group-title="France",alliptvlinks.com À La Carte 5 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4137
+#EXTINF:-1 tvg-id="OCS Choc FR"tvg-name="OCS Choc FHD FR"tvg-logo="http://195.154.221.171/picons/ocschochd.png"group-title="France",alliptvlinks.com OCS Choc FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1454
+#EXTINF:-1 tvg-id="OCS City FR"tvg-name="OCS City FR"tvg-logo="http://195.154.221.171/picons/ocscityfr.png"group-title="France",alliptvlinks.com OCS City FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1455
+#EXTINF:-1 tvg-id="OCS Geants FR"tvg-name="OCS Geants FR"tvg-logo="http://195.154.221.171/picons/ocsgeantsfr.png"group-title="France",alliptvlinks.com OCS Geants FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1456
+#EXTINF:-1 tvg-id="OCS Max FR"tvg-name="OCS Max FR"tvg-logo="http://195.154.221.171/picons/ocsmaxfr.png"group-title="France",alliptvlinks.com OCS Max FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1458
+#EXTINF:-1 tvg-id=""tvg-name="OCS Go Cinema 1 HD FR"tvg-logo="http://195.154.221.171/picons/ocsgo.png"group-title="France",alliptvlinks.com OCS Go Cinema 1 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4131
+#EXTINF:-1 tvg-id=""tvg-name="OCS Go Cinema 2 HD FR"tvg-logo="http://195.154.221.171/picons/ocsgo.png"group-title="France",alliptvlinks.com OCS Go Cinema 2 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4130
+#EXTINF:-1 tvg-id=""tvg-name="OCS Go Cinema 4 HD FR"tvg-logo="http://195.154.221.171/picons/ocsgo.png"group-title="France",alliptvlinks.com OCS Go Cinema 4 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4128
+#EXTINF:-1 tvg-id=""tvg-name="OCS Go Cinema 5 HD FR"tvg-logo="http://195.154.221.171/picons/ocsgo.png"group-title="France",alliptvlinks.com OCS Go Cinema 5 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4127
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema 1 HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema 1 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4136
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema 2 HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema 2 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4135
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema 3 HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema 3 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4134
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema 4 HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema 4 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4133
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema 5 HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema 5 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4132
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema Action HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema Action HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4066
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema Aventure HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema Aventure HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4067
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4068
+#EXTINF:-1 tvg-id=""tvg-name="Orange Cinema Horreur HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Cinema Horreur HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4069
+#EXTINF:-1 tvg-id=""tvg-name="Orange Comment C'Est Fait HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Comment C'Est Fait HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4064
+#EXTINF:-1 tvg-id=""tvg-name="Orange Documentaire HD FR"tvg-logo="http://195.154.221.171/picons/orange.png"group-title="France",alliptvlinks.com Orange Documentaire HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4063
+#EXTINF:-1 tvg-id="Paramount Channel FR"tvg-name="Paramount Channel HD FR"tvg-logo="http://195.154.221.171/picons/paramountchannelhdfr.png"group-title="France",alliptvlinks.com Paramount Channel HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4050
+#EXTINF:-1 tvg-id="TCM Cinema FR"tvg-name="TCM Cinéma HD FR"tvg-logo="http://195.154.221.171/picons/tcmcinemahdfr.png"group-title="France",alliptvlinks.com TCM Cinéma HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1461
+#EXTINF:-1 tvg-id="TMC FR"tvg-name="TMC FHD FR"tvg-logo="http://195.154.221.171/picons/tmcfr.png"group-title="France",alliptvlinks.com TMC FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1448
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="Boing FR"tvg-logo="http://195.154.221.171/picons/boingfr.png"group-title="France",alliptvlinks.com Boing FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1408
+#EXTINF:-1 tvg-id="Boomerang FR"tvg-name="Boomerang FHD FR"tvg-logo="http://195.154.221.171/picons/boomerangfr.png"group-title="France",alliptvlinks.com Boomerang FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4052
+#EXTINF:-1 tvg-id="Cartoon Network FR"tvg-name="Cartoon Network FR"tvg-logo="http://195.154.221.171/picons/cartoonnetworkfr.png"group-title="France",alliptvlinks.com Cartoon Network FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1412
+#EXTINF:-1 tvg-id="Gulli FR"tvg-name="Gulli FR"tvg-logo="http://195.154.221.171/picons/gullihdfr.png"group-title="France",alliptvlinks.com Gulli FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1417
+#EXTINF:-1 tvg-id="PiwiPlus FR"tvg-name="Piwi+ HD FR"tvg-logo="http://195.154.221.171/picons/piwiplusfr.png"group-title="France",alliptvlinks.com Piwi+ HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1418
+#EXTINF:-1 tvg-id="TeleToonPlus FR"tvg-name="téléTOON+ HD FR"tvg-logo="http://195.154.221.171/picons/teletoonplusfr.png"group-title="France",alliptvlinks.com téléTOON+ HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1416
+#EXTINF:-1 tvg-id="TIJI FR"tvg-name="Tiji FHD FR"tvg-logo="http://195.154.221.171/picons/tijifr.png"group-title="France",alliptvlinks.com Tiji FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1419
+#EXTINF:-1 tvg-id="Canal J FR"tvg-name="Canal J FHD FR"tvg-logo="http://195.154.221.171/picons/canaljfr.png"group-title="France",alliptvlinks.com Canal J FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1420
+#EXTINF:-1 tvg-id="Disney Channel FR"tvg-name="Disney Channel HD FR"tvg-logo="http://195.154.221.171/picons/disneychannelfr.png"group-title="France",alliptvlinks.com Disney Channel HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1411
+#EXTINF:-1 tvg-id="Disney Channel Plus1 FR"tvg-name="Disney Channel +1 FR"tvg-logo="http://195.154.221.171/picons/disneychannelplus1fr.png"group-title="France",alliptvlinks.com Disney Channel +1 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4053
+#EXTINF:-1 tvg-id="Disney Cinema HD FR"tvg-name="Disney Cinema FR"tvg-logo="http://195.154.221.171/picons/disneycinemafr.png"group-title="France",alliptvlinks.com Disney Cinema FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1413
+#EXTINF:-1 tvg-id="Disney Cinema HD FR"tvg-name="Disney Cinema HD FR"tvg-logo="http://195.154.221.171/picons/disneycinemahdfr.png"group-title="France",alliptvlinks.com Disney Cinema HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1414
+#EXTINF:-1 tvg-id="Disney Junior FR"tvg-name="Disney Junior HD FR"tvg-logo="http://195.154.221.171/picons/disneyjuniorfr.png"group-title="France",alliptvlinks.com Disney Junior HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1415
+#EXTINF:-1 tvg-id="Disney XD FR"tvg-name="Disney XD HD FR"tvg-logo="http://195.154.221.171/picons/disneyxdfr.png"group-title="France",alliptvlinks.com Disney XD HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1376
+#EXTINF:-1 tvg-id="Mangas FR"tvg-name="Mangas HD FR"tvg-logo="http://195.154.221.171/picons/mangasfr.png"group-title="France",alliptvlinks.com Mangas HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1409
+#EXTINF:-1 tvg-id="J-One FR"tvg-name="J-One FR"tvg-logo="http://195.154.221.171/picons/jonefr.png"group-title="France",alliptvlinks.com J-One FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1438
+#EXTINF:-1 tvg-id="Game One FR"tvg-name="Game One FR"tvg-logo="http://195.154.221.171/picons/gameonefr.png"group-title="France",alliptvlinks.com Game One FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1400
+#EXTINF:-1 tvg-id="Discovery Channel FR"tvg-name="Discovery Channel HD FR"tvg-logo="http://195.154.221.171/picons/discoverychannelhdfr.png"group-title="France",alliptvlinks.com Discovery Channel HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1423
+#EXTINF:-1 tvg-id="Discovery Science FR"tvg-name="Discovery Science HD FR"tvg-logo="http://195.154.221.171/picons/discoverysciencehdfr.png"group-title="France",alliptvlinks.com Discovery Science HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1424
+#EXTINF:-1 tvg-id="Discovery Investigation FR"tvg-name="Investigation Discovery HD FR"tvg-logo="http://195.154.221.171/picons/investigationdiscoveryhdfr.png"group-title="France",alliptvlinks.com Investigation Discovery HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1422
+#EXTINF:-1 tvg-id="PlanetePlus FR"tvg-name="Planète+ HD FR"tvg-logo="http://195.154.221.171/picons/planeteplushdfr.png"group-title="France",alliptvlinks.com Planète+ HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1431
+#EXTINF:-1 tvg-id="PlanetePlus Action and Experience FR"tvg-name="Planète+ Aventure Expérience HD FR"tvg-logo="http://195.154.221.171/picons/planeteplusaandehdfr.png"group-title="France",alliptvlinks.com Planète+ Aventure Expérience HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1429
+#EXTINF:-1 tvg-id="PlanetePlus CrimeplusInvestigation FR"tvg-name="Planète+ Crime+Investigation HD FR"tvg-logo="http://195.154.221.171/picons/planetepluscihdfr.png"group-title="France",alliptvlinks.com Planète+ Crime+Investigation HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1430
+#EXTINF:-1 tvg-id="National Geographic FR"tvg-name="National Geographic HD FR"tvg-logo="http://195.154.221.171/picons/nationalgeographichdfr.png"group-title="France",alliptvlinks.com National Geographic HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1425
+#EXTINF:-1 tvg-id="Nat Geo Wild FR"tvg-name="Nat Geo Wild HD FR"tvg-logo="http://195.154.221.171/picons/natgeowildhdfr.png"group-title="France",alliptvlinks.com Nat Geo Wild HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1426
+#EXTINF:-1 tvg-id="Action FR"tvg-name="Action FR"tvg-logo="http://195.154.221.171/picons/actionfr.png"group-title="France",alliptvlinks.com Action FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1453
+#EXTINF:-1 tvg-id="Animaux FR"tvg-name="Animaux HD FR"tvg-logo="http://195.154.221.171/picons/animauxfr.png"group-title="France",alliptvlinks.com Animaux HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1435
+#EXTINF:-1 tvg-id="Arte FR"tvg-name="Arte FR"tvg-logo="http://195.154.221.171/picons/artefr.png"group-title="France",alliptvlinks.com Arte FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1440
+#EXTINF:-1 tvg-id="AB Moteurs FR"tvg-name="AUTOMOTO TV FR"tvg-logo="http://195.154.221.171/picons/abmoteursfr.png"group-title="France",alliptvlinks.com AUTOMOTO TV FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1385
+#EXTINF:-1 tvg-id="Chasse et peche FR"tvg-name="Chasse et Pêche FR"tvg-logo="http://195.154.221.171/picons/chasseetpechefr.png"group-title="France",alliptvlinks.com Chasse et Pêche FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1434
+#EXTINF:-1 tvg-id="KTO FR"tvg-name="KTO FR"tvg-logo="http://195.154.221.171/picons/ktofr.png"group-title="France",alliptvlinks.com KTO FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4041
+#EXTINF:-1 tvg-id="M6 Music FR"tvg-name="M6 Music FR"tvg-logo="http://195.154.221.171/picons/m6musicfr.png"group-title="France",alliptvlinks.com M6 Music FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1397
+#EXTINF:-1 tvg-id="MCM HD FR"tvg-name="MCM HD FR"tvg-logo="http://195.154.221.171/picons/mcm.png"group-title="France",alliptvlinks.com MCM HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1395
+#EXTINF:-1 tvg-id="Mezzo Live HD FR"tvg-name="Mezzo Live HD FR"tvg-logo="http://195.154.221.171/picons/mezzolivehdfr.png"group-title="France",alliptvlinks.com Mezzo Live HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4080
+#EXTINF:-1 tvg-id="MTV HD FR"tvg-name="MTV FR"tvg-logo="http://195.154.221.171/picons/mtvfr.png"group-title="France",alliptvlinks.com MTV FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4055
+#EXTINF:-1 tvg-id="MTV Base FR"tvg-name="MTV Base FR"tvg-logo="http://195.154.221.171/picons/mtvbasefr.png"group-title="France",alliptvlinks.com MTV Base FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4056
+#EXTINF:-1 tvg-id="MTV Hits HD FR"tvg-name="MTV Hits FR"tvg-logo="http://195.154.221.171/picons/mtvhitsfr.png"group-title="France",alliptvlinks.com MTV Hits FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4057
+#EXTINF:-1 tvg-id="MTV Music UK"tvg-name="MTV Music FR"tvg-logo="http://195.154.221.171/picons/mtvmusicfr.png"group-title="France",alliptvlinks.com MTV Music FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4058
+#EXTINF:-1 tvg-id="NRJ Hits FR"tvg-name="NRJ Hits HD FR"tvg-logo="http://195.154.221.171/picons/nrjhitsfr.png"group-title="France",alliptvlinks.com NRJ Hits HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4059
+#EXTINF:-1 tvg-id="Trace Urban HD FR"tvg-name="Trace Urban FR"tvg-logo="http://195.154.221.171/picons/traceurbanfr.png"group-title="France",alliptvlinks.com Trace Urban FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4075
+#EXTINF:-1 tvg-id="Equidia Live HD FR"tvg-name="Equidia HD FR"tvg-logo="http://195.154.221.171/picons/equidia.png"group-title="France",alliptvlinks.com Equidia HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1402
+#EXTINF:-1 tvg-id="Equidia Live HD FR"tvg-name="Equidia FR"tvg-logo="http://195.154.221.171/picons/equidia.png"group-title="France",alliptvlinks.com Equidia FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1386
+#EXTINF:-1 tvg-id="FootPlus 2424 FR"tvg-name="FOOT+ 24/24 FR"tvg-logo="http://195.154.221.171/picons/footplus2424fr.png"group-title="France",alliptvlinks.com FOOT+ 24/24 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1390
+#EXTINF:-1 tvg-id="GolfPlus FR"tvg-name="GOLF+ HD FR"tvg-logo="http://195.154.221.171/picons/golfplushd.png"group-title="France",alliptvlinks.com GOLF+ HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8786
+#EXTINF:-1 tvg-id="Canal News FR"tvg-name="C-News FR"tvg-logo="http://195.154.221.171/picons/cnewshdfr.png"group-title="France",alliptvlinks.com C-News FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/422
+#EXTINF:-1 tvg-id="euronews FR"tvg-name="Euronews FR"tvg-logo="http://195.154.221.171/picons/euronewsfr.png"group-title="France",alliptvlinks.com Euronews FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/420
+#EXTINF:-1 tvg-id="France 24 FR"tvg-name="France 24 FR"tvg-logo="http://195.154.221.171/picons/france24fr.png"group-title="France",alliptvlinks.com France 24 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/419
+#EXTINF:-1 tvg-id="FranceInfo FR"tvg-name="France Info FR"tvg-logo="http://195.154.221.171/picons/franceinfofr.png"group-title="France",alliptvlinks.com France Info FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1398
+#EXTINF:-1 tvg-id="France O FR"tvg-name="France Ô FR"tvg-logo="http://195.154.221.171/picons/franceo.png"group-title="France",alliptvlinks.com France Ô FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/433
+#EXTINF:-1 tvg-id="I24news FR"tvg-name="i24NEWS FR"tvg-logo="http://195.154.221.171/picons/i24newsfr.png"group-title="France",alliptvlinks.com i24NEWS FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4062
+#EXTINF:-1 tvg-id="Africa 24 FR"tvg-name="Africa 24 FR"tvg-logo="http://195.154.221.171/picons/africa24fr.png"group-title="France",alliptvlinks.com Africa 24 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1404
+#EXTINF:-1 tvg-id="Alsace 20 FR"tvg-name="Alsace 20 FR"tvg-logo="http://195.154.221.171/picons/alsace20fr.png"group-title="France",alliptvlinks.com Alsace 20 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4070
+#EXTINF:-1 tvg-id="Histoire FR"tvg-name="Histoire FR"tvg-logo="http://195.154.221.171/picons/histoirefr.png"group-title="France",alliptvlinks.com Histoire FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1437
+#EXTINF:-1 tvg-id="Canal Alpha JU HD FR"tvg-name="Canal Alpha JU FR"tvg-logo="http://195.154.221.171/picons/canalalphajufr.png"group-title="France",alliptvlinks.com Canal Alpha JU FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4079
+#EXTINF:-1 tvg-id="LEquipe 21 FR"tvg-name="L'Equipe 21 FR"tvg-logo="http://195.154.221.171/picons/lequipe21fr.png"group-title="France",alliptvlinks.com L'Equipe 21 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1387
+#EXTINF:-1 tvg-id="BFM Business FR"tvg-name="BFM Business HD FR"tvg-logo="http://195.154.221.171/picons/bfmbusiness.png"group-title="France",alliptvlinks.com BFM Business HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8788
+#EXTINF:-1 tvg-id="BFM TV FR"tvg-name="BFM TV HD FR"tvg-logo="http://195.154.221.171/picons/bfmtvfr.png"group-title="France",alliptvlinks.com BFM TV HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/421
+#EXTINF:-1 tvg-id="BET HD FR"tvg-name="Bet HD FR"tvg-logo="http://195.154.221.171/picons/bet.png"group-title="France",alliptvlinks.com Bet HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8784
+#EXTINF:-1 tvg-id="Weo TV FR"tvg-name="Weo HD FR"tvg-logo="http://195.154.221.171/picons/weofr.png"group-title="France",alliptvlinks.com Weo HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1441
+#EXTINF:-1 tvg-id="La Chaine Normande TV FR"tvg-name="La Chaîne Normande TV FR"tvg-logo="http://195.154.221.171/picons/lachainenormandetvfr.png"group-title="France",alliptvlinks.com La Chaîne Normande TV FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4073
+#EXTINF:-1 tvg-id="La Une FR"tvg-name="La Une HD FR"tvg-logo="http://195.154.221.171/picons/rtbflaunehdfr.png"group-title="France",alliptvlinks.com La Une HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1382
+#EXTINF:-1 tvg-id="Numero 23 FR"tvg-name="Numéro 23 FR"tvg-logo="http://195.154.221.171/picons/numero23fr.png"group-title="France",alliptvlinks.com Numéro 23 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1450
+#EXTINF:-1 tvg-id="OLTV FR"tvg-name="OL TV HD FR"tvg-logo="http://195.154.221.171/picons/oltvhd.png"group-title="France",alliptvlinks.com OL TV HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4048
+#EXTINF:-1 tvg-id="Paris Premiere FR"tvg-name="Paris Premiere HD FR"tvg-logo="http://195.154.221.171/picons/parispremierefr.png"group-title="France",alliptvlinks.com Paris Premiere HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1457
+#EXTINF:-1 tvg-id="RFM TV HD FR"tvg-name="RFM TV HD FR"tvg-logo="http://195.154.221.171/picons/rfmtv.png"group-title="France",alliptvlinks.com RFM TV HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1380
+#EXTINF:-1 tvg-id="RMC Decouverte FR"tvg-name="RMC Decouverte HD FR"tvg-logo="http://195.154.221.171/picons/rmcdecouvertehd.png"group-title="France",alliptvlinks.com RMC Decouverte HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1384
+#EXTINF:-1 tvg-id="Science and Vie TV FR"tvg-name="Science & Vie TV FHD FR"tvg-logo="http://195.154.221.171/picons/scienceandvietvfr.png"group-title="France",alliptvlinks.com Science & Vie TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1428
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="Stingray Brava FR"tvg-logo="http://195.154.221.171/picons/stingraybravafr.png"group-title="France",alliptvlinks.com Stingray Brava FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1403
+#EXTINF:-1 tvg-id="Toute lhistoire FR"tvg-name="Toute l'Histoire FR"tvg-logo="http://195.154.221.171/picons/toutelhistoirefr.png"group-title="France",alliptvlinks.com Toute l'Histoire FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1427
+#EXTINF:-1 tvg-id="Trek FR"tvg-name="Trek HD FR"tvg-logo="http://195.154.221.171/picons/trekhdfr.png"group-title="France",alliptvlinks.com Trek HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4119
+#EXTINF:-1 tvg-id="TvBreizh FR"tvg-name="TVBreizh FHD FR"tvg-logo="http://195.154.221.171/picons/tvbreizhhd.png"group-title="France",alliptvlinks.com TVBreizh FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4076
+#EXTINF:-1 tvg-id="TvBreizh FR"tvg-name="TVBreizh FR"tvg-logo="http://195.154.221.171/picons/tvbreizh.png"group-title="France",alliptvlinks.com TVBreizh FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1451
+#EXTINF:-1 tvg-id="TV5MONDE FR"tvg-name="TV5 Monde HD FR"tvg-logo="http://195.154.221.171/picons/tv5mondefr.png"group-title="France",alliptvlinks.com TV5 Monde HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1439
+#EXTINF:-1 tvg-id="Teva FR"tvg-name="téva FR"tvg-logo="http://195.154.221.171/picons/tevafr.png"group-title="France",alliptvlinks.com téva FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1445
+#EXTINF:-1 tvg-id="Teva FR"tvg-name="téva HD FR"tvg-logo="http://195.154.221.171/picons/tevahdfr.png"group-title="France",alliptvlinks.com téva HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4114
+#EXTINF:-1 tvg-id="Ushuaia TV FR"tvg-name="Ushuaïa TV FR"tvg-logo="http://195.154.221.171/picons/ushuaiatvfr.png"group-title="France",alliptvlinks.com Ushuaïa TV FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1436
+#EXTINF:-1 tvg-id="Voyage HD FR"tvg-name="Voyage FR"tvg-logo="http://195.154.221.171/picons/voyagefr.png"group-title="France",alliptvlinks.com Voyage FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1432
+#EXTINF:-1 tvg-id="Vosges TV FR"tvg-name="Vosges Télévision HD FR"tvg-logo="http://195.154.221.171/picons/vosgestelevisionhdfr.png"group-title="France",alliptvlinks.com Vosges Télévision HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1421
+#EXTINF:-1 tvg-id=""tvg-name="LCI FHD FR"tvg-logo=""group-title="France",alliptvlinks.com LCI FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/78592
+#EXTINF:-1 tvg-id=""tvg-name="LCI HD FR"tvg-logo=""group-title="France",alliptvlinks.com LCI HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/78593
+#EXTINF:-1 tvg-id=""tvg-name="DISCOVERY FAMILY FHD FR"tvg-logo=""group-title="France",alliptvlinks.com DISCOVERY FAMILY FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80104
+#EXTINF:-1 tvg-id=""tvg-name="GAME ONE+1 FHD FR"tvg-logo=""group-title="France",alliptvlinks.com GAME ONE+1 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80165
+#EXTINF:-1 tvg-id=""tvg-name="MY COMEDY TV HD FR"tvg-logo=""group-title="France",alliptvlinks.com MY COMEDY TV HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80166
+#EXTINF:-1 tvg-id=""tvg-name="CLIQUE TV HD FR"tvg-logo=""group-title="France",alliptvlinks.com CLIQUE TV HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80168
+#EXTINF:-1 tvg-id=""tvg-name="TRACE LATINA HD FR"tvg-logo=""group-title="France",alliptvlinks.com TRACE LATINA HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80169
+#EXTINF:-1 tvg-id=""tvg-name="TRACE GOSPEL FR"tvg-logo=""group-title="France",alliptvlinks.com TRACE GOSPEL FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80170
+#EXTINF:-1 tvg-id=""tvg-name="TRACE MZIKI HD FR"tvg-logo=""group-title="France",alliptvlinks.com TRACE MZIKI HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80171
+#EXTINF:-1 tvg-id=""tvg-name="TRACE NAIJA HD FR"tvg-logo=""group-title="France",alliptvlinks.com TRACE NAIJA HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80172
+#EXTINF:-1 tvg-id=""tvg-name="TRACE TOCA HD FR"tvg-logo=""group-title="France",alliptvlinks.com TRACE TOCA HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80173
+#EXTINF:-1 tvg-id=""tvg-name="OKLM HD FR"tvg-logo=""group-title="France",alliptvlinks.com OKLM HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80174
+#EXTINF:-1 tvg-id=""tvg-name="VH1 FR"tvg-logo=""group-title="France",alliptvlinks.com VH1 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80175
+#EXTINF:-1 tvg-id=""tvg-name="VH1 CLASSIC FR"tvg-logo=""group-title="France",alliptvlinks.com VH1 CLASSIC FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80176
+#EXTINF:-1 tvg-id=""tvg-name="OLYMPIA HD FR"tvg-logo=""group-title="France",alliptvlinks.com OLYMPIA HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80177
+#EXTINF:-1 tvg-id=""tvg-name="DJAZZ TV FHD FR"tvg-logo=""group-title="France",alliptvlinks.com DJAZZ TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80178
+#EXTINF:-1 tvg-id=""tvg-name="STINGRAY CLASSICA FHD FR"tvg-logo=""group-title="France",alliptvlinks.com STINGRAY CLASSICA FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80179
+#EXTINF:-1 tvg-id=""tvg-name="M6 BOUTIQUE & CO HD"tvg-logo=""group-title="France",alliptvlinks.com M6 BOUTIQUE & CO HD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80180
+#EXTINF:-1 tvg-id=""tvg-name="FRANCE 3 NOA FHD"tvg-logo=""group-title="France",alliptvlinks.com FRANCE 3 NOA FHD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80181
+#EXTINF:-1 tvg-id=""tvg-name="LUCKY JACK TV FHD FR"tvg-logo=""group-title="France",alliptvlinks.com LUCKY JACK TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80182
+#EXTINF:-1 tvg-id=""tvg-name="LA CHAINE METEO FHD FR"tvg-logo=""group-title="France",alliptvlinks.com LA CHAINE METEO FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80185
+#EXTINF:-1 tvg-id=""tvg-name="BFM PARIS FHD FR"tvg-logo=""group-title="France",alliptvlinks.com BFM PARIS FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80186
+#EXTINF:-1 tvg-id=""tvg-name="BFM LYON FHD FR"tvg-logo=""group-title="France",alliptvlinks.com BFM LYON FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80187
+#EXTINF:-1 tvg-id=""tvg-name="CNEWS FHD FR"tvg-logo=""group-title="France",alliptvlinks.com CNEWS FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80188
+#EXTINF:-1 tvg-id=""tvg-name="BFM GRAND LITTORAL FHD FR"tvg-logo=""group-title="France",alliptvlinks.com BFM GRAND LITTORAL FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80189
+#EXTINF:-1 tvg-id=""tvg-name="DEMAIN ! IDF FHD FR"tvg-logo=""group-title="France",alliptvlinks.com DEMAIN ! IDF FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80190
+#EXTINF:-1 tvg-id=""tvg-name="C-STAR HITS FHD FR"tvg-logo=""group-title="France",alliptvlinks.com C-STAR HITS FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80191
+#EXTINF:-1 tvg-id=""tvg-name="TV5 MONDE INFO FHD FR"tvg-logo=""group-title="France",alliptvlinks.com TV5 MONDE INFO FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/83212
+#EXTINF:-1 tvg-id=""tvg-name="WARNER TV FHD FR"tvg-logo=""group-title="France",alliptvlinks.com WARNER TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/83571
+#EXTINF:-1 tvg-id=""tvg-name="WARNER TV HD FR"tvg-logo=""group-title="France",alliptvlinks.com WARNER TV HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/83572
+#EXTINF:-1 tvg-id=""tvg-name="CGTN Français FR"tvg-logo=""group-title="France",alliptvlinks.com CGTN Français FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/83573
+#EXTINF:-1 tvg-id=""tvg-name="RT FRANCE HD FR"tvg-logo=""group-title="France",alliptvlinks.com RT FRANCE HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/83574
+#EXTINF:-1 tvg-id=""tvg-name="MEZZO FR"tvg-logo=""group-title="France",alliptvlinks.com MEZZO FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/89977
+#EXTINF:-1 tvg-id="France 4 FR"tvg-name="France 4 FR"tvg-logo="http://195.154.221.171/picons/france4hd.png"group-title="France",alliptvlinks.com France 4 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/89980
+#EXTINF:-1 tvg-id="France 4 FR"tvg-name="France 4 FHD FR"tvg-logo="http://195.154.221.171/picons/france4hd.png"group-title="France",alliptvlinks.com France 4 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/89981
+#EXTINF:-1 tvg-id=""tvg-name="TF1 +1 FR"tvg-logo=""group-title="France",alliptvlinks.com TF1 +1 FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/89987
+#EXTINF:-1 tvg-id=""tvg-name="TMC +1 FHD FR"tvg-logo=""group-title="France",alliptvlinks.com TMC +1 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/89988
+#EXTINF:-1 tvg-id=""tvg-name="Clubbing TV FR"tvg-logo=""group-title="France",alliptvlinks.com Clubbing TV FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/89989
+#EXTINF:-1 tvg-id=""tvg-name="ES1 FHD FR"tvg-logo=""group-title="France",alliptvlinks.com ES1 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/89991
+#EXTINF:-1 tvg-id="TF1 FR"tvg-name="TF1 FHD FR"tvg-logo="http://195.154.221.171/picons/tf1hd.png"group-title="France",alliptvlinks.com TF1 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6488
+#EXTINF:-1 tvg-id="France 2 FR"tvg-name="France 2 FHD FR"tvg-logo="http://195.154.221.171/picons/france2hd.png"group-title="France",alliptvlinks.com France 2 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6535
+#EXTINF:-1 tvg-id="France 5 FR"tvg-name="France 5 HD FR"tvg-logo="http://195.154.221.171/picons/france5hd.png"group-title="France",alliptvlinks.com France 5 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15987
+#EXTINF:-1 tvg-id="M6 FR"tvg-name="M6 FHD FR"tvg-logo="http://195.154.221.171/picons/m6hd.png"group-title="France",alliptvlinks.com M6 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6489
+#EXTINF:-1 tvg-id="Syfy HD FR"tvg-name="Syfy HD FR"tvg-logo="http://195.154.221.171/picons/syfyhdfr.png"group-title="France",alliptvlinks.com Syfy HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4115
+#EXTINF:-1 tvg-id="W9 FR"tvg-name="W9 FHD FR"tvg-logo="http://195.154.221.171/picons/w9hdfr.png"group-title="France",alliptvlinks.com W9 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4117
+#EXTINF:-1 tvg-id="TF1 Series Film FR"tvg-name="TF1 Séries Films HD FR"tvg-logo="http://195.154.221.171/picons/tf1seriesfilms.png"group-title="France",alliptvlinks.com TF1 Séries Films HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15983
+#EXTINF:-1 tvg-id="TF1 Series Film FR"tvg-name="TF1 Séries Films FHD FR"tvg-logo="http://195.154.221.171/picons/tf1seriesfilms.png"group-title="France",alliptvlinks.com TF1 Séries Films FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4113
+#EXTINF:-1 tvg-id="Canal 8 FR"tvg-name="C-8 FHD FR"tvg-logo="http://195.154.221.171/picons/c8fr.png"group-title="France",alliptvlinks.com C-8 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1474
+#EXTINF:-1 tvg-id="6ter FR"tvg-name="6ter FHD FR"tvg-logo="http://195.154.221.171/picons/6terhdfr.png"group-title="France",alliptvlinks.com 6ter FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4118
+#EXTINF:-1 tvg-id="RTL 9 FR"tvg-name="RTL 9 FHD FR"tvg-logo="http://195.154.221.171/picons/rtl9hdfr.png"group-title="France",alliptvlinks.com RTL 9 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4120
+#EXTINF:-1 tvg-id="Cherie 25 FR"tvg-name="Chérie 25 FHD FR"tvg-logo="http://195.154.221.171/picons/cherie25hdfr.png"group-title="France",alliptvlinks.com Chérie 25 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4112
+#EXTINF:-1 tvg-id="13eme Rue HD FR"tvg-name="13eme Rue FHD FR"tvg-logo="http://195.154.221.171/picons/13emeruehdfr.png"group-title="France",alliptvlinks.com 13eme Rue FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4116
+#EXTINF:-1 tvg-id="ElleGirl FR"tvg-name="Elle Girl FHD FR"tvg-logo="http://195.154.221.171/picons/ellegirlhdfr.png"group-title="France",alliptvlinks.com Elle Girl FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1375
+#EXTINF:-1 tvg-id="Seasons FR"tvg-name="Seasons FHD FR"tvg-logo="http://195.154.221.171/picons/seasons.png"group-title="France",alliptvlinks.com Seasons FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4081
+#EXTINF:-1 tvg-id="serieclub FR"tvg-name="serieclub FHD FR"tvg-logo="http://195.154.221.171/picons/serieclubhdfr.png"group-title="France",alliptvlinks.com serieclub FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4099
+#EXTINF:-1 tvg-id="CANALPlus FR"tvg-name="CANAL+ FHD FR"tvg-logo="http://195.154.221.171/picons/canalplushdfr.png"group-title="France",alliptvlinks.com CANAL+ FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4109
+#EXTINF:-1 tvg-id="CANALPlus Cinema FR"tvg-name="CANAL+ Cinema FHD FR"tvg-logo="http://195.154.221.171/picons/canalpluscinemahdfr.png"group-title="France",alliptvlinks.com CANAL+ Cinema FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4106
+#EXTINF:-1 tvg-id="CANALPlus Decale FR"tvg-name="CANAL+ Décalé FHD FR"tvg-logo="http://195.154.221.171/picons/canalplusdecalehdfr.png"group-title="France",alliptvlinks.com CANAL+ Décalé FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4107
+#EXTINF:-1 tvg-id="CANALPlus Family FR"tvg-name="CANAL+ Family FHD FR"tvg-logo="http://195.154.221.171/picons/canalplusfamilyhdfr.png"group-title="France",alliptvlinks.com CANAL+ Family FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4108
+#EXTINF:-1 tvg-id="CANALPlus Series FR"tvg-name="CANAL+ Series FHD FR"tvg-logo="http://195.154.221.171/picons/canalplusserieshdfr.png"group-title="France",alliptvlinks.com CANAL+ Series FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4105
+#EXTINF:-1 tvg-id="CinePlus Classic FR"tvg-name="Cine+ Classic FHD FR"tvg-logo="http://195.154.221.171/picons/cineplusclassichd.png"group-title="France",alliptvlinks.com Cine+ Classic FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6534
+#EXTINF:-1 tvg-id="CinePlus Club HD FR"tvg-name="Ciné+ Club FHD FR"tvg-logo="http://195.154.221.171/picons/cineplusclubhdfr.png"group-title="France",alliptvlinks.com Ciné+ Club FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4100
+#EXTINF:-1 tvg-id="CinePlus Emotion HD FR"tvg-name="Ciné+ Emotion FHD FR"tvg-logo="http://195.154.221.171/picons/cineplusemotionhdfr.png"group-title="France",alliptvlinks.com Ciné+ Emotion FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4101
+#EXTINF:-1 tvg-id="CinePlus Frisson HD FR"tvg-name="Ciné+ Frisson FHD FR"tvg-logo="http://195.154.221.171/picons/cineplusfrissonhdfr.png"group-title="France",alliptvlinks.com Ciné+ Frisson FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4103
+#EXTINF:-1 tvg-id="CinePlus Premier HD FR"tvg-name="Ciné+ Premier FHD FR"tvg-logo="http://195.154.221.171/picons/cinepluspremierhdfr.png"group-title="France",alliptvlinks.com Ciné+ Premier FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4104
+#EXTINF:-1 tvg-id="OCS City FR"tvg-name="OCS City FHD FR"tvg-logo="http://195.154.221.171/picons/ocscityhd.png"group-title="France",alliptvlinks.com OCS City FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6531
+#EXTINF:-1 tvg-id="OCS Geants FR"tvg-name="OCS Geants FHD FR"tvg-logo="http://195.154.221.171/picons/ocsgeantshd.png"group-title="France",alliptvlinks.com OCS Geants FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6533
+#EXTINF:-1 tvg-id="OCS Max FR"tvg-name="OCS Max HD FR"tvg-logo="http://195.154.221.171/picons/ocsmaxhd.png"group-title="France",alliptvlinks.com OCS Max HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6532
+#EXTINF:-1 tvg-id=""tvg-name="SL Cinema Drama HD"tvg-logo=""group-title="France",alliptvlinks.com SL Cinema Drama HD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/75427
+#EXTINF:-1 tvg-id=""tvg-name="SL Cinema Comedy HD"tvg-logo=""group-title="France",alliptvlinks.com SL Cinema Comedy HD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/75428
+#EXTINF:-1 tvg-id=""tvg-name="SL Cinema Action 1 HD"tvg-logo=""group-title="France",alliptvlinks.com SL Cinema Action 1 HD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/75430
+#EXTINF:-1 tvg-id=""tvg-name="SL Cinema Action 2 HD"tvg-logo=""group-title="France",alliptvlinks.com SL Cinema Action 2 HD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/75429
+#EXTINF:-1 tvg-id=""tvg-name="SL Cinema Gold HD"tvg-logo=""group-title="France",alliptvlinks.com SL Cinema Gold HD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/75431
+#EXTINF:-1 tvg-id=""tvg-name="SL Cinema Premium HD"tvg-logo=""group-title="France",alliptvlinks.com SL Cinema Premium HD
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/75432
+#EXTINF:-1 tvg-id="Paramount Channel FR"tvg-name="Paramount Channel FHD FR"tvg-logo="http://195.154.221.171/picons/paramountchannelfr.png"group-title="France",alliptvlinks.com Paramount Channel FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1383
+#EXTINF:-1 tvg-id="Paramount Channel FR"tvg-name="Paramount Channel Décalé FHD FR"tvg-logo="http://195.154.221.171/picons/paramountchanneldecale.png"group-title="France",alliptvlinks.com Paramount Channel Décalé FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8922
+#EXTINF:-1 tvg-id="TCM Cinema FR"tvg-name="TCM Cinéma FHD FR"tvg-logo="http://195.154.221.171/picons/tcmcinemahdfr.png"group-title="France",alliptvlinks.com TCM Cinéma FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4042
+#EXTINF:-1 tvg-id="Boing FR"tvg-name="Boing FHD FR"tvg-logo="http://195.154.221.171/picons/boingfr.png"group-title="France",alliptvlinks.com Boing FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6517
+#EXTINF:-1 tvg-id="Cartoon Network FR"tvg-name="Cartoon Network FHD FR"tvg-logo="http://195.154.221.171/picons/cartoonnetworkhdfr.png"group-title="France",alliptvlinks.com Cartoon Network FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4095
+#EXTINF:-1 tvg-id="Gulli FR"tvg-name="Gulli HD FR"tvg-logo="http://195.154.221.171/picons/gullihd.png"group-title="France",alliptvlinks.com Gulli HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15964
+#EXTINF:-1 tvg-id="Gulli FR"tvg-name="Gulli FHD FR"tvg-logo="http://195.154.221.171/picons/gullifr.png"group-title="France",alliptvlinks.com Gulli FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/427
+#EXTINF:-1 tvg-id="Nickelodeon Junior FR"tvg-name="Nickelodeon Junior FHD FR"tvg-logo="http://195.154.221.171/picons/nickelodeonjunior.png"group-title="France",alliptvlinks.com Nickelodeon Junior FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8913
+#EXTINF:-1 tvg-id="Nickelodeon FR"tvg-name="Nickelodeon FHD FR"tvg-logo="http://195.154.221.171/picons/nickelodeonfr.png"group-title="France",alliptvlinks.com Nickelodeon FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1394
+#EXTINF:-1 tvg-id="Nickelodeon Plus1 FR"tvg-name="Nickelodeon +1 FHD FR"tvg-logo="http://195.154.221.171/picons/nickelodeon.png"group-title="France",alliptvlinks.com Nickelodeon +1 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8914
+#EXTINF:-1 tvg-id="Nickelodeon Teen FR"tvg-name="Nickelodeon 4 Teen FHD FR"tvg-logo="http://195.154.221.171/picons/nickelodeon4teen.png"group-title="France",alliptvlinks.com Nickelodeon 4 Teen FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8912
+#EXTINF:-1 tvg-id="PiwiPlus FR"tvg-name="Piwi+ FHD FR"tvg-logo="http://195.154.221.171/picons/piwiplus.png"group-title="France",alliptvlinks.com Piwi+ FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6516
+#EXTINF:-1 tvg-id="TeleToonPlus Plus1 FR"tvg-name="téléTOON+1 FHD FR"tvg-logo="http://195.154.221.171/picons/teletoonplushd.png"group-title="France",alliptvlinks.com téléTOON+1 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8911
+#EXTINF:-1 tvg-id="Toonami FR"tvg-name="Toonami FHD FR"tvg-logo="http://195.154.221.171/picons/toonami.png"group-title="France",alliptvlinks.com Toonami FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8910
+#EXTINF:-1 tvg-id="TIJI FR"tvg-name="Tiji FR"tvg-logo="http://195.154.221.171/picons/tiji.png"group-title="France",alliptvlinks.com Tiji FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15984
+#EXTINF:-1 tvg-id="Disney Channel FR"tvg-name="Disney Channel FHD FR"tvg-logo="http://195.154.221.171/picons/disneychannelhd.png"group-title="France",alliptvlinks.com Disney Channel FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6515
+#EXTINF:-1 tvg-id="Disney Cinema HD FR"tvg-name="Disney Cinema FHD FR"tvg-logo="http://195.154.221.171/picons/disneycinemahdfr.png"group-title="France",alliptvlinks.com Disney Cinema FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4098
+#EXTINF:-1 tvg-id="Disney Junior FR"tvg-name="Disney Junior FHD FR"tvg-logo="http://195.154.221.171/picons/disneyjuniorhdfr.png"group-title="France",alliptvlinks.com Disney Junior FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4097
+#EXTINF:-1 tvg-id="Disney XD FR"tvg-name="Disney XD FHD FR"tvg-logo="http://195.154.221.171/picons/disneyxdhdfr.png"group-title="France",alliptvlinks.com Disney XD FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4096
+#EXTINF:-1 tvg-id="Discovery Channel FR"tvg-name="Discovery Channel FHD FR"tvg-logo="http://195.154.221.171/picons/discoverychannelhd.png"group-title="France",alliptvlinks.com Discovery Channel FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6526
+#EXTINF:-1 tvg-id="Discovery Science FR"tvg-name="Discovery Science FHD FR"tvg-logo="http://195.154.221.171/picons/discoverysciencehd.png"group-title="France",alliptvlinks.com Discovery Science FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6525
+#EXTINF:-1 tvg-id="PlanetePlus FR"tvg-name="Planète+ FHD FR"tvg-logo="http://195.154.221.171/picons/planeteplushd.png"group-title="France",alliptvlinks.com Planète+ FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6523
+#EXTINF:-1 tvg-id="PlanetePlus CrimeplusInvestigation FR"tvg-name="Planète+ Crime+Investigation FHD FR"tvg-logo="http://195.154.221.171/picons/planetepluscihd.png"group-title="France",alliptvlinks.com Planète+ Crime+Investigation FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6522
+#EXTINF:-1 tvg-id="National Geographic FR"tvg-name="National Geographic FHD FR"tvg-logo="http://195.154.221.171/picons/nationalgeographichd.png"group-title="France",alliptvlinks.com National Geographic FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6521
+#EXTINF:-1 tvg-id="Nat Geo Wild FR"tvg-name="Nat Geo Wild FHD FR"tvg-logo="http://195.154.221.171/picons/natgeowildhd.png"group-title="France",alliptvlinks.com Nat Geo Wild FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6520
+#EXTINF:-1 tvg-id=""tvg-name="RMC DECOUVERTE FHD FR"tvg-logo=""group-title="France",alliptvlinks.com RMC DECOUVERTE FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/36873
+#EXTINF:-1 tvg-id="Action FR"tvg-name="Action FHD FR"tvg-logo="http://195.154.221.171/picons/action.png"group-title="France",alliptvlinks.com Action FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6529
+#EXTINF:-1 tvg-id="Animaux FR"tvg-name="Animaux FHD FR"tvg-logo="http://195.154.221.171/picons/animauxhdfr.png"group-title="France",alliptvlinks.com Animaux FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4110
+#EXTINF:-1 tvg-id="Arte FR"tvg-name="Arte FHD FR"tvg-logo="http://195.154.221.171/picons/artehd.png"group-title="France",alliptvlinks.com Arte FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6530
+#EXTINF:-1 tvg-id=""tvg-name="RMC STORY FHD FR"tvg-logo=""group-title="France",alliptvlinks.com RMC STORY FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/36874
+#EXTINF:-1 tvg-id="MCM HD FR"tvg-name="MCM FHD FR"tvg-logo="http://195.154.221.171/picons/mcm.png"group-title="France",alliptvlinks.com MCM FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8895
+#EXTINF:-1 tvg-id="MCM Top HD FR"tvg-name="MCM Top FHD FR"tvg-logo="http://195.154.221.171/picons/mcmtop.png"group-title="France",alliptvlinks.com MCM Top FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8894
+#EXTINF:-1 tvg-id="Mezzo Live HD FR"tvg-name="Mezzo Live FHD FR"tvg-logo="http://195.154.221.171/picons/mezzolivehd.png"group-title="France",alliptvlinks.com Mezzo Live FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8889
+#EXTINF:-1 tvg-id="MTV HD FR"tvg-name="MTV FHD FR"tvg-logo="http://195.154.221.171/picons/mtvhd.png"group-title="France",alliptvlinks.com MTV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8897
+#EXTINF:-1 tvg-id="MTV Hits HD FR"tvg-name="MTV Hits FHD FR"tvg-logo="http://195.154.221.171/picons/mtvhits.png"group-title="France",alliptvlinks.com MTV Hits FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8896
+#EXTINF:-1 tvg-id="NRJ Hits FR"tvg-name="NRJ Hits FR"tvg-logo="http://195.154.221.171/picons/nrjhits.png"group-title="France",alliptvlinks.com NRJ Hits FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15968
+#EXTINF:-1 tvg-id="Trace Urban HD FR"tvg-name="Trace Urban FHD FR"tvg-logo="http://195.154.221.171/picons/traceurbanhd.png"group-title="France",alliptvlinks.com Trace Urban FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8893
+#EXTINF:-1 tvg-id="GolfPlus FR"tvg-name="GOLF+ FHD FR"tvg-logo="http://195.154.221.171/picons/golfplushdfr.png"group-title="France",alliptvlinks.com GOLF+ FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/1378
+#EXTINF:-1 tvg-id="Golf Channel FR"tvg-name="Golf Channel HD FR"tvg-logo="http://195.154.221.171/picons/golfchannel.png"group-title="France",alliptvlinks.com Golf Channel HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15967
+#EXTINF:-1 tvg-id="Golf Channel FR"tvg-name="Golf Channel FHD FR"tvg-logo="http://195.154.221.171/picons/golfchannel.png"group-title="France",alliptvlinks.com Golf Channel FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8787
+#EXTINF:-1 tvg-id="Canal News FR"tvg-name="C-News FHD FR"tvg-logo="http://195.154.221.171/picons/cnewshd.png"group-title="France",alliptvlinks.com C-News FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6518
+#EXTINF:-1 tvg-id="France 24 FR"tvg-name="France 24 FHD FR"tvg-logo="http://195.154.221.171/picons/france24.png"group-title="France",alliptvlinks.com France 24 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/43691
+#EXTINF:-1 tvg-id="I24news FR"tvg-name="i24NEWS FHD FR"tvg-logo="http://195.154.221.171/picons/i24news.png"group-title="France",alliptvlinks.com i24NEWS FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15071
+#EXTINF:-1 tvg-id="Histoire FR"tvg-name="Histoire FHD FR"tvg-logo="http://195.154.221.171/picons/histoire.png"group-title="France",alliptvlinks.com Histoire FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6524
+#EXTINF:-1 tvg-id="LEquipe 21 FR"tvg-name="L'Equipe 21 FHD FR"tvg-logo="http://195.154.221.171/picons/lequipe21.png"group-title="France",alliptvlinks.com L'Equipe 21 FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15965
+#EXTINF:-1 tvg-id="My Cuisine FR"tvg-name="My Cuisine FHD FR"tvg-logo="http://195.154.221.171/picons/mycuisine.png"group-title="France",alliptvlinks.com My Cuisine FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8916
+#EXTINF:-1 tvg-id="BFM Business FR"tvg-name="BFM Business FHD FR"tvg-logo="http://195.154.221.171/picons/bfmbusinessfr.png"group-title="France",alliptvlinks.com BFM Business FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4060
+#EXTINF:-1 tvg-id="Aplus International FR"tvg-name="A+ FR"tvg-logo="http://195.154.221.171/picons/aplus.png"group-title="France",alliptvlinks.com A+ FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8882
+#EXTINF:-1 tvg-id="Altice Studio FR"tvg-name="Altice Studio FHD FR"tvg-logo="http://195.154.221.171/picons/alticestudio.png"group-title="France",alliptvlinks.com Altice Studio FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8923
+#EXTINF:-1 tvg-id="Melody FR"tvg-name="Mélody FR"tvg-logo="http://195.154.221.171/picons/melody.png"group-title="France",alliptvlinks.com Mélody FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8927
+#EXTINF:-1 tvg-id="BET HD FR"tvg-name="BET FHD FR"tvg-logo="http://195.154.221.171/picons/betfr.png"group-title="France",alliptvlinks.com BET FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/4078
+#EXTINF:-1 tvg-id="STINGRAY brava FR"tvg-name="Stingray Brava FHD FR"tvg-logo="http://195.154.221.171/picons/stingraybrava.png"group-title="France",alliptvlinks.com Stingray Brava FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8888
+#EXTINF:-1 tvg-id="Crime District FR"tvg-name="Crime District FHD FR"tvg-logo="http://195.154.221.171/picons/crimedistrict.png"group-title="France",alliptvlinks.com Crime District FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8918
+#EXTINF:-1 tvg-id="LCP FR"tvg-name="La Chaîne Parlementaire FHD FR"tvg-logo="http://195.154.221.171/picons/lcppublicsenat.png"group-title="France",alliptvlinks.com La Chaîne Parlementaire FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8924
+#EXTINF:-1 tvg-id=""tvg-name="Luxe TV FHD FR"tvg-logo="http://195.154.221.171/picons/luxetv.png"group-title="France",alliptvlinks.com Luxe TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8885
+#EXTINF:-1 tvg-id="Non Stop People FR"tvg-name="Non Stop People FHD FR"tvg-logo="http://195.154.221.171/picons/nonstoppeople.png"group-title="France",alliptvlinks.com Non Stop People FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8921
+#EXTINF:-1 tvg-id="One TV FR"tvg-name="One TV FHD FR"tvg-logo="http://195.154.221.171/picons/onetv.png"group-title="France",alliptvlinks.com One TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8887
+#EXTINF:-1 tvg-id="RFM TV HD FR"tvg-name="RFM TV FHD FR"tvg-logo="http://195.154.221.171/picons/rfmtv.png"group-title="France",alliptvlinks.com RFM TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8890
+#EXTINF:-1 tvg-id="Trace Africa FR"tvg-name="Trace Africa HD FR"tvg-logo="http://195.154.221.171/picons/traceafrica.png"group-title="France",alliptvlinks.com Trace Africa HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8891
+#EXTINF:-1 tvg-id="Trace Tropical FR"tvg-name="Trace Tropical FHD FR"tvg-logo="http://195.154.221.171/picons/tracetropicalhd.png"group-title="France",alliptvlinks.com Trace Tropical FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8892
+#EXTINF:-1 tvg-id="Trek FR"tvg-name="Trek FHD FR"tvg-logo="http://195.154.221.171/picons/trekhd.png"group-title="France",alliptvlinks.com Trek FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6519
+#EXTINF:-1 tvg-id="TV5MONDE FR"tvg-name="TV5 Monde FHD FR"tvg-logo="http://195.154.221.171/picons/tv5monde.png"group-title="France",alliptvlinks.com TV5 Monde FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8884
+#EXTINF:-1 tvg-id="TV5MONDE FR"tvg-name="TV5 Monde Europe FR"tvg-logo="http://195.154.221.171/picons/tv5monde.png"group-title="France",alliptvlinks.com TV5 Monde Europe FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15986
+#EXTINF:-1 tvg-id="TV8 Montblanc FR"tvg-name="TV8 Mont+Blanc FHD FR"tvg-logo="http://195.154.221.171/picons/tv8montblanc.png"group-title="France",alliptvlinks.com TV8 Mont+Blanc FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8883
+#EXTINF:-1 tvg-id="Teva FR"tvg-name="téva FHD FR"tvg-logo="http://195.154.221.171/picons/tevahd.png"group-title="France",alliptvlinks.com téva FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15982
+#EXTINF:-1 tvg-id="Ushuaia TV FR"tvg-name="Ushuaïa TV FHD FR"tvg-logo="http://195.154.221.171/picons/ushuaiatvhd.png"group-title="France",alliptvlinks.com Ushuaïa TV FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6528
+#EXTINF:-1 tvg-id="Viceland FR"tvg-name="Viceland HD FR"tvg-logo="http://195.154.221.171/picons/vice.png"group-title="France",alliptvlinks.com Viceland HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8920
+#EXTINF:-1 tvg-id="Voyage HD FR"tvg-name="Voyage FHD FR"tvg-logo="http://195.154.221.171/picons/voyage.png"group-title="France",alliptvlinks.com Voyage FHD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/6527
+#EXTINF:-1 tvg-id="Gong FR"tvg-name="Gong FR"tvg-logo="http://195.154.221.171/picons/gong.png"group-title="France",alliptvlinks.com Gong FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8909
+#EXTINF:-1 tvg-id="IDF1 FR"tvg-name="IDF1 HD FR"tvg-logo="http://195.154.221.171/picons/idf1.png"group-title="France",alliptvlinks.com IDF1 HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8926
+#EXTINF:-1 tvg-id="Nollywood TV FR"tvg-name="Nollywood TV FR"tvg-logo="http://195.154.221.171/picons/nollywoodtv.png"group-title="France",alliptvlinks.com Nollywood TV FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/8881
+#EXTINF:-1 tvg-id=""tvg-name="A2i TV HD FR"tvg-logo="http://195.154.221.171/picons/a2itv.png"group-title="France",alliptvlinks.com A2i TV HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/15966
+#EXTINF:-1 tvg-id=""tvg-name="LIVE PEPPA PIG HD FR"tvg-logo=""group-title="France",alliptvlinks.com LIVE PEPPA PIG HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80161
+#EXTINF:-1 tvg-id=""tvg-name="LIVE MASHA & MICHKA HD FR"tvg-logo=""group-title="France",alliptvlinks.com LIVE MASHA & MICHKA HD FR
+http://portal.geniptv.com:8080/Karaokechina/3wTv7HYLns/80163
