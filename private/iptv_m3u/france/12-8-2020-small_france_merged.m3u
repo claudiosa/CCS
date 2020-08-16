@@ -1,0 +1,3326 @@
+#EXTM3U
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:TV 5+
+http://v3plusinfo247hls-i.akamaihd.net/hls/live/218877/v3plusinfo247hls/v3plusinfo247hls_1_1.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR: Francophonie
+http://mv2.tvfrancophonie.org/live/Stream1/media_b776739_w671289549.m3u8
+#EXTINF:0 tvg-id="VosgesTV.fr"group-title="FRANCE",alliptvlinks.com FR: VOSGES TV
+http://vosgestv.hdr-tv.com/live/vosgestv/livestream/chunklist_w1024246816.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:TRACE MZIKI
+http://d2ktlibtvvj8vp.cloudfront.net/trace_mizki/5/prog_index.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:IL TV
+http://live.creacast.com/iltv/smil:iltv.smil/chunklist_w1664108633_b1096000.m3u8
+#EXTINF:0 tvg-id="France24.fr"group-title="FRANCE",alliptvlinks.com FR:france 24
+http://f24hls-i.akamaihd.net/hls/live/221196/F24_AR_LO_HLS/master_900.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:TVPI
+http://streamcast.oc3n.net:1935/TVPI/myStream700.sdp/chunklist.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:KTO TV
+http://livehdkto-lh.akamaihd.net/i/LiveStream_1@178944/index_1200_av-b.m3u8?sd=10&rebase=on
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:BIP TV
+http://biptv.tv/live/biptvstream_orig/index.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:DIEU TV
+http://wzahighwinds.katapy.com/DIEUTVLIVE/smil:dieutv.smil/chunklist_w158654035_b2256000.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:LA CHAINE NORMANDE
+http://live.lachainenormande.fr/live/lcn/livestream/chunklist_w600527248.m3u8
+#EXTINF:0 tvg-id="ext"group-title="FRANCE",alliptvlinks.com FR:GONG TV LOCAL
+http://ec.playmedia.fr/gong-base/live/chunklist_w33486847.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France 24
+http://dreamstariptv.live:8080/live/H2NG91yYMp/1WqM1yl2sG/5192.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France: Alsace 20
+http://live.alsace20.fr/live/alsace20/ngrp:alsace20_all/playlist.m3u8
+#EXTINF:-1,alliptvlinks.com France: BFM Business
+https://bfmbusisecure-i.akamaihd.net/hls/live/265375/876450612001/BFMBusinessS/video_1/video_1.m3u8
+#EXTINF:-1,alliptvlinks.com France: BFM Paris
+https://bfmparishdslive-lh.akamaihd.net/i/BFMPARIS_KB@429747/index_1236_av-p.m3u8
+#EXTINF:-1,alliptvlinks.com France: BFM Paris
+https://bfmparishdslive-lh.akamaihd.net/i/BFMPARIS_KB@429747/master.m3u8
+#EXTINF:-1,alliptvlinks.com France: France 24 (ENG)
+http://f24hls-i.akamaihd.net/hls/live/221147/F24_EN_HI_HLS/master_2000.m3u8
+#EXTINF:-1,alliptvlinks.com France: France 24 English
+http://f24hls-i.akamaihd.net/hls/live/221147/F24_EN_HI_HLS/master.m3u8
+#EXTINF:-1,alliptvlinks.com France: France 24 English
+http://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8
+#EXTINF:-1,alliptvlinks.com France: France 24 French
+http://static.france24.com:80/live/F24_FR_HI_HLS/live_tv.m3u8?fluxustv.m3u8
+#EXTINF:-1,alliptvlinks.com France: RT France
+http://rt-france.secure.footprint.net/1107.m3u8?streamType=live
+#EXTINF:-1,alliptvlinks.com France: TV3V
+https://tv3v.hdr-tv.com/live/tv3v/livestream/master.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5 Style
+https://tv5styleen-i.akamaihd.net/hls/live/631650/tv5styleen/tv5style_eng_1200.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5Monde Info
+http://v3plusinfo247hls-i.akamaihd.net/hls/live/218877-b/v3plusinfo247hls/v3plusinfo247hls_1_1.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5Monde Info
+http://v3plusinfo247hls-i.akamaihd.net/hls/live/218877-b/v3plusinfo247hls/v3plusinfo247hls_1_2.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5Monde Info
+http://v3plusinfo247hls-i.akamaihd.net/hls/live/218877/v3plusinfo247hls/index.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5Monde Info
+http://v3plusinfo247hls-i.akamaihd.net/hls/live/218877/v3plusinfo247hls/v3plusinfo247hls_1_2.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5Monde Maghreb-Orient
+http://livecdnh1.tvanywhere.ae:80/hls/tv5/04.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5Monde Maghreb-Orient
+http://livecdnh1.tvanywhere.ae:80/hls/tv5/index.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV5Monde Pacifique
+https://tv5pacifiqueen-i.akamaihd.net/hls/live/630175-b/tv5pacifiqueen/tv5pacifique_eng_1200.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV7 Colmar
+http://tv7.hdr-tv.com/live/tv7/livestream/playlist.m3u8
+#EXTINF:-1,alliptvlinks.com France: TV7 Colmar
+http://tv7.hdr-tv.com:1935/live/tv7/livestream/playlist.m3u8
+#EXTINF:-1,alliptvlinks.com France: TVPI
+http://streamcast.oc3n.net:1935/TVPI/myStream700.sdp/chunklist_w595309586.m3u8
+#EXTINF:-1,alliptvlinks.com France: TVPI
+http://streamcast.oc3n.net:1935/TVPI/myStream700.sdp/live.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France 24 EN
+http://cdng.pubcdn.tn/iptv/ch786?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France 2 HD
+http://cdng.pubcdn.tn/iptv/ch209?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France 3 HD
+http://cdng.pubcdn.tn/iptv/ch210?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France 4
+http://cdng.pubcdn.tn/iptv/ch219?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France 5
+http://cdng.pubcdn.tn/iptv/ch211?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France O
+http://cdng.pubcdn.tn/iptv/ch212?code=840016827610293
+#EXTINF:-1,alliptvlinks.com E. Fr
+http://cdng.pubcdn.tn/iptv/ch392?code=840016827610293
+#EXTINF:-1,alliptvlinks.com TCM FR
+http://cdng.pubcdn.tn/iptv/ch1113?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Paramount ch. FR
+http://cdng.pubcdn.tn/iptv/ch1108?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Polar Plus FR
+http://cdng.pubcdn.tn/iptv/ch286?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Warner TV FR
+http://cdng.pubcdn.tn/iptv/ch285?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France 2 HD +4
+http://cdng.pubcdn.tn/iptv/ch4209?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France Info
+http://cdng.pubcdn.tn/iptv/ch292?code=840016827610293
+#EXTINF:-1,alliptvlinks.com RT Fr
+http://cdng.pubcdn.tn/iptv/ch1117?code=840016827610293
+#EXTINF:-1,alliptvlinks.com MTV FR
+http://cdng.pubcdn.tn/iptv/ch224?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Boomerang FR
+http://cdng.pubcdn.tn/iptv/ch273?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Boing FR
+http://cdng.pubcdn.tn/iptv/ch1645?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Tiji FR
+http://cdng.pubcdn.tn/iptv/ch289?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Disney Ch. FR
+http://cdng.pubcdn.tn/iptv/ch265?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Disney Plus FR
+http://cdng.pubcdn.tn/iptv/ch1270?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Disney Junior FR
+http://cdng.pubcdn.tn/iptv/ch257?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Nickelodeon Jr. FR
+http://cdng.pubcdn.tn/iptv/ch1272?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Nickelodeon FR
+http://cdng.pubcdn.tn/iptv/ch1271?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Golf Plus FR
+http://cdng.pubcdn.tn/iptv/ch1299?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Golf Channel FR
+http://cdng.pubcdn.tn/iptv/ch290?code=840016827610293
+#EXTINF:-1,alliptvlinks.com France24 UK
+http://cdng.pubcdn.tn/iptv/ch1937?code=840016827610293
+#EXTINF:-1 group-title="Fr Box Office",alliptvlinks.com Fr Box Office 1
+http://cdng.pubcdn.tn/iptv/ch301?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 3
+http://cdng.pubcdn.tn/iptv/ch302?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 4
+http://cdng.pubcdn.tn/iptv/ch303?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 5
+http://cdng.pubcdn.tn/iptv/ch304?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 6
+http://cdng.pubcdn.tn/iptv/ch305?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 7
+http://cdng.pubcdn.tn/iptv/ch306?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 8
+http://cdng.pubcdn.tn/iptv/ch307?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 9
+http://cdng.pubcdn.tn/iptv/ch308?code=840016827610293
+#EXTINF:-1,alliptvlinks.com Fr Box Office 10
+http://cdng.pubcdn.tn/iptv/ch309?code=840016827610293
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/00/00/21227
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://46.166.148.101:8000/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://46.166.148.101:8000/movie/0d21F1USot6ZbPcOn/4673F1UlTRI1c8cig/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Canal+ Cinema HD (France)
+http://176.9.146.117:8080/111111/111111/91374
+#EXTINF:-1,alliptvlinks.com Canal+ Family HD (France)
+http://176.9.146.117:8080/111111/111111/91375
+#EXTINF:-1,alliptvlinks.com France | Canal+ HD
+http://176.9.146.117:8080/111111/111111/91376
+#EXTINF:-1,alliptvlinks.com France | Comedie+ HD
+http://176.9.146.117:8080/111111/111111/91383
+#EXTINF:-1,alliptvlinks.com Discovery Family HD (France)
+http://176.9.146.117:8080/111111/111111/91386
+#EXTINF:-1,alliptvlinks.com DISCOVERY INVESTIGATION HD (France)
+http://176.9.146.117:8080/111111/111111/91388
+#EXTINF:-1,alliptvlinks.com ELLE GIRL (France)
+http://176.9.146.117:8080/111111/111111/91395
+#EXTINF:-1,alliptvlinks.com France | France 2 HD
+http://176.9.146.117:8080/111111/111111/91398
+#EXTINF:-1,alliptvlinks.com France | France 3 HD
+http://176.9.146.117:8080/111111/111111/91399
+#EXTINF:-1,alliptvlinks.com France | France 4 HD
+http://176.9.146.117:8080/111111/111111/91400
+#EXTINF:-1,alliptvlinks.com France | France 5 HD
+http://176.9.146.117:8080/111111/111111/91401
+#EXTINF:-1,alliptvlinks.com France Info HD (France)
+http://176.9.146.117:8080/111111/111111/91402
+#EXTINF:-1,alliptvlinks.com France | France O HD
+http://176.9.146.117:8080/111111/111111/91403
+#EXTINF:-1,alliptvlinks.com France | M6 HD
+http://176.9.146.117:8080/111111/111111/91408
+#EXTINF:-1,alliptvlinks.com MTV FRANCE (France)
+http://176.9.146.117:8080/111111/111111/91413
+#EXTINF:-1,alliptvlinks.com Nickelodeon Junior France HD
+http://176.9.146.117:8080/111111/111111/91419
+#EXTINF:-1,alliptvlinks.com SYFY FR
+http://176.9.146.117:8080/111111/111111/91443
+#EXTINF:-1,alliptvlinks.com TELECLUB ZOOM (France)
+http://176.9.146.117:8080/111111/111111/91445
+#EXTINF:-1,alliptvlinks.com France | TF1 HD
+http://176.9.146.117:8080/111111/111111/91446
+#EXTINF:-1,alliptvlinks.com France | TFX HD Film&Series
+http://176.9.146.117:8080/111111/111111/91447
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/121/121/21227
+#EXTINF:-1,alliptvlinks.com US: France 24
+http://stariptv.top:2086/121/121/27851
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FrenchLover TV
+http://95.217.153.139:8880/1234567/1234567/266
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FR:ARTE
+http://server.shamelforyou.com:8080/123456789/123456789/19161
+#EXTINF:-1,alliptvlinks.com FR:BFM
+http://server.shamelforyou.com:8080/123456789/123456789/19160
+#EXTINF:-1,alliptvlinks.com |LOCAL-FR| FRANCE-O
+http://server.shamelforyou.com:8080/123456789/123456789/19157
+#EXTINF:-1,alliptvlinks.com |LOCAL-FR| FRANCE2
+http://server.shamelforyou.com:8080/123456789/123456789/19156
+#EXTINF:-1,alliptvlinks.com |LOCAL-FR| FRANCE3
+http://server.shamelforyou.com:8080/123456789/123456789/19155
+#EXTINF:-1,alliptvlinks.com |LOCAL-FR| FRANCE4
+http://server.shamelforyou.com:8080/123456789/123456789/19154
+#EXTINF:-1,alliptvlinks.com |LOCAL-FR| FRANCE5
+http://server.shamelforyou.com:8080/123456789/123456789/19153
+#EXTINF:-1,alliptvlinks.com FR:LCP
+http://server.shamelforyou.com:8080/123456789/123456789/19149
+#EXTINF:-1,alliptvlinks.com FR_France_02_FullHD
+http://server.shamelforyou.com:8080/123456789/123456789/17728
+#EXTINF:-1,alliptvlinks.com FR_France_03_FullHD
+http://server.shamelforyou.com:8080/123456789/123456789/17727
+#EXTINF:-1,alliptvlinks.com FR_France_04_FullHD
+http://server.shamelforyou.com:8080/123456789/123456789/17726
+#EXTINF:-1,alliptvlinks.com FR_France_24
+http://server.shamelforyou.com:8080/123456789/123456789/17636
+#EXTINF:-1,alliptvlinks.com FR_FRANCE_5_HD
+http://server.shamelforyou.com:8080/123456789/123456789/17725
+#EXTINF:-1,alliptvlinks.com FR_FRANCE_O_HD
+http://server.shamelforyou.com:8080/123456789/123456789/17724
+#EXTINF:-1,alliptvlinks.com AF: NollyWood French
+http://server.shamelforyou.com:8080/123456789/123456789/17427
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/13/13/21227
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/1e06F1U6gE9kEuk9s/1ee7F1UyFZcAvJmdS/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/252/252/21227
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/2743/2743/21227
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/2bb4F1Ul4qbaymkWQ/8011F1UPDPc2NLFie/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/2e82F1U5ouzHRSFUO/77f7F1UTTEyCSPdUO/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/3857F1UbCAlsYktK4/2325F1UlebRVH1O5r/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/4567/4567/21227
+#EXTINF:-1,alliptvlinks.com US: France 24
+http://stariptv.top:2086/4567/4567/27851
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 2 FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2478
+#EXTINF:-1,alliptvlinks.com FRANCE 3 FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2477
+#EXTINF:-1,alliptvlinks.com FRANCE 4 FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2476
+#EXTINF:-1,alliptvlinks.com FRANCE 5 FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2475
+#EXTINF:-1,alliptvlinks.com FRANCE INFO TV FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2463
+#EXTINF:-1,alliptvlinks.com FRANCE Ô FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2372
+#EXTINF:-1,alliptvlinks.com GOLF CHANNEL FR FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2384
+#EXTINF:-1,alliptvlinks.com MTV FR FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2383
+#EXTINF:-1,alliptvlinks.com TRACE URBAN FR FHD
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/2379
+#EXTINF:-1,alliptvlinks.com ## GENERAL FR ###
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/38553
+#EXTINF:-1,alliptvlinks.com FRANCE 2
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/592
+#EXTINF:-1,alliptvlinks.com FRANCE 3
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/591
+#EXTINF:-1,alliptvlinks.com FRANCE 4
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/590
+#EXTINF:-1,alliptvlinks.com FRANCE 5
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/589
+#EXTINF:-1,alliptvlinks.com FRANCE O
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/588
+#EXTINF:-1,alliptvlinks.com PARAMOUNT CHANNE FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/545
+#EXTINF:-1,alliptvlinks.com ## KIDS FR ##
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/38555
+#EXTINF:-1,alliptvlinks.com DISNEY CHANNEL FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/511
+#EXTINF:-1,alliptvlinks.com DISNEY JUNIOR FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/509
+#EXTINF:-1,alliptvlinks.com DISNEY XD FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/508
+#EXTINF:-1,alliptvlinks.com BOOMERANG FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/495
+#EXTINF:-1,alliptvlinks.com BOING FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/485
+#EXTINF:-1,alliptvlinks.com ## CULTURE / VOYAGE FR ##
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/38557
+#EXTINF:-1,alliptvlinks.com DISCOVERY FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/526
+#EXTINF:-1,alliptvlinks.com DISCOVERY SCIENCE FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/525
+#EXTINF:-1,alliptvlinks.com ## NEWS FR ##
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/38558
+#EXTINF:-1,alliptvlinks.com FRANCEINFO
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/484
+#EXTINF:-1,alliptvlinks.com FRANCE24
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/477
+#EXTINF:-1,alliptvlinks.com ## ENTERTAINMENT FR ##
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/38559
+#EXTINF:-1,alliptvlinks.com MTV FRANCE
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/507
+#EXTINF:-1,alliptvlinks.com MEZZO FR
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/498
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://dimapro.cz:8080/522bnbccddxcgfdc/GAacHX257Y/38149
+#EXTINF:-1,alliptvlinks.com Saint Frances - 2020
+http://62.210.102.86:25461/movie/englisharab/nNv0s4wtVp/1441.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/648/648/21227
+#EXTINF:-1,alliptvlinks.com US: France 24
+http://stariptv.top:2086/648/648/27851
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/659/659/21227
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/7668/7668/21227
+#EXTINF:-1,alliptvlinks.com US: France 24
+http://stariptv.top:2086/7668/7668/27851
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com SP: FR: Foot+ 24/24
+http://vipeiptv.com:25461/777777/777777/855346
+#EXTINF:-1,alliptvlinks.com SP: FR: L'Equipe 21 FHD
+http://vipeiptv.com:25461/777777/777777/855349
+#EXTINF:-1,alliptvlinks.com SP: FR: L'Equipe 21 HD
+http://vipeiptv.com:25461/777777/777777/855350
+#EXTINF:-1,alliptvlinks.com SP: FR: L'Equipe 21 SD
+http://vipeiptv.com:25461/777777/777777/855351
+#EXTINF:-1,alliptvlinks.com SP: FR: OL TV HD
+http://vipeiptv.com:25461/777777/777777/855352
+#EXTINF:-1,alliptvlinks.com SP: FR: Automoto La Chaine FHD
+http://vipeiptv.com:25461/777777/777777/855353
+#EXTINF:-1,alliptvlinks.com SP: FR: Automoto La Chaine HD
+http://vipeiptv.com:25461/777777/777777/855354
+#EXTINF:-1,alliptvlinks.com SP: FR: Automoto La Chaine
+http://vipeiptv.com:25461/777777/777777/855355
+#EXTINF:-1,alliptvlinks.com SP: FR: Channel_981 FHD
+http://vipeiptv.com:25461/777777/777777/855356
+#EXTINF:-1,alliptvlinks.com SP: FR: Golf Channel FranceFHD
+http://vipeiptv.com:25461/777777/777777/855357
+#EXTINF:-1,alliptvlinks.com SP: FR: Golf+ FHD
+http://vipeiptv.com:25461/777777/777777/855358
+#EXTINF:-1,alliptvlinks.com SP: FR: Golf+ HD
+http://vipeiptv.com:25461/777777/777777/855359
+#EXTINF:-1,alliptvlinks.com SP: FR: Equidia Live FHD
+http://vipeiptv.com:25461/777777/777777/855361
+#EXTINF:-1,alliptvlinks.com SP: FR: Equidia Live HD
+http://vipeiptv.com:25461/777777/777777/855362
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/7dbeF1UNkZASmLvAw/60b5F1U5hdmgpjU2o/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Relacionamento à Francesa 2
+http://136.243.20.15:80/movie/87654321/87654321/56869.mp4
+#EXTINF:-1,alliptvlinks.com Liam Payne - French Montana: First Time
+http://136.243.20.15:80/movie/87654321/87654321/64144.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com IR: Persiana 1 (FR)
+http://stariptv.top:2086/900/900/21227
+#EXTINF:-1,alliptvlinks.com US: France 24
+http://stariptv.top:2086/900/900/27851
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Suite Francesa (2014)
+http://cdnbr.site:8080/movie/Afonso/afonso1/210167.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com il braccio violento della legge [The French Connection 1971 azione]
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/73310.mkv
+#EXTINF:-1,alliptvlinks.com Chiamatemi Francesco - Il Papa della gente - 2015
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/31127.mkv
+#EXTINF:-1,alliptvlinks.com Made in France
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/31138.mkv
+#EXTINF:-1,alliptvlinks.com Suite francese - 2014
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/32386.mkv
+#EXTINF:-1,alliptvlinks.com Papa Francesco - Un uomo di parola [2018 documentario]
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/80907.mp4
+#EXTINF:-1,alliptvlinks.com Documentario Camorra Francesco Schiavone detto Sandokan
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/62472.mkv
+#EXTINF:-1,alliptvlinks.com La Grande Storia Papa Francesco
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/9172.mkv
+#EXTINF:-1,alliptvlinks.com Documentarifrancesco Il Papa Ribelle 1x01 Chiamato Da Dio
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/12731.mkv
+#EXTINF:-1,alliptvlinks.com Documentarifrancesco Il Papa Ribelle 1x02 Fede E Coraggio
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/12732.mkv
+#EXTINF:-1,alliptvlinks.com Documentarifrancesco Il Papa Ribelle 1x03 La Voce Dei Deboli
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/12733.mkv
+#EXTINF:-1,alliptvlinks.com Documentarifrancesco Il Papa Ribelle 1x04 Apostolo Di Pace
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/12734.mkv
+#EXTINF:-1,alliptvlinks.com Karaoke Italiano - La Locomotiva - Francesco Guccini ( Testo )
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/18419.mkv
+#EXTINF:-1,alliptvlinks.com Karaoke Italiano - Nuova Luce - Francesco Renga ( Testo )
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/18397.mkv
+#EXTINF:-1,alliptvlinks.com Karaoke Italiano - Orientali S Karma - Francesco Gabbani ( Testo )
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/18391.mkv
+#EXTINF:-1,alliptvlinks.com French
+http://proxtv7.dyndns.tv:25461/movie/AlessandroFan/dSjM9HdC/19763.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Digital Impulse - French Skies
+http://izipizi1.info:80/EJXQfZUkUe/62nZJGlKKt/15299
+#EXTINF:-1,alliptvlinks.com Vive La France
+http://izipizi1.info:80/movie/EJXQfZUkUe/62nZJGlKKt/17891.mp4
+#EXTINF:-1,alliptvlinks.com Made In France
+http://izipizi1.info:80/movie/EJXQfZUkUe/62nZJGlKKt/18404.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com UK: FRANCE 24
+http://config.streamstv.me:8080/Farrell/Farrell/43002
+#EXTINF:-1,alliptvlinks.com The French Connection (1971) Movie EN
+http://config.streamstv.me:8080/movie/Farrell/Farrell/112114.mkv
+#EXTINF:-1,alliptvlinks.com The French Connection (1971) Movie TOP 250
+http://config.streamstv.me:8080/movie/Farrell/Farrell/60985.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com - FRANCE -
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/922
+#EXTINF:-1,alliptvlinks.com FR:FRANCE O HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/409
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 2 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/410
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 3 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/411
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 4 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/412
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 5 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/413
+#EXTINF:-1,alliptvlinks.com FR:TF1 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/407
+#EXTINF:-1,alliptvlinks.com FR:TF1 SERIES FILM HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/10901
+#EXTINF:-1,alliptvlinks.com FR:TFX HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/10900
+#EXTINF:-1,alliptvlinks.com FR:RTL 9 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/420
+#EXTINF:-1,alliptvlinks.com FR:M 6 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/408
+#EXTINF:-1,alliptvlinks.com FR:TEVA HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3660
+#EXTINF:-1,alliptvlinks.com FR:SYFY HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/416
+#EXTINF:-1,alliptvlinks.com FR:W 9 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/421
+#EXTINF:-1,alliptvlinks.com FR:TMC HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3082
+#EXTINF:-1,alliptvlinks.com FR: M6 MUSIC HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/426
+#EXTINF:-1,alliptvlinks.com FR:PIWI+
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3080
+#EXTINF:-1,alliptvlinks.com FR:MCM TOP HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/10902
+#EXTINF:-1,alliptvlinks.com FR:FOOT+ HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3073
+#EXTINF:-1,alliptvlinks.com FR:PLANETE+HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3079
+#EXTINF:-1,alliptvlinks.com FR:PLANETE CI HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7361
+#EXTINF:-1,alliptvlinks.com FR:Nt1 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/682
+#EXTINF:-1,alliptvlinks.com FR:ACTION HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/406
+#EXTINF:-1,alliptvlinks.com FR:ARTE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/422
+#EXTINF:-1,alliptvlinks.com FR:C NEWS HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/5341
+#EXTINF:-1,alliptvlinks.com FR:C STAR HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/5340
+#EXTINF:-1,alliptvlinks.com FR:BFM PARIS
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/423
+#EXTINF:-1,alliptvlinks.com FR:6 TER HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3924
+#EXTINF:-1,alliptvlinks.com FR:C 8 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3921
+#EXTINF:-1,alliptvlinks.com FR:D 5 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7231
+#EXTINF:-1,alliptvlinks.com FR:MY COMEDY HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7368
+#EXTINF:-1,alliptvlinks.com FR:PARAMOUNT HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7369
+#EXTINF:-1,alliptvlinks.com FR:PARIS PREMIERE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/418
+#EXTINF:-1,alliptvlinks.com FR:SERIES CLUB HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/415
+#EXTINF:-1,alliptvlinks.com FR: TV 5 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/1171
+#EXTINF:-1,alliptvlinks.com FR:TV 5 MONDAY
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/5981
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 24 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7519
+#EXTINF:-1,alliptvlinks.com FR::RMC STORY HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/513
+#EXTINF:-1,alliptvlinks.com FR:AB 1 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3656
+#EXTINF:-1,alliptvlinks.com FR:GULLI HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3657
+#EXTINF:-1,alliptvlinks.com FR:L EQUIPE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7494
+#EXTINF:-1,alliptvlinks.com FR:BOING HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7495
+#EXTINF:-1,alliptvlinks.com FR:13 EME RUE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3923
+#EXTINF:-1,alliptvlinks.com FR:TV5 INFO
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11438
+#EXTINF:-1,alliptvlinks.com FR:TV5 STILE
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11439
+#EXTINF:-1,alliptvlinks.com FR:NRJ 12 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3925
+#EXTINF:-1,alliptvlinks.com FR:E! ENTERTAINMENT HD HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3926
+#EXTINF:-1,alliptvlinks.com FR:RTS DEUX HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3920
+#EXTINF:-1,alliptvlinks.com FR:RTS UN HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3919
+#EXTINF:-1,alliptvlinks.com FR:GAME ONE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3659
+#EXTINF:-1,alliptvlinks.com FR:GONG HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7490
+#EXTINF:-1,alliptvlinks.com FR:GONG MAX HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7491
+#EXTINF:-1,alliptvlinks.com FR:BOOMBERANG HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7362
+#EXTINF:-1,alliptvlinks.com FR:DISNEY XD HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3072
+#EXTINF:-1,alliptvlinks.com FR:DISNEY CINEMA HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3070
+#EXTINF:-1,alliptvlinks.com FR:DISNEY JUNIOR HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3071
+#EXTINF:-1,alliptvlinks.com FR:MANGAS HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3069
+#EXTINF:-1,alliptvlinks.com FR:NICKOLODEON
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3076
+#EXTINF:-1,alliptvlinks.com FR:CARTOON NETWORK HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3077
+#EXTINF:-1,alliptvlinks.com FR:TELETOON +
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3081
+#EXTINF:-1,alliptvlinks.com FR:DISCOVERY HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/685
+#EXTINF:-1,alliptvlinks.com FR:DISCOVERY SCIENCE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7354
+#EXTINF:-1,alliptvlinks.com FR:DISCOVERY ID HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7355
+#EXTINF:-1,alliptvlinks.com FR:NAT GEO HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7367
+#EXTINF:-1,alliptvlinks.com FR:NAT GEO WILD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/428
+#EXTINF:-1,alliptvlinks.com FR:HISTOIRE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/430
+#EXTINF:-1,alliptvlinks.com FR:SCIENCE&VIE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/427
+#EXTINF:-1,alliptvlinks.com FR:ANIMAUX HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/429
+#EXTINF:-1,alliptvlinks.com FR:CHERIE 25 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/419
+#EXTINF:-1,alliptvlinks.com FR:LCI HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/7378
+#EXTINF:-1,alliptvlinks.com FR:J-ONE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/5963
+#EXTINF:-1,alliptvlinks.com FR:LA CHAINE
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/5964
+#EXTINF:-1,alliptvlinks.com FR:MTV FRANCE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/5965
+#EXTINF:-1,alliptvlinks.com FR:RMC Decouverte HD+
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/5971
+#EXTINF:-1,alliptvlinks.com FR:Grand Littoral
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/16403
+#EXTINF:-1,alliptvlinks.com FR:TV3V
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/16404
+#EXTINF:-1,alliptvlinks.com FR:TEBEO TV
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/16405
+#EXTINF:-1,alliptvlinks.com FR:HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11705
+#EXTINF:-1,alliptvlinks.com FR: CINEMA HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11706
+#EXTINF:-1,alliptvlinks.com FR: FAMILY HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11707
+#EXTINF:-1,alliptvlinks.com FR: SERIES HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11709
+#EXTINF:-1,alliptvlinks.com FR:CINE+ PREMIERE HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11710
+#EXTINF:-1,alliptvlinks.com FR:CINE+ FRISSON HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11711
+#EXTINF:-1,alliptvlinks.com FR:CINE+ FAMIZ HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11712
+#EXTINF:-1,alliptvlinks.com FR:CINE+ EMOTION
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11713
+#EXTINF:-1,alliptvlinks.com FR:CINE+ POLAR HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/11714
+#EXTINF:-1,alliptvlinks.com FR:PLAY MULTIVISION 1 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3146
+#EXTINF:-1,alliptvlinks.com FR:PLAY MULTIVISION 2 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3147
+#EXTINF:-1,alliptvlinks.com FR:A-PLAY MULTIVISION 3 HD
+http://matrixtop.com:8080/HISQnnRRbT/toUzEY0XgD/3148
+#EXTINF:-1,alliptvlinks.com Saint Frances
+http://matrixtop.com:8080/movie/HISQnnRRbT/toUzEY0XgD/18450.mp4
+#EXTM3U
+#EXTINF:-1 tvg-id=""tvg-name="The French Connection (1971) [Multi-subs]"tvg-logo="http://portal.geniptv.com:8080/images/h6ZGWLMv9Q1KzC9lB2rIQIm8jiG_small.jpg"group-title="VOD Multi-Subtitles",alliptvlinks.com The French Connection (1971) [Multi-subs]
+http://portal.geniptv.com:8080/movie/HVQtw22n5SiR/fasfdsa12sazA/20599.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://thelogintarget.irish:8080/Jacob1/Jacob1/84075
+#EXTINF:-1,alliptvlinks.com Made in France - 2015
+http://thelogintarget.irish:8080/movie/Jacob1/Jacob1/76164.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/ab92F1UtW9yH9kqdK/ec92F1UYnhyvv78TN/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France 24 FHD (MX.)
+http://tvla.xyz:80/ajwsqkms/76tcl0S3Ms/35185
+#EXTINF:-1,alliptvlinks.com Fr FHD FHD FHD FHD FHD FHD ozen 2
+http://tvla.xyz:80/movie/ajwsqkms/76tcl0S3Ms/43305.mkv
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E01
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41937.mp4
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E02
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41938.mp4
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E03
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41939.mp4
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E04
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41940.mp4
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E05
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41941.mp4
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E06
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41942.mp4
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E07
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41943.mp4
+#EXTINF:-1,alliptvlinks.com Huge in France S01 E08
+http://tvla.xyz:80/series/ajwsqkms/76tcl0S3Ms/41944.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com A Conexão Francesa (Legendado)
+http://list.deeplist.nl:80/movie/carlos/carlos123/65512.mp4
+#EXTINF:-1,alliptvlinks.com Relacionamento à Francesa 2
+http://list.deeplist.nl:80/movie/carlos/carlos123/17312.mp4
+#EXTINF:-1,alliptvlinks.com Liam Payne - French Montana: First Time
+http://list.deeplist.nl:80/movie/carlos/carlos123/49976.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Um Amante Frances - 2019
+http://boxiptv.club:8080/movie/cavalo/1234/36188.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com PH: France 24 | SD
+http://hdonline.ml:80/cg/cg/6911
+#EXTINF:-1,alliptvlinks.com US (Arabic) France 24 (S)
+http://hdonline.ml:80/cg/cg/13206
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com A Conexão Francesa (Legendado)
+http://list.deeplist.nl:80/movie/charles/charles123/65512.mp4
+#EXTINF:-1,alliptvlinks.com Relacionamento à Francesa 2
+http://list.deeplist.nl:80/movie/charles/charles123/17312.mp4
+#EXTINF:-1,alliptvlinks.com Liam Payne - French Montana: First Time
+http://list.deeplist.nl:80/movie/charles/charles123/49976.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com PH: France 24 | SD
+http://hdonline.ml:80/claude/claude/6911
+#EXTINF:-1,alliptvlinks.com US (Arabic) France 24 (S)
+http://hdonline.ml:80/claude/claude/13206
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/dean123/dean123/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/dean123/dean123/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/dean123/dean123/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/dean123/dean123/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/dean123/dean123/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/dean123/dean123/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/dean123/dean123/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/dean123/dean123/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/dean123/dean123/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/dean123/dean123/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/dean123/dean123/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/dean123/dean123/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/dean123/dean123/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/dean123/dean123/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/dean123/dean123/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/dean123/dean123/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/dean123/dean123/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/dean123/dean123/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/dean123/dean123/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/dean123/dean123/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/dean123/dean123/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/dean123/dean123/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/dean123/dean123/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/dean123/dean123/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/dean123/dean123/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/dean123/dean123/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/dean123/dean123/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/dean123/dean123/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/dean123/dean123/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/dean123/dean123/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/dean123/dean123/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/dean123/dean123/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/dean123/dean123/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/dean123/dean123/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/dean123/dean123/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/dean123/dean123/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/dean123/dean123/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/dean123/dean123/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/dean123/dean123/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/dean123/dean123/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/dean123/dean123/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/dean123/dean123/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/dean123/dean123/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/dean123/dean123/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/dean123/dean123/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/dean123/dean123/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/dean123/dean123/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/dean123/dean123/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/dean123/dean123/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/dean123/dean123/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/dean123/dean123/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/dean123/dean123/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/dean123/dean123/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/dean123/dean123/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/dean123/dean123/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Latin: France 24
+http://bestv.nl:8080/diego/12345678/27436
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/e0b4F1UWZh6CfGjwV/3965F1UHwDAzabqp5/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Channel_3602 - France
+http://ecuaplaytv.com/edgar/edgar/116297
+#EXTINF:-1,alliptvlinks.com Radio Chante France
+http://ecuaplaytv.com/edgar/edgar/116654
+#EXTINF:-1,alliptvlinks.com Radio DISCOID (FR)
+http://ecuaplaytv.com/edgar/edgar/116659
+#EXTINF:-1,alliptvlinks.com Radio FG (France)
+http://ecuaplaytv.com/edgar/edgar/116674
+#EXTINF:-1,alliptvlinks.com Radio OUI FM (FR)
+http://ecuaplaytv.com/edgar/edgar/116773
+#EXTINF:-1,alliptvlinks.com Radio Rouge FM (FR)
+http://ecuaplaytv.com/edgar/edgar/116889
+#EXTINF:-1,alliptvlinks.com Radio WIT FM (FR)
+http://ecuaplaytv.com/edgar/edgar/116940
+#EXTINF:-1,alliptvlinks.com Virgin Radio (FR)
+http://ecuaplaytv.com/edgar/edgar/116965
+#EXTINF:-1,alliptvlinks.com La Francesita (2017)
+http://ecuaplaytv.com/movie/edgar/edgar/102840.mp4
+#EXTINF:-1,alliptvlinks.com Jack Ryan - S01E02 - Conexión francesa
+http://ecuaplaytv.com/series/edgar/edgar/83533.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com |UK|FHD| FRANCE 24
+http://line.4k-iptv.com:80/edis1/edis1/4435
+#EXTINF:-1,alliptvlinks.com |UK|SD| FRANCE 24 EN
+http://line.4k-iptv.com:80/edis1/edis1/4449
+#EXTINF:-1,alliptvlinks.com FRANCE 2 HD
+http://line.4k-iptv.com:80/edis1/edis1/5558
+#EXTINF:-1,alliptvlinks.com FRANCE 3 HD
+http://line.4k-iptv.com:80/edis1/edis1/5559
+#EXTINF:-1,alliptvlinks.com FRANCE 4 HD
+http://line.4k-iptv.com:80/edis1/edis1/5560
+#EXTINF:-1,alliptvlinks.com FRANCE 5 HD
+http://line.4k-iptv.com:80/edis1/edis1/5561
+#EXTINF:-1,alliptvlinks.com FRANCE O HD
+http://line.4k-iptv.com:80/edis1/edis1/5562
+#EXTINF:-1,alliptvlinks.com FRANCE 3 NOA HD
+http://line.4k-iptv.com:80/edis1/edis1/5563
+#EXTINF:-1,alliptvlinks.com MEZZO FR
+http://line.4k-iptv.com:80/edis1/edis1/5582
+#EXTINF:-1,alliptvlinks.com FRANCE INFO HD
+http://line.4k-iptv.com:80/edis1/edis1/5724
+#EXTINF:-1,alliptvlinks.com EURONEWS (FRENCH)
+http://line.4k-iptv.com:80/edis1/edis1/5725
+#EXTINF:-1,alliptvlinks.com FRANCE 24 HD
+http://line.4k-iptv.com:80/edis1/edis1/5726
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com MIX DJing French touch
+http://xtream.mixbox.tv:25461/erdem123/erdem123/4649
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FR:Zombillénium 2017
+http://portal.dynamicsportstv.xyz:8000/movie/eren35/eren35/46135.avi
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Papa Francesco - Un Uomo Di Parola DOC
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/7326.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x01 Chiamato Da Dio
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/27533.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x01 Chiamato Da Dio
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/51891.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x02 Fede E Coraggio
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/27534.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x02 Fede E Coraggio
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/51892.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x03 La Voce Dei Deboli
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/27535.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x03 La Voce Dei Deboli
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/51893.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x04 Apostolo Di Pace
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/27536.mkv
+#EXTINF:-1,alliptvlinks.com (DOCUMENTARI) Francesco Il Papa Ribelle 1x04 Apostolo Di Pace
+http://iptvdelcolle.dyndns.tv:80/movie/flcmila/a220819/51894.mkv
+#EXTINF:-1,alliptvlinks.com FR W9 Music
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49164
+#EXTINF:-1,alliptvlinks.com FR TV 5 Monde FHD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49165
+#EXTINF:-1,alliptvlinks.com FR TMC
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49166
+#EXTINF:-1,alliptvlinks.com FR TIJI
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49167
+#EXTINF:-1,alliptvlinks.com FR TF1 HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49168
+#EXTINF:-1,alliptvlinks.com FR TeleToon
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49169
+#EXTINF:-1,alliptvlinks.com FR RTS LA UN HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49170
+#EXTINF:-1,alliptvlinks.com FR RTS LA DEUX HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49171
+#EXTINF:-1,alliptvlinks.com FR Planete-HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49172
+#EXTINF:-1,alliptvlinks.com FR Planete-A-and-E-HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49173
+#EXTINF:-1,alliptvlinks.com FR Piwi
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49174
+#EXTINF:-1,alliptvlinks.com FR Paris Premiere HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49175
+#EXTINF:-1,alliptvlinks.com FR PARAMOUNT CHANNEL HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49176
+#EXTINF:-1,alliptvlinks.com FR OCS MAX HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49177
+#EXTINF:-1,alliptvlinks.com FR OCS GEANTS HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49178
+#EXTINF:-1,alliptvlinks.com FR OCS CITY HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49179
+#EXTINF:-1,alliptvlinks.com FR OCS CHOC HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49180
+#EXTINF:-1,alliptvlinks.com FR NT1
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49181
+#EXTINF:-1,alliptvlinks.com FR Nickelodeon Junior
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49182
+#EXTINF:-1,alliptvlinks.com FR Nickelodeon
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49183
+#EXTINF:-1,alliptvlinks.com FR National Geo Wild
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49184
+#EXTINF:-1,alliptvlinks.com FR National Geo
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49185
+#EXTINF:-1,alliptvlinks.com FR Nat Geo HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49186
+#EXTINF:-1,alliptvlinks.com FR Mangas
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49187
+#EXTINF:-1,alliptvlinks.com FR M6 Music
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49188
+#EXTINF:-1,alliptvlinks.com FR M6 HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49189
+#EXTINF:-1,alliptvlinks.com FR C NEWS (iTele)
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49190
+#EXTINF:-1,alliptvlinks.com FR HISTOIRE
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49191
+#EXTINF:-1,alliptvlinks.com FR HD1
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49192
+#EXTINF:-1,alliptvlinks.com FR Gulli
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49193
+#EXTINF:-1,alliptvlinks.com FR France O
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49194
+#EXTINF:-1,alliptvlinks.com FR France 5 HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49195
+#EXTINF:-1,alliptvlinks.com FR France 4 HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49196
+#EXTINF:-1,alliptvlinks.com FR France 3 HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49197
+#EXTINF:-1,alliptvlinks.com FR France 24 News
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49198
+#EXTINF:-1,alliptvlinks.com FR France 2 HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49199
+#EXTINF:-1,alliptvlinks.com FR Foot 24 24 HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49200
+#EXTINF:-1,alliptvlinks.com FR MB Live TV
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49201
+#EXTINF:-1,alliptvlinks.com FR Disney XD HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49202
+#EXTINF:-1,alliptvlinks.com FR Disney Junior HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49203
+#EXTINF:-1,alliptvlinks.com FR Disney Cinema HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49204
+#EXTINF:-1,alliptvlinks.com FR Disney Channel
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49205
+#EXTINF:-1,alliptvlinks.com FR DISCOVERY HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49206
+#EXTINF:-1,alliptvlinks.com FR Cine Star HD.
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49207
+#EXTINF:-1,alliptvlinks.com FR Cine Premier HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49208
+#EXTINF:-1,alliptvlinks.com FR Cine FX HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49209
+#EXTINF:-1,alliptvlinks.com FR Cine Frisson HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49210
+#EXTINF:-1,alliptvlinks.com FR Cine Emotion HD.
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49211
+#EXTINF:-1,alliptvlinks.com FR Cine Club HD.
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49212
+#EXTINF:-1,alliptvlinks.com FR Cine Classic HD.
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49213
+#EXTINF:-1,alliptvlinks.com FR Cine Famiz
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49214
+#EXTINF:-1,alliptvlinks.com FR TCM CINEMA
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49215
+#EXTINF:-1,alliptvlinks.com FR CHERIE 25
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49216
+#EXTINF:-1,alliptvlinks.com FR Chasse e Peche
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49217
+#EXTINF:-1,alliptvlinks.com FR Cartoon Network HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49218
+#EXTINF:-1,alliptvlinks.com FR Canal Series HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49220
+#EXTINF:-1,alliptvlinks.com FR Canal HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49221
+#EXTINF:-1,alliptvlinks.com FR FAMILY HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49222
+#EXTINF:-1,alliptvlinks.com FR Canal Decale HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49223
+#EXTINF:-1,alliptvlinks.com FR Canal Cinema HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49224
+#EXTINF:-1,alliptvlinks.com FR Canal J
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49226
+#EXTINF:-1,alliptvlinks.com FR Boomerang HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49227
+#EXTINF:-1,alliptvlinks.com FR Boing HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49228
+#EXTINF:-1,alliptvlinks.com FR Arte
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49229
+#EXTINF:-1,alliptvlinks.com FR Animaux
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49230
+#EXTINF:-1,alliptvlinks.com FR Action
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49231
+#EXTINF:-1,alliptvlinks.com FR AB1
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49232
+#EXTINF:-1,alliptvlinks.com FR 13eme Rue HD
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49233
+#EXTINF:-1,alliptvlinks.com FR Serie Club
+http://iptvdelcolle.dyndns.tv:80/flcmila/a220819/49234
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com PH: France 24 | SD
+http://hdonline.ml:80/gees/gees/6911
+#EXTINF:-1,alliptvlinks.com US (Arabic) France 24 (S)
+http://hdonline.ml:80/gees/gees/13206
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com |FR| FRANCE 3 FHD
+http://iptv7.premium-stv.com:25461/gnsportfrshtf1/fqzo522Da264/4
+#EXTINF:-1,alliptvlinks.com |FR| TF1 SD
+http://iptv7.premium-stv.com:25461/gnsportfrshtf1/fqzo522Da264/1
+#EXTINF:-1,alliptvlinks.com |FR| FRANCE 3 SD
+http://iptv7.premium-stv.com:25461/gnsportfrshtf1/fqzo522Da264/2
+#EXTINF:-1,alliptvlinks.com |FR| FRANCE 3 HD
+http://iptv7.premium-stv.com:25461/gnsportfrshtf1/fqzo522Da264/3
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FR:Zombillénium 2017
+http://portal.dynamicsportstv.xyz:8000/movie/haldun/haldun12345/46135.avi
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France 24 Full HD *
+http://iptv.deluxeplay.live:80/hfdbtaso/6sTwL137vo/3365
+#EXTINF:-1,alliptvlinks.com Beso Frances (1995)
+http://iptv.deluxeplay.live:80/movie/hfdbtaso/6sTwL137vo/6156.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France 24 Full HD *
+http://live.iptv.wtf:80/hgfltzgp/11zz5Uc2aY/3365
+#EXTINF:-1,alliptvlinks.com Beso Frances (1995)
+http://live.iptv.wtf:80/movie/hgfltzgp/11zz5Uc2aY/6156.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com LAT HD: FRANCE 24
+http://interlatins.es:8691/hpqservicio180/servicio180mr/5970
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Digital Impulse - French Skies
+http://izipizi1.info:80/i9i9oODRQd/wcCLJ0trOK/15299
+#EXTINF:-1,alliptvlinks.com Vive La France
+http://izipizi1.info:80/movie/i9i9oODRQd/wcCLJ0trOK/17891.mp4
+#EXTINF:-1,alliptvlinks.com Made In France
+http://izipizi1.info:80/movie/i9i9oODRQd/wcCLJ0trOK/18404.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com |UK|FHD| FRANCE 24
+http://line.4k-iptv.com:80/irfan/irfan/4435
+#EXTINF:-1,alliptvlinks.com |UK|SD| FRANCE 24 EN
+http://line.4k-iptv.com:80/irfan/irfan/4449
+#EXTINF:-1,alliptvlinks.com FRANCE 2 HD
+http://line.4k-iptv.com:80/irfan/irfan/5558
+#EXTINF:-1,alliptvlinks.com FRANCE 3 HD
+http://line.4k-iptv.com:80/irfan/irfan/5559
+#EXTINF:-1,alliptvlinks.com FRANCE 4 HD
+http://line.4k-iptv.com:80/irfan/irfan/5560
+#EXTINF:-1,alliptvlinks.com FRANCE 5 HD
+http://line.4k-iptv.com:80/irfan/irfan/5561
+#EXTINF:-1,alliptvlinks.com FRANCE O HD
+http://line.4k-iptv.com:80/irfan/irfan/5562
+#EXTINF:-1,alliptvlinks.com FRANCE 3 NOA HD
+http://line.4k-iptv.com:80/irfan/irfan/5563
+#EXTINF:-1,alliptvlinks.com MEZZO FR
+http://line.4k-iptv.com:80/irfan/irfan/5582
+#EXTINF:-1,alliptvlinks.com FRANCE INFO HD
+http://line.4k-iptv.com:80/irfan/irfan/5724
+#EXTINF:-1,alliptvlinks.com EURONEWS (FRENCH)
+http://line.4k-iptv.com:80/irfan/irfan/5725
+#EXTINF:-1,alliptvlinks.com FRANCE 24 HD
+http://line.4k-iptv.com:80/irfan/irfan/5726
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com A CONEXÃO FRANCESA DUB
+http://boxiptv.club:8080/movie/josecarlos/123456/7929.mp4
+#EXTINF:-1,alliptvlinks.com Um Amante Frances - 2019
+http://boxiptv.club:8080/movie/josecarlos/123456/36188.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com PH: France 24 | SD
+http://hdonline.ml:80/kam/kam/6911
+#EXTINF:-1,alliptvlinks.com US (Arabic) France 24 (S)
+http://hdonline.ml:80/kam/kam/13206
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com <>===#=== French Channel ===#===<>
+http://87.120.36.166:80/khurana899/x0gw0r/1969
+#EXTINF:-1,alliptvlinks.com FR: TF1 HD
+http://87.120.36.166:80/khurana899/x0gw0r/703
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 2 HD
+http://87.120.36.166:80/khurana899/x0gw0r/718
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 3 HD
+http://87.120.36.166:80/khurana899/x0gw0r/717
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 4 HD
+http://87.120.36.166:80/khurana899/x0gw0r/716
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 5 HD
+http://87.120.36.166:80/khurana899/x0gw0r/715
+#EXTINF:-1,alliptvlinks.com FR: ACTION HD
+http://87.120.36.166:80/khurana899/x0gw0r/747
+#EXTINF:-1,alliptvlinks.com FR: W9 HD
+http://87.120.36.166:80/khurana899/x0gw0r/700
+#EXTINF:-1,alliptvlinks.com FR: M6 HD
+http://87.120.36.166:80/khurana899/x0gw0r/711
+#EXTINF:-1,alliptvlinks.com FR: ARTE HD
+http://87.120.36.166:80/khurana899/x0gw0r/745
+#EXTINF:-1,alliptvlinks.com FR: 6TER HD
+http://87.120.36.166:80/khurana899/x0gw0r/1935
+#EXTINF:-1,alliptvlinks.com FR: C8 HD
+http://87.120.36.166:80/khurana899/x0gw0r/728
+#EXTINF:-1,alliptvlinks.com FR: FRANCE O HD
+http://87.120.36.166:80/khurana899/x0gw0r/719
+#EXTINF:-1,alliptvlinks.com FR: Comedie +
+http://87.120.36.166:80/khurana899/x0gw0r/3992
+#EXTINF:-1,alliptvlinks.com FR: AB1
+http://87.120.36.166:80/khurana899/x0gw0r/3988
+#EXTINF:-1,alliptvlinks.com FR: RTL 9
+http://87.120.36.166:80/khurana899/x0gw0r/1932
+#EXTINF:-1,alliptvlinks.com FR: TFX HD
+http://87.120.36.166:80/khurana899/x0gw0r/1936
+#EXTINF:-1,alliptvlinks.com FR: Science Et Vie
+http://87.120.36.166:80/khurana899/x0gw0r/814
+#EXTINF:-1,alliptvlinks.com FR: Voyage
+http://87.120.36.166:80/khurana899/x0gw0r/1933
+#EXTINF:-1,alliptvlinks.com FR: RMC
+http://87.120.36.166:80/khurana899/x0gw0r/2730
+#EXTINF:-1,alliptvlinks.com FR: TMC
+http://87.120.36.166:80/khurana899/x0gw0r/816
+#EXTINF:-1,alliptvlinks.com FR: Nickelodeon
+http://87.120.36.166:80/khurana899/x0gw0r/1939
+#EXTINF:-1,alliptvlinks.com FR: EURONEWS
+http://87.120.36.166:80/khurana899/x0gw0r/1940
+#EXTINF:-1,alliptvlinks.com FR: Disney XD HD
+http://87.120.36.166:80/khurana899/x0gw0r/724
+#EXTINF:-1,alliptvlinks.com FR: Numero23
+http://87.120.36.166:80/khurana899/x0gw0r/1949
+#EXTINF:-1,alliptvlinks.com FR: DISNEY CINEMA HD
+http://87.120.36.166:80/khurana899/x0gw0r/3128
+#EXTINF:-1,alliptvlinks.com FR: Teva
+http://87.120.36.166:80/khurana899/x0gw0r/754
+#EXTINF:-1,alliptvlinks.com FR: NRJ12 HD
+http://87.120.36.166:80/khurana899/x0gw0r/706
+#EXTINF:-1,alliptvlinks.com FR: Discovery HD
+http://87.120.36.166:80/khurana899/x0gw0r/1934
+#EXTINF:-1,alliptvlinks.com FR: PLANET+ HD
+http://87.120.36.166:80/khurana899/x0gw0r/760
+#EXTINF:-1,alliptvlinks.com FR: PLANETE A+E HD
+http://87.120.36.166:80/khurana899/x0gw0r/3127
+#EXTINF:-1,alliptvlinks.com FR: PLANETE+ CI
+http://87.120.36.166:80/khurana899/x0gw0r/801
+#EXTINF:-1,alliptvlinks.com FR: Discovery Science HD
+http://87.120.36.166:80/khurana899/x0gw0r/823
+#EXTINF:-1,alliptvlinks.com FR: NatGeoWild HD
+http://87.120.36.166:80/khurana899/x0gw0r/822
+#EXTINF:-1,alliptvlinks.com FR: animaux HD
+http://87.120.36.166:80/khurana899/x0gw0r/746
+#EXTINF:-1,alliptvlinks.com FR: Ushuaia HD
+http://87.120.36.166:80/khurana899/x0gw0r/749
+#EXTINF:-1,alliptvlinks.com FR: OCS MAX HD
+http://87.120.36.166:80/khurana899/x0gw0r/3130
+#EXTINF:-1,alliptvlinks.com FR: OCS GEANTS HD
+http://87.120.36.166:80/khurana899/x0gw0r/1937
+#EXTINF:-1,alliptvlinks.com FR: OCS CITY HD
+http://87.120.36.166:80/khurana899/x0gw0r/3129
+#EXTINF:-1,alliptvlinks.com FR: OCS CHOC HD
+http://87.120.36.166:80/khurana899/x0gw0r/1938
+#EXTINF:-1,alliptvlinks.com FR: Canal J HD
+http://87.120.36.166:80/khurana899/x0gw0r/818
+#EXTINF:-1,alliptvlinks.com FR: Canal+ HD
+http://87.120.36.166:80/khurana899/x0gw0r/743
+#EXTINF:-1,alliptvlinks.com FR: Canal+ Series HD
+http://87.120.36.166:80/khurana899/x0gw0r/740
+#EXTINF:-1,alliptvlinks.com FR: Canal+ Family HD
+http://87.120.36.166:80/khurana899/x0gw0r/741
+#EXTINF:-1,alliptvlinks.com FR: Canal+ Cinema HD
+http://87.120.36.166:80/khurana899/x0gw0r/742
+#EXTINF:-1,alliptvlinks.com FR: Canal+ Decale HD
+http://87.120.36.166:80/khurana899/x0gw0r/738
+#EXTINF:-1,alliptvlinks.com FR: CINE PREMIER HD
+http://87.120.36.166:80/khurana899/x0gw0r/731
+#EXTINF:-1,alliptvlinks.com FR: CINE FRISSON HD
+http://87.120.36.166:80/khurana899/x0gw0r/732
+#EXTINF:-1,alliptvlinks.com FR: CINE CLASSIC HD
+http://87.120.36.166:80/khurana899/x0gw0r/730
+#EXTINF:-1,alliptvlinks.com FR: CINE EMOTION HD
+http://87.120.36.166:80/khurana899/x0gw0r/734
+#EXTINF:-1,alliptvlinks.com FR: 13EME RUE HD
+http://87.120.36.166:80/khurana899/x0gw0r/748
+#EXTINF:-1,alliptvlinks.com FR: SYFY HD
+http://87.120.36.166:80/khurana899/x0gw0r/779
+#EXTINF:-1,alliptvlinks.com FR: FRENCE24 HD
+http://87.120.36.166:80/khurana899/x0gw0r/714
+#EXTINF:-1,alliptvlinks.com FR: National Geo HD
+http://87.120.36.166:80/khurana899/x0gw0r/766
+#EXTINF:-1,alliptvlinks.com FR: TF1 Series Films HD
+http://87.120.36.166:80/khurana899/x0gw0r/2216
+#EXTINF:-1,alliptvlinks.com FR: AB Moteurs
+http://87.120.36.166:80/khurana899/x0gw0r/3989
+#EXTINF:-1,alliptvlinks.com FR: Cine Club
+http://87.120.36.166:80/khurana899/x0gw0r/3990
+#EXTINF:-1,alliptvlinks.com FR: MTV Hits
+http://87.120.36.166:80/khurana899/x0gw0r/4087
+#EXTINF:-1,alliptvlinks.com FR: PARAMOUNT DECALE HD
+http://87.120.36.166:80/khurana899/x0gw0r/22217
+#EXTINF:-1,alliptvlinks.com FR: TCM CINEMA
+http://87.120.36.166:80/khurana899/x0gw0r/22218
+#EXTINF:-1,alliptvlinks.com FR: TV BREIZH
+http://87.120.36.166:80/khurana899/x0gw0r/22219
+#EXTINF:-1,alliptvlinks.com FR: E!
+http://87.120.36.166:80/khurana899/x0gw0r/22220
+#EXTINF:-1,alliptvlinks.com FR: WARNER TV HD
+http://87.120.36.166:80/khurana899/x0gw0r/22221
+#EXTINF:-1,alliptvlinks.com FR: BET
+http://87.120.36.166:80/khurana899/x0gw0r/22223
+#EXTINF:-1,alliptvlinks.com FR: CHERIE 25
+http://87.120.36.166:80/khurana899/x0gw0r/22224
+#EXTINF:-1,alliptvlinks.com FR: PARIS PREMIERE
+http://87.120.36.166:80/khurana899/x0gw0r/22225
+#EXTINF:-1,alliptvlinks.com FR: AB3
+http://87.120.36.166:80/khurana899/x0gw0r/22226
+#EXTINF:-1,alliptvlinks.com FR: CRIME DISTRICT HD
+http://87.120.36.166:80/khurana899/x0gw0r/22227
+#EXTINF:-1,alliptvlinks.com FR: WEO
+http://87.120.36.166:80/khurana899/x0gw0r/22228
+#EXTINF:-1,alliptvlinks.com FR: SEASONS
+http://87.120.36.166:80/khurana899/x0gw0r/22229
+#EXTINF:-1,alliptvlinks.com FR: toute l histoire
+http://87.120.36.166:80/khurana899/x0gw0r/22230
+#EXTINF:-1,alliptvlinks.com FR: LCI
+http://87.120.36.166:80/khurana899/x0gw0r/22231
+#EXTINF:-1,alliptvlinks.com FR: RTS UN
+http://87.120.36.166:80/khurana899/x0gw0r/22232
+#EXTINF:-1,alliptvlinks.com FR: RTS Deux
+http://87.120.36.166:80/khurana899/x0gw0r/22233
+#EXTINF:-1,alliptvlinks.com FR: GOLF
+http://87.120.36.166:80/khurana899/x0gw0r/22234
+#EXTINF:-1,alliptvlinks.com FR: EQUIDIA LIVE
+http://87.120.36.166:80/khurana899/x0gw0r/22235
+#EXTINF:-1,alliptvlinks.com FR: PIWI
+http://87.120.36.166:80/khurana899/x0gw0r/22236
+#EXTINF:-1,alliptvlinks.com FR: GAME ONE
+http://87.120.36.166:80/khurana899/x0gw0r/22237
+#EXTINF:-1,alliptvlinks.com FR: TOONAMI HD
+http://87.120.36.166:80/khurana899/x0gw0r/22238
+#EXTINF:-1,alliptvlinks.com FR: Paramount Channel
+http://87.120.36.166:80/khurana899/x0gw0r/22240
+#EXTINF:-1,alliptvlinks.com FR: C STAR
+http://87.120.36.166:80/khurana899/x0gw0r/22241
+#EXTINF:-1,alliptvlinks.com FR: BFMTV HD
+http://87.120.36.166:80/khurana899/x0gw0r/744
+#EXTINF:-1,alliptvlinks.com FR: Chasse et Peche
+http://87.120.36.166:80/khurana899/x0gw0r/736
+#EXTINF:-1,alliptvlinks.com FR: CARTOON NETWORK
+http://87.120.36.166:80/khurana899/x0gw0r/789
+#EXTINF:-1,alliptvlinks.com FR: Mangas
+http://87.120.36.166:80/khurana899/x0gw0r/819
+#EXTINF:-1,alliptvlinks.com FR: GULLI HD
+http://87.120.36.166:80/khurana899/x0gw0r/713
+#EXTINF:-1,alliptvlinks.com FR: Boing HD
+http://87.120.36.166:80/khurana899/x0gw0r/804
+#EXTINF:-1,alliptvlinks.com FR: TELETOON +1
+http://87.120.36.166:80/khurana899/x0gw0r/802
+#EXTINF:-1,alliptvlinks.com FR: TIJI TV
+http://87.120.36.166:80/khurana899/x0gw0r/2790
+#EXTINF:-1,alliptvlinks.com FR: DISNEY CHANNEL HD
+http://87.120.36.166:80/khurana899/x0gw0r/772
+#EXTINF:-1,alliptvlinks.com FR: Histoire
+http://87.120.36.166:80/khurana899/x0gw0r/4089
+#EXTINF:-1,alliptvlinks.com FR: L Equipe 21
+http://87.120.36.166:80/khurana899/x0gw0r/3710
+#EXTINF:-1,alliptvlinks.com FR: LCP
+http://87.120.36.166:80/khurana899/x0gw0r/4090
+#EXTINF:-1,alliptvlinks.com FR: Trek
+http://87.120.36.166:80/khurana899/x0gw0r/4082
+#EXTINF:-1,alliptvlinks.com FR: MTV
+http://87.120.36.166:80/khurana899/x0gw0r/4086
+#EXTINF:-1,alliptvlinks.com FR: Nickelodeon Junior
+http://87.120.36.166:80/khurana899/x0gw0r/21698
+#EXTINF:-1,alliptvlinks.com FR: Nickelodeon +1
+http://87.120.36.166:80/khurana899/x0gw0r/21697
+#EXTINF:-1,alliptvlinks.com FR: Disney Junior
+http://87.120.36.166:80/khurana899/x0gw0r/21699
+#EXTINF:-1,alliptvlinks.com FR: BOOMERANG HD
+http://87.120.36.166:80/khurana899/x0gw0r/788
+#EXTINF:-1,alliptvlinks.com FR: Orange-Cinema-1-HD
+http://87.120.36.166:80/khurana899/x0gw0r/2231
+#EXTINF:-1,alliptvlinks.com FR: Orange-Cinema-2-HD
+http://87.120.36.166:80/khurana899/x0gw0r/2232
+#EXTINF:-1,alliptvlinks.com FR: Orange-Cinema-3-HD
+http://87.120.36.166:80/khurana899/x0gw0r/2233
+#EXTINF:-1,alliptvlinks.com FR: Orange-Cinema-4-HD
+http://87.120.36.166:80/khurana899/x0gw0r/2234
+#EXTINF:-1,alliptvlinks.com FR: M6 MUSIC
+http://87.120.36.166:80/khurana899/x0gw0r/25947
+#EXTINF:-1,alliptvlinks.com FR: NRJ HITS
+http://87.120.36.166:80/khurana899/x0gw0r/25948
+#EXTINF:-1,alliptvlinks.com FR: MCM
+http://87.120.36.166:80/khurana899/x0gw0r/25949
+#EXTINF:-1,alliptvlinks.com FR: MCM TOP
+http://87.120.36.166:80/khurana899/x0gw0r/25950
+#EXTINF:-1,alliptvlinks.com ===#=== French SD Channels ===#===
+http://87.120.36.166:80/khurana899/x0gw0r/26181
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FR: AB1
+http://akamaizedx.com:80/lulalele/1324zcbv/10029759
+#EXTINF:-1,alliptvlinks.com FR: C NEWS
+http://akamaizedx.com:80/lulalele/1324zcbv/10029766
+#EXTINF:-1,alliptvlinks.com FR: FAMILY
+http://akamaizedx.com:80/lulalele/1324zcbv/10029758
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 2
+http://akamaizedx.com:80/lulalele/1324zcbv/10029761
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 4
+http://akamaizedx.com:80/lulalele/1324zcbv/10029760
+#EXTINF:-1,alliptvlinks.com FR: FRANCE O
+http://akamaizedx.com:80/lulalele/1324zcbv/10029762
+#EXTINF:-1,alliptvlinks.com FR: M6
+http://akamaizedx.com:80/lulalele/1324zcbv/10029757
+#EXTINF:-1,alliptvlinks.com FR: TF1
+http://akamaizedx.com:80/lulalele/1324zcbv/10029763
+#EXTINF:-1,alliptvlinks.com FR: TV 5
+http://akamaizedx.com:80/lulalele/1324zcbv/10029764
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://686.686686.info:8880/lyonj01/300819/203
+#EXTINF:-1,alliptvlinks.com Frances Ferguson (2019)
+http://686.686686.info:8880/movie/lyonj01/300819/50587.mkv
+#EXTINF:-1,alliptvlinks.com French Connection II (1975)
+http://686.686686.info:8880/movie/lyonj01/300819/50620.mp4
+#EXTINF:-1,alliptvlinks.com French Kiss (1995)
+http://686.686686.info:8880/movie/lyonj01/300819/50621.mp4
+#EXTINF:-1,alliptvlinks.com The French Connection (1971)
+http://686.686686.info:8880/movie/lyonj01/300819/77417.mp4
+#EXTINF:-1,alliptvlinks.com Frances Ferguson (2019)
+http://686.686686.info:8880/movie/lyonj01/300819/85234.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Relacionamento a Francesa
+http://201.87.232.214:25461/movie/marcondes/101010/2500.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/marta/12345/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/marta/12345/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/marta/12345/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/marta/12345/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/marta/12345/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/marta/12345/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/marta/12345/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/marta/12345/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/marta/12345/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/marta/12345/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/marta/12345/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/marta/12345/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/marta/12345/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/marta/12345/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/marta/12345/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/marta/12345/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/marta/12345/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/marta/12345/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/marta/12345/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/marta/12345/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/marta/12345/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/marta/12345/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/marta/12345/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/marta/12345/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/marta/12345/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/marta/12345/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/marta/12345/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/marta/12345/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/marta/12345/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/marta/12345/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/marta/12345/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/marta/12345/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/marta/12345/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/marta/12345/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/marta/12345/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/marta/12345/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/marta/12345/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/marta/12345/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/marta/12345/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/marta/12345/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/marta/12345/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/marta/12345/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/marta/12345/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/marta/12345/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/marta/12345/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/marta/12345/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/marta/12345/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/marta/12345/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/marta/12345/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/marta/12345/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/marta/12345/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/marta/12345/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/marta/12345/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/marta/12345/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/marta/12345/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com SP: FR: Foot+ 24/24
+http://vipeiptv.com:25461/miguelito/miguelito/855346
+#EXTINF:-1,alliptvlinks.com SP: FR: L'Equipe 21 FHD
+http://vipeiptv.com:25461/miguelito/miguelito/855349
+#EXTINF:-1,alliptvlinks.com SP: FR: L'Equipe 21 HD
+http://vipeiptv.com:25461/miguelito/miguelito/855350
+#EXTINF:-1,alliptvlinks.com SP: FR: L'Equipe 21 SD
+http://vipeiptv.com:25461/miguelito/miguelito/855351
+#EXTINF:-1,alliptvlinks.com SP: FR: OL TV HD
+http://vipeiptv.com:25461/miguelito/miguelito/855352
+#EXTINF:-1,alliptvlinks.com SP: FR: Automoto La Chaine FHD
+http://vipeiptv.com:25461/miguelito/miguelito/855353
+#EXTINF:-1,alliptvlinks.com SP: FR: Automoto La Chaine HD
+http://vipeiptv.com:25461/miguelito/miguelito/855354
+#EXTINF:-1,alliptvlinks.com SP: FR: Automoto La Chaine
+http://vipeiptv.com:25461/miguelito/miguelito/855355
+#EXTINF:-1,alliptvlinks.com SP: FR: Channel_16542 FHD
+http://vipeiptv.com:25461/miguelito/miguelito/855356
+#EXTINF:-1,alliptvlinks.com SP: FR: Golf Channel FranceFHD
+http://vipeiptv.com:25461/miguelito/miguelito/855357
+#EXTINF:-1,alliptvlinks.com SP: FR: Golf+ FHD
+http://vipeiptv.com:25461/miguelito/miguelito/855358
+#EXTINF:-1,alliptvlinks.com SP: FR: Golf+ HD
+http://vipeiptv.com:25461/miguelito/miguelito/855359
+#EXTINF:-1,alliptvlinks.com SP: FR: Equidia Live FHD
+http://vipeiptv.com:25461/miguelito/miguelito/855361
+#EXTINF:-1,alliptvlinks.com SP: FR: Equidia Live HD
+http://vipeiptv.com:25461/miguelito/miguelito/855362
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com PH: France 24 | SD
+http://hdonline.ml:80/mohammed/mohammed123/6911
+#EXTINF:-1,alliptvlinks.com US (Arabic) France 24 (S)
+http://hdonline.ml:80/mohammed/mohammed123/13206
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com Digital Impulse - French Skies
+http://izipizi1.info:80/nNChUyMyPe/AR2zVmLBvB/15299
+#EXTINF:-1,alliptvlinks.com Vive La France
+http://izipizi1.info:80/movie/nNChUyMyPe/AR2zVmLBvB/17891.mp4
+#EXTINF:-1,alliptvlinks.com Made In France
+http://izipizi1.info:80/movie/nNChUyMyPe/AR2zVmLBvB/18404.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/ny4T3mkJ8o/qm0kezGZC7/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/ny4T3mkJ8o/qm0kezGZC7/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FR: 6Ter HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65332
+#EXTINF:-1,alliptvlinks.com FR: Arte HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65333
+#EXTINF:-1,alliptvlinks.com FR: BFM TV HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65334
+#EXTINF:-1,alliptvlinks.com FR: C8 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65335
+#EXTINF:-1,alliptvlinks.com FR: Cherie 25 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65336
+#EXTINF:-1,alliptvlinks.com FR: CNews HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65337
+#EXTINF:-1,alliptvlinks.com FR: CSTAR HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65338
+#EXTINF:-1,alliptvlinks.com FR: France O HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65344
+#EXTINF:-1,alliptvlinks.com FR: France 2 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65339
+#EXTINF:-1,alliptvlinks.com FR: France 3 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65340
+#EXTINF:-1,alliptvlinks.com FR: France 4 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65341
+#EXTINF:-1,alliptvlinks.com FR: France 5 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65342
+#EXTINF:-1,alliptvlinks.com FR: France Info
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65343
+#EXTINF:-1,alliptvlinks.com FR: Gulli
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65345
+#EXTINF:-1,alliptvlinks.com FR: L'Equipe 21 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65346
+#EXTINF:-1,alliptvlinks.com FR: LCP HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65347
+#EXTINF:-1,alliptvlinks.com FR: M6 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65348
+#EXTINF:-1,alliptvlinks.com FR: NRJR12 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65349
+#EXTINF:-1,alliptvlinks.com FR: RMC Decouverte HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65350
+#EXTINF:-1,alliptvlinks.com FR: RMC Story HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65351
+#EXTINF:-1,alliptvlinks.com FR: RTL9 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65352
+#EXTINF:-1,alliptvlinks.com FR: TF 1 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65353
+#EXTINF:-1,alliptvlinks.com FR: TF1 Series Films HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65354
+#EXTINF:-1,alliptvlinks.com FR: TFX HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65355
+#EXTINF:-1,alliptvlinks.com FR: TMC HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65356
+#EXTINF:-1,alliptvlinks.com FR: W9 HD
+http://94.232.252.60:29500/plKnchFZgq/5UdNzpFvM8/65357
+#EXTINF:-1,alliptvlinks.com Taxxi 4 Ita Fr
+http://94.232.252.60:29500/movie/plKnchFZgq/5UdNzpFvM8/28923.mp4
+#EXTINF:-1,alliptvlinks.com Disorder - La Guardia Del Corpo Ita Fr
+http://94.232.252.60:29500/movie/plKnchFZgq/5UdNzpFvM8/17631.mp4
+#EXTINF:-1,alliptvlinks.com La Vita Di Adele Ita Fr
+http://94.232.252.60:29500/movie/plKnchFZgq/5UdNzpFvM8/26283.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://thelogintarget.irish:8080/r07JA18hZx/raWkr1FYoD/84075
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com A Conexão Francesa (Legendado)
+http://list.deeplist.nl:80/movie/rangel/rangel123/65512.mp4
+#EXTINF:-1,alliptvlinks.com Relacionamento à Francesa 2
+http://list.deeplist.nl:80/movie/rangel/rangel123/17312.mp4
+#EXTINF:-1,alliptvlinks.com Liam Payne - French Montana: First Time
+http://list.deeplist.nl:80/movie/rangel/rangel123/49976.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com A Conexão Francesa (2014)
+http://lista.powerchannels.club:80/movie/rebeca/123456/18.mp4
+#EXTINF:-1,alliptvlinks.com FR: Netflix Movies
+http://lista.powerchannels.club:80/rebeca/123456/20319
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 1 HD
+http://lista.powerchannels.club:80/rebeca/123456/20311
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 2 HD
+http://lista.powerchannels.club:80/rebeca/123456/20312
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 3 HD
+http://lista.powerchannels.club:80/rebeca/123456/20313
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 4 HD
+http://lista.powerchannels.club:80/rebeca/123456/20314
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 5 HD
+http://lista.powerchannels.club:80/rebeca/123456/20315
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 6 HD
+http://lista.powerchannels.club:80/rebeca/123456/20316
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 7 HD
+http://lista.powerchannels.club:80/rebeca/123456/20317
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX FILM 8 HD
+http://lista.powerchannels.club:80/rebeca/123456/20318
+#EXTINF:-1,alliptvlinks.com FR: NETFLIX PLAY FHD
+http://lista.powerchannels.club:80/rebeca/123456/20320
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France 24 English UK
+http://iptv.rent:8080/rg1ho48pb/4s6bu8e3n/9532
+#EXTINF:-1,alliptvlinks.com The Curse Of Oak Island S05 The Curse of Oak Island - 05x09 - The French Connection
+http://iptv.rent:8080/series/rg1ho48pb/4s6bu8e3n/643165.mkv
+#EXTINF:-1,alliptvlinks.com The Mind of a Chef S03 The Mind of a Chef - 03x12 - France
+http://iptv.rent:8080/series/rg1ho48pb/4s6bu8e3n/655415.mkv
+#EXTINF:-1,alliptvlinks.com The Borgias S01 The Borgias S01E06 The French King
+http://iptv.rent:8080/series/rg1ho48pb/4s6bu8e3n/660725.mkv
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FR: AB1
+http://x.xtv.life:80/sever2020/2020sever/10029759
+#EXTINF:-1,alliptvlinks.com FR: C NEWS
+http://x.xtv.life:80/sever2020/2020sever/10029766
+#EXTINF:-1,alliptvlinks.com FR: FAMILY
+http://x.xtv.life:80/sever2020/2020sever/10029758
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 2
+http://x.xtv.life:80/sever2020/2020sever/10029761
+#EXTINF:-1,alliptvlinks.com FR: FRANCE 4
+http://x.xtv.life:80/sever2020/2020sever/10029760
+#EXTINF:-1,alliptvlinks.com FR: FRANCE O
+http://x.xtv.life:80/sever2020/2020sever/10029762
+#EXTINF:-1,alliptvlinks.com FR: M6
+http://x.xtv.life:80/sever2020/2020sever/10029757
+#EXTINF:-1,alliptvlinks.com FR: TF1
+http://x.xtv.life:80/sever2020/2020sever/10029763
+#EXTINF:-1,alliptvlinks.com FR: TV 5
+http://x.xtv.life:80/sever2020/2020sever/10029764
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/superman/12345/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/superman/12345/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/superman/12345/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/superman/12345/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/superman/12345/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/superman/12345/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/superman/12345/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/superman/12345/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/superman/12345/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/superman/12345/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/superman/12345/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/superman/12345/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/superman/12345/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/superman/12345/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/superman/12345/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/superman/12345/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/superman/12345/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/superman/12345/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/superman/12345/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/superman/12345/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/superman/12345/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/superman/12345/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/superman/12345/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/superman/12345/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/superman/12345/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/superman/12345/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/superman/12345/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/superman/12345/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/superman/12345/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/superman/12345/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/superman/12345/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/superman/12345/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/superman/12345/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/superman/12345/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/superman/12345/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/superman/12345/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/superman/12345/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/superman/12345/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/superman/12345/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/superman/12345/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/superman/12345/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/superman/12345/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/superman/12345/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/superman/12345/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/superman/12345/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/superman/12345/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/superman/12345/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/superman/12345/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/superman/12345/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/superman/12345/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/superman/12345/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/superman/12345/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/superman/12345/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/superman/12345/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/superman/12345/93584.m3u8
+#EXTM3U
+#EXTINF:-1 tvg-id="France 24 French ARB"tvg-name="France 24 Eng"tvg-logo=""group-title="News",alliptvlinks.com France 24 Eng
+http://277.ath.cx:80/toto/toto/3164
+#EXTINF:-1 tvg-id=""tvg-name="[LB] France Lebanon"tvg-logo=""group-title="Lebanon",alliptvlinks.com [LB] France Lebanon
+http://277.ath.cx:80/toto/toto/11369
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com FRANCE 24
+http://ok2.se:8000/tracy/12345/4796
+#EXTINF:-1,alliptvlinks.com D (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/9633
+#EXTINF:-1,alliptvlinks.com V (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/9634
+#EXTINF:-1,alliptvlinks.com VIE (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/59086
+#EXTINF:-1,alliptvlinks.com CASA HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46738
+#EXTINF:-1,alliptvlinks.com CINEPOP HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46739
+#EXTINF:-1,alliptvlinks.com EVASION HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46740
+#EXTINF:-1,alliptvlinks.com EXPLORA HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46741
+#EXTINF:-1,alliptvlinks.com METEOMEDIA HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46742
+#EXTINF:-1,alliptvlinks.com MOI & CIE (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/60034
+#EXTINF:-1,alliptvlinks.com TELETOON HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46743
+#EXTINF:-1,alliptvlinks.com TF0 HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46744
+#EXTINF:-1,alliptvlinks.com UNIS HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46745
+#EXTINF:-1,alliptvlinks.com ZTELE (FR)
+http://ok2.se:8000/tracy/12345/2411
+#EXTINF:-1,alliptvlinks.com LCN (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/9635
+#EXTINF:-1,alliptvlinks.com TVA (FR)
+http://ok2.se:8000/tracy/12345/2395
+#EXTINF:-1,alliptvlinks.com SAVOIR (FR)
+http://ok2.se:8000/tracy/12345/15075
+#EXTINF:-1,alliptvlinks.com ICI (FR)
+http://ok2.se:8000/tracy/12345/5919
+#EXTINF:-1,alliptvlinks.com ICI MULTICULTURE (FR)
+http://ok2.se:8000/tracy/12345/15076
+#EXTINF:-1,alliptvlinks.com RDS (FR)
+http://ok2.se:8000/tracy/12345/2404
+#EXTINF:-1,alliptvlinks.com RDS 2 (FR)
+http://ok2.se:8000/tracy/12345/2405
+#EXTINF:-1,alliptvlinks.com TVA 1 (FR)
+http://ok2.se:8000/tracy/12345/2406
+#EXTINF:-1,alliptvlinks.com TVA 2 (FR)
+http://ok2.se:8000/tracy/12345/2407
+#EXTINF:-1,alliptvlinks.com RDI (FR)
+http://ok2.se:8000/tracy/12345/2396
+#EXTINF:-1,alliptvlinks.com SRC (FR)
+http://ok2.se:8000/tracy/12345/2399
+#EXTINF:-1,alliptvlinks.com CBC (FR)
+http://ok2.se:8000/tracy/12345/2402
+#EXTINF:-1,alliptvlinks.com ARTV (FR)
+http://ok2.se:8000/tracy/12345/2403
+#EXTINF:-1,alliptvlinks.com CGTN (FR)
+http://ok2.se:8000/tracy/12345/96141
+#EXTINF:-1,alliptvlinks.com ADDIK (FR)
+http://ok2.se:8000/tracy/12345/2412
+#EXTINF:-1,alliptvlinks.com SERIES (FR)
+http://ok2.se:8000/tracy/12345/2409
+#EXTINF:-1,alliptvlinks.com ELLE FICTIONS (FR)
+http://ok2.se:8000/tracy/12345/96143
+#EXTINF:-1,alliptvlinks.com MAX TV (FR)
+http://ok2.se:8000/tracy/12345/96145
+#EXTINF:-1,alliptvlinks.com NATYF HD (FR)
+http://ok2.se:8000/tracy/12345/96146
+#EXTINF:-1,alliptvlinks.com ZESTE HD (FR) - NOUVEAU
+http://ok2.se:8000/tracy/12345/46746
+#EXTINF:-1,alliptvlinks.com YOOPA (FR)
+http://ok2.se:8000/tracy/12345/2394
+#EXTINF:-1,alliptvlinks.com TV5 (FR)
+http://ok2.se:8000/tracy/12345/2417
+#EXTINF:-1,alliptvlinks.com TV5 MONDE HD (FR)
+http://ok2.se:8000/tracy/12345/2420
+#EXTINF:-1,alliptvlinks.com TELE QUEBEC (FR)
+http://ok2.se:8000/tracy/12345/2400
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 1 (FR)
+http://ok2.se:8000/tracy/12345/2414
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 2 (FR)
+http://ok2.se:8000/tracy/12345/2415
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 3 (FR)
+http://ok2.se:8000/tracy/12345/2416
+#EXTINF:-1,alliptvlinks.com SUPER ECRAN 4 (FR)
+http://ok2.se:8000/tracy/12345/25196
+#EXTINF:-1,alliptvlinks.com FRISSONTS TV (FR)
+http://ok2.se:8000/tracy/12345/96144
+#EXTINF:-1,alliptvlinks.com PRISE2 (FR)
+http://ok2.se:8000/tracy/12345/2413
+#EXTINF:-1,alliptvlinks.com MUSIQUE (FR)
+http://ok2.se:8000/tracy/12345/2401
+#EXTINF:-1,alliptvlinks.com HISTORIA (FR)
+http://ok2.se:8000/tracy/12345/2410
+#EXTINF:-1,alliptvlinks.com PPV1 (FR)
+http://ok2.se:8000/tracy/12345/96150
+#EXTINF:-1,alliptvlinks.com PPV2 (FR)
+http://ok2.se:8000/tracy/12345/96151
+#EXTINF:-1,alliptvlinks.com PPV3 (FR)
+http://ok2.se:8000/tracy/12345/96152
+#EXTINF:-1,alliptvlinks.com PPV4 (FR)
+http://ok2.se:8000/tracy/12345/96153
+#EXTINF:-1,alliptvlinks.com PPV5 (FR)
+http://ok2.se:8000/tracy/12345/96154
+#EXTINF:-1,alliptvlinks.com VRAK (FR)
+http://ok2.se:8000/tracy/12345/2408
+#EXTINF:-1,alliptvlinks.com RAMPAGE FR
+http://ok2.se:8000/movie/tracy/12345/59688.m3u8
+#EXTINF:-1,alliptvlinks.com THE JUNGLE FRENCH
+http://ok2.se:8000/movie/tracy/12345/67861.m3u8
+#EXTINF:-1,alliptvlinks.com GOLD FRENCH
+http://ok2.se:8000/movie/tracy/12345/68097.m3u8
+#EXTINF:-1,alliptvlinks.com HIGHER POWER FRENCH
+http://ok2.se:8000/movie/tracy/12345/68096.m3u8
+#EXTINF:-1,alliptvlinks.com JUMANJI WELCOME TO THE JUNGLE FRENCH
+http://ok2.se:8000/movie/tracy/12345/68095.m3u8
+#EXTINF:-1,alliptvlinks.com LES TUCHE 3 FRENCH
+http://ok2.se:8000/movie/tracy/12345/68093.m3u8
+#EXTINF:-1,alliptvlinks.com MARK FELT THE MAN WHO BROUGHT DOWN THE WHITE HOUSE FRENCH
+http://ok2.se:8000/movie/tracy/12345/68092.m3u8
+#EXTINF:-1,alliptvlinks.com RENEGADES FRENCH
+http://ok2.se:8000/movie/tracy/12345/68091.m3u8
+#EXTINF:-1,alliptvlinks.com FREE SOLO FRENCH
+http://ok2.se:8000/movie/tracy/12345/71049.m3u8
+#EXTINF:-1,alliptvlinks.com BATMAN BAD BLOOD (FR)
+http://ok2.se:8000/movie/tracy/12345/75263.m3u8
+#EXTINF:-1,alliptvlinks.com 4 Days In France
+http://ok2.se:8000/movie/tracy/12345/82453.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 1
+http://ok2.se:8000/movie/tracy/12345/93580.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 2
+http://ok2.se:8000/movie/tracy/12345/93581.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 3
+http://ok2.se:8000/movie/tracy/12345/93582.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 4
+http://ok2.se:8000/movie/tracy/12345/93583.m3u8
+#EXTINF:-1,alliptvlinks.com Dp A French Affair 5
+http://ok2.se:8000/movie/tracy/12345/93584.m3u8
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com - FRANCE -
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/922
+#EXTINF:-1,alliptvlinks.com FR:FRANCE O HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/409
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 2 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/410
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 3 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/411
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 4 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/412
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 5 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/413
+#EXTINF:-1,alliptvlinks.com FR:TF1 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/407
+#EXTINF:-1,alliptvlinks.com FR:TF1 SERIES FILM HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/10901
+#EXTINF:-1,alliptvlinks.com FR:TFX HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/10900
+#EXTINF:-1,alliptvlinks.com FR:RTL 9 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/420
+#EXTINF:-1,alliptvlinks.com FR:M 6 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/408
+#EXTINF:-1,alliptvlinks.com FR:TEVA HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3660
+#EXTINF:-1,alliptvlinks.com FR:SYFY HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/416
+#EXTINF:-1,alliptvlinks.com FR:W 9 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/421
+#EXTINF:-1,alliptvlinks.com FR:TMC HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3082
+#EXTINF:-1,alliptvlinks.com FR: M6 MUSIC HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/426
+#EXTINF:-1,alliptvlinks.com FR:PIWI+
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3080
+#EXTINF:-1,alliptvlinks.com FR:MCM TOP HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/10902
+#EXTINF:-1,alliptvlinks.com FR:FOOT+ HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3073
+#EXTINF:-1,alliptvlinks.com FR:PLANETE+HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3079
+#EXTINF:-1,alliptvlinks.com FR:PLANETE CI HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7361
+#EXTINF:-1,alliptvlinks.com FR:Nt1 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/682
+#EXTINF:-1,alliptvlinks.com FR:ACTION HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/406
+#EXTINF:-1,alliptvlinks.com FR:ARTE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/422
+#EXTINF:-1,alliptvlinks.com FR:C NEWS HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/5341
+#EXTINF:-1,alliptvlinks.com FR:C STAR HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/5340
+#EXTINF:-1,alliptvlinks.com FR:BFM PARIS
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/423
+#EXTINF:-1,alliptvlinks.com FR:6 TER HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3924
+#EXTINF:-1,alliptvlinks.com FR:C 8 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3921
+#EXTINF:-1,alliptvlinks.com FR:D 5 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7231
+#EXTINF:-1,alliptvlinks.com FR:MY COMEDY HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7368
+#EXTINF:-1,alliptvlinks.com FR:PARAMOUNT HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7369
+#EXTINF:-1,alliptvlinks.com FR:PARIS PREMIERE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/418
+#EXTINF:-1,alliptvlinks.com FR:SERIES CLUB HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/415
+#EXTINF:-1,alliptvlinks.com FR: TV 5 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/1171
+#EXTINF:-1,alliptvlinks.com FR:TV 5 MONDAY
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/5981
+#EXTINF:-1,alliptvlinks.com FR:FRANCE 24 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7519
+#EXTINF:-1,alliptvlinks.com FR::RMC STORY HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/513
+#EXTINF:-1,alliptvlinks.com FR:AB 1 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3656
+#EXTINF:-1,alliptvlinks.com FR:GULLI HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3657
+#EXTINF:-1,alliptvlinks.com FR:L EQUIPE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7494
+#EXTINF:-1,alliptvlinks.com FR:BOING HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7495
+#EXTINF:-1,alliptvlinks.com FR:13 EME RUE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3923
+#EXTINF:-1,alliptvlinks.com FR:TV5 INFO
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11438
+#EXTINF:-1,alliptvlinks.com FR:TV5 STILE
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11439
+#EXTINF:-1,alliptvlinks.com FR:NRJ 12 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3925
+#EXTINF:-1,alliptvlinks.com FR:E! ENTERTAINMENT HD HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3926
+#EXTINF:-1,alliptvlinks.com FR:RTS DEUX HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3920
+#EXTINF:-1,alliptvlinks.com FR:RTS UN HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3919
+#EXTINF:-1,alliptvlinks.com FR:GAME ONE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3659
+#EXTINF:-1,alliptvlinks.com FR:GONG HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7490
+#EXTINF:-1,alliptvlinks.com FR:GONG MAX HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7491
+#EXTINF:-1,alliptvlinks.com FR:BOOMBERANG HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7362
+#EXTINF:-1,alliptvlinks.com FR:DISNEY XD HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3072
+#EXTINF:-1,alliptvlinks.com FR:DISNEY CINEMA HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3070
+#EXTINF:-1,alliptvlinks.com FR:DISNEY JUNIOR HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3071
+#EXTINF:-1,alliptvlinks.com FR:MANGAS HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3069
+#EXTINF:-1,alliptvlinks.com FR:NICKOLODEON
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3076
+#EXTINF:-1,alliptvlinks.com FR:CARTOON NETWORK HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3077
+#EXTINF:-1,alliptvlinks.com FR:TELETOON +
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3081
+#EXTINF:-1,alliptvlinks.com FR:DISCOVERY HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/685
+#EXTINF:-1,alliptvlinks.com FR:DISCOVERY SCIENCE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7354
+#EXTINF:-1,alliptvlinks.com FR:DISCOVERY ID HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7355
+#EXTINF:-1,alliptvlinks.com FR:NAT GEO HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7367
+#EXTINF:-1,alliptvlinks.com FR:NAT GEO WILD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/428
+#EXTINF:-1,alliptvlinks.com FR:HISTOIRE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/430
+#EXTINF:-1,alliptvlinks.com FR:SCIENCE&VIE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/427
+#EXTINF:-1,alliptvlinks.com FR:ANIMAUX HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/429
+#EXTINF:-1,alliptvlinks.com FR:CHERIE 25 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/419
+#EXTINF:-1,alliptvlinks.com FR:LCI HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/7378
+#EXTINF:-1,alliptvlinks.com FR:J-ONE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/5963
+#EXTINF:-1,alliptvlinks.com FR:LA CHAINE
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/5964
+#EXTINF:-1,alliptvlinks.com FR:MTV FRANCE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/5965
+#EXTINF:-1,alliptvlinks.com FR:RMC Decouverte HD+
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/5971
+#EXTINF:-1,alliptvlinks.com FR:Grand Littoral
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/16403
+#EXTINF:-1,alliptvlinks.com FR:TV3V
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/16404
+#EXTINF:-1,alliptvlinks.com FR:TEBEO TV
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/16405
+#EXTINF:-1,alliptvlinks.com FR:HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11705
+#EXTINF:-1,alliptvlinks.com FR: CINEMA HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11706
+#EXTINF:-1,alliptvlinks.com FR: FAMILY HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11707
+#EXTINF:-1,alliptvlinks.com FR: SERIES HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11709
+#EXTINF:-1,alliptvlinks.com FR:CINE+ PREMIERE HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11710
+#EXTINF:-1,alliptvlinks.com FR:CINE+ FRISSON HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11711
+#EXTINF:-1,alliptvlinks.com FR:CINE+ FAMIZ HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11712
+#EXTINF:-1,alliptvlinks.com FR:CINE+ EMOTION
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11713
+#EXTINF:-1,alliptvlinks.com FR:CINE+ POLAR HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/11714
+#EXTINF:-1,alliptvlinks.com FR:PLAY MULTIVISION 1 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3146
+#EXTINF:-1,alliptvlinks.com FR:PLAY MULTIVISION 2 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3147
+#EXTINF:-1,alliptvlinks.com FR:A-PLAY MULTIVISION 3 HD
+http://matrixtop.com:8080/tt36mxkbBe/mPHH3sVETl/3148
+#EXTINF:-1,alliptvlinks.com Saint Frances
+http://matrixtop.com:8080/movie/tt36mxkbBe/mPHH3sVETl/18450.mp4
+#EXTM3U
+#EXTINF:-1,alliptvlinks.com France 24 English UK
+http://iptv.rent:8080/xepca3eh7q/s7ho1o2nr6/9532
+#EXTINF:-1,alliptvlinks.com EN | FIFA | Denmark Vs France
+http://iptv.rent:8080/movie/xepca3eh7q/s7ho1o2nr6/38805.mp4
+#EXTINF:-1,alliptvlinks.com EN | FIFA | France Vs Argentina
+http://iptv.rent:8080/movie/xepca3eh7q/s7ho1o2nr6/39519.mp4
+#EXTINF:-1,alliptvlinks.com EN | FIFA | France Vs Australia
+http://iptv.rent:8080/movie/xepca3eh7q/s7ho1o2nr6/38779.mp4
+#EXTINF:-1,alliptvlinks.com EN | FIFA | France Vs Peru
+http://iptv.rent:8080/movie/xepca3eh7q/s7ho1o2nr6/38791.mp4
+#EXTINF:-1,alliptvlinks.com The Curse Of Oak Island S05 The Curse of Oak Island - 05x09 - The French Connection
+http://iptv.rent:8080/series/xepca3eh7q/s7ho1o2nr6/643165.mkv
+#EXTINF:-1,alliptvlinks.com The Mind of a Chef S03 The Mind of a Chef - 03x12 - France
+http://iptv.rent:8080/series/xepca3eh7q/s7ho1o2nr6/655415.mkv
+#EXTINF:-1,alliptvlinks.com The Borgias S01 The Borgias S01E06 The French King
+http://iptv.rent:8080/series/xepca3eh7q/s7ho1o2nr6/660725.mkv
