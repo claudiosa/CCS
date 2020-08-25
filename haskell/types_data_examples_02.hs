@@ -4,9 +4,12 @@ module Types_Studies where
 --  Type_Doctor : type constructor called ...
 --  Value_Surgery and  Value_Medical: value constructor
 
+type Name = String
+--name :: Name
+
 data Type_Doctor = Value_Surgery 
     {speciality :: String, 
-     name :: String, 
+     name :: Name, 
      age :: Int,
      sallary :: Float,
      only_Hospital :: Bool
@@ -14,11 +17,19 @@ data Type_Doctor = Value_Surgery
      |
      Value_Medical 
     {speciality :: String, 
-     name :: String, 
+     name :: Name, 
      age :: Int
      }
      deriving (Show)
 
+
+main :: IO ()
+main  =
+   do
+      putStrLn "Begin ========="
+ 
+      putStrLn "End ==========="
+ 
 
 prof_01 :: Type_Doctor
 prof_01 =  Value_Surgery "Torax" "Bryan" 67 78.90 True
