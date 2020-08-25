@@ -4,6 +4,7 @@ module Types_Studies where
 -- data Bool = False | True  > from Prelude.hs
 
 type My_ZERO_or_ONE = Int
+
 data My_Const_Bool = Val_BOOL My_ZERO_or_ONE
     deriving (Show) 
 
@@ -12,6 +13,7 @@ my_true = Val_BOOL 1
 
 my_false :: My_Const_Bool
 my_false = Val_BOOL 0
+
 {-
 *Main> :t my_true
 my_true :: My_Const_Bool
