@@ -3,10 +3,11 @@ module Types_Studies where
 -- Algebraic data types
 -- data Bool = False | True  > from Prelude.hs
 
+-- other example
 type My_ZERO_or_ONE = Int
 
 data My_Const_Bool = Val_BOOL My_ZERO_or_ONE
-    deriving (Show) 
+    deriving (Show, Eq) 
 
 my_true :: My_Const_Bool
 my_true = Val_BOOL 1
@@ -14,11 +15,22 @@ my_true = Val_BOOL 1
 my_false :: My_Const_Bool
 my_false = Val_BOOL 0
 
+
+-- other example
+data New_Bool = True_N | False_N | Middle_N
+the_generic :: New_Bool -> [Char]
+the_generic False_N  = "Goes to ZERO"
+the_generic Middle_N = "Goes to MIDDLE"
+the_generic True_N   = "Goes to ONE"
+
+--the_false False_N = "goes to ZERO"
+--the_true True_N = "goes to ONE"
+
 {-
 *Main> :t my_true
 my_true :: My_Const_Bool
 -}
-
+-- other example
 data Type_Const_Car = Car 
     {company :: String, 
      model :: String, 
@@ -49,5 +61,7 @@ vector_of_car = [car_01, car_02]                               --
 -- Similar of enumerate in C
 data New_Const_Constants = Zero | One | Two -- starting with Capital letters
     deriving (Eq, Show)
+
+
 
 {-- ********************************************************** --}

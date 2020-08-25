@@ -9,6 +9,8 @@ main  =
    do
       putStrLn "Begin ========="
       print (corBasica Verde)
+      print   (combina_Cor  Azul_N      Amarelo_N)
+      -- print   (combina_Cor  _     _ )
       putStrLn "End ==========="
  
 data Cor = Verde | Azul | Amarelo
@@ -18,12 +20,12 @@ corBasica :: Cor -> Bool
 corBasica c = (c == Verde) || (c == Azul) || (c == Amarelo)
 
 data Nova_Cor =   Azul_N | Verde_N | Amarelo_N | Vermelho |  Rosa | Roxo  
-	deriving (Eq,Show)
+           deriving (Eq, Show)
 
 combina_Cor :: Nova_Cor -> Nova_Cor -> Nova_Cor
 combina_Cor  Vermelho    Azul_N    = Roxo
 combina_Cor  Azul_N      Amarelo_N   = Verde_N
 combina_Cor  Amarelo_N   Roxo    = Rosa
-combina_Cor  _        _       =  error  "NO COMBINATION ALLOWED"
+combina_Cor   _    _       =  error  "NO COMBINATION ALLOWED"
 
 {-- ################################# --}
