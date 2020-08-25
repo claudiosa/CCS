@@ -1,3 +1,20 @@
+/*
+?- ['tail_recursive_examples.pl'].
+true.
+
+?- tail_fat(4, F).
+
+ The fatorial of: 4  is: 24
+F = 24.
+
+?- tail_s(4, S).
+
+ The sum from 0 up to: 4  is: 10
+S = 10.
+
+?- 
+
+*/
 tail_s(N, S) :- s(N,0, S),
 format('\n The sum from 0 up to: ~w  is: ~w', 
     [N, S]).
@@ -22,4 +39,6 @@ fat(N, Temp, S) :-
 	ACC is (N * Temp),
 	N_new is (N-1),
 	fat(N_new, ACC, S).
-	    
+
+
+
