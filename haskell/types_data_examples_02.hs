@@ -4,8 +4,16 @@ module Types_Studies where
 --  Type_Doctor : type constructor called ...
 --  Value_Surgery and  Value_Medical: value constructor
 
-type Name = String
---name :: Name
+
+main :: IO ()
+main  =
+   do
+      putStrLn "Begin ========="
+      print_all
+      putStrLn "End ==========="
+ 
+
+type Name = String -- synonimous
 
 data Type_Doctor = Value_Surgery 
     {speciality :: String, 
@@ -23,14 +31,6 @@ data Type_Doctor = Value_Surgery
      deriving (Show)
 
 
-main :: IO ()
-main  =
-   do
-      putStrLn "Begin ========="
- 
-      putStrLn "End ==========="
- 
-
 prof_01 :: Type_Doctor
 prof_01 =  Value_Surgery "Torax" "Bryan" 67 78.90 True
 
@@ -46,6 +46,10 @@ get_Medical (Value_Surgery speciality name age sallary only_hospital) = show_Bas
 show_Basic_Data speciality name age = "Name: "++show (name)++ " Speciality: " ++ show (speciality) ++" Age: " ++ show(age)
 -- to be improved HERE
 
+all_doctors :: [Type_Doctor]
 all_doctors = [prof_01, prof_02]
+
+print_all :: IO ()
 print_all  = print all_doctors
-{-- ********************************************************** --}
+
+{-- ****************************t****************************** --}
