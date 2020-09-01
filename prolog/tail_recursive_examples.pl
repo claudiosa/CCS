@@ -40,5 +40,32 @@ fat(N, Temp, S) :-
 	N_new is (N-1),
 	fat(N_new, ACC, S).
 
+/********* MARCELO RODRIGUES - UFU - BR ************/
+fib(0, 0) :- !.
+fib(1, 1) :- !.
+fib(N,F) :-
+	N>1,
+	fib2(N,0,1,F).
+ 
+
+% fib2(0,A,_,A):-!.
+% fib2(1,A,_,A):-!.
+fib2(2,A,B,C):- C is (A+B),!.
+fib2(N,A,B,F) :-
+	 NA is A+B,
+	 NN is N-1,
+	 fib2(NN,NA,A,F).
 
 
+/*********** LIVRO .... *****************/
+fib_book( N, F):- fibonacci( N , _ ,  F).
+fibonacci(0,_ ,0 ):-!.
+fibonacci(1,_ ,1) :-!.
+fibonacci(2, 1 , 1) :-!.
+fibonacci( N, F1, F) :-
+	 N > 2, 
+	 N1 is (N-1),
+	 fibonacci( N1, F2, F1),
+	 F is F1+ F2, !.
+
+/* it is not tail recursive */
