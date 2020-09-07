@@ -1,0 +1,10 @@
+
+flat_list = []
+for sublist in l:
+    for item in sublist:
+        flat_list.append(item)
+
+
+        
+
+        
