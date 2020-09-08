@@ -1,0 +1,42 @@
+https://catch-up-tv-and-more.github.io/live_tv_installation/
+
+The first thing to do is to give IPTV Simple Client the m3u file to use, which is the list of channels you want to appear in Kodi TV.
+
+In the “General” tab choose “Local path” for the location (1).
+
+Finally, select “M3U Play List Path” to open the Kodi File Explorer (2).
+
+
+
+The m3u files of each country are in the m3u folder present in the add-on folder (plugin.video.catchuptvandmore). This folder m3u is hidden by default in Kodi. You need to activate the option Show hidden files and directories present “System > Media” to have access to these m3u files.
+
+The Kodi addons folder depends on your platform:
+
+Windows: C:\Users\[user]\AppData\Roaming\Kodi\addons
+Linux: /home/[user]/.kodi/addons
+macOS: /Users/[user]/Library/Application Support/Kodi/addons
+Android: /sdcard/Android/data/org.xbmc.kodi/files/.kodi/addons
+LibreELEC: /storage/.kodi/addons
+Shield Android TV: /internal/Android/data/org.xbmc.kodi/files/.kodi/addons
+Amazon Fire: /External storage/Android/Data/org.xbmc.kodi/files/.kodi/addon
+For others, you can find your “special://home” here.
+
+Finally, go in the m3u folder by following this path:
+
+plugin.video.catchuptvandmore/resources/m3u
+Now you can choose the m3u file of you favourite country.
+
+
+
+
+Finally copy and paste your country guide (again, the tv_guide_all guide contains all TV guides of all available countries)
+
+France: http://bit.ly/tvguidefr
+Belgium: http://bit.ly/tvguidebe
+Italy: http://bit.ly/tvguideit
+United Kingdom: http://bit.ly/tvguideunitedkingdom
+All available countries: http://bit.ly/tvguideall
+Programs may not be available for all channels
+If the timezone of the XMLTV file is different from yours, you can adjust it using the “EPG Time Shift” setting
+Finally, confirm the settings.
+
