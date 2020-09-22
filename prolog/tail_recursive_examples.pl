@@ -38,12 +38,27 @@ fat(N, Temp, S) :-
 	N_new is (N-1),
 	fat(N_new, ACC, S).
 
-/**** ORIGINAL IDEA: MARCELO RODRIGUES - BR ************/
-/* FIXED IT ... by CCS */
+/**** ORIGINAL IDEA: MARCELO RODRIGUES - BR ***********
+fib(0, 0) :- !.
+fib(1, 1) :- !.
+fib(N,F) :-
+	N>1,
+	fib2(N,0,1,F).
 
-/* just to avoid misunderstandis in fib_up */
-%fib(0, 0) :- !.
-%fib(1, 1) :- !.
+fib2(2,A,B,C):- C is (A+B),!.
+fib2(N,A,B,F) :-
+	 NA is A+B,
+	 NN is N-1,
+	 fib2(NN,NA,A,F).
+
+I did not test it ... exaustively -- none warranty
+*/
+
+
+/* Based in that idea ... by CCS */
+/* Just to avoid misunderstandis in fib_up */
+% fib(0, 0) :- !.
+% fib(1, 1) :- !.
 fib(N,F) :-
 	%N>1,
 	%fib_up(2,N,1,0,F).
@@ -53,13 +68,13 @@ fib(N,F) :-
 
 fib_up(_,0,_,_,0):- !.  
 fib_up(_,1,_,_,1):- !.  
-fib_up(N,N,A,B,C):-  C is (A+B),!.
-fib_up(Cont, N, Ac1, Ac2, F) :-
-	 ACC is Ac1+Ac2, %%% TEMP
-	 New_Ac1 is ACC,
-	 New_Ac2 is Ac1,
+fib_up(N,N,A,B,C):-  C is (A+B), !.
+fib_up(Cont, N, Acc1, Acc2, F) :-
+	 ACC is (Acc1+Acc2), %%% TEMP
+	 New_Acc1 is ACC,   %%% could be ommitted ==> just to become clear
+ 	 New_Acc2 is Acc1,   %%% could be ommitted ==> just to become clear
 	 New_Cont is (Cont+1),
-	 fib_up(New_Cont, N,  New_Ac1, New_Ac2, F).
+	 fib_up(New_Cont, N,  New_Acc1, New_Acc2, F).
 /* tail recursive -- Truely*/
 
 /*********** from a book .... *****************/
@@ -74,10 +89,10 @@ fibonacci( N, F1, F) :-
 	 F is F1 + F2, !.
 
 /* it is not tail recursive --- ALMOST tail recursive*/
-
+%%% Example ?- do_serie(10).
 do_serie(X) :- serie(0,X).
 serie(N,N) :-
-	fib(N, Fib) ,
+	fib(N, Fib) , %%% change HERE ... for other fibs
 	format("\n N:~w\t FIB: ~w",[N,Fib]),
 	format("\n End of Serie ...."), ! .
 
