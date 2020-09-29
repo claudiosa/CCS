@@ -2,7 +2,7 @@
 
 module MY_LISTS where
 
-{-  To be improved -}
+{-  types: MAYBE to be improved -}
 n_esimo :: Int -> [p] -> p
 n_esimo  _ [] = error "EMPTY LIST" 
 n_esimo n l | (n <= 0 || n > length l) = error "Negative number or invalid index"
@@ -11,7 +11,8 @@ n_esimo n (a:b) = n_esimo (n-1) b
 {-
 
 -}
-{-  To be improved -}
+{-  types: MAYBE to be improved -}
+{- Return the index of FIRST ocurrence of x in a List -}
 back_index_of_value :: (Eq t, Num p) => t -> [t] -> p
 back_index_of_value  _ [] = error "X is not in this list"
 back_index_of_value  x (a:_) | x == a  = 1
