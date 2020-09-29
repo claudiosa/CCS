@@ -3,34 +3,21 @@
 module MY_LISTS where
 
 {-  To be improved -}
+n_esimo :: Int -> [p] -> p
 n_esimo  _ [] = error "EMPTY LIST" 
-n_esimo n _ | n <= 0 = error "Negative number or invalid index"
+n_esimo n l | (n <= 0 || n > length l) = error "Negative number or invalid index"
 n_esimo 1 (a:_) = a
 n_esimo n (a:b) = n_esimo (n-1) b
 {-
-*Main> n_esimo 3 ["a","b","c","d"]
-"c"
-*Main> n_esimo (-3) ["a","b","c","d"]
-"*** Exception: negative number or invalid index
-CallStack (from HasCallStack):
-  error, called at some_f_lists.hs:2:24 in main:Main
-*Main> n_esimo 0 ["a","b","c","d"]
-"*** Exception: negative number or invalid index
-CallStack (from HasCallStack):
-  error, called at some_f_lists.hs:2:24 in main:Main
-*Main> n_esimo 0 []
-*** Exception: EMPTY LIST
-CallStack (from HasCallStack):
-  error, called at some_f_lists.hs:1:17 in main:Main
-*Main> 
 
 -}
 {-  To be improved -}
+back_index_of_value :: (Eq t, Num p) => t -> [t] -> p
 back_index_of_value  _ [] = error "X is not in this list"
-back_index_of_value  x (a:_) | x ==a  = 1
+back_index_of_value  x (a:_) | x == a  = 1
 back_index_of_value  x (a:b) | not(x == a) = 1 + back_index_of_value x b
-back_index_of_value _ _   = error "Please check your code"
-
+-- back_index_of_value _ _   = error "Please check your code"
+-- not(x == a) <=> x /= a
 
 {- prime number -}
 eh_primo :: Int -> Bool
