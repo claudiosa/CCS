@@ -19,7 +19,7 @@ Fazendo Download de diretórios em particular (Para os alunos)
 
 --- 
 
-## Repetindo ...  
+## Repetindo ....  
 
 <dl>
 <ol>
@@ -34,7 +34,7 @@ Fazendo Download de diretórios em particular (Para os alunos)
 
 ---  
 
-### Criando PULL REQUESTS (Para os alunos)
+## Criando PULL REQUESTS (Para os alunos)
 
 1. Crie uma conta no [github](https://github.com/)
 
@@ -68,7 +68,7 @@ Fazendo Download de diretórios em particular (Para os alunos)
     
     Isto significa que o arquivo README.md foi modificado.
 
-6. Utilize
+6. ## Utilize
     ```
     git add README.md
     ```
@@ -77,7 +77,7 @@ Fazendo Download de diretórios em particular (Para os alunos)
     git commit -m 'Mensagem aqui explicando o que voce modificou'
     ```
 
-7. Agora basta enviar as modificações para o _seu_ github:
+7. ## Agora basta enviar as modificações para o _seu_ github:
     ```
     git push
     ```
