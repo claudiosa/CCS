@@ -1,14 +1,14 @@
 {- ONLY 1 WINNER ... PLAYER ONE = 1 -}
 
-data Object = Rock | Paper | Scisor
+data Object = Rock | Paper | Scissor
               deriving (Show, Enum, Eq, Ord)
 
 win_of :: Object -> Object -> Bool
 -- ONLY PLAYS winner for player 1
-win_of Rock Scisor = True -- Example: player 1 Rock, player 2 Scisor
+win_of Rock Scissor = True -- Example: player 1 Rock, player 2 Scissor
 win_of Paper Rock  = True
 -- win_of Rock  Paper = True
-win_of Scisor Paper = True
+win_of Scissor Paper = True
 win_of player_1 player_2  
         | player_1 == player_2  = False
         | otherwise = False
@@ -56,7 +56,7 @@ filter_True ((a,b): sub_LIST) =
 
 {-  sample of  matches -}
 sample_01, sample_02, sample_03 :: [(Object, Object)]
-sample_01 = [(Rock,Paper),(Rock, Scisor),(Rock ,  Rock )]
-sample_02 = [(Rock,Paper ),( Rock , Scisor ),( Rock , Rock ),( Scisor ,Paper)]
-sample_03 = [(Rock,Paper),(Rock , Scisor ),( Rock ,Rock ),(Scisor ,Paper),(Paper ,Rock)]
+sample_01 = [(Rock,Paper),(Rock, Scissor),(Rock ,  Rock )]
+sample_02 = [(Rock,Paper ),( Rock , Scissor ),( Rock , Rock ),( Scissor ,Paper)]
+sample_03 = [(Rock,Paper),(Rock , Scissor ),( Rock ,Rock ),(Scissor ,Paper),(Paper ,Rock)]
 
