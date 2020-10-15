@@ -51,7 +51,7 @@ member x (q:ws)
 go :: IO ()
 go = do{
 
-      putStr "\tDepth First Search or DFS for a Graph"; 
+      putStr "\tDepth First Search or DFS for a Graph\t"; 
 --    putStr "\n";
 --    putStr "\n"; 
 --    MAP OPEN_NODES CLOSED_NODES     
@@ -61,15 +61,17 @@ go = do{
 
 start_node :: Int
 start_node = 1
-end_node :: Int
-end_node = 2
+final_node :: Int
+final_node = 3
 -- connectivity map
-the_map = [(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)]
-
+the_map :: [(Int, Int)]
+--the_map = [(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)]
+the_map = [(1,2),(1,3),(2,3)]
 
 -- check if x is  final node
+check_final :: Int -> Bool 
 check_final x 
-   | x == end_node = True
+   | x == final_node = True
    | otherwise = False
 
 -- If any  more nodes  to be check finding the end node
@@ -78,31 +80,32 @@ dfs_search :: [Int] -> [Int] -> [Int]
 dfs_search [] _ = error "NO SOLUTION"
 -- if the next_node is final ... stop
 dfs_search (x:xs) _ 
-   | check_final (next_node x) = [next_node x] ++ (x:xs) 
-   -- final node was reached
--- busca com lopen(lista corrente de nós abertos) e lclosed(nós já verificados e não finais)
+   | (final_node == x) = (x:xs) 
+-- final node was reached
+-- (x:xs) current list or open nodes and  lclosed -- nodes already checked
 dfs_search (x:xs) l_closed
    -- if next_node is already in (x:xs) && next_node is not final && it is not in L_closed
-  | elem (next_node x) (x:xs) && not(check_final (next_node x)) && not(elem (next_node x) l_closed)  =  dfs_search (x:xs)  [next_node x] ++ l_closed
-  -- here, the next_node is cool .. new node
-  | otherwise = dfs_search (next_node x : x : xs)  l_closed
-
+  | elem new_node (x:xs) && not(elem new_node l_closed)  =  dfs_search (x:xs)  [new_node] ++ l_closed
+  -- here, the next_node is a new node
+  | otherwise = dfs_search (new_node : x : xs)  l_closed
+   where
+     --new_node = next_node x (x:xs) -- OR
+     new_node = next_node x l_closed
 {-
 -- 
   | otherwise = error " NO IDEA "
 
--- DFS_SMALL> (4:3:[3,6])
+-- > (4:3:[3,6])
 -- [4,3,3,6]
 -}
 
-next_node :: Int -> Int
-next_node x = get_next x the_map
-
+-- next_node :: Int -> Int
+next_node x a_list = get_next x the_map a_list
 --get_next :: Eq t => t -> [(t, t)] -> t
-get_next :: Int -> [(Int, Int)] -> Int
-get_next _ [] = error " x is not in the map " 
-get_next x ((a,b) : xs) 
-   | (x == a) = b
-   | (x == b) = a
-   | (x /= a) && (x /= b) = get_next x xs
+-- get_next :: Int -> [(Int, Int)] -> Int
+get_next _ [] _ = error " x is not in the map " 
+get_next x ((a,b) : xs) a_list
+   | (x == a) && not(elem b a_list) = b
+   | (x == b) && not(elem a a_list) = a
+   | (x /= a) && (x /= b) = get_next x xs a_list
    | otherwise = error "SOMETHING STRANGE IN THE MAP or x searched"                    
