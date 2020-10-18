@@ -77,20 +77,26 @@ check_final x
 -- If any  more nodes  to be check finding the end node
 
 dfs_search :: [Int] -> [Int] -> [Int]
-dfs_search [] _ = error "NO SOLUTION"
+-- dfs_search [] _ = error "NO SOLUTION"
 -- if the next_node is final ... stop
+
+-- final node was reached -- halt condition
 dfs_search (x:xs) _ 
    | (final_node == x) = (x:xs) 
--- final node was reached
+
 -- (x:xs) current list or open nodes and  lclosed -- nodes already checked
 dfs_search (x:xs) l_closed
    -- if next_node is already in (x:xs) && next_node is not final && it is not in L_closed
-  | elem new_node (x:xs) && not(elem new_node l_closed)  =  dfs_search (x:xs)  [new_node] ++ l_closed
+  | not(elem new_node (x:xs))  =  dfs_search (new_node : x:xs) l_closed
+ --   not(elem new_node l_closed) 
   -- here, the next_node is a new node
-  | otherwise = dfs_search (new_node : x : xs)  l_closed
+  -- a backtracking is HERE .. no NEWs and the node x
+  -- goes to dead end
+  | otherwise = dfs_search   xs  [x]++l_closed
    where
      --new_node = next_node x (x:xs) -- OR
      new_node = next_node x l_closed
+ --    l_NEW_closed = insert x l_closed
 {-
 -- 
   | otherwise = error " NO IDEA "
@@ -109,3 +115,26 @@ get_next x ((a,b) : xs) a_list
    | (x == b) && not(elem a a_list) = a
    | (x /= a) && (x /= b) = get_next x xs a_list
    | otherwise = error "SOMETHING STRANGE IN THE MAP or x searched"                    
+
+{- ************ AUX Functions ************** -}
+
+-- build initial list of nodes closed
+-- closed = 0 not visited yet
+-- closed = 1 visited 
+build_L_close :: [Int]
+build_L_close = [i-i | i <- [1 .. max_L_Duple the_map]]
+-- all nodes all initialized with 0 ... NOT VISITED yet
+
+
+-- inspired in CCS's book  this max
+max_L_Duple :: Ord a => [(a, a)] -> a
+-- the MOST of list with tuple-2
+max_L_Duple [] = error "Empty List of Duples"
+max_L_Duple ((a,b):[]) = max a b
+max_L_Duple ((a,b):xs) 
+   | c > (max_L_Duple xs) = c
+   | otherwise = max_L_Duple xs
+   where
+      c = max a b
+
+    
