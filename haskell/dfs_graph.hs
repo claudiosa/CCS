@@ -2,11 +2,16 @@
 
 DFS - Depth First Search or DFS for a Graph
 
-   Usage: $ ghci
-	Prelude> :load ).hs
-	*LABIRINTO> inicio
+ Usage: $ ghci
+*DFS_SEARCH> :l dfs_graph.hs  
+[1 of 1] Compiling DFS_SEARCH       ( dfs_graph.hs, interpreted )
+Ok, one module loaded.
+*DFS_SEARCH> go
+	 Depth First Search or DFS for a Graph	
+	 One path is: [1,4,7,6,8]
+*DFS_SEARCH> 
 
-An Example of graph
+An example of a Graph
 
              +-+             
     ---------|1|----------   
@@ -22,123 +27,108 @@ An Example of graph
    +-+       +-+        +-+   
    |5|-------|6|--------|7|   
    +-+       +-+        +-+
+              |
+              |
+             +-+             
+             |8|   
+             +-+         
 
-Representation:
+Representation of this Graph:
+Nodes and edges are represented by pairs ... directly
+[(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)]
 
- [(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)]
-
+Example:
 Departure node: 1
-End/Arrival node: 6
+End/Arrival node: 8
 
-PS: No weight in this version
+PS: No weight in this version -- easily extendeable
 
 -}
-module DFS_SMALL where
+module DFS_SEARCH where
 
-import System.IO
-
--- if a tuple is in the list
-member :: Int -> [Int] -> Bool
-member _ [] = False
-member x (q:ws)
-   | (x == q) = True
-   | otherwise = member x ws
-
--- for the future
--- custo_total [] = 0
--- custo_total ((x,y):ws) = (custo(x,y) + custo_total ws)
-
+--import System.IO
 go :: IO ()
 go = do{
 
-      putStr "\tDepth First Search or DFS for a Graph\t"; 
+      putStr "\t Depth First Search or DFS for a Graph\t"; 
 --    putStr "\n";
---    putStr "\n"; 
---    MAP OPEN_NODES CLOSED_NODES     
-      print (reverse ( dfs_search [start_node] [] ))
+--    MAP OPEN_NODES CLOSED_NODES
+--    l_init_closed = build_L_closed; -- look this naive predicate     
+      putStr "\n\t One path is: ";
+      print (reverse ( dfs_search [start_node] build_L_closed ))
      }
--- 
-
+-- Initial data
 start_node :: Int
 start_node = 1
 final_node :: Int
-final_node = 3
--- connectivity map
-the_map :: [(Int, Int)]
---the_map = [(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)]
-the_map = [(1,2),(1,3),(2,3)]
+final_node = 8
 
--- check if x is  final node
-check_final :: Int -> Bool 
-check_final x 
-   | x == final_node = True
-   | otherwise = False
+-- connectivity of this graph (node,node) -- bidirectional
+-- no costs here
+the_Graph :: [(Int, Int)]
+the_Graph = [(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7),(8,6)]
+-- the_Graph = [(1,2),(2,3),(2,4)]
+
 
 -- If any  more nodes  to be check finding the end node
-
-dfs_search :: [Int] -> [Int] -> [Int]
--- dfs_search [] _ = error "NO SOLUTION"
+-- The idea of this DFS is classic ...
+-- A current list, registering the nodes that are candidates for a path
+-- and a list with closed nodes (this list is boolean), to mark all the nodes
+-- without result
+dfs_search :: [Int] -> [Bool] -> [Int]
+dfs_search [] _ = error "NO SOLUTION"
 -- if the next_node is final ... stop
-
 -- final node was reached -- halt condition
-
-dfs_search (x:xs) _ 
-   | (final_node == x) = (x:xs) 
-
+dfs_search (x:xs) _  | (final_node == x) = (x:xs) 
 -- (x:xs) current list or open nodes and  lclosed -- nodes already checked
 dfs_search (x:xs) l_closed
    -- if next_node is already in (x:xs) && next_node is not final && it is not in L_closed
   | not(elem new_node (x:xs))  =  dfs_search (new_node : x:xs) l_closed
- --   not(elem new_node l_closed) 
-  -- here, the next_node is a new node
-  -- a backtracking is HERE .. no NEWs and the node x
-  -- goes to dead end
-  | otherwise = dfs_search xs (update_X_visited x l_closed)
+  -- here, the next_node is a new node to be explore
+  -- and the  backtracking is HERE .. no NEWs and the node x
+  -- goes to dead end ... and back up to the previous valid node 
+  -- BACTRACKING is happening HERE
+  | otherwise = dfs_search xs (update_L_closed x l_closed)
    where
-     --new_node = next_node x (x:xs) -- OR
-     new_node = next_node x l_closed
- --    l_NEW_closed = insert x l_closed
+      new_node = next_node x l_closed
 
---   | otherwise = error " NO IDEA "
-
+-- Attention: 
 -- > (4:3:[3,6])
 -- [4,3,3,6]
 
-update_X_visited 1 (_:xs) = (1:xs) 
-{-
-update_X_visited n (x:xs) = 
-   insert_ONE_pos_node
+-- obtain a next node valid considering the L_closed or visited nodes
+next_node :: Int -> [Bool] -> Int
+next_node x l_closed
+  -- get all the neighbour of x => bring a list of possible
+  -- new nodes to visit, but someone already visited
+  -- get_neighbour x the_Graph  -- results in a list
+   | elem False l_closed = one_node l_neighbour l_closed
+   | otherwise = error " NONE NODE IS FREE to be visited"
+     where
+        l_neighbour = get_neighbour x the_Graph 
 
--}      
-
-
-
-
-
-
--- next_node :: Int -> Int
-next_node x a_list = get_next x the_map a_list
---get_next :: Eq t => t -> [(t, t)] -> t
--- get_next :: Int -> [(Int, Int)] -> Int
-get_next _ [] _ = error " x is not in the map " 
-get_next x ((a,b) : xs) a_list
-   | (x == a) && not(elem b a_list) = b
-   | (x == b) && not(elem a a_list) = a
-   | (x /= a) && (x /= b) = get_next x xs a_list
-   | otherwise = error "SOMETHING STRANGE IN THE MAP or x searched"                    
+-- Input: a list with all neighbour of x and l_closed current ... both are lists
+-- at least one node to be visited    
+one_node :: [Int] -> [Bool] -> Int
+one_node [] _ = error "NONE NODE IS FREE to be explored"
+one_node [a] _ = a        -- ONLY ONE NODE ==> to be fix in the future
+one_node (a:xs) l_closed        
+    | already_visited a l_closed = a
+    | otherwise = one_node xs l_closed
 
 {- ************ AUX Functions ************** -}
-
--- build initial list of nodes closed
+-- building initial list of nodes closed
 -- closed = 0 not visited yet
 -- closed = 1 visited 
-build_L_close :: [Bool]
-build_L_close = [False | i <- [1 .. max_L_Duple the_map]]
+build_L_closed :: [Bool]
+build_L_closed = [False | i <- [1 .. max_L_Duple the_Graph]]
 -- all nodes all initialized with 0 ... NOT VISITED yet
 -- something like [False | x <- [1..10]]
 
-
--- inspired in CCS's book  this max
+-- inspired in CCS's book  this max ...
+-- Given the Graph, following the representation above
+-- [(e1,e2), .....(en,em)] any order or sequence
+-- obtain the number of nodes or the node with the most value
 max_L_Duple :: Ord a => [(a, a)] -> a
 -- the MOST of list with tuple-2
 max_L_Duple [] = error "Empty List of Duples"
@@ -158,11 +148,41 @@ update_L_closed  p (x:xs)
    | p > 1 && (p <= length (x:xs)) = x : update_L_closed (p-1) xs
    | otherwise = error "Size of L Closed -- problem"
 
-
-already_visted :: Int -> [Bool] -> Bool
-already_visted _ [] = error "L closed empty"
-already_visted  1 (x:_) = x
-already_visted  p (x:xs)
-   | p > 1 && (p <= length (x:xs)) = already_visted (p-1) xs
+-- check if a node p was already visited --> return T or F
+already_visited :: Int -> [Bool] -> Bool
+already_visited _ [] = error "L closed empty"
+already_visited  1 (True:_)  = True
+already_visited  1 (False:_)  = False
+already_visited  p (x:xs)
+   | p > 1 && (p <= length (x:xs)) = already_visited (p-1) xs
    | otherwise = error "Size of L Closed -- problem"
 
+-- get all neighbour of a node x in the graph
+-- look ... the map is a tuple list ... why is the reason
+--
+get_neighbour :: Eq a => a -> [(a, a)] -> [a]
+get_neighbour _ [] = [] 
+get_neighbour x ((a,b):xs) 
+    | (x == a) = b : get_neighbour x xs
+    | (x == b) = a : get_neighbour x xs
+    | otherwise = get_neighbour x xs 
+
+{---------------  NOT USED NOW ---------}    
+{---------------  DISCARD FROM HERE ---------}
+-- if a  is in the list = elem
+member :: Int -> [Int] -> Bool
+member _ [] = False
+member x (q:ws)
+   | (x == q) = True
+   | otherwise = member x ws
+
+-- for the future
+-- custo_total [] = 0
+-- custo_total ((x,y):ws) = (custo(x,y) + custo_total ws)
+
+
+-- check if x is  final node
+check_final :: Int -> Bool 
+check_final x 
+   | x == final_node = True
+   | otherwise = False
