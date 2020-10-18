@@ -81,6 +81,7 @@ dfs_search :: [Int] -> [Int] -> [Int]
 -- if the next_node is final ... stop
 
 -- final node was reached -- halt condition
+
 dfs_search (x:xs) _ 
    | (final_node == x) = (x:xs) 
 
@@ -92,18 +93,28 @@ dfs_search (x:xs) l_closed
   -- here, the next_node is a new node
   -- a backtracking is HERE .. no NEWs and the node x
   -- goes to dead end
-  | otherwise = dfs_search   xs  [x]++l_closed
+  | otherwise = dfs_search xs (update_X_visited x l_closed)
    where
      --new_node = next_node x (x:xs) -- OR
      new_node = next_node x l_closed
  --    l_NEW_closed = insert x l_closed
-{-
--- 
-  | otherwise = error " NO IDEA "
+
+--   | otherwise = error " NO IDEA "
 
 -- > (4:3:[3,6])
 -- [4,3,3,6]
--}
+
+update_X_visited 1 (_:xs) = (1:xs) 
+{-
+update_X_visited n (x:xs) = 
+   insert_ONE_pos_node
+
+-}      
+
+
+
+
+
 
 -- next_node :: Int -> Int
 next_node x a_list = get_next x the_map a_list
@@ -121,9 +132,10 @@ get_next x ((a,b) : xs) a_list
 -- build initial list of nodes closed
 -- closed = 0 not visited yet
 -- closed = 1 visited 
-build_L_close :: [Int]
-build_L_close = [i-i | i <- [1 .. max_L_Duple the_map]]
+build_L_close :: [Bool]
+build_L_close = [False | i <- [1 .. max_L_Duple the_map]]
 -- all nodes all initialized with 0 ... NOT VISITED yet
+-- something like [False | x <- [1..10]]
 
 
 -- inspired in CCS's book  this max
@@ -137,4 +149,20 @@ max_L_Duple ((a,b):xs)
    where
       c = max a b
 
-    
+-- update closed list with True in position p ....
+-- position p is the node in the graph
+update_L_closed :: Int -> [Bool] -> [Bool]
+update_L_closed _ [] = error "L closed empty"
+update_L_closed  1 (_:xs) = (True:xs)
+update_L_closed  p (x:xs)
+   | p > 1 && (p <= length (x:xs)) = x : update_L_closed (p-1) xs
+   | otherwise = error "Size of L Closed -- problem"
+
+
+already_visted :: Int -> [Bool] -> Bool
+already_visted _ [] = error "L closed empty"
+already_visted  1 (x:_) = x
+already_visted  p (x:xs)
+   | p > 1 && (p <= length (x:xs)) = already_visted (p-1) xs
+   | otherwise = error "Size of L Closed -- problem"
+
