@@ -57,11 +57,11 @@ go = do{
       putStr "\n\t One path is: ";
       print (reverse ( dfs_search [start_node] build_L_closed ))
      }
--- Initial data
+-- Initial dataup
 start_node :: Int
 start_node = 1
 final_node :: Int
-final_node = 3
+final_node = 8
 
 -- connectivity of this graph (node,node) -- bidirectional
 -- no costs here
@@ -116,7 +116,7 @@ one_node :: [Int] -> [Bool] -> Int
 one_node [] _ = error "NONE NODE IS FREE to be explored"
 one_node [a] _ = a        -- ONLY ONE NODE ==> to be fix in the future
 one_node (a:xs) l_closed        
-    | already_visited a l_closed = a
+    | (already_visited a l_closed) = a
     | otherwise = one_node xs l_closed
 
 {- ************ AUX Functions ************** -}
