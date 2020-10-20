@@ -55,7 +55,7 @@ go = do{
 --    MAP OPEN_NODES CLOSED_NODES
 --    l_init_closed = build_L_closed; -- look this naive predicate     
       putStr "\n\t One path is: ";
-      print (reverse ( dfs_search [start_node] init_L_closed ))
+      print (reverse ( dfs_search [start_node] build_L_closed ))
      }
 -- Initial dataup
 start_node :: Int
@@ -67,7 +67,7 @@ final_node = 8
 -- no costs here
 the_Graph :: [(Int, Int)]
 the_Graph = [(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7),(6,8)]
---the_Graph = [(1,2),(2,3),(2,4)]
+-- the_Graph = [(1,2),(2,3),(2,4)]
 
 
 -- If any  more nodes  to be check finding the end node
@@ -84,8 +84,7 @@ dfs_search (x:xs) _  | (final_node == x) = (x:xs)
 dfs_search (x:xs) l_closed
    -- A next_node is  not in L_closed either in (x:xs)
    -- expand for a new_node   in (x:xs) and L_closed
-   -- && not(already_visited new_node l_closed)
-  | not(elem new_node (x:xs))  =  dfs_search (new_node : x : xs) l_closed
+  | not(elem new_node (x:xs)) =  dfs_search (new_node : x : xs) l_closed
   -- here, the next_node is a new node to be explore
   -- and the  backtracking is HERE .. no NEWs and the node x
   -- goes to dead end ... and back up to the previous valid node 
@@ -106,8 +105,6 @@ next_node x l_closed
   -- new nodes to visit, but someone already visited
   -- get_neighbour x the_Graph  -- results in a list
   -- elem False l_closed means ... there is nodes not visited yet
-  -- tem que pegar o proximo .... mas que não seja
-  -- em L_closed
    | elem False l_closed = one_node l_neighbour l_closed
    | otherwise = error " NONE NODE IS FREE to be visited "
      where
@@ -122,17 +119,6 @@ one_node (a:xs) l_closed
     | (already_visited a l_closed) = a
     | otherwise = one_node xs l_closed
 
--- check if a node p was already visited --> return T or F
-already_visited :: Int -> [Bool] -> Bool
-already_visited _ [] = error "L closed empty"
-already_visited  1 (True:_)  = True -- NOT VISITED YET
-already_visited  1 (False:_) = False
-already_visited  p (x:xs)
-   | (p > 1)  && (p <= length (x:xs)) = already_visited (p-1) xs
-   | otherwise = error "Size of L Closed -- problem"
-
--- 
-
 {- ************ AUX Functions ************** -}
 -- building initial list of nodes closed
 -- closed = 0 not visited yet
@@ -141,10 +127,6 @@ build_L_closed :: [Bool]
 build_L_closed = [False | i <- [1 .. max_L_Duple the_Graph]]
 -- all nodes all initialized with 0 ... NOT VISITED yet
 -- something like [False | x <- [1..10]]
-
--- initialization of L_closed with start_node as TRUE -- already visited
-init_L_closed :: [Bool]
-init_L_closed = update_L_closed start_node build_L_closed 
 
 -- inspired in CCS's book  this max ...
 -- Given the Graph, following the representation above
@@ -169,6 +151,15 @@ update_L_closed  p (x:xs)
    | (p > 1)  && (p <= length (x:xs))   = x : update_L_closed (p-1) xs
    | otherwise = error "Size of L Closed -- problem"
 --  
+
+-- check if a node p was already visited --> return T or F
+already_visited :: Int -> [Bool] -> Bool
+already_visited _ [] = error "L closed empty"
+already_visited  1 (True:_)  = True
+already_visited  1 (False:_) = False
+already_visited  p (x:xs)
+   | (p > 1) && (p <= length (x:xs)) = already_visited (p-1) xs
+   | otherwise = error "Size of L Closed -- problem"
 
 -- 
 -- get all neighbour of a node x in the graph
