@@ -22,7 +22,8 @@ depthfs g i = dfs' g [] i
 dfs' g visited i = i:visit g (i:visited) (g!i)
         
 visit _ _ [] = []
-visit g vs (x:xs) =  if not (elem x vs) 
+visit g vs (x:xs) =  
+    if not (elem x vs) 
     then vs' ++ visit g (vs'++vs) xs 
     else visit g vs xs  
   where 
