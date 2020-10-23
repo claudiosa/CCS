@@ -14,9 +14,6 @@ mydfs graph visited (x:xs) | elem x visited = mydfs graph visited xs
                            | otherwise = mydfs graph (x:visited) ((graph !! x) ++ xs)
 -}
 
-
-
-
 depthfs g i = dfs' g [] i 
 
 dfs' g visited i = i:visit g (i:visited) (g!i)

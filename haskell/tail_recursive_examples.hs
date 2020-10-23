@@ -1,4 +1,4 @@
-
+-- http://jxs.me/2010/06/28/tail-recursion-haskell/
 -- Lenght  of any  list -- 
 no_tail_lenght :: Num p => [a] -> p
 no_tail_lenght [] = 0
