@@ -47,6 +47,7 @@ PS: No weight in this version -- easily extendeable
 
 -}
 module DFS_SEARCH where
+--import Data.Maybe
 
 --import System.IO
 go :: IO ()
@@ -55,48 +56,31 @@ go = do{
       putStr "\t Depth First Search or DFS for a Graph\t"; 
 --    putStr "\n";
       putStr "\n\t One path is: ";
-      print (reverse ( dfs_search [start_node] [] ))
+      print (dfs_search start_node final_node the_Graph )
      }
-{-
-connected :: IO ()
-connected =
-    if  (is_a_list result) && (length result > 0)
-        then
-            print "connected"
-        else
-            print "unconnected"
-    where
-        result = dfs_search [start_node] []
--}
+
 {- OBS: 
   the Graph, start node and final/end nodes
   are given in the code, look below
   ....
   these data are given embeded in this code
 -}
-
-connected :: Bool
-connected 
-    | result == [] = False
-    | otherwise = True
-    where
-       result = dfs_search [start_node] [] 
-
+-- EXAMPLE -- data
 -- Initial data for init and final nodes
 start_node :: Int
 start_node = 1
 final_node :: Int
-final_node = 8
+final_node = 1
 
 -- connectivity of this graph (node,node) -- bidirectional
 -- no costs here
 type Graph = [(Int, Int)]
 the_Graph :: Graph
 -- Examples: one connected and another not connected
--- the_Graph = [(6,8),(1,2), (1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected
-the_Graph = [(1,2),(1,4),(2,5),(2,3),(3,4),(4,7),(6,8),(8,9)] -- not connected
+the_Graph = [(6,8),(1,2), (1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected
+--the_Graph = [(1,2),(1,4),(2,5),(2,3),(3,4),(4,7),(6,8),(8,9)] -- not connected
 
-{-------------------------------------}
+{-------------- END OF DATA -----------------------}
 
 {- the code -}
 -- If any  more nodes  to be check finding the end node
@@ -104,29 +88,56 @@ the_Graph = [(1,2),(1,4),(2,5),(2,3),(3,4),(4,7),(6,8),(8,9)] -- not connected
 -- A current list, registering the nodes that are candidates for a path
 -- and a list with closed nodes (this list is boolean), to mark all the nodes
 -- without result
-dfs_search :: [Int] -> [Int] -> [Int]
-dfs_search [] _ = [] -- NO SOLUTION -- adapted for connected graph between 2 points
+--function that returns a path starting from s_n and arriving to f_n, using DFS
+dfs_search :: Int -> Int -> [(Int,Int)]-> [Int]
+dfs_search sn fn graph = dfs_search_aux sn fn graph [sn] [sn]
+-- sn: start node
+-- fn: final node
+
 --  error "NO SOLUTION"
 -- if the next_node is final ... stop
 -- final node was reached -- halt condition
--- dfs_search (x:xs) l_closed  | (final_node == x) = diff_A_B (x:xs) l_closed
-dfs_search (x:xs) _  | (final_node == x) = (x:xs)
--- [x]++l_closed
+dfs_search_aux :: Int -> Int -> [(Int,Int)] -> [Int] -> [Int] -> [Int]
+-- different of ... 
+dfs_search_aux sn fn graph path visited 
+  | (sn == fn) = path -- if the current node sn == final ... stop and back the current paht
+  | not(elem x visited) = dfs_search_aux x fn graph (path++[x]) (x:visited) 
+  | (length path == 1)       = error "NO SOLUTION"
+  | otherwise   = dfs_search_aux (last new_path) fn graph new_path  visited
+    where
+    -- a new_node is NEW
+    neighbours = get_new_neighbours sn visited  graph
+    x = one_node neighbours
+    new_path = init path -- take the path without the last node
+
+one_node :: [Int] -> Int  
+one_node l
+    | length l > 0 = head l
+    | otherwise = start_node --- just to fail ... no news nodes
+
+
+{- 
+Prelude> init [3,4,5]
+[3,4]
+Prelude> last [3,4,5]
+5
+Prelude> 
+Prelude> head [3,4,5]
+3
+-}
+
 -- (x:xs) current list or open nodes and  lclosed -- nodes already checked
-dfs_search (x:xs) l_closed
+
   -- the  backtracking is HERE .. no NEWs and from node x
   -- goes to dead end ... and back up to the previous valid node 
   -- BACTRACKING is happening HERE
-  | elem x l_closed  =  dfs_search xs l_closed 
+
    -- A list of next_nodes is  not in L_closed either in (x:xs)
    -- expand for a new_node   in (x:xs) and L_closed
    -- && not(already_visited new_node l_closed)
-  | otherwise = dfs_search update_Stack (x : l_closed)
-   where
-      -- a new_node is NEW
-      new_nodes = next_nodes x l_closed
+
       -- improve HERE
-      update_Stack = (diff_A_B new_nodes (x:xs)) ++ (x:xs)
+     -- update_Stack = (diff_A_B new_nodes (x:xs)) ++ (x:xs)
       
 -- obtain a next node valid considering the L_closed or visited nodes
 next_nodes :: Int -> [Int] -> [Int]
@@ -167,6 +178,20 @@ max_L_Duple ((a,b):xs)
 -- get all neighbour of a node x in the graph
 -- look ... the map is a tuple list ... why is the reason
 --
+--get_new_neighbours :: Eq a => a -> [(a, a)] -> [a]
+-- get_new_neighbours
+get_new_neighbours :: Int -> [Int] -> [(Int,Int)] -> [Int]
+get_new_neighbours _ _ [] = [] 
+-- node current , l_visited and the graph
+get_new_neighbours x visited ((a,b):xs) 
+    | (x == a) && not (elem b visited) = b : get_new_neighbours x visited xs
+    | (x == b) && not (elem a visited) = a : get_new_neighbours x visited xs
+    | otherwise = get_new_neighbours x visited xs
+
+
+-- get all neighbour of a node x in the graph
+-- look ... the map is a tuple list ... why is the reason
+--
 get_neighbour :: Eq a => a -> [(a, a)] -> [a]
 get_neighbour _ [] = [] 
 get_neighbour x ((a,b):xs) 
@@ -179,3 +204,26 @@ get_neighbour x ((a,b):xs)
 is_a_list :: [a] -> Bool
 is_a_list [] = True
 is_a_list (_:b) = is_a_list b
+
+
+{-
+connected :: IO ()
+connected =
+    if  (is_a_list result) && (length result > 0)
+        then
+            print "connected"
+        else
+            print "unconnected"
+    where
+        result = dfs_search [start_node] []
+
+
+  
+connected :: Bool
+connected 
+    | result == [] = False
+    | otherwise = True
+    where
+       result = dfs_search [start_node] [] 
+        
+-}
