@@ -1,10 +1,12 @@
+-- Author: Agnese Pacifico 
 module DFS_SEARCH where
 import Data.Maybe
 go :: IO ()
 go = do{
       putStr "\t Depth First Search or DFS for a Graph\t"; 
       putStr "\n\t One path is: ";
-      print (dfs_search start_node final_node the_Graph)
+      -- print (dfs_search start_node final_node the_Graph)
+      mapM_ print [dfs_search start_node finals the_Graph | finals <- [1 .. 8 ] ]
      }
 start_node :: Int
 start_node = 1

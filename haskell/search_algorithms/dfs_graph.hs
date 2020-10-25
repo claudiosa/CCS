@@ -1,4 +1,6 @@
 {- Start point code: Gabriela Thumé (30/04/2011)
+   Resume in October/2020
+   Based in a version of: Agnese Pacifico 
 
 DFS - Depth First Search or DFS for a Graph
 
@@ -49,14 +51,15 @@ PS: No weight in this version -- easily extendeable
 module DFS_SEARCH where
 --import Data.Maybe
 
---import System.IO
+-- import System.IO
+
 go :: IO ()
 go = do{
-
       putStr "\t Depth First Search or DFS for a Graph\t"; 
---    putStr "\n";
-      putStr "\n\t One path is: ";
-      print (dfs_search start_node final_node the_Graph )
+
+      putStr "\n\t The path are: \n";
+--  print (dfs_search start_node final_node the_Graph )
+      mapM_ print [dfs_search start_node finals the_Graph | finals <- [1 .. max_L_Duple the_Graph ] ]
      }
 
 {- OBS: 
@@ -70,51 +73,52 @@ go = do{
 start_node :: Int
 start_node = 1
 final_node :: Int
-final_node = 1
+final_node = 4
 
 -- connectivity of this graph (node,node) -- bidirectional
 -- no costs here
 type Graph = [(Int, Int)]
 the_Graph :: Graph
 -- Examples: one connected and another not connected
-the_Graph = [(6,8),(1,2), (1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected
+the_Graph = [(6,8),(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected
 --the_Graph = [(1,2),(1,4),(2,5),(2,3),(3,4),(4,7),(6,8),(8,9)] -- not connected
 
 {-------------- END OF DATA -----------------------}
 
 {- the code -}
--- If any  more nodes  to be check finding the end node
 -- The idea of this DFS is classic ...
 -- A current list, registering the nodes that are candidates for a path
 -- and a list with closed nodes (this list is boolean), to mark all the nodes
 -- without result
 --function that returns a path starting from s_n and arriving to f_n, using DFS
-dfs_search :: Int -> Int -> [(Int,Int)]-> [Int]
+dfs_search :: Int -> Int -> Graph -> [Int]
 dfs_search sn fn graph = dfs_search_aux sn fn graph [sn] [sn]
 -- sn: start node
 -- fn: final node
-
---  error "NO SOLUTION"
 -- if the next_node is final ... stop
 -- final node was reached -- halt condition
-dfs_search_aux :: Int -> Int -> [(Int,Int)] -> [Int] -> [Int] -> [Int]
+
+dfs_search_aux :: Int -> Int ->  Graph -> [Int] -> [Int] -> [Int]
 -- different of ... 
 dfs_search_aux sn fn graph path visited 
   | (sn == fn) = path -- if the current node sn == final ... stop and back the current paht
-  | not(elem x visited) = dfs_search_aux x fn graph (path++[x]) (x:visited) 
-  | (length path == 1)       = error "NO SOLUTION"
+  -- x not visited and not in the current path     
+  | not(elem x visited) = dfs_search_aux x fn graph (path ++ [x]) (x:visited) 
+  | (length path == 1)       = error "== NO SOLUTION =="
+  -- the previous node is explored ....
   | otherwise   = dfs_search_aux (last new_path) fn graph new_path  visited
     where
     -- a new_node is NEW
     neighbours = get_new_neighbours sn visited  graph
-    x = one_node neighbours
-    new_path = init path -- take the path without the last node
+    x = one_node graph neighbours -- TO THINK LATER ... it is not fine
+    new_path = init path -- take the path without the last node ... previous state
 
-one_node :: [Int] -> Int  
-one_node l
+-- get one node from the current stack which
+-- it is not in closed/visited either in current path
+one_node ::  Graph -> [Int] -> Int  
+one_node graph l
     | length l > 0 = head l
-    | otherwise = start_node --- just to fail ... no news nodes
-
+    | otherwise = min_L_Duple graph --- just to avoid a fail ... no news nodes
 
 {- 
 Prelude> init [3,4,5]
@@ -127,37 +131,20 @@ Prelude> head [3,4,5]
 -}
 
 -- (x:xs) current list or open nodes and  lclosed -- nodes already checked
+-- get all neighbour of a node x in the graph
+-- look ... the map is a tuple list ... why is the reason
 
-  -- the  backtracking is HERE .. no NEWs and from node x
-  -- goes to dead end ... and back up to the previous valid node 
-  -- BACTRACKING is happening HERE
+-- A list of next_nodes is  not in L_closed either in (x:xs)
+get_new_neighbours :: Int -> [Int] -> Graph -> [Int]
+get_new_neighbours _ _ [] = [] 
+-- node current , l_visited and the graph
+get_new_neighbours x visited ((a,b):xs) 
+    | (x == a) && not (elem b visited) = b : get_new_neighbours x visited xs
+    | (x == b) && not (elem a visited) = a : get_new_neighbours x visited xs
+    | otherwise = get_new_neighbours x visited xs
 
-   -- A list of next_nodes is  not in L_closed either in (x:xs)
-   -- expand for a new_node   in (x:xs) and L_closed
-   -- && not(already_visited new_node l_closed)
 
-      -- improve HERE
-     -- update_Stack = (diff_A_B new_nodes (x:xs)) ++ (x:xs)
-      
--- obtain a next node valid considering the L_closed or visited nodes
-next_nodes :: Int -> [Int] -> [Int]
-next_nodes x l_closed
-  -- get all the neighbour of x => bring a list of possible
-  -- new nodes to visit, but someone already visited
-  -- get_neighbour x the_Graph  -- results in a list
-      =  diff_A_B l_neighbours l_closed
-      where
-     -- a list with all the neighbours from x
-        l_neighbours = get_neighbour x the_Graph
-      
--- to avoid repetion on nodes in current list ....
-diff_A_B :: [Int] -> [Int] -> [Int]
-diff_A_B [] _ = []         
-diff_A_B (a:b) lst 
-    | not(elem a lst) = a : diff_A_B  b  lst
-    | otherwise =  diff_A_B b  lst 
-
-{- ************ AUX Functions ************** -}
+{- ************ STUDY Functions of this DFS ************** -}
 -- all nodes all initialized with 0 ... NOT VISITED yet
 -- something like [False | x <- [1..10]]
 
@@ -174,24 +161,21 @@ max_L_Duple ((a,b):xs)
    | otherwise = max_L_Duple xs
    where
       c = max a b
+
+min_L_Duple :: Ord a => [(a, a)] -> a
+-- the MOST of list with tuple-2
+min_L_Duple [] = error "Empty List of Duples"
+min_L_Duple ((a,b):[]) = min a b
+min_L_Duple ((a,b):xs) 
+   | c < (min_L_Duple xs) = c
+   | otherwise = min_L_Duple xs
+   where
+      c = min a b
 -- 
--- get all neighbour of a node x in the graph
--- look ... the map is a tuple list ... why is the reason
---
---get_new_neighbours :: Eq a => a -> [(a, a)] -> [a]
--- get_new_neighbours
-get_new_neighbours :: Int -> [Int] -> [(Int,Int)] -> [Int]
-get_new_neighbours _ _ [] = [] 
--- node current , l_visited and the graph
-get_new_neighbours x visited ((a,b):xs) 
-    | (x == a) && not (elem b visited) = b : get_new_neighbours x visited xs
-    | (x == b) && not (elem a visited) = a : get_new_neighbours x visited xs
-    | otherwise = get_new_neighbours x visited xs
-
 
 -- get all neighbour of a node x in the graph
 -- look ... the map is a tuple list ... why is the reason
---
+-- my initial function
 get_neighbour :: Eq a => a -> [(a, a)] -> [a]
 get_neighbour _ [] = [] 
 get_neighbour x ((a,b):xs) 
@@ -205,7 +189,6 @@ is_a_list :: [a] -> Bool
 is_a_list [] = True
 is_a_list (_:b) = is_a_list b
 
-
 {-
 connected :: IO ()
 connected =
@@ -217,7 +200,6 @@ connected =
     where
         result = dfs_search [start_node] []
 
-
   
 connected :: Bool
 connected 
@@ -227,3 +209,10 @@ connected
        result = dfs_search [start_node] [] 
         
 -}
+
+-- to avoid repetion on nodes in current list ....
+diff_A_B :: [Int] -> [Int] -> [Int]
+diff_A_B [] _ = []         
+diff_A_B (a:b) lst 
+    | not(elem a lst) = a : diff_A_B  b  lst
+    | otherwise =  diff_A_B b  lst 
