@@ -73,14 +73,16 @@ go = do{
 start_node :: Int
 start_node = 1
 final_node :: Int
-final_node = 4
+final_node = 5
 
 -- connectivity of this graph (node,node) -- bidirectional
 -- no costs here
 type Graph = [(Int, Int)]
 the_Graph :: Graph
 -- Examples: one connected and another not connected
-the_Graph = [(6,8),(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected
+-- the_Graph = [(6,8),(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected
+--the_Graph = [(5,2),(5,4),(4,1),(2,3)]
+the_Graph = [(5,2),(5,4),(4,1)]
 --the_Graph = [(1,2),(1,4),(2,5),(2,3),(3,4),(4,7),(6,8),(8,9)] -- not connected
 
 {-------------- END OF DATA -----------------------}
@@ -103,22 +105,27 @@ dfs_search_aux :: Int -> Int ->  Graph -> [Int] -> [Int] -> [Int]
 dfs_search_aux sn fn graph path visited 
   | (sn == fn) = path -- if the current node sn == final ... stop and back the current paht
   -- x not visited and not in the current path     
-  | not(elem x visited) = dfs_search_aux x fn graph (path ++ [x]) (x:visited) 
+  | not(elem x visited) = dfs_search_aux x fn graph (path ++ [x]) (x : visited) 
   | (length path == 1)       = error "== NO SOLUTION =="
   -- the previous node is explored ....
   | otherwise   = dfs_search_aux (last new_path) fn graph new_path  visited
     where
     -- a new_node is NEW
     neighbours = get_new_neighbours sn visited  graph
-    x = one_node graph neighbours -- TO THINK LATER ... it is not fine
+    x = one_node sn neighbours -- get the first node not visited and new in that path 
     new_path = init path -- take the path without the last node ... previous state
 
 -- get one node from the current stack which
 -- it is not in closed/visited either in current path
-one_node ::  Graph -> [Int] -> Int  
-one_node graph l
-    | length l > 0 = head l
-    | otherwise = min_L_Duple graph --- just to avoid a fail ... no news nodes
+one_node :: Int -> [Int] -> Int  
+one_node current neighbours =
+    if neighbours == [] 
+        then current 
+        else (head neighbours)
+{-
+   -- | length l > 0 = head l
+   -- | otherwise = min_L_Duple graph --- just to avoid a fail ... no news nodes
+-}
 
 {- 
 Prelude> init [3,4,5]
@@ -210,7 +217,7 @@ connected
         
 -}
 
--- to avoid repetion on nodes in current list ....
+-- Set A - Set B ... is in A but not in B
 diff_A_B :: [Int] -> [Int] -> [Int]
 diff_A_B [] _ = []         
 diff_A_B (a:b) lst 
