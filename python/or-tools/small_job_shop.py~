@@ -1,7 +1,3 @@
-#!/usr/bin/python
-# -*- coding: iso-8859-15 -*-
-import os, sys
-
 #### BY CCS
 '''
 Problem Formulation 
@@ -63,7 +59,7 @@ def model_small_jbs():
         the_model.Add(intervals[i] == end_t[i] - start_t[i])
 
 
-    ### to use the Add ..... to be test
+    ### to use the Add
     the_model.AddCumulative(intervals, usage, capacity)
 
 
@@ -92,8 +88,8 @@ def model_small_jbs():
     if status in (cp_model.OPTIMAL , cp_model.FEASIBLE):
        my_print_VARS( start_t, end_t,  solver_OUT )
         
-    elif (status == cp_model.INFEASIBLE) :   ##nao é UNFEASIBLE 
-        print(" INSATISFATIVEL ")
+    elif (status == cp_model.INFEASIBLE) :   ##não é UNFEASIBLE 
+        print(" INSATISFATÍVEL ")
         raise ValueError("No solution was found for the given input values")
 
     elif (status == cp_model.UNKNOWN) :
@@ -141,7 +137,7 @@ def my_print_VARS( x, y,  solver_OUT):
 def print_t(n):   ## imprime  n tracejados
     print()
     for i in range(n):
-        print('=') ###, end=" ")
+        print('=', end="")
     print()
     return
 
@@ -149,6 +145,6 @@ if __name__ == '__main__':
     print("\n=============== RESULTS ====================")
     model_small_jbs()
     #print(f'\n END MAIN \n %s' % print_t(40))
-    print("\n END MAIN ") ###, end=" ")
+    print(f'\n END MAIN ', end="")
     print_t(40)
     # return ###### end function 
