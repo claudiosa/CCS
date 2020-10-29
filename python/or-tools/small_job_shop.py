@@ -77,6 +77,7 @@ def model_small_jbs():
     #the_model.Minimize( sum (end_t) )
     ## missing something ... if you uncomment it works also
     obj_var = the_model.NewIntVar(0, a_big_value, 'makespan')
+    ### Start soon ... a naive heuristic
     the_model.Add(obj_var == sum (start_t))
     the_model.Minimize( obj_var )
     
