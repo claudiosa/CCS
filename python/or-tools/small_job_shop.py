@@ -30,9 +30,8 @@ def model_small_jbs():
     capacity = 4 #resource_limitation
     n = len (duration)
     a_big_value = 9999
+    
     #### VARIABLES
-    ## array[1..n, 1..n] of var 0..1: x; % the resulting matrix, 1 if connected, 0 else
-    ## the resulting connection matrix
     start_t =[the_model.NewIntVar(0, max_time, 'start_t[i]' )  \
              for i in range(n) ]
     end_t =[the_model.NewIntVar(0, max_time, 'end_t[i]' )  \
@@ -41,33 +40,34 @@ def model_small_jbs():
    # this type is required to cumulative constraint  
     intervals_t = [the_model.NewIntervalVar(start_t[i], duration[i], end_t[i], 'intervals_[i]') \
                  for i in range(n) ]
+    ## capacity could be a variable also
     # capacity = the_model.NewIntVar(0, 4, "capacity") # can only cook one meal at a time   
-    ## see the Taha books'
+    
     # CONSTRAINTS ADDED of the problem
             
     ### 
-    ##for i in  range(n) :
+    ## Constraint from the original problem
     the_model.Add( start_t[0] <= start_t[2] )
     the_model.Add( start_t[2] <= start_t[4] )
     the_model.Add( start_t[1] <= start_t[5] )
     the_model.Add( start_t[1] <= start_t[3] )
   
-    ## duration and start_t
+    ## duration (data) and start_t and end_t (variables)
     for i in range(n) :
         the_model.Add(start_t[i] + duration[i] == end_t[i])
 
-    ### not necessary intervals
+    ### Maybe necessary intervals
     #for i in range(n) :
     #    the_model.Add(intervals[i] == end_t[i] - start_t[i])
 
 
     ### to use the Add Cumulative
     # add capacities and demands
-    # intervals has a special type .... usage and capacity - cte
-    the_model.AddCumulative(intervals_t, usage, capacity)
-    ### seems that intervals type is mandatory
+    # intervals has a special type .... usage and capacity -> input data
+    the_model.AddCumulative( intervals_t, usage, capacity )
+    ### Attention: intervals type is mandatory .... special type
    
-  # Create and add disjunctive constraints.--- future
+  # Create and add disjunctive constraints.--- for the future
   # for i in range(n) :
   #      the_model.AddNoOverlap(start_t[i])
 
@@ -123,8 +123,6 @@ def my_print_VARS( x, y, duration, solver_OUT):
     ####### HEADLINE -- TOP of matrix
     
    
-
-
 ## learning Python            
         
     print('\n\n** Final Statistics **')
