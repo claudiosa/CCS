@@ -1,43 +1,43 @@
 {-
-  Problema clássico dos VASOS ou Jarras 
+  Problema clï¿½ssico dos VASOS ou Jarras 
   Autor: claudio
-  Finalidade: Didática de Ensino (20/02/2004)
+  Finalidade: Didï¿½tica de Ensino (20/02/2004)
  -}
 
 module VASOS where
 
-import IO
-import System
+--import IO
+--import System
 
---Função de inicio
+--Funcaode inicio
 
 inicio =  wrt_lst vasos tab_acao  
 
 --(qt_A, qt_B, Regra selecionada)
 vasos = busca (0,0,0) [(0,0,0)]
 -- vasos=  busca (4,3,0) [(4,3,0)]
--- eh necessário este ..... pois....por casamento de padrões nao funcao adiciona
+-- eh necessï¿½rio este ..... pois....por casamento de padrï¿½es nao funcao adiciona
 
---Função de aplicação da função acao
+--Funcaode aplicaï¿½ï¿½o da funcaoacao
 
 -- Parada da busca ... caso um dos vaso contenha 2 Lts.
--- A lista corrente será devolvida
+-- A lista corrente serah devolvida
 
 busca (x_cor, y_cor, _ ) l_corrente 
     |((x_cor == 2) || (y_cor == 2)) =  l_corrente
-{- Se x_cor ou y_cor = 2 então devolve a lista de tuplas e chegou ao  fim -}
--- Caso contrário...    
+{- Se x_cor ou y_cor = 2 entï¿½o devolve a lista de tuplas e chegou ao  fim -}
+-- Caso contrï¿½rio...    
 busca (x_cor, y_cor, z_cor  ) l_corrente    
      =
      busca (x_new, y_new,  reg_new) l_new 
-     {-Busca com x_new, y_new e l_new  não atualizados -}
+     {-Busca com x_new, y_new e l_new  nï¿½o atualizados -}
      where
      (x_new, y_new, reg_new) = acao ( x_cor, y_cor, z_cor ) l_corrente 
-     {- Chama a função acao com os valores correntes -}
+     {- Chama a funcaoacao com os valores correntes -}
        
      l_new =  adiciona (x_new, y_new,  reg_new) l_corrente 
        
-        {- Se a tupla não está na lista,  ela é adicionada a
+        {- Se a tupla nï¿½o estah na lista,  ela ah adicionada a
            lista  corrente e devolvida atualizada / new
         -}
 ---------------------------------------------------------------------
@@ -82,21 +82,21 @@ acao (x,y ,_ ) l
     |(x+y>3) && (x>0) && not (pertence ((x-(3-y)),3) l) = ((x-(3-y)),3, 8) 
 
 
--- OPCIONALMENTE ... Ações finais ==> se desejar um conteudo 2....
+-- OPCIONALMENTE ... Aï¿½ï¿½es finais ==> se desejar um conteudo 2....
 -- regra 9
 -- acao (x,2 , _ ) l = (x,2, 9) 
 -- regra 10
 --acao (2,y , _ ) l = (2,y, 10)
 
---Função que pertence se uma tupla já existe em uma lista de tuplas
--- False ... nao está na lista  ... com o not da
--- ação será incluído..
+--Funcaoque pertence se uma tupla jah existe em uma lista de tuplas
+-- False ... nao estah na lista  ... com o not da
+-- aï¿½ï¿½o serah incluï¿½do..
 pertence (a , b ) [] = False
 
--- True ... não adiciona ... já está na lista
+-- True ... nao adiciona ... ja estah na lista
 pertence (a , b)  (x : cauda)
     | (a == prim(x)) && (b == segu(x)) = True   
-    -- já está na lista
+    -- jah estah na lista
     |otherwise = pertence (a, b) cauda
 
 -- primeiro, segundo e terceiro ...
@@ -105,7 +105,7 @@ segu (_,x,_) = x
 terc (_,_,x) = x
 
 
---Função que adiciona uma tupla em uma lista ...
+--Funcao que adiciona uma tupla em uma lista ...
 -- adiciona no final da lista....
 adiciona (a,b, num_regra) [] = [(a,b, num_regra)] 
 adiciona (a,b, num_regra) (cabeca : cauda) = 
@@ -141,6 +141,7 @@ wrt_lst ((a,b,c):l_cauda) tabela =
 busca_tab _ (a,b,c) 
     | c < 0 = (a,b," Algum erro ")            
     | c > 8 = (a,b," Um outro erro ")         
+
 busca_tab ((num,mensagem): resto_tab) (a,b,c)
     | c == num = (a, b, mensagem)
     | otherwise =  busca_tab    resto_tab    (a,b,c) 
