@@ -1,17 +1,9 @@
 {- Start point code: Gabriela Thumé (30/04/2011)
    Resume in October/2020
-   Based in a version of: Agnese Pacifico 
-
-DFS - Depth First Search or DFS for a Graph
+   
+BFS - Breadth First Search or DFS for a Graph
 
  Usage: $ ghci
-*DFS_SEARCH> :l dfs_graph.hs  
-[1 of 1] Compiling DFS_SEARCH       ( dfs_graph.hs, interpreted )
-Ok, one module loaded.
-*DFS_SEARCH> go
-	 Depth First Search or DFS for a Graph	
-	 One path is: [1,4,7,6,8]
-*DFS_SEARCH> 
 
 An example of a Graph
 
@@ -48,7 +40,7 @@ End/Arrival node: 7
 PS: No weight in this version -- easily extendeable
 
 -}
-module DFS_SEARCH where
+module BFS_SEARCH where
 --import Data.Maybe
 
 -- import System.IO
@@ -59,7 +51,7 @@ go = do{
 
       putStr "\n\t The path are: \n";
 --  print (dfs_search start_node final_node the_Graph )
-      mapM_ print [dfs_search start_node finals the_Graph | finals <- [1 .. max_L_Duple the_Graph ] ]
+      mapM_ print [ bfs_search start_node finals the_Graph | finals <- [1 .. max_L_Duple the_Graph ] ]
      }
 
 {- OBS: 
@@ -80,40 +72,41 @@ start_node = 1
 type Graph = [(Int, Int)]
 the_Graph :: Graph
 -- Examples: one connected and another not connected
--- the_Graph = [(6,8),(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected
-the_Graph = [(1,2),(5,4),(4,1),(2,3)]
+the_Graph = [(6,8),(1,2),(1,4),(2,5),(3,6),(2,3),(3,4),(4,7),(5,6),(6,7)] -- connected - the figure
+-- the_Graph = [(1,2),(5,4),(4,1),(2,3)]
 --the_Graph = [(5,2),(5,4),(4,1)]
 --the_Graph = [(1,2),(1,4),(2,5),(2,3),(3,4),(4,7),(6,8),(8,9)] -- not connected
 
 {-------------- END OF DATA -----------------------}
 
 {- the code -}
--- The idea of this DFS is classic ...
+-- The idea of this BFS is classic ...
 -- A current list, registering the nodes that are candidates for a path
 -- and a list with closed nodes (this list is boolean), to mark all the nodes
 -- without result
 --function that returns a path starting from s_n and arriving to f_n, using DFS
-dfs_search :: Int -> Int -> Graph -> [Int]
-dfs_search sn fn graph = dfs_search_aux sn fn graph [sn] [sn]
+bfs_search :: Int -> Int -> Graph -> [Int]
+bfs_search sn fn graph = bfs_search_aux sn fn graph [sn] [sn]
 -- sn: start node
 -- fn: final node
 -- if the next_node is final ... stop
 -- final node was reached -- halt condition
 
-dfs_search_aux :: Int -> Int ->  Graph -> [Int] -> [Int] -> [Int]
+bfs_search_aux :: Int -> Int ->  Graph -> [Int] -> [Int] -> [Int]
 -- different of ... 
-dfs_search_aux sn fn graph path visited 
+-- current path ... closed or visited nodes
+bfs_search_aux sn fn graph path visited 
   | (sn == fn) = path -- if the current node sn == final ... stop and back the current paht
   -- x not visited and not in the current path     
-  | not(elem x visited) = dfs_search_aux x fn graph (path ++ [x]) (x : visited) 
-  | (length path == 1)       = error "== NO SOLUTION =="
+  | not(elem x visited) = bfs_search_aux x fn graph ( path ++ imed_successors ) (sn : visited) 
+  | (length path == 1)       = error " == NO SOLUTION == "
   -- the previous node is explored ....
-  | otherwise   = dfs_search_aux (last new_path) fn graph new_path  visited
+  | otherwise   = bfs_search_aux (last new_path) fn graph new_path  visited
     where
     -- a new_node is NEW
-    neighbours = get_new_neighbours sn visited  graph
-    x = one_node sn neighbours -- get the first node not visited and new in that path 
-    new_path = init path -- take the path without the last node ... previous state
+    imed_successors = get_new_neighbours sn visited  graph
+    x = one_node sn imed_successors -- get the first node not visited and new in that path 
+    new_path = init path -- take the path without the last as a queue ... previous state
 
 -- get one node from the current stack which
 -- it is not in closed/visited either in current path
@@ -121,7 +114,7 @@ one_node :: Int -> [Int] -> Int
 one_node current neighbours =
     if neighbours == [] 
         then current 
-        else (head neighbours)
+        else (last neighbours) -- as a LIFO
 {-
    -- | length l > 0 = head l
    -- | otherwise = min_L_Duple graph --- just to avoid a fail ... no news nodes
@@ -196,30 +189,4 @@ is_a_list :: [a] -> Bool
 is_a_list [] = True
 is_a_list (_:b) = is_a_list b
 
-{-
-connected :: IO ()
-connected =
-    if  (is_a_list result) && (length result > 0)
-        then
-            print "connected"
-        else
-            print "unconnected"
-    where
-        result = dfs_search [start_node] []
 
-  
-connected :: Bool
-connected 
-    | result == [] = False
-    | otherwise = True
-    where
-       result = dfs_search [start_node] [] 
-        
--}
-
--- Set A - Set B ... is in A but not in B
-diff_A_B :: [Int] -> [Int] -> [Int]
-diff_A_B [] _ = []         
-diff_A_B (a:b) lst 
-    | not(elem a lst) = a : diff_A_B  b  lst
-    | otherwise =  diff_A_B b  lst 
