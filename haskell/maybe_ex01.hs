@@ -6,22 +6,32 @@ Maybe monad represents computations which might
 For reference, here are the definitions of return and (>>=) for Maybe 
 --}
 
-go = is_inside 3 [3,4,3]
+go = 
+    do
+      {
+      print "Many go 's .... see the examples: ";
+      print (is_inside 3 [4, 4, 4, 4, 3, 4, 3]);
+      print (is_inside 5 [4, 4, 4, 4, 3, 4, 3]);
+      print (is_inside 999 [4, 4, 4, 4, 3, 4, 999]);
+      print "THE END"
+      }
 
+--is_inside :: Eq a => a -> [a] -> Maybe a
+--is_inside :: Eq a => a -> [a] -> Maybe [a]
 
-is_inside :: Eq a => a -> [a] -> Maybe a
+-- You should define what are you as return....
+is_inside :: Int -> [Int] -> Maybe [Int]
 is_inside a (x:xs) 
-   | only_one a (x:xs)  = Just a
+   | only_one a (x:xs)  = Just [a]
    | not ( elem a (x:xs) ) = Nothing
---  | otherwise = is_inside a (a:[])
-   | otherwise = error "xxxxxxxxxxxx"
--- | otherwise = Just  (aux_one a (x:xs))  
-{-
-   | otherwise = Just res
+   | otherwise =  Just res
+     where
+--       res =  (x:xs)   
+     how_many_a = aux_one a (x:xs)   
+     res =  [ how_many_a ]  
+  -- | otherwise = error "xxxxxxxxxxxx"
 
-    where
-     res = aux_one a (x:xs)   
--}
+
 
 only_one :: Eq t => t -> [t] -> Bool
 only_one a (x:xs) 
