@@ -8,27 +8,27 @@
 Problem Formulation 
 https://github.com/claudiosa/CCS/blob/master/eclipse_CP/8_train.ecl
 
-    A1 #>= A0 + D,
-    A2 #>= A1 + D,
-    B1 #>= B0 + D,
-    B2 #>= B1 + D,
     
-    disjunctive([A0,B1], [D,D]),   % trilho 1
-    disjunctive([A1,B0], [D,D]),   % trilho 2
-    
-    Cost #= A2 + B2, %A2 e B2 = tempo de chegada na ultima estacao
+Drawing the Problem:
 
-Problem
 Station 1  <==================> Station 2 <==================> Station 3
 Train 1 ->                                                     <- Train 2
-the rail ONLY ONE TRAIN
+The rail ONLY ONE TRAIN
+start[0] departure in Station 1 by train 1
+start[1] departure in Station 2 by train 1
+
+start[2] departure in Station 3 by train 2
+start[3] departure in Station 2 by train 2
+
+Disjuntive:  <==================> in rail 1 and 2
+
 '''
 
 ###VERY VERY IMPORTANT
 from ortools.sat.python import cp_model
 
 # model_FUNCTION
-def model_small_non_overlap():
+def model_small_non_overlapp():
     
     ## creating a model
     the_model = cp_model.CpModel()
@@ -41,7 +41,7 @@ def model_small_non_overlap():
     n = 4  #### 3 stations and 2 trains ... thinks before to follow
     # 2 trains .... one rail, they train takes the same rail ? is not allowed
     
-    #### VARIABLES
+    #### VARIABLES ===> look the notation above
     start_t =[the_model.NewIntVar(0, max_time, 'start_t[i]' )  \
              for i in range(n) ]
     end_t =[the_model.NewIntVar(0, max_time, 'end_t[i]' )  \
@@ -52,35 +52,35 @@ def model_small_non_overlap():
                  for i in range(n) ]
     
     # CONSTRAINTS ADDED of the problem
-            
     ### 
     ## Constraint from the original problem
-    the_model.Add( start_t[3] == 15 ) ### train B departs in time 15 from station 3
+    the_model.Add( start_t[2] == 15 ) ### train B departs in time 15 from station 3
         
     ## duration (data) and start_t and end_t (variables)
-    
     # train 1
-    the_model.Add(start_t[0] + duration <= end_t[0]) ## end_t = next station
-    the_model.Add(start_t[1] + duration <= end_t[1])
+    # the_model.Add(start_t[0] + duration <= end_t[0]) ## end_t = next station
+    # the_model.Add(start_t[1] + duration <= end_t[1])
     
-    # train 2 departure of station 3 arriving in station 1
-    the_model.Add(start_t[2] + duration <= end_t[2])
-    the_model.Add(start_t[3] + duration <= end_t[3])
-    
+    ## another direction
+    # train 2 departure of station 3 arriving in station 2
+    # the_model.Add(start_t[2] + duration <= end_t[2])
+    # train 2 departure of station 2 arriving in station 1
+    # the_model.Add(start_t[3] + duration <= end_t[3])
+
+    #### just indicating some ORDER .... to be improve
+    the_model.Add(end_t[0] < end_t[1])
+    the_model.Add(end_t[2] < end_t[3])
+   
     '''
     YOU CAN NOT MIX TYPES OF CONSTRAINTS
     the_model.Add(interval_t[0] == (end_t[0] - (start_t[0] + duration)))
-    the_model.Add(interval_t[1] == (end_t[1] - (start_t[1] + duration)))
-    the_model.Add(interval_t[2] == (end_t[2] - (start_t[2] + duration)))
-    the_model.Add(interval_t[3] == (end_t[3] - (start_t[3] + duration)))
+    ............................................................................
     '''
     # rail ocuppied start_t[0] train 1 left station 1,
-    # train 2 left station 2 start_t[4]]
-##########     AddNoOverlap(self, interval_vars)
-    the_model.AddNoOverlap([interval_t[0], interval_t[2]])
+    # train 2 left station 2 start_t[2]
+
     # the occupation of a rail in a interval
-    the_model.AddNoOverlap([interval_t[1], interval_t[3]])
-   
+    the_model.AddNoOverlap( interval_t )
     ### optmization  function or objective function 
     # OR:  the_model.Maximize(-less_DIF) 
     obj_var = the_model.NewIntVar(0, max_time, 'makespan')
@@ -89,7 +89,12 @@ def model_small_non_overlap():
     ## END TIME ...when the train 1 arrive in 3 and train 2 arrive in station 1
     the_model.Minimize( obj_var )
     
-    ### data_from_model = call the solver for model s
+    # Search for x values in increasing order ===> look the manual others stractegies
+    the_model.AddDecisionStrategy([obj_var],
+                            cp_model.CHOOSE_FIRST,
+                            cp_model.SELECT_MIN_VALUE)
+    #### HERE MANY OPTIONS MUST BE TESTED
+
     # code calls the solver
     solver_OUT = cp_model.CpSolver()
     solver_OUT.parameters.max_time_in_seconds = 10
@@ -123,10 +128,9 @@ def my_print_VARS( x, y, duration, solver_OUT):
 
     n = len (x)
     print('Start Time : ', [solver_OUT.Value(x[i]) for i in range(n)] )
-   # print('Duration Time :', [(duration[i]) for i in range(n)] )
-    print('Duration Time :', duration )
-    print('End Time : ', [solver_OUT.Value(y[i]) for i in range(n)] )
-       
+    print('End Time   : ', [solver_OUT.Value(y[i]) for i in range(n)] )
+    # print('Duration Time :', [(duration[i]) for i in range(n)] )
+    print('Duration Time -- CONSTANT HERE :', duration )
     print("\n ===================================")
     
     ####### HEADLINE -- TOP of matrix
@@ -156,7 +160,7 @@ def print_t(n):   ## imprime  n tracejados
 
 if __name__ == '__main__':
     print("\n=============== RESULTS ====================")
-    model_small_non_overlap()
+    model_small_non_overlapp()
     #print(f'\n END MAIN \n %s' % print_t(40))
     print("\n END MAIN ", end="")
     print_t(40)

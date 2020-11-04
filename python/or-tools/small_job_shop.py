@@ -56,10 +56,6 @@ def model_small_jbs():
     for i in range(n) :
         the_model.Add(start_t[i] + duration[i] == end_t[i])
 
-    ### Maybe necessary intervals
-    #for i in range(n) :
-    #    the_model.Add(intervals[i] == end_t[i] - start_t[i])
-
 
     ### to use the Add Cumulative
     # add capacities and demands
@@ -67,10 +63,6 @@ def model_small_jbs():
     the_model.AddCumulative( intervals_t, usage, capacity )
     ### Attention: intervals type is mandatory .... special type
    
-  # Create and add disjunctive constraints.--- for the future
-  # for i in range(n) :
-  #      the_model.AddNoOverlap(start_t[i])
-
 
     ### optmization  function or objective function 
     # OR:  the_model.Maximize(-less_DIF) 
@@ -86,9 +78,7 @@ def model_small_jbs():
     solver_OUT = cp_model.CpSolver()
     solver_OUT.parameters.max_time_in_seconds = 10
     status = solver_OUT.Solve(the_model)
-    '''
-    db = solver.Phase(x, solver.INT_VAR_DEFAULT, solver.INT_VALUE_DEFAULT)
-    '''
+   
     
     if status in (cp_model.OPTIMAL , cp_model.FEASIBLE):
        my_print_VARS( start_t, end_t, duration, solver_OUT )
