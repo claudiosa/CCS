@@ -79,9 +79,6 @@ def model_small_disjunctive():
     the_model.AddNoOverlap(intervals_t)
     ### Attention: intervals type is mandatory .... special type
    
-  # Create and add disjunctive constraints.--- for the future
-  # for i in range(n) :
-  #      the_model.AddNoOverlap(start_t[i])
 
 
     ### optmization  function or objective function 
