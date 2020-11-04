@@ -8,13 +8,27 @@
 Problem Formulation 
 https://github.com/claudiosa/CCS/blob/master/eclipse_CP/8_train.ecl
 
+    A1 #>= A0 + D,
+    A2 #>= A1 + D,
+    B1 #>= B0 + D,
+    B2 #>= B1 + D,
+    
+    disjunctive([A0,B1], [D,D]),   % trilho 1
+    disjunctive([A1,B0], [D,D]),   % trilho 2
+    
+    Cost #= A2 + B2, %A2 e B2 = tempo de chegada na ultima estacao
+
+Problem
+Station 1  <==================> Station 2 <==================> Station 3
+Train 1 ->                                                     <- Train 2
+the rail ONLY ONE TRAIN
 '''
 
 ###VERY VERY IMPORTANT
 from ortools.sat.python import cp_model
 
 # model_FUNCTION
-def model_small_disjunctive():
+def model_small_non_overlap():
     
     ## creating a model
     the_model = cp_model.CpModel()
@@ -22,65 +36,57 @@ def model_small_disjunctive():
     # Input Data
     ## duration =  [10 ,10 ,10]  # --   the train stay in each station for 10 units
     duration = 10
-    max_time = 100 ## horizon -- the trains will depart in this inverval time
+    max_time = 100   ## horizon -- the trains will depart in this inverval time
     
-    n = 6  #### 3 stations
+    n = 4  #### 3 stations and 2 trains ... thinks before to follow
     # 2 trains .... one rail, they train takes the same rail ? is not allowed
-    a_big_value = 99
     
     #### VARIABLES
     start_t =[the_model.NewIntVar(0, max_time, 'start_t[i]' )  \
-             for i*2 in range(n) ]
-    end_t =[the_model.NewIntVar(0, a_big_value, 'end_t[i]' )  \
-             for i*2 in range(n) ]              
+             for i in range(n) ]
+    end_t =[the_model.NewIntVar(0, max_time, 'end_t[i]' )  \
+             for i in range(n) ]              
     
-   # this type is required to cumulative constraint  
-    intervals_t = [the_model.NewIntervalVar(start_t[i], duration[i], end_t[i], 'intervals_[i]') \
-                 for i*2 in range(n) ]
-    ## capacity could be a variable also
-    # capacity = the_model.NewIntVar(0, 4, "capacity") # can only cook one meal at a time   
+   # this type is required to nonoverlapping constraint  
+    interval_t = [the_model.NewIntervalVar(start_t[i], duration, end_t[i], 'interval_t[i]') 
+                 for i in range(n) ]
     
     # CONSTRAINTS ADDED of the problem
             
     ### 
     ## Constraint from the original problem
-    the_model.Add( start_t[3] == 15 ) -- train B departs in time 15 from station 3
-   
-    
+    the_model.Add( start_t[3] == 15 ) ### train B departs in time 15 from station 3
+        
     ## duration (data) and start_t and end_t (variables)
-    ##for i in range(n) :
-    the_model.Add(start_t[0] + duration =< end_t[i])
-
-............................
-
-    ### Maybe necessary intervals
-    #for i in range(n) :
-    #    the_model.Add(intervals[i] == end_t[i] - start_t[i])
-
-
-    ### to use the Add Cumulative
-    # add capacities and demands
-    # intervals has a special type .... usage and capacity -> input data
-    ### the_model.AddDisjunctive( intervals_t, duration )
-............................
     
-    the_model.AddNoOverlap(intervals_t)
-
-
-    ### Attention: intervals type is mandatory .... special type
+    # train 1
+    the_model.Add(start_t[0] + duration <= end_t[0]) ## end_t = next station
+    the_model.Add(start_t[1] + duration <= end_t[1])
+    
+    # train 2 departure of station 3 arriving in station 1
+    the_model.Add(start_t[2] + duration <= end_t[2])
+    the_model.Add(start_t[3] + duration <= end_t[3])
+    
+    '''
+    YOU CAN NOT MIX TYPES OF CONSTRAINTS
+    the_model.Add(interval_t[0] == (end_t[0] - (start_t[0] + duration)))
+    the_model.Add(interval_t[1] == (end_t[1] - (start_t[1] + duration)))
+    the_model.Add(interval_t[2] == (end_t[2] - (start_t[2] + duration)))
+    the_model.Add(interval_t[3] == (end_t[3] - (start_t[3] + duration)))
+    '''
+    # rail ocuppied start_t[0] train 1 left station 1,
+    # train 2 left station 2 start_t[4]]
+##########     AddNoOverlap(self, interval_vars)
+    the_model.AddNoOverlap([interval_t[0], interval_t[2]])
+    # the occupation of a rail in a interval
+    the_model.AddNoOverlap([interval_t[1], interval_t[3]])
    
-  # Create and add disjunctive constraints.--- for the future
-  # for i in range(n) :
-  #      the_model.AddNoOverlap(start_t[i])
-
-
     ### optmization  function or objective function 
     # OR:  the_model.Maximize(-less_DIF) 
-    #the_model.Minimize( sum (end_t) )
-    ## missing something ... if you uncomment it works also
-    obj_var = the_model.NewIntVar(0, a_big_value, 'makespan')
+    obj_var = the_model.NewIntVar(0, max_time, 'makespan')
     ### Start soon ... a naive heuristic
-    the_model.Add(obj_var == sum (start_t))
+    the_model.Add( obj_var == (end_t[1] + end_t[3])   )
+    ## END TIME ...when the train 1 arrive in 3 and train 2 arrive in station 1
     the_model.Minimize( obj_var )
     
     ### data_from_model = call the solver for model s
@@ -117,7 +123,8 @@ def my_print_VARS( x, y, duration, solver_OUT):
 
     n = len (x)
     print('Start Time : ', [solver_OUT.Value(x[i]) for i in range(n)] )
-    print('Duration Time :', [(duration[i]) for i in range(n)] )
+   # print('Duration Time :', [(duration[i]) for i in range(n)] )
+    print('Duration Time :', duration )
     print('End Time : ', [solver_OUT.Value(y[i]) for i in range(n)] )
        
     print("\n ===================================")
@@ -149,7 +156,7 @@ def print_t(n):   ## imprime  n tracejados
 
 if __name__ == '__main__':
     print("\n=============== RESULTS ====================")
-    model_small_disjunctive()
+    model_small_non_overlap()
     #print(f'\n END MAIN \n %s' % print_t(40))
     print("\n END MAIN ", end="")
     print_t(40)
