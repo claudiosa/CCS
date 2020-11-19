@@ -7,4 +7,5 @@ guilty(harry).
 %innocent(Suspect) :- motive(Suspect), not guilty(Suspect).
 innocent(Suspect) :- motive(Suspect), not guilty(Suspect), Suspect == harry.
 
-%%%#hide motive.
+:- innocent(X).%%%, write(".......>"), write(X).
+%%%hide motive/1.
