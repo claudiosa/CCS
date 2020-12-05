@@ -1,0 +1,60 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage[portuges]{babel}
+\pagestyle{empty}
+\markright{}
+\topmargin -1.5cm
+\textwidth17cm
+\textheight26cm
+\setlength{\parskip}{0.5cm}
+\setlength{\parindent}{1cm}
+\oddsidemargin0cm
+\begin{document}
+\framebox[\textwidth][c]{{\large 1a. Prova - LPG- I - \today}}
+\vskip13pt
+\noindent Aluno: \hrulefill
+\begin{enumerate}
+\item Explique e exemplifique passagem por referência;
+\item Qual a direferença entre  macros e funções, suas vantagens e desvantagens, e exemplifique;
+\item Dado um vetor contendo  40 carácteres, e outros dois  com o comprimento de 20 caracteres. Faça uma função que passe esses tres vetores, tal que ao final, os dois vetores menores, tenham partes do vetor maior. A divisão do vetor maior pode ser intercalada ou pela metade;
+
+\item Dada a estrutura abaixo:
+\begin{verbatim}
+   struct  reg
+               {
+                char nome[30];
+                char sexo;
+                int idade;
+               };
+e
+             struct reg     vetor[10];
+\end{verbatim}
+Considere que  a variável  ``{\em vetor}"  contenha alguns registros preenchidos. Registros vazios tem 0 no campo idade com identificador. Faça as seguintes funções:
+\begin{enumerate}
+\item Por passagem por referência, um procedimento que informe quantos homens e mulheres existem no vetor;
+\item Uma função de devolva o peso médio de todos registros válidos;
+\end{enumerate}
+
+\item Definindo um ponteiro à estrutura acima, faça uma função que receba um ponteiro e um nome a ser pesquisado. Caso nome esteja no  vetor, retorne `S', caso contrário 'N';
+
+\item Dado um vetor homogêneo do tipo ``{\em float}", crie e inicialize  um ponteiro a este vetor. Faça uma função, passando o ponteiro em questão, que verifique o conteúdo de cada célula do vetor, fazendo os seguintes cálculos:
+\begin{enumerate}
+\item Se o valor for ``$>= 10$", então multiplique por 0.5;
+\item Caso contrário, divida por 0.5. 
+\end{enumerate}
+
+\item Utilizando-se de um vetor de ponteiros, inicializado da seguinte maneira:
+\begin{verbatim}
+   static   char *X[] = {          "Incluir",
+                                  "Alterar",
+                                  "Excluir",
+                                  "Sair"};
+\end{verbatim}
+Organize um laço repetitivo com  ``{\em switch}",  tal que imprime este menu de opções (obviamente que via ponteiros), e um teste de consistência para verificar se um dos carácteres \{ 'I', 'A', 'E', 'S'\} foi digitado. As comparações são via ponteiros.
+
+\item Dado um programa que recebe via linha de comando uma sequência de números quaisquer. Faça esse programa e que ao final, seja encontrado o maior número digitado.
+\end{enumerate}
+\vskip 13pt
+PS. Clareza e legibilidade!
+\end{document}

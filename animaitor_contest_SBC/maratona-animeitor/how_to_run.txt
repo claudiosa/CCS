@@ -1,0 +1,15 @@
+
+1. From a directory
+[ccs@gerzat maratona-animeitor]$ ./main.py webcast-scjo/
+
+2. To start the scoreboard animation, run
+
+sh roda_webcasting.sh IPBOCA -s PREFIX
+IPBOCA: ip address PREFIX: prefix to select team to show
+
+3.https://github.com/BRUTEUdesc/maratona-animeitor
+
+4.Scoreboard Usage
+Tap spacebar once to fast-forward to the end of the contest, then tap the spacebar to advance through the contest teams.
+
+Team photos must be inside the directory images/team_photos/ and named with the username.

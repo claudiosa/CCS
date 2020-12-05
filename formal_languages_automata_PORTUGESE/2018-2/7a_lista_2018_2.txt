@@ -1,0 +1,18 @@
+7a. Lista - FN -- Chomsky e Greibach
+
+Com base no arquivo referencia_lista_06_07_08.pdf  deste diretório
+faça os exercicios do item 7 (SETE) 
+
+Considere as gramáticas abaixo. Converta-as para as Formas Normais de Chomsky e Greibach
+Os exercicios selecionados sao (confiram com o PDF original):
+
+a) G1 = ({S}, {a,b}, S, {S → SS | a })
+c) G3 = ({S}, {a,b,c}, S, {S → aSa | bSb | c })
+e) G5 = ({S}, {a,b,c,d}, S, {S → aSb | aSc | d })
+g) G7 = ({S}, {a,b}, S, {S → ab | aS | aaS})
+h) G8 = ({S, A}, {a,b,c}, S, {S → aSbAbb | ab, A → cA | c})
+i) G9 = ({S, A, B}, {a,b}, S, {S → ABb|a, A → aaA|B, B → bAb})
+
+De a) ate g) sao simples .... h) e i) mais trabalhosas
+
+Prazo: 15 dias ... 20/novembro

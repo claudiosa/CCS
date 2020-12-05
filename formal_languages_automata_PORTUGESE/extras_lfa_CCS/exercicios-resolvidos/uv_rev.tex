@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+
+\title{LFA}
+\author{Prova por Indução Matemática: Reverso}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+\section{Exercício: $(uv)^r=v^ru^r$}
+
+ Demonstre que $(uv)^r=v^ru^r$.\\
+	$r:$ reverso ou invertido\\
+	$\Lambda \equiv \epsilon \equiv  \curlywedge:$ vazio\\\\
+	
+	\vspace{1cm}
+	BASE Indutiva:
+	\begin{enumerate}
+		
+	
+		\item Se $u=$ $\Lambda$ e $v=$ $\Lambda$ $\rightarrow$ k=0
+		\item Se $u=a$ e $v=$ $\Lambda$ $\rightarrow$ k=1
+		\item Se $u=$ $\Lambda$ e $v=a$ $\rightarrow$ k=1
+		\item ...... 
+		\item e $k=|uv|$\\ 
+		
+	
+		
+			
+	\end{enumerate}
+	
+		\vspace{1cm}
+	HIPÓTESE  Indutiva:
+	\begin{enumerate}
+	    \item $\mid u^rv^r \mid = n$
+		\item Passo k: temos	$k=n \Rightarrow u^rv^r = (vu)^r$\\
+		
+	\end{enumerate}
+	\vspace{1cm}	
+			\textbf{$\Rightarrow$ Precisamos provar para $k=(n+1)$}. Por exemplo seja a palavra: $(aw)^r$ logo $\mid (aw)^r \mid = n+1$ (passo em $n+1$),
+			 onde \underline{$w=uv$} então 
+			$(auv)^r=v^ru^ra^r=v^ru^ra$ e $\mid u^rv^ra^r \mid = n+1$, ou ainda $\mid (auv)^r \mid = n+1$
+			
+	\vspace{1cm}	
+	Passo (ou Prova)  Indutivo:
+	\begin{enumerate}
+
+		\item $(aw)^r= (auv)^r$  \hspace{2cm} assim, esta é a partida
+		
+		\item $(auv)^r=((au)v)^r$ \hspace{2cm} (1) Associatividade
+		 
+		 \item $((au)v)^r=v^r(au)^r$ \hspace{2cm}  (2) usando a Hipótese Indutiva
+		 
+		 \item $v^r(au)^r=v^r(u^ra^r)$ \hspace{2cm}  (3) novamente Hipótese Indutiva
+		 
+		 \item $v^r(u^ra^r)=v^ru^ra^r$ \hspace{2cm}  (4) Associatividade\\
+		
+		 
+		 \item $(auv)^r=v^ru^ra^r=v^ru^ra$\hspace{2cm} 	 (5) C.Q.D.
+		 
+		 \item Esclarecendo: $a^r = a$ da definição do reverso, pois $a$ é símbolo do alfabeto. 
+		 
+		 \item Idem quanto $\curlywedge ^r = \curlywedge$
+
+	
+	
+\end{enumerate}
+
+\section{Notas:}
+\begin{enumerate}
+
+		 \item Esclarecendo: $a^r \equiv a$ da definição do reverso, pois $a$ é símbolo do alfabeto. 
+		 
+		 \item Idem quanto $\curlywedge ^r \equiv \curlywedge$
+		 
+		 \item Há uma outra solução desta prova no livro do Sudkamp, página 41.
+
+		 \item Digitação inicial: Paula
+	
+	
+\end{enumerate}
+
+
+
+
+
+	
+\end{document}

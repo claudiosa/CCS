@@ -1,0 +1,87 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+
+
+\title{LFA}
+\author{Prova por Indução Matemática: Reverso do Reverso}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+
+\section{Exercício: $(w^r)^r=w$}
+
+ Sabendo-se que $u^rv^r=(vu)^r$, a propriedade de associativida e definição de reverso, prove: $(w^r)^r=w$.
+	
+	\vspace{1cm}	
+	\textbf{BASE Indutiva}:
+
+\begin{enumerate}
+		
+	\item Define-se comprimento de $|w|$ por $|w| = n $ ou $k$
+	
+		\item Da definição de reverso: $k=0 \rightarrow \curlywedge^r = \curlywedge \rightarrow (\curlywedge^r)^r =\curlywedge $
+		
+	\item Idem $k=1 \Rightarrow a^r = a$ e $(a^r)^r = a$
+	\item Logo $k=|w|$ on $k$ é equivalente ao $n$ passo 
+			
+	\end{enumerate}
+	
+	\vspace{1cm}
+	\textbf{HIPÓTESE INDUTIVA}:
+	
+	\begin{enumerate}
+		\item Em $k$ ou  $n$ tem-se $(w^r)^r=w $
+		\item $k=0$  já foi definido anteriormente 
+	
+	\end{enumerate}
+
+	\vspace{1cm}	
+	\textbf{$\rightarrow$ Precisamos provar para $(k+1)$, então digamos uma palavra $aw$, logo $((aw)^r)^r = aw $}. \textcolor{red}{Não experimentei com $wa$ mas deve funcionar também, tarefa do aluno!}  
+
+	
+	\vspace{1cm}	
+	Passo (ou Prova)  Indutivo:
+
+	\begin{enumerate}
+
+    \item $((aw)^r)^r$ \hspace{2cm} assim, esta é a partida
+		
+    \item$((aw)^r)^r = (w^ra^r)^r$ \hspace{2cm} aplicar o reverso na parte interna. Usar o teorema $(uv)^r=v^ru^r$, demonstrado anteriormente
+		 
+	 \item$(w^ra^r)^r = (xy)^r$ \hspace{2cm}  para fins de clclareza	 $x=w^r$ e $y=a^r$ na expressão anterior
+		
+	\item $(xy)^r = y^rx^r$ \hspace{2cm} aplicar o reverso, do teorema $(uv)^r=v^ru^r$, demonstrado anteriormente
+		
+				 
+	 \item $ y^rx^r=(a^r)^r(w^r)^r$ \hspace{2cm} aplicando a Hipótese Indutiva, e substituindo os valores originais de $y$ e $x$
+		 
+	 \item $a(w^r)^r = aw$ \hspace{2cm} aplicando a Hipótese Indutiva mais uma vez na 2a. parte na expressão 
+		
+	\item $aw$ \hspace{2cm} C.Q.D.
+		
+\end{enumerate}
+
+\textcolor{red}{Cada passo é realizado em relação ao anterior!}  
+	
+
+
+\section{Notas:}
+\begin{enumerate}
+
+		 \item Esclarecendo: $a^r \equiv a$ da definição do reverso, pois $a$ é símbolo do alfabeto. 
+		 
+		 \item Idem quanto $\curlywedge ^r \equiv \curlywedge$
+		 
+		 \item Digitação inicial: Paula
+		 
+	
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,11 @@
+
+\frametitle{Epílogo}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[height =.65\textheight,width=.8\textwidth]
+{figuras/Extended+Chomsky+Hierarchy.jpg}
+\caption{Modelos, formalismos, máquinas e complexidade!}
+%\label{ag_01}
+\end{figure}
+

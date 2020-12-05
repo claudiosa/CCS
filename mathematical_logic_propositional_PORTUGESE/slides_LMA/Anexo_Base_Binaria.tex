@@ -1,0 +1,104 @@
+%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[brazil,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\selectlanguage{brazil}%
+
+\section*{Sistema de Numeração Binário}
+
+O sistema binário utiliza-se de dois símbolos para representar um
+número qualquer. Tais símbolos são:
+
+\begin{center}
+$\varSigma_{b}=\{0,1\}$ ou $\varSigma_{b}=\{F,V\}$
+\par\end{center}
+
+Para um melhor entendimento, pode-se fazer um paralelo com o sistema
+decimal, com o qual estamos mais habituados. Neste sistema, são utilizados
+dez símbolos para a representação de um número:
+
+\[
+\varSigma_{d}=\{0,1,2,3,4,5,6,7,8,9\}
+\]
+
+
+Assim, podemos representar, por exemplo, o número $219$ em decimal.
+O número mais à direita, o $9$, representa a casa das unidades, enquanto
+o $1$, a casa das dezenas, e o $2$, a casa das centenas, de modo
+que:
+
+\[
+219=2\times10^{2}+1\times10^{1}+9\times10^{0}=200+10+9
+\]
+
+
+De forma semelhante, no sistema binário:
+
+\[
+01011_{2}=0\times2^{4}+1\times2^{3}+0\times2^{2}+1\times2^{1}+1\times2^{0}=0+8+0+2+1=11_{10}
+\]
+
+
+Assim, $01011$ em binário é o mesmo que $11$ em decimal. Vale notar
+que o zero mais à esquerda pode ser omitido, pois ele não fornece
+nenhuma contribuição ao número, ou seja, $01011_{2}=1011_{2}$, do
+mesmo modo que $0219_{10}=219_{10}$.
+
+A contagem no sistema binário é realizada da mesma maneira que no
+sistema decimal:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+Binário & Decimal\tabularnewline
+\hline 
+\hline 
+0000 & 00\tabularnewline
+\hline 
+0001 & 01\tabularnewline
+\hline 
+0010 & 02\tabularnewline
+\hline 
+0011 & 03\tabularnewline
+\hline 
+0100 & 04\tabularnewline
+\hline 
+0101 & 05\tabularnewline
+\hline 
+0110 & 06\tabularnewline
+\hline 
+0111 & 07\tabularnewline
+\hline 
+1000 & 08\tabularnewline
+\hline 
+1001 & 09\tabularnewline
+\hline 
+1010 & 10\tabularnewline
+\hline 
+1011 & 11\tabularnewline
+\hline 
+1100 & 12\tabularnewline
+\hline 
+1101 & 13\tabularnewline
+\hline 
+1110 & 14\tabularnewline
+\hline 
+1111 & 15\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}\selectlanguage{english}%
+
+\end{document}

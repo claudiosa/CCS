@@ -1,0 +1,53 @@
+8a. Lista - Autômato com Pilha 
+
+PS: os assuntos desta lista serão revistos nas aulas dos dias
+    20  e 22 -- hoje so foi uma introducao
+
+Com base no arquivo referência_lista_06_07_08.pdf  deste diretório
+faça os exercicios (confiram com o PDF original):
+
+(8) Considere o Autômato com Pilha abaixo e responda às perguntas:
+M = ({q0 ,q1 ,q2 }, {a,b,c,d,e}, {z,B}, δ, q0 , z, {q2 }), onde:
+δ(q0 ,a,z) = {(q0 ,z)}
+δ(q0 ,a,B) = {(q0 ,B)}
+δ(q0 ,b,z) = {(q0 ,zB)}
+δ(q0 ,b,B) = {(q0 ,BB)}
+δ(q0 ,c,z) = {(q1 ,z)}
+δ(q0 ,c,B) = {(q1 ,B)}
+δ(q1 ,d,B) = {(q1 , λ)}
+δ(q1 ,e,z) = {(q1 ,z)}
+δ(q1 ,e,B) = {(q1 ,B)}
+δ(q0 , λ,z) = {(q2 , λ)}
+a) Desenhe um diagrama (grafo) de transições de estado para esse autômato
+b) Verifique se a cadeia abaabceedd é aceita, mostrando a seqüência de movimentos executados pelo
+autômato.
+c) Qual é a linguagem aceita pelo autômato?
+
+
+(10) Qual a linguagem que é aceita pelo Autômato com Pilha Não Determinístico M = ({q0 ,q1 ,q2 }, {a,b},
+{a,b,z}, δ, q0 , z {q2 }) com as transições:
+δ(q0 ,a,z) = {(q1 ,a), (q2 ,λ)}
+δ(q1 ,b,a) = {(q1 ,b)}
+δ(q1 ,b,b) = {(q1 ,b)}
+δ(q1 ,a,b) = {(q2 ,λ)}
+Desenhe um diagrama (grafo) de transições de estado para esse autômato
+
+(12) Construa Autômatos com Pilha Determinísticos que aceitam as seguintes linguagens:
+a) L1 = {a^nb^2n | n≥ 0}
+b) L2 = {wcw^R | w ∈ {a,b}^* }   
+e) L5 = {a^3b^nc^n | n ≥ 0 }
+
+OBS: aqui faça APs DETERMINÍSTICOS ... diferente do original
+
+
+(13) Construa Autômatos com Pilha Não-Determinísticos que aceita a Linguagem gerada pelas
+Gramáticas Livre de Contexto:
+a) G1 = ({S},{a,b},S, P1 ) com P1 = {S → aSbb | aab}
+b) G2 = ({S, A, B},{a,b},S, P2 ) com P2 = {S → aABB | aAA, A → aBB|a, B → bBB | A }
+c) G3 = ({S},{a,b},S, P3 ) com P3 = {S → AA|a, A → AS|b}
+d) G4 = ({S,X,A,B},{a,b}, S, P4 ) com P4 = {S → aXAX | aBX | b, X → aBX | b , A → a, B → b}
+
+OBS: passem para Greibach e construam diretamente os APs
+
+
+Prazo: ........................ 

@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Arch Linux)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: artigo_SMA_NOME.aux
+The style file: alpha.bst
+Database file #1: bibs_SMA.bib
+You've used 8 entries,
+            2543 wiz_defined-function locations,
+            618 strings with 6257 characters,
+and the built_in function-call counts, 3457 in all, are:
+= -- 360
+> -- 106
+< -- 11
++ -- 30
+- -- 29
+* -- 229
+:= -- 541
+add.period$ -- 33
+call.type$ -- 8
+change.case$ -- 42
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 159
+empty$ -- 287
+format.name$ -- 42
+if$ -- 741
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 8
+newline$ -- 49
+num.names$ -- 30
+pop$ -- 41
+preamble$ -- 1
+purify$ -- 50
+quote$ -- 0
+skip$ -- 124
+stack$ -- 0
+substring$ -- 233
+swap$ -- 35
+text.length$ -- 11
+text.prefix$ -- 5
+top$ -- 0
+type$ -- 64
+warning$ -- 0
+while$ -- 39
+width$ -- 10
+write$ -- 122

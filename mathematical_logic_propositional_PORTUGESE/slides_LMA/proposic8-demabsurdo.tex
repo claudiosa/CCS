@@ -1,0 +1,138 @@
+\subsection{Demonstração Indireta}
+
+\begin{frame}[t]
+\vskip 3cm
+\begin{center}
+{\Huge Demonstração Indireta\\(ou por Absurdo)}
+\end{center}
+\end{frame}
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	\begin{itemize}
+	\item Consiste em admitir a negação da conclusão ($\sim Q$) como sendo uma nova premissa
+	\item E então, demonstrar logicamente que o novo argumento é inconsistente: 
+	$$\{p_1, p_2, \ldots, p_n, \sim Q \} \vdash \square$$
+	
+	\item A semântica é dada por: 
+	$$\Phi^{n+1} ( (p_1 \wedge p_2 \wedge \ldots \wedge p_n) \wedge \sim Q ) \equiv \square$$
+	
+	\item Explicando: se todos argumentos eram válidos, ao adicionar
+	a conclusão negada ($\sim Q$) e esta gerou uma $\square$, logo, $Q$ era
+	verdadeiro!
+ 		
+	\item Assim,  temos que demonstrar $\square$ em algum passo da dedução
+	
+	
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstrar: $p \rightarrow\sim q, r \rightarrow q \vdash \sim (p \wedge r)$
+\end{frame}
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstrar: $p \rightarrow\sim q, r \rightarrow q \vdash \sim (p \wedge r)$
+	
+	\vskip 0.5cm
+	
+	$$\begin{array}{lll}
+	(1) & p \rightarrow\sim q & \\
+	(2) & r \rightarrow q & \\
+	(3) & \sim\sim (p \wedge r) & \mathbf{por~(Dem.Ab.)~}\vdash\square \\
+	\hline
+	(4) & p \wedge r & \mathbf{(3)~por~(DN)} \\
+	(5) & p & \mathbf{(4)~por~(SIMP)} \\
+	(6) & r & \mathbf{(4)~por~(SIMP)} \\
+	(7) & \sim q & \mathbf{(1,5)~por~(MP)} \\
+	(8) & q & \mathbf{(2,6)~por~(MP)} \\
+	(9) & \sim q \wedge q & \mathbf{(7,8)~por~(CONJ)} \\
+	(10) & \square & \mathbf{(9)~por~(CONTR)} \\
+	\end{array}$$	
+\end{frame}
+
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstrar: $\sim p \rightarrow q, \sim q \vee r, \sim r \vdash p \vee s$
+\end{frame}
+
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstrar: $\sim p \rightarrow q, \sim q \vee r, \sim r \vdash p \vee s$
+	
+	\vskip 0.5cm
+	
+	$$\begin{array}{lll}
+	(1) & \sim p \rightarrow q & \\
+	(2) & \sim q \vee r & \\
+	(3) & \sim r & \\
+	(4) & \sim (p \vee s) & \mathbf{por~(Dem.Ab.)~}\vdash\square \\
+	\hline
+	(5) & \sim p \wedge\sim s & \mathbf{(4)~por~(DM)} \\
+	(6) & \sim p & \mathbf{(5)~por~(SIMP)} \\
+	(7) & q & \mathbf{(1,6)~por~(MP)} \\
+	(8) & \sim q & \mathbf{(2,3)~por~(SD)} \\
+	(9) & q \wedge \sim q & \mathbf{(7,8)~por~(CONJ)} \\
+	(10) & \square & \mathbf{(9)~por~(CONTR)} \\
+	\end{array}$$	
+\end{frame}
+
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstrar: $\sim p \vee q, \sim q, \sim r \rightarrow s, \sim p \rightarrow (s \rightarrow\sim t) \vdash t \rightarrow r$
+\end{frame}
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstrar: $\sim p \vee q, \sim q, \sim r \rightarrow s, \sim p \rightarrow (s \rightarrow\sim t) \vdash t \rightarrow r$
+	
+	\vskip 0.5cm
+	
+	$$\begin{array}{lll}
+	(1) & \sim p \vee q & \\
+	(2) & \sim q & \\
+	(3) & \sim r \rightarrow s & \\
+	(4) & \sim p \rightarrow (s \rightarrow\sim t) & \\
+	(5) & t & \mathbf{por~(Dem.C)~}\vdash r \\
+	(6) & \sim r & \mathbf{por~(Dem.Ab.)~}\vdash \square \\
+	\hline
+	(7) & \sim p & \mathbf{(1,2)~por~(SD)} \\
+	(8) & s \rightarrow\sim t & \mathbf{(4,7)~por~(MP)} \\
+	(9) & s & \mathbf{(3,6)~por~(MP)} \\
+	(10) & \sim t & \mathbf{(8,9)~por~(MP)} \\
+	(11) & t \wedge\sim t & \mathbf{(5,10)~por~(CONJ)} \\
+	(12) & \square & \mathbf{(11)~por~(CONTR)} \\
+	\end{array}$$	
+\end{frame}
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstre por absurdo:
+	\vskip 0.5cm
+	$$\begin{array}{lll}
+	(1) & \sim (y \neq 1 \vee z \neq -1)& \\
+	(2) & (x < y \wedge x > z) \wedge z = -1 \rightarrow x = 0& \\
+	(3) & \sim (y = 1 \vee x = 0) \vee (x < y \wedge x > z) & \\
+	\hline
+	\vdash & x = 0 \\
+	\end{array}$$	
+\end{frame}
+
+\begin{frame}[t]{Demonstração por Absurdo}
+	Demonstre por absurdo:
+
+	$$\begin{array}{lll}
+	(1) & \sim (y \neq 1 \vee z \neq -1)& \\
+	(2) & (x < y \wedge x > z) \wedge z = -1 \rightarrow x = 0& \\
+	(3) & \sim (y = 1 \vee x = 0) \vee (x < y \wedge x > z) & \\
+	(4) & x \neq 0 & \mathbf{por~(Dem.Ab.)~} \vdash\square \\
+	\hline
+	(5) & y = 1 \wedge z = -1 & \mathbf{(1)~por~(DM)} \\
+	(6) & y = 1 & \mathbf{(5)~por~(SIMP)} \\
+	(7) & y = 1 \vee x = 0 & \mathbf{(6)~por~(AD)} \\
+	(8) & x < y \wedge x > z & \mathbf{(3,7)~por~(SD)} \\
+	(9) & z = -1 & \mathbf{(5)~por~(SIMP)} \\
+	(10) & (x < y \wedge x > z) \wedge z = -1 & \mathbf{(8,9)~por~(CONJ)} \\
+	(11) & x = 0 & \mathbf{(2,10)~por~(MP)} \\
+	(12) & x \neq 0 \wedge x = 0 & \mathbf{(4,11)~por~(CONJ)} \\
+	(13) & \square & \mathbf{(12)~por~(CONTR)}
+	\end{array}$$	
+\end{frame}
