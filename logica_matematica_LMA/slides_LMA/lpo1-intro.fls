@@ -1,6 +1,0 @@
-PWD /home/ccs/Dropbox/cursos/lma/slides_LMA
-INPUT /etc/texmf/web2c/texmf.cnf
-INPUT /usr/share/texlive/texmf/web2c/texmf.cnf
-INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT lpo1-intro.tex
-OUTPUT lpo1-intro.log

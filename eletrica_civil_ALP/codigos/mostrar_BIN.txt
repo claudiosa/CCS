@@ -1,1 +1,0 @@
-xxd -b a.out

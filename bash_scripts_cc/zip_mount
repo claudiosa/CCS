@@ -1,3 +1,0 @@
-#!/bin/sh
-mount -t vfat /dev/sda4 /mnt/zip100.0/
-echo  ........ Montagem OK do zip driver .... 
