@@ -1,0 +1,195 @@
+\documentclass[12pt]{article}
+
+\usepackage[dvips]{color} %% incluido por Claudio
+\usepackage{graphicx, subfigure, url}
+\usepackage{amsmath,amsthm, amscd}
+\usepackage[utf8]{inputenc} 
+\usepackage[brazil]{babel}   
+
+\usepackage{listings,comment}
+
+\usepackage{colortbl}
+\definecolor{olive}{rgb}{0,0.6,0}
+\definecolor{brown}{rgb}{0.5,0.4,0}
+\definecolor{orange}{rgb}{1,0.65,0.2}
+
+\renewcommand{\lstlistingname}{Código}
+\newenvironment{code}
+{\begin{list}
+{\setlength{\leftmargin}{1.5cm}
+\setlength{\rightmargin}{1.5cm}
+% \lstset{float = {hbtp},
+\lstset{float = {H},
+lineskip = -1pt,
+captionpos = b,
+numbers = left,
+numberstyle = \tiny,
+basicstyle = \scriptsize,
+tabsize = 4}}
+\item\scriptsize}
+{\end{list}}
+
+\newcommand{\nrainhas}{\emph{n-rainhas }}
+\newcommand{\Nrainhas}{\emph{N-Rainhas }}
+\newcommand{\PR}{Programação por Restrições}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definição}[section]
+\hyphenation{si-mu-la-ted}
+
+\sloppy
+
+\begin{document}
+
+
+{\huge \textcolor{red}{
+A sequencia da apresentacao deve serguir
+o seu tipo de trabalho
+}}
+
+
+
+\section{Implementação e Resultados}
+\label{sec_implementacao}
+
+
+{\Large \textcolor{red}{\underline {Aqui ... altere para o 
+contexto de seu problema}}}
+
+Falar do \textit{search} rapidamente ....
+e enfatizar os doi pontos que serao explorados:
+
+\begin{enumerate}
+
+\item  Sel Var: Método de seleção das variáveis:\\
+define a maneira em que as
+variáveis serão selecionadas pelo solver para receberem um valor;
+
+
+
+\item Atr Dom: Método de atribuição dos valores:\\
+define a maneira em que
+os valores dentro do domínio são escolhidos e atribuídos às variáveis durante o processo de exploração e busca;
+\end{enumerate}
+
+
+\begin{table}[!ht]
+
+\caption{LEGENDA DA TABELA Eh sobre a tabela MESMO}
+\label{tab01}
+{\small
+\begin{center}
+\begin{tabular}{c||c|c|c} \hline\hline
+$\frac{\textrm{Sel. Variável}}{\textrm{Atr. Dominio}}$  
+& \texttt{first\_fail}
+& \texttt{anti\_first\_fail}  & \texttt{occurrence} 
+ \\ \hline\hline
+\texttt{indomain\_min} & \ldots & \ldots & \ldots \\ \hline
+\texttt{indomain\_max}  &  \ldots & \ldots  & \ldots \\ \hline
+\texttt{indomain\_median}   & \ldots &  \ldots & \ldots \\ \hline
+ \texttt{indomain\_split} &  \ldots & \ldots & \ldots \\ \hline
+\texttt{indomain\_random} & \ldots & \ldots & \ldots \\ \hline
+\texttt{indomain\_interval}   & \ldots & \ldots  & \ldots \\ \hline\hline
+
+\end{tabular}
+\end{center}
+}
+
+\end{table}
+
+
+
+
+
+\begin{table}[!ht]
+
+\caption{LEGENDA DE FIGURA é EMBAIXO ... aqui eh uma \textbf{tabela}}
+\label{tab02}
+
+{\small
+\begin{center}
+\begin{tabular}{c||c|c} \hline\hline
+ $\frac{\textrm{Sel. Variável}}{\textrm{Atr. Dominio}}$ 
+&  \texttt{most\_constrained}  & \texttt{max\_regret}
+ \\ \hline\hline
+\texttt{indomain\_min} &  \ldots & \ldots \\ \hline
+\texttt{indomain\_max}  & \ldots  & \ldots \\ \hline
+\texttt{indomain\_median}  &  \ldots & \ldots \\ \hline
+ \texttt{indomain\_split} & \ldots & \ldots \\ \hline
+\texttt{indomain\_random} & \ldots & \ldots \\ \hline
+\texttt{indomain\_interval}  & \ldots  & \ldots \\ \hline\hline
+
+\end{tabular}
+\end{center}
+}
+
+\end{table}
+
+
+
+
+\subsubsection{Solução em EcliPSE}
+
+
+
+\subsubsection{Solução em PR}
+
+
+
+{\Large \textcolor{red}{\underline {Aqui ... altere para o 
+contexto de seu problema ECLIPSE}}}
+
+{\Large \textcolor{red}{Aqui ... altere para o 
+contexto de seu problema. Qual o objetivo do 
+artigo mesmo? Retome o artigo aqui}}
+
+O experimento consistiu em implementar .........................
+
+
+
+ A tabela \ref{tab:Times} apresenta alguns destes valores quando executados em uma máquina padrão com 1.8 GHz de velocidade de CPU, 512 Kbytes de memória principal.
+
+
+{\Large \textcolor{red}{\underline {Nao hah como 
+fugir de uma tabela como esta que se segue}}}
+
+{\Large \textcolor{red}{\underline { ESTA DEVE
+SER MUITO, MAS MUITO MELHORADA}}}
+
+
+\begin{table}[!ht]
+
+\label{tab:Times}
+\caption{Resultados}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+\hline \hline 
+Tabuleiro & Outras TécnicasProLog & CP & Número de Combinações \\
+\hline
+\hline
+$4 \times 4$ & $\cong$ 0.512 ms &  $\cong$ 2.979 ms & 2 \\
+%% $5 \times 5$ & $< 1$ms & 16ms & 10 \\
+$6 \times 6$ & $\cong$ 195.236 ms & $\cong$ 113.003 ms & 4 \\
+%% $7 \times 7$ & 47ms & 46ms & 40 \\
+$8 \times 8$ &  $\cong$ 1029.973 ms & $\cong$ 722.416 ms & 92 \\
+%%$9 \times 9$ & 3.9s & 1.2s & 352 \\
+$10 \times 10$ & $\cong$ 99.553 seg & $\cong$ 15.00 seg & 724 \\
+$12 \times 12$ & $\geq$ 120 min &  $\cong$ 334.117 seg & 14200 \\
+\hline \hline 
+\end{tabular}
+
+\end{center}
+
+\end{table}
+
+
+Embora tenha-se obtido tempos aceitáveis, a estatística dos tempos obtidos demonstram a complexidade exponencial deste problema. Para $N > 10$, este problema assume uma complexidade superior a $2^N$, logo, um problema NP-completo. Tratando-se de uma otimização, este é um clássico NP-difícil, do inglês, {\em NP-hard} \cite{sipser_1996}. Com tabuleiros de lado maior que $8$ unidades os tempos crescem por um fator exponencial. A partir de um tabuleiro de tamanho $7$, inicia as vantagens da utilização da CP comparada com a programação em lógica tradicional. Mesmo com instâncias pequenas, devido a natureza do problema, logo se começa a notar as diferenças de tempos de execução. Encontrar a melhor combinação não o fator mais complicado neste experimento, 
+mas sim encontrar {\em todas} combinações. 
+
+
+Em estratégias de buscas por melhoramentos como algoritmos genéticos, {\em simulated annealing}, são interessantes se o objetivo fosse encontrar uma única solução \cite{RusNorv}. Contudo, no problema aqui proposto,  a complexidade do controle em evitar as soluções duplicadas por estes métodos, deixaria de ser uma abordagem viável neste problema. Assim, a completude quanto as soluções
+existentes de um dado problema, torna a CP como uma técnica atrativa.
+
+\end{document}
+

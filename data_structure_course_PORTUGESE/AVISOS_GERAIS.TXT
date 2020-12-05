@@ -1,0 +1,103 @@
+========================================================================================
+Avisos -- Leiam todos ... é o Roadmap do curso:
+
+2018-1
+
+* Site das avaliações: https://run.codes/Users/login
+   Código da disciplina: SJ95 (inscricao)
+
+* 1a prova: 22/marco -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- ponteiros
+* 2a prova:  17/abril -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- pilhas
+* 3a prova:  xx/abril -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- filas
+* 4a prova:  xx/maio -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- LSE
+* PROVAO:  21/junho -- 15:10 hrs as 16:55 hrs   (horario de abertura do site) -- LDE e ABB
+
+Site interessante:
+https://www.di.ubi.pt/~cbarrico/Disciplinas/AlgoritmosEstruturasDados/PaginaAlgoritmosEstruturasDados.htm
+
+========================================================================================
+2017 - 2
+ 
+* tem prova sobre filas dia 05/out  -- 2 a 3 problemas (os dois fáceis todos devem fazer)
+* lab sobre filas dias 28/set e 03/out (dias finais antes da prova)
+* Tem 3 problemas sobre filas desde 5a feira ...para fins de exercícios
+* Trabalhos de pilha: 5% da nota
+* DEQUEUE e FILAS com prioridades => nao definidos pois há listas ainda
+*
+* Assunto: Listas em 10 e 12/out (feriado -- sem aula)
+* Listas SE, DE e Circular em 17 e 19/out
+* 3a. feira dia 24/out: aula de LAB ... dúvidas e exercícios finais
+* Ha muita implementação sobre em listas ... muitos problemas... tem alguns no run.codes
+* Prova dia 26/out --> listas LSE, LC, LDE (~25% ****)
+* Dia 07/NOV --> começamos com arvores
+* Haverá um trabalho de arvores<= 10% na nota global para novembro
+* 9/novembro sem aula -- terá um trabalho aqui de arvores....max 10%
+* Final de novembro: 21 ou 23 .. o provão final de disciplina (max 20%)
+========================================================================================
+
+
+Pessoal
+
+1. Ultima aula ... esta  3a. feira ... árvores AVL
+
+2. Fiz o exercicio da inserção iterativa  de ABB ... esta no Github da disciplina
+
+3. Tem várias ideias para exclusao lah ... mas nao fiz este metodo ... fica para voces, pois é um bom desafio
+
+4. Para prova de 5a feira .... vou pegar questoes do seguinte site
+https://www.thehuxley.com/  (mas a prova serah no RUNCODES este ano) o nome eh ingles, mas eh em Portugues mesmo ...
+olhem lah os problemas, de listas, filas e pilhas... e aplicacoes
+
+5. 5a. feira a prova final incluindo toda matéria ... menos arvores
+devido o tamanho dos codigos ...  procurem chegar as 15:10 hrs como
+da última vez
+
+6. Na proxima semana ... estarei avaliando os trabalhos de AVL....
+em horário de aula na minha sala ... 10% da MS
+   
+7. Em exame , MS < 6,0 ... dia 12/12 (3a feira) ...  MS >= 6,0 repito a nota como MS 
+
+Abraços
+
+ĉĉ - claudio  cesar  
+
+Pessoal
+
+
+O trabalho tem um prazo até amanha .... mas como estou "conseguindo" respirar,
+podemos marcar um 2o. deadline para 2a. feira a tarde (4/DEZEMBRO) ...
+ultimo dia para apresentação....
+
+Com relação aos arquivos de entrada.... tem
+um de 100, 500 e 1000 chaves... vi ontem em um dos trabalhos que me apresentaram....
+500 chaves o tempo de inserção é proximo a 0 segundos.
+
+Assim em
+https://github.com/claudiosa/CCS/tree/master/estrutura_dados_EDA/codes/arvores
+tem o gerador de chaves (gerador-de-chaves.c) 
+aumentem para umas 10000 chaves.
+
+para 100 chaves a altura da arvore devera ser no MAX 8 (log 100)
+para 500 chaves a altura da arvore devera ser no MAX 9 ...
+para 1000 chaves a altura da arvore devera ser no MAX 12 ....
+
+Amanha no horario tambem estou vendo os trabalhos....
+
+Lembrem de imprimir as alturas, inclusoes, e calculando as alturas, e exclusoes....
+tudo por chaves.
+
+
+cc
+
+last call
+
+Lembrei que dia 04/dez é o fechamento do diário para os Exames
+Finais ...
+Assim quem vier apresentar na 2a feira dia 04/12 será
+ das 08:30 até 10:30 hrs ... "ultima janela" para apresentacao do trabalho de AVL
+
+Quem puder apresentar amanha a tarde das 15 as 16:50 hrs agradeço
+
+obrigado
+
+

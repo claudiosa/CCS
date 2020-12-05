@@ -1,0 +1,35 @@
+LISTA 02
+
+PARTE I
+
+ Obter UMA gramática qualquer (ver exemplos iniciais) que geram as
+ linguagens cujas sentenças
+ satisfaçam às regras apresentadas a seguir. Considerar
+ Σ = {a, b}:
+
+L1. Começam com aaa;
+L2. Terminam com bbb;
+L3. Contém a subcadeia aabb;
+L4. Não contém a subcadeia aaa;
+L5. Possuem comprimento múltiplo de 4;
+
+P={S -> ......}
+
+PS: NAO NECESSARIAMENTE REGULARES
+
+PARTE II
+
+ Construa os AFDs (ou AFNDs ...) para
+ as linguagens especificadas acima 
+
+M1, M2, M3, M4, M5
+
+
+Parte III
+
+Escolhem 5 palavras (comprimento >= 6) e computem segundo M1 a M5
+NOTACAO SIMPLIFICADA DE TEOREMA
+
+
+
+

@@ -1,0 +1,41 @@
+
+Videos na aula
+
+https://www.youtube.com/watch?v=XJ-gO-yAwHU
+Gabriel Wurzer -- ingles claro e pausado -- 
+Vamos começar com estes videos ....
+DIA 03/03 -- os 3 videos iniciais do Gabriel
+
+
+
+Pagina no BRASIL
+https://www.ufrgs.br/soft-livre-edu/software-educacional-livre-na-wikipedia/netlogo/
+
+
+LIVROS
+Baixar de www.bookzz.org
+
+A Concise Introduction to Multiagent Systems
+and Distributed Artificial
+Intelligence
+Nikos Vlassis
+
+An Introduction to Multiagent Systems
+Michael Wooldrige
+
+
+MULTIAGENT SYSTEMS
+Algorithmic, Game-Theoretic,
+and Logical Foundations
+Yoav Shoham
+Kevin Leyton-Brown
+faça wget www.masfoundations.org/mas.pdf
+IMPRIMIR OU COMPRAR
+
+
+Multiagent Systems
+A Modern Approach to Distributed Modern 
+Approach to Artificial Intelligence
+edited by Gerhard Weiss
+The MIT Press
+Cambridge, Massachusetts

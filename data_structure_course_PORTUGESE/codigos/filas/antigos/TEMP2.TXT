@@ -1,0 +1,86 @@
+
+====================================
+ 1o..:: 2o..:: 3o..::
+ [[0]:A|3]  [[1]:B|2]  [[2]:C|1] 
+ Job realimentando a fila|falta :: [A|2] 
+ Job realimentando a fila|falta :: [B|1] 
+ Job realimentando a fila|falta :: [C|0] 
+====================================
+ 1o..:: 2o..:: 3o..::
+ [[3]:A|2]  [[4]:B|1]  [[5]:C|0] 
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..::
+ [[3]:A|2]  [[4]:B|1]  [[5]:C|0]  [[6]:A|3]  [[7]:B|2]  [[8]:C|1] 
+ Job realimentando a fila|falta :: [A|1] 
+ Job realimentando a fila|falta :: [B|0] 
+ Job com partida definitiva !: C 
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..::
+ [[6]:A|3]  [[7]:B|2]  [[8]:C|1]  [[9]:A|1]  [[0]:B|0] 
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..::
+ [[6]:A|3]  [[7]:B|2]  [[8]:C|1]  [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1] 
+ Job realimentando a fila|falta :: [A|2] 
+ Job realimentando a fila|falta :: [B|1] 
+ Job realimentando a fila|falta :: [C|0] 
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0] 
+ A fila esta Cheia
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia
+ A fila esta Cheia
+ A fila esta Cheia
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia
+ A fila esta Cheia
+ A fila esta Cheia
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia
+ A fila esta Cheia
+ A fila esta Cheia
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia
+ A fila esta Cheia
+ A fila esta Cheia
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+ A fila esta Cheia ===> SEM REALIMENTACAO....
+====================================
+ 1o..:: 2o..:: 3o..:: 4o..:: 5o..:: 6o..:: 7o..:: 8o..:: 9o..:: 10o..::
+ [[9]:A|1]  [[0]:B|0]  [[1]:A|3]  [[2]:B|2]  [[3]:C|1]  [[4]:A|2]  [[5]:B|1]  [[6]:C|0]  [[7]:A|3]  [[8]:B|2] 

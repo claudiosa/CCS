@@ -1,0 +1,15 @@
+ 
+O numero de Fibonacci de 0 eh:: 0
+O numero de Fibonacci de 1 eh:: 1
+O numero de Fibonacci de 2 eh:: 1
+O numero de Fibonacci de 3 eh:: 2
+O numero de Fibonacci de 4 eh:: 3
+O numero de Fibonacci de 5 eh:: 5
+O numero de Fibonacci de 6 eh:: 8
+O numero de Fibonacci de 7 eh:: 13
+O numero de Fibonacci de 8 eh:: 21
+O numero de Fibonacci de 9 eh:: 34
+O numero de Fibonacci de 10 eh:: 55
+O numero de Fibonacci de 11 eh:: 89
+O numero de Fibonacci de 12 eh:: 144
+O numero de Fibonacci de 13 eh:: 233

@@ -1,0 +1,13 @@
+all: relocavel.exe
+
+relocavel.exe: pilha00_A.o pilha01_A.o
+	gcc -Wall  -o relocavel.exe pilha00_A.o pilha01_A.o
+
+pilha00_A.o: pilha00_A.c
+	gcc -Wall -c pilha00_A.c
+
+pilha01_A.o: pilha01_A.c
+	gcc -Wall -c pilha01_A.c
+
+clean:
+	rm pilha00_A.o pilha01_A.o relocavel.exe

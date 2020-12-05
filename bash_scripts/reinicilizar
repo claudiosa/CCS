@@ -1,0 +1,5 @@
+#!/bin/sh
+cp /etc/inittab.txt /etc/inittab
+echo "cp /etc/inittab.txt /etc/inittab"
+echo  ... rebootando .... 
+reboot

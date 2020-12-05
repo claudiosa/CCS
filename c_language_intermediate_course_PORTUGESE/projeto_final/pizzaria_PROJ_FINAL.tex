@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage[portuges]{babel}
+\pagestyle{headings}
+\markright{}
+\topmargin-1cm
+\oddsidemargin20mm
+\textwidth17cm
+\textheight24cm
+\setlength{\parskip}{0.5cm}
+\setlength{\parindent}{1cm}
+
+\begin{document}
+\baselineskip0.5pt
+
+ Sistema de Tele-Pizza
+
+A proposta deste sistema é gerenciar uma pequena pizzaria de ``{\em tele-entregas}". Ou seja, um cliente liga à pizzaria, faz o seu pedido, recebe a pizza em sua casa, e a baixa no pedido é feita pelo entregador quando este recebe o dinheiro.
+
+Como o pedido é feito por telefone, é ``{\em natural}" que os clientes sejam cadastrados pelo número do telefone. Caso um número ainda não exista, este será incluído mediante um pedido.
+
+As pizzas são de vários sabores e preços variados. Estas se apresentam sob forma de menu, com códigos a partir de 1, 2, 3, \ldots . A cada pizza há um preço característico.  Esta estrutura pode ser fixa internamente. Tipo um vetor de estruturas.
+
+Um pedido tem uma demanda de uma ou mais pizzas.
+Logo, na medida que o pedido é feito, há o cálculo de um sub-total, e um total ao final do mesmo.
+
+
+``{\em Lay-out}" no arquivo mestre:
+\begin{verbatim}
+structuc reg_tipo_1
+        {
+          char fone[8];
+          char nome[20];
+          char endereco[40];
+          char descricao_pizzas[30];
+          int qtidade;
+          float valor_total;
+          char pendência;
+          char status;
+        }
+\end{verbatim}
+          
+\begin{verbatim}
+structuc reg_tipo_2
+        {
+          char fone[8];
+          int posicao;
+         }
+\end{verbatim}
+
+Quando um pedido for realizado, o campo da pendência segue para ``{\bf S}", ou seja, o pedido está pendente.
+Quando o pedido for entregue e pago, o campo da pendência segue para ``{\bf N}". 
+
+
+Em resumo, o último pedido de um cliente sempre fica armazenado no sistema.
+
+Obviamente, que os módulos de alteração, exclusão são partes do sistema. A alteração visa as mudanças dos dados do cliente, e a exclusão é para remover um cliente do sistema (caso este tenha se mudado de cidade).
+
+
+
+
+
+
+\end{document}
