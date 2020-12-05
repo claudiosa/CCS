@@ -1,4 +1,0 @@
-www.inf.pucrs.br/~pinho/PRGSWB/Exercicios/Introducao/Introducao.html
-https://www.ime.usp.br/~pf/algoritmos/aulas/pont.html ==> BOM LINK
-http://www.cprogressivo.net/2013/03/Questoes-com-gabarito-sobre-Ponteiros-em-C.html ==> TESTE OBRIGATORIO
-http://www.cs.utexas.edu/~novak/cs314.html ==> usa lisp e java mas OK ... eh STANFORD

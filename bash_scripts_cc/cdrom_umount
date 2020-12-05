@@ -1,4 +1,0 @@
-#!/bin/sh
-umount /dev/cdrom
-eject /dev/cdrom
-echo .... DESMONTOU OK ....
