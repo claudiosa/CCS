@@ -30,16 +30,16 @@ value(go;stay).
 action(mrs_smith, go) :- action(mr_smith, go).
 
 % At least one of their two sons Matt and John will come.
-1 { action(matt, go), action(john, go) }.
+1 { action(matt, go): action(john, go) }.
 
 % Either Mrs Smith or Tim will come but not both.
-1 { action(mrs_smith, go), action(tim, go) } 1.
+1 { action(mrs_smith, go) : action(tim, go) } 1.
 
 % Either Tim and John will come or neither will come.
 :- action(tim, T1), action(john, T2), T1 != T2.
 
 % If Matt comes then John and his father will also come.
-2 { action(john, go), action(mr_smith, go) } 2 :- action(matt, go).
+2 { action(john, go): action(mr_smith, go) } 2 :- action(matt, go).
 
-#hide.
+%#hide.
 #show action(P,T). 
