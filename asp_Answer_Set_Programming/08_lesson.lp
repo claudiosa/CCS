@@ -41,63 +41,30 @@ esposas( patricia ; lucia ; maria ).
 %* encerrado os fatos do problema 
 *%
 
-%% ao main SET
-%*
-3 { casal(carlos,M1,P1) ; casal(luis,M2,P2) ; casal(paulo,M3,advogado) } 3 
-%2 {casal(carlos,M1,P1) ; casal(luis,M2,P2) ; casal(paulo,M3,advogado)} 3
-%1 {casal(carlos,M1,P1) ; casal(luis,M2,P2) ; casal(paulo,M3,advogado)} 3
-        :-
-    quem_sao_as_esposas(M1,M2,M3),		    
-	prof(P1),
-	prof(P2),
-	P1 != medico,     %%Carlos nao eh medico
-	P2 = medico, 
-    
-	%% lendo o texto, P2 eh medico, pois P3 eh advogado
-	P1 != advogado,
-	P2 != advogado,
-	P1 != P2.
+1 {casal(carlos,M,P) : esposas(M) ,  prof(P)} 1 .
+1 {casal(luis,M,P) : esposas(M),  prof(P)}  1 .
+1 {casal(paulo,M,P) : esposas(M),  prof(P)} 1 .
 
-*%
- %:- { casal(carlos,M1,P1) : prof(P1) , esposas(M1)} ,
- :-  casal(carlos,M1,P1) ,  prof(P1) , esposas(M1) ,
-    P1 = advogado, 
-	M1 = maria.  
-	%%% ; (M1 = patricia) ).
-
-%*
-{ casal(luis,M2,P2) : prof(P2), esposas(M2)} = 1 :- 
-    P2 = medico,
-	M2 = maria. %%O medico eh casado com a Maria
-
-{ casal(paulo,M3,advogado) : esposas(M3)} = 1 :-
-    M3 != patricia. %%Patricia nao eh casada com Paulo
+ %1{casal(carlos,M1,_); casal(luis,M2,_); casal(paulo,M3,_)} 1 :-
+ %  M1 != M2, M1 != M3, M2 != M3. 
 
 
-quem_sao_as_esposas(M1,M2,M3) :-
-	%esposas(M1; M2; M3),
-	esposas(M1),
-	esposas(M2),
-	esposas(M3),
-    M3 != patricia,    
-    M2 = maria,        %%O medico eh casado com a Maria
-%   not_equal(M1,M2,M3). 	
-	M1 != M2,
-	M1 != M3,
-	M2 != M3.
-*%
-%*  NAO HA CASAMENTO .... em ASP ... it is not PROLOG
-not_equal(M1,M2,M3) :- 
-	M1 != M2,
-	M1 != M3,
-	M2 != M3.
-:-  not_equal(_,_,_).
-*%
+:- casal(carlos,_,medico).    %%Carlos nao eh medico
+:- casal(paulo,patricia,_).   % Patricia nao eh casada com Paulo
+:- not casal(paulo,_,advogado).   % O Paulo eh advogado;
+:- not casal(_, maria , medico). %%O medico eh casado com a Maria
+
+%%% Woman and ocupation are different
+%:- casal(carlos,M1,_), casal(luis,M2,_), casal(paulo,M3,_), M1 = M2, M1 = M3, M2=M3. 
+%:- casal(carlos,_,P1), casal(luis,_,P2),  casal(paulo,_,P3), P1 = P2, P1 = P3, P2=P3. 
+
+
 
 #show casal/3.
 %%%#show [X, Y, Z] : casal(X,Y,Z) .
 
-%* Relendo as hipoteses, voce vai concluir  que o
+%* 
+   Relendo as hipoteses, voce vai concluir  que o
    programa se reduz a:
 *%
 
