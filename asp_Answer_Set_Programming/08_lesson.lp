@@ -1,24 +1,25 @@
-% $ clingo casal_asp.pl 0
+%  clingo 08_lesson.lp 0
 
-% Fui hah uma festa e  apresentado ha tres casal.
-% Os maridos tinham profissoes  e esposas distintas.
-% Apos alguns "goles" me confundi quem era casado com quem,
-% e as profissoes.
-% Apenas lembro de alguns fatos, entao me ajude descobrir quem
-% sao estes casal, com base nos seguintes dados:
+%* 
+ Fui hah uma festa e  apresentado ha tres casal.
+ Os maridos tinham profissoes  e esposas distintas.
+ Apos alguns "goles" me confundi quem era casado com quem,
+ e as profissoes.
+ Apenas lembro de alguns fatos, entao me ajude descobrir quem
+ sao estes casais, com base nos seguintes dados:
 
-% 1.  O medico eh casado com a Maria;
-% 2.  O Paulo eh advogado;
-% 3.  Patricia nao eh casada com Paulo;
-% 4.  Carlos nao eh medico.
+ 1.  O medico eh casado com a Maria;
+ 2.  O Paulo eh advogado;
+ 3.  Patricia nao eh casada com Paulo;
+ 4.  Carlos nao eh medico.
 
-% Retirado da revista Coquetel: Problemas de Logica
+ Retirado da revista Coquetel: Problemas de Logica
 
-% Os demais nomes de nosso personagens sao:
-% H = { carlos (c) , luiz (l) , paulo (p) }
-% M = { maria, lucia, patricia }
-% P = { advogado (a), medico (m), engenheiro (e) }
-
+ Os demais nomes de nosso personagens sao:
+ H = { carlos (c) , luiz (l) , paulo (p) }
+ M = { maria, lucia, patricia }
+ P = { advogado (a), medico (m), engenheiro (e) }
+*%
 % Modelagem com FUNCTORES: (H,M,P) logo ((H1,M1,P1), (H2,M2,P2),
 % (H3,M3,P3))
 % conferir com o resultado de PROLOG
@@ -34,38 +35,36 @@ casal(carlos,patricia,engenheiro)
  UFA ....
 *%
 
+%%% BASE DE FATOS ...
 prof( advogado ; medico ; engenheiro ).
 esposas( patricia ; lucia ; maria ).
+homens( luis; paulo; carlos ).
 
-
-%* encerrado os fatos do problema 
+%*
+ Encerrado os fatos do problema 
 *%
+%%% EQUIVALENTE UM TODOS DIFERENTES ....
+1 { casal(H, M, P) : homens(H), esposas(M)} 1 :- prof(P).
+%% UM CONJUNTO COM TODOS OS PARES repetidos ou nao de H e M,
+%% mas prof DIFERENTES
+1 { casal(H, M, P) : homens(H), prof(P) } 1  :- esposas(M).
+%% idem para esposas diferentes
+1 { casal(H, M, P) : esposas(M), prof(P) } 1 :- homens(H).
+%% idem para homens diferentes
 
-1 {casal(carlos,M,P) : esposas(M) ,  prof(P)} 1 .
-1 {casal(luis,M,P) : esposas(M),  prof(P)}  1 .
-1 {casal(paulo,M,P) : esposas(M),  prof(P)} 1 .
+%%% UMA COMBINACAO destes 3 conjuntos fornece um ALL_DIFFERENT
 
- %1{casal(carlos,M1,_); casal(luis,M2,_); casal(paulo,M3,_)} 1 :-
- %  M1 != M2, M1 != M3, M2 != M3. 
+%% AS RESTRICOES
 
-
-:- casal(carlos,_,medico).    %%Carlos nao eh medico
-:- casal(paulo,patricia,_).   % Patricia nao eh casada com Paulo
-:- not casal(paulo,_,advogado).   % O Paulo eh advogado;
-:- not casal(_, maria , medico). %%O medico eh casado com a Maria
-
-%%% Woman and ocupation are different
-%:- casal(carlos,M1,_), casal(luis,M2,_), casal(paulo,M3,_), M1 = M2, M1 = M3, M2=M3. 
-%:- casal(carlos,_,P1), casal(luis,_,P2),  casal(paulo,_,P3), P1 = P2, P1 = P3, P2=P3. 
-
-
+:- casal(carlos,_,medico).         %% Carlos NAO eh medico
+:- casal(paulo, patricia, _).      %% Patricia NAO eh casada com Paulo
+:- not casal(paulo , _, advogado). %% O Paulo EH advogado
+:- not casal(_, maria , medico).   %% O medico EH casado com a Maria
 
 #show casal/3.
-%%%#show [X, Y, Z] : casal(X,Y,Z) .
 
 %* 
-   Relendo as hipoteses, voce vai concluir  que o
-   programa se reduz a:
+THE END -- FIM   
 *%
 
 
