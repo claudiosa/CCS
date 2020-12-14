@@ -1,7 +1,7 @@
 /* Quanto ao functor state::
-    1o. arg: onde está o macado
-    2o. arg: posição do macaco em relação a caixa
-    3o. arg: onde está a caixa
+    1o. arg: onde estï¿½ o macado
+    2o. arg: posiï¿½ï¿½o do macaco em relaï¿½ï¿½o a caixa
+    3o. arg: onde estï¿½ a caixa
     4o. arg: segurou ou nao as bananas
 
 swipl -t main -q -f NAME.pl
@@ -22,6 +22,15 @@ busca( state(meio_da_sala, sobre_a_caixa, meio_da_sala, vai_agarrar),  L1 , L2 )
 			write('Sucesso'),
                         print_seq_state(L1_inv,L2_inv)
                         .
+
+
+/* exploraï¿½ï¿½o dos estados */
+busca( S1 ,  L, L_acao ) :-
+	move(S1, Acao , S2),
+	\+ member( S2, L ),
+	busca( S2 ,  [ S2 | L],  [Acao| L_acao] ).
+
+
 %% CURR_STATE ---> ACTION ---> NEW_STATE
 %%% number of the states has 1 more... always.
 print_seq_state( _ ,[]) :- format("\n ====================================\n Success \n").
@@ -29,16 +38,9 @@ print_seq_state( _ ,[]) :- format("\n ====================================\n Suc
 print_seq_state([State|L1],[Action|L2]) :-
      format("\n State: ~w \t Action: ~w", [State, Action]),
      print_seq_state(L1,L2). 
-        
 
 
 
-
-/* exploração dos estados */
-busca( S1 ,  L, L_acao ) :-
-	move(S1, Acao , S2),
-	\+ member( S2, L ),
-	busca( S2 ,  [ S2 | L],  [Acao| L_acao] ).
 
 /* os movimentos permitidos */
 /* 1. macaco se movimenta sozinho */
