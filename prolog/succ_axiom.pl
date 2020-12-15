@@ -36,7 +36,7 @@ N = 6.
 */
 
 
-/*** For Planning use: */
+/*** For Planning extend this idea: */
 /*
 
 do(result(Action,S_new ), Situation_2):-
