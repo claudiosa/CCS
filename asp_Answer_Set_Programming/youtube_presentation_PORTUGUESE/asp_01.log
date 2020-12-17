@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  17 DEC 2020 17:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  17 DEC 2020 18:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -993,19 +993,19 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] Excluding 'comment' comment. [3
+] Excluding 'comment' comment.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+76.
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [3
 
 ] [4
 
 ] [5
 
-]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-08.
-
-(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [6
+] [6
 
 ] [7
 
@@ -1013,62 +1013,71 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ] [9
 
-] [10
+]
+[10
 
 ] [11
 
+] [12
+
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 270.
+(Font)              <14.4> on input line 333.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 270.
+(Font)              <10> on input line 333.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 270.
+(Font)              <7> on input line 333.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 270.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 333.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 270.
-
-[12
-
-] [13
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 333.
+ [13
 
 ] [14
 
 ] [15
 
+] [16
+
 ]
 \tf@nav=\write7
 \tf@toc=\write8
 \tf@snm=\write9
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 333.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 333.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 396.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 396.
  (./asp_01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 333.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 333.
-Package rerunfilecheck Info: File `asp_01.out' has not changed.
-(rerunfilecheck)             Checksum: 45C827BA404BDD3743E76C293B806A0E;273.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 396.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 396.
+
+
+Package rerunfilecheck Warning: File `asp_01.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `asp_01.out':
+(rerunfilecheck)             Before: 45C827BA404BDD3743E76C293B806A0E;273
+(rerunfilecheck)             After:  ABEBE12CFBA23D0231E3F3D651E7B295;270.
  ) 
 Here is how much of TeX's memory you used:
- 20497 strings out of 480478
- 374508 string characters out of 5905959
- 818547 words of memory out of 5000000
- 35965 multiletter control sequences out of 15000+600000
- 599508 words of font info for 76 fonts, out of 8000000 for 9000
+ 20511 strings out of 480478
+ 374966 string characters out of 5905959
+ 819547 words of memory out of 5000000
+ 35977 multiletter control sequences out of 15000+600000
+ 602276 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,14n,67p,773b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmss10.
+ 58i,14n,67p,773b,576s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
+nts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmss10.
 pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-d
 ist/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf-dist/fonts/type1/public/l
 m/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/share/texmf-dist/fonts/
 type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msam10.pfb>
-Output written on asp_01.pdf (15 pages, 179430 bytes).
+Output written on asp_01.pdf (16 pages, 185974 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 432 compressed objects within 5 object streams
- 36 named destinations out of 1000 (max. 500000)
+ 498 PDF objects out of 1000 (max. 8388607)
+ 461 compressed objects within 5 object streams
+ 38 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
