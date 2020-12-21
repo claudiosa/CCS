@@ -1,11 +1,13 @@
-p( a ; b ).
-q( d ; e ).
+p( aaa ; bbb ; ccc).
+q( 777 ).
 
-%1 {r(X,Y) : p(X)} 1 :- q(Y).
-1 {s(X,Y) : q(X), p(Y)} 1. % :- p(Y).
-{r(X,Y) : q(X)} = 1 :- p(Y).
+%%% p(X) eh LOCAL e q eh LIVRE
+2 {r(X,Y) : p(X)} 7 :- q(Y).
+%% de 2 a 7 conjuntos por resposta
+%% O CONTRARIO
+%1 {r(X,Y) : q(Y)} 1 :- p(X).
+% OUTRA NOTACAO neste caso 1...1
+%% {r(X,Y) : q(Y)} = 1 :- p(X).
 
-%:- {r(X,Y) : p(X) , q(Y)} = 1 .
-
+% :- {r(X,Y) : p(X) , q(Y)} = 1 .
 #show r/2.
-#show s/2.
