@@ -1,0 +1,24 @@
+\frametitle{Construindo conjuntos}
+	
+	\lstinputlisting[
+    label={09_lesson},
+    language=erlang,
+]{../09_lesson.lp}
+
+Saída:
+\pause
+{\small
+\begin{verbatim}
+$ clingo ../09_lesson.lp 0
+Answer: 1
+r(bbb,777) r(ccc,777)
+Answer: 2
+r(aaa,777) r(bbb,777) r(ccc,777)
+Answer: 3
+r(aaa,777) r(ccc,777)
+Answer: 4
+r(aaa,777) r(bbb,777)
+SATISFIABLE
+\end{verbatim}
+}	
+\textcolor{red}{Aqui \textbf{não} são mais conjuntos .... }

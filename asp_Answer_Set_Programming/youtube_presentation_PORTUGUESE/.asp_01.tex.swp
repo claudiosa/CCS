@@ -166,10 +166,9 @@
 
   \item  Muitos slides, referências, códigos, vídeos no Youtube com os autores, etc
   
-  \item Livro que estou usando: 
-       
+  \item Livros sobre ASP: 
 
-    \end{itemize}
+ \end{itemize}
   
 \end{block}
 
@@ -179,14 +178,22 @@
 %%% capa dos livros
 
 
+\begin{frame}
+	\frametitle{Os livros:}
+	
+\begin{figure}[tbp]
+  \centering
+	 \includegraphics[width=0.4\textwidth , height=0.55\textheight]{cover_book_vladmir.jpg}
+	 \includegraphics[width=0.4\textwidth , height=0.55\textheight]{cover_book_roland.jpg}
+  \caption{Estou usando o do Vladmir}
+	
+	\end{figure}
+\end{frame}
 
 
 
 
-
-
-
-\begin{frame}[allowframebreaks]
+\begin{frame}[fragile]
 
 \frametitle{Características}
 
@@ -213,21 +220,6 @@
 
 
 \end{frame}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -335,28 +327,44 @@ Models       : 1
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Problema do Caminho Mínimo}
-
-\begin{frame}
-    \frametitle{Elementos de um Grafo}
-    
-    \begin{figure}[tbp]
-%     %% \includegraphics[keepaspectratio=true,width=0.8\textwidth , height=0.6\textheight]{01_elementos_de_um_grafo.pdf}
-    \centering
-    \end{figure}
-
-
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Problema do Caminho Mínimo}
+\begin{frame}[fragile] 
+	\frametitle{Construindo conjuntos}
 	
-	\begin{figure}[tbp]
-	%	%% \includegraphics[width=0.8\textwidth , height=0.6\textheight]{02_grafo_com_pesos.pdf}
-		\centering
-		\caption{Um problema da classe P (mas muito útil) com uma solução via PLI}
-	\end{figure}
-Referência: \url{https://en.wikipedia.org/wiki/Shortest_path_problem}
+	\lstinputlisting[
+    label={09_lesson},
+    language=erlang,
+]{../09_lesson.lp}
+
+Saída:
+\pause
+{\small
+\begin{verbatim}
+$ clingo ../09_lesson.lp 0
+Answer: 1
+r(bbb,777) r(ccc,777)
+Answer: 2
+r(aaa,777) r(bbb,777) r(ccc,777)
+Answer: 3
+r(aaa,777) r(ccc,777)
+Answer: 4
+r(aaa,777) r(bbb,777)
+SATISFIABLE
+\end{verbatim}
+}	
+\textcolor{red}{Aqui \textbf{não} são mais conjuntos .... }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Prática}
+\begin{frame}
+	\frametitle{Problema dos maridos, esposas e profissões}
+	
+\begin{block}{}
+xxxxxxx
+\end{block}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -391,14 +399,6 @@ Referência: \url{https://en.wikipedia.org/wiki/Shortest_path_problem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}
-	\frametitle{O Caminho e a Matriz de Peso}
-	
-	\begin{figure}[tbp]
-		%% \includegraphics[width=0.8\textwidth , height=0.8\textheight]{06_um_caminho_e_matriz.pdf}
-		\centering
-	\end{figure}
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
