@@ -60,7 +60,7 @@ pertence_02(A, [B|L]) = X =>
              X = pertence_02(A,L).
 
 % -- visao lógica
-uniao_01( [] , X, Y ) ?=> Y = X. 
+uniao_01( [] , X, Y ) ?=> Y = X, !. 
 uniao_01( A , L2, R  ) =>  A = [X|L1] , 
                            R = [X|L3] , 
                            uniao_01( L1, L2, L3 ).
@@ -83,11 +83,42 @@ add_X_lista_01(X, Y, Z) =>
 add_X_lista_02(X, [ ]) = [X]. 
 add_X_lista_02(X, Y) = Z =>
           pertence_02(X, Y) = true,
-          Z = Y;
+          Z = Y ;
           Z = [ X | Y ].
           
 %%add_X_lista_02(X, Y) = Z => Z = X ++ Y.
           %%Z = [ X | Y ].
 
+app(Xs, Ys, Zs) , 
+        (Xs == [])
+        ?=>  
+        Zs = Ys, !.  
+app(L1, Ys, L3),
+        (L1 = [X|Xs]),  %% Unification
+        (L3 = [X|Zs])   %% Unification
+        => 
+        app(Xs,Ys,Zs). 
+%% The return value always MUST be EXPLICITED         
+%%BUT "app([X|Xs], Ys, [X|Zs]) => app(Xs,Ys,Zs)." ONLY FOR PROLOG 
 
+%%% horn clause is acceptable
+my_app([], Y, Y).  
+my_app([X|Xs],Ys,[X|Zs]) 
+       :- my_app(Xs,Ys,Zs).
 
+%%% from NENG-FA
+append(Xs,Ys,Zs),var(Xs) =>
+        append_aux(Xs,Ys,Zs).
+append([],Ys,Zs) =>  
+        Ys = Zs.
+append([X|Xs],Ys,Zs) =>
+        Zs = [X|Zs1],
+        append(Xs,Ys,Zs1).
+    
+append_aux(Xs,Ys,Zs) ?=>
+        Xs = [],
+        Ys = Zs.
+append_aux(Xs,Ys,Zs) =>
+        Xs = [X|Xs1],
+        Zs = [X|Zs1],
+        append(Xs1,Ys,Zs1).
