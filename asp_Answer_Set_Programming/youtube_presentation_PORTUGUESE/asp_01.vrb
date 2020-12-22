@@ -1,24 +1,18 @@
-\frametitle{Construindo conjuntos}
-	
-	\lstinputlisting[
-    label={09_lesson},
-    language=erlang,
-]{../09_lesson.lp}
+\frametitle{Abordagem ASP - Saída}
 
-Saída:
-\pause
+
 {\small
 \begin{verbatim}
-$ clingo ../09_lesson.lp 0
+$ clingo 08_lesson.lp 0
+....................
 Answer: 1
-r(bbb,777) r(ccc,777)
-Answer: 2
-r(aaa,777) r(bbb,777) r(ccc,777)
-Answer: 3
-r(aaa,777) r(ccc,777)
-Answer: 4
-r(aaa,777) r(bbb,777)
+casal(luis,maria,medico) casal(paulo,lucia,advogado)
+ casal(carlos,patricia,engenheiro)
 SATISFIABLE
+
+Models       : 1
+.....................
 \end{verbatim}
-}	
-\textcolor{red}{Aqui \textbf{não} são mais conjuntos .... }
+}
+
+
