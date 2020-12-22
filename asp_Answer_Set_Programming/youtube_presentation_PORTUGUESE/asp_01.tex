@@ -49,7 +49,7 @@
 
 
 \title[Inteligência Artificial -- Otimização Combinatória] % (optional, use only with long paper titlebg=blue!20!white,s)
-{Answer Set Programming \\ (\textit{Programação com Conjunto de Resposta})\\ Parte -- 01}
+{Answer Set Programming \\ (\textit{Programação com Conjunto de Resposta})\\ Um \emph{Panorama}}
 
 %\subtitle
 %{About some things}
@@ -107,12 +107,12 @@
 \begin{enumerate}
 
   \item  O que ASP?
-  \item  Contexto Histórico
-  \item  As diversas versões
+  \item  Motivação  Histórica
+  \item  Diversas versões
   \item  Vamos ao Clingo nesta apresentação
   \item  Alguns elementos
-  \item  Um exemplo: do Prolog ao ASP
-  \item Conclusões
+  \item  Um exemplo: do Prolog  ao ASP
+  \item  Conclusões
   \end{enumerate}
 
 \end{block}
@@ -166,6 +166,9 @@
 
   \item  Muitos slides, referências, códigos, vídeos no Youtube com os autores, etc
   
+  \item Este material e os códigos apresentados:\\
+  \url{https://github.com/claudiosa/CCS/tree/master/asp_Answer_Set_Programming}
+  
   \item Livros sobre ASP: 
 
  \end{itemize}
@@ -201,11 +204,11 @@
 \begin{block}{}
   \begin{itemize}
   
-  \item Mais declarativa que Prolog e seus predecessores (apenas a sintaxe lembra Prolog)
+  \item Mais declarativa que Prolog e seus predecessores (\textbf{apenas}, \emph{e quase nada mais, tem uma sintaxe que lembra Prolog})
 
   \item Raízes em várias lógicas: LP, LPO, \emph{default}, circunscrição
 
-  \item Uso: problemas combinatoriais baseados em conhecimento declarativo
+  \item Uso: problemas combinatoriais baseados em conhecimento declarativo -- faremos um exemplo
 
     \item Consistem de \textbf{decisões} e \textbf{restrições}
 
@@ -220,6 +223,13 @@
 
 
 \end{frame}
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -358,79 +368,151 @@ SATISFIABLE
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Prática}
-\begin{frame}
-	\frametitle{Problema dos maridos, esposas e profissões}
+
+\begin{frame}[fragile]
+	\frametitle{Problema dos maridos, esposas e profissões \footnote{Retirado da revista Coquetel: Problemas de Lógica}}
 	
 \begin{block}{}
-xxxxxxx
+ \emph{Fui há uma festa e  apresentado há três casal.
+ Os maridos tinham profissões  e esposas distintas (até então o que se sabe desta estória).
+ Após alguns ``goles"\/ me confundi quem era casado com quem, e as profissões.
+ Apenas lembro de alguns fatos, então me ajude descobrir quem
+ são estes casais, com base nos seguintes dados que me lembro}:
+\begin{enumerate}
+ \item  O médico é casado com a Maria;
+ \item  O Paulo é advogado;
+ \item  Patrícia não é casada com Paulo;
+  \item Carlos não é médico.
+\end{enumerate}
+ 
+
+
 \end{block}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}
-	\frametitle{Variável de Decisão e Uso}
+\begin{frame}[fragile]
+   \frametitle{Problema dos maridos, esposas e profissões}
 	
-	\begin{figure}[tbp]
-		%% \includegraphics[width=0.8\textwidth , height=0.8\textheight]{03_variavel_decisao_uso.pdf}
-		\centering
-	\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Matriz de Decisão e Uso}
-	
-	\begin{figure}[tbp]
-		%% %% \includegraphics[width=0.8\textwidth , height=0.8\textheight]{04_matriz_decisao_uso.pdf}
-		\centering
-	\end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Os demais dados são:
+ \begin{verbatim}
+ H = { carlos, luiz, paulo }
+ M = { maria, lucia, patricia }
+ P = { advogado, medico, engenheiro}
+ \end{verbatim}
 
-\begin{frame}
-	\frametitle{Definindo um Caminho}
-	
-	\begin{figure}[tbp]
-		%% \includegraphics[width=0.8\textwidth , height=0.8\textheight]{05_um_caminho.pdf}
-		\centering
-	\end{figure}
+\pause
+\begin{itemize}
+\item Enfim, me ajude a encontrar que são os pares e as profissões dos maridos?
+
+\item A curiosidade deste problema: embora tenhamos poucas informações, este \textbf{só tem uma resposta possível}!
+\end{itemize}
+
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-	\frametitle{Formalizando os Elementos}
-	
-	\begin{figure}[tbp]
-		%% \includegraphics[width=0.8\textwidth , height=0.8\textheight]{07_formalizando.pdf}
-		\centering
-	\end{figure}
+\begin{frame}[allowframebreaks]
+\frametitle{Abordagem ingênua (\emph{naive}) do código do Prolog}
+		
+	\lstinputlisting[
+    label={07_lesson},
+    language=erlang,
+]{../07_lesson.lp}
+
+
 \end{frame}
+
+
+\begin{frame}[fragile] 
+	\frametitle{Saída e reflexões}
+
+{\small
+\begin{verbatim}
+$ clingo ../07_lesson.lp 0
+....................
+Answer: 1
+casais(paulo,lucia,advogado) casais(luis,maria,medico) casais(carlos,patricia,engenheiro)
+SATISFIABLE
+
+Models       : 1
+.....................
+\end{verbatim}
+}
+Reflexões:
+\pause
+\begin{itemize}
+\item \textcolor{violet}{\textbf{Foi uma grande vitória inicial ... mas há uma caminhada....}}		
+
+\item \textcolor{red}{\textbf{Nesta sua abordagem, voce não vai longe, há algo exponencial subjacente!}} -- Potassco team	
+	
+
+\end{itemize}	
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]
+\frametitle{Abordagem ASP}
+
+\emph{Aprender sempre}: idéias dos códigos do Hakan	
+	
+\lstinputlisting[
+    label={08_lesson},
+    language=erlang,
+]{../08_lesson.lp}
+
+\textcolor{violet}{\textbf{Um código declarativo e limpo!}}	
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Abordagem ASP - Saída}
+
+
+{\small
+\begin{verbatim}
+$ clingo 08_lesson.lp 0
+....................
+Answer: 1
+casal(luis,maria,medico) casal(paulo,lucia,advogado)
+ casal(carlos,patricia,engenheiro)
+SATISFIABLE
+
+Models       : 1
+.....................
+\end{verbatim}
+}
+
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{frame}
-	\frametitle{Estratégia deste Problema: {\bf Fluxo} ($\Phi$)}
-	
-	\begin{figure}[tbp]
-		%% \includegraphics[width=0.8\textwidth , height=0.8\textheight]{08_fluxo_por_no.pdf}
-		\centering
-	\end{figure}
+	\frametitle{Conclusões Parciais}
+
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}
-	\frametitle{Equações Finais}
-	
-	\begin{figure}[tbp]
-		%% \includegraphics[width=0.8\textwidth , height=0.8\textheight]{09_equacoes_finais.pdf}
-		\centering
-	\end{figure}
-\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Próximos Passos}
@@ -441,12 +523,8 @@ xxxxxxx
 \begin{block}{}
 	
 	\begin{itemize}
-		\item Implementar na OR-TOOLS  com Python (próximo vídeo)
-		\item Ferramenta livre mantida pela Google
-		\item Suporta várias linguagens de \textit{front-end}: C++, C\#, Java e Python
-		\item Vários \textit{solvers}
-		\item Vamos usar o {\em solver}: CP-SAT
-		\item CP: \textit{Constraint Programming}
+		\item clingocon
+		\item mais códigos
 				
 		\item \textit{Obrigado!}
 		
@@ -467,8 +545,8 @@ xxxxxxx
   \begin{itemize}
   \item \url{https://claudiocesar.wordpress.com/}
    \item \url{https://github.com/claudiosa}
-   \item Email: \url{claudio.sa@udesc.br}
-    \item Email: \url{ccs1664@gmail.comr}
+   %%\item Email: \url{claudio.sa@udesc.br}
+    \item Email: \url{ccs1664@gmail.com}
 
   \item \textit{Thank you so much}!
 
