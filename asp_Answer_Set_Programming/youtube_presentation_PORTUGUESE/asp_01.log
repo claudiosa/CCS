@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  22 DEC 2020 11:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  24 DEC 2020 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -760,29 +760,25 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count324
 \l__pdf_internal_box=\box75
-) (./asp_01.aux
-
-LaTeX Warning: Label `03_lesson' multiply defined.
-
-)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
+) (./asp_01.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 7
-4.
+8.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -835,16 +831,8 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \everyMPtoPDFconversion=\toks48
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(/usr/share/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -852,7 +840,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box77
-Package hyperref Info: Link coloring OFF on input line 74.
+Package hyperref Info: Link coloring OFF on input line 78.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -865,58 +853,58 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 74.
-LaTeX Info: Redefining \pageref on input line 74.
-LaTeX Info: Redefining \nameref on input line 74.
+LaTeX Info: Redefining \ref on input line 78.
+LaTeX Info: Redefining \pageref on input line 78.
+LaTeX Info: Redefining \nameref on input line 78.
 
 (./asp_01.out) (./asp_01.out)
 \@outlinefile=\write6
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 74.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 78.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 74.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 78.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 74.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 78.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 74.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 78.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 74.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 74.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 74.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 74.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 74.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 74.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 74.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 74.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 74.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 78.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 74.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 78.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 74.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 74.
+(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 74.
+(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 74.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 74.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 74.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 78.
 
 (/usr/share/texmf-dist/tex/latex/translator/translator-basic-dictionary-English
 .dict
@@ -945,61 +933,61 @@ Dictionary: translator-theorem-dictionary, Language: English
 \c@lstlisting=\count332
  (./asp_01.nav)
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 78.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 82.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-78.
+82.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
-8.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
+2.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-78.
+82.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-78.
+82.
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 78.
+(Font)              <10.95> on input line 82.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 78.
+(Font)              <8> on input line 82.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 78.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
+(Font)              <6> on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 78.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 82.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 78.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 82.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 78.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 82.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ] Excluding 'comment' comment.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-78.
+82.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1009,13 +997,13 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 <figures/cover_book_vladmir.jpg, id=124, 333.245pt x 501.875pt>
 File: figures/cover_book_vladmir.jpg Graphic file (type jpg)
 <use figures/cover_book_vladmir.jpg>
-Package pdftex.def Info: figures/cover_book_vladmir.jpg  used on input line 194
+Package pdftex.def Info: figures/cover_book_vladmir.jpg  used on input line 198
 .
 (pdftex.def)             Requested size: 122.91226pt x 148.02885pt.
 <figures/cover_book_roland.jpg, id=125, 407.5225pt x 501.875pt>
 File: figures/cover_book_roland.jpg Graphic file (type jpg)
 <use figures/cover_book_roland.jpg>
-Package pdftex.def Info: figures/cover_book_roland.jpg  used on input line 194.
+Package pdftex.def Info: figures/cover_book_roland.jpg  used on input line 198.
 
 (pdftex.def)             Requested size: 122.9106pt x 148.02885pt.
  [4
@@ -1023,8 +1011,15 @@ Package pdftex.def Info: figures/cover_book_roland.jpg  used on input line 194.
  <./figures/cover_book_vladmir.jpg> <./figures/cover_book_roland.jpg>] (./asp_0
 1.vrb) [5
 
-] (./asp_01.vrb
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+] (./asp_01.vrb)
+[6
+
+]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 280.
+ [7
+
+] (./asp_01.vrb (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -1041,7 +1036,7 @@ Overfull \hbox (49.70909pt too wide) in paragraph at lines 22--22
  0.00s)[] 
  []
 
-) [6
+) [8
 
 ] (./asp_01.vrb (../01_lesson.lp)
 Overfull \hbox (49.70909pt too wide) in paragraph at lines 22--22
@@ -1049,96 +1044,90 @@ Overfull \hbox (49.70909pt too wide) in paragraph at lines 22--22
  0.00s)[] 
  []
 
-) [7
-
-] (./asp_01.vrb (../02_lesson.lp)
-Overfull \hbox (60.20906pt too wide) in paragraph at lines 23--23
-[]\T1/lmtt/m/n/10 [ccs@vosges youtube_presentation_PORTUGUESE]$ clingo ../02_le
-sson.lp 0[] 
- []
-
-) [8
-
-] (./asp_01.vrb (../02_lesson.lp)
-Overfull \hbox (60.20906pt too wide) in paragraph at lines 23--23
-[]\T1/lmtt/m/n/10 [ccs@vosges youtube_presentation_PORTUGUESE]$ clingo ../02_le
-sson.lp 0[] 
- []
-
 ) [9
 
-] (./asp_01.vrb (../03_lesson.lp)) [10
+] (./asp_01.vrb (../02_lesson.lp)
+Overfull \hbox (60.20906pt too wide) in paragraph at lines 23--23
+[]\T1/lmtt/m/n/10 [ccs@vosges youtube_presentation_PORTUGUESE]$ clingo ../02_le
+sson.lp 0[] 
+ []
+
+) [10
+
+] (./asp_01.vrb (../02_lesson.lp)
+Overfull \hbox (60.20906pt too wide) in paragraph at lines 23--23
+[]\T1/lmtt/m/n/10 [ccs@vosges youtube_presentation_PORTUGUESE]$ clingo ../02_le
+sson.lp 0[] 
+ []
+
+) [11
+
+] (./asp_01.vrb (../03_lesson.lp)) [12
 
 ] (./asp_01.vrb (../03_lesson.lp))
-[11
+[13
 
-] (./asp_01.vrbpdfTeX warning (ext4): destination with the same identifier (nam
-e{03_lesson}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.6 ]{../11_lesson.lp}
-                       (../11_lesson.lp)) [12
+] (./asp_01.vrb (../11_lesson.lp)) [14
 
-] (./asp_01.vrb (../11_lesson.lp)) [13
-
-] (./asp_01.vrb (../09_lesson.lp))
-Overfull \vbox (40.95601pt too high) detected at line 366
- []
-
-[14
-
-] (./asp_01.vrb (../09_lesson.lp))
-Overfull \vbox (40.95601pt too high) detected at line 366
- []
-
+] (./asp_01.vrb (../11_lesson.lp))
 [15
+
+] (./asp_01.vrb (../09_lesson.lp))
+Overfull \vbox (40.95601pt too high) detected at line 414
+ []
+
+[16
+
+] (./asp_01.vrb (../09_lesson.lp))
+Overfull \vbox (40.95601pt too high) detected at line 414
+ []
+
+[17
 
 ] (./asp_01.vrb)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 392.
+(Font)              <14.4> on input line 440.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 392.
+(Font)              <10> on input line 440.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 392.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
+(Font)              <7> on input line 440.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 440.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 392.
+(Font)              <9> on input line 440.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 392.
+(Font)              <5> on input line 440.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 440.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
- [16
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 440.
+ [18
 
-] (./asp_01.vrb) [17
+] (./asp_01.vrb) [19
 
-] (./asp_01.vrb) [18
+] (./asp_01.vrb) [20
 
 ]
-(../07_lesson.lp) [19
+(../07_lesson.lp) [21
 
-] [20
+] [22
 
-
-] (./asp_01.vrb
-Overfull \hbox (159.95877pt too wide) in paragraph at lines 13--13
-[]\T1/lmtt/m/n/10 casais(paulo,lucia,advogado) casais(luis,maria,medico) casais
-(carlos,patricia,engenheiro)[] 
- []
-
-) [21
 
 ] (./asp_01.vrb
-Overfull \hbox (159.95877pt too wide) in paragraph at lines 13--13
-[]\T1/lmtt/m/n/10 casais(paulo,lucia,advogado) casais(luis,maria,medico) casais
-(carlos,patricia,engenheiro)[] 
+Overfull \hbox (7.70921pt too wide) in paragraph at lines 14--14
+[]\T1/lmtt/m/n/10 casais(luis,maria,medico) casais(carlos,patricia,engenheiro)[
+] 
  []
 
-) [22
+) [23
+
+] (./asp_01.vrb
+Overfull \hbox (7.70921pt too wide) in paragraph at lines 14--14
+[]\T1/lmtt/m/n/10 casais(luis,maria,medico) casais(carlos,patricia,engenheiro)[
+] 
+ []
+
+) [24
 
 ] (../08_lesson.lp
 Overfull \hbox (45.51286pt too wide) in paragraph at lines 28--30
@@ -1153,55 +1142,58 @@ Overfull \hbox (35.43279pt too wide) in paragraph at lines 32--34
 [] 
  []
 
-) [23
-
-] [24
-
-
-] (./asp_01.vrb) [25
+) [25
 
 ] [26
 
-] [27
+
+] (./asp_01.vrb) [27
 
 ] [28
+
+] [29
+
+] [30
+
+] [31
+
+] [32
 
 ]
 \tf@nav=\write7
 \tf@toc=\write8
 \tf@snm=\write9
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 563.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 563.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 631.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 631.
  (./asp_01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 563.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 563.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 631.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 631.
 Package rerunfilecheck Info: File `asp_01.out' has not changed.
-(rerunfilecheck)             Checksum: 77105EA64F6CB8BAE87C1C095197FA33;238.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
+(rerunfilecheck)             Checksum: FE8F38F103FCDD4434C60DAEB34A46FB;233.
  ) 
 Here is how much of TeX's memory you used:
- 21140 strings out of 480478
- 381757 string characters out of 5905959
- 875650 words of memory out of 5000000
- 36487 multiletter control sequences out of 15000+600000
+ 21126 strings out of 480478
+ 381234 string characters out of 5905959
+ 874810 words of memory out of 5000000
+ 36466 multiletter control sequences out of 15000+600000
  624430 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,14n,67p,773b,1383s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fo
-nts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lms
-s12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/share/texm
-f-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></us
-r/share/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt
-10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on asp_01.pdf (28 pages, 316709 bytes).
+ 58i,14n,67p,773b,1384s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/
+fonts/type1/public/lm/lmss8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
+ss9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmsso12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
+/usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/f
+onts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msam10.pfb>
+Output written on asp_01.pdf (32 pages, 331281 bytes).
 PDF statistics:
- 821 PDF objects out of 1000 (max. 8388607)
- 765 compressed objects within 8 object streams
- 68 named destinations out of 1000 (max. 500000)
+ 936 PDF objects out of 1000 (max. 8388607)
+ 873 compressed objects within 9 object streams
+ 77 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
