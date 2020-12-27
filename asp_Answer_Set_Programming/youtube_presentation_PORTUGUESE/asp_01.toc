@@ -1,5 +1,5 @@
 \babel@toc {portuges}{}
-\beamer@sectionintoc {1}{O que é o ASP?}{3}{0}{1}
-\beamer@sectionintoc {2}{Fundamentos}{8}{0}{2}
-\beamer@sectionintoc {3}{Prática}{18}{0}{3}
-\beamer@sectionintoc {4}{Conclusões}{28}{0}{4}
+\beamer@sectionintoc {1}{O que é o ASP?}{4}{0}{1}
+\beamer@sectionintoc {2}{Fundamentos}{9}{0}{2}
+\beamer@sectionintoc {3}{Prática}{19}{0}{3}
+\beamer@sectionintoc {4}{Conclusões}{29}{0}{4}
