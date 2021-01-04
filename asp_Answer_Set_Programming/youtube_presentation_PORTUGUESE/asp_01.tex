@@ -213,9 +213,9 @@
 \begin{block}{}
   \begin{itemize}
   
-  \item Mais declarativa que Prolog e seus predecessores (\textbf{apenas}, \emph{e quase nada mais, tem uma sintaxe que lembra Prolog})
+  \item Mais declarativa que Prolog e seus predecessores (\textbf{apenas}, \textcolor{red}{\emph{e quase nada mais, tem uma sintaxe que lembra Prolog}})
 
-  \item Raízes em várias lógicas, incluindo as que tratam de informações incompletas: LP, LPO, \emph{default}, circunscrição (suposição do mundo-fechado), negação como falha, auto-epistêmica
+  \item Raízes em várias lógicas, incluindo as que tratam de informações incompletas: LP, LPO, \emph{default}, circunscrição (suposição do mundo-fechado) e negação como falha, (auto-epistêmica)
   
   \item Usa o conceito de \textbf{modelo estável}: \emph{semântica bem-fundamentada} e \emph{ramificação}
 
@@ -585,7 +585,32 @@ Models       : 1
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame} [fragile]
+	\frametitle{Epílogo -- Negações dos Predicados}
 
+
+	\lstinputlisting[
+    label={12_lesson},
+    language=erlang,
+]{../12_lesson.lp}
+
+Saída:
+\pause
+{\small
+\begin{verbatim}
+$ clingo 12_lesson.lp 0
+.....
+Answer: 1
+s(3) s(4)
+SATISFIABLE
+\end{verbatim}
+}	
+
+\textcolor{violet}{Embora \textbf{p} tenha modelos estáveis de 3 a 7, e  \textbf{q}  de 5 a 9.}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{frame} 
