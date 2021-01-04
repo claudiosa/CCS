@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  27 DEC 2020 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  4 JAN 2021 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1157,27 +1157,31 @@ Overfull \hbox (35.43279pt too wide) in paragraph at lines 32--34
 
 ] [31
 
-] [32
+] (./asp_01.vrb (../12_lesson.lp)) [32
 
-] [33
+] (./asp_01.vrb (../12_lesson.lp)) [33
+
+] [34
+
+] [35
 
 ]
 \tf@nav=\write7
 \tf@toc=\write8
 \tf@snm=\write9
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 637.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 637.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 662.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 662.
  (./asp_01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 637.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 637.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 662.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 662.
 Package rerunfilecheck Info: File `asp_01.out' has not changed.
 (rerunfilecheck)             Checksum: FE8F38F103FCDD4434C60DAEB34A46FB;233.
  ) 
 Here is how much of TeX's memory you used:
- 21128 strings out of 480478
- 381253 string characters out of 5905959
- 874851 words of memory out of 5000000
- 36466 multiletter control sequences out of 15000+600000
+ 21148 strings out of 480478
+ 381483 string characters out of 5905959
+ 874911 words of memory out of 5000000
+ 36472 multiletter control sequences out of 15000+600000
  624430 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  58i,14n,67p,773b,1384s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1192,10 +1196,10 @@ public/lm/lmsso12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
 /usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/f
 onts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
 nts/symbols/msam10.pfb>
-Output written on asp_01.pdf (33 pages, 333741 bytes).
+Output written on asp_01.pdf (35 pages, 338805 bytes).
 PDF statistics:
- 962 PDF objects out of 1000 (max. 8388607)
- 898 compressed objects within 9 object streams
- 79 named destinations out of 1000 (max. 500000)
+ 1014 PDF objects out of 1200 (max. 8388607)
+ 947 compressed objects within 10 object streams
+ 84 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
