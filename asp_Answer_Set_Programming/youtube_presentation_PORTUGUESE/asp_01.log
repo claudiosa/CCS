@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  4 JAN 2021 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  5 JAN 2021 14:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1180,7 +1180,7 @@ Package rerunfilecheck Info: File `asp_01.out' has not changed.
 Here is how much of TeX's memory you used:
  21148 strings out of 480478
  381483 string characters out of 5905959
- 874911 words of memory out of 5000000
+ 874914 words of memory out of 5000000
  36472 multiletter control sequences out of 15000+600000
  624430 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1196,7 +1196,7 @@ public/lm/lmsso12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
 /usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/f
 onts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
 nts/symbols/msam10.pfb>
-Output written on asp_01.pdf (35 pages, 338805 bytes).
+Output written on asp_01.pdf (35 pages, 339122 bytes).
 PDF statistics:
  1014 PDF objects out of 1200 (max. 8388607)
  947 compressed objects within 10 object streams
