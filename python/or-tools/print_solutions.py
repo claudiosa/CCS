@@ -28,20 +28,18 @@ class VarArraySolutionPrinter(cp_model.CpSolverSolutionCallback):
 
 ### FOR OPTMIZATION
 class VarArrayAndObjectiveSolutionPrinter(cp_model.CpSolverSolutionCallback):
-    """Print intermediate solutions (objective, variable values, time)."""
+    """Print intermediate solutions."""
 
     def __init__(self, variables):
         cp_model.CpSolverSolutionCallback.__init__(self)
         self.__variables = variables
         self.__solution_count = 0
-        self.__start_time = time.time()
 
     def on_solution_callback(self):
         """Called on each new solution."""
-        current_time = time.time()
         obj = self.ObjectiveValue()
-        print('Solution %i, time = %0.2f s, objective = %i' %
-              (self.__solution_count, current_time - self.__start_time, obj))
+        print('Solution %i => objective = %i' %
+              (self.__solution_count, obj))
         for v in self.__variables:
             print('  %s = %i' % (v, self.Value(v)), end=' ')
         print()
@@ -50,3 +48,16 @@ class VarArrayAndObjectiveSolutionPrinter(cp_model.CpSolverSolutionCallback):
     def solution_count(self):
         """Returns the number of solutions found."""
         return self.__solution_count
+
+
+'''
+from FORUM: ...
+
+        print('Solution %i' % self.__solution_count)
+        print('  objective value = %i' % self.ObjectiveValue())
+        for v in self.__variables:
+            print('  %s = %i' % (v, self.Value(v)), end=' ')
+        print()
+        self.__solution_count += 1
+
+'''

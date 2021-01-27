@@ -17,26 +17,28 @@ def SearchForAllSolutions():
     f_opt = model.NewIntVar(0, num_vals*num_vals, 'f_obj')
     # Create the constraints.
     model.Add(x != y)
-    model.Add(x + y == z)
+    model.Add(x != z)
+    model.Add(y != z)
     model.Add(f_opt == (x + y + z))
     # maximization for instance
-    
-    #model.Maximize(f_opt)
+    model.Maximize(f_opt)
 
     # Create a solver and solve.
     solver = cp_model.CpSolver()
     #solution_printer = VarArraySolutionPrinter([x, y, z, f_opt])
     #status = solver.SearchForAllSolutions(model, solution_printer)
     
-    ### USANDO NA OTIMIZACAO
+    ### USING WITH OPTMIZATIONS
     #solution_printer = ObjectiveSolutionPrinter(f_opt.ObjectiveValue())
     solution_printer = VarArrayAndObjectiveSolutionPrinter([x,y,z, f_opt])
     #status = solver.SearchForAllSolutions(model, solution_printer)
-    status = solver.Solve(model)
-    
+    status = solver.SolveWithSolutionCallback(model, solution_printer)
+      
 
     print('Status = %s' % solver.StatusName(status))
     print('Number of solutions found: %i' % solution_printer.solution_count())
+
+
 
 
 SearchForAllSolutions()
