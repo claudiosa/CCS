@@ -27,6 +27,8 @@ class VarArraySolutionPrinter(cp_model.CpSolverSolutionCallback):
         return self.__solution_count
 
 ### FOR OPTMIZATION
+### with minors modifications ... remove time etc
+###
 class VarArrayAndObjectiveSolutionPrinter(cp_model.CpSolverSolutionCallback):
     """Print intermediate solutions."""
 
@@ -38,10 +40,10 @@ class VarArrayAndObjectiveSolutionPrinter(cp_model.CpSolverSolutionCallback):
     def on_solution_callback(self):
         """Called on each new solution."""
         obj = self.ObjectiveValue()
-        print('Solution %i => objective = %i' %
+        print('Solution %i: \n Objective Value:  %i' %
               (self.__solution_count, obj))
         for v in self.__variables:
-            print('  %s = %i' % (v, self.Value(v)), end=' ')
+            print(' %s = %i' % (v, self.Value(v)), end=' ')
         print()
         self.__solution_count += 1
 

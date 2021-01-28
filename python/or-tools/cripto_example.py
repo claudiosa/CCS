@@ -9,8 +9,9 @@ S<U, B<I, I<T and all different numbers from 0 up to 9
 
 from ortools.sat.python import cp_model
 ### CLASSES FROM OR
-from print_solutions import VarArraySolutionPrinter
-from print_solutions import VarArrayAndObjectiveSolutionPrinter
+#from print_ALL_solutions import VarArraySolutionPrinter
+### using with Maxmimize and Minimize
+from print_ALL_solutions import VarArrayAndObjectiveSolutionPrinter
 
 def a_crypto_model():
     """Showcases calling the solver to search for all solutions."""
