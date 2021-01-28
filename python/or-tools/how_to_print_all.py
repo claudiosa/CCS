@@ -1,8 +1,9 @@
 
 from ortools.sat.python import cp_model
 
-from print_solutions import VarArraySolutionPrinter
-from print_solutions import VarArrayAndObjectiveSolutionPrinter
+#from print_ALL_solutions import VarArraySolutionPrinter
+### using with Maxmimize and Minimize
+from print_ALL_solutions import VarArrayAndObjectiveSolutionPrinter
     
 def SearchForAllSolutions():
     """Showcases calling the solver to search for all solutions."""
@@ -37,8 +38,5 @@ def SearchForAllSolutions():
 
     print('Status = %s' % solver.StatusName(status))
     print('Number of solutions found: %i' % solution_printer.solution_count())
-
-
-
 
 SearchForAllSolutions()
