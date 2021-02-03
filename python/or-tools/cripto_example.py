@@ -22,7 +22,8 @@ def a_crypto_model():
     num_var = 5 # S + U = B + I + T
     letters = [the_model.NewIntVar(0, 9, 'x[i]' ) \
                for i in range(num_var) ]
-    
+
+    f_opt = the_model.NewIntVar(0,99, 'Cost Function')
     # Create the constraints...
     # 
     the_model.Add(letters[0] + letters[1] == letters[2] + letters[3] + letters[4] )
@@ -34,16 +35,18 @@ def a_crypto_model():
 
     # Adding a maximization
     # COMMENT yet ... 
-    #the_model.Maximize(letters[0] + letters[1])
-    
-    the_model.Minimize( letters[2] + letters[4])
+    ##the_model.Maximize(letters[0] + letters[1])
+    the_model.Add(f_opt == (letters[2] + letters[4]))
+    the_model.Minimize( f_opt )
+    all_vars = letters
+    all_vars.append( f_opt )
     # Create a solver and solve.
     solver_OUT = cp_model.CpSolver()
     
     # FOR OPTMIZATION
     ## callback to ... for intermediate solutions
     #solution_printer = VarArraySolutionPrinter(letters)
-    solution_printer = VarArrayAndObjectiveSolutionPrinter(letters)
+    solution_printer = VarArrayAndObjectiveSolutionPrinter(all_vars)
     ## options for solver 
     status = solver_OUT.SolveWithSolutionCallback(the_model, solution_printer)
     
