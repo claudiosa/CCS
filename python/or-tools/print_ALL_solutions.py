@@ -1,6 +1,6 @@
 '''
 Originally from: https://developers.google.com/optimization/cp/cp_solver
-Commented: ccs
+MODIFIED: ccs
 How to use:
   solver = cp_model.CpSolver()
   solution_printer = VarArraySolutionPrinter([x, y, z])
@@ -40,10 +40,14 @@ class VarArrayAndObjectiveSolutionPrinter(cp_model.CpSolverSolutionCallback):
     def on_solution_callback(self):
         """Called on each new solution."""
         obj = self.ObjectiveValue()
+        # num_elem = len(self.__variables)
+        # print('%i' %(num_elem), end=' ')
         print('Solution %i: \n Objective Value:  %i' %
               (self.__solution_count, obj))
+        i=0
         for v in self.__variables:
-            print(' %s = %i' % (v, self.Value(v)), end=' ')
+            print('x[%i] = %i' % (i, self.Value(v)), end=' ')
+            i = i+1
         print()
         self.__solution_count += 1
 
