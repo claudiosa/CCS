@@ -40,8 +40,20 @@ def a_crypto_model():
     the_model.Minimize( f_opt )
     all_vars = letters
     all_vars.append( f_opt )
+
+
+
     # Create a solver and solve.
     solver_OUT = cp_model.CpSolver()
+
+    # Search for letters values in increasing order.
+    # letters[0] ...letters[4]
+    # def AddDecisionStrategy(self, variables, var_strategy, domain_strategy) 
+    the_model.AddDecisionStrategy(letters, cp_model.CHOOSE_FIRST,
+                            cp_model.SELECT_MIN_VALUE)
+    
+    # Force the solver to follow the decision strategy exactly.
+    solver_OUT.parameters.search_branching = cp_model.FIXED_SEARCH
     
     # FOR OPTMIZATION
     ## callback to ... for intermediate solutions
@@ -65,7 +77,6 @@ def a_crypto_model():
         for i in range(num_var): 
             print('FEA => letter[%i] = %i' % (i,solver_OUT.Value(letters[i])))
  
-
 ### main ....
 if __name__ == '__main__':
     a_crypto_model()
