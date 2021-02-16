@@ -1,6 +1,6 @@
 %% https://github.com/alviano/lpcp-contest-2020/tree/master/problem-4
 %% usage: picat masyu instance.in
-
+%% to run picat lp2020_masyu masyu_sample.in 
 import sat, util.
 
 main([File_Name]) =>
