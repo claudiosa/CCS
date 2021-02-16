@@ -1,0 +1,45 @@
+%% https://github.com/alviano/lpcp-contest-2020/tree/master/problem-1
+%% usage: picat aquarium instance.in
+
+import sat, util.
+
+main([File]) =>
+    Lines = read_file_lines(File),
+    pass_lines(Lines,N,CC,RC,BlockGrid),   % CC - column clues, RC - row clues
+    Grid = new_array(N,N),
+    Grid :: 0..1,
+    foreach (I in 1..N)
+        sum(Grid[I]) #= RC[I],
+        sum([Grid[J,I] : J in 1..N]) #= CC[I]
+    end,
+    Blocks = sort([{BlockGrid[R,C],R,C} : R in 1..N, C in 1..N]),
+    constrain_level(Blocks,Grid),
+    solve(Grid),
+    foreach (R in 1..N)
+        foreach (C in 1..N)
+            (Grid[R,C] == 0 -> print('.'); print('*'))
+        end,
+        nl
+    end.
+
+pass_lines([NStr,CCLine,RCLine|Lines],N,CC,RC,BlockGrid) =>
+    N = to_int(NStr),
+    CC = [to_int(Token) : Token in CCLine.split()],
+    RC = [to_int(Token) : Token in RCLine.split()],
+    BlockGrid = new_array(N,N),
+    foreach ({R,Line} in zip(1..N,Lines))
+        foreach ({C,Token} in zip(1..N,split(Line)))
+            BlockGrid[R,C] = to_int(Token)
+        end
+    end.
+
+constrain_level([_],_Grid) => true.
+constrain_level([{B,R1,C1},Block2@{B,R2,C2}|Blocks],Grid) =>
+    (R1 == R2 ->
+        Grid[R1,C1] #= Grid[R2,C2]
+    ;
+        Grid[R1,C1] #=> Grid[R2,C2]
+    ),
+    constrain_level([Block2|Blocks],Grid).
+constrain_level([_|Blocks],Grid) =>
+    constrain_level(Blocks,Grid).

@@ -1,0 +1,50 @@
+%% https://github.com/alviano/lpcp-contest-2020/tree/master/problem-4
+%% usage: picat masyu instance.in
+
+import sat, util.
+
+main([File_Name]) =>
+    
+    reading_lines(File_Name, Size , White, Black, Grid),   % CC - column clues, RC - row clues
+    print_matrix( Grid, Size, Size ),
+    print("\n ...").
+       
+
+reading_lines(FD, Size, White, Black, Grid) =>
+    % FD : File Descriptor
+    %Lines = read_file_lines(File),
+    [Size, White, Black] = [to_int(W) : W in read_line(FD).split()],
+    N = Size + 1,
+    Grid = new_array(N,N),
+    %% filling the Grid with '.'
+    foreach (I in 1..N)
+        foreach (J in 1..N)
+        Grid[I,J] = '.'
+        end
+    end,
+    %% Now ... put 'w' and 'b'
+    foreach (I in 1 .. White)  %% reading a line 
+       [X,Y] = [to_int(W) : W in read_line(FD).split()],
+       Grid[X,Y] = 'w'
+    end ,
+
+    foreach (I in 1..Black)  %% reading a line 
+       [X,Y] = [to_int(W) : W in read_line(FD).split()],
+       Grid[X,Y] = 'b'
+    end ,
+
+    print("\n End of Reading").   
+    
+
+/******************************* AUX predicates **********************/
+print_matrix( M, L, C ) =>
+    %L = M.length,
+    %C = M[1].length,
+     nl,
+      foreach(I in 1  .. L)
+        foreach(J in 1  ..  C)
+         printf("%w " , M[I,J] )
+        %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+        end,
+        nl
+      end.   
