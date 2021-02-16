@@ -4,21 +4,73 @@
 import sat, util.
 
 main([File_Name]) =>
+        
+    reading_the_FILE(File_Name, Size , White, Black, Grid),   
     
-    FD = open(File_Name),  %% FILE DESCRIPTOR
-    reading_the_FILE(FD, Size , White, Black, Grid),   
+    masyu_model(Dec_Grid, Size , White, Black, Grid),
+    print("\n Grid read ... original:\n"),
     print_matrix( Grid, Size, Size ),
-    %%% TOMORROW
+    print("\n Decision Grid  ... from model:\n"),
+    print_matrix( Dec_Grid, Size, Size ),
+    
+   
+    
     print("\n THE END ...").
        
 
-reading_the_FILE(FD, N, White, Black, Grid) =>
+masyu_model(Dec_Grid, N , N_White, N_Black, Grid) =>
+    %writef("\n N: %w", N),
+    Dec_Grid = new_array(N,N),
+    Dec_Grid :: 0..1,
+
+    %% Select all Blacks and White a priori
+    %% these are reference
+    foreach (I in 1..N)
+     foreach (J in 1..N)
+        if (Grid[I,J] == 'w') then 
+            Dec_Grid[I,J] #= 1
+        end,
+        if (Grid[I,J] == 'b') then 
+            Dec_Grid[I,J] #= 1
+        end          
+     end   
+    end,
+    %%% A channeling constraint for the possibilites
+    %% for each black or white cell
+    foreach (I in 1..N)
+      foreach (J in 1..N)
+    %VERTICAL conexion of w
+    if ((Grid[I,J] == 'w') && (I > 1) && (I < N))
+       then
+        (Dec_Grid[I-1,J] #= 1 &&   
+         Dec_Grid[I+1,J] #= 1
+         ) 
+       end
+    %% THESE TWO CONDITIONS MUST BE CHANNELLING    
+    %%% HORIZONTAL conexion of w    
+    ; %% OR
+    if ((Grid[I,J] == 'w') && (J > 1) && (J < N))
+        then         
+        (Dec_Grid[I,J-1] #= 1 &&   
+         Dec_Grid[I,J+1] #= 1
+        )
+        end, 
+     end   
+    end,
+    
+    solve(Dec_Grid).    
+
+
+
+
+reading_the_FILE(File_Name, N, White, Black, Grid) =>
     % FD : File Descriptor
+    FD = open(File_Name),  %% FILE DESCRIPTOR
     [Size, White, Black] = [to_int(W) : W in read_line(FD).split()],
-    %writef("\n %w %w %w", Size, White, Black),
-    N = Size + 1,
+    %% writef("\n %w %w %w", Size, White, Black),
+    N = Size + 1, %%% description ... start in 0 up to Size
     Grid = new_array(N,N),
-    %% filling the Grid with '.'
+    %% Filling a Grid with '.'
     foreach (I in 1..N)
         foreach (J in 1..N)
         Grid[I,J] := '.'
@@ -28,17 +80,17 @@ reading_the_FILE(FD, N, White, Black, Grid) =>
     % Now ... put 'w' and 'b'
     foreach (I in 1..White)  %% reading a line 
        [X , Y] = [to_int(W) : W in read_line(FD).split()],
-       %writef("\t (%w %w)", X,Y),
+       % writef("\t (%w %w)", X,Y),
        Grid[(X+1),(Y+1)] := 'w'
     end ,
  
     %writef("\n\n Where is  w ==> %w",Grid),
     foreach (I in 1..Black)  %% reading a line 
        [X,Y] = [to_int(W) : W in read_line(FD).split()],
-       %writef("\t (%w %w)", X,Y),
+       % writef("\t (%w %w)", X,Y),
        Grid[(X+1),(Y+1)] := 'b'
     end ,
-    %writef("\n\n Map read ==> %w", Grid),
+    % writef("\n\n Map read ==> %w", Grid),
 
     print("\n End of Reading").   
     
@@ -55,3 +107,10 @@ print_matrix( M, L, C ) =>
         end,
         nl
       end.   
+
+/* 
+        
+
+        (Grid[I,J] #= w) #<=> Dec_Grid[I,J] #= 1,
+      (Grid[I,J] #= b) #<=> Dec_Grid[I,J] #= 1 
+*/    
