@@ -36,27 +36,56 @@ masyu_model(Dec_Grid, N , N_White, N_Black, Grid) =>
      end   
     end,
     %%% A channeling constraint for the possibilites
-    %% for each black or white cell
+    %% for each WHITE cell
     foreach (I in 1..N)
       foreach (J in 1..N)
     %VERTICAL conexion of w
-    if ((Grid[I,J] == 'w') && (I > 1) && (I < N))
+    if ((Grid[I,J] == 'w') && (I > 1) && (I < N)
+         && (J > 1) && (J < N))
        then
-        (Dec_Grid[I-1,J] #= 1 &&   
-         Dec_Grid[I+1,J] #= 1
-         ) 
-       end
-    %% THESE TWO CONDITIONS MUST BE CHANNELLING    
-    %%% HORIZONTAL conexion of w    
-    ; %% OR
-    if ((Grid[I,J] == 'w') && (J > 1) && (J < N))
-        then         
-        (Dec_Grid[I,J-1] #= 1 &&   
-         Dec_Grid[I,J+1] #= 1
+        ((Dec_Grid[I-1,J] #= 1) #/\   
+         (Dec_Grid[I+1,J] #= 1) 
+        %#/\(Dec_Grid[I,J] #= 1)
         )
-        end, 
+        #^  %%% OR-Exclusive
+        %%% HORIZONTAL conexion of w    
+        ((Dec_Grid[I,J-1] #= 1) #/\      
+         (Dec_Grid[I,J+1] #= 1) 
+         %#/\(Dec_Grid[I,J] #= 1)
+        ) 
+       end
+    %% THESE TWO CONDITIONS MUST BE REYFING    
      end   
     end,
+%%% for Black cells ... a curve
+foreach (I in 1..N)
+    foreach (J in 1..N)
+    %VERTICAL conexion of w
+    if ((Grid[I,J] == 'b') && (I > 1) && (I < N)
+    && (J > 1) && (J < N))
+    then
+    ((Dec_Grid[I-1,J] #= 1) #/\   
+     (Dec_Grid[I,J+1] #= 1) 
+    )
+    #^  %%% OR-Exclusive
+    ((Dec_Grid[I-1,J] #= 1) #/\   
+     (Dec_Grid[I,J-1] #= 1) 
+    )
+    #^  %%% OR-Exclusive
+    ((Dec_Grid[I+1,J] #= 1) #/\   
+     (Dec_Grid[I,J+1] #= 1) 
+    )
+    #^  %%% OR-Exclusive
+    ((Dec_Grid[I+1,J] #= 1) #/\   
+     (Dec_Grid[I,J-1] #= 1) 
+    )
+    end
+%% THESE TWO CONDITIONS MUST BE REYFING    
+    end   
+    end,
+
+
+
     
     solve(Dec_Grid).    
 
