@@ -5,33 +5,40 @@ import sat, util.
 
 main([File_Name]) =>
     
-    reading_lines(File_Name, Size , White, Black, Grid),   % CC - column clues, RC - row clues
+    FD = open(File_Name),  %% FILE DESCRIPTOR
+    reading_the_FILE(FD, Size , White, Black, Grid),   
     print_matrix( Grid, Size, Size ),
-    print("\n ...").
+    %%% TOMORROW
+    print("\n THE END ...").
        
 
-reading_lines(FD, Size, White, Black, Grid) =>
+reading_the_FILE(FD, N, White, Black, Grid) =>
     % FD : File Descriptor
-    %Lines = read_file_lines(File),
     [Size, White, Black] = [to_int(W) : W in read_line(FD).split()],
+    %writef("\n %w %w %w", Size, White, Black),
     N = Size + 1,
     Grid = new_array(N,N),
     %% filling the Grid with '.'
     foreach (I in 1..N)
         foreach (J in 1..N)
-        Grid[I,J] = '.'
+        Grid[I,J] := '.'
         end
     end,
-    %% Now ... put 'w' and 'b'
-    foreach (I in 1 .. White)  %% reading a line 
-       [X,Y] = [to_int(W) : W in read_line(FD).split()],
-       Grid[X,Y] = 'w'
+    % writef("\n %w", Grid),
+    % Now ... put 'w' and 'b'
+    foreach (I in 1..White)  %% reading a line 
+       [X , Y] = [to_int(W) : W in read_line(FD).split()],
+       %writef("\t (%w %w)", X,Y),
+       Grid[(X+1),(Y+1)] := 'w'
     end ,
-
+ 
+    %writef("\n\n Where is  w ==> %w",Grid),
     foreach (I in 1..Black)  %% reading a line 
        [X,Y] = [to_int(W) : W in read_line(FD).split()],
-       Grid[X,Y] = 'b'
+       %writef("\t (%w %w)", X,Y),
+       Grid[(X+1),(Y+1)] := 'b'
     end ,
+    %writef("\n\n Map read ==> %w", Grid),
 
     print("\n End of Reading").   
     
