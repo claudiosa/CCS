@@ -22,6 +22,10 @@ masyu_model(Dec_Grid, N , N_White, N_Black, Grid) =>
     %writef("\n N: %w", N),
     Dec_Grid = new_array(N,N),
     Dec_Grid :: 0..1,
+    %%% HERE NEEDS ... probably another approach
+    %% to ENUMERATE a SEQUENCE of CELLS to be
+    %% connected
+    %% Similar KNIGHTS TOUR
 
     %% Select all Blacks and White a priori
     %% these are reference
@@ -83,10 +87,31 @@ foreach (I in 1..N)
 %% THESE TWO CONDITIONS MUST BE REYFING    
     end   
     end,
+    %%% w in first and last line - row
+    foreach (I in {1,N})
+      foreach(J in 1..N)  
+        if ((Grid[I,J] == 'w') )
+        then
+        ((Dec_Grid[I,J-1] #= 1) #/\   
+        (Dec_Grid[I,J+1] #= 1)) 
+        end
+       end
+    end, 
+
+    %%% W in first and last Collun
+   foreach (J in {1,N})
+    foreach(I in 1..N)  
+      if ((Grid[I,J] == 'w') )
+      then
+      ((Dec_Grid[I-1,J] #= 1) #/\   
+      (Dec_Grid[I+1,J] #= 1)) 
+      end
+     end
+    end,     
 
 
 
-    
+
     solve(Dec_Grid).    
 
 
