@@ -1,7 +1,7 @@
 %% https://github.com/alviano/lpcp-contest-2020/tree/master/problem-4
 %% usage: picat masyu instance.in
-%% to run picat lp2020_masyu masyu_sample.in 
-import sat, util.
+%% To run picat lp2020_masyu masyu_sample.in 
+import cp, sat, util.
 
 main([File_Name]) =>
         
@@ -21,7 +21,7 @@ main([File_Name]) =>
 masyu_model(Dec_Grid, N , N_White, N_Black, Grid) =>
     %writef("\n N: %w", N),
     Dec_Grid = new_array(N,N),
-    Dec_Grid :: 0..1,
+    Dec_Grid :: 0..1,% =1 iff the cell is inside the circuit
     %%% HERE NEEDS ... probably another approach
     %% to ENUMERATE a SEQUENCE of CELLS to be
     %% connected
@@ -84,10 +84,11 @@ foreach (I in 1..N)
      (Dec_Grid[I,J-1] #= 1) 
     )
     end
-%% THESE TWO CONDITIONS MUST BE REYFING    
+%% THESE CONDITIONS MUST BE REYFING    -- reason of OR-exclusive
     end   
     end,
-    %%% w in first and last line - row
+
+%%% WHITE Cells in first and last line/row
     foreach (I in {1,N})
       foreach(J in 1..N)  
         if ((Grid[I,J] == 'w') )
@@ -98,21 +99,94 @@ foreach (I in 1..N)
        end
     end, 
 
-    %%% W in first and last Collun
+%%% WHITE Cells in first and last Colunn
    foreach (J in {1,N})
     foreach(I in 1..N)  
       if ((Grid[I,J] == 'w') )
       then
       ((Dec_Grid[I-1,J] #= 1) #/\   
-      (Dec_Grid[I+1,J] #= 1)) 
+       (Dec_Grid[I+1,J] #= 1)) 
       end
      end
     end,     
 
+%%% Black cells in first and last line {1,N}
+   foreach(J in 1..N)  
+      if ((Grid[1,J] == 'b') && J > 1 && J < N )
+        then
+        ((Dec_Grid[1,J-1] #= 1) #/\ (Dec_Grid[2,J] #= 1)) 
+        #^
+        ((Dec_Grid[1,J+1] #= 1) #/\ (Dec_Grid[2,J] #= 1))  
+        end
+    end, 
+ %% Blacks cells in the last line/row
+    foreach(J in 1..N)  
+     if ((Grid[1,J] == 'b') && J > 1 && J < N )
+      then
+        ((Dec_Grid[N,J-1] #= 1) #/\ (Dec_Grid[(N-1),J] #= 1)) 
+        #^
+        ((Dec_Grid[N,J+1] #= 1) #/\ (Dec_Grid[(N-1),J] #= 1))  
+      end
+    end,  
 
+%%% Black cells in first and last colun {1,N}
+foreach(I in 1..N)  
+    if ((Grid[I,1] == 'b') && I > 1 && I < N )
+        then
+        ((Dec_Grid[I-1,1] #= 1) #/\ (Dec_Grid[I,2] #= 1)) 
+        #^
+        ((Dec_Grid[I+1,1] #= 1) #/\ (Dec_Grid[J,2] #= 1))  
+    end
+end, 
+%% Blacks cells in the first colun
+    foreach(I in 1..N)  
+        if ((Grid[I,1] == 'b') && I > 1 && I < N )
+        then
+        ((Dec_Grid[I-1,N] #= 1) #/\ (Dec_Grid[I,(N-1)] #= 1)) 
+        #^
+        ((Dec_Grid[I+1,N] #= 1) #/\ (Dec_Grid[I,(N-1)] #= 1))  
+        end
+    end, 
+    
+%%%%  FOUR (4) corners with Black cells ... White balls cannot
+    if (Grid[1,1] == 'b')
+    then
+        ((Dec_Grid[2,1] #= 1) #/\ (Dec_Grid[1,2] #= 1))
+    end,    
 
+    if (Grid[1,N] == 'b')
+    then
+        ((Dec_Grid[2,N] #= 1) #/\ (Dec_Grid[1,(N-1)] #= 1))
+    end,
+    
+    if (Grid[N,1] == 'b')
+    then
+        ((Dec_Grid[(N-1),1] #= 1) #/\ (Dec_Grid[N,2] #= 1))
+    end,    
 
+    if (Grid[N,N] == 'b')
+    then
+        ((Dec_Grid[(N-1),N] #= 1) #/\ (Dec_Grid[N,(N-1)] #= 1))
+    end,
+%%% UNTIL HERE ALL POSSIBILITIES IN THE GRID WERE SCANNED and POSTED    
+%%%%%%%%%%%%%%%%%%%%%%% IDEAS from PETER
+/*    
+    M = new_array(N,N), M :: 0..4, % M counts the X's in each 2x2 square
+    foreach(Z in 1..(N-1), S in 1..(N-1)) 
+        M[Z,S] #= Dec_Grid[Z,S] + Dec_Grid[Z,S+1] + Dec_Grid[Z+1,S] + 
+                  Dec_Grid[Z+1,S+1] 
+                end,
+*/
+
+    subcircuit_grid(Dec_Grid),
     solve(Dec_Grid).    
+
+/*
+    solve(vars(Dec_Grid) ++ vars(M)),
+    writef("\n M matrix"),
+    print_matrix(M, N, N).
+*/
+    %
 
 
 
