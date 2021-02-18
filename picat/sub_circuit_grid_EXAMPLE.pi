@@ -1,0 +1,37 @@
+
+import sat, util.
+
+main =>
+    N = 10,
+    Dec_Grid = new_array(N,N),
+    Dec_Grid :: 0..1,
+   foreach (I in 2..(N-1) , J in 2..(N-1))
+    %foreach (I in 2..(N-1) )
+    %    foreach (J in 2..(N-1) )
+            Dec_Grid[I,J] #= 0
+    end,
+    foreach (I in {1,N}, J in {1,N} )
+   % foreach (I in {1,N} )
+    %    foreach (J in {1,N} )
+      Dec_Grid[I,J] #= 1
+    %end
+    end,
+    %sum([Dec_Grid[I,J] : I in 1..N, J in 1..N]) #>= (4*N-4),
+    %Dec_Grid[1,1] #= 1,
+    %Dec_Grid[N,N] #= 1,
+
+    %subcircuit_grid(Dec_Grid),
+    solve(Dec_Grid),
+    print_matrix(Dec_Grid,N,N).   
+
+print_matrix( M, L, C ) =>
+    %L = M.length,
+    %C = M[1].length,
+     nl,
+      foreach(I in 1  .. L)
+        foreach(J in 1  ..  C)
+         printf("%w " , M[I,J] )
+        %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+        end,
+        nl
+      end.   
