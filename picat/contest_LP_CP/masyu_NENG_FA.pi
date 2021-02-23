@@ -1,0 +1,110 @@
+/* LPCP Contest 2020 Problem 4: Masyu
+    https://github.com/alviano/lpcp-contest-2020/tree/master/problem-4 
+    by Neng-Fa Zhou
+    inspired by Peter Bernschneider's solution at https://github.com/bernschneider/lp-contest
+    requires the latest version of Picat to run.
+*/
+
+import util, sat.
+
+main =>
+    main(["sample_masyu.in"]).
+    
+main([File]) =>
+    read_data(File,N,Board,Grid),
+    subcircuit_grid(Grid,_,EMap),   % new built-in in Picat version 3.0#5
+    foreach(R in 1..N, C in 1..N)
+        if Board[R,C] == w then
+            constrain_w(N,EMap,R,C)
+        elseif Board[R,C] == b then
+            constrain_b(N,EMap,R,C)
+        end
+    end,
+    solve((Grid,values(EMap))),
+    printf("\n EMAP: %w", EMap),
+    output(EMap).
+
+read_data(File,N,Board,Grid) =>
+    IS = open(File),
+    Line1 = read_line(IS),
+    [N0,NW,NB] = [to_int(Token) : Token in split(Line1)],
+    N is N0+1,
+    Board = new_array(N,N),
+    Grid = new_array(N,N),
+    foreach (I in 1..NW)
+        Line = read_line(IS),
+        [R0,C0] = [to_int(Token) : Token in split(Line)],
+        Board[R0+1,C0+1] = w,
+        Grid[R0+1,C0+1] = 1
+    end,
+    foreach (I in 1..NB)
+        Line = read_line(IS),
+        [R0,C0] = [to_int(Token) : Token in split(Line)],
+        Board[R0+1,C0+1] = b,
+        Grid[R0+1,C0+1] = 1        
+    end,
+    Grid :: 0..1,          % the cell (R,C) is in the circuit iff Grid[R,C] = 1
+    close(IS).
+
+% White circles must be passed through in a straight line, but the loop must turn in the previous and/or the next cell.
+constrain_w(N,EMap,R,C) =>   
+    Ps = [[(R,C-1),(R,C),(R,C+1),(R-1,C+1)],
+          [(R,C-1),(R,C),(R,C+1),(R+1,C+1)],
+          [(R-1,C-1),(R,C-1),(R,C),(R,C+1)],
+          [(R+1,C-1),(R,C-1),(R,C),(R,C+1)],
+          [(R-1,C-1),(R-1,C),(R,C),(R+1,C)],
+          [(R-1,C+1),(R-1,C),(R,C),(R+1,C)],
+          [(R-1,C),(R,C),(R+1,C),(R+1,C-1)],
+          [(R-1,C),(R,C),(R+1,C),(R+1,C+1)]],
+    constrain_paths(N,EMap,Ps,[]).
+
+% Black circles must be turned upon and the loop must travel straight through the next and the previous cell. 
+constrain_b(N,EMap,R,C) =>
+    Ps = [[(R,C-2),(R,C-1),(R,C),(R+1,C),(R+2,C)],
+          [(R,C-2),(R,C-1),(R,C),(R-1,C),(R-2,C)],
+          [(R-2,C),(R-1,C),(R,C),(R,C+1),(R,C+2)],
+          [(R+2,C),(R+1,C),(R,C),(R,C+1),(R,C+2)]],
+    constrain_paths(N,EMap,Ps,[]).
+
+constrain_paths(_N,_EMap,[],Bs) =>
+    sum(Bs) #>= 1.
+constrain_paths(N,EMap,[P|Ps],Bs), all_coords_on_board(N,P) =>
+    constrain_path(EMap,P,1,B1),
+    RevP = reverse(P),
+    constrain_path(EMap,RevP,1,B2),
+    constrain_paths(N,EMap,Ps,[B1,B2|Bs]).
+constrain_paths(N,EMap,[_|Ps],Bs) =>
+    constrain_paths(N,EMap,Ps,Bs).
+
+constrain_path(EMap,[(R,C),(R1,C1)|P],Conj,B) =>
+    EdgeIn = EMap.get({R,C,R1,C1}),
+    Conj1 = (EdgeIn #/\Conj),
+    constrain_path(EMap,[(R1,C1)|P],Conj1,B).
+constrain_path(_EMap,_,Conj,B) =>
+    B #<=> Conj.
+
+all_coords_on_board(N,P) =>
+    foreach ((R,C) in P)
+        R >= 1, R =< N,
+        C >= 1, C =< N
+    end.
+
+output(EMap) =>
+    InEdges = [Edge : ({R,C,R1,C1} = 1) in map_to_list(EMap), Edge = sort([(R,C),(R1,C1)])].sort(),
+    HCount = 0,
+    VCount = 0,
+    foreach ([(R,C),(R1,C1)] in InEdges)
+        (R == R1 ->
+            HCount := HCount+1
+        ;
+            VCount := VCount+1
+        )
+    end,
+    println(HCount),
+    foreach ([(R,C),(R,C1)] in InEdges)
+        printf("%w %w\n",R-1,C-1)
+    end,
+    println(VCount),
+    foreach ([(R,C),(R1,C)] in InEdges)
+        printf("%w %w\n",R-1,C-1)
+    end.
