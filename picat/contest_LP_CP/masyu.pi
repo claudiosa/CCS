@@ -13,8 +13,6 @@ main([File_Name]) =>
     print("\n Decision Grid  ... from model:\n"),
     print_matrix( Dec_Grid, Size, Size ),
     
-   
-    
     print("\n THE END ...").
        
 
@@ -62,6 +60,7 @@ masyu_model(Dec_Grid, N , N_White, N_Black, Grid) =>
      end   
     end,
 %%% for Black cells ... a curve
+
 foreach (I in 1..N)
     foreach (J in 1..N)
     %VERTICAL conexion of w
@@ -89,28 +88,33 @@ foreach (I in 1..N)
     end,
 
 %%% WHITE Cells in first and last line/row
-    foreach (I in {1,N})
-      foreach(J in 1..N)  
-        if ((Grid[I,J] == 'w') )
+
+    foreach ( I in {1,N} )
+      foreach( J in 2 ..(N-1) )  
+   %  foreach ( I in {2,(N-1)} )
+        if ( (Grid[I,J] == 'w') )
         then
-        ((Dec_Grid[I,J-1] #= 1) #/\   
-        (Dec_Grid[I,J+1] #= 1)) 
+        ((Dec_Grid[I, J-1] #= 1) 
+         #/\   
+         (Dec_Grid[I, J+1] #= 1)) 
         end
-       end
+       end,
     end, 
 
 %%% WHITE Cells in first and last Colunn
+
    foreach (J in {1,N})
-    foreach(I in 1..N)  
+    foreach(I in 2..(N-1))  
       if ((Grid[I,J] == 'w') )
       then
-      ((Dec_Grid[I-1,J] #= 1) #/\   
+       ((Dec_Grid[I-1,J] #= 1) #/\   
        (Dec_Grid[I+1,J] #= 1)) 
       end
-     end
-    end,     
+     end,
+   end,     
 
-%%% Black cells in first and last line {1,N}
+
+%%% BLACK cells in first and last line {1,N}
    foreach(J in 1..N)  
       if ((Grid[1,J] == 'b') && J > 1 && J < N )
         then
@@ -119,7 +123,8 @@ foreach (I in 1..N)
         ((Dec_Grid[1,J+1] #= 1) #/\ (Dec_Grid[2,J] #= 1))  
         end
     end, 
- %% Blacks cells in the last line/row
+
+ %% BLACK cells in the last line/row
     foreach(J in 1..N)  
      if ((Grid[1,J] == 'b') && J > 1 && J < N )
       then
@@ -138,7 +143,8 @@ foreach(I in 1..N)
         ((Dec_Grid[I+1,1] #= 1) #/\ (Dec_Grid[J,2] #= 1))  
     end
 end, 
-%% Blacks cells in the first colun
+
+%% Blacks cells in the first colunn
     foreach(I in 1..N)  
         if ((Grid[I,1] == 'b') && I > 1 && I < N )
         then
@@ -147,12 +153,14 @@ end,
         ((Dec_Grid[I+1,N] #= 1) #/\ (Dec_Grid[I,(N-1)] #= 1))  
         end
     end, 
-    
+   
 %%%%  FOUR (4) corners with Black cells ... White balls cannot
+
     if (Grid[1,1] == 'b')
     then
         ((Dec_Grid[2,1] #= 1) #/\ (Dec_Grid[1,2] #= 1))
     end,    
+
 
     if (Grid[1,N] == 'b')
     then
@@ -168,6 +176,7 @@ end,
     then
         ((Dec_Grid[(N-1),N] #= 1) #/\ (Dec_Grid[N,(N-1)] #= 1))
     end,
+
 %%% UNTIL HERE ALL POSSIBILITIES IN THE GRID WERE SCANNED and POSTED    
 %%%%%%%%%%%%%%%%%%%%%%% IDEAS from PETER
 /*    
@@ -177,9 +186,13 @@ end,
                   Dec_Grid[Z+1,S+1] 
                 end,
 */
-
-    subcircuit_grid(Dec_Grid),
-    solve(Dec_Grid).    
+  %  subcircuit_grid(Grid, _, Dec_Grid),
+  %  solve((Grid,values(Dec_Grid))).
+    writef("\n ...1"),
+   % subcircuit_grid(Dec_Grid),
+    writef("\n ...2"),
+    solve(Dec_Grid),
+    writef("\n ...3").    
 
 /*
     solve(vars(Dec_Grid) ++ vars(M)),
@@ -196,7 +209,7 @@ reading_the_FILE(File_Name, N, White, Black, Grid) =>
     FD = open(File_Name),  %% FILE DESCRIPTOR
     [Size, White, Black] = [to_int(W) : W in read_line(FD).split()],
     %% writef("\n %w %w %w", Size, White, Black),
-    N = Size + 1, %%% description ... start in 0 up to Size
+    N is Size + 1, %%% description ... start in 0 up to Size
     Grid = new_array(N,N),
     %% Filling a Grid with '.'
     foreach (I in 1..N)
@@ -219,7 +232,7 @@ reading_the_FILE(File_Name, N, White, Black, Grid) =>
        Grid[(X+1),(Y+1)] := 'b'
     end ,
     % writef("\n\n Map read ==> %w", Grid),
-
+    close(FD),
     print("\n End of Reading").   
     
 
@@ -237,8 +250,5 @@ print_matrix( M, L, C ) =>
       end.   
 
 /* 
-        
-
-        (Grid[I,J] #= w) #<=> Dec_Grid[I,J] #= 1,
-      (Grid[I,J] #= b) #<=> Dec_Grid[I,J] #= 1 
+  
 */    
