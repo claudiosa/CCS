@@ -241,3 +241,71 @@ my_delete([A|B], X, [A|C]) :-
     my_delete(B, X, C).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+del(X,[X|L1],L1).
+del(X,[Y|L1],[Y|L2]):- del(X,L1,L2).
+
+permute([],[]).
+permute(L,[X|P]):- del(X,L,L1),
+                   permute(L1,P).
+
+
+
+
+/* to obtain permutations of a list */ 
+my_permutation([], []) :- !. /* Halt Condition */
+my_permutation([X|L], L_permut ):-
+    my_permutation(L, L1), 
+    del_fst_ocurrence(X, L_permut, L1).
+/* the stractegy is remove one element
+   of the original list to obtain another list,
+   but with the backtracting,
+   this list is permuted with the 
+   predicate del_fst_ocurrence
+*/   
+
+                
+/* Delete X on in its first ocurrence */
+del_fst_ocurrence(X, [X|L], L).
+del_fst_ocurrence(X, [Y|L], [Y|L1]):- 
+    del_fst_ocurrence(X, L, L1).
+                
+
+/* find the Biggest */
+the_bigest( [] ,0) :- !.
+the_bigest( [M] , M ) :- !.
+the_bigest( [M , K], M ) :- M >= K , !.
+the_bigest( [M|R] ,N ) :- 
+     the_bigest( R , K ) ,
+     the_bigest( [K , M] , N).
+
+
+/* find the Lowest */
+the_lowest( [] ,0) :- !.
+the_lowest( [M] , M ) :- !.
+the_lowest( [M , K], M ) :- M =< K , !.
+the_lowest( [M|R] ,N ) :- 
+    the_lowest( R , K ) ,
+    the_lowest( [K , M] , N).
+
+
+/*  position(List, Elem, Number) iff Elem is in position Number
+    in the List.  List must be instantiated, as must at least one of
+    Elem and Number.
+*/
+
+position([ Elem | _ ], Elem, 1 ) :- !.
+position([ _ | Rest ], Elem, Number ) :-
+    var(Number),
+    !,
+    position(Rest, Elem, N_minus),
+    Number is N_minus + 1.
+
+position([ _ | Rest ], Elem, Number ) :-
+    N_minus is Number - 1,
+    position(Rest, Elem, N_minus).
+

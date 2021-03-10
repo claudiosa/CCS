@@ -1,0 +1,71 @@
+$ swipl graph_search.pl breadth_first.pl test3.pl
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- search([[a]], X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, f, i, j, m] ;
+false.
+
+?- ^D
+% halt
+$ swipl graph_search.pl breadth_first.pl test4.pl
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- search([[a]], X).
+X = [a, b, g] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+X = [a, b, g, e, h] ;
+X = [a, b, g, e, i, k] ;
+false.
+
+?- ^D
+% halt
+
+$ swipl graph_search.pl depth_first.pl test3.pl
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- search([[a]], X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, f, i, j, m] ;
+false.
+
+?- ^D
+% halt
+
+$ swipl graph_search.pl depth_first.pl test4.pl
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- search([[a]], X).
+X = [a, b, g] ;
+X = [a, b, g, e, h] ;
+X = [a, b, g, e, i, k] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+false.
+
+?- ^D
+% halt
+

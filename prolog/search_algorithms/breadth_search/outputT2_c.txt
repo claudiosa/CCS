@@ -1,0 +1,150 @@
+$ swipl efficient_searches.pl test1.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- ids([a], 1, 1, X).
+false.
+G
+?- ids([a], 1, 2, X).
+X = [a, f, i] ;
+false.
+
+?- ids([a], 1, 3, X).
+X = [a, f, i] ;
+X = [a, f, i] ;
+false.
+
+?- ^D
+% halt
+
+$ swipl efficient_searches.pl test2.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- ids([a], 1, 1, X).
+false.
+
+?- ids([a], 1, 2, X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+false.
+
+?- ids([a], 1, 3, X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, b, d] ;
+X = [a, f, i] ;
+false.
+
+?- ids([a], 1, 4, X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, f, i, j, m] ;
+false.
+
+?- ^D
+% halt
+
+$ swipl efficient_searches.pl test3.pl                                      
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- ids([a], 1, 1, X).
+false.
+
+?- ids([a], 1, 2, X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+false.
+
+?- ids([a], 1, 3, X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, b, d] ;
+X = [a, f, i] ;
+false.
+
+?- ids([a], 1, 4, X).
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, b, d] ;
+X = [a, f, i] ;
+X = [a, f, i, j, m] ;
+false.
+
+?- ^D
+% halt
+
+$ swipl efficient_searches.pl test4.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.5.15)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- ids([a], 1, 1, X).
+false.
+
+?- ids([a], 1, 2, X).
+X = [a, b, g] ;
+X = [a, e, h] ;
+false.
+
+?- ids([a], 1, 3, X).
+X = [a, b, g] ;
+X = [a, e, h] ;
+X = [a, b, g] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+false.
+
+?- ids([a], 1, 4, X).
+X = [a, b, g] ;
+X = [a, e, h] ;
+X = [a, b, g] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+X = [a, b, g] ;
+X = [a, b, g, e, h] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+false.
+
+?- ids([a], 1, 5, X).
+X = [a, b, g] ;
+X = [a, e, h] ;
+X = [a, b, g] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+X = [a, b, g] ;
+X = [a, b, g, e, h] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+X = [a, b, g] ;
+X = [a, b, g, e, h] ;
+X = [a, b, g, e, i, k] ;
+X = [a, e, h] ;
+X = [a, e, i, k] ;
+false.
+
+?- ^D
+% halt
