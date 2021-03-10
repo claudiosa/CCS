@@ -1,0 +1,13 @@
+I just finish the Breadth-First Search ....
+  the name and the general structure come from some
+  good Prolog book
+
+To use:
+?- ['general_search.pl','breadth_first.pl','test1.pl'].
+true.
+
+?-  search([[a]], S).
+S = [a, f, i] ;
+false.
+
+?- ['general_search.pl','breadth_first.pl','test2.pl'].
