@@ -1,0 +1,30 @@
+
+/*
+f(n) = 
+	if n>100 then (n-10)  or
+ 	n =< 100 f(f(n+11)
+
+  https://en.wikipedia.org/wiki/McCarthy_91_function   
+*/   
+   
+f_91(N,F):- N > 100, F is (N-10), !.
+f_91(N,F):- N =< 100, New is (N+11), 
+            f_91( New , F_new), 
+            f_91(F_new, F).   
+
+f_91a(N,F), N > 100   => F = (N-10).
+f_91a(N,F), N =< 100  ?=> New = (N+11), 
+        f_91a( New , F_new), 
+        f_91a(F_new, F).   
+
+f_91b(N,F), N > 100   => F is (N-10).
+f_91b(N,F), N =< 100  ?=>  New is (N+11), 
+        f_91b( New , F_new), 
+        f_91b(F_new, F).   
+
+
+
+
+
+
+/***********************************************/
