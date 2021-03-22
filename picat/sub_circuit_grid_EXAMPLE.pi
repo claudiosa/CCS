@@ -2,12 +2,9 @@
 import sat, util.
 
 main =>
-    N = 4, %10,
+    N = 4, % a grid N x N
     Dec_Grid = new_array(N,N),
     Dec_Grid :: 0..1,
-    
-    % Edge_Map = new_array(N,N),
-    % Edge_Map :: 1..N,
     
     foreach (I in 2..(N-1) , J in 2..(N-1))
     %% foreach (I in 2..(N-1) )  %%    foreach (J in 2..(N-1) )
@@ -23,11 +20,14 @@ main =>
     % sum([Dec_Grid[I,J] : I in 1..N, J in 1..N]) #>= (4*N-4),
     % Dec_Grid[1,2] #= 0,  % Force a fail
     % Dec_Grid[N,N] #= 1,
-   
+    
+    % using the circuit
     % subcircuit_grid(Dec_Grid),
     % solve(Dec_Grid),
-    subcircuit_grid(Dec_Grid, _K_Order ,Edge_Map),
+    % OR
+    subcircuit_grid(Dec_Grid, _K_Degree ,Edge_Map),
     solve((Dec_Grid,values(Edge_Map))),
+    
     print_matrix(Dec_Grid,N,N),
     
     printf("EDGE_MAP: %w \n(All connections)! ", Edge_Map),
@@ -36,7 +36,7 @@ main =>
 %% from Neng-Fa
 output(EMap) =>
     println("\n ========================== \n"),
-    %% to study it and become clear !!!!
+    %% To study this list compreenshion and become clear !!!!
     InEdges = [Edge : ({R,C,R1,C1} = 1) in map_to_list(EMap), Edge = sort([(R,C),(R1,C1)])].sort(),
     
     Arc = 0,
@@ -59,3 +59,4 @@ print_matrix( M, L, C ) =>
         end,
         nl
       end.   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
