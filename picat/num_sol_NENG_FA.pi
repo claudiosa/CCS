@@ -1,0 +1,23 @@
+import sat.
+
+main =>
+    [X,Y] :: 0..20,
+    B :: 0..1,
+    B #<=> (X #= Y),
+    Sols = findall([B,X,Y], solve_with_limit([B,X,Y], 10)),
+    foreach (Sol in Sols)
+        writeln(Sol)
+    end.
+
+
+solve_with_limit(Vars, Limit) =>
+    M = get_global_map(),
+    M.put(limit, Limit),
+    solve(Vars),
+    N = M.get(limit),
+    (N > 0 ->
+        M.put(limit, N-1)
+    ;
+        !
+    ).
+
