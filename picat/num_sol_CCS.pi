@@ -1,0 +1,35 @@
+import sat.
+
+main =>
+    [X,Y] :: 0..20,
+    B :: 0..1,
+    B #<=> (X #= Y),
+    solve([B,X,Y]).
+    
+    %M = $model(Z),
+    %model([B,X,Y]),
+    %call( M , [B,X,Y]),
+    %writeln(Z).
+    %writeln([B,X,Y]).
+%   call($member(X), [1,2,3]).
+
+%    fail.
+   % findall([B,X,Y], (model([B,X,Y]), length(L) < 10), L),
+/*
+    foreach (I in 1..10)
+        model([B,X,Y]),
+        writeln([B,X,Y])
+    end.
+*/
+
+model([B,X,Y]) =>
+    
+    B #<=> (X #= Y),
+    solve([B,X,Y]).    
+
+
+
+
+index(-) 
+a(1).
+a(2).
