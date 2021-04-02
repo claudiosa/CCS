@@ -1,3 +1,5 @@
+
+#%%% https://likegeeks.com/python-gui-examples-tkinter-tutorial/
 from tkinter import *
 
 obj_window = Tk()
@@ -10,8 +12,11 @@ obj_window.title("Title in the Window")
 ## 
 btn=Button(obj_window, text="This is Button widget", fg='blue')
 btn.place(x=80, y=100)
+# btn ...object
+
 lbl=Label(obj_window, text="This is Label widget", fg='red', font=("Helvetica", 16))
 lbl.place(x=60, y=50)
+# lbl ...object
 txtfld=Entry(obj_window, text="This is Entry Widget", bd=5)
 txtfld.place(x=80, y=150)
 
