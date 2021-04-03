@@ -1,3 +1,13 @@
+
+
+my_take(_, 0 , []) :- !.
+my_take([], _ , []) :- !.
+my_take( [A|B], N, [A|C] ) :- 
+        N >= 0,
+        N1 is (N-1),
+        my_take(B , N1 , C ) .
+
+
 somatorio([], 0).
 somatorio([Y | R], X):- 
 					somatorio(R, S),

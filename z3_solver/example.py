@@ -18,6 +18,9 @@ https://pypi.org/project/z3-solver/#files
 $ python3 example.py 
 sat
 [y = 4, x = 2]
+
+Read it:
+https://github.com/Z3Prover/z3#building-z3-using-make-and-gccclang
 '''
 
 # Running this example on Windows:

@@ -1,11 +1,30 @@
 import sat.
+import util. %%% lists ...
 
 main =>
+    Num_Sol = 10, 
+    All = findall( [B,X,Y], model([B,X,Y]) ),
+    take(All, Num_Sol) = List,
+    printf("\n ==> %w", List).   
+
+model([B,X,Y]) =>
     [X,Y] :: 0..20,
     B :: 0..1,
     B #<=> (X #= Y),
-    solve([B,X,Y]).
-    
+    solve([B,X,Y]).    
+
+
+
+/*
+Picat> X = findall(Y, a(Y)).
+X = [1,2]
+*/
+index(-) 
+a(1).
+a(2).
+
+
+
     %M = $model(Z),
     %model([B,X,Y]),
     %call( M , [B,X,Y]),
@@ -21,15 +40,3 @@ main =>
         writeln([B,X,Y])
     end.
 */
-
-model([B,X,Y]) =>
-    
-    B #<=> (X #= Y),
-    solve([B,X,Y]).    
-
-
-
-
-index(-) 
-a(1).
-a(2).
