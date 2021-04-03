@@ -122,3 +122,19 @@ append_aux(Xs,Ys,Zs) =>
         Xs = [X|Xs1],
         Zs = [X|Zs1],
         append(Xs1,Ys,Zs1).
+
+
+my_take([],0) = [].
+my_take(_,0)   = [].
+my_take([],_)  = [].
+%my_take([],X)  = [] =  X < 0, printf("\n Negative Input").
+my_take( [A|B], N ) = [ A |  my_take(B , (N-1) ) ].
+
+my_take_L([] , 0 , X ) ?=> X = [].
+my_take_L( _ , 0 , X ) ?=> X = [].
+my_take_L([] , _ , X ) ?=> X = [].
+
+my_take_L( [A|B], N, [A|C] )  =>
+        N >= 0,
+        N1 is (N-1), 
+        my_take_L(B , N1 , C ) .
