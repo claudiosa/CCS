@@ -1,0 +1,13 @@
+%%%:- use_module(library(../lib/tcltk/tcltk)).
+:- use_module(library(tcl)).
+p(yes).
+q(yes).
+r(yes, no).
+
+main :- go.
+
+go :-
+    tk_new([name('test')], X),
+    tcl_eval(X, 'source test.tcl',_),
+    tcl_eval(X, [foo], _),
+    tcl_delete(X).
