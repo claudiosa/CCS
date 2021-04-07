@@ -1,0 +1,26 @@
+rom z3 import *
+
+x, y, z = Reals('x y z')
+s = Solver()
+
+s.add(x > 1, Or(y > 1, z > 1), x + y > 3, z - x < 10)
+print("Asserted constraints...")
+for c in s.assertions():
+    print(c)
+
+print("\nThey are...")
+print(s.check())
+m = s.model()
+print(m)
+sol = list(map(m.evaluate, (x,y,z) ))
+print(sol)
+
+print("\nTraversing model...")
+for d in m.decls():
+    print("%s = %s" % (d.name(), m[d]))
+
+print("\nStatistics for the last check method...")
+print(s.statistics())
+# Traversing statistics
+for k, v in s.statistics():
+    print( "%s : %s"%(k, v) )
