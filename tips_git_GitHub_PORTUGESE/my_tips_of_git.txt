@@ -95,10 +95,13 @@ git rm -r one-of-the-directories
 git rm -r /apresentacoes
 git rm -r LPG_C
 
-depois COMMIT
+depois :
 
 git  commit -m "xxxxxxxxxxxxxxx"
 git push origin master
+confirme 
+git status
+
 
 COMO FAZER?
  git   ls-remote https://github.com/claudiosa/..............
@@ -134,4 +137,12 @@ ou faça uma adicao de git remote add origin https://github.com/user/repo.git
 5. git push -f origin master (enviou forçado)
 
 OK 
+
+
+Cloning a private Github repo:
+https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo
+
+
+
+
 
