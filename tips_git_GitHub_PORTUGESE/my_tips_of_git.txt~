@@ -142,8 +142,7 @@ OK
 Cloning a private Github repo:
 https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo
 
-how do I push to GitHub under a different username?
-git config --local credential.helper ""
-git push origin master
+
+
 
 
