@@ -1,10 +1,10 @@
 {-# OPTIONS_GHC -Wall -Werror #-}
-
-module Documentation.SBV.Examples.Puzzles.SendMoreMoney where
-
-import Data.SBV
 -- module Main where
 -- import Lib
+
+--module  Documentation.SBV.Examples.Puzzles.SendMoreMoney where
+module Main where
+import Data.SBV
 
 main :: IO ()
 main = print sendMoreMoney
