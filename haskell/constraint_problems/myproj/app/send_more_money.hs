@@ -1,4 +1,4 @@
-{-# 
+{- # 
 -- |
 -- Module    : Documentation.SBV.Examples.Puzzles.SendMoreMoney
 -- Copyright : (c) Levent Erkok
@@ -8,12 +8,6 @@
 --
 -- Solves the classic @send + more = money@ puzzle.
 ---------------------------------------------------------------------------- #-}
-
-{-# OPTIONS_GHC -Wall -Werror #-}
-
-module Documentation.SBV.Examples.Puzzles.SendMoreMoney where
-
-import Data.SBV
 
 -- | Solve the puzzle. We have:
 --
