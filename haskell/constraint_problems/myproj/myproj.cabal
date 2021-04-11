@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2e1a32b8f850631558c7f7fc28d930a0186085e0b1a091096716d0e98d59e4d8
+-- hash: a042cea062863b586fe39b6b643b2d7a0c2c7febf0a52a3306367d72528d3fd6
 
 name:           myproj
 version:        0.1.0.0
@@ -34,6 +34,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , sbv
   default-language: Haskell2010
 
 executable myproj-exe
@@ -46,6 +47,7 @@ executable myproj-exe
   build-depends:
       base >=4.7 && <5
     , myproj
+    , sbv
   default-language: Haskell2010
 
 test-suite myproj-test
@@ -59,4 +61,5 @@ test-suite myproj-test
   build-depends:
       base >=4.7 && <5
     , myproj
+    , sbv
   default-language: Haskell2010
