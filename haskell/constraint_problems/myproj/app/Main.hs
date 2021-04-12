@@ -50,14 +50,14 @@ send_2 = allSat $ do
         [s,e,n,d,m,o,r,y] <- mapM sInteger ["s", "e", "n", "d", "m", "o", "r", "y"]
         let 
         --isDigit x = x .>= 0 .&& x .<= 9
-        for_each [s,e,n,d,m,o,r,y]
-        val send =  s*1000 + e*100 + n*10 + d
-        val more =  m*1000 + o*100 + r*10 + e 
-        val money = m*10000 + o*1000 + n*100 + e*10 + y 
+          
+        send =  s*1000 + e*100 + n*10 + d
+        more =  m*1000 + o*100 + r*10 + e 
+        money = m*10000 + o*1000 + n*100 + e*10 + y 
 
         constrain $ distinct [s,e,n,d,m,o,r,y]
         constrain $ sAll isDigit [s,e,n,d,m,o,r,y]
-        
+        constrain $ for_each [s,e,n,d,m,o,r,y]
         constrain $ s ./= 0 .&& m ./= 0
         solve [send + more .== money]
 
