@@ -8,7 +8,7 @@ import Data.SBV
 main :: IO ()
 -- main = print =<< sendMoreMoney
 main = do
-  result <- send_2 -- sendMoreMoney
+  result <- test -- sendMoreMoney
   print result
 
 -- | Solve the puzzle. We have:
@@ -44,7 +44,21 @@ sendMoreMoney = allSat $ do
         solve [send + more .== money]
 
 
+test :: IO AllSatResult
+test = allSat $ do
+        x <- sInteger
+        y <- sInteger
+        --let 
+        --        isDigit x = x .>= 0 .&& x .<= 9
+        --        isDigit y = y .>= 0 .&& y .<= 9
+        constrain $ x .>= 0 .&& x .<= 9
+        constrain $ y .>= 0 .&& y .<= 9
+        constrain $ x ./= 5 .&& y ./= 5
+        solve [x + y .== 10]
 
+
+
+{-
 send_2 :: IO AllSatResult
 send_2 = allSat $ do
         [s,e,n,d,m,o,r,y] <- mapM sInteger ["s", "e", "n", "d", "m", "o", "r", "y"]
@@ -66,4 +80,4 @@ for_each [] = True
 for_each (a:b) = 
      (a .>= 0 .&& a .<= 9) : for_each b
 
-
+-}
