@@ -146,4 +146,6 @@ how do I push to GitHub under a different username?
 git config --local credential.helper ""
 git push origin master
 
-
+Do not forget to add, commit and ...
+git push https://USER:PASSWORD@github.com/your-private-repo/diretory.git
+#################################################################################
