@@ -7,4 +7,13 @@ body {
 
   h1 {
     font-family: Helvetica, Geneva, Arial,
-          SunSans-Regular, sans-serif }
+          SunSans-Regular, sans-serif ;
+    padding-left: -1cm   ;
+    padding-right: -1cm  
+
+        }
+
+   p {
+    padding-left: 5cm   ;
+    padding-right: 3cm 
+   }     
