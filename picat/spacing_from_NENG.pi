@@ -1,0 +1,339 @@
+/****************************************************************************
+    spacing_picat.pi, Neng-Fa Zhou, 2021
+
+    This program transforms Picat program files to enforce the spacing rule:
+
+    * Each binary operator has one space before and one space after it.
+    * Each comma is always followed by a space.
+
+    To process a  program file, say "source.pi", and have the transformed file saved
+    in file "target.pi", use the following command:
+
+    picat spacing_picat source.pi target.pi
+
+    To process all ".pi" files in the current directory, and save all
+    the transformed files in the "tmp" directory, use the command:
+
+    picat spacing_picat
+****************************************************************************/
+
+import util, os.
+
+main =>
+    Fs = listdir("."),
+    foreach (F in Fs, append(_, ".pi", F))
+        main([F, "tmp/"++F])
+    end.
+
+main([InFile]) =>
+    InStream = open(InFile),
+    OutStream = stdout,
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, '^').
+    
+
+main([InFile, OutFile]) =>
+    printf("processing %s\n", InFile),
+    InStream = open(InFile),
+    OutStream = open(OutFile, write),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, '^').
+
+proc_line(InStream, OutStream, end_of_file, _PreChar) => close(InStream), close(OutStream).
+proc_line(InStream, OutStream, [], _PreChar) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, '^').
+proc_line(InStream, OutStream, ['0', '''', Char|Line], _PreChar) =>
+    OutStream.print('0'),
+    OutStream.print(''''),
+    OutStream.print(Char),    
+    proc_line(InStream, OutStream, Line, Char).
+proc_line(InStream, OutStream, ['"'|Line], _PreChar) =>
+    OutStream.print('"'),     
+    proc_string(InStream, OutStream, Line).
+proc_line(InStream, OutStream, [''''|Line], _PreChar) =>
+    OutStream.print(''''),     
+    proc_atom(InStream, OutStream, Line).
+proc_line(InStream, OutStream, ['/', '*'|Line], PreChar) =>
+    (PreChar == '^' -> true; OutStream.print(' ')),
+    OutStream.print("/*"), 
+    proc_comment(InStream, OutStream, Line).
+proc_line(InStream, OutStream, ['/', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "/>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['/', '/', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "//", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['/', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "/<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['%'|Line], PreChar) =>
+    (PreChar == '^' -> true; OutStream.print(' ')),
+    OutStream.print("%"),
+    (Line == [] -> true; OutStream.print(Line)),
+    proc_line(InStream, OutStream, [], ' ').
+proc_line(InStream, OutStream, [')', ','|Line], _PreChar), Line = [Char|_], Char !== ' ' =>   
+    OutStream.print(')'),
+    OutStream.print(','),
+    OutStream.print(' '),
+    proc_line(InStream, OutStream, Line, ' ').
+/*
+proc_line(InStream, OutStream, [','|Line], _PreChar),
+    Line = [Char|R], Char !== ' '
+ =>
+    OutStream.print(','),
+    OutStream.print(' '),
+    proc_line(InStream, OutStream, Line, ' ').
+*/
+proc_line(InStream,OutStream,[',','('|Line],_PreChar) =>   
+    OutStream.print(','),
+    OutStream.print(' '),
+    OutStream.print('('),
+    proc_line(InStream,OutStream,Line,'(').
+proc_line(InStream,OutStream,[','|Line], _PreChar),
+    Line = [Char|R], Char !== ' ',
+    append(Str,['('|_],Line),
+    not member(',',Str), not member('''', Str)
+=>
+    OutStream.print(','),
+    OutStream.print(' '),
+    proc_line(InStream,OutStream,Line,' ').
+proc_line(InStream, OutStream, [':', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, ":=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['=', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "==", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['=', '.', '.', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "=..", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['=', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "=<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['=', ':', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "=:=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['=', '\\', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "=\\=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['=', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "=>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['=', '>'], PreChar) =>
+    output_bin_op(OutStream, PreChar, "=>", ' '),
+    proc_line(InStream, OutStream, [], ' ').
+proc_line(InStream, OutStream, ['=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['?', '=', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "?=>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['?', '=', '>'], PreChar) =>
+    output_bin_op(OutStream, PreChar, "?=>", ' '),
+    proc_line(InStream, OutStream, [], ' ').
+proc_line(InStream, OutStream, ['!', '=', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "!==", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['!', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "!=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['\\', '=', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "\\==", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['\\', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "\\=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['>', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, ">=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['>', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, ">>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, ">", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['-', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "->", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['-', '>'], PreChar) =>
+    output_bin_op(OutStream, PreChar, "->", ' '),
+    proc_line(InStream, OutStream, [], ' ').
+proc_line(InStream, OutStream, ['<', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "<<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['<', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "<=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['\t'|Line], _PreChar) =>
+    OutStream.print('    '),
+    proc_line(InStream, OutStream, Line, ' ').
+proc_line(InStream, OutStream, ['@', '=', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "@=<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['@', '>', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "@>=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['@', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "@>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['@', '<', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "@<=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['@', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "@<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+%
+proc_line(InStream, OutStream, ['#', '/', '\\', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#/\\", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '\\', '/', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#\\/", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '^', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#^", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '\\', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#\\=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '\\', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#\\", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '~', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#~", ' '),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '=', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#=<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '=', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#=>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '>', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#>=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '<', '=', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#<=>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['#', '!', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "#!=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+%
+proc_line(InStream, OutStream, ['$', '/', '\\', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$/\\", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '\\', '/', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$\\/", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '^', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$^", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '\\', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$\\=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '\\', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$\\", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '~', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$~", ' '),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '=', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$=<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '=', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$=>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '>', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$>=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '<', '=', '>', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$<=>", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '<', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$<", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, ['$', '!', '=', Char|Line], PreChar) =>
+    output_bin_op(OutStream, PreChar, "$!=", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+%
+proc_line(InStream, OutStream, [';', Char|Line], _PreChar) =>
+    output_bin_op(OutStream, ' ', ";", Char),
+    proc_line(InStream, OutStream, [Char|Line], ' ').
+proc_line(InStream, OutStream, [Char|Line], _PreChar) =>
+    OutStream.print(Char),
+    proc_line(InStream, OutStream, Line, Char).
+
+output_bin_op(OutStream, PreChar, Op, PostChar) =>
+    (PreChar == ' ' -> true; OutStream.print(' ')),
+    OutStream.print(Op),
+    (PostChar == ' ' -> true; OutStream.print(' ')).
+    
+proc_comment(InStream, OutStream, []) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_comment(InStream, OutStream, Line).
+proc_comment(InStream, OutStream, ['*', '/'|_]) =>
+    OutStream.println("*/"),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, '^').
+proc_comment(InStream, OutStream, [Char|Line]) =>
+    OutStream.print(Char),
+    proc_comment(InStream, OutStream, Line).
+
+proc_char(InStream, OutStream, ['\''|Line]) =>
+    OutStream.print("'"),
+    proc_line(InStream, OutStream, Line, '\'').    
+proc_char(InStream, OutStream, ['\\', Char|Line]) =>
+    OutStream.print("\\"),
+    OutStream.print(Char),
+    proc_char(InStream, OutStream, Line).
+proc_char(InStream, OutStream, [Char|Line]) =>
+    OutStream.print(Char),
+    proc_char(InStream, OutStream, Line).
+    
+proc_string(InStream, OutStream, []) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_string(InStream, OutStream, Line).
+proc_string(InStream, OutStream, ['\\', Char|Line]) =>
+    OutStream.print("\\"),
+    OutStream.print(Char),
+    proc_string(InStream, OutStream, Line).
+proc_string(InStream, OutStream, ['"'|Line]) =>
+    OutStream.print('"'),
+    proc_line(InStream, OutStream, Line, '"').
+proc_string(InStream, OutStream, [Char|Line]) =>
+    OutStream.print(Char),
+    proc_string(InStream, OutStream, Line).
+
+proc_atom(InStream, OutStream, []) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_atom(InStream, OutStream, Line).
+proc_atom(InStream, OutStream, ['\\', Char|Line]) =>
+    OutStream.print("\\"),
+    OutStream.print(Char),
+    proc_atom(InStream, OutStream, Line).
+proc_atom(InStream, OutStream, [''''|Line]) =>
+    OutStream.print(''''),
+    proc_line(InStream, OutStream, Line, '"').
+proc_atom(InStream, OutStream, [Char|Line]) =>
+    OutStream.print(Char),
+    proc_atom(InStream, OutStream, Line).
