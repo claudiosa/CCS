@@ -1,0 +1,120 @@
+/****************************************************************************
+    spacing_picat.pi, Neng-Fa Zhou, 2021
+
+    This program transforms Picat program files to enforce the spacing rule:
+
+    * Each binary operator has one space before and one space after it.
+    * Each comma is always followed by a space.
+
+    To process a  program file, say "source.pi", and have the transformed file saved
+    in file "target.pi", use the following command:
+
+    picat spacing_picat source.pi target.pi
+
+    To process all ".pi" files in the current directory, and save all
+    the transformed files in the "tmp" directory, use the command:
+
+    picat spacing_picat
+****************************************************************************/
+
+import util, os.
+
+main([InFile, OutFile]) =>
+    printf("Processing %s\n", InFile),
+    printf("Output file %s\n", OutFile),
+    InStream = open(InFile),
+    OutStream = open(OutFile, write),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, 0).
+
+%%% X: Depth of this stack
+proc_line(InStream, OutStream, end_of_file, X) => 
+     nl, print(X),
+    close(InStream), 
+    close(OutStream).
+
+proc_line(InStream, OutStream, [], Size) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Size).
+
+
+proc_line(InStream, OutStream, ['f','o','r','e','a','c','h' |Rest], Size) =>
+    OutStream.print(' '), %% one tab
+    OutStream.print('foreach'),
+    OutStream.print(Rest),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Size+1).
+
+proc_line(InStream, OutStream, ['e','n','d' |Rest], Size) =>
+    OutStream.print(' '), %% one tab
+    OutStream.print('end'),
+    if (Rest != []) then
+        OutStream.print(Rest)
+    end,
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Size-1).
+
+%%% any line ....
+proc_line(InStream, OutStream, Regular_Line, Size) =>
+    %n_spaces(Size,OutStream),
+    OutStream.n_spaces(Size),
+    OutStream.print(Regular_Line),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Size).
+
+n_spaces(N,OutStream) =>
+    if (N==1) then
+        foreach(I in 1..5)
+            OutStream.print(' ')
+        end
+    end.
+
+n_spaces(N) =>
+    if (N==1) then
+        foreach(I in 1..5)
+            stdout.print(' ')
+        end
+    end.
+
+/*
+print(FD,Term) => print(FD,Term).
+print(Term) => print(stdout,Term).
+*/
+
+
+/*
+proc_comment(InStream, OutStream, []) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_comment(InStream, OutStream, Line).
+proc_comment(InStream, OutStream, ['*', '/'|_]) =>
+*/    
+    %OutStream.println("*/"),
+/*    
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, '^').
+proc_comment(InStream, OutStream, [Char|Line]) =>
+    OutStream.print(Char),
+    proc_comment(InStream, OutStream, Line).
+
+
+proc_atom(InStream, OutStream, []) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_atom(InStream, OutStream, Line).
+proc_atom(InStream, OutStream, ['\\', Char|Line]) =>
+    OutStream.print("\\"),
+    OutStream.print(Char),
+    proc_atom(InStream, OutStream, Line).
+proc_atom(InStream, OutStream, [''''|Line]) =>
+    OutStream.print(''''),
+    proc_line(InStream, OutStream, Line, '"').
+proc_atom(InStream, OutStream, [Char|Line]) =>
+    OutStream.print(Char),
+    proc_atom(InStream, OutStream, Line).
+
+*/
