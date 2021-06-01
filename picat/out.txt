@@ -1,5 +1,12 @@
- foreach(x= .....)
-lasdkjf
-ldskjfa
- end
-x
+   yyyyyyyy
+   foreach (X = .....)
+      lasdkjfxxxxxx
+      ldskjfaxxxxxx
+      foreach (Y = .....)
+         lasdkjfyyyyy
+         ldskjfayyyy
+      end
+      asdkjfzzzzzz
+      ldskjfazzzzz
+   end
+   xxxxxxxx

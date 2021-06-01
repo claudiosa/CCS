@@ -1,5 +1,12 @@
-foreach(x= .....)
-lasdkjf
-ldskjfa
+yyyyyyyy
+foreach (X = .....)
+lasdkjfxxxxxx
+ldskjfaxxxxxx
+foreach (Y = .....)
+lasdkjfyyyyy
+ldskjfayyyy
 end
-x
+asdkjfzzzzzz
+ldskjfazzzzz
+end
+xxxxxxxx
