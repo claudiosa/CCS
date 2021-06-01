@@ -1,0 +1,79 @@
+/****************************************************************************
+  Code based on  spacing_picat.pi, Neng-Fa Zhou, 2021
+
+    
+    To process a  program file, say "source.*", and have the transformed file saved
+    in file "target.*", use the following command:
+
+    picat indentation.pi source.* target.*
+
+   
+****************************************************************************/
+
+import util, os.
+
+main([InFile, OutFile]) =>
+    printf("Processing: %s\n", InFile),
+    printf("Output file: %s\n", OutFile),
+    InStream = open(InFile),
+    OutStream = open(OutFile, write),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, 0).
+
+%%% X: Depth of this stack
+%% 4th. argument is level of identation
+proc_line(InStream, OutStream, end_of_file, _) => 
+    % nl, print(X),
+    close(InStream), 
+    close(OutStream),
+    printf("End Normally !!!!\n").
+
+proc_line(InStream, OutStream, [], Level) =>
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Level).
+
+
+proc_line(InStream, OutStream, ['f','o','r','e','a','c','h' |Rest], Level) =>
+    %Doing an indentation for each  tab
+    n_spaces(Level,OutStream),
+    OutStream.print('foreach'),
+    print_rest(Rest, OutStream),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    %%% the level is 
+    proc_line(InStream, OutStream, Line, Level+1).
+
+proc_line(InStream, OutStream, ['e','n','d' |Rest], Level) =>
+    % Finding an end ... a previous level
+    n_spaces(Level-1,OutStream),
+    OutStream.print('end'),
+    print_rest(Rest, OutStream),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Level-1).
+
+%%% to process any/regular line ....
+proc_line(InStream, OutStream, Regular_Line, Level) =>
+   
+    n_spaces(Level,OutStream),
+    OutStream.print(Regular_Line),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Level).
+
+%%%% Generating spaces indentated
+n_spaces(N,OutStream) =>
+    Level_Tab = 3, %%%% 3 spaces ~ 1 tab
+    foreach(J in 0..N)
+        foreach(I in 1..Level_Tab)
+            OutStream.print(' ')
+        end
+    end.
+
+print_rest(Rest, OutStream) =>
+    if (Rest != []) then
+        OutStream.print(Rest)
+    end.
+    
+/* ************************ */
