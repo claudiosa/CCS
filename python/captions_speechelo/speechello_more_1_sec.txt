@@ -1,0 +1,490 @@
+Hi everyone, in this training video
+we are going to learn  how to use the WhatsTV
+
+[sPause sec=0.94 ePause]
+in a very easy way, let's start with the objective.
+The main objective of WhatsTV
+
+[sPause sec=1.91 ePause]
+is to make broadcasters use
+messages on the air,
+
+[sPause sec=0.16 ePause]
+as fast as possible
+about 15 seconds,
+
+[sPause sec=1.35 ePause]
+to achieve this objective, the first step
+to take is to navigate
+
+[sPause sec=1.74 ePause]
+web WhatsApp, conversations, remembering that WhatsApp web
+it's the same one you use in
+
+[sPause sec=0.93 ePause]
+a normal browser like Chrome or Firefox
+everything you do there, you'll also get
+
+[sPause sec=1.75 ePause]
+to do it here.
+You're going to get to play a video,
+
+[sPause sec=0.38 ePause]
+view an image,
+send content, reply to message and so on,
+etc.
+
+[sPause sec=1.86 ePause]
+So the first step is to find
+a conversation with interesting content,
+
+[sPause sec=1.41 ePause]
+let's say ...
+it's a conversation here that's currently
+
+[sPause sec=0.74 ePause]
+selected
+the number 7512 at the end of this contact
+
+[sPause sec=1.07 ePause]
+The next step is to click the orange button
+and the system will take a screenshot of that content
+
+[sPause sec=0.91 ePause]
+that came in this talking.
+Remember, in this capture (screenshot) process it only receives
+
+[sPause sec=0.42 ePause]
+the content that came in the talking, and
+the one that was sent is not captured, I'm going to
+
+[sPause sec=1.94 ePause]
+pause  in the capture process, because
+I don't need to wait
+
+[sPause sec=0.53 ePause]
+for the whole process to finish.
+I can stop it
+
+[sPause sec=0.69 ePause]
+The result of the capture process is in the same order
+that the conversation arrived, so
+
+[sPause sec=1.27 ePause]
+the most recent item of this talking  it’s
+a video, then an image and so on
+
+[sPause sec=1.37 ePause]
+Now if I want to put it on the air,  I click
+on the black arrow to send it at the bottom window,
+
+[sPause sec=0.32 ePause]
+and then I will click on this video,
+or in this image, or in this text,  and so on...
+
+[sPause sec=0.87 ePause]
+Ready, now a can start for another
+capture, looking for more contents
+
+[sPause sec=1.27 ePause]
+to put on the air, now I’m going to use this video...
+Ready, in this way I’m going to create a
+
+[sPause sec=1.25 ePause]
+sequence of interesting contents
+to be presented on the air
+
+[sPause sec=1.62 ePause]
+I did here the capture of three different contacts,
+the next step now is to
+
+[sPause sec=0.96 ePause]
+moderate that content
+In the first step of this moderation (adjustments)
+
+[sPause sec=0.78 ePause]
+I define if the photo of this contact can
+go into the air, if that’s the case,
+
+[sPause sec=1.79 ePause]
+one of those photos have political campaign,
+or any other reason that
+
+[sPause sec=0.34 ePause]
+you don't want to transmit, you just
+have to give double - click on this photo to make
+
+[sPause sec=0.31 ePause]
+it hidden, double-click again and the photo
+reappears in the names column.
+
+[sPause sec=1.74 ePause]
+If you press a double-click, you can
+change the name of that contact, also
+
+[sPause sec=1.92 ePause]
+define a geo-location to that
+contact, it can be a district, a
+
+[sPause sec=1.59 ePause]
+region, or a city, depending  on
+the scope of the station, finally
+
+[sPause sec=1.68 ePause]
+we will make the correction of the text
+properly through a double - click
+
+[sPause sec=0.22 ePause]
+you will fix the text by
+correcting  English errors or by
+
+[sPause sec=1.32 ePause]
+removing some parts of the text that are not
+interesting, and now this  sequence
+
+[sPause sec=0.22 ePause]
+ of items captured is  ready to take place
+on the air, every line
+
+[sPause sec=1.41 ePause]
+that I'm navigating is going to
+transform into a slide to put on the air.
+
+[sPause sec=1.25 ePause]
+You can think like a  PowerPoint slide. I'm going to
+
+[sPause sec=0.45 ePause]
+press the play to exhibit it on the air.
+Once the play button is pressed it’s going to generate
+
+[sPause sec=0.49 ePause]
+a presentation with the content which effectively
+ goes on air (to be broadcasted)
+
+[sPause sec=0.12 ePause]
+Well, then we had five lines there whose
+generated five slides here, and
+
+[sPause sec=1.56 ePause]
+How does this process technically work?  This PC
+that you are watching the execution,  has
+
+[sPause sec=0.28 ePause]
+been connected with the video console (control panel)
+via HDMI, NDI, or display board
+
+[sPause sec=1.20 ePause]
+at the right time, the switcher operator
+with his PC will be sending to the TV LCD
+
+[sPause sec=1.40 ePause]
+and the program presenter will move
+on to interact with the slides.
+
+[sPause sec=0.41 ePause]
+Now he is watching  a video
+of Eduardo Pereira, it will start this playing
+
+[sPause sec=1.70 ePause]
+with the space key in
+the keyboard is pressed, the presenter
+
+[sPause sec=0.96 ePause]
+will view that video and comment,
+that is the way the switcher operator presses the button "S"
+
+[sPause sec=0.16 ePause]
+to go to another slide during the
+transmission, which in this case is an image,
+
+[sPause sec=1.04 ePause]
+press the button "S" once more and finally
+a text appears and
+
+[sPause sec=0.61 ePause]
+the presenter will read
+that text on the air, they will say the following:
+
+[sPause sec=1.97 ePause]
+Look, "Eduardo Pereira, is saying that
+he has very bad chest pain,
+
+[sPause sec=0.28 ePause]
+palpitations and sometimes he thinks
+he is going to faint". He was diagnosed with gastritis.
+
+[sPause sec=0.79 ePause]
+So, the presenter will be able to
+comment  on all the slides, once again
+
+[sPause sec=1.49 ePause]
+the switcher operator using the "S" button will advance
+to the next slide, if the
+
+[sPause sec=1.89 ePause]
+presenter requests that
+he returns to the previous slide, he has
+
+[sPause sec=0.25 ePause]
+to press the "V" key to return. There is a set of buttons
+that will make it easier
+
+[sPause sec=1.62 ePause]
+for the switcher operator to navigate on the slides,
+well as adjusting
+
+[sPause sec=1.35 ePause]
+them as his needs, so that the presentation occurs
+ in the best way possible
+
+[sPause sec=0.25 ePause]
+once the presentation of all
+those slides is on the air, the video console
+
+[sPause sec=1.77 ePause]
+can be unplugged of this computer, and the
+WhatsTV operator can give an "Esc" and
+
+[sPause sec=1.23 ePause]
+to give continuity in this capture process.
+So, that sequence of
+
+[sPause sec=0.41 ePause]
+slides can now be deleted
+ by clicking on the eraser button,
+
+[sPause sec=0.31 ePause]
+click on accept and start
+a new set of captures, you only
+
+[sPause sec=1.58 ePause]
+need to click once a more new  conversation,
+make the screen capture once more and place the material down,
+
+[sPause sec=1.79 ePause]
+click on one more conversation and place
+the content that may be considered interesting
+
+[sPause sec=1.13 ePause]
+below and
+take a look that I am already generating a new
+
+[sPause sec=0.28 ePause]
+sequence of slides to transmit to the air,
+It is the normal usage for  WhatsTV.
+
+[sPause sec=1.36 ePause]
+Now we are going to give a view to
+the poll  usage generated through this button.
+
+[sPause sec=0.99 ePause]
+It will open that window and the fields
+above must be filled in, in the first field
+
+[sPause sec=1.65 ePause]
+I place a question for a poll about any subject,
+I will give an example here
+
+[sPause sec=0.99 ePause]
+about the increase in the salary of councilors
+Do you agree or disagree?
+
+[sPause sec=1.11 ePause]
+In the form below enter
+the keywords "hashtag" #agree
+
+[sPause sec=0.30 ePause]
+and "hashtag" #disagree. These keywords are
+used by the audience to
+
+[sPause sec=1.44 ePause]
+express his opinion regarding
+the poll via WhatsApp, he will send
+
+[sPause sec=1.68 ePause]
+"hashtag" #agree if he is in favor of the
+salary increase or he will send
+
+[sPause sec=0.60 ePause]
+"hashtag" #disagree if he is not in favor.
+At the next step I can press
+
+[sPause sec=1.89 ePause]
+the orange button to perform the current vote counting,
+in this case, it did not find
+
+[sPause sec=1.44 ePause]
+any answer taking into account that
+we are in a WhatsApp without participations,
+
+[sPause sec=1.66 ePause]
+I can write random values so that
+we can simulate an environment
+
+[sPause sec=0.95 ePause]
+as realistic as possible. Observe that
+the slide was created in the listing.
+
+[sPause sec=1.86 ePause]
+Now, I can click on the Play button to execute
+the poll presentation, I have here
+
+[sPause sec=1.92 ePause]
+the first slide that was captured
+previously, go to the second slide
+
+[sPause sec=0.58 ePause]
+and, finally, I got to my poll,
+the poll sheet has three
+
+[sPause sec=1.68 ePause]
+different stages (phases), the first stage is
+used in the first segment of the program
+
+[sPause sec=0.10 ePause]
+when we make the call to the poll
+then the presenter on air will say the following,
+
+[sPause sec=0.99 ePause]
+"Dear viewers, today we are having
+a poll via WhatsApp about the"
+
+[sPause sec=0.66 ePause]
+"increase in salary of the councilors,
+do you agree or disagree?" At that moment,
+
+[sPause sec=1.53 ePause]
+the switcher operator must press the space button once
+so that the poll slides goes to the
+
+[sPause sec=0.55 ePause]
+options and the presenter continues on the air
+if you agree, send "hashtag"
+
+[sPause sec=0.09 ePause]
+#agree for our WhatsApp No xxxxx if you
+do not agree to send or "hashtag" #disagree
+
+[sPause sec=1.17 ePause]
+participate, send your comments
+along with your vote
+
+[sPause sec=0.60 ePause]
+and the switcher operator withdraws
+the poll and gives continuity to the
+
+[sPause sec=1.23 ePause]
+program in another segment of the show
+when the director wants to present the
+
+[sPause sec=0.10 ePause]
+partial result or even the final result,
+the operator presses once more the
+
+[sPause sec=1.86 ePause]
+space bar to show the current poll result,
+then the presenter will be
+
+[sPause sec=0.78 ePause]
+able to count the poll result
+by saying "Look at our viewers they did not"
+
+[sPause sec=0.19 ePause]
+"like that salary increase"
+"hashtag" #disagree is gaining with 70.9
+
+[sPause sec=1.23 ePause]
+percent of the votes, once again
+when the PC is removed from the transmission, the operator can
+
+[sPause sec=1.11 ePause]
+give an “Esc” reminding that the poll sheet
+is going to be used throughout the entire program,
+
+[sPause sec=0.27 ePause]
+so it must be
+activated the lock through a double click
+
+[sPause sec=0.45 ePause]
+and in this way the system will not
+exclude the poll and whenever you want
+
+[sPause sec=1.53 ePause]
+to present the poll again,
+you only have to double click
+
+[sPause sec=1.90 ePause]
+on the poll by clicking the orange button
+to update the
+
+[sPause sec=0.24 ePause]
+voting count, then close and ready,
+and the poll is ready and updated
+
+[sPause sec=0.30 ePause]
+to put on the air. So, the poll is a resource
+very easy and dynamic to be used
+
+[sPause sec=0.51 ePause]
+in your programming.  Another important
+issue is the changing
+layout visualized by the public.
+
+[sPause sec=1.62 ePause]
+The layout that you have been
+seen before when it was transmitted  with
+the fonts
+
+[sPause sec=1.35 ePause]
+in white and the blue as a background.
+It was previously configured for you to fulfill
+
+[sPause sec=1.74 ePause]
+the identity of your program in question.
+You can have other layouts completely different,
+
+[sPause sec=0.04 ePause]
+I am going to grab another layout
+called “Globo V2” and I am going
+press a play it
+
+[sPause sec=1.73 ePause]
+and you  will see that it is a
+completely different  layout,  you can see our
+
+[sPause sec=0.48 ePause]
+You can see our poll is being shown with  a different layout,
+ you will be able to build as
+
+[sPause sec=0.57 ePause]
+many layouts as you need,
+using the button aside from the Play button
+
+[sPause sec=1.86 ePause]
+you will be able to select any layout
+that will be used at that moment.
+
+[sPause sec=1.90 ePause]
+I will select one more slide and
+I will show you a layout completely different
+
+[sPause sec=0.86 ePause]
+from the previous one,
+see how it is interesting, even the transition
+
+[sPause sec=1.74 ePause]
+between one slide and the other
+is completely different,
+
+[sPause sec=0.75 ePause]
+These are
+instructions necessary for the
+operation of WhatsTV on the air,
+
+[sPause sec=0.24 ePause]
+follow the news of  WhatsTV on our
+Instagram @Watches TV official,
+
+[sPause sec=0.26 ePause]
+a big hug for you and see you next time
+[Músic]
