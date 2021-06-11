@@ -21,20 +21,18 @@ def to_speechello(input_file):
 
     n = len(all_L)    # number of INDEX or entries in str file
     for i in range(n-1):
+        #start_current = all_L[i].end 
         end_current = all_L[i].end 
         end_next = all_L[i+1].end
         # start_next = all_L[i+1].start
         interval = (end_next - end_current) - all_L[i].duration
-
+        #print(interval, "   ", all_L[i].duration)
+        #interval = (end_current - start_current)
         print(all_L[i].text)   
-        ## to be improve ... if necessary
-        if (interval.seconds > 0.0 ):
-            print("\n[sPause sec=%.2f ePause]" % (interval.seconds/60) )
-            print(interval.ordinal)
-
-        else:    
-            print("\n[sPause sec=%.2f ePause]" % (interval.milliseconds/1000) )
-        
+        ### TAKE CARE here ....
+        in_seconds = ((interval.seconds/60 ) + (interval.milliseconds/1000))         #print("Seconds: %.3f Mili: %.4f  " % ((interval.seconds % 60) , (interval.milliseconds/1000), all_L[i].duration ) )
+        print("\n[sPause sec=%.2f ePause]" % (in_seconds) ) 
+        #print("=> S:%.2f M:%.4f " % (interval.seconds%60 , interval.milliseconds ) ) 
 
     #print("Finally")
     print(all_L[n-1].text)   # out of this loop, the last entry
@@ -65,4 +63,13 @@ if __name__ == '__main__':
      #print( len(sub) )
      #print(sub.text_without_tags)
      #   print()
+
+## to be improve ... if necessary
+        if (interval.seconds > 0.0 ):
+            print("\n[sPause sec=%.2f ePause]" % (interval.seconds/60) )
+            print(interval.ordinal)
+
+        else:    
+            print("\n[sPause sec=%.2f ePause]" % (interval.milliseconds/1000) )
+             
 '''
