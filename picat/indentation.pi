@@ -34,6 +34,18 @@ proc_line(InStream, OutStream, [], Level) =>
     proc_line(InStream, OutStream, Line, Level).
 
 
+proc_line(InStream, OutStream, ['m','a','i','n' |Rest], Level) =>
+    % Doing an indentation for each  tab
+    % n_spaces(Level,OutStream),
+    OutStream.print('main'),
+    print_rest(Rest, OutStream),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    %%% the level is 
+    proc_line(InStream, OutStream, Line, Level).
+
+
+
 proc_line(InStream, OutStream, ['f','o','r','e','a','c','h' |Rest], Level) =>
     %Doing an indentation for each  tab
     n_spaces(Level,OutStream),
@@ -44,6 +56,18 @@ proc_line(InStream, OutStream, ['f','o','r','e','a','c','h' |Rest], Level) =>
     %%% the level is 
     proc_line(InStream, OutStream, Line, Level+1).
 
+proc_line(InStream, OutStream, ['w','h','i','l','e' |Rest], Level) =>
+    %Doing an indentation for each  tab
+    n_spaces(Level,OutStream),
+    OutStream.print('while'),
+    print_rest(Rest, OutStream),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    %%% the level is 
+    proc_line(InStream, OutStream, Line, Level+1).
+
+
+%%% end of a loop etc
 proc_line(InStream, OutStream, ['e','n','d' |Rest], Level) =>
     % Finding an end ... a previous level
     n_spaces(Level-1,OutStream),
@@ -52,6 +76,18 @@ proc_line(InStream, OutStream, ['e','n','d' |Rest], Level) =>
     OutStream.nl(),
     Line = InStream.read_line(),
     proc_line(InStream, OutStream, Line, Level-1).
+
+%%% end of a clause
+proc_line(InStream, OutStream, ['.' |Rest], Level) =>
+    % Finding an end ... a previous level
+    Rest == [],
+    n_spaces(Level-1,OutStream),
+    OutStream.print('.'),
+    print_rest(Rest, OutStream),
+    OutStream.nl(),
+    Line = InStream.read_line(),
+    proc_line(InStream, OutStream, Line, Level-1).
+
 
 %%% to process any/regular line ....
 proc_line(InStream, OutStream, Regular_Line, Level) =>
@@ -64,7 +100,7 @@ proc_line(InStream, OutStream, Regular_Line, Level) =>
 
 %%%% Generating spaces indentated
 n_spaces(N,OutStream) =>
-    Level_Tab = 3, %%%% 3 spaces ~ 1 tab
+    Level_Tab = 2, %%%% 2 or 3 spaces ~ 1 tab
     foreach(J in 0..N)
         foreach(I in 1..Level_Tab)
             OutStream.print(' ')
