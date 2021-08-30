@@ -13,3 +13,4 @@ q(X) :- p(X), r(X), not s(X).
 #show s/1 .
 #show r/1.
 #show p/1.
+
