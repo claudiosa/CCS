@@ -9,7 +9,7 @@ q(1,2).
 q(aa,bb).
 p(3,4). 
 p(aa,bb).
-%%%%%%
+%%%%%%%
 %% rules slightly modified to build sets
 {p(X, Y): q(X,Y)} :- not q(X, Y).
 {q(X, Y): p(X,Y)} :- not p(X, Y).
