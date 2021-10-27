@@ -1,3 +1,13 @@
+% Problem:
+% Input: a vector with many values, maybe, some them are repeated. Ex: {5 ;3 ;4 ;6 ;8 ;-9999 ;9 ; 9; 9; 9 }
+% Description: how to divide this vector in two others, with the following constraints
+%  a) |Size_Vector_1 - Size_Vector_2| =< 1 ... 
+%  b) |Size_Vector_1 | +  |Size_Vector_2| = |Size_of_Input|
+%  c) Minimization of the sum difference  between both vectors.
+%      MIN ( |sum of elements of V1 - sum of elements of V2| )
+%  a "swing" or "balance" problem
+% From ACM contest programming
+
 %%% INPUT DATA
 weights(5 ;3 ;4 ;6 ;8 ;-9999 ;9 ; 9; 9; 9 ). 
 
@@ -6,9 +16,6 @@ weights(5 ;3 ;4 ;6 ;8 ;-9999 ;9 ; 9; 9; 9 ).
 { set_01(X) : weights(X) }   :-  weights(W).
 { set_02(X) : weights(X) }   :-  weights(W).
 
-
-
-
 %% counting elements of sets 01 and 02
 n_1(X) :- X = #count{W: set_01(W)}.
 n_2(X):- X =  #count{W: set_02(W)}.
@@ -16,7 +23,6 @@ size(N) :-  N = #count{W: weights(W)}.
 
 %% union of two sets
 :- {set_01(E1) : E1 , set_02(E2) : E2 } != {weights(W):W}. 
-
 
 
 %% summing all elements of sets 01 and 02
