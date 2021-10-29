@@ -1,0 +1,51 @@
+<html>  
+<head>  
+ From HTML call a file in Javascript:   
+</head>  
+<body>  
+    <script type="text/javascript" src="calculadora.js"></script>        
+    <hr>
+
+    <p>Click the following button to see the function in action in extra window</p>  
+
+    <input type = "button" onclick = "soma(2,3)" value = "Calcula a soma"> 
+    <script type="text/javascript">
+       // document.write(soma(2,3));
+       //https://www.codegrepper.com/code-examples/javascript/Passing+HTML+input+value+as+a+JavaScript+Function+Parameter
+       soma(2,4);
+    </script>
+    
+    <hr>
+
+    <body>
+        <form name="form1" id="form1" action="index.html" method="post">
+           V1: <input id="V1" name="campo1"   type="number"   > <br>
+           V2: <input id="V2" name="campo2"  type="number"   > <br>
+        <br>
+         <!--    <button type="submit" id="form1-submit">Confirmar</button> -->
+         
+        <input type = "button" onclick = "soma(document.getElementById('V1').value , document.getElementById('V2').value)" value = "Calcula a soma"> 
+
+        
+        <script type="text/javascript">
+
+        // <textarea id="privacy_text" class="terms">
+        // </textarea>
+
+        //  document.write(soma(campo1.value , campo2.value));
+        //   document.getElementById("myELEMENT").innerHTML = soma(campo1.value , campo2.value);
+        //   document.write("myELEMENT");
+           
+        </script>  
+         
+        </form>
+         <!--   
+        
+        -->
+    </body>
+
+    <bf>.... THE END .... </bf>
+
+
+</body>  
+</html> 
