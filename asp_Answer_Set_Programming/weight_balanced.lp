@@ -31,6 +31,7 @@ size(N) :- N = #count{I: weights(I,W)}.
 %% summing all elements of sets 01 and 02
 sum_1(X) :- X = #sum{W: set_01(I,W)}.
 sum_2(X) :- X = #sum{W: set_02(I,W)}.
+
 % 
 % constraint 1 ... sum of size sets are the same
 :- n_1(X), n_2(Y) , size(N) , (X+Y) != N.
