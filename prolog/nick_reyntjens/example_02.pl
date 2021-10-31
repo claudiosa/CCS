@@ -1,4 +1,6 @@
-
+%%% circumcription logic (world closed)
+% default logic
+% propositional and first order
 /*
 Nick Reyntjens <nick.reyntjens@gmail.com>
 */

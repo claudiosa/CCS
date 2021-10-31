@@ -1,0 +1,30 @@
+
+You must to think in the problem and its scalability
+how can I model it?
+
+In last point: which is most suitable tool to use to do it?
+
+"concept proof" ... why my model works?
+and is it correct ?
+
+To do a small prototype to proof this concept!
+
+
+
+How can we make a prolog that does not need to recalculate all solutions of a clause, in respect to the change in one of the facts? 
+ANSWER: Dynamic Programming works well
+
+But rather only needs to perform a small subset of the needed total calculation... making prolog efficient at maintaining aggregates over large datasets.... this is the heart of the problem.
+ANSWER: for a dataset that can be store in main memory, it is not hard,
+but the size is limited... less than 1 Gigabytes maybe.
+black and red search tree for SWI-Prolog
+
+
+
+
+it requires a computer to truly understand ´change´.
+(And would serve as the basis of my spreadsheet program).
+ANSWER: YES, these records or facts woks like one row of spreadsheet,
+any changing on a record, everything in updated.
+
+
