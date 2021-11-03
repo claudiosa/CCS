@@ -9,8 +9,8 @@ def multiset(*terms):
 
 %% Problem instance
 
-item_weight(I,W) :- (I,W) = @multiset(5,3,4,6,8,-99,9,9,9,9).
-
+%item_weight(I,W) :- (I,W) = @multiset(5,3,4,6,8,-99,9,9,9,9).
+item_weight(I,W) :- (I,W) = @multiset( 9, 99, 9 ).
 %% Problem encoding
 
 item(I) :- item_weight(I,W).
