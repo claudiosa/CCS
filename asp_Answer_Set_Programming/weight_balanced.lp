@@ -38,7 +38,7 @@ n_1(N) :- N = #count{I: set_01(I,W) }.
 n_2(N) :- N = #count{I: set_02(I,W) }.
 size(N) :- N = #count{I: weights(I,W)}.
 
-%% summing all elements of sets 01 and 02 --- IT is OK now ....  but not efficiently computed
+%% summing all elements of sets 01 and 02, even replicated --- IT is OK now ....  but it is not efficiently computed
 sum_set_01(X) :- X = #sum{W,J : weights(I,W), set_01(J,W), I==J}.
 sum_set_02(X) :- X = #sum{W,J : weights(I,W), set_02(J,W), I==J}.
 % Now, it´s summing repeated values in set 01 or 02
