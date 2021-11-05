@@ -82,9 +82,6 @@ n_colors(N) :-   N = #count{C : country_color(P,C)}.
 %:- country_color(brazil, vermelho). 
 %:- country_color(brazil, azul).
 %:- country_color(brazil, verde). -- UNSATISFIABLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% No works
-%:- country_color(brazil, C) , color(C),   C = vermelho, C = azul, C = amarelo.
-%{ country_color(P, C) : color(C) } = 1 :- neighbour(P,P1), country_color(P1,C1), C != C1.
-%{ country_color(P, C) : country(P) } = 1 :- neighbour(P,P1), country_color(P1,C1), C != C1.
 
