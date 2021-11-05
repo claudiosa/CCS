@@ -1,9 +1,0 @@
-
-*** These modified files were found in JOE when it aborted on Wed Dec 23 19:48:12 2020
-*** JOE was aborted by UNIX signal 15
-
-*** File '* Startup Log *'
-Processing '/etc/joe/joerc'...
-Processing '/etc/joe/ftyperc'...
-Finished processing /etc/joe/ftyperc
-Finished processing /etc/joe/joerc
