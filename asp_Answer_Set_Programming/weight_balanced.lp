@@ -39,8 +39,8 @@ n_2(N) :- N = #count{I: set_02(I,W) }.
 size(N) :- N = #count{I: weights(I,W)}.
 
 %% summing all elements of sets 01 and 02
-sum_set_01(X) :- X = #sum{W : set_01(I,W)}.
-sum_set_02(X) :- X = #sum{W : set_02(I,W)}.
+sum_set_01(X) :- X = #sum{W : I= 1..n, set_01(I,W)}.
+sum_set_02(X) :- X = #sum{W : I= 1..n, set_02(I,W)}.
 % 
 
 %:- n_1(X), n_2(Y) , X - Y = Z  ; Z > 1; Z < -1. --- TO STUDY it
@@ -60,7 +60,7 @@ allowed(-1; 0; 1).
 
 %% optimization function
 %% the abs works fine
-diff(Z) :- sum_set_01(X), sum_set_02(Y),   Z = |Y - X|. %% #abs(Y-X).
+diff(Z) :- sum_set_01(X), sum_set_02(Y),  Z = |Y - X|. %% #abs(Y-X).
 
 %% A minimizations on this set difference
 #minimize{ Z : diff(Z) }.
