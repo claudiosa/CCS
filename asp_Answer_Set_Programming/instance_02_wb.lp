@@ -1,3 +1,4 @@
+#const n=10.
 weights(1,5).
 weights(2,3).
 weights(3,4).

@@ -1,3 +1,6 @@
+
+%% $ clingo weight_balanced.lp instance_03_wb.lp
+%% $ clingo weight_balanced.lp INPUT_FILE.lp
 % Problem:
 % Input: a vector with many values, maybe, some them are repeated. 
 % Ex: {5 ;3 ;4 ;6 ;8 ;-9999 ;9 ; 9; 9; 9 }
@@ -15,15 +18,12 @@
 % Outputs acceptable: Set_01 ={99} and Set_02={9,9} OR Set_02 ={99} and Set_01={9,9} 
 % The diff between these sets is: 81
 %
-%%% INPUT DATA
+%%% INPUT DATA  - FILES 
 % instance 01
 %weights(1,99 ; 2,3 ; 3,4 ; 4,99
 %        ; 5,8 ; 6,8 ; 7,-9999 
 %        ;8,9 ; 9,9 ; 10,9; 11,9 ). 
 %#const n=11.
-
-weights(1,9; 2,99; 3,9).
-#const n=3.
 
 % creating sets 01 and 02
  { set_01(I,W) }  :-  weights(I,W).
@@ -38,17 +38,15 @@ n_1(N) :- N = #count{I: set_01(I,W) }.
 n_2(N) :- N = #count{I: set_02(I,W) }.
 size(N) :- N = #count{I: weights(I,W)}.
 
-<<<<<<< HEAD
 %% summing all elements of sets 01 and 02
-sum_set_01(X) :- X = #sum{W : I= 1..n, set_01(I,W)}.
-sum_set_02(X) :- X = #sum{W : I= 1..n, set_02(I,W)}.
+sum_set_01(X) :- X = #sum{W,I : I= 1..n, set_01(I,W)}.
+sum_set_02(X) :- X = #sum{W,I : I= 1..n, set_02(I,W)}.
 % 
-=======
 %% summing all elements of sets 01 and 02, even replicated --- IT is OK now ....  but it is not efficiently computed
-sum_set_01(X) :- X = #sum{W,J : weights(I,W), set_01(J,W), I==J}.
-sum_set_02(X) :- X = #sum{W,J : weights(I,W), set_02(J,W), I==J}.
+%sum_set_01(X) :- X = #sum{W,J : weights(I,W), set_01(J,W), I==J}.
+%sum_set_02(X) :- X = #sum{W,J : weights(I,W), set_02(J,W), I==J}.
 % Now, it´s summing repeated values in set 01 or 02
->>>>>>> master
+
 
 %:- n_1(X), n_2(Y) , X - Y = Z  ; Z > 1; Z < -1. --- TO STUDY it
 % constraint 2 ... set 1 and 2 .. are almost the same size
@@ -59,8 +57,8 @@ sum_set_02(X) :- X = #sum{W,J : weights(I,W), set_02(J,W), I==J}.
 
 
 %% an interval
-allowed(-1; 0; 1).
-%allowed(Z) :- n_1(X), n_2(Y) ,  Z == |Y - X| .
+% allowed(-1; 0; 1).
+% allowed(Z) :- n_1(X), n_2(Y) ,  Z == |Y - X| .
 %% does not works 
 % constraint 
 %:- n_1(X), n_2(Y) , allowed(Z),  (X - Y) != Z . 
