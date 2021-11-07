@@ -1,0 +1,23 @@
+\frametitle{Epílogo -- Negações dos Predicados}
+
+
+	\lstinputlisting[
+    label={12_lesson},
+    language=erlang,
+]{../12_lesson.lp}
+
+Saída:
+\pause
+{\small
+\begin{verbatim}
+$ clingo 12_lesson.lp 0
+.....
+Answer: 1
+s(3) s(4)
+SATISFIABLE
+\end{verbatim}
+}	
+
+\textcolor{violet}{Embora \textbf{p} tenha modelos estáveis de 3 a 7, e  \textbf{q}  de 5 a 9.}
+
+
