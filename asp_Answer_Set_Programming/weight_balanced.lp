@@ -20,14 +20,14 @@
 %weights(1,99 ; 2,3 ; 3,4 ; 4,99
 %        ; 5,8 ; 6,8 ; 7,-9999 
 %        ;8,9 ; 9,9 ; 10,9; 11,9 ). 
-
-
 %#const n=11.
+
+weights(1,9; 2,99; 3,9).
 #const n=3.
 
 % creating sets 01 and 02
- { set_01(I,W) : weights(I,W) }  :-  weights(I,W).
- { set_02(I,W) : weights(I,W) }  :-  weights(I,W).
+ { set_01(I,W) }  :-  weights(I,W).
+ { set_02(I,W) }  :-  weights(I,W).
 
 %%% the sets are disjunctives
 :- set_01(I,_), I = 1..n, set_02(J,_), J = 1..n, I == J.
@@ -38,10 +38,17 @@ n_1(N) :- N = #count{I: set_01(I,W) }.
 n_2(N) :- N = #count{I: set_02(I,W) }.
 size(N) :- N = #count{I: weights(I,W)}.
 
+<<<<<<< HEAD
 %% summing all elements of sets 01 and 02
 sum_set_01(X) :- X = #sum{W : I= 1..n, set_01(I,W)}.
 sum_set_02(X) :- X = #sum{W : I= 1..n, set_02(I,W)}.
 % 
+=======
+%% summing all elements of sets 01 and 02, even replicated --- IT is OK now ....  but it is not efficiently computed
+sum_set_01(X) :- X = #sum{W,J : weights(I,W), set_01(J,W), I==J}.
+sum_set_02(X) :- X = #sum{W,J : weights(I,W), set_02(J,W), I==J}.
+% Now, it´s summing repeated values in set 01 or 02
+>>>>>>> master
 
 %:- n_1(X), n_2(Y) , X - Y = Z  ; Z > 1; Z < -1. --- TO STUDY it
 % constraint 2 ... set 1 and 2 .. are almost the same size
