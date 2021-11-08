@@ -1,4 +1,3 @@
-\beamer@sectionintoc {1}{O que \IeC {\'e} o ASP?}{4}{0}{1}
-\beamer@sectionintoc {2}{Fundamentos}{9}{0}{2}
-\beamer@sectionintoc {3}{Pr\IeC {\'a}tica}{19}{0}{3}
-\beamer@sectionintoc {4}{Conclus\IeC {\~o}es}{29}{0}{4}
+\beamer@sectionintoc {1}{Nutshell}{4}{0}{1}
+\beamer@sectionintoc {2}{Definitions -- Graph coloring}{15}{0}{2}
+\beamer@sectionintoc {3}{Modelling}{18}{0}{3}
