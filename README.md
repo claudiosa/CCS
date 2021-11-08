@@ -3,13 +3,13 @@
 
 This main directory with some codes of programming languages that I work or worked!
 Take and enjoy it!  
-You can clone this repository or a download of a specific directory: <a href="https://downgit.github.io/">  use de downgit ... easy and safe </a>
+You can clone this repository or a download of a specific directory: <a href="https://downgit.github.io">  use de downgit ... easy and safe</a>
 
 cc  - Claudio Cesar
 
 ---
 (TO BE TRANSLATED one day -- TO DO)
-Fazendo Download de diretórios em particular (Para os alunos)  
+Fazendo Download de diretórios em particular
 
 
 1. Escolha o diretorio do seu interesse  
