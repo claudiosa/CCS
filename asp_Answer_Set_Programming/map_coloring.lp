@@ -41,6 +41,10 @@ neighbour(brazil,peru).          neighbour(brazil,surinam).
 neighbour(brazil,uruguay).       neighbour(brazil,venezuela).
 neighbour(chile,peru).           neighbour(columbia,ecuador).
 
+% To avoid duplication of the facts above
+neighbour(X,Y) :- neighbour(Y,X). 
+% But, probably no collateral effects, comment this rule if this case
+% To obtain more symmetric results at the end
 
 %  Country X Colors - Assign any color for each country, producing a set
 1 { country_color(P, C) : color(C) } 1 :- country(P).
