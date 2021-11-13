@@ -4,18 +4,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
-%\usepackage[portuguese]{babel}
+% \usepackage[portuges]{babel} NO LONGER 
+\usepackage[brazil]{babel}
 \usepackage{lmodern, comment}
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{xcolor}
 \usepackage{pifont}
-%\usepackage{fontspec}
-\usepackage{marvosym}
 
 %% FOR ASP
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily,escapechar=\%,escapeinside={\#(}{\#)}}
-
+%%\usepackage{udesc} 
 
 %%% FIGS \graphicspath{{figures/}{../figures/}{C:/Users/me/Documents/project/figures/}}
 
@@ -55,7 +54,7 @@
 
 
 \title[Inteligência Artificial -- Otimização Combinatória] % (optional, use only with long paper titlebg=blue!20!white,s)
-{Coloring Map Problem with \\ \textit{Answer Set Programming -- Clingo}\\ An Encoding}
+{\emph{Answer Set Programming} \\ (\textit{Programação ... Conjunto de Respostas})\\ Um \emph{Panorama}}
 
 %\subtitle
 %{About some things}
@@ -66,7 +65,10 @@
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
 
-\institute[UDESC]{Independent Researcher}
+\institute[UDESC]{Pesquisador Independente}
+%  Departamento de Ciência da Computação -- DCC\\
+%  Centro de Ciências Tecnológicas -- CCT\\
+% Universidade do Estado de Santa Catarina -- UDESC
 
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
@@ -109,20 +111,20 @@
 
 \begin{enumerate}
 
-  \item  About the  ASP (Clingo)
-  \item  Requisites
-  \item  The problem: map coloring
-  \item  Discussion of this NP-complete problem
-  \item  A solution in Clingo
-  \item  
-  \item  Conclusions
+  \item  O que ASP?
+  \item  Histórico
+  \item  Sistemas relacionados a ASP
+  \item  Esta apresentação
+  \item  Alguns elementos
+  \item  Um exemplo: do Prolog ao ASP
+  \item  Conclusões
 
   \end{enumerate}
 
 \end{block}
 
 \pause
-\textbf{\textcolor{red}{Attention: some background in logic and declarative language is recommended!}}
+\textbf{\textcolor{red}{Em resumo: uma apresentação de algumas idéias elementares de ASP!}}
 
 
 \end{frame}
@@ -154,57 +156,30 @@
 \end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Nutshell}
-\begin{frame}{Answer Set Programming\\[-2pt]{\small\emph{in a Nutshell}  (this page was borrowed from official repository)} }
-  \begin{itemize}
-  \item <2->
-    ASP is an approach to \alert{declarative problem solving},
-    combining
-    \begin{itemize}
-    \item a rich yet simple modeling language
-    \item with high-performance solving capacities
-    \end{itemize}
-    % tailored to Knowledge Representation and Reasoning % (KRR)
-  \item <3-> ASP has its roots in
-    \begin{itemize}
-    \item (deductive) databases
-    \item logic programming (with negation)
-    \item (logic-based) knowledge representation and (nonmonotonic) reasoning
-    \item constraint solving (in particular, SATisfiability testing)
-    \end{itemize}
-  \item <4-6>
-    ASP allows for solving all search problems in $NP$ (and $NP^{NP}$)
-    \\in a uniform way % (being more compact than SAT)
-  \item <5-6>
-    ASP fundaments in: propositional, first-order, auto-epistemic, default. Many aspects in theory and programs.
-  \item <6-6> ASP embraces many emerging application areas
-  \end{itemize}
-\end{frame}
+\section{O que é o ASP?}
+
 
 
 \begin{frame}%[allowframebreaks]
 
-\frametitle{Hystorical and references}
+\frametitle{O que é o ASP?}
 
 
 \begin{block}{}
   \begin{itemize}
-   \item This programming language has its root at the Universität Potsdam -- 1999
+   \item Uma linguagem de programação -- Universidade de Potsdam (Alemanha)\\ Universität Potsdam -- 1999
    
    \item  \textbf{Potassco}, the \textbf{Po}tsdam \textbf{A}nswer \textbf{S}et \textbf{S}olving \textbf{Co}llection -- \url{https://potassco.org/}
    
-   \item Official repository with a full-courese: \url{https://github.com/potassco-asp-course/}
+   \item \url{https://github.com/potassco-asp-course/} ... muitos slides
 
-  \item Support to start: an active forum and a course covered by videos in the Youtube
+  \item  Muitos slides, referências, códigos, vídeos no Youtube com os autores, etc
   
-  \item This presentation and its code:\\
+  \item Este material e os códigos apresentados:\\
   \url{https://github.com/claudiosa/CCS/tree/master/asp_Answer_Set_Programming}
   
-  \item Books: 
+  \item Livros sobre ASP: 
 
  \end{itemize}
   
@@ -217,7 +192,7 @@
 
 
 \begin{frame}
-	\frametitle{Some References:}
+	\frametitle{Os livros:}
 	
 \begin{figure}[tbp]
   \centering
@@ -312,212 +287,345 @@ Fonte: \url{https://github.com/potassco-asp-course/}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
 
-\section{Definitions -- Graph coloring}
+\section{Fundamentos}
 \begin{frame}[fragile] 
-		\frametitle{Graph coloring -- a set of problems related}
+	\frametitle{Fundamentos -- Fatos}
 	
-\begin{figure}[tbp]
-  \centering
-%	 \includegraphics[width=0.4\textwidth , height=0.55\textheight]{cover_book_vladmir.jpg}
-	 \includegraphics[width=0.9\textwidth , height=0.3\textheight] {graph_coloring_equivalence.png}
-  \caption{Let's consider a planar map for readgibility}
-	
-	\end{figure}
-{\small	
-\begin{block}{}
-  \begin{itemize}
-
-  \item Input: a graph (map) $G$ with $n$ vertices (countries) and  integer $k$ (colors)
-  \item Output: does $G$ admit a proper vertex coloring with k colors?
-  \item Complexity:	NP-Complete
-  \item Optimization: NP-Hard (lesser chromatic number -- $k$)
-  \item More details: \url{https://en.wikipedia.org/wiki/Graph_coloring}
-
-    \end{itemize}
- \end{block}
-}
-
-\end{frame}
-
-
-\begin{frame}[fragile] 
-
-		\frametitle{The map to be colorized!}
-	
-\begin{figure}[tbp]
-  \centering
-% \includegraphics[width=0.4\textwidth , height=0.55\textheight]{cover_book_vladmir.jpg}
-    \includegraphics[width=0.45\textwidth , height=0.54\textheight] {south_america.png}
-   \caption{South America map, the author had the input data --  \Smiley{}}
-	
-	\end{figure}
-	
+	\lstinputlisting[
+    label={01_lesson},
+    language=erlang,
+]{../01_lesson.lp}
 \pause
-So, let's find a minimal color number to paint this map!
-	\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Modelling}
-\begin{frame}[fragile] 
-	\frametitle{Some comments:}
-	
-\begin{block}{}
-  \begin{itemize}
-
-  \item The modelling is immediate with an old Prolog code
-  \item Many approaches for this problem can be taken: Simulated Annealing, Ant Colony, Depth-First Search, ..., meta-heuristics in general presents a good efficiency
-  \item The full code disussed here is found in:\\ \url{https://github.com/claudiosa/CCS/tree/master/asp_Answer_Set_Programming/map_coloring.lp}
-  \item We are commenting it in parts
-
-   \end{itemize}
- \end{block}
-	
-	
-%\textcolor{red}{Aqui são conjuntos .... flexíveis de se trabalhar!}	
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile] 
-\frametitle{Colors availble (k) and countries (n):}
-	
 {\small
 \begin{verbatim}
-color(red).
-color(blue).
-color(green).
-color(yellow).
-
-country(antilles).       country(argentina).
-country(bolivia).        country(brazil).
-country(columbia).       country(chile).
-country(ecuador).        country(french_guiana).
-country(guyana).         country(paraguay).
-country(peru).           country(surinam).
-country(uruguay).        country(venezuela).
-
-\end{verbatim}
-}	
-\textcolor{red}{Ground terms, exactly written like Prolog syntax.}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile] 
-	\frametitle{The map, countries and their relations with neighbours:}
-	
-{\small
-\begin{verbatim}
-neighbour(antilles,venezuela).   neighbour(argentina,bolivia).
-neighbour(argentina,brazil).     neighbour(argentina,chile).
-neighbour(argentina,paraguay).   neighbour(argentina,uruguay).
-neighbour(bolivia,brazil).       neighbour(bolivia,chile).
-neighbour(bolivia,paraguay).     neighbour(bolivia,peru).
-neighbour(brazil,columbia).      neighbour(brazil,french_guiana).
-neighbour(brazil,guyana).        neighbour(brazil,paraguay).
-neighbour(brazil,peru).          neighbour(brazil,surinam).
-neighbour(brazil,uruguay).       neighbour(brazil,venezuela).
-neighbour(chile,peru).           neighbour(columbia,ecuador).
-
-\end{verbatim}
-}	
-\textcolor{red}{Another representation is possible, but until now, evertything was reused!}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile] 
-	\frametitle{Modelling the problem under its requisites:}
-	
-{\small
-\begin{verbatim}
-%%  Country X Colors - Assign any color for each country
-1 { country_color(P, C) : color(C) } 1 :- country(P).
-
-%% Brazil must be green
-:- not country_color(brazil,green).
-%% OR
-%% country_color(brazil,green).
-
-%% Finally: none adjacents countries receive at the same color
-% C != C1 :- country_color(P, C), country_color(P1, C1), 
-             neighbour(P,P1).
-%% OR -- by Susana - ASP Community         
-:- country_color(P, C), country_color(P1, C), neighbour(P,P1).
-\end{verbatim}
-}	
-\textcolor{red}{Basically, that's all!}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-	\frametitle{Preparing for a optimization}
-
-{\small
-\begin{verbatim}
-	
-%% number of colors used
-n_colors(N) :-   N = #count{C : country_color(P,C)}.
-
-%% A minimizations on this value
-#minimize{ N : n_colors(N) }.
-
-%% OUTPUT
-#show country_color/2.
-#show n_colors/1.
-\end{verbatim}
-}	
-\textcolor{red}{\hrule \vskip 0.2cm That's all!}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}[allowframebreaks]
-\begin{frame} [fragile]
-\frametitle{An output}
-	
-{\small
-\begin{verbatim}
-clingo ../map_coloring.lp 0 --out-ifs='\n' --out-atomf=%s. 
-clingo version 5.3.0
-Reading from ../map_coloring.lp
+$ clingo ../01\_lesson.lp 0
+clingo version 5.4.0
+Reading from ../01\_lesson.lp
 Solving...
 Answer: 1
-country_color(argentina,red).
-country_color(columbia,red).
-country_color(surinam,red).
-country_color(guyana,blue).
-country_color(paraguay,blue).
-...........................
-country_color(french_guiana,yellow).
-country_color(venezuela,yellow).
-n_colors(4).
-Optimization: 4
-OPTIMUM FOUND
+p(1) p(2)
+SATISFIABLE
+
 Models       : 1
-  Optimum    : yes
-Optimization : 4
 Calls        : 1
-Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.003s
+Time         : 0.001s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.001s
 \end{verbatim}
 }	
 \end{frame}
 
+
+\begin{frame}[fragile] 
+	\frametitle{Fundamentos -- Conjunto de Fatos}
+	
+	\lstinputlisting[
+    label={02_lesson},
+    language=erlang,
+]{../02_lesson.lp}
+\pause
+{\small
+\begin{verbatim}
+
+[ccs@vosges youtube_presentation_PORTUGUESE]$ clingo ../02_lesson.lp 0
+clingo version 5.4.0
+Reading from ../02_lesson.lp
+Solving...
+Answer: 1
+                 ===> CONJUNTO VAZIO 
+Answer: 2
+p(bbb)
+Answer: 3
+p(aaa)
+Answer: 4
+p(aaa) p(bbb)
+\end{verbatim}
+}	
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile] 
+	\frametitle{Fundamentos -- Conjuntos e Restrições}
+	
+	\lstinputlisting[
+    label={03_lesson},
+    language=erlang,
+]{../03_lesson.lp}
+\pause
+{\small
+\begin{verbatim}
+Answer: 1
+p(1) p(2) p(3)
+SATISFIABLE
+
+Models       : 1
+\end{verbatim}
+}
+\textcolor{red}{Aqui são conjuntos .... flexíveis de se trabalhar!}	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile] 
+	\frametitle{Fundamentos -- Operador {\bf..} e o cartesiano}
+	
+	\lstinputlisting[
+    label={11_lesson},
+    language=erlang,
+]{../11_lesson.lp}
+
+Saída:
+\pause
+{\small
+\begin{verbatim}
+$ clingo ../11_lesson.lp 0
+Answer: 1
+p(1,1) p(1,2) p(1,3) p(1,4) p(1,5) p(1,6) 
+p(1,7) p(1,8) p(2,1) p(2,2) p(2,3) p(2,4)
+p(2,5) p(2,6) p(2,7) p(2,8)
+SATISFIABLE
+
+Models       : 1
+\end{verbatim}
+}	
+\textcolor{red}{Aqui \textbf{não} são mais conjuntos .... }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile] 
+	\frametitle{Construindo conjuntos}
+	
+	\lstinputlisting[
+    label={09_lesson},
+    language=erlang,
+]{../09_lesson.lp}
+
+Saída:
+\pause
+{\small
+\begin{verbatim}
+$ clingo ../09_lesson.lp 0
+Answer: 1
+r(bbb,777) r(ccc,777)
+Answer: 2
+r(aaa,777) r(bbb,777) r(ccc,777)
+Answer: 3
+r(aaa,777) r(ccc,777)
+Answer: 4
+r(aaa,777) r(bbb,777)
+SATISFIABLE
+\end{verbatim}
+}	
+\textcolor{red}{Aqui \textbf{não} são mais conjuntos .... }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Prática}
+
+\begin{frame}[fragile]
+	\frametitle{Problema dos maridos, esposas e profissões \footnote{Retirado da revista Coquetel: Problemas de Lógica}}
+	
+\begin{block}{}
+ \emph{Fui há uma festa e  apresentado há três casal.
+ Os maridos tinham profissões  e esposas distintas (até então o que se sabe desta estória).
+ Após alguns ``goles"\/ me confundi quem era casado com quem, e as profissões.
+ Apenas lembro de alguns fatos, então me ajude descobrir quem
+ são estes casais, com base nos seguintes dados que me lembro}:
+\begin{enumerate}
+ \item  O médico é casado com a Maria;
+ \item  O Paulo é advogado;
+ \item  Patrícia não é casada com Paulo;
+  \item Carlos não é médico.
+\end{enumerate}
+ 
+
+
+\end{block}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\begin{frame}[fragile]
+   \frametitle{Problema dos maridos, esposas e profissões}
+	
+ Os demais dados são:
+ \begin{verbatim}
+ H = { carlos, luiz, paulo }
+ M = { maria, lucia, patricia }
+ P = { advogado, medico, engenheiro }
+ \end{verbatim}
+
+\pause
+\begin{itemize}
+\item Enfim, me ajude a encontrar que são os pares e as profissões dos maridos?
+
+\item A curiosidade deste problema: embora tenhamos poucas informações, este \textbf{só tem uma resposta possível}!
+\end{itemize}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]
+\frametitle{Abordagem ingênua (\emph{naive}) do código do Prolog}
+		
+	\lstinputlisting[
+    label={07_lesson},
+    language=erlang,
+]{../07_lesson.lp}
+
+
+\end{frame}
+
+
+\begin{frame}[fragile] 
+	\frametitle{Saída e reflexões}
+
+{\small
+\begin{verbatim}
+$ clingo ../07_lesson.lp 0
+....................
+Answer: 1
+casais(paulo,lucia,advogado) 
+casais(luis,maria,medico) casais(carlos,patricia,engenheiro)
+SATISFIABLE
+
+Models       : 1
+.....................
+\end{verbatim}
+}
+Reflexões:
+\pause
+\begin{itemize}
+\item \textcolor{violet}{\textbf{Foi uma grande vitória inicial ... mas há uma caminhada....}}		
+
+\item \textcolor{red}{\textbf{Nesta sua abordagem, voce não vai longe, há algo exponencial subjacente!}} -- \emph{Potassco team}	
+	
+
+\end{itemize}	
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]
+\frametitle{Abordagem ASP}
+
+\emph{Aprender sempre}: idéias dos códigos do Hakan	
+	
+\lstinputlisting[
+    label={08_lesson},
+    language=erlang,
+]{../08_lesson.lp}
+
+\textcolor{violet}{\textbf{Um código declarativo e limpo!}}	
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+
+\frametitle{Abordagem ASP - Saída}
+
+{\small
+\begin{verbatim}
+$ clingo 08_lesson.lp 0
+....................
+Answer: 1
+casal(luis,maria,medico) casal(paulo,lucia,advogado)
+ casal(carlos,patricia,engenheiro)
+SATISFIABLE
+
+Models       : 1
+.....................
+\end{verbatim}
+}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusões}
+
+\begin{frame}
+	\frametitle{Conclusões Parciais}
+	
+		
+\begin{block}{}
+	
+	\begin{itemize}
+		\item Sozinho, sem uma fundamentação lógico-matemática, hum ... diria que há uma \emph{barreira inicial}
+		\pause
+		
+		\item Como desafio intelectual de uma linguagem,
+		completamente diferente, fantástica!
+		\pause
+		
+		\item Da dificuldade $\Rightarrow$ há uma oportunidade!
+		
+		
+	\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame} [fragile]
+	\frametitle{Epílogo -- Negações dos Predicados}
+
+
+	\lstinputlisting[
+    label={12_lesson},
+    language=erlang,
+]{../12_lesson.lp}
+
+Saída:
+\pause
+{\small
+\begin{verbatim}
+$ clingo 12_lesson.lp 0
+.....
+Answer: 1
+s(3) s(4)
+SATISFIABLE
+\end{verbatim}
+}	
+
+\textcolor{violet}{Embora \textbf{p} tenha modelos estáveis de 3 a 7, e  \textbf{q}  de 5 a 9.}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{frame} 
-	\frametitle{Conclusions}
+	\frametitle{Próximos Passos}
 	
 \begin{block}{}
 	
 	\begin{itemize}
-		\item 
+		\item Estudar o \emph{clingocon}, estende o \emph{clingo} com \emph{Constraint Programming}
 
-		\item 
-		\item 
+		\item Mais códigos e fazer os simples
+		\item Ver outros tipos de problemas que ASP seja aderente: planejamento, etc.
 		
-		\item 
+		\item Agradecimentos: Vladimir,  Hakan, 	e	Roland Kaminski
 		
 	\end{itemize}
 \end{block}
@@ -529,7 +637,7 @@ CPU Time     : 0.003s
 \section*{Contato}
 
 \begin{frame}
-\frametitle{Contact and Comments:}
+\frametitle{Contato e Comentários:}
   
 \begin{block}{}
   % Keep the summary *very short*.
