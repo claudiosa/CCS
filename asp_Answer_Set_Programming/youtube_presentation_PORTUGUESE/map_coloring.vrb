@@ -1,28 +1,23 @@
-\frametitle{An output:}
+\frametitle{Conclusions:}
 	
-{\small
-\begin{verbatim}
-clingo ../map_coloring.lp 0 --out-ifs='\n' --out-atomf=%s.
-clingo version 5.3.0
-Reading from ../map_coloring.lp
-Solving...
-Answer: 1
-country_color(argentina,red).
-country_color(columbia,red).
-country_color(surinam,red).
-country_color(guyana,blue).
-country_color(paraguay,blue).
-...........................
-country_color(french_guiana,yellow).
-country_color(venezuela,yellow).
-n_colors(4).
-Optimization: 4
-OPTIMUM FOUND
-Models       : 1
-  Optimum    : yes
-Optimization : 4
-Calls        : 1
-Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.003s
-\end{verbatim}
-}	
+\begin{block}{}
+\begin{itemize}
+
+
+  \item ASP is strongly declarative (roots from the logic to attack the problems representation)
+
+  \item Generate and test methodology
+
+  \item ASP's workflow, modeling, grounding, solving
+    (and optimizing)
+    %\smallskip
+  \item clingo = gringo$+$clasp $+$ \dots
+
+  \item Allows you to embed a Python coding in order to minimize the difficulties (\Frowny) of input and output data
+		
+   \item An encoding in ASP is excellent exercise to keep your mind very active!
+
+	\item Finally, a huge gratitude for the \textbf{potassco-users list}, always reactive for my silly doubts,  where I had been learning much.
+		
+	\end{itemize}
+\end{block}
