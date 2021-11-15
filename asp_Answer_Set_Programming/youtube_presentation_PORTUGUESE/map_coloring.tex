@@ -518,18 +518,33 @@ CPU Time     : 0.003s
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame} 
+\begin{frame}[fragile] 
  \frametitle{For future explorations:}
-	
 
+A cool suggestion from Adam Smith:  \emph{express preferences for country colors at a lower priority, searching for a min colors number. In the sequence, try to find the max number with the countries satisfy with their preferences. Here's a little snippet that shows mixing minimization and maximization at different priorities}:
 
+{\small
+\begin{verbatim}
+% minimize number of colors used at higher priority
+color_used(C) :- country_color(P,C).
+#minimize {1,C@2:color_used(C)}. 
+
+% maximize number of color preferences satisfied at lower priority
+color_preference(brazil,green).
+preference_satisfied(P) :- color_preference(P,C), 
+                           country_color(P,C)
+#maximize {1,P@1:preference_satisfied(P,C) }.	
+\end{verbatim}
+}	
+
+\textcolor{red}{Not tested yet, but, surely it works!}
 
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame} 
+\begin{frame}[fragile] 
 	\frametitle{Conclusions:}
 	
 \begin{block}{}
