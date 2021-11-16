@@ -113,20 +113,20 @@
 
 \begin{enumerate}
 
-  \item  About the  ASP (clingo)
-  \item  Requisites
+  \item  On ASP (clingo)
+  \item  Prerequisites
   \item  The problem: map coloring
   \item  Discussion of this (NP-complete) problem
-  \item  A modelling in ASP
+  \item  A model in ASP
   \item  A solution in clingo
   \item  Conclusions
 
-  \end{enumerate}
+\end{enumerate}
 
 \end{block}
 
 \pause
-\textbf{\textcolor{red}{Attention: some background in logic and declarative language is recommended!}}
+\textbf{\textcolor{red}{Attention: some background in logic and declarative languages is recommended!}}
 
 
 \end{frame}
@@ -163,7 +163,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Nutshell}
-\begin{frame}{Answer Set Programming\\[-2pt]{\small\emph{in a Nutshell}  (this page was borrowed from official repository):} }
+\begin{frame}{Answer Set Programming\\[-2pt]{\small\emph{in a Nutshell}  (borrowed from the official repository):} }
   \begin{itemize}
   \item <2->
     ASP is an approach to \alert{declarative problem solving},   combining
@@ -191,7 +191,7 @@
 
 \begin{frame}%[allowframebreaks]
 
-\frametitle{Historic and references:}
+\frametitle{History and references:}
 
 \begin{block}{}
   \begin{itemize}
@@ -239,13 +239,13 @@
   \begin{itemize}
   
   
-  \item The theoretical background has the roots  from many logics: propositional, first-order, circumscription (world closed supposition), default and the negation as a fail.
+  \item The underlying theory has roots in various logics: propositional, first-order, circumscription (world closed supposition), default and the negation as a fail.
   
   \item The concept of  \textbf{stable model} to deduce one or more answers.
 
   \item The combinatorial problems are well modelled with ASP (\textit{wear as glove}) 
 
-  \item The enconding declare \textbf{decisions} e \textbf{constraints}
+  \item The encoding declares \textbf{decisions} e \textbf{constraints}
 
   %    \item Tudo isto na ordem de milhões!
       
@@ -301,7 +301,7 @@ Source: \url{https://github.com/potassco-asp-course/}
   \centering
 %	 \includegraphics[width=0.4\textwidth , height=0.55\textheight]{cover_book_vladmir.jpg}
 	 \includegraphics[width=0.9\textwidth , height=0.3\textheight] {graph_coloring_equivalence.png}
-  \caption{Let's consider a planar map for readgibility}
+  \caption{Let's consider a planar map for readability}
 	
 	\end{figure}
 {\small	
@@ -356,7 +356,7 @@ Source: \url{https://github.com/potassco-asp-course/}
 \end{figure}
 	
 \pause
-Finally, let's try to  find a minimal color number to paint this map, without any neighbour country have the same color!
+Finally, let's try to  find a minimal color number to paint this map, without any neighbours having the same color!
 
 \end{frame}
 
@@ -371,10 +371,10 @@ Finally, let's try to  find a minimal color number to paint this map, without an
   % \setlength\itemsep{4pt}
  \item Theoretical details can be found in: \url{https://en.wikipedia.org/wiki/Graph_coloring}
 
- \item The modelling was almost immediate with an old Prolog code from the author:
+ \item Modelling was almost immediate with an old Prolog code from the author:
 \url{https://github.com/claudiosa/CCS/......}
 
-  \item Many approaches for this problem can be taken: Simulated Annealing, Ant Colony, Depth-First Search, ..., meta-heuristics in general presents a good efficiency
+  \item Many approaches for this problem can be taken: Simulated Annealing, Ant Colony, Depth-First Search, ..., meta-heuristics in general are efficient
   \item The full code discussed here is found in:\\ \url{https://github.com/claudiosa/CCS/tree/master/asp_Answer_Set_Programming/map_coloring.lp}
   \item We are commenting it in parts
 
@@ -551,7 +551,7 @@ preference_satisfied(P) :- color_preference(P,C),
 \begin{itemize}
   
 
-  \item ASP is strongly declarative (roots from the logic to attack the problems representation)
+  \item ASP is strongly declarative (roots from logic to attack the problems representation)
   
   \item Generate and test methodology
     
@@ -576,7 +576,7 @@ preference_satisfied(P) :- color_preference(P,C),
 \section*{Contact}
 
 \begin{frame}
-\frametitle{Contact and Comments (are must welcome\ \Smiley):}
+\frametitle{Contact and Feedback (is most welcome\ \Smiley):}
   
 \begin{block}{}
   % Keep the summary *very short*.
@@ -590,7 +590,7 @@ preference_satisfied(P) :- color_preference(P,C),
    %\item In this  git, repository CCS $\Rightarrow$ asp...
    %%\item Email: \url{claudio.sa@udesc.br}
   \item \Letter: \url{ccs1664@gmail.com}
-  \item This material has a partial support from WhatsTV Inc. \url{https://en.whatstv.com.br/}, here our gratitude!
+  \item This material has partial support from WhatsTV Inc. \url{https://en.whatstv.com.br/}, here our gratitude!
   \item \textit{Thank you so much}!
 
   \end{itemize}
