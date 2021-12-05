@@ -1,0 +1,23 @@
+\frametitle{Conclusions:}
+	
+\begin{block}{}
+\begin{itemize}
+
+
+  \item ASP is strongly declarative (roots from the logic to attack the problems representation)
+
+  \item Generate and test methodology
+
+  \item ASP's workflow, modeling, grounding, solving
+    (and optimizing)
+    %\smallskip
+  \item clingo = gringo$+$clasp $+$ \dots
+
+  \item Allows you to embed a Python coding in order to minimize the difficulties (\Frowny) of input and output data
+		
+   \item An encoding in ASP is excellent exercise to keep your mind very active!
+
+	\item Finally, a huge gratitude for the \textcolor{green}{\textbf{potassco-users list}}, always reactive for my silly doubts,  where I had been learning much.
+		
+	\end{itemize}
+\end{block}

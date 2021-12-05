@@ -1,0 +1,4 @@
+#const n=11.
+weights(1,23).  weights(2,45).  weights(3,-34). weights(4,12). 
+weights(5,0).   weights(6,98).  weights(7,-99). weights(8,4). 
+weights(9,189). weights(10,-1). weights(11,4).
