@@ -3,7 +3,6 @@
 \begin{block}{}
 \begin{itemize}
 
-
   \item ASP is strongly declarative (roots from the logic to attack the problems representation)
 
   \item Generate and test methodology
@@ -11,9 +10,9 @@
   \item ASP's workflow, modeling, grounding, solving
     (and optimizing)
     %\smallskip
-  \item clingo = gringo$+$clasp $+$ \dots
+  \item Here, we solved \emph{the tug of war problem}. Easy to understand, but is is a combinatorial problem.
 
-  \item Allows you to embed a Python coding in order to minimize the difficulties (\Frowny) of input and output data
+  \item Allows you to embbed a Python coding in order to minimize the difficulties (\Smiley) of input and output data
 		
    \item An encoding in ASP is excellent exercise to keep your mind very active!
 
