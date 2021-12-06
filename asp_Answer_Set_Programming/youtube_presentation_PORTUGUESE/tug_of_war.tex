@@ -173,7 +173,7 @@
 \begin{figure}[tbp]
   \centering
 %	 \includegraphics[width=0.4\textwidth , height=0.55\textheight]{cover_book_vladmir.jpg}
-	 \includegraphics[width=0.9\textwidth , height=0.7\textheight] {tug-of-war.jpg}
+	 \includegraphics[width=0.9\textwidth , height=0.7\textheight] {fig01-tug-war.jpg}
   \caption{Practical application of this problem}
 	
 	\end{figure}
@@ -184,12 +184,12 @@
 
 	\frametitle{Tug of War} 
 
-From: \url{https://www.geeksforgeeks.org/tug-of-war/}\\
-and/or \url{https://www.codechef.com/problems/CO319TSH}
+From: \textcolor{blue}{\url{https://www.geeksforgeeks.org/tug-of-war/}}\\
+and/or \textcolor{blue}{\url{https://www.codechef.com/problems/CO319TSH}}
 
 \begin{block}{}
 
-Given a set of n integers, divide the set in two subsets of $n/2$ sizes each such that the difference of the sum of two subsets is as minimum as possible. If $n$ is even, then sizes of two subsets must be strictly $n/2$ and if $n$ is odd, then size of one subset must be $(n-1)/2$ and size of other subset must be $(n+1)/2$.
+Given a set of $n$ integers, divide the set in two subsets of $n/2$ sizes each such that the difference of the sum of two subsets is as minimum as possible. If $n$ is even, then sizes of two subsets must be strictly $n/2$ and if $n$ is odd, then size of one subset must be $(n-1)/2$ and size of other subset must be $(n+1)/2$.
 \end{block}
 
 \end{frame}
@@ -200,7 +200,7 @@ Given a set of n integers, divide the set in two subsets of $n/2$ sizes each suc
 
 	\frametitle{Examples} 
 
-From: \url{https://www.geeksforgeeks.org/tug-of-war/}
+From: \textcolor{blue}{\url{https://www.geeksforgeeks.org/tug-of-war/}}
 
 \begin{block}{}
   \begin{itemize}
@@ -252,13 +252,13 @@ From: \url{https://www.geeksforgeeks.org/tug-of-war/}
 
  \item I solved it in Minizinc!
 
-  \item Some approaches for this problem can be taken: Simulated Annealing, Ant Colony, Depth-First Search, ..., meta-heuristics in general presents a good efficiency
+  \item Some approaches for this problem can be taken: Simulated Annealing, Ant Colony, Depth-First Search,  meta-heuristics, ... etc.
 
-\item Dynamic Programming is the most suitable for contest programming
+\item Dynamic Programming (DP) is the most suitable for contest programming
 
-  \item The full code discussed here is found in:\\ \url{https://github.com/claudiosa/CCS/tree/master/asp_Answer_Set_Programming/tug_of_war.lp}
+  \item The full code discussed here is found in:\\ {\bf \textcolor{blue}{\url{https://github.com/claudiosa/CCS/tree/master/asp_Answer_Set_Programming/tug_of_war.lp}}}
 
-  \item We are commenting the modelling in parts of its code
+  \item I will be commenting the modelling in parts 
 
    \end{itemize}
  \end{block}
@@ -271,7 +271,7 @@ From: \url{https://www.geeksforgeeks.org/tug-of-war/}
 \frametitle{Modelling: }
 
 \begin{itemize}
-  \item The input value of this problem
+  \item The input values of this problem (an array and its size)
   \pause
   \item A help from Python here, it is discussed at the end this modelling
 
@@ -290,9 +290,9 @@ weights(9,189). weights(10,-1). weights(11,4).
 
 \begin{itemize}
 \item Reminding our second case -- example:\\
- \{23, 45, -34, 12, 0, 98, -99, 4, 189, -1, 4\}
+{\bf \{23, 45, -34, 12, 0, 98, -99, 4, 189, -1, 4\}}
 
-\item  \textcolor{red}{Already converted in ground terms}
+\item {\bf \textcolor{red}{Already converted in ground terms}}
 
 \end{itemize}
 
@@ -305,6 +305,8 @@ weights(9,189). weights(10,-1). weights(11,4).
 
 \begin{frame}[fragile] 
 	\frametitle{Creating the possible sets as solutions:}
+	
+
 	
 {\small
 \begin{verbatim}
@@ -327,6 +329,8 @@ weights(9,189). weights(10,-1). weights(11,4).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile] 
 	\frametitle{Counting and summing the elements of each set:}
+	
+	Extensive use of \textcolor{blue}{{\bf aggregate functions}}: {\bf \texttt{\#count}} and {\bf \texttt{\#sum}}
 	
 {\small
 \begin{verbatim}
@@ -366,6 +370,7 @@ so
 
 \end{verbatim}
 }	
+\textcolor{red}{Securely, this part can be improved !}\\
 \textcolor{red}{\rule{\textwidth}{1.7pt} } 
 \end{frame}
 
@@ -375,6 +380,7 @@ so
 
 \begin{frame}[fragile]
 	\frametitle{Preparing for the optimization:}
+
 
 {\small
 \begin{verbatim}
@@ -514,9 +520,6 @@ def multiset( *terms ):
 }	
 \end{frame}
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame} [fragile]
 \frametitle{Using Python's functions embedded in ASP:}
@@ -526,8 +529,13 @@ def multiset( *terms ):
 ...
 weights(I,W) :- (I,W) = @multiset( 23, 45, -34, 12, 0  ).
 size(S) :- S = @my_size(1,2,3,4,9999999999).
-........................................................
+...
+\end{verbatim}
+}
+\textcolor{red}{\rule{\textwidth}{1.7pt} } 
 
+{\small
+\begin{verbatim}
 $ clingo convert_input_value_in_terms_Python.lp
 ...
 Answer: 1
@@ -538,6 +546,7 @@ Models       : 1
 ...
 \end{verbatim}
 }	
+\textcolor{red}{\rule{\textwidth}{1.7pt} } 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -548,9 +557,9 @@ Models       : 1
 \begin{block}{}
 \begin{itemize}
 
-  \item ASP is strongly declarative (roots from the logic to attack the problems representation)
+  \item ASP is strongly declarative (roots from the logic to attack the  representation and combinatorial problems)
   
-  \item Generate and test methodology
+  \item A methodology generate and test to developing
     
   \item ASP's workflow, modeling, grounding, solving
     (and optimizing)
