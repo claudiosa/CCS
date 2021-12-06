@@ -1,6 +1,10 @@
 
-%% $ clingo weight_balanced.lp instance_03_wb.lp
-%% $ clingo weight_balanced.lp INPUT_FILE.lp
+% Tug of war problem
+%% $ clingo tug_of_war.lp INPUT_FILES.txt
+%% $ clingo tug_of_war.lp inp_1_tug_of_war.txt
+%% $ clingo tug_of_war.lp inp_2_tug_of_war.txt
+
+% $ clingo tug_of_war.lp inp_2_tug_of_war.txt --out-ifs='\n' --out-atomf=%s. 
 % Problem:
 % Input: a vector with many values, maybe, some them are repeated. 
 % Ex: {5 ;3 ;4 ;6 ;8 ;-9999 ;9 ; 9; 9; 9 }
@@ -29,7 +33,7 @@
  { set_01(I,W) }  :-  weights(I,W).
  { set_02(I,W) }  :-  weights(I,W).
 
-%%% the sets are disjunctives
+%%% these sets are disjunctives
 :- set_01(I,_), I = 1..n, set_02(J,_), J = 1..n, I == J.
 %% any set has the same element referenced by an index
 
@@ -67,6 +71,11 @@ sum_set_02(X) :- X = #sum{W,I : I= 1..n, set_02(I,W)}.
 %% the abs works fine
 diff(Z) :- sum_set_01(X), sum_set_02(Y),  Z = |Y - X|. %% #abs(Y-X).
 
+%% if "a perfect" balance  -- no differences of weight
+answer('y_YES') :- diff(0).
+answer('n_NO') :- diff(Z), Z != 0.
+
+
 %% A minimizations on this set difference
 #minimize{ Z : diff(Z) }.
 
@@ -86,4 +95,5 @@ diff(Z) :- sum_set_01(X), sum_set_02(Y),  Z = |Y - X|. %% #abs(Y-X).
 #show sum_set_01/1.
 #show sum_set_02/1.
 #show diff/1.
+#show answer/1.
 %##############################################################

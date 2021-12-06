@@ -1,0 +1,3 @@
+\babel@toc {brazil}{}
+\beamer@sectionintoc {1}{Definitions -- Graph coloring:}{4}{0}{1}
+\beamer@sectionintoc {2}{Modelling}{8}{0}{2}
