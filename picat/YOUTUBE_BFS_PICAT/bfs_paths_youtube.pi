@@ -65,9 +65,9 @@ graph(2) = G =>
 ].
 
                             
-main =>
+main ?=>
        
- % Testando o BFS Classico
+ % Testando o BFS com múltiplos caminhos
     InitNode = 1,
     Graphs = [graph(1), graph(2)],  %%% uma lista de grafos=matriz de adjacencias
     Nodes = [all_nodes(graph(1)), all_nodes(graph(2))], %% uma lista dos nos em cada grafo
@@ -79,18 +79,19 @@ main =>
         foreach(EndNode in Nodes[I])
             bfs(Graphs[I], [InitNode], EndNode, Sol),
             % bfs(Graph, [Start], End, Result),  %%% PREDICATIVE version
-           % Sol = bfs_F(Graph, [Start], End), %%% Functional version
+            % Sol = bfs_F(Graph, [Start], End), %%% Functional version
             printf("\n => OUTPUT: %w", Sol),  
             
             (Sol != []) ->
-            (
-            printf("\n\n INPUT DATA: graph(%w) ", I), 
-            printf("\n Init Node:%w  End Node:%w  ", InitNode, EndNode),
-            printf("\n Visiting order: %w \n", Sol)
-            
-            );
-            (printf("\n >>> The End Node: %w was not found!!!\n", End)
-            ) 
+                (
+                printf("\n\n INPUT DATA: graph(%w) ", I), 
+                printf("\n Init Node:%w  End Node:%w  ", InitNode, EndNode),
+                printf("\n Visiting order: %w \n", Sol)
+                
+                )
+            ;
+                (printf("\n >>> The End Node: %w was not found!!!\n", End)
+                ) 
         end
     end,
     printf("\n End of main: OK\n").   
