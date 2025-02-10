@@ -100,20 +100,39 @@ main =>
 
  % Testando o BFS Classico
     InitNode = 1,
+    %% uma atribuição multi-valorada 
     Graphs = [graph(1), graph(2)],  %%% uma lista de grafos=matriz de adjacencias
     Nodes = [all_nodes(graph(1)), all_nodes(graph(2))], %% uma lista dos nos em cada grafo
-    printf("Graphs %w \nNodes: %w", Graphs, Nodes),
+   
     N_Graphs = Graphs.len,
-    
+
+    %% ilustra o foreach
+    foreach(I in 1..N_Graphs) 
+        printf("\n Graph(%w): %w\n Nodes: %w", I,  Graphs[I], Nodes[I])
+    end,     
+
     %%%% Apenas para CHAMAR TODOS os TESTES por aqui 
+
     foreach(I in 1..N_Graphs)  
         foreach(EndNode in Nodes[I])
             bfs_search(Graphs[I], [InitNode], [InitNode], EndNode, Sol),
             printf("\n\n INPUT DATA: graph(%w) ", I), 
             printf("\n Init Node:%w  End Node:%w  ", InitNode, EndNode),
-            printf("\n Visiting order: %w \n", Sol)
+            printf("\n Visiting order ('a transversal'): %w ", Sol),
+            printf("\n The Shortest  Path: %w", 
+                    reverse(get_path_F(EndNode, InitNode, Sol, Graphs[I])))
         end
     end,
+ 
+/*            
+    %%%% Testes  para estas funcoes diversas
+
+    printf("\n Pred: %w", get_Predecessors(5, Graphs[1])),
+    printf("\n One: %w", get_One(7, Graphs[1])),
+    get_path(5, 1, [1,2,3,4,5], Graphs[1], Path),
+    printf("\n One Path: %w", reverse(Path)),
+    printf("\n A Path FUNCTIONAL: %w", reverse(get_path_F(5, 1, [1,2,3,4,5], Graphs[1]))),
+*/    
     printf("\n End of main: OK\n").   
 
 main => printf("\n End of main with fail ... NO SOLUTION").     
@@ -149,3 +168,35 @@ all_nodes( Graph ) = Nodes =>
     %Nodes = [N : Termo in Graph, {N, _} = Termo ] .   
     Nodes = [N : Termo in Graph, [N, _] = Termo ] .   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% pega todos os nós predecessores de Node
+get_Predecessors( Node,  Graph ) = Pred =>
+    Pred = [ N : Termo in Graph, [N , L_adj] = Termo , membchk(Node, L_adj) ].
+
+%% Apenas o primeiro predecessor ....
+get_One( Node,  Graph ) = first(get_Predecessors( Node,  Graph )).
+
+%%% obtem um menor caminho a partir da folha a raiz
+get_path(_, _, Visited, _, Path), Visited ==[] ?=> Path=[].
+get_path(Node, Start, L_Visited, Graph, Path), Node == Start ?=> Path=[Start].
+get_path(Node, Start, L_Visited, Graph, Path) =>
+    membchk(Node, L_Visited), %%% OK
+    delete(L_Visited, Node) = L2, 
+    Pred = get_One(Node, Graph),
+    get_path(Pred, Start, L2, Graph, Partial),
+    %%% sempre recursão pela cauda é mais fácil de visualizar
+    Path = [Node|Partial].
+   
+
+%%%% Uma versao funcional de pegar um caminho da folha a raiz (origem)
+%%% na versao funcional ... coloque as condicoes de parada/aterramento antes de =>
+get_path_F(Node, Start, L_Visited, Graph) = R , L_Visited == [] => 
+     R = [] .
+get_path_F(Node, Start, _, _) = R , Node == Start =>  
+     R = [Start].
+get_path_F(Node, Start, L_Visited, Graph) = Path =>
+    membchk(Node, L_Visited),
+    L2 = delete(L_Visited, Node),
+    Pred = get_One(Node, Graph),
+    Path = [Node | get_path_F(Pred, Start, L2, Graph)].
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
