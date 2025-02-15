@@ -4,7 +4,7 @@ Grafo orientado ciclico - NAO EH UM DAG
                      1
                     /|\ 
                    / | \
-                 /  |  \
+                 /  |   \
                 /   |   \
             ->2    3    4
              |\    |   /|
@@ -67,8 +67,8 @@ main =>
  % Testando o BFS Classico
     InitNode = 1,
     %% uma atribuição multi-valorada de Graphs
-    Graphs = [graph(1), graph(2)],  %%% uma lista de grafos=matriz de adjacencias
-    Nodes = [all_nodes(graph(1)), all_nodes(graph(2))], %% uma lista dos nos em cada grafo
+    Graphs = [ graph(1) , graph(2) ],  %%% uma lista de grafos=matriz de adjacencias
+    Nodes = [ all_nodes( graph(1) ), all_nodes( graph(2) )], %% uma lista dos nos em cada grafo
    
     N_Graphs = Graphs.len,  %% total de Grafos
 
