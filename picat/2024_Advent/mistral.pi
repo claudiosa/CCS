@@ -2,17 +2,12 @@ import util.
 import datetime.
 import planner.
 
-%main(Args) =>
-    % Leitura do arquivo e configuração inicial
-main ?=>    
+main ?=>
     File = "16_A_sample.txt",
-    %File = "16_B_sample.txt",    
-    %File = Args[1],
     InputLines = read_file_lines(File),
     N_Rows = length(InputLines),
     N_Cols = length(first(InputLines)),
 
-    % Conversão do mapa para uma matriz 2D
     Grid_2D = new_array(N_Rows, N_Cols),
     CurrentRow := 1,
     foreach(Line in InputLines)
@@ -20,68 +15,83 @@ main ?=>
         CurrentRow := CurrentRow + 1
     end,
 
-    % Encontrar posições iniciais e finais
     [X_s, Y_s] = find_symbol(Grid_2D, 'S'),
     [X_e, Y_e] = find_symbol(Grid_2D, 'E'),
+    Dir := '>',
 
-    % Estado inicial
-    Initial = {[X_s, Y_s], [], [X_e, Y_e], [N_Rows, N_Cols], Grid_2D},
+    Initial = {[X_s, Y_s], Dir, [], [], [X_e, Y_e], [N_Rows, N_Cols], Grid_2D},
+    printf("Initial: %w", Initial),
+    printf("\n Coordenates Start: %w \t End: %w", [X_s,Y_s] , [X_e,Y_e]),
 
-    % Planejamento
+    %best_plan_bb(Initial, Plan, Cost),
     best_plan(Initial, Plan, Cost),
-
-    % Saída do resultado
     printf("Plan: %w\nCost: %w\n", Plan, Cost),
     printf(" \n =========================================\n "),
     print("THE END").
 
 main => println("NO").
-% Função para encontrar um símbolo no mapa
+
 find_symbol(M, Symbol) = R =>
     Positions = [ [I, J] : I in 1..M.length, J in 1..M[1].length, M[I, J] == Symbol ],
     R = Positions[1].
 
-%% to stop the planner
-final({[X, Y], Path, [X_e, Y_e], [N_Rows, N_Cols], Grid}) =>
-    X == X_e,
-    Y == Y_e,
+final({[X, Y], Dir, Path, Actions, [X_e, Y_e], [N_Rows, N_Cols], Grid}) =>
+    abs(X-X_e) + abs(Y-Y_e) == 1,
     printf("\nSolution Found!\n"),
-    print_map(Path).
+    print_path_on_grid(Path, Grid).
 
-% Ações do planejador
-action({[X, Y], Path, EndPos, [N_Rows, N_Cols], Grid}, NextState, forward, Cost) ?=>
-    % Calcular nova posição (movimento para frente)
-    % Tentar mover para a direita
-    (Y + 1 =< N_Cols, Grid[X, Y + 1] = '.', X_new = X, Y_new = Y + 1
+table
+
+% Ação de movimento
+action({[X, Y], Dir, Path, Actions, EndPos, [N_Rows, N_Cols], Grid}, NextState, Action, Cost) ?=>
+    % Calcular nova posição e direção
+    
+    ((Y + 1 =< N_Cols, Grid[X, Y + 1] == '.', Dir == '>',
+       X_new := X, Y_new := Y + 1,
+       NewDir := Dir, Action = 'move_>')
     ;
-    % Tentar mover para baixo
-    X + 1 =< N_Rows, Grid[X + 1, Y] = '.', X_new = X + 1, Y_new = Y
+    (X + 1 =< N_Rows, Grid[X + 1, Y] == '.', Dir == 'v',
+        X_new := X + 1, Y_new := Y,
+        NewDir := Dir, Action = 'move_v')
     ;
-    % Tentar mover para a esquerda
-    Y - 1 >= 1, Grid[X, Y - 1] = '.', X_new = X, Y_new = Y - 1
+    (Y - 1 >= 1, Grid[X, Y - 1] == '.', Dir == '<',
+        X_new := X, Y_new := Y - 1,
+        NewDir := Dir, Action = 'move_<')
     ;
-    % Tentar mover para cima
-    X - 1 >= 1, Grid[X - 1, Y] = '.', X_new = X - 1, Y_new = Y),
+    (X - 1 >= 1, Grid[X - 1, Y] == '.', Dir == '^',
+        X_new := X - 1, Y_new := Y,
+        NewDir := Dir, Action = 'move_^')),
 
     % Verificar se a nova posição é válida e não visitada
     not membchk([X_new, Y_new], Path),
     Path_New := [[X_new, Y_new]] ++ Path,
+    Actions_New := [Action | Actions],
 
-    % Atualizar estado
-    NextState = {[X_new, Y_new], Path_New, EndPos, [N_Rows, N_Cols], Grid},
+      
+    % Atualizar estado com nova direção e custo
+    NextState = {[X_new, Y_new], NewDir, Path_New, Actions_New, EndPos, [N_Rows, N_Cols], Grid},
     Cost = 1.
 
-action({[X, Y], Path, EndPos, [N_Rows, N_Cols], Grid}, NextState, turn, Cost) ?=>
+% Ação de rotação
+action({[X, Y], Dir, Path, Actions, EndPos, [N_Rows, N_Cols], Grid}, NextState, Action, Cost) =>
+    
     % Girar no lugar (não muda a posição, mas simula uma rotação)
-    % Como não temos direção explícita, consideramos que a rotação é válida
-    % se estiver em um ponto válido (.)
-    Grid[X, Y] = '.',
+    
+    % Verificar se a última ação não foi uma rotação
+%    (Actions != [] , first(Actions) !== 'rotate'),
+    (Actions == [] ; Actions = [Last_Act|_], Last_Act !== 'rotate'),
+    % Rotacionar no sentido horário
+    ((Dir == '^' -> NewDir := '>')
+    ; (Dir == '>' -> NewDir := 'v')
+    ; (Dir == 'v' -> NewDir := '<')
+    ; (Dir == '<' -> NewDir := '^')),
 
-    % Atualizar estado
-    NextState = {[X, Y], Path, EndPos, [N_Rows, N_Cols], Grid},
-    Cost = 1000.
+    % Atualizar estado com nova direção e custo
+    Cost = 1000,
+    Action = 'rotate',
+    printf("\n Path %w", Path),  
+    NextState = {[X, Y], NewDir, Path, [Action | Actions], EndPos, [N_Rows, N_Cols], Grid}.
 
-%%% AUXILIARY predicates
 
 print_map(M) =>
     L = M.length,
@@ -90,6 +100,17 @@ print_map(M) =>
     foreach(I in 1..L)
         foreach(J in 1..C)
             printf("%w ", M[I,J])
+        end,
+        nl
+    end.
+
+print_path_on_grid(Path, Grid) =>
+    L = Grid.length,
+    C = Grid[1].length,
+    nl,
+    foreach (I in 1..L)
+        foreach (J in 1..C)
+            (membchk([I,J], Path) -> printf("* ") ; printf("%w ", Grid[I,J]))
         end,
         nl
     end.
