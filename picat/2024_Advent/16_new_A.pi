@@ -1,10 +1,15 @@
+%% Author: CCS - Fev 2025
 import util.
 import datetime.
 import planner.
 
-main ?=>
+%main ?=>
+    %File = "16_A_sample.txt",
     %File = "16_B_sample.txt",
-    File = "16_A_sample.txt",
+    %File = "16_input.txt",
+main([File]) ?=>
+
+    garbage_collect(500_000_000),    
     InputLines = read_file_lines(File),
     N_Rows = length(InputLines),
     N_Cols = length(first(InputLines)),
@@ -18,29 +23,37 @@ main ?=>
 
     [X_s, Y_s] = find_symbol(Grid_2D, 'S'),
     [X_e, Y_e] = find_symbol(Grid_2D, 'E'),
-    Dir := '^',
-    %Allow_Rotate := 1,
+    Dir := '>',
 
     Initial = {[X_s, Y_s], Dir, [], [X_e, Y_e], [N_Rows, N_Cols], Grid_2D},
     printf("Initial: %w", Initial),
     printf("\n Coordenates Start: %w \t End: %w", [X_s,Y_s] , [X_e,Y_e]),
 
-    %best_plan(Initial, Plan, Cost),
-    best_plan_bb( Initial , Plan, Cost) ,
-    %best_plan_unbounded(Initial,Plan,Cost),
+    % best_plan_bb( Initial , Plan, Cost) ,
+    % best_plan_bin(Initial , Plan, Cost),
+    % best_plan(Initial, Plan, Cost),
 
-    printf("Plan: %w\nCost: %w\n", Plan, Cost),
+    best_plan_unbounded(Initial,Plan,Cost),
+    %plan_unbounded(Initial, Plan, Cost), %%% NAO OTIMA
+    %%% HAKAN ABAIXO
+    %%%best_plan_unbounded([[EndX,EndY],StartDir,null_op,[StartX,StartY]],_Path,Cost), 
+    
+    %% Added +1 due a last movement over the target
+    printf("Plan: %w\nCost: %w\n", Plan, Cost+1),
     printf(" \n =========================================\n "),
     print("THE END").
 
-main => println("NO").
+main => println("NO... the planner failed!").
 
+%% Given a Grid and a symbol, a return are its coordenates
 find_symbol(M, Symbol) = R =>
     Positions = [ [I, J] : I in 1..M.length, J in 1..M[1].length, M[I, J] == Symbol ],
     R = Positions[1].
 
 final({[X, Y], Dir, Path,  [X_e, Y_e], [N_Rows, N_Cols], Grid}) =>
-    abs(X-X_e) + abs(Y-Y_e) == 1,
+    abs(X-X_e) + abs(Y-Y_e) <= 1,
+    %X == X_e,
+    %Y == Y_e,
     printf("\nSolution Found!\n"),
     print_path_on_grid(Path, Grid).
 
@@ -69,33 +82,29 @@ action({[X, Y], Dir, Path,  EndPos, [N_Rows, N_Cols], Grid}, NextState, Action, 
     not membchk([X_new, Y_new], Path),
     Path_New := [[X_new, Y_new]] ++ Path,
 
-    %New_Allow := 1,    
+       
     % Atualizar estado com nova direção e custo e permitir rotação
-    NextState = {[X_new, Y_new], NewDir,  Path_New, EndPos, [N_Rows, N_Cols], Grid},
-    Cost = 1.
+    Cost = 1,
+    NextState = {[X_new, Y_new], NewDir,  Path_New, EndPos, [N_Rows, N_Cols], Grid}.
+    
 
-% Ação de rotação
+% Ação da rotação
 action({[X, Y], Dir, Path, EndPos, [N_Rows, N_Cols], Grid}, NextState, Action, Cost) =>
     % Girar no lugar (não muda a posição, mas simula uma rotação)
-    % Rotacionar no sentido horário
-    %Allow_Rotate == 1,
-    /*
-    ((Dir == '^' -> NewDir := '>')
-    ; (Dir == '>' -> NewDir := 'v')
-    ; (Dir == 'v' -> NewDir := '<')
-    ; (Dir == '<' -> NewDir := '^')),
-    */
-    % SENTIDO ANTI-HORARIO
-    ((Dir == '^' -> NewDir := '<')
-    ; (Dir == '>' -> NewDir := '^')
-    ; (Dir == 'v' -> NewDir := '>')
-    ; (Dir == '<' -> NewDir := 'v')),
-   % New_Allow := 0, %% evitar duas rotacoes seguidas
-    % Atualizar estado com nova direção e custo
-    NextState = {[X, Y], NewDir, Path, EndPos, [N_Rows, N_Cols], Grid},
-    Cost = 1000,
-    Action = 'rotate'.
+    % Rotacionar nos 2 sentidos
+ 
+    % SENTIDO ANTI-HORARIO ou Horario
+    ( (Dir == '^' -> (NewDir := '<'; NewDir := '>'))
+    ; (Dir == '>' -> (NewDir := '^' ; NewDir := 'v'))
+    ; (Dir == 'v' -> (NewDir := '>' ; NewDir := '<'))
+    ; (Dir == '<' -> (NewDir := 'v' ; NewDir := '^'))),
 
+    % Atualizar estado com nova direção e custo
+    Cost = 1000,
+    Action = 'rotate',
+    NextState = {[X, Y], NewDir, Path, EndPos, [N_Rows, N_Cols], Grid}.
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_map(M) =>
     L = M.length,
     C = M[1].length,
@@ -120,3 +129,5 @@ print_path_on_grid(Path, Grid) =>
 
 count_char(M, C) = Count =>
     Count = sum([1 : I in 1..M.length, J in 1..M[I].length, M[I,J] == C]).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
