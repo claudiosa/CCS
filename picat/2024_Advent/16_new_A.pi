@@ -1,4 +1,4 @@
-%% Author: CCS - Fev 2025
+%% Author: CCS - Feb 2025
 import util.
 import datetime.
 import planner.
@@ -9,7 +9,7 @@ import planner.
     %File = "16_input.txt",
 main([File]) ?=>
 
-    garbage_collect(500_000_000),    
+    garbage_collect(500_000_000),
     InputLines = read_file_lines(File),
     N_Rows = length(InputLines),
     N_Cols = length(first(InputLines)),
@@ -27,25 +27,23 @@ main([File]) ?=>
 
     Initial = {[X_s, Y_s], Dir, [], [X_e, Y_e], [N_Rows, N_Cols], Grid_2D},
     printf("Initial: %w", Initial),
-    printf("\n Coordenates Start: %w \t End: %w", [X_s,Y_s] , [X_e,Y_e]),
-
+    printf("\n Coordinates Start: %w \t End: %w", [X_s,Y_s] , [X_e,Y_e]),
+    %% PLAN CHOICES 
     % best_plan_bb( Initial , Plan, Cost) ,
     % best_plan_bin(Initial , Plan, Cost),
     % best_plan(Initial, Plan, Cost),
 
-    best_plan_unbounded(Initial,Plan,Cost),
-    %plan_unbounded(Initial, Plan, Cost), %%% NAO OTIMA
-    %%% HAKAN ABAIXO
-    %%%best_plan_unbounded([[EndX,EndY],StartDir,null_op,[StartX,StartY]],_Path,Cost), 
-    
-    %% Added +1 due a last movement over the target
+    %best_plan_unbounded(Initial,Plan,Cost),
+    plan_unbounded(Initial, Plan, Cost), %%% NOT OPTIMAL
+
+    %% Added +1 due to a last movement over the target
     printf("Plan: %w\nCost: %w\n", Plan, Cost+1),
     printf(" \n =========================================\n "),
     print("THE END").
 
 main => println("NO... the planner failed!").
 
-%% Given a Grid and a symbol, a return are its coordenates
+%% Given a Grid and a symbol, return its coordinates
 find_symbol(M, Symbol) = R =>
     Positions = [ [I, J] : I in 1..M.length, J in 1..M[1].length, M[I, J] == Symbol ],
     R = Positions[1].
@@ -58,52 +56,50 @@ final({[X, Y], Dir, Path,  [X_e, Y_e], [N_Rows, N_Cols], Grid}) =>
     print_path_on_grid(Path, Grid).
 
 table
-% Ação de movimento
+% Movement action
 action({[X, Y], Dir, Path,  EndPos, [N_Rows, N_Cols], Grid}, NextState, Action, Cost) ?=>
-    % Calcular nova posição e direção
-    
+    % Calculate new position and direction
+
     ((Y + 1 =< N_Cols, Grid[X, Y + 1] == '.', Dir == '>',
-       X_new := X, Y_new := Y + 1, 
+       X_new := X, Y_new := Y + 1,
        NewDir := Dir, Action = 'move_>')
     ;
     (X + 1 =< N_Rows, Grid[X + 1, Y]  == '.', Dir == 'v',
-        X_new := X + 1, Y_new := Y, 
+        X_new := X + 1, Y_new := Y,
         NewDir := Dir, Action = 'move_v')
     ;
     (Y - 1 >= 1, Grid[X, Y - 1]  == '.', Dir == '<',
-        X_new := X, Y_new := Y - 1, 
+        X_new := X, Y_new := Y - 1,
         NewDir := Dir, Action = 'move_<')
     ;
     (X - 1 >= 1, Grid[X - 1, Y]  == '.', Dir == '^',
-        X_new := X - 1, Y_new := Y, 
+        X_new := X - 1, Y_new := Y,
         NewDir := Dir, Action = 'move_^')),
 
-    % Verificar se a nova posição é válida e não visitada
+    % Check if the new position is valid and not visited
     not membchk([X_new, Y_new], Path),
     Path_New := [[X_new, Y_new]] ++ Path,
 
-       
-    % Atualizar estado com nova direção e custo e permitir rotação
+    % Update state with new direction and cost, and allow rotation
     Cost = 1,
     NextState = {[X_new, Y_new], NewDir,  Path_New, EndPos, [N_Rows, N_Cols], Grid}.
-    
 
-% Ação da rotação
+% Rotation action
 action({[X, Y], Dir, Path, EndPos, [N_Rows, N_Cols], Grid}, NextState, Action, Cost) =>
-    % Girar no lugar (não muda a posição, mas simula uma rotação)
-    % Rotacionar nos 2 sentidos
- 
-    % SENTIDO ANTI-HORARIO ou Horario
+    % Rotate in place (does not change position, but simulates rotation)
+    % Rotate in both directions
+
+    % COUNTERCLOCKWISE or CLOCKWISE
     ( (Dir == '^' -> (NewDir := '<'; NewDir := '>'))
     ; (Dir == '>' -> (NewDir := '^' ; NewDir := 'v'))
     ; (Dir == 'v' -> (NewDir := '>' ; NewDir := '<'))
     ; (Dir == '<' -> (NewDir := 'v' ; NewDir := '^'))),
 
-    % Atualizar estado com nova direção e custo
+    % Update state with new direction and cost
     Cost = 1000,
     Action = 'rotate',
     NextState = {[X, Y], NewDir, Path, EndPos, [N_Rows, N_Cols], Grid}.
-  
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_map(M) =>
     L = M.length,
@@ -130,4 +126,4 @@ print_path_on_grid(Path, Grid) =>
 count_char(M, C) = Count =>
     Count = sum([1 : I in 1..M.length, J in 1..M[I].length, M[I,J] == C]).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

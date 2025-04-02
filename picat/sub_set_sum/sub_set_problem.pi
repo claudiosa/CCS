@@ -1,0 +1,29 @@
+import cp.
+
+main ?=> model,
+    fail,
+    nl.
+main => true.
+
+model =>
+    Coins = [1, 5, 10, 25, 50, 100],
+    println(coins=Coins),
+    N = Coins.len,
+    K_Max = 119, %% MAX value avaible
+    N_COINS_AVAILBLE = 10, %% Total of coins availble in the box
+    %% Decision variable
+    X = new_list(N),
+    X :: 0..N_COINS_AVAILBLE,
+    %%% from CP library
+    scalar_product(Coins, X, #=, K_Max),
+
+    solve( X ),
+
+    
+    printf("\n A solution found it: %w\n", X),
+    Total := 0,
+    foreach(I in 1..N)
+        printf("%3d cent: %d ", Coins[I], X[I]),
+        Total := Total + (Coins[I] * X[I]),
+        printf("\t %d \n", Total)
+    end.
