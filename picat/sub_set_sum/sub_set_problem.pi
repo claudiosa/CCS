@@ -1,3 +1,33 @@
+/* 
+
+  No change problem in Picat.
+
+  From Muhammad Zain Sarwar
+  "A Puzzle That Will Test Your Thinking"
+  https://medium.com/puzzle-sphere/a-puzzle-that-will-test-your-thinking-cd5f8fdff08c
+  """
+  A customer comes to the cashier named Robert and asks for change for a $1 bill.
+
+  The cashier says to the customer that I can’t give you change for $1 by checking 
+  his cash register.
+
+  The customer is slightly puzzled and asks, "Can you give me change for 50 cents then?
+
+  Robert shakes his head and says, "No, I can’t do that either."
+  
+  Now the customer becomes more curious and asks, "What about 25 cents, 10 cents, 
+  or even 5 cents?"
+
+  Robert sighs, "I’m sorry I can’t give you change for any of those amounts."
+
+  "Do you even have any coins?" the customer asks in frustration.
+
+  Robert nods and says, "Yes, I have exactly $1.19 in coins."
+
+REFERENCE :https://hakank.org/picat/no_change.pi
+*/
+
+%% by CCS
 import cp.
 
 main ?=> model,
