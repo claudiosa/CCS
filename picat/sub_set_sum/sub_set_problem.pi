@@ -47,9 +47,10 @@ model =>
     %%% from CP library
     scalar_product(Coins, X, #=, K_Max),
 
-    solve( X ),
-
+   
     
+    /*
+    %solve( X ),
     printf("\n A solution found it: %w\n", X),
     Total := 0,
     foreach(I in 1..N)
@@ -57,3 +58,11 @@ model =>
         Total := Total + (Coins[I] * X[I]),
         printf("\t %d \n", Total)
     end.
+    */
+    All=solve_all(X),
+    N_SOL = All.len,
+    printf("\n => [p|d|n|q|c|1]"),
+    foreach(A in All)   
+        printf("\n => %w", A)
+    end,
+    printf("\n Total of solutions: %d\n", N_SOL).        
