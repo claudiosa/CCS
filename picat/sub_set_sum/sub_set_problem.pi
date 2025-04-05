@@ -30,12 +30,44 @@ REFERENCE :https://hakank.org/picat/no_change.pi
 %% by CCS
 import cp.
 
-main ?=> model,
-    fail,
-    nl.
-main => true.
+main => 
+    model_1,
+    model_ALL,
+    go_brute_force .
+    %fail,
+    %nl.
+%main => true.
 
-model =>
+model_ALL =>
+    Coins = [1, 5, 10, 25, 50, 100],
+    println(coins=Coins),
+    N = Coins.len,
+    K_Max = 119, %% MAX value avaible
+    N_COINS_AVAILBLE = 10, %% Total of coins availble in the box
+    %% Decision variable
+    X = new_list(N),
+    %X :: 0..N_COINS_AVAILBLE,
+    X :: 0..4,
+    %%% from CP library
+    scalar_product(Coins, X, #=, K_Max),
+
+    %% Restrições adicionais para garantir que não possamos dar troco para os valores solicitados
+    X[1] + 5*X[2] + 10*X[3] + 25*X[4] + 50*X[5] #\= 50, %% Não pode dar troco para 50 centavos
+    X[1] + 5*X[2] + 10*X[3] + 25*X[4] #\= 25, %% Não pode dar troco para 25 centavos
+    X[1] + 5*X[2] + 10*X[3] #\= 10, %% Não pode dar troco para 10 centavos
+    X[1] + 5*X[2] #\= 5, %% Não pode dar troco para 5 centavos
+  
+    
+    All=solve_all(X),
+    N_SOL = All.len,
+    printf("\n => [p|d|n|q|c|1]"),
+    foreach(A in All)   
+        printf("\n => %w", A)
+    end,
+    printf("\n Total of solutions: %d\n", N_SOL).  
+   
+    
+model_1 =>
     Coins = [1, 5, 10, 25, 50, 100],
     println(coins=Coins),
     N = Coins.len,
@@ -47,10 +79,14 @@ model =>
     %%% from CP library
     scalar_product(Coins, X, #=, K_Max),
 
-   
-    
-    /*
-    %solve( X ),
+    %% Restrições adicionais para garantir que não possamos dar troco para os valores solicitados
+    X[1] + 5*X[2] + 10*X[3] + 25*X[4] + 50*X[5] #\= 50, %% Não pode dar troco para 50 centavos
+    X[1] + 5*X[2] + 10*X[3] + 25*X[4] #\= 25, %% Não pode dar troco para 25 centavos
+    X[1] + 5*X[2] + 10*X[3] #\= 10, %% Não pode dar troco para 10 centavos
+    X[1] + 5*X[2] #\= 5, %% Não pode dar troco para 5 centavos
+
+
+    solve( X ),
     printf("\n A solution found it: %w\n", X),
     Total := 0,
     foreach(I in 1..N)
@@ -58,11 +94,64 @@ model =>
         Total := Total + (Coins[I] * X[I]),
         printf("\t %d \n", Total)
     end.
-    */
-    All=solve_all(X),
-    N_SOL = All.len,
-    printf("\n => [p|d|n|q|c|1]"),
-    foreach(A in All)   
-        printf("\n => %w", A)
-    end,
-    printf("\n Total of solutions: %d\n", N_SOL).        
+    
+/*
+Robert possui as seguintes moedas:
+
+Uma moeda de $1
+Um níquel (5 centavos)
+Um dime (10 centavos)
+Quatro pennies (4 centavos)
+Essas moedas somam $1,19, mas a combinação delas impede que ele forneça troco exato para os valores solicitados:
+
+Ele não pode fornecer troco para $1 porque não tem como quebrar a moeda de $1 com as outras moedas disponíveis.
+Ele não pode fornecer 50 centavos porque não tem uma combinação de moedas que somem exatamente 50 centavos.
+Ele não pode fornecer 25 centavos porque só tem 19 centavos em moedas menores.
+Ele não pode fornecer 10 centavos porque só tem um dime, quatro pennies e um níquel.
+Ele não pode fornecer 5 centavos porque só tem quatro pennies, que somam 4 centavos.
+Esse quebra-cabeça testa a capacidade de raciocínio lógico ao considerar as combinações possíveis de moedas.
+*/          
+%%% HAKAN ....
+go_brute_force ?=>
+  M = 10,
+  Changes = [5,10,25,50,100],
+  Coins = [1,5,10,25,50,100],
+  foreach(L1 in 0..M,
+          L5 in 0..M,
+          L10 in 0..M,
+          L25 in 0..M,
+          L50 in 0..M,
+          L100 in 0..M)
+    Z = L1*1 + L5*5 + L10*10 + L25*25 + L50*50 + L100*100,
+    if Z == 119 then
+      OK = true,
+      foreach(V1 in 0..L1,
+            V5 in 0..L5,
+            V10 in 0..L10,
+            V25 in 0..L25,
+            V50 in 0..L50,
+            V100 in 0..L100, break(OK==false))            
+        V = V1*1 + V5*5 + V10*10 + V25*25 + V50*50 + V100*100,
+        
+        % This is the tricky part: We allow that Robert has a 5c coin when the requirement is change of 5c
+        if ((V == 5, V5==0) ;
+           (V == 10, V10==0) ;
+           (V == 25, V25==0) ;
+           (V == 50, V50==0) ;
+           (V == 100, V100==0))
+         then
+          OK := false
+        end
+      end,
+      if OK then
+        X = [L1,L5,L10,L25,L50,L100],
+        println(Z=X),
+        foreach(I in 1..Coins.len)
+          printf("%2d %2dc\n",X[I],Coins[I])
+        end,
+        nl
+      end
+    end
+  end,
+  nl.
+go_brute_force => true.
