@@ -50,13 +50,21 @@ model_ALL =>
     X :: 0..4,
     %%% from CP library
     scalar_product(Coins, X, #=, K_Max),
-
+/*
     %% Restrições adicionais para garantir que não possamos dar troco para os valores solicitados
     X[1] + 5*X[2] + 10*X[3] + 25*X[4] + 50*X[5] #\= 50, %% Não pode dar troco para 50 centavos
     X[1] + 5*X[2] + 10*X[3] + 25*X[4] #\= 25, %% Não pode dar troco para 25 centavos
     X[1] + 5*X[2] + 10*X[3] #\= 10, %% Não pode dar troco para 10 centavos
     X[1] + 5*X[2] #\= 5, %% Não pode dar troco para 5 centavos
-  
+*/    
+    %% Restrições adicionais para garantir que não possamos dar troco para os valores solicitados
+    %% Não pode haver combinações de moedas menores que formem os valores proibidos
+    %%% FROM HAKAN ... STUDY it... I do not understand
+    foreach(I in 1..N)
+      foreach(J in I+1..N)
+        sum([K #<= X[I] #/\ Coins[I]*K #= Coins[J] : K in 1..fd_max(X[I])]) #= 0
+      end
+    end,
     
     All=solve_all(X),
     N_SOL = All.len,
@@ -78,13 +86,14 @@ model_1 =>
     X :: 0..N_COINS_AVAILBLE,
     %%% from CP library
     scalar_product(Coins, X, #=, K_Max),
-
-    %% Restrições adicionais para garantir que não possamos dar troco para os valores solicitados
-    X[1] + 5*X[2] + 10*X[3] + 25*X[4] + 50*X[5] #\= 50, %% Não pode dar troco para 50 centavos
-    X[1] + 5*X[2] + 10*X[3] + 25*X[4] #\= 25, %% Não pode dar troco para 25 centavos
-    X[1] + 5*X[2] + 10*X[3] #\= 10, %% Não pode dar troco para 10 centavos
-    X[1] + 5*X[2] #\= 5, %% Não pode dar troco para 5 centavos
-
+  %% Restrições adicionais para garantir que não possamos dar troco para os valores solicitados
+    %% Não pode haver combinações de moedas menores que formem os valores proibidos
+    %%% FROM HAKAN ... STUDY it
+  foreach(I in 1..N)
+    foreach(J in I+1..N)
+      sum([K #<= X[I] #/\ Coins[I]*K #= Coins[J] : K in 1..fd_max(X[I])]) #= 0
+    end
+  end,
 
     solve( X ),
     printf("\n A solution found it: %w\n", X),
