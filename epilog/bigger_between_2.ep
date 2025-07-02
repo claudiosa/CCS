@@ -1,0 +1,15 @@
+procedure greater (integer A, integer B) -> integer :-
+
+    if A > B -> write("The First"), 
+                answer A; 
+                A < B -> write("The Second"), 
+                answer B;      
+                A = B -> write("Equals"), 
+                answer A
+    end.
+
+procedure main () :-
+    integer X, integer Y,
+    read X,
+    read Y,
+    write greater (X, Y).
