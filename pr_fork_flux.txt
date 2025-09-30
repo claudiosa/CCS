@@ -1,0 +1,100 @@
+Fluxo CCS – Contribuindo com o exemplo blocks_world.pi
+1. Criar o Fork
+Vá no repositório original dsagman/picat e clique em Fork para criar uma cópia na sua conta GitHub.
+
+2. Clonar o Fork
+bash
+Copy
+Edit
+git clone https://github.com/SEU_USUARIO/picat.git
+cd picat
+3. Criar uma Branch Específica para a Mudança
+Aqui vamos usar o nome fix-blocks-world-example.
+
+bash
+Copy
+Edit
+git checkout -b fix-blocks-world-example
+4. Fazer a Alteração
+Edite o arquivo:
+
+bash
+Copy
+Edit
+picat/example code/blocks_world.pi
+Aplique as correções que você fez no exemplo.
+
+5. Adicionar e Comitar
+bash
+Copy
+Edit
+git add "picat/example code/blocks_world.pi"
+git commit -m "Fix: corrected example in blocks_world.pi for clarity and execution"
+6. Enviar para o GitHub
+bash
+Copy
+Edit
+git push origin fix-blocks-world-example
+7. Abrir o Pull Request
+No GitHub, abra seu fork, selecione a branch fix-blocks-world-example e clique em Compare & pull request.
+
+Escreva algo como:
+
+Corrected the example in blocks_world.pi to ensure it runs without errors and improves clarity for new users.
+
+8. (Opcional) Apagar a Branch Depois
+bash
+Copy
+Edit
+git branch -d fix-blocks-world-example
+git push origin --delete fix-blocks-world-example
+CCS Workflow – Contributing with blocks_world.pi Example
+1. Fork the Repository
+Go to the original repository dsagman/picat and click Fork to create a copy under your GitHub account.
+
+2. Clone Your Fork
+bash
+Copy
+Edit
+git clone https://github.com/YOUR_USERNAME/picat.git
+cd picat
+3. Create a Branch for This Change
+Here we’ll name it fix-blocks-world-example.
+
+bash
+Copy
+Edit
+git checkout -b fix-blocks-world-example
+4. Make the Change
+Edit:
+
+bash
+Copy
+Edit
+picat/example code/blocks_world.pi
+Apply your corrections to the example.
+
+5. Add and Commit
+bash
+Copy
+Edit
+git add "picat/example code/blocks_world.pi"
+git commit -m "Fix: corrected example in blocks_world.pi for clarity and execution"
+6. Push to GitHub
+bash
+Copy
+Edit
+git push origin fix-blocks-world-example
+7. Open the Pull Request
+On GitHub, open your fork, select the branch fix-blocks-world-example, and click Compare & pull request.
+
+Write something like:
+
+Corrected the example in blocks_world.pi to ensure it runs without errors and improves clarity for new users.
+
+8. (Optional) Delete the Branch Afterwards
+bash
+Copy
+Edit
+git branch -d fix-blocks-world-example
+git push origin --delete fix-blocks-world-example
