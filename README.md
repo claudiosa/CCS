@@ -83,7 +83,7 @@ Fazendo Download de diretórios em particular
     ```
     na primeira vez que voce executar este comando, pode acontecer dele pedir para executar outro comando, basta copiar e colar.
 
-8. Agora basta ir para o seu repositorio no (github)[https://github.com/], clicle em _pull requests_. Ali vai aparecer as moduficações que voce fez.
+8. Agora basta ir para o seu repositorio no (github)[https://github.com/], clique em _pull requests_. Ali vai aparecer as moduficações que voce fez.
     Clique em _new pull request_. Depois em _create pull request_. Explique na caixa de texto o que você modificou. E clique novamente em _create pull request_. Pronto!
 
 9. Agora é só o __CC__ aceitar a modificação.
