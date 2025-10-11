@@ -52,7 +52,7 @@ main([File]) =>
         Sol := []++Sol) %% nodes out of the graph
         ,    
     end,     
-    Sol_2 = sort_remove_dups(Sol),
+    Sol_2 = remove_dups(Sol), %% or sort_
     printf("\n Sol list: %w", Sol_2),    
     printf("\n Sol size: %w", len(Sol_2)).
   
