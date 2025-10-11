@@ -1,0 +1,12 @@
+convert_map_to_list(Map) = Graph =>
+    Keys = keys(Map),
+    Graph = [{K, get(Map, K)} : K in Keys].
+
+% Exemplo de uso:
+main =>
+    Map = new_map(),
+    put(Map, 0, [2]),
+    put(Map, 1, [1]),
+    put(Map, 2, [0,1,2]),
+    Graph = convert_map_to_list(Map),
+    println(graph=Graph).
