@@ -37,6 +37,7 @@ main([File]) =>
     EMap = new_map(),
     read_input(File,EMap),
     %print(EMap),
+    %%%Visited = new_set(), 
     Nodes = keys(EMap),
   % map_to_list(EMap) = Graph_List,
     Graph = map_to_list_array(EMap),
@@ -47,12 +48,22 @@ main([File]) =>
     foreach(EndNode in Nodes)
         %printf("\n End: %w", EndNode),
         %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
+        if (dfs_functional(Graph, 0, EndNode ) != []) then
+           %Sol := remove_dups(Sol++dfs_functional(Graph, 0, EndNode ))
+           Sol := Sol ++ dfs_functional(Graph, 0, EndNode )
+        else
+            Sol := Sol ++ []
+        end    
+        /*
+        OR
         (Sol := dfs_functional(Graph, 0, EndNode ) ++ Sol  
         ;
         Sol := []++Sol) %% nodes out of the graph
+        */
         ,    
     end,     
     Sol_2 = remove_dups(Sol), %% or sort_
+    
     printf("\n Sol list: %w", Sol_2),    
     printf("\n Sol size: %w", len(Sol_2)).
   
@@ -71,8 +82,7 @@ read_input(File,EMap) =>
 dfs_functional(Graph, InitNode, EndNode) = Sol =>
         S := InitNode,
         Path_Temp := [InitNode],
-        %println(path=Path_Temp),
-        %println(end=EndNode),
+      
         while (S != EndNode) do
             next_node(Graph, S , Next, EndNode),
             %println(next=Next),

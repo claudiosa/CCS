@@ -1,0 +1,27 @@
+%import sat.
+
+% Exemplo: Converte uma lista em um conjunto
+list_to_set(List) = Set =>
+    Set = new_set(),
+    foreach(Elem in List)
+        put(Set, Elem, true)
+    end.
+
+% União de dois conjuntos (listas sem duplicatas)
+union_sets(Set1, Set2) = Union =>
+    keys(Set1) = List1,
+    keys(Set2) = List2,
+    L_Temp = sort_remove_dups(List1 ++ List2),
+    Union = list_to_set(L_Temp).
+
+% Exemplo de uso:
+main =>
+    Lista1 = [1, 2, 3, 2],
+    Lista2 = [3, 4, 5],
+    Conjunto1 = list_to_set(Lista1),
+    Conjunto2 = list_to_set(Lista2),
+    Uniao = union_sets(Conjunto1, Conjunto2),
+    println(conjunto1 = Conjunto1),
+    println(conjunto2 = Conjunto2),
+    printf("\n Finally union: %w\n",Uniao).
+
