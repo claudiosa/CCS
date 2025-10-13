@@ -1,0 +1,115 @@
+/*
+I am trying to solve Advent of Code 2017 day 12. 
+Part 1 asks for all vertices connected by a path 
+to vertex 0. I realize that I could write this 
+as a recursive search, but I am trying to understand 
+global constraints and wondered if I could use path. 
+
+Here's the example graph, which is "test.txt".
+0 <-> 2
+1 <-> 1
+2 <-> 0, 3, 4
+3 <-> 2, 4
+4 <-> 2, 3, 6
+5 <-> 6
+6 <-> 4, 5
+7 <-> 8
+8 <-> 7
+
+In the example, 0 has a path to [2,3,4,5,6].
+
+n this example, the following programs are in the group that contains program ID 0:
+
+Program 0 by definition.
+Program 2, directly connected to program 0.
+Program 3 via program 2.
+Program 4 via program 2.
+Program 5 via programs 6, then 4, then 2.
+Program 6 via programs 4, then 2.
+
+*/
+% https://adventofcode.com/2017/day/12 part1
+import util.
+%import ordset.
+%import sys.
+
+main([File]) =>
+    EMap = new_map(),
+    read_input(File,EMap),
+    %print(EMap),
+    %%%Visited = new_set(), 
+    Nodes = keys(EMap),
+  % map_to_list(EMap) = Graph_List,
+    Graph = map_to_list_array(EMap),
+    printf("\n NODES: %w \n Graph %w", Nodes, Graph),
+ 
+    Sol := [],
+    Init = 0,                    
+    foreach(EndNode in Nodes)
+        %printf("\n End: %w", EndNode),
+        %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
+        if (dfs_functional(Graph, Init, EndNode ) != []) then
+           %Sol := remove_dups(Sol++dfs_functional(Graph, 0, EndNode ))
+           One_Path := dfs_functional(Graph, 0, EndNode ),
+           printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
+           Sol := Sol ++ One_Path,
+           
+           %Sol := remove_dups(Sol)
+        else
+            Sol := Sol ++ []
+        end    
+        /*
+        OR
+        (Sol := dfs_functional(Graph, 0, EndNode ) ++ Sol  
+        ;
+        Sol := []++Sol) %% nodes out of the graph
+        */
+        ,    
+    end,     
+    Sol := remove_dups(Sol), %% or sort_
+    
+    printf("\n Sol list: %w", Sol),    
+    printf("\n Sol size: %w", len(Sol)).
+ 
+%% REUSED from NENG-FA
+read_input(File,EMap) =>
+    Lines = read_file_lines(File), 
+    foreach (Line in Lines)
+        append(Str1,['<','-','>'|Str2],Line),
+        V1 = to_int(Str1),
+        Neibs = [to_int(Token) : Token in split(Str2,",")],
+        EMap.put(V1,Neibs)
+    end.
+
+% KERNEL DFS as a FUNCTION ...
+dfs_functional(Graph, InitNode, EndNode) = Sol =>
+        S := InitNode,
+        Visited := [InitNode],
+        %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
+        while (S != EndNode) do
+            next_node(Graph, S, Next, Visited),
+            Visited := Visited ++ [Next],
+     %      printf("\nS: %w New Path %w Next: %w", S, Visited, Next), 
+            S := Next
+        end,
+        Sol = Visited.
+
+
+next_node([ {Node,Neighbours} | G], Node, Next, Visited) ?=>
+    member(Next, Neighbours), %%% with backtracking here ....
+    %printf("\n Node: %w Next %w : Visited %w" ,Node, Next, Visited),
+    not membchk(Next,Visited).
+
+%% to avance or search in the graph for next node 
+next_node([ _ | Graph], Node, Next, Visited) =>
+    next_node( Graph, Node, Next, Visited).        
+
+%%% NOT USED YET
+neighbours(Node, Graph) = Vizinhos =>
+    Vizinhos = flatten([Neighbour : {Node, Neighbours} in Graph, Neighbour in Neighbours]).
+
+%%% convert a MAP to a list with arrays
+%%% each array { NODE, [NEIBOURGHS] }
+map_to_list_array(Map) = Graph =>
+    Keys = keys(Map),
+    Graph = [{K, get(Map, K)} : K in Keys].
