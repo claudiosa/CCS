@@ -1,8 +1,55 @@
 /*
 I am trying to solve Advent of Code 2017 day 12. 
+Part 1 asks for all vertices connected by a path 
+to vertex 0. I realize that I could write this 
+as a recursive search, but I am trying to understand 
+global constraints and wondered if I could use path. 
 
+Here's the example graph, which is "test.txt".
+0 <-> 2
+1 <-> 1
+2 <-> 0, 3, 4
+3 <-> 2, 4
+4 <-> 2, 3, 6
+5 <-> 6
+6 <-> 4, 5
+7 <-> 8
+8 <-> 7
+
+In the example, 0 has a path to [2,3,4,5,6].
+
+n this example, the following programs are in the group that contains program ID 0:
+
+Program 0 by definition.
+Program 2, directly connected to program 0.
+Program 3 via program 2.
+Program 4 via program 2.
+Program 5 via programs 6, then 4, then 2.
+Program 6 via programs 4, then 2.
+
+Results:
+
+ time(picat C_Version_12_day_A_2017.pi input_day_12_A.txt)
+(map)[]
+ Visited: [0,1,256,1018,1146,1527,1275,1530,769,1280,1534,1408,647,1537,1538,269,904,1413,1921,271,398,653,1417,1799,1927,277,531,912,1295,1422,661,1169,916,535,410,664,1046,31,1174,1809,1683,1811,415,1178,164,38,546,1436,1056,169,553,936,1444,1571,1952,303,1830,181,55,1199,1073,1582,313,1966,698,192,319,1082,1845,576,830,1211,579,453,1851,1471,584,1092,1346,331,1093,1348,1475,336,1352,1099,466,1484,1486,345,727,601,1998,1619,986,1242,100,482,1755,1756,1757,1250,1887,750,1005,243,1132,498,626,1134,120,122,757] 
+ Size: 113
+real	0m0,145s
+user	0m0,137s
+sys	0m0,008s
+
+time(picat B_Version_12_day_A_2017.pi input_day_12_A.txt)
+Sol size: 113
+real	0m5,527s
+user	0m5,446s
+sys	0m0,052s
+
+time(picat Set_Version_12_day_A_2017.pi input_day_12_A.txt )
+real	0m0,169s
+user	0m0,161s
+sys	0m0,008s
 */
-% https://adventofcode.com/2017/day/12 part2 or B
+
+% https://adventofcode.com/2017/day/12 part1
 import util.
 %import ordset.
 %import sys.
@@ -13,25 +60,23 @@ main([File]) =>
     Visited = new_set(), 
     Nodes = keys(Graph),
     print(Visited),
-    printf("\n NODES: %w \n Graph %w", Nodes, Graph),
+    %printf("\n NODES: %w \n Graph %w", Nodes, Graph),
  
     Init = 0,                 
-    Groups = 0,
-
-    foreach(Node in Nodes)
-        if not get(Visited, Node, _) then
-            % Encontra todos os nós conectados a Node
-            Connected = dfs_functional(Graph, Node),
-            % Marca todos como visitados
-            foreach(C in Connected)
-                put(Visited, C, true)
-            end,
-            % Incrementa o número de grupos
-            Groups := Groups + 1,
-            printf("\nGrupo %w: %w", Groups, Connected)
-        end
-    end.
-    %printf("\n Visiteds: %w \n Size: %w", keys(Visited), size(Visited)).
+        foreach(EndNode in Nodes)
+        %printf("\n End: %w", EndNode),
+        %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
+        if (dfs_functional(Graph, Init, EndNode ) != []) then
+     
+           One_Path := dfs_functional(Graph, 0, EndNode ),
+           %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
+           Visited := union_sets_fast(Visited, One_Path),
+           %printf("\n Visited: %w \t Size %w", Visited, size(One_Path)),
+         
+        end    
+                    
+    end,     
+    printf("\n Visited: %w \n Size: %w", keys(Visited), size(Visited)).
 
  
 %% REUSED from NENG-FA
@@ -43,7 +88,6 @@ read_input(File,EMap) =>
         Neibs = [to_int(Token) : Token in split(Str2,",")],
         EMap.put(V1,Neibs)
     end.
-
 
 % KERNEL DFS as a FUNCTION ... USING SETS
  dfs_functional(Graph, InitNode, EndNode) = Sol =>
