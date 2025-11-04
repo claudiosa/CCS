@@ -12,16 +12,17 @@ main([File]) =>
     read_input(File, Graph),
     
     Visited := new_set(),
+    Empty_Set := new_set(),
     %Picat> V := new_set(), print(V) .
     %(map)[]V = (map)[]
 
-    All_Nodes := keys(Graph),
+    Nodes := keys(Graph),
     print(Visited),
     printf("\n NODES: %w \n Graph %w", Nodes, Graph),
  
     Init := 0,                 
     Groups := 0,
-    Nodes := All_Nodes,
+    
         
     foreach(EndNode in Nodes)
         %printf("\n End: %w", EndNode),
@@ -31,20 +32,24 @@ main([File]) =>
            One_Path := dfs_functional(Graph, Init, EndNode ),
            %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
            Visited := union_sets_fast(Visited, One_Path),
-           %printf("\n Visited: %w \t Size %w", Visited, size(One_Path)),
-        end    
+           printf("\n Visited: %w \t Size %w", Visited, size(One_Path)),
+        end ,   
                     
-        end,     
+        
             % Incrementa o número de grupos
             Groups := Groups + 1,
 
         %%%%Atualizar  quem falta, atualizar um Init e Nodes
         %Novo Nodes :=  All_Nodes - Visited
         %% Novo Init será o primeiro nó em Novo Nodes
-        Init := first(keys(Nodes)),
-        
+        %Nodes := keys(symmetric_difference(Graph, Visited)), 
+        Nodes := keys(set_difference(Graph, Visited)), 
+        Init := first(Nodes),
+        clear(Visited)
 
-            printf("\nGroups Number %w: Visiteds %w", Groups, keys(Visited) ).
+        end,     
+        
+        printf("\nGroups Number %w: Visiteds %w", Groups, keys(Visited) ).
     
     %end.
     %printf("\n Visiteds: %w \n Size: %w", keys(Visited), size(Visited)).
@@ -97,7 +102,7 @@ map_to_list_array(Map) = Graph =>
     Keys = keys(Map),
     Graph = [{K, get(Map, K)} : K in Keys].
 
-%%%% SETs UTILs
+%%%% SETs UTILs  .... Need to be tests
 % Helper predicate to ensure Set is not modified
 copy_set(Set) = Copy =>
     Copy = new_set(),
@@ -129,4 +134,28 @@ union_sets(Set1, Set2) = Union =>
     keys(Set2) = List2,
     L_Temp = sort_remove_dups(List1 ++ List2),
     Union = list_to_set(L_Temp).
+
+symmetric_difference(Set1, Set2) = SymDiff =>
+    % 1. Calcula Set1 - Set2 (Elementos que estão apenas em Set1).
+    Diff_1_2 = set_difference(Set1, Set2),
+    
+    % 2. Calcula Set2 - Set1 (Elementos que estão apenas em Set2).
+    Diff_2_1 = set_difference(Set2, Set1),
+    
+    % 3. Faz a União dos dois resultados (reutilizando o predicado otimizado anterior).
+    SymDiff = union_sets_fast(Diff_1_2, Diff_2_1).
+
+
+% Calcula a diferença simples: Set1 - Set2.
+%%% Set1 - Set2.
+set_difference(Set1, Set2) = Difference =>
+    % 1. Obtém a lista de chaves de Set1.
+    Keys1 = keys(Set1),
+    
+    % 2. Filtra Keys1 para manter apenas os elementos que NÃO estão em Set2.
+    %    O predicado `not has_key(Set2, Elem)` é usado como filtro.
+    DiffKeys = [Elem : Elem in Keys1, not has_key(Set2, Elem)],
+    
+    % 3. Converte a lista resultante de volta para um novo conjunto (mapa).
+    Difference = new_set(DiffKeys).
 
