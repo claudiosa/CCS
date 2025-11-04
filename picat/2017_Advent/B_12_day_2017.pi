@@ -10,27 +10,43 @@ import util.
 main([File]) =>
     Graph = new_map(),
     read_input(File, Graph),
-    Visited = new_set(), 
-    Nodes = keys(Graph),
+    
+    Visited := new_set(),
+    %Picat> V := new_set(), print(V) .
+    %(map)[]V = (map)[]
+
+    All_Nodes := keys(Graph),
     print(Visited),
     printf("\n NODES: %w \n Graph %w", Nodes, Graph),
  
-    Init = 0,                 
-    Groups = 0,
-
-    foreach(Node in Nodes)
-        if not get(Visited, Node, _) then
-            % Encontra todos os nós conectados a Node
-            Connected = dfs_functional(Graph, Node),
-            % Marca todos como visitados
-            foreach(C in Connected)
-                put(Visited, C, true)
-            end,
+    Init := 0,                 
+    Groups := 0,
+    Nodes := All_Nodes,
+        
+    foreach(EndNode in Nodes)
+        %printf("\n End: %w", EndNode),
+        %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
+        if (dfs_functional(Graph, Init, EndNode ) != []) then
+     
+           One_Path := dfs_functional(Graph, Init, EndNode ),
+           %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
+           Visited := union_sets_fast(Visited, One_Path),
+           %printf("\n Visited: %w \t Size %w", Visited, size(One_Path)),
+        end    
+                    
+        end,     
             % Incrementa o número de grupos
             Groups := Groups + 1,
-            printf("\nGrupo %w: %w", Groups, Connected)
-        end
-    end.
+
+        %%%%Atualizar  quem falta, atualizar um Init e Nodes
+        %Novo Nodes :=  All_Nodes - Visited
+        %% Novo Init será o primeiro nó em Novo Nodes
+        Init := first(keys(Nodes)),
+        
+
+            printf("\nGroups Number %w: Visiteds %w", Groups, keys(Visited) ).
+    
+    %end.
     %printf("\n Visiteds: %w \n Size: %w", keys(Visited), size(Visited)).
 
  

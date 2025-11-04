@@ -63,7 +63,7 @@ main([File]) =>
     %printf("\n NODES: %w \n Graph %w", Nodes, Graph),
  
     Init = 0,                 
-        foreach(EndNode in Nodes)
+    foreach(EndNode in Nodes)
         %printf("\n End: %w", EndNode),
         %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
         if (dfs_functional(Graph, Init, EndNode ) != []) then
