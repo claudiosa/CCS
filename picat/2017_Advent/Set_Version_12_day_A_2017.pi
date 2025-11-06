@@ -57,22 +57,33 @@ import util.
 main([File]) =>
     Graph = new_map(),
     read_input(File, Graph),
-    Visited = new_set(), 
+    Visited := new_set(), 
     Nodes = keys(Graph),
     print(Visited),
-    %printf("\n NODES: %w \n Graph %w", Nodes, Graph),
- 
-    Init = 0,                 
+    printf("\n NODES: %w \n Graph %w", Nodes, Graph),
+    One_Path := new_set(), 
+    Empty_Set = new_set(), %%%IMUTABLE
+    %println( xxxxx_one_Path = keys(One_Path)),
+    Init = 0,    
+    % if (keys(One_Path) ==[]) then
+    %     println(' xxxxxx___OKs___xxxxx')
+    % end,
+    
     foreach(EndNode in Nodes)
-        %printf("\n End: %w", EndNode),
-        %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
-        if (dfs_functional(Graph, Init, EndNode ) != []) then
-     
-           One_Path := dfs_functional(Graph, 0, EndNode ),
-           %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
+        %printf("\n---\nInit:%w \tEndNode atual: %w\n", Init, EndNode),
+        One_Path := dfs_functional(Graph, Init, EndNode ),
+        %printf("\n ONE PATH: %w \t Empty SET: %w \t End: %w", One_Path, Empty_Set, EndNode),
+      
+        %if (keys(One_Path) != keys(Empty_Set)) then
+        %if( One_Path != Empty_Set ) then
+        if (size(One_Path) > 0) then
+        %if (len(keys(One_Path)) > 0) then
+           
            Visited := union_sets_fast(Visited, One_Path),
-           %printf("\n Visited: %w \t Size %w", Visited, size(One_Path)),
-         
+           %printf("\n => Visiteds: %w \t One_Path %w \t ONE Size %w", Visited, One_Path, size(One_Path))         
+        else
+           
+           printf("NOT REACHABLE From: %w  to %w (EndNode) Empty Path: %w\n", Init, EndNode, One_Path)
         end    
                     
     end,     
@@ -90,6 +101,7 @@ read_input(File,EMap) =>
     end.
 
 % KERNEL DFS as a FUNCTION ... USING SETS
+/*
  dfs_functional(Graph, InitNode, EndNode) = Sol =>
         S := InitNode,
         Visited = new_set(),
@@ -103,21 +115,53 @@ read_input(File,EMap) =>
             % printf("\nS: %w New Path %w Next: %w", S, Visited, Next), 
             S := Next
         end,
+        %if(keys(Visited) != []) then
+        %    printf("\n Not reachable")
+        %end,
         Sol = Visited. % Return a SET
+*/
+dfs_functional(Graph, InitNode, EndNode) = Sol =>
+        S := InitNode,
+        Visited := new_set(),
+        put(Visited, InitNode, true),
+        Unreachable := false,
+
+        while ((S != EndNode) && (not Unreachable)) do
+            Next := next_node_F(Graph, S, Visited),
+            if var(Next) then  % Nenhum próximo nó disponível
+                Unreachable := true 
+            else
+                put(Visited, Next, true),
+                S := Next
+            end
+        end,  %% END WHILE
+        
+        if Unreachable then 
+            println("\n[DFS] Caminho NÃO alcançável — retornando conjunto vazio."),
+            Sol = new_set()
+        else 
+            %println("\n[DFS] Caminho encontrado — retornando conjunto de visitados."),
+            Sol = Visited
+        end.
+
 
 %%% NEXT node predicative version
 next_node_P(Graph, Node, Next, Visited) =>
     Neighbours = Graph.get(Node,[]),
     member(Next, Neighbours), %%% with backtracking here ....
     %printf("\n Node: %w Next %w : Visited %w" ,Node, Next, Visited),
-    not(has_key(Visited,Next)).
+    not(has_key(Visited,Next))
+    ;
+    Next = _. %%% VAR .... undefined
 
 %%% NEXT node functional version
 next_node_F(Graph, Node, Visited ) = Next =>
     Neighbours = Graph.get(Node,[]),
     member(Next, Neighbours), %%% with backtracking here ....
     %printf("\n Node: %w Next %w : Visited %w" ,Node, Next, Visited),
-    not(has_key(Visited,Next)).
+    not(has_key(Visited,Next))
+    ;
+    Next = _.
 
 %%% convert a MAP to a list with arrays
 %%% each array { NODE, [NEIBOURGHS] }
@@ -158,3 +202,7 @@ union_sets(Set1, Set2) = Union =>
     L_Temp = sort_remove_dups(List1 ++ List2),
     Union = list_to_set(L_Temp).
 
+    %if( keys(dfs_functional(Graph, Init, EndNode )) != []) then
+        %if (len(keys(One_Path)) != 0) then
+           %One_Path := copy_set(dfs_functional(Graph, Init, EndNode )),
+           %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),

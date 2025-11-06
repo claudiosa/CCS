@@ -23,31 +23,34 @@ main([File]) =>
     Init := 0,                 
     Groups := 0,
     
-        
-    foreach(EndNode in Nodes)
-        %printf("\n End: %w", EndNode),
-        %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
-        if (dfs_functional(Graph, Init, EndNode ) != []) then
-     
-           One_Path := dfs_functional(Graph, Init, EndNode ),
-           %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
-           Visited := union_sets_fast(Visited, One_Path),
-           printf("\n Visited: %w \t Size %w", Visited, size(One_Path)),
-        end ,   
-                    
-        
-            % Incrementa o número de grupos
-            Groups := Groups + 1,
+    while (len(Nodes) > 3)
 
-        %%%%Atualizar  quem falta, atualizar um Init e Nodes
-        %Novo Nodes :=  All_Nodes - Visited
-        %% Novo Init será o primeiro nó em Novo Nodes
-        %Nodes := keys(symmetric_difference(Graph, Visited)), 
-        Nodes := keys(set_difference(Graph, Visited)), 
-        Init := first(Nodes),
-        clear(Visited)
+            foreach(EndNode in Nodes)
+                %printf("\n End: %w", EndNode),
+                %printf("\n\n PATH: %w", dfs_functional(Graph, 0, EndNode ))
+                if (keys(dfs_functional(Graph, Init, EndNode )) != []) then
+            
+                One_Path := dfs_functional(Graph, Init, EndNode ),
+                %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
+                Visited := union_sets_fast(Visited, One_Path),
+                %printf("\n Visited: %w \t Size %w", Visited, size(One_Path)),
+                end ,   
+        
+                end,     
+                % Incrementa o número de grupos
+                Groups := Groups + 1,
 
-        end,     
+                %%%%Atualizar  quem falta, atualizar um Init e Nodes
+                %Novo Nodes :=  All_Nodes - Visited
+                %% Novo Init será o primeiro nó em Novo Nodes
+                %Nodes := keys(symmetric_difference(Graph, Visited)), 
+                printf("\n NODES: %w ==> \t Visited %w", Nodes, Visited),
+                Nodes := keys(set_difference(Graph, Visited)), 
+                Init := first(Nodes),
+                clear(Visited),
+                printf("\n Init: %w ==> \t Visited %w", Init, Visited)
+
+        end,        
         
         printf("\nGroups Number %w: Visiteds %w", Groups, keys(Visited) ).
     
