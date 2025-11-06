@@ -75,8 +75,8 @@ main([File]) =>
         %printf("\n ONE PATH: %w \t Empty SET: %w \t End: %w", One_Path, Empty_Set, EndNode),
       
         %if (keys(One_Path) != keys(Empty_Set)) then
-        %if( One_Path != Empty_Set ) then
-        if (size(One_Path) > 0) then
+        if( One_Path != Empty_Set ) then
+        %if (size(One_Path) > 0) then
         %if (len(keys(One_Path)) > 0) then
            
            Visited := union_sets_fast(Visited, One_Path),
