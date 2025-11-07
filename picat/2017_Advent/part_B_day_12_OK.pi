@@ -10,7 +10,7 @@ main([File]) =>
     foreach(Node in Nodes)
         if not has_key(Visited, Node) then
             % Encontra todos os nós conectados a Node (formando um grupo)
-            Group = dfs_functional(Graph, Node, Node),
+            Group = dfs_functional(Graph, Node),
             % Marca todos os nós do grupo como visitados
             foreach(Member in keys(Group))
                 put(Visited, Member, true)
@@ -34,7 +34,8 @@ read_input(File, EMap) =>
     end.
 
 % Função DFS funcional para encontrar todos os nós conectados a InitNode
-dfs_functional(Graph, InitNode, _) = Sol =>
+% All nodes connected from InitNode -- weakely connected
+dfs_functional(Graph, InitNode) = Sol =>
     Visited := new_set(),
     Stack := [InitNode],
     put(Visited, InitNode, true),

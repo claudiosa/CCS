@@ -51,7 +51,7 @@ sys	0m0,008s
 
 % https://adventofcode.com/2017/day/12 part1
 import util.
-%import ordset.
+import ordset.
 %import sys.
 
 main([File]) =>
@@ -70,17 +70,19 @@ main([File]) =>
     % end,
     
     foreach(EndNode in Nodes)
-        %printf("\n---\nInit:%w \tEndNode atual: %w\n", Init, EndNode),
-        One_Path := dfs_functional(Graph, Init, EndNode ),
+    
+        One_Path := dfs_functional(Graph, Init, EndNode),
          
-        %printf("\n ONE PATH: %w \t Empty SET: %w \t End: %w", One_Path, Empty_Set, EndNode),
-      
+        printf("\n ONE PATH: %w \t Empty SET: %w \t End: %w", One_Path, Empty_Set, EndNode),
+        printf("\n---\nInit:%w \tEndNode atual: %w\n", Init, EndNode),  
         %if (keys(One_Path) != keys(Empty_Set)) then
-        if( One_Path != Empty_Set ) then
-        %if (size(One_Path) > 0) then
+        %if( One_Path != Empty_Set ) then
+        if (size(One_Path) > 0) then
         %if (len(keys(One_Path)) > 0) then
            
-           Visited := union_sets_fast(Visited, One_Path),
+           %Visited := union_sets_fast(Visited, One_Path),
+           
+           Visited := union(Visited, One_Path), 
            println(visited_1 = Visited)
            %printf("\n => Visiteds: %w \t One_Path %w \t ONE Size %w", Visited, One_Path, size(One_Path))         
         else
@@ -105,31 +107,22 @@ read_input(File,EMap) =>
         Neibs = [to_int(Token) : Token in split(Str2,",")],
         EMap.put(V1,Neibs)
     end.
-
-
-% DFS recursivo: visita tudo a partir de Node
-dfs_recursive(Graph, Node, Visited0) = Visited =>
-    Visited1 = Visited0,
-    put(Visited1, Node, true),
-    foreach (N in Graph.get(Node, []))
-        if not has_key(Visited1, N) then
-            Visited1 := dfs_recursive(Graph, N, Visited1)
-        end
-    end,
-    Visited = Visited1.
-
+ 
+ 
 % Uso: Vis = dfs_recursive(Graph, 0, new_set()).
 
 % KERNEL DFS as a FUNCTION ... USING SETS
-/*
+
 dfs_functional(Graph, InitNode, EndNode) = Sol =>
         S := InitNode,
         Visited := new_set(),
         put(Visited, InitNode, true),
+        
         Unreachable := false,
 
         while ((S != EndNode) && (not Unreachable)) do
             Next := next_node_F(Graph, S, Visited),
+            println(next=Next),
             if var(Next) then  % Nenhum próximo nó disponível
                 Unreachable := true 
             else
@@ -140,36 +133,12 @@ dfs_functional(Graph, InitNode, EndNode) = Sol =>
         
         if Unreachable then 
             println("\n[DFS] Caminho NÃO alcançável — retornando conjunto vazio."),
-            Sol = new_set()  %%%% EMPTY SET
+            Sol := new_set()  %%%% EMPTY SET
         else 
-            %println("\n[DFS] Caminho encontrado — retornando conjunto de visitados."),
-            Sol = Visited
+            println("\n[DFS] Caminho encontrado — retornando conjunto de visitados."),
+            println(visited=Visited),
+            Sol := Visited
         end.
-*/
-dfs_functional(Graph, InitNode, EndNode) = Sol =>
-    Visited := new_set(),
-    Stack := [InitNode],
-    put(Visited, InitNode, true),
-    Found := false,
-    while (Stack != []) 
-        Stack := [Current | RestStack],
-        if (Current == EndNode) then
-            Found := true
-        end,
-        Neighbors = get(Graph,Current),
-        foreach(Neighbor in Neighbors)
-            if not has_key(Visited, Neighbor) then
-                put(Visited, Neighbor, true),
-                RestStack := [Neighbor] ++ RestStack
-            end
-        end,
-        Stack := RestStack
-    end,
-    if Found then
-        Sol = Visited
-    else
-        Sol = new_set()
-    end.
 
 
 
@@ -203,6 +172,12 @@ next_node_F(Graph, Node, Visited) = Next =>
         end,
     end.
 
+/* next_node_F(Graph, Node, Visited) = Next =>
+
+    Neighbours = get(Graph, Node),
+    foreach(Next in Neighbours, break(not has_key(Visited, Next) )
+            end.
+ */
 
 %%% convert a MAP to a list with arrays
 %%% each array { NODE, [NEIBOURGHS] }
