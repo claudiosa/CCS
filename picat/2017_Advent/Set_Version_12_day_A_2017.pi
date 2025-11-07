@@ -72,6 +72,7 @@ main([File]) =>
     foreach(EndNode in Nodes)
         %printf("\n---\nInit:%w \tEndNode atual: %w\n", Init, EndNode),
         One_Path := dfs_functional(Graph, Init, EndNode ),
+         
         %printf("\n ONE PATH: %w \t Empty SET: %w \t End: %w", One_Path, Empty_Set, EndNode),
       
         %if (keys(One_Path) != keys(Empty_Set)) then
@@ -80,13 +81,18 @@ main([File]) =>
         %if (len(keys(One_Path)) > 0) then
            
            Visited := union_sets_fast(Visited, One_Path),
+           println(visited_1 = Visited)
            %printf("\n => Visiteds: %w \t One_Path %w \t ONE Size %w", Visited, One_Path, size(One_Path))         
         else
-           
+           %Visited := union_sets_fast(Visited, Empty_Set),
+           println(visited_2 = Visited),
            printf("NOT REACHABLE From: %w  to %w (EndNode) Empty Path: %w\n", Init, EndNode, One_Path)
         end    
                     
-    end,     
+    end, 
+
+    %Visited = dfs_recursive(Graph, 0, new_set()),
+    
     printf("\n Visited: %w \n Size: %w", keys(Visited), size(Visited)).
 
  
@@ -100,26 +106,22 @@ read_input(File,EMap) =>
         EMap.put(V1,Neibs)
     end.
 
+
+% DFS recursivo: visita tudo a partir de Node
+dfs_recursive(Graph, Node, Visited0) = Visited =>
+    Visited1 = Visited0,
+    put(Visited1, Node, true),
+    foreach (N in Graph.get(Node, []))
+        if not has_key(Visited1, N) then
+            Visited1 := dfs_recursive(Graph, N, Visited1)
+        end
+    end,
+    Visited = Visited1.
+
+% Uso: Vis = dfs_recursive(Graph, 0, new_set()).
+
 % KERNEL DFS as a FUNCTION ... USING SETS
 /*
- dfs_functional(Graph, InitNode, EndNode) = Sol =>
-        S := InitNode,
-        Visited = new_set(),
-        put(Visited, InitNode, true),
-
-        %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
-        while (S != EndNode) do
-            %next_node_P(Graph, S, Next, Visited),  %%% Predicative version 
-            Next := next_node_F(Graph, S, Visited), %%% Functional version for next node from S ...
-            put(Visited, Next, true),
-            % printf("\nS: %w New Path %w Next: %w", S, Visited, Next), 
-            S := Next
-        end,
-        %if(keys(Visited) != []) then
-        %    printf("\n Not reachable")
-        %end,
-        Sol = Visited. % Return a SET
-*/
 dfs_functional(Graph, InitNode, EndNode) = Sol =>
         S := InitNode,
         Visited := new_set(),
@@ -138,11 +140,38 @@ dfs_functional(Graph, InitNode, EndNode) = Sol =>
         
         if Unreachable then 
             println("\n[DFS] Caminho NÃO alcançável — retornando conjunto vazio."),
-            Sol = new_set()
+            Sol = new_set()  %%%% EMPTY SET
         else 
             %println("\n[DFS] Caminho encontrado — retornando conjunto de visitados."),
             Sol = Visited
         end.
+*/
+dfs_functional(Graph, InitNode, EndNode) = Sol =>
+    Visited := new_set(),
+    Stack := [InitNode],
+    put(Visited, InitNode, true),
+    Found := false,
+    while (Stack != []) 
+        Stack := [Current | RestStack],
+        if (Current == EndNode) then
+            Found := true
+        end,
+        Neighbors = get(Graph,Current),
+        foreach(Neighbor in Neighbors)
+            if not has_key(Visited, Neighbor) then
+                put(Visited, Neighbor, true),
+                RestStack := [Neighbor] ++ RestStack
+            end
+        end,
+        Stack := RestStack
+    end,
+    if Found then
+        Sol = Visited
+    else
+        Sol = new_set()
+    end.
+
+
 
 
 %%% NEXT node predicative version
@@ -155,13 +184,25 @@ next_node_P(Graph, Node, Next, Visited) =>
     Next = _. %%% VAR .... undefined
 
 %%% NEXT node functional version
-next_node_F(Graph, Node, Visited ) = Next =>
-    Neighbours = Graph.get(Node,[]),
-    member(Next, Neighbours), %%% with backtracking here ....
-    %printf("\n Node: %w Next %w : Visited %w" ,Node, Next, Visited),
-    not(has_key(Visited,Next))
-    ;
-    Next = _.
+% next_node_F(Graph, Node, Visited ) = Next =>
+%     Neighbours = Graph.get(Node,[]),
+%     member(Next, Neighbours), %%% with backtracking here ....
+%     %printf("\n Node: %w Next %w : Visited %w" ,Node, Next, Visited),
+%     not(has_key(Visited,Next))
+%     ;
+%     Next = _.
+
+next_node_F(Graph, Node, Visited) = Next =>
+    Neighbours = Graph.get(Node, []),
+    Next := _,               % inicializa var (será var se não encontrar)
+    Key := false,
+    foreach (N in Neighbours, break(Key == true)) 
+        if not has_key(Visited, N) then
+            Next := N,
+            Key := true          % sai do foreach assim que achar um vizinho livre
+        end,
+    end.
+
 
 %%% convert a MAP to a list with arrays
 %%% each array { NODE, [NEIBOURGHS] }
@@ -206,3 +247,23 @@ union_sets(Set1, Set2) = Union =>
         %if (len(keys(One_Path)) != 0) then
            %One_Path := copy_set(dfs_functional(Graph, Init, EndNode )),
            %printf("\n Init: %w EndNode: %w Visiteds: %w", Init, EndNode, One_Path),
+
+/*
+ dfs_functional(Graph, InitNode, EndNode) = Sol =>
+        S := InitNode,
+        Visited = new_set(),
+        put(Visited, InitNode, true),
+
+        %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
+        while (S != EndNode) do
+            %next_node_P(Graph, S, Next, Visited),  %%% Predicative version 
+            Next := next_node_F(Graph, S, Visited), %%% Functional version for next node from S ...
+            put(Visited, Next, true),
+            % printf("\nS: %w New Path %w Next: %w", S, Visited, Next), 
+            S := Next
+        end,
+        %if(keys(Visited) != []) then
+        %    printf("\n Not reachable")
+        %end,
+        Sol = Visited. % Return a SET
+*/

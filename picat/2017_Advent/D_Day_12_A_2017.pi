@@ -1,0 +1,38 @@
+import util.
+
+main([File]) =>
+    Graph = new_map(),
+    read_input(File, Graph),
+    InitNode = 0,
+    % Encontra todos os nós alcançáveis a partir do nó 0
+    % (usando qualquer EndNode alcançável, por exemplo, o próprio 0)
+    Path = dfs_functional(Graph, InitNode, InitNode),
+    printf("\nNúmero de programas alcançáveis a partir do 0: %w\n", size(Path)).
+
+% Função para ler a entrada e construir o grafo
+read_input(File, EMap) =>
+    Lines = read_file_lines(File),
+    foreach(Line in Lines)
+        append(Str1, ['<', '-', '>' | Str2], Line),
+        V1 = to_int(Str1),
+        Neibs = [to_int(Token) : Token in split(Str2, ",")],
+        EMap.put(V1, Neibs)
+    end.
+
+% Função DFS funcional para encontrar todos os nós alcançáveis a partir de InitNode
+dfs_functional(Graph, InitNode, _) = Sol =>
+    Visited := new_set(),
+    Stack := [InitNode],
+    put(Visited, InitNode, true),
+    while (Stack != [])
+        Stack = [Current | RestStack],
+        Neighbors = get(Graph, Current, []),
+        foreach(Neighbor in Neighbors)
+            if (not has_key(Visited, Neighbor))
+                put(Visited, Neighbor, true),
+                RestStack := [Neighbor | RestStack]
+            end
+        end,
+        Stack := RestStack
+    end,
+    Sol = Visited.

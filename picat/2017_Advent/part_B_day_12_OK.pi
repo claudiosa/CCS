@@ -1,0 +1,52 @@
+import util.
+
+main([File]) =>
+    Graph = new_map(),
+    read_input(File, Graph),
+    Nodes = keys(Graph),
+    Visited = new_set(),
+    Groups = 0,
+
+    foreach(Node in Nodes)
+        if not has_key(Visited, Node) then
+            % Encontra todos os nós conectados a Node (formando um grupo)
+            Group = dfs_functional(Graph, Node, Node),
+            % Marca todos os nós do grupo como visitados
+            foreach(Member in keys(Group))
+                put(Visited, Member, true)
+            end,
+            % Incrementa o contador de grupos
+            Groups := Groups + 1,
+            printf("Grupo %w: %w\n", Groups, keys(Group))
+        end
+    end,
+
+    printf("\nNúmero total de grupos: %w\n", Groups).
+
+% Função para ler a entrada e construir o grafo
+read_input(File, EMap) =>
+    Lines = read_file_lines(File),
+    foreach(Line in Lines)
+        append(Str1, ['<', '-', '>' | Str2], Line),
+        V1 = to_int(Str1),
+        Neibs = [to_int(Token) : Token in split(Str2, ",")],
+        EMap.put(V1, Neibs)
+    end.
+
+% Função DFS funcional para encontrar todos os nós conectados a InitNode
+dfs_functional(Graph, InitNode, _) = Sol =>
+    Visited := new_set(),
+    Stack := [InitNode],
+    put(Visited, InitNode, true),
+    while (Stack != [])
+        Stack = [Current | RestStack],
+        Neighbors = get(Graph, Current, []),
+        foreach(Neighbor in Neighbors)
+            if (not has_key(Visited, Neighbor))
+                put(Visited, Neighbor, true),
+                RestStack := [Neighbor | RestStack]
+            end
+        end,
+        Stack := RestStack
+    end,
+    Sol = Visited.

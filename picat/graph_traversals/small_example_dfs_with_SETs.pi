@@ -1,0 +1,76 @@
+import util.
+
+main() =>
+    % Exemplo pequeno: grafo com 3 nós
+    Graph = new_map(),
+    put(Graph, 0, [1, 2]),
+    put(Graph, 1, [0]),
+    put(Graph, 2, [0, 3]),
+    put(Graph, 3, [2]),
+
+    printf("\nGrafo de exemplo:\n"),
+    foreach(Key in keys(Graph))
+        printf("%w -> %w\n", Key, get(Graph, Key))
+    end,
+
+    % Teste 1: Caminho de 0 a 2 (deve ser alcançável)
+    InitNode1 = 0,
+    EndNode1 = 2,
+    printf("\nTeste 1: Caminho de %w a %w\n", InitNode1, EndNode1),
+    Path1 = dfs_functional(Graph, InitNode1, EndNode1),
+    printf("Nós alcançáveis: %w\n", keys(Path1)),
+
+    % Teste 2: Caminho de 0 a 3 (deve ser alcançável)
+    InitNode2 = 0,
+    EndNode2 = 3,
+    printf("\nTeste 2: Caminho de %w a %w\n", InitNode2, EndNode2),
+    Path2 = dfs_functional(Graph, InitNode2, EndNode2),
+    printf("Nós alcançáveis: %w\n", keys(Path2)),
+
+    % Teste 3: Caminho de 1 a 3 (deve ser alcançável)
+    InitNode3 = 1,
+    EndNode3 = 3,
+    printf("\nTeste 3: Caminho de %w a %w\n", InitNode3, EndNode3),
+    Path3 = dfs_functional(Graph, InitNode3, EndNode3),
+    printf("Nós alcançáveis: %w\n", keys(Path3)),
+
+    % Teste 4: Caminho de 3 a 1 (deve ser alcançável)
+    InitNode4 = 3,
+    EndNode4 = 1,
+    printf("\nTeste 4: Caminho de %w a %w\n", InitNode4, EndNode4),
+    Path4 = dfs_functional(Graph, InitNode4, EndNode4),
+    printf("Nós alcançáveis: %w\n", keys(Path4)),
+
+    % Teste 5: Caminho de 1 a 99 (não deve ser alcançável)
+    InitNode5 = 1,
+    EndNode5 = 99,
+    printf("\nTeste 5: Caminho de %w a %w\n", InitNode5, EndNode5),
+    Path5 = dfs_functional(Graph, InitNode5, EndNode5),
+    printf("Nós alcançáveis: %w\n", keys(Path5)).
+
+% Função DFS funcional para encontrar todos os nós alcançáveis entre InitNode e EndNode
+dfs_functional(Graph, InitNode, EndNode) = Sol =>
+    Visited := new_set(),
+    Stack := [InitNode],
+    put(Visited, InitNode, true),
+    Found := false,
+    while (Stack != [])
+        Stack = [Current | RestStack],
+        if (Current == EndNode)
+            Found := true
+        end,
+        %Neighbors = get(Graph, Current, []),  %%% OR
+        Neighbors = get(Graph, Current),
+        foreach(Neighbor in Neighbors)
+            if (not has_key(Visited, Neighbor))
+                put(Visited, Neighbor, true),
+                RestStack := [Neighbor | RestStack]
+            end
+        end,
+        Stack := RestStack
+    end,
+    if Found then
+        Sol = Visited
+    else
+        Sol = new_set()
+    end.
