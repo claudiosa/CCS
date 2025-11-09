@@ -39,7 +39,7 @@ dfs_functional(Graph, InitNode) = Sol =>
     Visited := new_set(),
     Stack := [InitNode],
     put(Visited, InitNode, true),
-    while (Stack != [])
+    while (Stack != []) 
         Stack = [Current | RestStack],
         Neighbors = get(Graph, Current, []),
         foreach(Neighbor in Neighbors)

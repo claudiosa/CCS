@@ -20,19 +20,26 @@ read_input(File, EMap) =>
     end.
 
 % Função DFS funcional para encontrar todos os nós alcançáveis a partir de InitNode
-dfs_functional(Graph, InitNode, _) = Sol =>
+
+
+% KERNEL DFS as a FUNCTION ...
+dfs_functional(Graph, InitNode, EndNode) = Sol =>
+    %Current := InitNode,
     Visited := new_set(),
-    Stack := [InitNode],
-    put(Visited, InitNode, true),
-    while (Stack != [])
+    put(Visited, InitNode, true), %% Add as Visited
+    Stack := [InitNode], %%% Add in stack control
+    %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
+    while ( Stack != []) do
+        %Current := first(Stack),
         Stack = [Current | RestStack],
         Neighbors = get(Graph, Current, []),
-        foreach(Neighbor in Neighbors)
-            if (not has_key(Visited, Neighbor))
-                put(Visited, Neighbor, true),
-                RestStack := [Neighbor | RestStack]
+        foreach(Next in Neighbors)
+            if (not has_key(Visited, Next))
+                put(Visited, Next, true),
+                RestStack := [Next] ++ RestStack
+                %RestStack := [Next | RestStack]
             end
         end,
-        Stack := RestStack
-    end,
+       Stack := RestStack
+    end,        
     Sol = Visited.

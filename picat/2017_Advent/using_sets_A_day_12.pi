@@ -60,43 +60,25 @@ main([File]) =>
     Visited := new_set(), 
     Nodes = keys(Graph),
     print(Visited),
-    printf("\n NODES: %w \n Graph %w", Nodes, Graph),
-    One_Path := new_set(), 
+    printf("\n NODES: %w \n Graph %w\n", Nodes, Graph),
+    Path := new_set(), 
     Empty_Set = new_set(), %%%IMUTABLE
     %println( xxxxx_one_Path = keys(One_Path)),
-    Init = 0,    
+    InitNode = 0,    
+ %   Path = dfs_functional(Graph, InitNode, InitNode),
+ %   printf("\nNúmero de programas alcançáveis a partir do 0: %w\n", size(Path)).
+
     % if (keys(One_Path) ==[]) then
     %     println(' xxxxxx___OKs___xxxxx')
     % end,
-    
-    foreach(EndNode in Nodes)
-    
-        One_Path := dfs_functional(Graph, Init, EndNode),
-         
-        printf("\n ONE PATH: %w \t Empty SET: %w \t End: %w", One_Path, Empty_Set, EndNode),
-        printf("\n---\nInit:%w \tEndNode atual: %w\n", Init, EndNode),  
-        %if (keys(One_Path) != keys(Empty_Set)) then
-        %if( One_Path != Empty_Set ) then
-        if (size(One_Path) > 0) then
-        %if (len(keys(One_Path)) > 0) then
-           
-           %Visited := union_sets_fast(Visited, One_Path),
-           
-           Visited := union(Visited, One_Path), 
-           println(visited_1 = Visited)
-           %printf("\n => Visiteds: %w \t One_Path %w \t ONE Size %w", Visited, One_Path, size(One_Path))         
-        else
-           %Visited := union_sets_fast(Visited, Empty_Set),
-           println(visited_2 = Visited),
-           printf("NOT REACHABLE From: %w  to %w (EndNode) Empty Path: %w\n", Init, EndNode, One_Path)
-        end    
-                    
-    end, 
+    End_1 = 8,
+    End_2 = 4,
+    println(test_1=keys(dfs_iterative_ONE(Graph, InitNode, End_1))),
+    println(test_2=keys(dfs_iterative_ONE(Graph, InitNode, End_2))),
 
-    %Visited = dfs_recursive(Graph, 0, new_set()),
-    
-    printf("\n Visited: %w \n Size: %w", keys(Visited), size(Visited)).
-
+    %%% BUT .... all reacheable from InitNode
+    Path := dfs_iterative_ALL(Graph, InitNode), 
+    printf("\n DFS Transversal starting node: %w Visiteds: %w \n Lenght or Size: %w", InitNode, keys(Path), size(Path)).
  
 %% REUSED from NENG-FA
 read_input(File,EMap) =>
@@ -109,11 +91,9 @@ read_input(File,EMap) =>
     end.
  
  
-% Uso: Vis = dfs_recursive(Graph, 0, new_set()).
-
 % KERNEL DFS as a FUNCTION ... USING SETS
 
-dfs_functional(Graph, InitNode, EndNode) = Sol =>
+/* dfs_functional(Graph, InitNode, EndNode) = Sol =>
         S := InitNode,
         Visited := new_set(),
         put(Visited, InitNode, true),
@@ -139,8 +119,57 @@ dfs_functional(Graph, InitNode, EndNode) = Sol =>
             println(visited=Visited),
             Sol := Visited
         end.
+ */
 
+% KERNEL DFS as a FUNCTION ...
+dfs_iterative_ALL(Graph, InitNode) = Sol =>
+    %Current := InitNode,
+    Visited := new_set(),
+    put(Visited, InitNode, true), %% Add as Visited
+    Stack := [InitNode], %%% Add in stack control
+    %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
+    while ( Stack != [] ) do
+        Stack = [Current | RestStack],    %%% by pattern matching get the top of STACK ,,, that is Current
+        Neighbors = get(Graph, Current, []),
+        foreach(Next in Neighbors)
+            if (not has_key(Visited, Next)) then
+                put(Visited, Next, true),
+                RestStack := [Next] ++ RestStack
+                % OR ... RestStack := [Next | RestStack]
+            end
+        end,
+       Stack := RestStack
+    end,        
+    Sol = Visited.
 
+% A DFS iterative as a FUNCTION ...
+dfs_iterative_ONE(Graph, InitNode,EndNode) = Sol =>
+    %Current := InitNode,
+    Visited := new_set(),
+    put(Visited, InitNode, true), %% Add as Visited
+    Stack := [InitNode], %%% Add in stack control
+    Flag := false,
+    %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
+    while ( Stack != [] && not(Flag) ) do
+        Stack = [Current | RestStack],    %%% by pattern matching get the top of STACK ,,, that is Current
+        Neighbors = get(Graph, Current, []),
+        foreach(Next in Neighbors)
+            if (not has_key(Visited, Next)) then
+                put(Visited, Next, true),
+                RestStack := [Next] ++ RestStack,
+                % OR ... RestStack := [Next | RestStack]
+                if (Next == EndNode) then
+                    Flag := true  %%% to interrupt if EndNode was reached
+                end
+            end
+        end,
+       Stack := RestStack
+    end,        
+    if ( has_key(Visited, EndNode) ) then    
+        Sol = Visited
+    else
+        Sol = new_set()
+    end.
 
 
 %%% NEXT node predicative version
@@ -152,28 +181,18 @@ next_node_P(Graph, Node, Next, Visited) =>
     ;
     Next = _. %%% VAR .... undefined
 
-%%% NEXT node functional version
-% next_node_F(Graph, Node, Visited ) = Next =>
-%     Neighbours = Graph.get(Node,[]),
-%     member(Next, Neighbours), %%% with backtracking here ....
-%     %printf("\n Node: %w Next %w : Visited %w" ,Node, Next, Visited),
-%     not(has_key(Visited,Next))
-%     ;
-%     Next = _.
-
 next_node_F(Graph, Node, Visited) = Next =>
     Neighbours = Graph.get(Node, []),
     Next := _,               % inicializa var (será var se não encontrar)
     Key := false,
-    foreach (N in Neighbours, break(Key == true)) 
+    foreach (N in Neighbours, break(Key == true) ) 
         if not has_key(Visited, N) then
             Next := N,
-            Key := true          % sai do foreach assim que achar um vizinho livre
+            Key := true  % sai do foreach assim que achar um vizinho livre
         end,
     end.
 
 /* next_node_F(Graph, Node, Visited) = Next =>
-
     Neighbours = get(Graph, Node),
     foreach(Next in Neighbours, break(not has_key(Visited, Next) )
             end.
