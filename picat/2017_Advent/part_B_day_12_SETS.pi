@@ -1,0 +1,128 @@
+/*
+I am trying to solve Advent of Code 2017 day 12. 
+
+*/
+% https://adventofcode.com/2017/day/12 part2 or B
+import util.
+import ordset.
+%import sys.
+
+main([File]) =>
+    Graph = new_map(),
+    read_input(File, Graph),
+    Nodes := keys(Graph),
+    printf("\n NODES: %w \n Graph %w", Nodes, Graph),
+    Visited := new_set(),
+                
+    Groups := 0,
+    
+    printf("\n Visited %w", Visited),
+    foreach(Init in Nodes, break(size(Visited)==size(Graph)) )
+    
+        if (not has_key(Visited, Init)) then
+            One_Group := dfs_iterative_ALL(Graph, Init ),
+            Visited := union_sets_fast(Visited,One_Group),
+            %Visited := union(Visited, One_Group), %%% ONLY SORTED
+            %print(Visited),
+            Groups := Groups + 1,
+            %printf("\n Init %w Nodes: %w ==> \t One_group %w \t G:%w ACC%w", Init,  Nodes, keys(One_Group),Groups, Visited),
+        end 
+    end,       
+
+    printf("\nGroups Number %w", Groups) .
+ 
+%% REUSED from NENG-FA
+read_input(File,EMap) =>
+    Lines = read_file_lines(File), 
+    foreach (Line in Lines)
+        append(Str1,['<','-','>'|Str2],Line),
+        V1 = to_int(Str1),
+        Neibs = [to_int(Token) : Token in split(Str2,",")],
+        EMap.put(V1,Neibs)
+    end.
+
+% KERNEL DFS as a FUNCTION ...
+dfs_iterative_ALL(Graph, InitNode) = Sol =>
+    %Current := InitNode,
+    Visited := new_set(),
+    put(Visited, InitNode, true), %% Add as Visited
+    Stack := [InitNode], %%% Add in stack control
+    %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
+    while ( Stack != [] ) do
+        Stack = [Current | RestStack],    %%% by pattern matching get the top of STACK ,,, that is Current
+        Neighbors = get(Graph, Current, []),
+        foreach(Next in Neighbors)
+            if (not has_key(Visited, Next)) then
+                put(Visited, Next, true),
+                RestStack := [Next] ++ RestStack
+                % OR ... RestStack := [Next | RestStack]
+            end
+        end,
+       Stack := RestStack
+    end,        
+    Sol = Visited.
+
+
+%%% convert a MAP to a list with arrays
+%%% each array { NODE, [NEIBOURGHS] }
+map_to_list_array(Map) = Graph =>
+    Keys = keys(Map),
+    Graph = [{K, get(Map, K)} : K in Keys].
+
+%%%% SETs UTILs  .... Need to be tests
+% Helper predicate to ensure Set is not modified
+copy_set(Set) = Copy =>
+    Copy = new_set(),
+    foreach(Key in keys(Set))
+        put(Copy, Key, true)
+    end.
+
+union_sets_fast(Set1, Set2) = Union =>
+    % 1. Create a copy of Set1 to be the Union set.
+    Union = copy_set(Set1),
+    % 2. Iterate through all keys (elements) of Set2.
+    foreach(Elem in keys(Set2))
+        % 3. Add each element of Set2 to the Union. 
+        % If the element already exists (from Set1), put/3 simply overwrites it,
+        % without duplication in the map. put without duplication
+        put(Union, Elem, true)
+    end.
+
+% Convert a list to set ... necessary in union_sets
+list_to_set(List) = Set =>
+    Set = new_set(),
+    foreach(Elem in List)
+        put(Set, Elem, true)
+    end.
+
+% My union of two sets .... slow - maybe
+union_sets(Set1, Set2) = Union =>
+    keys(Set1) = List1,
+    keys(Set2) = List2,
+    L_Temp = sort_remove_dups(List1 ++ List2),
+    Union = list_to_set(L_Temp).
+
+symmetric_difference(Set1, Set2) = SymDiff =>
+    % 1. Calcula Set1 - Set2 (Elementos que estão apenas em Set1).
+    Diff_1_2 = set_difference(Set1, Set2),
+    
+    % 2. Calcula Set2 - Set1 (Elementos que estão apenas em Set2).
+    Diff_2_1 = set_difference(Set2, Set1),
+    
+    % 3. Faz a União dos dois resultados (reutilizando o predicado otimizado anterior).
+    SymDiff = union_sets_fast(Diff_1_2, Diff_2_1).
+
+
+% Calcula a diferença simples: Set1 - Set2.
+%%% Set1 - Set2.
+set_difference2(Set1, Set2) = Difference =>
+    % 1. Obtém a lista de chaves de Set1.
+    Keys1 = keys(Set1),
+    
+    % 2. Filtra Keys1 para manter apenas os elementos que NÃO estão em Set2.
+    %    O predicado `not has_key(Set2, Elem)` é usado como filtro.
+    DiffKeys = [Elem : Elem in Keys1, not has_key(Set2, Elem)],
+    
+    % 3. Converte a lista resultante de volta para um novo conjunto (mapa).
+    Difference = new_set(DiffKeys).
+
