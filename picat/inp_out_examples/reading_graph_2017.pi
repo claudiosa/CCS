@@ -1,0 +1,133 @@
+
+import util.
+
+main([File]) =>
+    % Cria quatro mapas distintos para comparar as diferentes funções de leitura.
+    % Cada função insere (chave -> lista_de_vizinhos) em um mapa separado.
+    EMap1 = new_map(),
+    EMap2 = new_map(),
+    EMap3 = new_map(),
+    EMap4 = new_map(),
+
+    % --- Função correta original (do Neng-Fa) ---
+    read_input(File, EMap4),
+    printf("\nGraph from read input CORRETO: %w", EMap4),
+    
+    % --- Função 1: usando strings e split() ---
+    read_input_01(File, EMap1),
+    printf("\nGraph from read_input_01: %w", EMap1),
+
+    % --- Função 2: semelhante à 01, mas com padrão de destructuring ---
+    read_input_02(File, EMap2),
+    printf("\nGraph from read_input_02: %w", EMap2),
+
+    % --- Função 3: versão corrigida operando sobre listas: a mais robusta ---
+    read_input_03(File, EMap3),
+    printf("\nGraph from read_input_03: %w\n", EMap3).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Função 1
+%
+% Usa conversão explícita da linha inteira para string e split por "<->".
+% Isso funciona porque to_string(Line) converte lista de chars → string.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+read_input_01(File, EMap) =>
+    Lines = read_file_lines(File),   % Lê uma lista de linhas, cada uma uma LISTA DE CHARS
+    foreach(Line in Lines)
+        LineStr = to_string(Line),   % Converte a linha (lista) em string Picat
+                                     % Agora split funciona corretamente
+
+        Parts = split(LineStr, "<->"), % Divide em ["0 ", " 2"] por exemplo
+
+        V1 = to_int(strip(Parts[1])),  % strip remove espaços; to_int converte para número
+
+        NeibsList = split(Parts[2], ","),   % Divide "2, 3, 4" em tokens
+
+        % Converte cada token limpo para inteiro:
+        Neibs = [to_int(strip(Token)) : Token in NeibsList, Token != ""],
+
+        % Insere no mapa: 0 -> [2], etc
+        EMap.put(V1, Neibs)
+    end.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Função 2
+%
+% Igual à 01, mas usando decomposição de lista:
+%   [OriginStr, NeibsStr] = split(...)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+read_input_02(File, EMap) =>
+    Lines = read_file_lines(File),
+    foreach(Line in Lines)
+        LineStr = to_string(Line),
+
+        % split devolve exatamente 2 partes → usamos padrão correto
+        [OriginStr, NeibsStr] = split(LineStr, "<->"),
+
+        V1 = to_int(strip(OriginStr)),
+
+        NeibsList = split(NeibsStr, ","),
+
+        Neibs = [to_int(strip(Token)) : Token in NeibsList, Token != ""],
+
+        EMap.put(V1, Neibs)
+    end.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Função 3 — CORRIGIDA
+%
+% Esta é a versão mais robusta.
+% Trabalha diretamente sobre a linha como LISTA DE CHARS.
+%
+% Motivação:
+%   read_file_lines(File) NÃO devolve strings, mas sim listas de caracteres.
+%
+% Usar append/3 para separar "<->" dentro de uma lista de chars é 100% seguro.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+read_input_03(File, EMap) =>
+    Lines = read_file_lines(File),
+    foreach(Line in Lines)
+
+        % Separa a linha em duas partes:
+        %   Str1 = lista de chars antes de "<->"
+        %   Str2 = lista de chars depois de "<->"
+        %
+        % append/3 encontra a sequência ['<','-','>'] dentro da lista completa.
+        append(Str1, ['<','-','>' | Str2], Line),
+
+        % Converte Str1 ("0 " como lista de chars) para inteiro
+        V1 = to_int(strip(Str1)),
+
+        % split lida corretamente com listas de chars também.
+        % Ele retorna uma lista de tokens também em listas de chars.
+        Tokens = split(Str2, ","),
+
+        % Converte cada token para inteiro.
+        Neibs = [to_int(strip(Token)) : Token in Tokens, Token != ""],
+
+        % Insere no mapa
+        EMap.put(V1, Neibs)
+    end.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Função original do Neng-Fa — A MAIS CANÔNICA
+%
+% Ela trabalha sempre com listas de chars, exatamente como read_file_lines lê.
+% Por isso funciona no Picat sem nenhuma conversão.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+read_input(File, EMap) =>
+    Lines = read_file_lines(File),
+    foreach(Line in Lines)
+        append(Str1, ['<', '-', '>' | Str2], Line),
+
+        V1 = to_int(Str1),
+
+        % split funciona sobre lista de chars
+        Neibs = [to_int(Token) : Token in split(Str2, ",")],
+
+        EMap.put(V1, Neibs)
+    end.

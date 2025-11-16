@@ -71,8 +71,8 @@ main([File]) =>
     % if (keys(One_Path) ==[]) then
     %     println(' xxxxxx___OKs___xxxxx')
     % end,
-    End_1 = 8,
-    End_2 = 4,
+    End_1 = 8, %%% sub-graphs ...
+    End_2 = 1,
     println(test_1=keys(dfs_iterative_ONE(Graph, InitNode, End_1))),
     println(test_2=keys(dfs_iterative_ONE(Graph, InitNode, End_2))),
 
@@ -148,9 +148,9 @@ dfs_iterative_ONE(Graph, InitNode,EndNode) = Sol =>
     Visited := new_set(),
     put(Visited, InitNode, true), %% Add as Visited
     Stack := [InitNode], %%% Add in stack control
-    Flag := false,
+    Flag := true,
     %printf("\nS: %w Path or Visiteds %w EndNode: %w" ,S, Visited, EndNode), 
-    while ( Stack != [] && not(Flag) ) do
+    while ( Stack != [] && Flag ) do
         Stack = [Current | RestStack],    %%% by pattern matching get the top of STACK ,,, that is Current
         Neighbors = get(Graph, Current, []),
         foreach(Next in Neighbors)
@@ -159,7 +159,7 @@ dfs_iterative_ONE(Graph, InitNode,EndNode) = Sol =>
                 RestStack := [Next] ++ RestStack,
                 % OR ... RestStack := [Next | RestStack]
                 if (Next == EndNode) then
-                    Flag := true  %%% to interrupt if EndNode was reached
+                    Flag := false  %%% to interrupt if EndNode was reached
                 end
             end
         end,
@@ -168,7 +168,7 @@ dfs_iterative_ONE(Graph, InitNode,EndNode) = Sol =>
     if ( has_key(Visited, EndNode) ) then    
         Sol = Visited
     else
-        Sol = new_set()
+        Sol = new_set()  %%% NON REACHABLE ....
     end.
 
 
