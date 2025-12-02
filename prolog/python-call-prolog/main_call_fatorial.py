@@ -9,6 +9,8 @@ def call_prolog_fatorial(n):
     cmd = [
         "swipl",
         "-q",
+        "--traditional",
+        #"--debug",
         "-s", "fatorial.pl",
         "-g", f"run_fact({n})",
         "-t", "halt"
@@ -43,4 +45,4 @@ if __name__ == "__main__":
 
     if r is not None:
         print(f"Fatorial de {num} é: {r}")
-        
+
