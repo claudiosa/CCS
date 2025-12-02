@@ -8,13 +8,17 @@ main(FactsFile, N, PredName) :-
     consult(FactsFile),
   
     % calcula soma
-    sum_mirrors(N, Sum),
-
+    %sum_mirrors(N, Sum),
+    sum_mirrors_all(Sum), 
     % imprime SOMENTE o resultado numérico
     write(Sum).
 
 % ---------------------------------------------
 
+sum_mirrors_all(Sum) :-
+    findall(M, mirror(_, M), Ms),
+    sum_list(Ms, Sum).
+%%%% OR
 % Soma os mirrors(1..N), simples e direto
 sum_mirrors(N, Sum) :-
     sum_loop(1, N, 0, Sum).

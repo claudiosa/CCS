@@ -1,5 +1,5 @@
 import subprocess
-
+import time
 # ---------------------------------------------
 # 1. Gera arquivo de fatos mirror(X, Palindromo)
 # ---------------------------------------------
@@ -52,7 +52,12 @@ if __name__ == "__main__":
     facts_file = "mirror_facts.pl"
      
     generate_facts_file(facts_file, N)
-    print("calling the Prolog")
+    print("Calling the Prolog")
+     # mede o tempo do subprocess inteiro (spawn + exec + retorno)
+    start = time.perf_counter()
     result = run_prolog_sum(facts_file, N, "mirror")
-    print("resuming from Prolog")
+    end = time.perf_counter()
+    elapsed = end - start
+    print("Resuming from Prolog")
     print(f"\n[SOMA TOTAL] = {result}")
+    print(f"⏱ Tempo total (Python → Prolog → Python): {elapsed:.6f} segundos")
