@@ -21,6 +21,9 @@
 :- dynamic session_world/2.   % session_world(SessionId, World)
 :- dynamic id_counter/1.
 
+:- discontiguous group_facts_by_key/2. %% ccs
+
+
 id_counter(0).
 new_id(Id) :-
     retract(id_counter(N)), N1 is N + 1, assert(id_counter(N1)), Id = N1.
