@@ -1,0 +1,32 @@
+/*
+Hard Constraints (restrições rígidas)
+Devem ser sempre satisfeitas
+Se não forem → solução inválida
+X + Y = 10
+Soft Constraints (restrições suaves)
+Desejáveis, mas não obrigatórias
+Podem ser violadas → com penalização
+O objetivo é minimizar a violação
+*/
+import cp.
+
+main =>
+    % Variáveis
+    X :: 0..10,
+    Y :: 0..10,
+
+    % ------------------------
+    % HARD CONSTRAINT
+    % ------------------------
+    X + Y #>= 10,
+
+    % ------------------------
+    % SOFT CONSTRAINT
+    % queremos minimizar |X - Y|
+    % ------------------------
+    Diff #= abs(X - Y),
+
+    % Minimizar a violação
+    solve($[min(Diff)], [X, Y]),
+
+    printf("X=%d Y=%d Diff=%d\n", X, Y, Diff).

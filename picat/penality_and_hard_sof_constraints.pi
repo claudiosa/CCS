@@ -1,0 +1,25 @@
+import cp.
+
+main =>
+    X :: 0..10,
+    Y :: 0..10,
+
+    % Hard constraint relaxada (vira soft)
+    Viol #= max(0, 10 - (X + Y)),
+
+    % Outra soft
+    Diff #= abs(X - Y),
+
+    % Função objetivo
+    Cost #= Viol * 100 + Diff,
+    Cost #< 900,
+    Cost #> 600,
+    solve_all([X,Y,Viol,Diff,Cost]) = All_Sol,
+    println(All_Sol).
+
+    /*
+    solve($[min(Cost)], [X, Y]),
+
+    printf("X=%d Y=%d Viol=%d Diff=%d Cost=%d\n",
+           X, Y, Viol, Diff, Cost).
+    */        

@@ -1,0 +1,11 @@
+import sat.
+
+my_next(X) = X+1.
+
+main =>
+    [X,Y] :: 0..1,%% any domain
+%    Nexts = [NZ : Z in [X,Y], NZ #= Z + 1], %%% works also
+     Nexts = [NZ : Z in [X,Y], (NZ #= X+1 ; NZ #= Y+1) ]  ,
+     sum(Nexts) #< 20,
+     solve_all([X,Y]) = All_Sol,
+     println(All_Sol).

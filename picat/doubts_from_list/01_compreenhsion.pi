@@ -1,0 +1,7 @@
+import sat.
+
+main =>
+    [X,Y] :: 0..1,
+    sum([Z+1 : Z in [X,Y]]) #< 20,
+    solve_all([X,Y]) = All_Sol,
+    println(All_Sol).
