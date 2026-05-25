@@ -1,0 +1,42 @@
+import cp.
+
+main =>
+  % Dados
+  Funcionarios = 1..2,
+  Tarefas = 1..4,
+
+  % Variáveis
+  Atribuicao = new_list(4),
+  Atribuicao :: Funcionarios,
+
+  % ------------------------
+  % HARD CONSTRAINT
+  % ------------------------
+  %%%% MELHORAR
+  Atribuicao[1] #= Atribuicao[3],
+  Atribuicao[2] #= Atribuicao[4],
+
+
+  % ------------------------
+  % SOFT CONSTRAINTS
+  % ------------------------
+
+  % Penalidade 1: tarefa1 -> funcionário1 (custo 10 se violado)
+  B1 :: 0..1,
+  B1 #= (Atribuicao[1] #!= 1),
+
+  % Penalidade 2: tarefa2 -> funcionário2 (custo 5 se violado)
+  B2 :: 0..1,
+  B2 #= (Atribuicao[2] #!= 2),
+
+  % Custo total
+  Custo #= 10*B1 + 50*B2,
+
+  % Minimizar custo
+  solve(Atribuicao, $[min(Custo)]),
+  %solve($[max(Custo), Atribuicao ]),
+  
+  % Output
+  printf("\n=== SOLUÇÃO ===\n"),
+  printf("Atribuicao = %w\n", Atribuicao),
+  printf("Custo = %d\n", Custo).
