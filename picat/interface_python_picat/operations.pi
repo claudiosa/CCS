@@ -1,0 +1,18 @@
+%import json.
+main(LISTA_Args) =>  
+    X = to_integer(LISTA_Args[1]),
+    Y = to_integer(LISTA_Args[2]),
+
+    S = X + Y,
+    M = X * Y,
+    D = X - Y,
+    %println(S), 
+    %println(M), 
+    %    println(D),
+       % printf("%w %w %w\n", S, M, D)
+       % writef("%s%n", json_encode(json_decode(JSONData))).
+    printf("{\"soma\":%w,\"produto\":%w,\"diferenca\":%w}\n", S, M, D).
+    
+        %println(json_to_string(Obj)).
+    %println(son_to_string(Obj))  .
+

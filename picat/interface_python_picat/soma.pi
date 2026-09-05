@@ -1,0 +1,15 @@
+main(LISTA_Args) =>  
+        %print(" =========================== \n"),  
+        S:=0,
+        foreach (X in LISTA_Args)  
+            %printf("%w\n", X)  
+            S := S + to_integer(X)
+        end,
+        println(S)
+        %printf("Ou em lista: %w\n", LISTA_Args)
+        .
+    
+/*
+    X = to_integer(args(1)),
+    Y = to_integer(args(2)),
+*/
