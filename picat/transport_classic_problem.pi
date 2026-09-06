@@ -1,0 +1,151 @@
+
+/*
+From
+Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
+Problem 8.2-6 — Brief summary
+
+Solved by CCS -
+
+The Better Products Co. needs to transport
+ products from 4 origins - sources to 5 destinations - demands while 
+minimizing the total transportation cost.
+
+Each origin has a limited supply,
+ each destination has a required demand, 
+and each origin-destination route has a 
+specified unit transportation cost.
+
+The route from Origin 2 to Destination 2 is prohibited.
+Origin 4 is a dummy (fictitious) origin, introduced 
+to balance total supply and demand.
+
+Objective: Determine how much to ship 
+from each origin to each destination so
+ that all demands are satisfied, 
+supply constraints are respected, 
+the prohibited route is not used, 
+and the total transportation cost is minimized.
+
+*/
+
+import cp.
+
+%import sat.
+main ?=> model,
+printf("\n....................................\n").
+  
+main => printf("\n  END \n").
+
+model => 
+    %% Data
+    LARGE = 9999, %% NO CONNECTION .... 
+    Costs = {
+        {8, 6, 3, 7, 5},
+        {5, LARGE, 8, 4, 7},
+        {6, 3, 9, 6, 8},
+        {0, 0, 0, 0, 0}       % Dummy
+    },
+
+    Supply = {20, 30, 30, 20},
+    Demand = {25, 25, 20, 10, 20},
+
+    D = Costs[1].length, % Demands or consumers --- COLUNS
+    S = Costs.length,  % Suppliers or sources -- ROWS
+    printf("Demands (Cols): %w Sources (Rows): %w", D, S),
+     printf("\n Processing ....\n"),
+    %% see the figures in the site 
+       
+    X_Matrix = new_array(S, D), %% Rowx x Colun
+    X_Matrix :: 0 .. LARGE, %%% include 0 YES due 
+    %print_matrix(X_Matrix),
+    
+  
+    %% some arcs are not select. Example:
+    X_Matrix[2,2] #= 0,
+           
+    % All the sources MUST respect their generation capacity
+    /*
+    sum([X_Matrix[1,J] : J in 1..D]) #= 20,
+    sum([X_Matrix[2,J] : J in 1..D]) #= 30,
+    sum([X_Matrix[3,J] : J in 1..D]) #= 30,
+    sum([X_Matrix[4,J] : J in 1..D]) #= 20,
+    Shorting to:
+    */
+    foreach(I in 1..S )
+        sum([X_Matrix[I,J] : J in 1..D]) #= Supply[I]
+    end,
+
+    
+    % All the consumers/demands MUST respect their reception capacity
+    /*
+    sum([X_Matrix[I,1] : I in 1..S]) #<= 25,
+    sum([X_Matrix[I,2] : I in 1..S]) #<= 25,
+    sum([X_Matrix[I,3] : I in 1..S]) #<= 20,
+    sum([X_Matrix[I,4] : I in 1..S]) #<= 10,
+    sum([X_Matrix[I,5] : I in 1..S]) #<= 20,
+    */
+    foreach(J in 1..D )
+        sum([X_Matrix[I,J] : I in 1..S]) #= Demand[J]
+    end,    
+
+    /*
+    Redundant:
+    foreach(I in 1..S , J  in 1..D)
+        ( X_Matrix[I,J] #>= 0 )
+    end, 
+    */
+       
+ %% Cost function to be minimized
+  Cost_F #= sum([Costs[I,J] * X_Matrix[I,J] : 
+                I in 1..S , 
+                J  in 1..D]),
+  
+  %% Vars for search
+  %Vars = [X_Matrix], 
+ 
+  solve( $[ min(Cost_F) ], X_Matrix ),
+  % solve( $ [min(Cost_F), tmp], X_Matrix ), % UMA SAIDA
+
+
+    printf("\n Input Data\n"),
+    printf("\n Supply (Rows): %w" , Supply),
+    printf("\n Demand (Cols): %w" , Demand),
+    print_m2(Costs), 
+  
+  printf("\n Cost Solution: %d" , Cost_F), %%  or %f
+  %println(cost_f = Cost_F),
+  printf("\n Transportation Assigned -- Sol"),
+  print_matrix( X_Matrix ).
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      print('x('), print(I),
+      print(','), write(J),
+      print(') = '),
+      write( M[I,J] ), print("       ")
+      
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+
+
+print_m2( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      write( M[I,J] ), print("       ")
+      
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
