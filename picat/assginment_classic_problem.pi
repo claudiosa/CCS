@@ -1,4 +1,3 @@
-
 /*
 From
 Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
@@ -22,14 +21,13 @@ Tony          37.0   34.7    30.4     28.5
 Ken           35.4   41.8    33.6     31.1
 
 Solved by CCS ... output some help from AI
-
 */
 import cp.
 %import sat.
 main ?=> model,
 printf("\n....................................\n").
   
-main => printf("\n  END \n").
+main => printf("\n  END (with some fail ... revise your code) \n").
 
 model => 
     %% Data in FLOAT
@@ -67,13 +65,13 @@ model =>
     foreach(I in 1..N_Swimmers )
       foreach(J in 1..N_Styles )
         Times[I,J] = to_integer(TEN * T_float[I,J]),
-        %printf(" %w || ", Times[I,J])
+        % printf(" %w || ", Times[I,J])
       end,
       %nl,
     end,
 
-    %I → source
-    %J → destination
+    % I -> row -> swimmer
+    % J -> column -> swimming style
     printf("N_Swimmers (Rows) %w : N_Styles (Cols): %w", N_Swimmers, N_Styles),
     printf("\n Processing ....\n"),
     %% see the figures in the site 
@@ -82,12 +80,13 @@ model =>
     X_Matrix = new_array(N_Swimmers, N_Styles), %% Rowx x Colun
     X_Matrix :: 0..1, %%% assingned or no
     
-    % One swimmer will swimm only one style or none
+    % One swimmer will swimm only one style or no!
+    %  If you have 20 swimmers ... only 4 will be selected
     foreach(I in 1..N_Swimmers )
         sum([X_Matrix[I,J] : J in 1..N_Styles]) #<= 1
     end,
 
-    % One style will be selected
+  % One style MUST be selected for one swimmer
     foreach(J in 1..N_Styles )
         sum([X_Matrix[I,J] : I in 1..N_Swimmers]) #= 1
     end,    
