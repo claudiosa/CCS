@@ -1,0 +1,140 @@
+/*
+From
+Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
+ — Shortest-Path Problem
+A network consists of several nodes connected by 
+links with given costs. Find the minimum-cost path 
+from a specified source node to a specified target node. 
+The problem is formulated as a network-flow model, 
+where one unit of flow is sent from the source to the 
+target while satisfying flow-conservation constraints 
+at all intermediate nodes.
+
+Solved by CCS ... output some help from AI
+*/
+import cp.
+%import sat.
+main ?=> model,
+printf("\n....................................\n").
+  
+main => printf("\n  END (with some fail ... revise your code) \n").
+
+model => 
+    %% Data in FLOAT
+    Cost = {
+        {0, 2, 5, 4, 0, 0, 0},   % O
+        {2, 0, 2, 1, 0, 0, 0},   % A
+        {5, 2, 0, 0, 3, 0, 0},   % B
+        {4, 1, 0, 0, 1, 4, 0},   % C
+        {0, 0, 3, 1, 0, 2, 5},   % D
+        {0, 0, 0, 4, 2, 0, 3},   % E
+        {0, 0, 0, 0, 5, 3, 0}    % T
+      },
+       
+  /*
+   GRAPH
+         2
+   O -------- A
+   |          |\
+  5|         2| 1
+   |          |   \
+   B          C----?
+    \         | \ 
+     \3       |  4
+      \       |   \
+       D------      E ---- T
+  */
+
+    Source = 1,
+    Target = 7,
+    N = Cost.length,  %  -- ROWS
+    %% DECISION MATRIX      
+    X = new_array(N, N), %% Rowx x Colun
+    X :: 0..1, %%% assingned or no
+    %% DECISION MATRIX
+    %% X[I,J] = 1 if arc I -> J is used
+    %% X[I,J] = 0 otherwise
+ 
+ %%%%% Intermediate nodes
+  foreach(I in 1..N, I != Source, I != Target)
+      sum([X[J,I] : J in 1..N]) - sum([X[I,J] : J in 1..N]) #= 0
+  end,
+
+  %%% in Source node
+  sum([X[Source,J] : J in 1..N]) #= 1 ,
+
+  %% in Target node
+  sum([X[I,Target] : I in 1..N]) #= 1 ,
+  
+  %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
+  %% Therefore, arc I -> J cannot be selected
+  foreach(I in 1..N, J in 1..N)
+    if Cost[I,J] == 0 then
+        X[I,J] #= 0
+    end
+  end,
+
+ %% Cost function to be minimized
+  Cost_F #= sum([Cost[I,J] * X[I,J] : 
+                I in 1..N , 
+                J  in 1..N]),
+  
+  %% Vars for search
+  %Vars = [X_Matrix], 
+  solve( $[ min(Cost_F) ], X ),
+  % solve( $ [min(Cost_F), tmp], X_Matrix ), % UMA SAIDA
+  printf("\n Input Data:"),
+  print_m2(Cost), 
+  printf("Source:%w    Target: %w ", Source, Target),
+  printf("\nSolution Cost: %d" , Cost_F), %%  or %f
+  
+  print_nodes( X ), 
+  print_matrix( X ).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_nodes(X_Matrix) =>
+    nl,
+    N_ROWS = X_Matrix.length,
+    N_COLS = X_Matrix.length,
+    println("Solution -- SEQUENCE of NODES::"),
+    println("-------------------"),
+    foreach(I in 1.. N_ROWS)
+        foreach(J in 1..N_COLS)
+            if (X_Matrix[I,J] == 1) then
+                printf("%d -> %d\t",I,J)
+            end
+        end
+    end,
+    println("\n-------------------").
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      print('x('), print(I),
+      print(','), write(J),
+      print(') = '),
+      write( M[I,J] ), print("       ")
+      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+
+
+print_m2( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      write( M[I,J] ), print("       ")
+      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
