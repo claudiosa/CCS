@@ -1,0 +1,162 @@
+
+/*
+From
+Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
+Problem 8.3-4 — Brief summary
+
+Problem 8.3-4 — Swimming Team Assignment
+A coach needs to select four swimmers from five 
+candidates and assign them to the four strokes of a 
+200-yard medley relay: backstroke, breaststroke, 
+butterfly, and freestyle. Each swimmer has a best time 
+for each stroke. The objective is to assign one swimmer to each stroke, 
+leaving one 
+swimmer unassigned, so as to minimize the total relay time.
+
+Data reformated
+             Back  Breast  Butterfly  Free
+Carl          37.7   43.4    33.3     29.2
+Chris         32.9   33.1    28.5     26.4
+David         33.8   42.2    38.9     29.6
+Tony          37.0   34.7    30.4     28.5
+Ken           35.4   41.8    33.6     31.1
+
+Solved by CCS ... output some help from AI
+
+*/
+import cp.
+%import sat.
+main ?=> model,
+printf("\n....................................\n").
+  
+main => printf("\n  END \n").
+
+model => 
+    %% Data in FLOAT
+  T_float = {
+    {37.7, 43.4, 33.3, 29.2},   % Carl
+    {32.9, 33.1, 28.5, 26.4},   % Chris
+    {33.8, 42.2, 38.9, 29.6},   % David
+    {37.0, 34.7, 30.4, 28.5},   % Tony
+    {35.4, 41.8, 33.6, 31.1}    % Ken
+  },
+
+  %%% Two dictionaries em PICAT for a NICER print - at the END
+    SwimmerNames = new_map([
+        1="Carl",
+        2="Chris",
+        3="David",
+        4="Tony",
+        5="Ken"
+    ]),
+
+    StyleNames = new_map([
+        1="Backstroke",
+        2="Breaststroke",
+        3="Butterfly",
+        4="Freestyle"
+    ]),
+
+  TEN = 10, %%% to convert the float to INT -- used in CP
+    
+  N_Swimmers = T_float.length,  %  -- ROWS
+  N_Styles  = T_float[1].length, %  --- COLUNNS
+
+  %% Converting to INTEGER
+    Times = new_array(N_Swimmers, N_Styles), 
+    foreach(I in 1..N_Swimmers )
+      foreach(J in 1..N_Styles )
+        Times[I,J] = to_integer(TEN * T_float[I,J]),
+        %printf(" %w || ", Times[I,J])
+      end,
+      %nl,
+    end,
+
+    %I → source
+    %J → destination
+    printf("N_Swimmers (Rows) %w : N_Styles (Cols): %w", N_Swimmers, N_Styles),
+    printf("\n Processing ....\n"),
+    %% see the figures in the site 
+
+    %% DECISION MATRIX or ASSIGN MATRIX           
+    X_Matrix = new_array(N_Swimmers, N_Styles), %% Rowx x Colun
+    X_Matrix :: 0..1, %%% assingned or no
+    
+    % One swimmer will swimm only one style or none
+    foreach(I in 1..N_Swimmers )
+        sum([X_Matrix[I,J] : J in 1..N_Styles]) #<= 1
+    end,
+
+    % One style will be selected
+    foreach(J in 1..N_Styles )
+        sum([X_Matrix[I,J] : I in 1..N_Swimmers]) #= 1
+    end,    
+   
+ %% Cost function to be minimized
+  Cost_F #= sum([Times[I,J] * X_Matrix[I,J] : 
+                I in 1..N_Swimmers , 
+                J  in 1..N_Styles]),
+  
+  %% Vars for search
+  %Vars = [X_Matrix], 
+  solve( $[ min(Cost_F) ], X_Matrix ),
+  % solve( $ [min(Cost_F), tmp], X_Matrix ), % UMA SAIDA
+  printf("\n Input Data\n"),
+  print_m2(Times), 
+
+  printf("\n Cost Solution: %d" , Cost_F), %%  or %f
+  %println(cost_f = Cost_F),
+  printf("\n Swimmers selected by style - Assigned -- Sol"),
+  print_matrix( X_Matrix ),
+  print_assignment(X_Matrix, SwimmerNames, StyleNames) .
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_assignment(X_Matrix, SwimmerNames, StyleNames) =>
+    nl,
+    N_ROWS = X_Matrix.length,
+    N_COLS = X_Matrix[1].length,
+    println("Assignment Solution -- NICER"),
+    println("-------------------"),
+    foreach(I in 1.. N_ROWS)
+        foreach(J in 1..N_COLS)
+            if (X_Matrix[I,J] == 1) then
+                printf("%s -> %s\n",
+                       SwimmerNames.get(I),
+                       StyleNames.get(J))
+            end
+        end
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      print('x('), print(I),
+      print(','), write(J),
+      print(') = '),
+      write( M[I,J] ), print("       ")
+      
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+
+
+print_m2( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      write( M[I,J] ), print("       ")
+      
+     %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
