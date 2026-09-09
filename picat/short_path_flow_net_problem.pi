@@ -10,7 +10,7 @@ where one unit of flow is sent from the source to the
 target while satisfying flow-conservation constraints 
 at all intermediate nodes.
 
-Solved by CCS ... output some help from AI
+Solved by CCS ... outputs,  some help from AI
 */
 import cp.
 %import sat.
@@ -20,7 +20,7 @@ printf("\n....................................\n").
 main => printf("\n  END (with some fail ... revise your code) \n").
 
 model => 
-    %% Data in FLOAT
+    %% Data ... 
     Cost = {
         {0, 2, 5, 4, 0, 0, 0},   % O
         {2, 0, 2, 1, 0, 0, 0},   % A
@@ -49,21 +49,21 @@ model =>
     Target = 7,
     N = Cost.length,  %  -- ROWS
     %% DECISION MATRIX      
-    X = new_array(N, N), %% Rowx x Colun
-    X :: 0..1, %%% assingned or no
+    X = new_array(N, N), %% Row x Colun
+    X :: 0..1, %%% DOMAIN
     %% DECISION MATRIX
     %% X[I,J] = 1 if arc I -> J is used
     %% X[I,J] = 0 otherwise
  
- %%%%% Intermediate nodes
+ %%%%% Intermediate nodes - flow balanced:  input - output = 0 
   foreach(I in 1..N, I != Source, I != Target)
       sum([X[J,I] : J in 1..N]) - sum([X[I,J] : J in 1..N]) #= 0
   end,
 
-  %%% in Source node
+  %%% Flow in Source node
   sum([X[Source,J] : J in 1..N]) #= 1 ,
 
-  %% in Target node
+  %% Flow in Target node
   sum([X[I,Target] : I in 1..N]) #= 1 ,
   
   %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
@@ -82,7 +82,7 @@ model =>
   %% Vars for search
   %Vars = [X_Matrix], 
   solve( $[ min(Cost_F) ], X ),
-  % solve( $ [min(Cost_F), tmp], X_Matrix ), % UMA SAIDA
+  
   printf("\n Input Data:"),
   print_m2(Cost), 
   printf("Source:%w    Target: %w ", Source, Target),
@@ -93,10 +93,9 @@ model =>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_nodes(X_Matrix) =>
-    nl,
     N_ROWS = X_Matrix.length,
     N_COLS = X_Matrix.length,
-    println("Solution -- SEQUENCE of NODES::"),
+    println("\nSolution -- SEQUENCE of NODES::"),
     println("-------------------"),
     foreach(I in 1.. N_ROWS)
         foreach(J in 1..N_COLS)
@@ -107,7 +106,6 @@ print_nodes(X_Matrix) =>
     end,
     println("\n-------------------").
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 print_matrix( M ) =>
  L = M.length,
  C = M[1].length,
@@ -123,8 +121,7 @@ print_matrix( M ) =>
      end,
      nl
   end.    
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_m2( M ) =>
  L = M.length,
  C = M[1].length,
