@@ -50,7 +50,6 @@ model =>
                            (2)GRAPH
          
   */
-
     Source = 1,
     Target = 8,
     N = Cost.length,  %  -- ROWS
@@ -79,22 +78,23 @@ model =>
 
   %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
   %% Therefore, arc I -> J cannot be selected
-  foreach(I in 1..N, J in 1..N)
+/*
+ foreach(I in 1..N, J in 1..N)
     if Cost[I,J] == 0 then
         X[I,J] #= 0
     end
   end,
+ */
 
+/* 
 %%% The flow on an arc cannot exceed its capacity.
 foreach(I in 1..N, J in 1..N)
     X[I,J] #=< Cost[I,J]
 end,
-
- %% Cost function to be minimized
+ */
+ %% Cost function to be maximized
   solve($[max(Flow)], X),
-  %% Vars for search
-  %Vars = [X_Matrix], 
-  
+   
   printf("\n Input Data:"),
   print_m2(Cost), 
   printf("Source:%w    Target: %w ", Source, Target),
