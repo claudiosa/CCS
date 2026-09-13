@@ -1,149 +1,316 @@
 /*
-From
-Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
- — Shortest-Path Problem
+    From:
+    Introduction to Operations Research
+    by Frederick S. Hillier and Gerald J. Lieberman
 
-Solved by CCS ... outputs,  some help from AI
+    Chapter 9 - Network Optimization Models
+    Maximum-Flow Problem
+
+    ---------------------------------------------------------------
+    Problem description
+    ---------------------------------------------------------------
+
+    Given a directed network with capacities on its arcs, determine
+    the maximum amount of flow that can be sent from a Source node
+    to a Target node.
+
+    Each decision variable X[I,J] represents the amount of flow
+    sent through arc I -> J.
+
+    The model is based on the following network-flow constraints:
+
+      1. Intermediate nodes:
+         inflow = outflow
+
+      2. Source:
+         total outflow = Flow
+
+      3. Target:
+         total inflow = Flow
+
+      4. Arc capacity:
+         flow on an arc cannot exceed its capacity.
+
+    The objective is to maximize the total flow from Source to Target.
+
+    Solved by CCS, with some help from AI.
 */
+
 import cp.
-%import sat.
+
 main ?=> model,
-printf("\n....................................\n").
-  
-main => printf("\n  END (with some fail ... revise your code) \n").
+    printf("\n....................................\n").
 
-model => 
-    %% Data ... 
-    Cost = {{0,3,2,3,0,0,0,0},
-           {0,0,0,0,0,0,5,0},
-           {0,1,0,0,0,1,0,0},
-           {0,0,2,0,2,0,0,0},
-           {0,0,0,0,0,0,0,5},
-           {0,4,0,0,2,0,0,1},
-           {0,0,0,0,0,2,0,3},
-           {0,0,0,0,0,0,0,0}},
+main =>
+    printf("\n END (with some fail ... revise your code) \n").
 
-  /*
-                            5
-                    +----------+
-                    |          v
-                    |         (7)
-                    |        /   \
-                    |      2/     \3
-                    |      /       \
-                   (2)    v         v
-                    |    (6) ----->(8) T
-                  5 |     | 1
-                    |     |----->(5)
-                    |       2      ^ 5
-                    |              |
-                    |              |
-                    +              |
-                                 (4)
-                               /     \
-                             2/       \2
-                             /         \
-                           (3)         (5)
-                            |
-                           1|
-                            v
-                           (2)GRAPH
-         
-  */
+
+model =>
+
+    %% ------------------------------------------------------------
+    %% DATA
+    %% ------------------------------------------------------------
+
+    %% Capacity matrix:
+    %% Cost[I,J] represents the capacity of arc I -> J.
+    %%
+    %% A value of 0 means that the corresponding arc does not exist.
+
+    Cost = {
+        {0,3,2,3,0,0,0,0},
+        {0,0,0,0,0,0,5,0},
+        {0,1,0,0,0,1,0,0},
+        {0,0,2,0,2,0,0,0},
+        {0,0,0,0,0,0,0,5},
+        {0,4,0,0,2,0,0,1},
+        {0,0,0,0,0,2,0,3},
+        {0,0,0,0,0,0,0,0}
+    },
+
+    /*
+       GRAPH
+
+                    5
+              +-----------> 7
+              |              |
+              |              | 3
+              |              v
+        1 ----3----> 2       8 (T)
+        |            |
+        |            | 5
+       2|            v
+        v            7
+        3            |
+        | 1          | 2
+        v            v
+        6 ---------> 5
+        | 1          | 5
+        v            v
+        8 <----------+
+
+       This graph is represented by the Capacity matrix above.
+    */
+
+
+    %% ------------------------------------------------------------
+    %% SOURCE, TARGET AND NETWORK SIZE
+    %% ------------------------------------------------------------
+
     Source = 1,
     Target = 8,
-    N = Cost.length,  %  -- ROWS
-    %% DECISION MATRIX      
-    %Max = max(max(Cost)),%% UPPER BOUND
+
+    N = Cost.length,             %% Number of rows / nodes
+    %% ------------------------------------------------------------
+    %% DECISION MATRIX
+    %% ------------------------------------------------------------
+    %% X[I,J] represents the flow sent through arc I -> J.
+    % Max = max(max(Cost)),     %% Upper bound - original idea
     % Max = max([max(Row) : Row in Cost]),
-    X = new_array(N, N), %% Row x Colun
-    %X :: 0..sum(Cost[Source]),
+
+    X = new_array(N, N),         %% Row x Column
+    %% ------------------------------------------------------------
+    %% DOMAIN OF THE FLOW VARIABLES
+    %% ------------------------------------------------------------
+
+    /*
+       Original domain:
+
+       X :: 0..sum(Cost[Source]),
+
+       This gives the same upper bound to every X[I,J].
+    */
+
+
+    %% Each arc has its own capacity.
+    %% Therefore:
+
+    %%     0 <= X[I,J] <= Cost[I,J]
+
     foreach(I in 1..N, J in 1..N)
-        X[I,J] :: 0..Cost[I,J]   %%% neng FA
+        X[I,J] :: 0..Cost[I,J]
     end,
 
-    %   0..Max, %%% DOMAIN
+    %% Total flow from Source to Target.
     Flow :: 0..sum(Cost[Source]),
-    
- %%%%% Intermediate nodes - flow balanced:  input - output = 0 
-  foreach(I in 1..N, I != Source, I != Target)
-      sum([X[J,I] : J in 1..N]) - sum([X[I,J] : J in 1..N]) #= 0
-  end,
 
-  %%% Flow in Source node
+
+    %% ------------------------------------------------------------
+    %% FLOW CONSERVATION AT INTERMEDIATE NODES
+    %% ------------------------------------------------------------
+
+    %% For every intermediate node:
+    %%
+    %%     input flow - output flow = 0
+    %%
+    %% Therefore:
+    %%
+    %%     input flow = output flow
+
+    foreach(I in 1..N, I != Source, I != Target)
+        sum([X[J,I] : J in 1..N])
+        -
+        sum([X[I,J] : J in 1..N])
+        #= 0
+    end,
+
+
+    %% ------------------------------------------------------------
+    %% FLOW AT SOURCE
+    %% ------------------------------------------------------------
+    %% The total flow leaving the Source is Flow.
     sum([X[Source,J] : J in 1..N]) #= Flow,
 
-  %% Flow in Target node
+
+    %% ------------------------------------------------------------
+    %% FLOW AT TARGET
+    %% ------------------------------------------------------------
+    %% The total flow entering the Target is Flow.
     sum([X[I,Target] : I in 1..N]) #= Flow,
 
-  %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
-  %% Therefore, arc I -> J cannot be selected
-/*
- foreach(I in 1..N, J in 1..N)
-    if Cost[I,J] == 0 then
-        X[I,J] #= 0
-    end
-  end,
- */
 
-/* 
-%%% The flow on an arc cannot exceed its capacity.
-foreach(I in 1..N, J in 1..N)
-    X[I,J] #=< Cost[I,J]
-end,
- */
- %% Cost function to be maximized
-  solve($[max(Flow)], X),
-   
-  printf("\n Input Data:"),
-  print_m2(Cost), 
-  printf("Source:%w    Target: %w ", Source, Target),
-  printf("\nSolution Cost: %d" , Flow), %%  or %f
-  
-  print_nodes( X ), 
-  print_matrix( X ).
+    %% ------------------------------------------------------------
+    %% ALTERNATIVE CONSTRAINT:
+    %% NO CONNECTION WHEN Cost[I,J] = 0
+    %% ------------------------------------------------------------
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    /*
+       This was the original workaround:
+
+       If Cost[I,J] = 0, then there is no connection
+       from node I to node J.
+
+       Therefore:
+
+           X[I,J] = 0
+
+       This constraint is no longer necessary because the
+       variable domain is now defined directly as:
+
+           X[I,J] :: 0..Cost[I,J]
+
+       Consequently, when Cost[I,J] = 0:
+
+           X[I,J] :: 0..0
+
+       and therefore X[I,J] = 0 automatically.
+    */
+
+    /*
+    foreach(I in 1..N, J in 1..N)
+
+        if Cost[I,J] == 0 then
+            X[I,J] #= 0
+        end
+
+    end,
+    */
+
+
+    %% ------------------------------------------------------------
+    %% ALTERNATIVE CAPACITY CONSTRAINT
+    %% ------------------------------------------------------------
+
+    /*
+       Another possible formulation is:
+
+           X[I,J] <= Cost[I,J]
+
+       together with a general domain such as:
+
+           X :: 0..Max
+
+       This explicitly expresses the fundamental rule:
+
+           flow on an arc cannot exceed its capacity.
+    */
+
+    /*
+    foreach(I in 1..N, J in 1..N)
+
+        X[I,J] #=< Cost[I,J]
+
+    end,
+    */
+
+
+    %% ------------------------------------------------------------
+    %% OBJECTIVE
+    %% ------------------------------------------------------------
+    %% Maximize the total flow from Source to Target.
+    solve($[max(Flow)], X),
+
+
+    %% ------------------------------------------------------------
+    %% OUTPUT
+    %% ------------------------------------------------------------
+    printf("\nInput Data:\n"),
+    print_m2(Cost),
+    printf("Source: %w    Target: %w\n", Source, Target),
+    printf("\nMaximum Flow: %d\n", Flow),
+
+    print_nodes(X),
+    print_matrix(X).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PRINT SELECTED ARCS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 print_nodes(X_Matrix) =>
+
     N_ROWS = X_Matrix.length,
     N_COLS = X_Matrix.length,
-    println("\nSolution -- SEQUENCE of NODES::"),
-    println("-------------------"),
-    foreach(I in 1.. N_ROWS)
+
+    println("\nSolution -- SELECTED ARCS:"),
+    println("--------------------------"),
+
+    foreach(I in 1..N_ROWS)
         foreach(J in 1..N_COLS)
-            if (X_Matrix[I,J] == 1) then
-                printf("%d -> %d\t",I,J)
+            if X_Matrix[I,J] > 0 then
+                printf("%d -> %d : %d\t",
+                       I, J, X_Matrix[I,J])
             end
         end
     end,
-    println("\n-------------------").
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-print_matrix( M ) =>
- L = M.length,
- C = M[1].length,
-  nl,
-   foreach(I in 1  .. L)
-     foreach(J in 1  ..  C)
-      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
-      print('x('), print(I),
-      print(','), write(J),
-      print(') = '),
-      write( M[I,J] ), print("       ")
-      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
-     end,
-     nl
-  end.    
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-print_m2( M ) =>
- L = M.length,
- C = M[1].length,
-  nl,
-   foreach(I in 1  .. L)
-     foreach(J in 1  ..  C)
-      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
-      write( M[I,J] ), print("       ")
-      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
-     end,
-     nl
-  end.    
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    println("\n--------------------------").
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PRINT MATRIX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+print_matrix(M) =>
+
+    L = M.length,
+    C = M[1].length,
+    nl,
+    foreach(I in 1..L)
+        foreach(J in 1..C)
+            print('x('),
+            print(I),
+            print(','),
+            write(J),
+            print(') = '),
+            write(M[I,J]),
+            print(" ")
+        end,
+        nl
+    end.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PRINT MATRIX - COMPACT FORMAT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+print_m2(M) =>
+    L = M.length,
+    C = M[1].length,
+    nl,
+    foreach(I in 1..L)
+        foreach(J in 1..C)
+            write(M[I,J]),
+            print(" ")
+        end,
+        nl
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

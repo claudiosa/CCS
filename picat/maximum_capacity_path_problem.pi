@@ -1,0 +1,175 @@
+/*
+From
+Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
+ — maximum_capacity_path_problem.pi
+
+
+
+Solved by CCS ... outputs,  some help from AI
+*/
+import cp.
+import util.
+%import sat.
+main ?=> model,
+printf("\n....................................\n").
+  
+main => printf("\n  END (with some fail ... revise your code) \n").
+
+model => 
+    %% Data ... 
+    
+    Cost = {
+        {0, 2, 5, 4, 0, 0, 0},   % O
+        {2, 0, 2, 1, 0, 0, 0},   % A
+        {5, 2, 0, 0, 3, 0, 0},   % B
+        {4, 1, 0, 0, 1, 4, 0},   % C
+        {0, 0, 3, 1, 0, 2, 5},   % D
+        {0, 0, 0, 4, 2, 0, 3},   % E
+        {0, 0, 0, 0, 5, 3, 0}    % T
+      },
+
+    Source = 1,
+    Target = 7,
+/*
+    Cost = {
+        {0, 3, 5, 0},   % O
+        {0, 0, 0, 4},   % D
+        {0, 0, 0, 1},   % E
+        {0, 0, 0, 0}    % T
+      },
+
+    
+    Source = 1,
+    Target = 4,   
+*/
+    N = Cost.length,  %  -- ROWS
+    %% DECISION MATRIX      
+    X = new_array(N, N), %% Row x Colun
+    X :: 0..1, %%% DOMAIN
+    
+    %% DECISION MATRIX
+    %% X[I,J] = 1 if arc I -> J is used
+    %% X[I,J] = 0 otherwise
+ 
+ %%%%% Intermediate nodes - flow balanced:  input - output = 0 
+  foreach(I in 1..N, I != Source, I != Target)
+      sum([X[J,I] : J in 1..N]) - sum([X[I,J] : J in 1..N]) #= 0
+  end,
+
+  %%% Flow in Source node
+  sum([X[Source,J] : J in 1..N]) #= 1 ,
+
+  %% Flow in Target node
+  sum([X[I,Target] : I in 1..N]) #= 1 ,
+  
+  %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
+  %% Therefore, arc I -> J cannot be selected
+  foreach(I in 1..N, J in 1..N)
+    if Cost[I,J] == 0 then
+        X[I,J] #= 0
+    end
+  end,
+  
+  %% ONLY ONCE is selected
+/*  
+  foreach(I in 1..N)
+      sum([ X[I,J] : J in 1..N ])  #<= 1
+  end,
+*/
+
+ %% Cost function to be minimized
+  Cost_F #= sum([Cost[I,J] * X[I,J] : 
+                I in 1..N , 
+                J  in 1..N]),
+  
+  %solve( $[ min(Cost_F) ], X ),
+  %solve(X),
+  solve_all(X)= All_Sols,
+
+
+  printf("\n Input Data -- ONLY ONE PATH WITH MAX FLOW:"),
+  printf("\nSource:%w    Target: %w ", Source, Target),
+  print_m2(Cost), 
+  %printf("Source:%w    Target: %w  Path: %w", Source, Target, get_values_path(X,Cost)),
+  %printf("\nSolution Cost: %d" , Cost_F), %%  or %f
+  L_Sol = [],
+  foreach(I in 1 .. All_Sols.length)
+    %print_nodes( All_Sols[I] ), 
+    %print_matrix( All_Sols[I]  ),
+    Path_Cost = get_values_path(All_Sols[I],Cost),
+    L_Sol := L_Sol++[ (I,Path_Cost) ],
+    %append(L_Sol, [(I,Path_Cost)], L_Sol), %%%% DOES NOT WORK due unification
+    printf("\n Path: %w",  get_values_path(All_Sols[I],Cost))
+   end,
+   nl,
+   Some_MAX = get_max_min(L_Sol), %%%[(2,[3,4])]
+   printf("\nFinally some paths with MAX Flow"),
+   foreach(I in 1..Some_MAX.length)
+    (Index,Sol) = Some_MAX[I],
+    %printf("\nJ: %w %w %w", J, Some_OK[I], All_Sols[J] )
+    printf("\nIndex_SOL:%w Cost_PATH: %w \n ==>%w", Index, Sol, All_Sols[Index] ),
+    print_nodes(All_Sols[Index])
+    end .
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_nodes(X_Matrix) =>
+    N_ROWS = X_Matrix.length,
+    N_COLS = X_Matrix.length,
+    println("\nSolution -- SEQUENCE of NODES::"),
+    println("-------------------"),
+    foreach(I in 1.. N_ROWS)
+        foreach(J in 1..N_COLS)
+            if (X_Matrix[I,J] == 1) then
+                printf("%d -> %d\t",I,J)
+            end
+        end
+    end,
+    println("\n-------------------").
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      print('x('), print(I),
+      print(','), write(J),
+      print(') = '),
+      write( M[I,J] ), print("       ")
+      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_m2( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      write( M[I,J] ), print("       ")
+      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+get_values_path(X, Cost) = Temp =>
+    Temp = [],
+    N_ROWS = X.length,
+    N_COLS = X.length,
+    foreach(I in 1.. N_ROWS, J in 1..N_COLS)
+            if (X[I,J] == 1) then
+       %         printf("%d -> %d\t",I,J)
+                Temp := Temp++[Cost[I,J]]
+            end
+    end.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+get_max_min(L) = Result =>
+%%%    max { min(L₁), min(L₂), ..., min(Lₙ) }
+    Mins = [min(Lista) : (_, Lista) in L],
+    MaxMin = max(Mins),
+    Result = [(ID, Lista) : (ID, Lista) in L, min(Lista) == MaxMin].
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
