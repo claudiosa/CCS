@@ -18,6 +18,19 @@ main => printf("\n  END (with some fail ... revise your code) \n").
 model => 
     %% Data ... 
     
+
+Cost = {
+    {0, 10, 20,  0,  0},
+    {0,  0,  0,  5,  0},
+    {0,  3,  0, 12,  8},
+    {0,  0,  0,  0, 15},
+    {0,  0,  0,  0,  0}
+},
+
+Source = 1,
+Target = 5,
+
+/*
     Cost = {
         {0, 2, 5, 4, 0, 0, 0},   % O
         {2, 0, 2, 1, 0, 0, 0},   % A
@@ -30,7 +43,7 @@ model =>
 
     Source = 1,
     Target = 7,
-/*
+
     Cost = {
         {0, 3, 5, 0},   % O
         {0, 0, 0, 4},   % D
