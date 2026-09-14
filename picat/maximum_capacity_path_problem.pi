@@ -1,9 +1,17 @@
 /*
 From
 Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
- — maximum_capacity_path_problem.pi
+Problem Statement (Maximum Capacity / Bottleneck Path Problem)
 
+Goal: Rather than minimizing total path cost 
+(as in shortest-path problems), the objective 
+here is a max-min (bottleneck) optimization: 
+identify the source-to-target path that maximizes 
+the smallest capacity value along its arcs, which
+ corresponds to the path allowing the greatest 
+guaranteed "flow" or "capacity" through the network.
 
+get_max_min computes, for each candidate path, the minimum arc cost along that path, then selects the path(s) whose minimum arc cost is the largest among all candidates — this is the "maximum flow/capacity" path referenced in the code comments.
 
 Solved by CCS ... outputs,  some help from AI
 */
@@ -17,33 +25,20 @@ main => printf("\n  END (with some fail ... revise your code) \n").
 
 model => 
     %% Data ... 
-    
-
-Cost = {
-    {0, 10, 20,  0,  0},
-    {0,  0,  0,  5,  0},
-    {0,  3,  0, 12,  8},
-    {0,  0,  0,  0, 15},
-    {0,  0,  0,  0,  0}
-},
-
-Source = 1,
-Target = 5,
-
-/*
+ % Ex 1
     Cost = {
-        {0, 2, 5, 4, 0, 0, 0},   % O
-        {2, 0, 2, 1, 0, 0, 0},   % A
-        {5, 2, 0, 0, 3, 0, 0},   % B
-        {4, 1, 0, 0, 1, 4, 0},   % C
-        {0, 0, 3, 1, 0, 2, 5},   % D
-        {0, 0, 0, 4, 2, 0, 3},   % E
-        {0, 0, 0, 0, 5, 3, 0}    % T
-      },
+        {0, 10, 20,  0,  0},
+        {0,  0,  0,  5,  0},
+        {0,  3,  0, 12,  8},
+        {0,  0,  0,  0, 15},
+        {0,  0,  0,  0,  0}
+    },
 
     Source = 1,
-    Target = 7,
+    Target = 5,
 
+/*
+ % Ex 2
     Cost = {
         {0, 3, 5, 0},   % O
         {0, 0, 0, 4},   % D
@@ -75,7 +70,7 @@ Target = 5,
   %% Flow in Target node
   sum([X[I,Target] : I in 1..N]) #= 1 ,
   
-  %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
+  %%  if COST = 0 then NO CONNECTION  Cost[I,J] = 0
   %% Therefore, arc I -> J cannot be selected
   foreach(I in 1..N, J in 1..N)
     if Cost[I,J] == 0 then
@@ -97,8 +92,7 @@ Target = 5,
   
   %solve( $[ min(Cost_F) ], X ),
   %solve(X),
-  solve_all(X)= All_Sols,
-
+  All_Sols = solve_all(X),
 
   printf("\n Input Data -- ONLY ONE PATH WITH MAX FLOW:"),
   printf("\nSource:%w    Target: %w ", Source, Target),
@@ -112,15 +106,16 @@ Target = 5,
     Path_Cost = get_values_path(All_Sols[I],Cost),
     L_Sol := L_Sol++[ (I,Path_Cost) ],
     %append(L_Sol, [(I,Path_Cost)], L_Sol), %%%% DOES NOT WORK due unification
-    printf("\n Path: %w",  get_values_path(All_Sols[I],Cost))
+    printf("\n Cost of Arcs: %w",  get_values_path(All_Sols[I], Cost) )
    end,
    nl,
    Some_MAX = get_max_min(L_Sol), %%%[(2,[3,4])]
-   printf("\nFinally some paths with MAX Flow"),
+   printf("\nFinally some paths with MAX Flow:"),
    foreach(I in 1..Some_MAX.length)
     (Index,Sol) = Some_MAX[I],
     %printf("\nJ: %w %w %w", J, Some_OK[I], All_Sols[J] )
-    printf("\nIndex_SOL:%w Cost_PATH: %w \n ==>%w", Index, Sol, All_Sols[Index] ),
+    printf("\n Index(%w) || Cost_PATH:%w \n Flox Max: %w", Index, Sol, min(Sol)), 
+    printf("\n Matrix X ==>%w ", All_Sols[Index] ),
     print_nodes(All_Sols[Index])
     end .
     
@@ -180,9 +175,14 @@ get_values_path(X, Cost) = Temp =>
     end.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 get_max_min(L) = Result =>
-%%%    max { min(L₁), min(L₂), ..., min(Lₙ) }
-    Mins = [min(Lista) : (_, Lista) in L],
-    MaxMin = max(Mins),
-    Result = [(ID, Lista) : (ID, Lista) in L, min(Lista) == MaxMin].
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Passo 1: calcula o mínimo de cada lista
+    Minimos = [min(Lista) : (_, Lista) in L],
+    %print(Minimos),
+    % Passo 2: encontra o maior desses mínimos (o "bottleneck" máximo)
+    MelhorMinimo = max(Minimos),
+
+    % Passo 3: seleciona todos os pares cujo mínimo é igual ao melhor
+    Result = [(ID, Lista) : (ID, Lista) in L, min(Lista) == MelhorMinimo].
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
