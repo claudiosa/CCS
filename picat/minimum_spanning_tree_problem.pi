@@ -1,0 +1,147 @@
+/*
+From
+Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
+ — Shortest-Path Problem
+
+missing a  description here ...
+
+Solved by CCS ... outputs,  some help from AI
+*/
+import cp.
+%import sat.
+main ?=> model,
+printf("\n....................................\n").
+  
+main => printf("\n  END (with some fail ... revise your code) \n").
+
+model => 
+    %% Data ... 
+     Cost = {
+        {0, 2, 5, 4, 0, 0, 0},   % O (1)
+        {2, 0, 2, 1, 0, 0, 0},   % A (2)
+        {5, 2, 0, 0, 3, 0, 0},   % B (3)
+        {4, 1, 0, 0, 1, 4, 0},   % C (4)
+        {0, 0, 3, 1, 0, 2, 5},   % D (5)
+        {0, 0, 0, 4, 2, 0, 3},   % E (6)
+        {0, 0, 0, 0, 5, 3, 0}    % T (7)
+      },
+
+
+  /*
+   GRAPH
+         2
+   O -------- A
+   |          |\
+  5|         2| 1
+   |          |   \
+   B          C----?
+    \         | \ 
+     \3       |  4
+      \       |   \
+       D------      E ---- T
+  */
+
+    Start = 1, %% any node could be choosen
+  
+    N = Cost.length,  %  -- ROWS - NODES
+    %% DECISION MATRIX      
+    X = new_array(N, N), %% Row x Colun
+    X :: 0..1, %%% DOMAIN
+    %% DECISION MATRIX
+    %% X[I,J] = 1 if arc I -> J is used
+    %% X[I,J] = 0 otherwise
+    Flow = new_array(N, N),
+    Flow :: 0..(N-1), 
+ 
+
+ %% Exactly (N-1) edges will be selected
+  (N-1) #= sum( [X[I,J] : I in 1..N, J in 1..N] ),
+ 
+ %%%%% Intermediate nodes - flow balanced:  input - output = 0 
+  foreach(I in 1..N, I != Start, J!= Start)
+      sum([Flow[J,I] : J in 1..N]) - sum([Flow[I,J] : J in 1..N]) #= 1
+  end,
+
+  foreach(I in 1..N, I == Start)
+      sum([Flow[J,I] : J in 1..N]) - sum([Flow[I,J] : J in 1..N]) #= (N-1)
+  end,
+
+%%% Flow in only one edge
+    foreach(I in 1..N, J in 1..N)
+        Flow[I,J] #=< (N-1)*X[I,J]
+    end,
+
+  %%% Flow in only one edge
+  foreach(I in 1..N, J in 1..N)
+        Flow[J,I] #=< (N-1)*X[I,J]
+   end,
+  
+  %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
+  %% Therefore, arc I -> J cannot be selected
+  foreach(I in 1..N, J in 1..N)
+    if Cost[I,J] == 0 then
+        X[I,J] #= 0
+    end
+  end,
+
+  %% Cost function to be minimized
+  Cost_F #= sum([Cost[I,J] * X[I,J] : 
+                I in 1..N , 
+                J  in 1..N]),
+  
+  %% Vars for search
+  %Vars = [X_Matrix], 
+  solve( $[ min(Cost_F) ], X ),
+  
+  printf("\n Input Data:"),
+  print_m2(Cost), 
+
+  printf("\nSolution Cost: %d" , Cost_F), %%  or %f
+  
+  print_nodes( X ), 
+  print_matrix( X ).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_nodes(X_Matrix) =>
+    N_ROWS = X_Matrix.length,
+    N_COLS = X_Matrix.length,
+    println("\nSolution -- SEQUENCE of NODES::"),
+    println("-------------------"),
+    foreach(I in 1.. N_ROWS)
+        foreach(J in 1..N_COLS)
+            if (X_Matrix[I,J] == 1) then
+                printf("%d -> %d\t",I,J)
+            end
+        end
+    end,
+    println("\n-------------------").
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      print('x('), print(I),
+      print(','), write(J),
+      print(') = '),
+      write( M[I,J] ), print("       ")
+      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_m2( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      write( M[I,J] ), print("       ")
+      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
