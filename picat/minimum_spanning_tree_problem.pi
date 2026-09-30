@@ -1,9 +1,30 @@
 /*
 From
 Introduction to Operations Research (de Frederick S. Hillier e Gerald J. Lieberman)
- — Shortest-Path Problem
+ — .... Problem
 
-missing a  description here ...
+Problem:
+Find a minimum spanning tree (MST) of an undirected weighted graph.
+The tree must connect all nodes using exactly N-1 edges while minimizing
+the total cost of the selected edges.
+
+Solution strategy:
+The model uses an artificial flow to enforce connectivity.
+
+One node is chosen as the root. Each of the other N-1 nodes sends one
+unit of flow toward the root. Therefore, every non-root node has:
+
+    output flow - input flow = 1
+
+while the root receives all N-1 units:
+
+    input flow - output flow = N-1
+
+Flow is allowed only through selected edges. Thus, the selected edges
+must form a connected structure. Since exactly N-1 edges are selected,
+the connected structure is necessarily a spanning tree.
+
+The objective is to minimize the total cost of the selected edges..
 
 Solved by CCS ... outputs,  some help from AI
 */
@@ -28,7 +49,7 @@ model =>
 
 
   /*
-   GRAPH
+   GRAPH  - Cap 9 
          2
    O -------- A
    |          |\
@@ -45,7 +66,7 @@ model =>
   
     N = Cost.length,  %  -- ROWS - NODES
     %% DECISION MATRIX      
-    X = new_array(N, N), %% Row x Colun
+    X = new_array(N, N), %% Row x Colun -- the edges choosen
     X :: 0..1, %%% DOMAIN
     %% DECISION MATRIX
     %% X[I,J] = 1 if arc I -> J is used
@@ -53,30 +74,38 @@ model =>
     Flow = new_array(N, N),
     Flow :: 0..(N-1), 
  
-
- %% Exactly (N-1) edges will be selected
-  (N-1) #= sum( [X[I,J] : I in 1..N, J in 1..N] ),
+ %% Exactly (N-1) edges will be selected -- easy to verify
+  (N-1) #= sum([ X[I,J] : I in 1..N, J in 1..N ]),
  
  %%%%% Intermediate nodes - flow balanced:  input - output = 0 
-  foreach(I in 1..N, I != Start, J!= Start)
-      sum([Flow[J,I] : J in 1..N]) - sum([Flow[I,J] : J in 1..N]) #= 1
+ %% all nodes should be reachable
+ foreach(I in 1..N, I != Start)
+    sum([Flow[I,J] : J in 1..N])
+   - sum([Flow[J,I] : J in 1..N]) #= 1
   end,
 
-  foreach(I in 1..N, I == Start)
-      sum([Flow[J,I] : J in 1..N]) - sum([Flow[I,J] : J in 1..N]) #= (N-1)
-  end,
+  %%% the number of EDGES for N nodes ... 
+  sum([Flow[J,Start] : J in 1..N]) 
+   - sum([Flow[Start,J] : J in 1..N]) #= N-1,
 
-%%% Flow in only one edge
-    foreach(I in 1..N, J in 1..N)
-        Flow[I,J] #=< (N-1)*X[I,J]
-    end,
-
-  %%% Flow in only one edge
+  %%% Flow is in only one direction for edge (both or directional)
   foreach(I in 1..N, J in 1..N)
-        Flow[J,I] #=< (N-1)*X[I,J]
+        Flow[J,I] #=< (N-1) * (X[I,J] + X[J,I])
    end,
   
-  %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0
+  % EQUAL of this
+  %foreach(I in 1..N, J in 1..N)
+  %      Flow[I,J] #=< (N-1) * (X[I,J] + X[J,I])
+  % end,
+
+
+  %%% X[2,4] or X[4,2]  is seleted only once time
+   foreach(I in 1..N, J in 1..N, I < J)
+        (X[I,J] + X[J,I]) #=< 1
+   end,
+
+
+  %% A workaround or if COST = 0 then NO CONNECTION  Cost[I,J] = 0 ... no flow
   %% Therefore, arc I -> J cannot be selected
   foreach(I in 1..N, J in 1..N)
     if Cost[I,J] == 0 then
@@ -91,7 +120,7 @@ model =>
   
   %% Vars for search
   %Vars = [X_Matrix], 
-  solve( $[ min(Cost_F) ], X ),
+  solve( $[ min(Cost_F) ], X ), %%% ++Flow ... but Flow, it is not solution
   
   printf("\n Input Data:"),
   print_m2(Cost), 
@@ -110,7 +139,7 @@ print_nodes(X_Matrix) =>
     foreach(I in 1.. N_ROWS)
         foreach(J in 1..N_COLS)
             if (X_Matrix[I,J] == 1) then
-                printf("%d -> %d\t",I,J)
+                printf("%d---%d\t",I,J)
             end
         end
     end,
@@ -123,11 +152,11 @@ print_matrix( M ) =>
    foreach(I in 1  .. L)
      foreach(J in 1  ..  C)
       %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
-      print('x('), print(I),
-      print(','), write(J),
-      print(') = '),
-      write( M[I,J] ), print("       ")
-      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     % print('x('), print(I),
+      %print(','), write(J),
+      %print(') = '),
+      %write( M[I,J] ), print("    ")
+       printf("(%d,%d):%w   " , I, J, M[I,J] ) 
      end,
      nl
   end.    
