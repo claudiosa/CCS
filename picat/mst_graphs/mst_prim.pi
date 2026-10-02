@@ -1,0 +1,111 @@
+/*
+
+Problem:
+Find a minimum spanning tree (MST) of an undirected weighted graph.
+Solved by CCS ... outputs,  some help from AI
+*/
+%import cp.
+%import sat.
+main ?=> input,
+printf("\n....................................\n").
+  
+main => printf("\n  END (with some fail ... revise your code) \n").
+
+input => 
+    %% Data ... 
+     Cost = {
+        {0, 2, 5, 4, 0, 0, 0},   % O (1)
+        {2, 0, 2, 1, 0, 0, 0},   % A (2)
+        {5, 2, 0, 0, 3, 0, 0},   % B (3)
+        {4, 1, 0, 0, 1, 4, 0},   % C (4)
+        {0, 0, 3, 1, 0, 2, 5},   % D (5)
+        {0, 0, 0, 4, 2, 0, 3},   % E (6)
+        {0, 0, 0, 0, 5, 3, 0}    % T (7)
+      },
+
+
+  /*
+   GRAPH  - Cap 9 
+         2
+   O -------- A
+   |          |\
+  5|         2| 1
+   |          |   \
+   B          C----?
+    \         | \ 
+     \3       |  4
+      \       |   \
+       D------      E ---- T
+  */
+
+    Start = 1, %% any node could be choosen
+    N = Cost.length,  %  -- ROWS - NODES
+    %% DECISION MATRIX   
+   % Graph = new_map(),   
+    Graph = convert_Matrix_Map(Cost),
+    print(Graph),
+    print_Adj(Graph).
+    
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+convert_Matrix_Map( M ) = Adj =>
+    Nodes = M.length,
+    Adj = new_map(),
+    foreach (I in 1..Nodes)
+        put(Adj,I,[(J , M[I,J]) : J in 1..Nodes, M[I,J] != 0 ])
+        %printf("Adj %w",Adj)
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_Adj( G_Map ) =>
+    L_Nodes = sort(keys(G_Map)), %% Sorting  for care ....
+    %print(Nodes),
+    foreach (Key in L_Nodes)
+        printf("\n Node:%w : Adj: %w", Key, get(G_Map,Key) )
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+print_nodes(X_Matrix) =>
+    N_ROWS = X_Matrix.length,
+    N_COLS = X_Matrix.length,
+    println("\nSolution -- SEQUENCE of NODES::"),
+    println("-------------------"),
+    foreach(I in 1.. N_ROWS)
+        foreach(J in 1..N_COLS)
+            if (X_Matrix[I,J] == 1) then
+                printf("%d---%d\t",I,J)
+            end
+        end
+    end,
+    println("\n-------------------").
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_matrix( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      % print('x('), print(I),
+      %print(','), write(J),
+      %print(') = '),
+      %write( M[I,J] ), print("    ")
+      %% OR
+       printf("X(%d,%d):%w   " , I, J, M[I,J] ) 
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_m2( M ) =>
+ L = M.length,
+ C = M[1].length,
+  nl,
+   foreach(I in 1  .. L)
+     foreach(J in 1  ..  C)
+      %printf("X[%d][%d]: %d \t", I, J, M[I,J] )
+      write( M[I,J] ), print("       ")
+      %% printf("(%d,%d): %w " , I, J, M[I,J] ) -- FINE
+     end,
+     nl
+  end.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
