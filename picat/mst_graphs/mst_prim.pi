@@ -69,29 +69,45 @@ input =>
     printf("\n Queue P %w", QP),    
    % printf("\t Tree %w", Tree),
     Total = sum([W : (W,_,_) in MST]),
-    printf("\n Tree %w\n MST %w\n Custo %w", Tree, MST, Total)
+    printf("\n Tree %w\n MST %w\n Custo %w", Tree, MST, Total),
+    print_MST(MST),
+    print_MST_2(MST)
+
     .
     %%%DOT
 /*  TESTS
-    %map_to_list(Graph) = L_Graph,
-    %printf("\n In list: %w", L_Graph).
-
     map_to_list(Graph) = L_Graph,
     print(length(L_Graph)),
     new_min_heap(L_Graph) = Heap,
     printf("\nThe min HEAP: %w", Heap).
  */   
-%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_MST( MST ) =>
+    Size = length(MST),
+    MST_Array = to_array(MST),
+    printf("\n Printing MST PRIM graphically:\n"),
+    foreach (I in 1..Size )
+        (W,U,V) = MST_Array[I],
+        printf(" %w<-->%w", U, V)    
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_MST_2( MST ) =>
+    printf("\n Printing MST PRIM graphically:\n"),       
+    foreach( (W,U,V) in MST )
+        printf(" %w<-->%w", U, V)
+    end.    
+    %[  : (W,U,V) in MST, printf(" %w<-->%w", U, V)].
+%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % remove da frente da fila as arestas cujo destino já está na árvore
 drop_visited([(_,_,V)|Rest], Tree) = Q,
      membchk(V, Tree) =>
     Q = drop_visited(Rest, Tree).
 drop_visited(Q, _) = Q => true.
-
 %%priority_queue : push and pop
-pop([ (_,_,V) | Rest ], New_V, New_Rest) => 
-    New_V = V,
+% remove da frente da fila as arestas cujo destino já está na árvore
+pop([ (W,U,V) | Rest ], New, New_Rest) => 
+    New = (W,U,V),
     New_Rest = Rest.
 
 push( Neighbours, QP ) = NewQP =>
