@@ -1,9 +1,10 @@
 /*
-
 Problem:
 Find a minimum spanning tree (MST) of an undirected weighted graph.
 ... outputs, 
 MST with Kruskal
+From Problem Solving in Data Structures & Algorithms using Python, de Hemant Jain,
+page 327
 */
 %import cp.
 %import sat.
@@ -39,9 +40,8 @@ input =>
        D------      E ---- T
   */
 
-    
+   
     N = Cost.length,  %  -- ROWS - NODES
-    %% DECISION MATRIX   
    % Graph = new_map(),   
     Graph = convert_Matrix_Map(Cost),
     print(Graph),
@@ -54,13 +54,13 @@ input =>
     Tree := [],
     MST  := [],
 
-    while( (length(MST)) < N - 1 && length(Edges) > 0) do
+    while( (length(MST)) < (N - 1) && length(Edges) > 0) do
         pop(Edges, Smallest_W, Rest),
         Edges := Rest, % ATUALIZAÇÃO OBRIGATÓRIA: Avança a fila de arestas em qualquer cenário
-        (W, U, V) = Smallest_W,
+        (W, U, V) = Smallest_W,% toma o topo a pilha ordenada por prioridade
         
         % Se a árvore está vazia, aceita a primeira aresta e insere ambos os nós
-        if length(Tree) == 0 then
+        if length(Tree) == 0 then %%% primeira vez
             Tree := [U, V],
             MST  := MST ++ [(W,U,V)]
         % Se um nó está na árvore e o outro não, não forma ciclo: inclui o novo nó e a aresta
@@ -73,8 +73,7 @@ input =>
         end
     end,
 
-    %printf("\n Queue P %w", QP),    
-   % printf("\t Tree %w", Tree),
+    %%% OUTPUT
     Total = sum([W : (W,_,_) in MST]),
     printf("\n Tree %w\n MST %w\n Custo %w", Tree, MST, Total),
     print_MST_1(MST),
@@ -112,6 +111,7 @@ print_MST_3( MST ) =>
 pop([(W,U,V) | Rest ], New, New_Rest) => 
     New = (W,U,V),
     %%%New_Rest = [(W1,U1,V1) : (W1,U1,V1)  in Rest,  U1 != V, V1 != U ].
+    %%% DIFFERENT (A,B) != (V,U) from U1 != V, V1 != U (wrong here)
     New_Rest = [(W2,A,B) : (W2,A,B) in Rest, (A,B) != (V,U)].
 
 push( Neighbours, QP ) = NewQP =>
@@ -121,6 +121,7 @@ push( Neighbours, QP ) = NewQP =>
 %% Representing a map (graph), by tuples in an edges list 
 edges_from_map(Graph) = Edges =>
     Edges = [(W, U, V) : U in keys(Graph), (V, W) in get(Graph, U), W != 0].
+    %%% include U < V if you wish to improve the input
 
 %%% get the neighbours of a specific Node
 neighbours(Node, Graph) = Neighbours =>
