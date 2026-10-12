@@ -87,21 +87,21 @@ input =>
 print_MST_1( MST ) =>
     Size = length(MST),
     MST_Array = to_array(MST),
-    printf("\n 1o. Printing MST PRIM graphically:\n"),
+    printf("\n 1o. Printing MST graphically:\n"),
     foreach (I in 1..Size )
         (W,U,V) = MST_Array[I],
         printf(" %w<-->%w", U, V)    
     end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_MST_2( MST ) =>
-    printf("\n 2o. Printing MST PRIM graphically:\n"),       
+    printf("\n 2o. Printing MST graphically:\n"),       
     foreach( (W,U,V) in MST )
         printf(" %w<-->%w", U, V)
     end.    
     %[  : (W,U,V) in MST, printf(" %w<-->%w", U, V)].
 
 print_MST_3( MST ) =>
-    printf("\n 3o. Printing MST PRIM graphically:\n"),   
+    printf("\n 3o. Printing MST graphically:\n"),   
    _ = [_ : (_,U,V) in MST, printf(" %w<-->%w", U, V)] .
 %    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
