@@ -70,6 +70,8 @@ Cost = {
         %%% Teste de ciclo: aceita se NÃO fecha ciclo
         elseif not(would_cycle(MST, U, V)) then
             MST := MST ++ [(W,U,V)]
+            else
+              printf("\n Rejeitada: %w-%w (fecha ciclo)", U, V)
         end
     end,
 
