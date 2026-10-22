@@ -58,14 +58,21 @@ Cost = {
     printf("\n [(Weight, U, V)]: %w", Tuples_G),
     %printf("\n Sorted [(Weight, U, V)]: %w", Edges).
 
-    %(_, Start, _) = first(Tuples_G),
-    member(Start, sort(keys(Graph))),  
-    
+    % (_, Start, _) = first(Tuples_G),
+    % member(Start, sort(keys(Graph))),  
+    Start = 1,
     End_Node = Start,
-    printf("\n Start %w End: %w", Start, End_Node),
+    printf("\n Start %w End: %w \n", Start, End_Node),
 
-    All = findall(Sol, dfs_cycle(Start, End_Node, [Start], Tuples_G, Sol)),
-    printf("%w", All).
+    Temp = findall(Sol, dfs_cycle(Start, End_Node, [Start], Tuples_G, Sol)),
+    All = remove_dups(Temp),
+   % printf("%w", All).
+    foreach (S in All)
+        Total := cycle_weight(S, Tuples_G),
+        printf("\n Sol: %w  Peso total: %w", S, Total),
+        cycle_weight2(S,Edges,S2),
+        printf("\n Cycle_weight2: %w", S2)
+    end.    
     %printf("\n A cycle is %w", reverse(Sol)).
    
 
@@ -84,28 +91,62 @@ Cost = {
 %%% CYCLE CHECKING with DFS 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 dfs_cycle(Current_Node, End_Node, Visiteds, Edges_G, Sol) ?=>
     
     length(Visiteds) > 2,
-    member(Current_Node, neighbours(End_Node, Edges_G)),
+    %%% use member to force the backtracking ....not necessary in this case
+    membchk(Current_Node, neighbours(End_Node, Edges_G)),
     %%% End_Node ... means ... the Start node
-    Sol = [End_Node|Visiteds],%%%%
-    printf("\n Yes, we have a Cycle!"), !.
+    Sol = [End_Node|Visiteds]. %%%% Adding the initial node
+    %%%%printf("\n Yes, we have a Cycle!").
 
 dfs_cycle(Node, End_Node, Partial_Path, Edges_G, Sol) =>
        
-   L_Candidates = neighbours(Node, Edges_G), %%[(W,U,V)......)] 
-   member(Next, L_Candidates), % here we have backtracking over this part
+   L_Candidates = remove_dups(neighbours(Node, Edges_G)), %%[V1, V2,......)] 
+   member(Next, L_Candidates), % HERE ... obrigatory... we have backtracking over this part
    not membchk(Next, Partial_Path),
-   
+   %%%printf("\t %w => %w",Next, L_Candidates),
    append([Next], Partial_Path,  Path_New),
    %printf("\t %w",Path_New),
    dfs_cycle(Next, End_Node,  Path_New, Edges_G, Sol).
 
-
+%%% Retorna a lista de vizinhos de X .... sem pesos sem nada
 neighbours(X, Edges) = [NB : (_,A,B) in Edges,
                        ((A == X, NB = B) ; (B == X, NB = A))].
+
+
+cycle_weight(S, Edges) = Total =>
+    Total = sum([
+        W : I in 1..S.length-1,
+        U = S[I],
+        V = S[I+1],
+        (W,U1,V1) in Edges,
+        ((U == U1, V == V1); (U == V1, V == U1))
+    ]).
+
+
+cycle_weight2([], _, S) ?=> S = 0.
+cycle_weight2([_], _, S) ?=> S = 0.
+/*
+cycle_weight2([A,B|L], Edges, Acc) =>
+    Temp = sum([ W : (W,U,V) in Edges,
+        ((U == A, V == B); (U == B, V == A))
+    ]),
+    Total = Temp + Acc,
+    cycle_weight2([B|L], Edges, Total).
+*/
+
+
+cycle_weight2([A,B|L], Edges, Total) =>
+    Temp = sum([W : (W,U,V) in Edges,
+        ((U == A, V == B); (U == B, V == A))
+            ]),
+    cycle_weight2([B|L], Edges, Rest),
+    Total = Temp + Rest.
+
+
+
+
 
 %%% get the neighbours of a specific Node but G is map
 %neighbours(Node, Graph) = Neighbours =>
@@ -113,19 +154,6 @@ neighbours(X, Edges) = [NB : (_,A,B) in Edges,
 
 %%% Predicado: a aresta (U,V) fecharia um ciclo no MST em construção?
 %%% Verdadeiro se V já é alcançável a partir de U usando só as arestas do MST.
-would_cycle(MST, U, V) =>  membchk(V, componente(MST, U)).
-
-componente(MST, Ini) = Comp => dfs_comp(MST, [Ini], [], Comp).
-
-vizinhos_mst(MST, X) = [NB : (_,A,B) in MST,
-                       ((A == X, NB = B) ; (B == X, NB = A))].
-
-
-dfs_comp(_MST, [], Vis, Comp) => Comp = reverse(Vis).
-dfs_comp(MST, [X|Pilha], Vis, Comp), membchk(X, Vis) =>
-    dfs_comp(MST, Pilha, Vis, Comp).
-dfs_comp(MST, [X|Pilha], Vis, Comp) =>
-    dfs_comp(MST, vizinhos_mst(MST, X) ++ Pilha, [X|Vis], Comp).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_MST_1( MST ) =>
@@ -163,8 +191,7 @@ push( Neighbours, QP ) = NewQP =>
 edges_from_map(Graph) = Edges =>
     Edges = [(W, U, V) : U in keys(Graph), (V, W) in get(Graph, U), W != 0].
     %%% include U < V if you wish to improve the input
-
-
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 convert_Matrix_Map( M ) = Adj =>
     Nodes = M.length,
