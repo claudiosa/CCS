@@ -1,0 +1,182 @@
+/*
+Problems:
+
+2 problems (by the way):
+
+a) Found a (any) cycle or circuit with N nodes
+b) Found a (any) cycle or circuit, where the weight edges are bigger than K
+c) 
+
+*/
+%import cp.
+%import sat.
+main ?=> input,
+printf("\n THE END OK \n....................................\n").
+
+main => printf("\n  END (with some fail ... revise your code) \n").
+
+input =>
+    %% Data ...
+ /*   
+     Cost = {
+        {0, 2, 5, 4, 0, 0, 0},   % O (1)
+        {2, 0, 2, 1, 0, 0, 0},   % A (2)
+        {5, 2, 0, 0, 3, 0, 0},   % B (3)
+        {4, 1, 0, 0, 1, 4, 0},   % C (4)
+        {0, 0, 3, 1, 0, 2, 5},   % D (5)
+        {0, 0, 0, 4, 2, 0, 3},   % E (6)
+        {0, 0, 0, 0, 5, 3, 0}    % T (7)
+      },
+*/
+  /*
+   GRAPH  - Cap 9
+         2
+   O -------- A
+   |          |\\
+  5|         2| 1
+   |          |   \\
+   B          C----?
+    \\         | \\
+     \\3       |  4
+      \\       |   \\
+       D------      E ---- T
+  */
+
+Cost = {
+    {0,  1, 0,  0},
+    {1,  0, 3, 10},
+    {0,  3, 0,  2},
+    {1, 10, 2,  0}
+    },
+
+    N = Cost.length,  %  -- ROWS - NODES
+    Graph = convert_Matrix_Map(Cost),
+    print(Graph),
+    print_Adj(Graph),
+    Tuples_G = edges_from_map(Graph),
+    Edges := sort(Tuples_G),
+    printf("\n [(Weight, U, V)]: %w", Tuples_G),
+    %printf("\n Sorted [(Weight, U, V)]: %w", Edges).
+
+    %(_, Start, _) = first(Tuples_G),
+    member(Start, sort(keys(Graph))),  
+    
+    End_Node = Start,
+    printf("\n Start %w End: %w", Start, End_Node),
+
+    All = findall(Sol, dfs_cycle(Start, End_Node, [Start], Tuples_G, Sol)),
+    printf("%w", All).
+    %printf("\n A cycle is %w", reverse(Sol)).
+   
+
+    %%% OUTPUT
+    /*
+    Total = sum([W : (W,_,_) in MST]),
+    Tree = sort([Nd : (_,A,B) in MST, Nd in [A,B]]),
+    printf("\n Tree: %w \n MST: %w \n Custo: %w", Tree, MST, Total),
+    print_MST_1(MST),
+    print_MST_2(MST),
+    print_MST_3(MST).
+    */
+    %%%DOT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CYCLE CHECKING with DFS 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+dfs_cycle(Current_Node, End_Node, Visiteds, Edges_G, Sol) ?=>
+    
+    length(Visiteds) > 2,
+    member(Current_Node, neighbours(End_Node, Edges_G)),
+    %%% End_Node ... means ... the Start node
+    Sol = [End_Node|Visiteds],%%%%
+    printf("\n Yes, we have a Cycle!"), !.
+
+dfs_cycle(Node, End_Node, Partial_Path, Edges_G, Sol) =>
+       
+   L_Candidates = neighbours(Node, Edges_G), %%[(W,U,V)......)] 
+   member(Next, L_Candidates), % here we have backtracking over this part
+   not membchk(Next, Partial_Path),
+   
+   append([Next], Partial_Path,  Path_New),
+   %printf("\t %w",Path_New),
+   dfs_cycle(Next, End_Node,  Path_New, Edges_G, Sol).
+
+
+neighbours(X, Edges) = [NB : (_,A,B) in Edges,
+                       ((A == X, NB = B) ; (B == X, NB = A))].
+
+%%% get the neighbours of a specific Node but G is map
+%neighbours(Node, Graph) = Neighbours =>
+%    Neighbours = [(W, Node, V) : Node in keys(Graph), (V, W) in get(Graph, Node), W != 0].
+
+%%% Predicado: a aresta (U,V) fecharia um ciclo no MST em construção?
+%%% Verdadeiro se V já é alcançável a partir de U usando só as arestas do MST.
+would_cycle(MST, U, V) =>  membchk(V, componente(MST, U)).
+
+componente(MST, Ini) = Comp => dfs_comp(MST, [Ini], [], Comp).
+
+vizinhos_mst(MST, X) = [NB : (_,A,B) in MST,
+                       ((A == X, NB = B) ; (B == X, NB = A))].
+
+
+dfs_comp(_MST, [], Vis, Comp) => Comp = reverse(Vis).
+dfs_comp(MST, [X|Pilha], Vis, Comp), membchk(X, Vis) =>
+    dfs_comp(MST, Pilha, Vis, Comp).
+dfs_comp(MST, [X|Pilha], Vis, Comp) =>
+    dfs_comp(MST, vizinhos_mst(MST, X) ++ Pilha, [X|Vis], Comp).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_MST_1( MST ) =>
+    Size = length(MST),
+    MST_Array = to_array(MST),
+    printf("\n 1o. Printing MST graphically:\n"),
+    foreach (I in 1..Size )
+        (W,U,V) = MST_Array[I],
+        printf(" %w<-->%w", U, V)
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_MST_2( MST ) =>
+    printf("\n 2o. Printing MST graphically:\n"),
+    foreach( (W,U,V) in MST )
+        printf(" %w<-->%w", U, V)
+    end.
+    %[  : (W,U,V) in MST, printf(" %w<-->%w", U, V)].
+
+print_MST_3( MST ) =>
+   printf("\n 3o. Printing MST graphically:\n"),
+   _ = [_ : (_,U,V) in MST, printf(" %w<-->%w", U, V)],
+   printf("\n Sum: %w", sum([W : (W,_,_) in MST ]) ).
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%priority_queue : push and pop
+pop([(W,U,V) | Rest ], New, New_Rest) =>
+    New = (W,U,V),
+    New_Rest = [(W2,A,B) : (W2,A,B) in Rest, (A,B) != (V,U)].
+
+push( Neighbours, QP ) = NewQP =>
+    TempQP = Neighbours ++ QP,
+    NewQP = sort(TempQP).
+
+%% Representing a map (graph), by tuples in an edges list
+edges_from_map(Graph) = Edges =>
+    Edges = [(W, U, V) : U in keys(Graph), (V, W) in get(Graph, U), W != 0].
+    %%% include U < V if you wish to improve the input
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+convert_Matrix_Map( M ) = Adj =>
+    Nodes = M.length,
+    Adj = new_map(),
+    foreach (I in 1..Nodes)
+        put(Adj,I,[(J , M[I,J]) : J in 1..Nodes, M[I,J] != 0 ])
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print_Adj( G_Map ) =>
+    L_Nodes = sort(keys(G_Map)), %% Sorting  for care ....
+    foreach (Key in L_Nodes)
+        printf("\n Node:%w : Adj: %w", Key, get(G_Map,Key) )
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
