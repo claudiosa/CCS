@@ -1,11 +1,13 @@
 /*
 Problems:
 
-2 problems (by the way):
+Some problems (by the way):
 
-a) Found a (any) cycle or circuit with N nodes
+a) Found a (any) cycle or circuit with N nodes (2 problems)
 b) Found a (any) cycle or circuit, where the weight edges are bigger than K
-c) 
+
+-- At moment ... just find the cycles from any point using DFS
+-- With Weights of each  circuit 
 
 */
 %import cp.
@@ -49,7 +51,7 @@ Cost = {
     {1, 10, 2,  0}
     },
 
-    N = Cost.length,  %  -- ROWS - NODES
+    %N = Cost.length,  %  -- ROWS - NODES
     Graph = convert_Matrix_Map(Cost),
     print(Graph),
     print_Adj(Graph),
@@ -69,9 +71,11 @@ Cost = {
    % printf("%w", All).
     foreach (S in All)
         Total := cycle_weight(S, Tuples_G),
-        printf("\n Sol: %w  Peso total: %w", S, Total),
-        cycle_weight2(S,Edges,S2),
-        printf("\n Cycle_weight2: %w", S2)
+        printf("\n Sol: %w  Total: %w", S, Total),
+        cycle_weight_2(S,Edges,S2),
+        printf("\n cycle_weight_2: %w", S2),
+        Pairs = build_pairs(S),
+        printf("\n cycle_weight_3: %w", cycle_weight_3(Pairs,Edges))
     end.    
     %printf("\n A cycle is %w", reverse(Sol)).
    
@@ -125,28 +129,52 @@ cycle_weight(S, Edges) = Total =>
     ]).
 
 
-cycle_weight2([], _, S) ?=> S = 0.
-cycle_weight2([_], _, S) ?=> S = 0.
+cycle_weight_2([], _, S) ?=> S = 0.
+cycle_weight_2([_], _, S) ?=> S = 0.
 /*
-cycle_weight2([A,B|L], Edges, Acc) =>
+cycle_weight_2([A,B|L], Edges, Acc) =>
     Temp = sum([ W : (W,U,V) in Edges,
         ((U == A, V == B); (U == B, V == A))
     ]),
     Total = Temp + Acc,
-    cycle_weight2([B|L], Edges, Total).
+    cycle_weight_2([B|L], Edges, Total).
 */
 
 
-cycle_weight2([A,B|L], Edges, Total) =>
+cycle_weight_2([A,B|L], Edges, Total) =>
     Temp = sum([W : (W,U,V) in Edges,
         ((U == A, V == B); (U == B, V == A))
             ]),
-    cycle_weight2([B|L], Edges, Rest),
+    cycle_weight_2([B|L], Edges, Rest),
     Total = Temp + Rest.
 
+cycle_weight_3(Sol, Edges) = 
+       sum([ W : (A,B) in Sol, 
+                 (W,U,V) in Edges,
+                 ((U == A, V == B) ; (U == B, V == A))
+                 ] ).
+
+% OK
+build_pairs([]) = [].
+build_pairs([A]) = "\n Error build_pairs - ONLY ONE ELEMENT".
+build_pairs([A,B]) = [(A,B)].
+build_pairs([A,B | L]) = 
+         [ (A,B) | build_pairs([B|L]) ].
 
 
+%%% Improved  of above and OK also
+%build_pairs([A,B|L]) = [(A,B) | build_pairs([B|L])].
+%build_pairs(_) = [].
 
+/*
+%%OK also
+build_pairs([A,B|L], Pairs) =>
+    Pairs = [(A,B) | Rest],
+    build_pairs([B|L], Rest).
+build_pairs(_, Pairs) =>
+    Pairs = [].
+*/
+pairs(L) = [(L[I], L[I+1]) : I in 1..length(L)-1].
 
 %%% get the neighbours of a specific Node but G is map
 %neighbours(Node, Graph) = Neighbours =>
@@ -162,7 +190,7 @@ print_MST_1( MST ) =>
     printf("\n 1o. Printing MST graphically:\n"),
     foreach (I in 1..Size )
         (W,U,V) = MST_Array[I],
-        printf(" %w<-->%w", U, V)
+        printf(" %w<-%w->%w", U, W, V)
     end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_MST_2( MST ) =>
