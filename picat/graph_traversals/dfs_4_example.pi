@@ -1,25 +1,26 @@
 /*
 Problems:
 
-Some problems (by the way):
+Some related problems:
 
-a) Found a (any) cycle or circuit with N nodes (2 problems)
-b) Found a (any) cycle or circuit, where the weight edges are bigger than K
+a) Find a cycle or circuit containing exactly N nodes.
 
--- At moment ... just find the cycles from any point using DFS
--- With Weights of each  circuit 
+b) Find a cycle or circuit whose total edge weight is greater than K.
+
+-- At present, this example uses DFS to find cycles starting from a given node.
+-- The next step is to calculate the total weight of each cycle.
 
 */
 %import cp.
 %import sat.
 main ?=> input,
-printf("\n THE END OK \n....................................\n").
+    printf("\n Execution completed successfully.\n....................................\n").
 
-main => printf("\n  END (with some fail ... revise your code) \n").
-
+main => printf("\n Execution ended with a failure; please review the code.\n").
 input =>
-    %% Data ... some examples
- /*   
+    %% Data examples
+
+ /*
      Cost = {
         {0, 2, 5, 4, 0, 0, 0},   % O (1)
         {2, 0, 2, 1, 0, 0, 0},   % A (2)
@@ -29,9 +30,9 @@ input =>
         {0, 0, 0, 4, 2, 0, 3},   % E (6)
         {0, 0, 0, 0, 5, 3, 0}    % T (7)
       },
-*/
-  /*
-   GRAPH  - Cap 9
+ */
+   /*
+    GRAPH - Chapter 9
          2
    O -------- A
    |          |\\
@@ -42,8 +43,7 @@ input =>
      \\3       |  4
       \\       |   \\
        D------      E ---- T
-  */
-
+   */
 Cost = {
     {0,  1, 0,  0},
     {1,  0, 3, 10},
@@ -51,73 +51,68 @@ Cost = {
     {1, 10, 2,  0}
     },
 
-    %N = Cost.length,  %  -- ROWS - NODES - Not used
+    %N = Cost.length,  % Number of rows/nodes; not used
     Graph = convert_Matrix_Map(Cost),
     print(Graph),
     print_Adj(Graph),
     Tuples_G = edges_from_map(Graph),
     Edges := sort(Tuples_G),
-    printf("\n [(Weight, U, V)]: %w", Tuples_G),
-    %printf("\n Sorted [(Weight, U, V)]: %w", Edges).
-
+    printf("\n Edges as (Weight, U, V) tuples: %w", Tuples_G),
+    %printf("\n Sorted edges as (Weight, U, V) tuples: %w", Edges).
     % (_, Start, _) = first(Tuples_G),
-    % member(Start, sort(keys(Graph))),  
+    % member(Start, sort(keys(Graph))),
     Start = 1,
     End_Node = Start,
-    printf("\n Start %w End: %w \n", Start, End_Node),
-
+    printf("\n Start node: %w; target node: %w\n", Start, End_Node),
     Temp = findall(Sol, dfs_cycle(Start, End_Node, [Start], Tuples_G, Sol)),
     All = remove_dups(Temp),
    % printf("%w", All).
     foreach (S in All)
         Total := cycle_weight(S, Tuples_G),
-        printf("\n Sol: %w  Total: %w", S, Total),
+        printf("\n Cycle: %w  Total weight: %w", S, Total),
         cycle_weight_2(S,Edges,S2),
-        printf("\n cycle_weight_2: %w", S2),
+        printf("\n cycle_weight_2 result: %w", S2),
         Pairs = build_pairs(S),
-        printf("\n cycle_weight_3: %w", cycle_weight_3(Pairs,Edges))
-    end.    
+        printf("\n cycle_weight_3 result: %w", cycle_weight_3(Pairs,Edges))
+    end.
     %printf("\n A cycle is %w", reverse(Sol)).
-   
-
     %%% OUTPUT
     /*
     Total = sum([W : (W,_,_) in MST]),
     Tree = sort([Nd : (_,A,B) in MST, Nd in [A,B]]),
-    printf("\n Tree: %w \n MST: %w \n Custo: %w", Tree, MST, Total),
+    printf("\n Tree: %w \n MST: %w \n Cost: %w", Tree, MST, Total),
     print_MST_1(MST),
     print_MST_2(MST),
     print_MST_3(MST).
     */
-    %%%DOT
+    %%% DOT
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% CYCLE CHECKING with DFS 
+%%% CYCLE DETECTION WITH DFS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 dfs_cycle(Current_Node, End_Node, Visiteds, Edges_G, Sol) ?=>
     length(Visiteds) > 2,
-    %% YOU CAN USE MANY OPTIONS HERE
-    %%% use member to force the backtracking ....not necessary in this case
+    %% Several alternatives can be used here.
+    %%% Use member/2 to force backtracking; it is not necessary in this case.
     membchk(Current_Node, neighbours(End_Node, Edges_G)),
-    %%% End_Node ... means ... the Start node
-    Sol = [End_Node|Visiteds]. %%%% Adding the initial node -- optional
-    %%%%printf("\n Yes, we have a Cycle!").
+    %%% End_Node represents the starting node.
+    Sol = [End_Node|Visiteds]. %%%% Add the starting node to close the cycle; optional
+    %%%%printf("\n A cycle has been found!").
 
 dfs_cycle(Node, End_Node, Partial_Path, Edges_G, Sol) =>
-   L_Candidates = remove_dups(neighbours(Node, Edges_G)), %%[V1, V2,......)] 
-   member(Next, L_Candidates), % HERE ... obrigatory... we have backtracking over this part
+   L_Candidates = remove_dups(neighbours(Node, Edges_G)), %%[V1, V2, ...]
+   member(Next, L_Candidates), % Backtracking over this choice is essential.
    not membchk(Next, Partial_Path),
    %%%printf("\t %w => %w",Next, L_Candidates),
    append([Next], Partial_Path,  Path_New),
    %printf("\t %w",Path_New),
    dfs_cycle(Next, End_Node,  Path_New, Edges_G, Sol).
 
-%%% Retorna a lista de vizinhos de X .... sem pesos sem nada
+%%% Return the neighbors of node X, without edge weights.
 neighbours(X, Edges) = [NB : (_,A,B) in Edges,
                        ((A == X, NB = B) ; (B == X, NB = A))].
 
-%% Option 1 --- Finding the Weight of a PATH or ANY sequence - CIRCUIT either
+%% Option 1 --- Calculate the weight of a path or any vertex sequence, including a cycle.
 cycle_weight(S, Edges) = Total =>
     Total = sum([
         W : I in 1..S.length-1,
@@ -147,9 +142,9 @@ cycle_weight_2([A,B|L], Edges, Acc) =>
     cycle_weight_2([B|L], Edges, Total).
 */
 
-%% Option 3 -- my favourite
-cycle_weight_3(Sol, Edges) = 
-       sum([ W : (A,B) in Sol, 
+%% Option 3 -- My preferred approach.
+cycle_weight_3(Sol, Edges) =
+       sum([ W : (A,B) in Sol,
                  (W,U,V) in Edges,
                  ((U == A, V == B) ; (U == B, V == A))
                  ] ).
@@ -158,56 +153,52 @@ cycle_weight_3(Sol, Edges) =
 build_pairs([]) = [].
 build_pairs([A]) = "\n Error build_pairs - ONLY ONE ELEMENT".
 build_pairs([A,B]) = [(A,B)].
-build_pairs([A,B | L]) = 
+build_pairs([A,B | L]) =
          [ (A,B) | build_pairs([B|L]) ].
 
-
-%%% Improved  of above and OK also
-%% OPTION 
+%%% An improved version of the above; this also works.
+%% AN OPTION
 %build_pairs([A,B|L]) = [(A,B) | build_pairs([B|L])].
 %build_pairs(_) = [].
 
 /*
-%%OK also
+%% This version also works.
 build_pairs([A,B|L], Pairs) =>
     Pairs = [(A,B) | Rest],
     build_pairs([B|L], Rest).
 build_pairs(_, Pairs) =>
     Pairs = [].
 */
-%%OK also
+%% This version also works.
 pairs(L) = [(L[I], L[I+1]) : I in 1..length(L)-1].
-
-%%% get the neighbours of a specific Node but G is map
+%%% Get the neighbors of a specific node when the graph is represented as a map.
 %neighbours(Node, Graph) = Neighbours =>
 %    Neighbours = [(W, Node, V) : Node in keys(Graph), (V, W) in get(Graph, Node), W != 0].
-
 %%%
-%%% NOT USED directly here ... just in PRIM and KRUSKAL
+%%% Not used directly here; included for Prim's and Kruskal's algorithms.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_MST_1( MST ) =>
     Size = length(MST),
     MST_Array = to_array(MST),
-    printf("\n 1o. Printing MST graphically:\n"),
+    printf("\n 1. Displaying the MST graphically:\n"),
     foreach (I in 1..Size )
         (W,U,V) = MST_Array[I],
         printf(" %w<-%w->%w", U, W, V)
     end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_MST_2( MST ) =>
-    printf("\n 2o. Printing MST graphically:\n"),
+    printf("\n 2. Displaying the MST graphically:\n"),
     foreach( (W,U,V) in MST )
         printf(" %w<-->%w", U, V)
     end.
     %[  : (W,U,V) in MST, printf(" %w<-->%w", U, V)].
-
 print_MST_3( MST ) =>
-   printf("\n 3o. Printing MST graphically:\n"),
+   printf("\n 3. Displaying the MST graphically:\n"),
    _ = [_ : (_,U,V) in MST, printf(" %w<-->%w", U, V)],
-   printf("\n Sum: %w", sum([W : (W,_,_) in MST ]) ).
+   printf("\n Total weight: %w", sum([W : (W,_,_) in MST ]) ).
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%priority_queue : push and pop
+%% Priority queue: push and pop
 pop([(W,U,V) | Rest ], New, New_Rest) =>
     New = (W,U,V),
     New_Rest = [(W2,A,B) : (W2,A,B) in Rest, (A,B) != (V,U)].
@@ -215,12 +206,10 @@ pop([(W,U,V) | Rest ], New, New_Rest) =>
 push( Neighbours, QP ) = NewQP =>
     TempQP = Neighbours ++ QP,
     NewQP = sort(TempQP).
-
-%% Representing a map (graph), by tuples in an edges list
+%% Represent a graph map as a list of edge tuples.
 edges_from_map(Graph) = Edges =>
     Edges = [(W, U, V) : U in keys(Graph), (V, W) in get(Graph, U), W != 0].
-    %%% include U < V if you wish to improve the input
-    
+    %%% Add U < V to avoid storing each undirected edge twice.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 convert_Matrix_Map( M ) = Adj =>
     Nodes = M.length,
@@ -230,9 +219,8 @@ convert_Matrix_Map( M ) = Adj =>
     end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_Adj( G_Map ) =>
-    L_Nodes = sort(keys(G_Map)), %% Sorting  for care ....
+    L_Nodes = sort(keys(G_Map)), %% Sort the node keys for consistent output.
     foreach (Key in L_Nodes)
-        printf("\n Node:%w : Adj: %w", Key, get(G_Map,Key) )
+        printf("\n Node: %w; adjacent nodes: %w", Key, get(G_Map,Key) )
     end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
