@@ -18,7 +18,7 @@ printf("\n THE END OK \n....................................\n").
 main => printf("\n  END (with some fail ... revise your code) \n").
 
 input =>
-    %% Data ...
+    %% Data ... some examples
  /*   
      Cost = {
         {0, 2, 5, 4, 0, 0, 0},   % O (1)
@@ -51,7 +51,7 @@ Cost = {
     {1, 10, 2,  0}
     },
 
-    %N = Cost.length,  %  -- ROWS - NODES
+    %N = Cost.length,  %  -- ROWS - NODES - Not used
     Graph = convert_Matrix_Map(Cost),
     print(Graph),
     print_Adj(Graph),
@@ -96,16 +96,15 @@ Cost = {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 dfs_cycle(Current_Node, End_Node, Visiteds, Edges_G, Sol) ?=>
-    
     length(Visiteds) > 2,
+    %% YOU CAN USE MANY OPTIONS HERE
     %%% use member to force the backtracking ....not necessary in this case
     membchk(Current_Node, neighbours(End_Node, Edges_G)),
     %%% End_Node ... means ... the Start node
-    Sol = [End_Node|Visiteds]. %%%% Adding the initial node
+    Sol = [End_Node|Visiteds]. %%%% Adding the initial node -- optional
     %%%%printf("\n Yes, we have a Cycle!").
 
 dfs_cycle(Node, End_Node, Partial_Path, Edges_G, Sol) =>
-       
    L_Candidates = remove_dups(neighbours(Node, Edges_G)), %%[V1, V2,......)] 
    member(Next, L_Candidates), % HERE ... obrigatory... we have backtracking over this part
    not membchk(Next, Partial_Path),
@@ -118,7 +117,7 @@ dfs_cycle(Node, End_Node, Partial_Path, Edges_G, Sol) =>
 neighbours(X, Edges) = [NB : (_,A,B) in Edges,
                        ((A == X, NB = B) ; (B == X, NB = A))].
 
-
+%% Option 1 --- Finding the Weight of a PATH or ANY sequence - CIRCUIT either
 cycle_weight(S, Edges) = Total =>
     Total = sum([
         W : I in 1..S.length-1,
@@ -128,10 +127,18 @@ cycle_weight(S, Edges) = Total =>
         ((U == U1, V == V1); (U == V1, V == U1))
     ]).
 
-
+%% Option 2
 cycle_weight_2([], _, S) ?=> S = 0.
 cycle_weight_2([_], _, S) ?=> S = 0.
+cycle_weight_2([A,B|L], Edges, Total) =>
+    Temp = sum([W : (W,U,V) in Edges,
+        ((U == A, V == B); (U == B, V == A))
+            ]),
+    cycle_weight_2([B|L], Edges, Rest),
+    Total = Temp + Rest.
+
 /*
+%%%% OR
 cycle_weight_2([A,B|L], Edges, Acc) =>
     Temp = sum([ W : (W,U,V) in Edges,
         ((U == A, V == B); (U == B, V == A))
@@ -140,14 +147,7 @@ cycle_weight_2([A,B|L], Edges, Acc) =>
     cycle_weight_2([B|L], Edges, Total).
 */
 
-
-cycle_weight_2([A,B|L], Edges, Total) =>
-    Temp = sum([W : (W,U,V) in Edges,
-        ((U == A, V == B); (U == B, V == A))
-            ]),
-    cycle_weight_2([B|L], Edges, Rest),
-    Total = Temp + Rest.
-
+%% Option 3 -- my favourite
 cycle_weight_3(Sol, Edges) = 
        sum([ W : (A,B) in Sol, 
                  (W,U,V) in Edges,
@@ -163,6 +163,7 @@ build_pairs([A,B | L]) =
 
 
 %%% Improved  of above and OK also
+%% OPTION 
 %build_pairs([A,B|L]) = [(A,B) | build_pairs([B|L])].
 %build_pairs(_) = [].
 
@@ -174,15 +175,15 @@ build_pairs([A,B|L], Pairs) =>
 build_pairs(_, Pairs) =>
     Pairs = [].
 */
+%%OK also
 pairs(L) = [(L[I], L[I+1]) : I in 1..length(L)-1].
 
 %%% get the neighbours of a specific Node but G is map
 %neighbours(Node, Graph) = Neighbours =>
 %    Neighbours = [(W, Node, V) : Node in keys(Graph), (V, W) in get(Graph, Node), W != 0].
 
-%%% Predicado: a aresta (U,V) fecharia um ciclo no MST em construção?
-%%% Verdadeiro se V já é alcançável a partir de U usando só as arestas do MST.
-
+%%%
+%%% NOT USED directly here ... just in PRIM and KRUSKAL
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 print_MST_1( MST ) =>
     Size = length(MST),
