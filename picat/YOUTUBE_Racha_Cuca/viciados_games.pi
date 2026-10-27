@@ -1,0 +1,82 @@
+/* 
+https://rachacuca.com.br/logica/problemas/viciados-em-games/?utm_source=chatgpt.com
+  Four bikers puzzle in Picat.
+Viciados em Games Problema de Lógica
+Cinco amigos estão lado a lado conversando sobre os seus jogos de video game favoritos. Cada um joga uma certa quantidade de horas por semana o seu estilo preferido de jogo.
+*/
+import cp.
+main => go.
+go =>
+  N = 5,
+
+  Camiseta = new_list(N),
+  Camiseta :: 1..N,
+  Camiseta = [Amarela, Azul, Branca, Verde, Vermelha],
+  CamisetaS = ["Amarela", "Azul", "Branca", "Verde", "Vermelha"],
+
+  Nome = new_list(N),
+  Nome :: 1..N,
+  Nome = [Benjamim, Heitor, Luan, Miguel, Pietro],
+  NomeS = ["Benjamim", "Heitor", "Luan", "Miguel", "Pietro"],
+
+% Games
+Jogos = new_list(N),
+Jogos :: 1..N,
+Jogos = [Acao, Aventura, Esporte, Estrategia, RPG],
+JogosS = ["Acao", "Aventura", "Esporte", "Estrategia", "RPG"],
+
+% Weekly playing time
+Tempo = new_list(N),
+Tempo :: 1..N,
+Tempo = [Horas5, Horas10, Horas15, Horas20, Horas25],
+TempoS = ["5 horas", "10 horas", "15 horas", "20 horas", "25 horas"],
+
+% Age
+Idade = new_list(N),
+Idade :: 1..N,
+Idade = [Idade12, Idade13, Idade14, Idade15, Idade16],
+IdadeS = ["12 anos", "13 anos", "14 anos", "15 anos", "16 anos"],
+
+% Juice
+Suco = new_list(N),
+Suco :: 1..N,
+Suco = [Laranja, Limao, Maca, Maracuja, Uva],
+SucoS = ["Laranja", "Limao", "Maca", "Maracuja", "Uva"],
+
+
+  all_different(Camiseta),
+  all_different(Nome),
+  all_different(Jogos),
+  all_different(Idade),
+  all_different(Tempo),
+  all_different(Suco),
+
+ % element(Anne,Size,SizeAnne),
+ % element(Greta,Size,SizeGreta),
+ % element(Herold,Size,SizeHerold),
+ % element(Yoshi,Size,SizeYoshi),
+
+/*  
+   Vars = [camiseta=Camiseta,
+            nome=Nome,
+            jogos=Jogos,
+            tempo=Tempo,
+            idade=Idade,
+            suco=Suco],
+*/
+   Vars = Suco ++ Idade ++ Tempo ++ Jogos ++ Nome ++ Camiseta,
+    solve(Vars),
+    % println(Vars),
+    foreach(I in 1..N)
+        nth(C, Camiseta, I),
+        nth(N, Nome, I),
+        nth(J, Jogos, I),
+        nth(T, Tempo, I),
+        nth(Id, Idade, I),
+        nth(S, Suco, I),
+
+        println(NomeS[N] = CamisetaS[C] =
+                JogosS[J] = TempoS[T] =
+                IdadeS[Id] = SucoS[S])
+    end.
+  
