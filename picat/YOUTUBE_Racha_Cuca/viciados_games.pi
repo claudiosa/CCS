@@ -1,8 +1,14 @@
 /* 
 https://rachacuca.com.br/logica/problemas/viciados-em-games/?utm_source=chatgpt.com
-  Four bikers puzzle in Picat.
+  
 Viciados em Games Problema de Lógica
 Cinco amigos estão lado a lado conversando sobre os seus jogos de video game favoritos. Cada um joga uma certa quantidade de horas por semana o seu estilo preferido de jogo.
+
+
+Conceito da Modelagem: Hakan
+Implementação: CCS
+Apoio do Claude no predicado: quem()
+
 */
 import cp.
 main => go.
@@ -13,21 +19,21 @@ go =>
   Camiseta :: 1..N,
   Camiseta = [Amarela, Azul, Branca, Verde, Vermelha],
   L1 = ["Amarela", "Azul", "Branca", "Verde", "Vermelha"],
-  Camiseta_Map = list_to_map(L1),
+  Camiseta_Map = list_to_map(L1), %%% será usado para imprimir a saída
   printf("\n %w", Camiseta_Map), 
 
   Nome = new_list(N),
   Nome :: 1..N,
   Nome = [Benjamim, Heitor, Luan, Miguel, Pietro],
   Nomes_Map = list_to_map(["Benjamim", "Heitor", "Luan", "Miguel", "Pietro"]),
-  printf("\n %w", Nomes_Map),
+  printf("\n %w", Nomes_Map), %%% será usado para imprimir a saída
 
 % Games
 Jogos = new_list(N),
 Jogos :: 1..N,
 Jogos = [Acao, Aventura, Esporte, Estrategia, RPG],
 Jogos_Map = list_to_map(["Acao", "Aventura", "Esporte", "Estrategia", "RPG"]),
-printf("\n %w", Jogos_Map),
+printf("\n %w", Jogos_Map),%%% será usado para imprimir a saída
 
 % Weekly playing time
 Tempo = new_list(N),
@@ -50,6 +56,8 @@ Suco = [Laranja, Limao, Maca, Maracuja, Uva],
 Suco_Map = list_to_map(["Laranja", "Limao", "Maca", "Maracuja", "Uva"]),
 printf("\n %w", Suco_Map),
 
+%%%%%%%%%%%%%%%%%% Inicio das Restrições %%%%%%%%%%%%%%%%%%%%
+
   all_different(Camiseta),
   all_different(Nome),
   all_different(Jogos),
@@ -58,44 +66,99 @@ printf("\n %w", Suco_Map),
   all_different(Suco),
 
 %%%O garoto de camiseta Amarela joga 25 horas por semana.
-   Amarela #= Horas25,  
+(Amarela #= Horas25),  
+
 %Na quinta posição está o adolescente de 13 anos.
-   Idade13 #=5,
+( Idade13 #=5 ),
 
 % Em uma das pontas está o menino que joga 20 horas por semana.
 (Horas20 #= 1 #\/ Horas20 #= 5),
 
+%O amigo de camiseta Verde está em algum lugar à esquerda do amigo de camiseta Vermelha.
+(Verde #< Vermelha),
 
+%O menino mais jovem está exatamente à direita do menino que gosta de jogos de Esporte.
+(Idade12 #= Esporte+1),
 
+%O jovem de 16 anos está em algum lugar entre o Luan e o jovem de 14 anos, nessa ordem.
+(Idade16 #> Luan #/\ Idade16 #< Idade14),
+
+%Quem está bebendo suco de Laranja gosta de jogos de RPG.
+(Laranja #= RPG),
+
+%Miguel está exatamente à direita do garoto que gosta de jogos de Ação.
+(Miguel - 1 #= Acao),
+
+%O amigo que está bebendo suco de Maracujá joga 15 horas por semana.
+(Maracuja #= Horas15),
+
+%Na quarta posição está o menino de Verde.
+(Verde #= 4),
+
+%O garoto de 12 anos está bebendo suco de Maçã.
+(Idade12 #= Maca),
+
+%Pietro está na quinta posição.
+(Pietro #= 5),
+
+%O amigo de camiseta Azul está exatamente à esquerda do amigo que gosta de jogos de Estratégia.
+(Azul+1 #= Estrategia),
+
+%O jovem de 15 anos está exatamente à esquerda do jovem que joga 15 horas por semana.
+(Idade15+1 #= Horas15),
+
+%Heitor está em algum lugar entre o amigo de 16 anos e o Benjamin, nessa ordem.
+((Heitor #> Idade16) #/\ (Heitor #< Benjamim)),
+
+%Quem está bebendo suco de Laranja está exatamente à direita de quem está bebendo suco de Maçã.
+(Laranja #= Maca+1),
+
+%O garoto de Azul joga 10 horas por semana.
+(Azul #= Horas10), %%% OK
+
+%Luan está ao lado de quem gosta de jogos de Aventura.
+((Luan + 1 #= Aventura ) #\/ (Luan - 1 #= Aventura )),
+
+%Em uma das pontas está o amigo que está bebendo suco de Laranja.
+((Laranja #= 1 ) #\/ (Laranja #= 5 )),
+
+%Quem joga menos tempo por semana está em algum lugar à direita de quem está de camiseta Azul.
+(Horas5 #> Azul),
+
+%O menino que gosta de jogos de Esporte está bebendo suco de Uva.
+(Esporte #= Uva),
+
+%%% passar a lista para solver
    Vars = Camiseta ++ Nome ++Suco ++ Idade ++ Tempo ++ Jogos,
    solve(Vars),nl,
+
+%%% A saida do Solver
    writeln(camiseta=Camiseta), 
    writeln(nome=Nome),
    writeln(idade=Idade),
    writeln(tempo=Tempo),
    writeln(jogo=Jogos),
    writeln(suco=Suco),
-   
+
    %println(Vars),
+%%% Tornando-sa legível com o uso do mapa definido lá no inicio   
    printf("\nSolution:\n"),
    printf("\nPos | Nome | Camiseta | Suco | Idade | Tempo | Jogo"),
    printf("\n----------------------------------------------------\n"),
 
     foreach(I in 1..N)
-        printf("%w | ", I),
-        %%%%print_map_from_L([Nome[I]], Nomes_Map), OR
-        printf("%w", get(Nomes_Map, Nome[I])),
-        printf(" | "),
-        printf("%w", get(Camiseta_Map, Camiseta[I])),
-        printf(" | "),
-        printf("%w", get(Suco_Map, Suco[I])),
-        printf(" | "),
-        printf("%w", get(Idade_Map, Idade[I])),
-        printf(" | "),
-        printf("%w", get(Tempos_Map, Tempo[I])),
-        printf(" | "),
-        printf("%w", get(Jogos_Map, Jogos[I])),
-        % OR print_map_from_L([Jogos[I]], Jogos_Map),
+      printf("%w | ", I),
+         printf("%w", get(Nomes_Map, quem(Nome, I))),
+         printf(" | "),
+         printf("%w", get(Camiseta_Map, quem(Camiseta, I))),
+         printf(" | "),
+         printf("%w", get(Suco_Map, quem(Suco, I))),
+         printf(" | "),
+         printf("%w", get(Idade_Map, quem(Idade, I))),
+         printf(" | "),
+         printf("%w", get(Tempos_Map, quem(Tempo, I))),
+         printf(" | "),
+         printf("%w", get(Jogos_Map, quem(Jogos, I))),
         nl
     end.
    
@@ -103,8 +166,7 @@ printf("\n %w", Suco_Map),
     %writeln(map_C=Camiseta_Map),
     %print_map_from_L(Camiseta, Camiseta_Map).
 
-
-%%%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 list_to_map(List) = MAP =>
   MAP = new_map(),
    foreach(Key in 1..List.length)
@@ -119,3 +181,24 @@ print_map_from_L(L , Map) =>
       printf(" %w ", get(Map, Key))
    end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% devolve o índice K do item que está na posição I
+quem(L, I) = K =>
+    K = head([J : J in 1..L.length, L[J] == I]).
+
+%% A função quem(L, I) devolve o índice K em que o valor I aparece na lista L. Esse K é o número do item (1 = primeiro nome, 2 = segundo nome, etc.), e é com ele que você consulta o mapa para obter o texto.
+%%
+/*
+
+% quem(L, I, K): K é o índice em que o valor I aparece na lista L
+quem(L, I, K) =>
+    quem_aux(L, I, 1, K).
+
+% achou: o primeiro elemento é I
+quem_aux([X|_], I, Pos, K), X == I =>
+    K = Pos.
+% não achou: segue para o resto da lista, com a posição avançada
+quem_aux([_|Resto], I, Pos, K) =>
+    Pos1 = Pos + 1,
+    quem_aux(Resto, I, Pos1, K).
+*/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
