@@ -12,37 +12,43 @@ go =>
   Camiseta = new_list(N),
   Camiseta :: 1..N,
   Camiseta = [Amarela, Azul, Branca, Verde, Vermelha],
-  CamisetaS = ["Amarela", "Azul", "Branca", "Verde", "Vermelha"],
+  L1 = ["Amarela", "Azul", "Branca", "Verde", "Vermelha"],
+  Camiseta_Map = list_to_map(L1),
+  printf("\n %w", Camiseta_Map), 
 
   Nome = new_list(N),
   Nome :: 1..N,
   Nome = [Benjamim, Heitor, Luan, Miguel, Pietro],
-  NomeS = ["Benjamim", "Heitor", "Luan", "Miguel", "Pietro"],
+  Nomes_Map = list_to_map(["Benjamim", "Heitor", "Luan", "Miguel", "Pietro"]),
+  printf("\n %w", Nomes_Map),
 
 % Games
 Jogos = new_list(N),
 Jogos :: 1..N,
 Jogos = [Acao, Aventura, Esporte, Estrategia, RPG],
-JogosS = ["Acao", "Aventura", "Esporte", "Estrategia", "RPG"],
+Jogos_Map = list_to_map(["Acao", "Aventura", "Esporte", "Estrategia", "RPG"]),
+printf("\n %w", Jogos_Map),
 
 % Weekly playing time
 Tempo = new_list(N),
 Tempo :: 1..N,
 Tempo = [Horas5, Horas10, Horas15, Horas20, Horas25],
-TempoS = ["5 horas", "10 horas", "15 horas", "20 horas", "25 horas"],
+Tempos_Map= list_to_map(["5 horas", "10 horas", "15 horas", "20 horas", "25 horas"]),
+printf("\n %w", Tempos_Map),
 
 % Age
 Idade = new_list(N),
 Idade :: 1..N,
 Idade = [Idade12, Idade13, Idade14, Idade15, Idade16],
-IdadeS = ["12 anos", "13 anos", "14 anos", "15 anos", "16 anos"],
+Idade_Map = list_to_map(["12 anos", "13 anos", "14 anos", "15 anos", "16 anos"]),
+printf("\n %w", Idade_Map),
 
 % Juice
 Suco = new_list(N),
 Suco :: 1..N,
 Suco = [Laranja, Limao, Maca, Maracuja, Uva],
-SucoS = ["Laranja", "Limao", "Maca", "Maracuja", "Uva"],
-
+Suco_Map = list_to_map(["Laranja", "Limao", "Maca", "Maracuja", "Uva"]),
+printf("\n %w", Suco_Map),
 
   all_different(Camiseta),
   all_different(Nome),
@@ -51,32 +57,65 @@ SucoS = ["Laranja", "Limao", "Maca", "Maracuja", "Uva"],
   all_different(Tempo),
   all_different(Suco),
 
- % element(Anne,Size,SizeAnne),
- % element(Greta,Size,SizeGreta),
- % element(Herold,Size,SizeHerold),
- % element(Yoshi,Size,SizeYoshi),
+%%%O garoto de camiseta Amarela joga 25 horas por semana.
+   Amarela #= Horas25,  
+%Na quinta posição está o adolescente de 13 anos.
+   Idade13 #=5,
 
-/*  
-   Vars = [camiseta=Camiseta,
-            nome=Nome,
-            jogos=Jogos,
-            tempo=Tempo,
-            idade=Idade,
-            suco=Suco],
-*/
-   Vars = Suco ++ Idade ++ Tempo ++ Jogos ++ Nome ++ Camiseta,
-    solve(Vars),
-    % println(Vars),
+% Em uma das pontas está o menino que joga 20 horas por semana.
+(Horas20 #= 1 #\/ Horas20 #= 5),
+
+
+
+   Vars = Camiseta ++ Nome ++Suco ++ Idade ++ Tempo ++ Jogos,
+   solve(Vars),nl,
+   writeln(camiseta=Camiseta), 
+   writeln(nome=Nome),
+   writeln(idade=Idade),
+   writeln(tempo=Tempo),
+   writeln(jogo=Jogos),
+   writeln(suco=Suco),
+   
+   %println(Vars),
+   printf("\nSolution:\n"),
+   printf("\nPos | Nome | Camiseta | Suco | Idade | Tempo | Jogo"),
+   printf("\n----------------------------------------------------\n"),
+
     foreach(I in 1..N)
-        nth(C, Camiseta, I),
-        nth(N, Nome, I),
-        nth(J, Jogos, I),
-        nth(T, Tempo, I),
-        nth(Id, Idade, I),
-        nth(S, Suco, I),
-
-        println(NomeS[N] = CamisetaS[C] =
-                JogosS[J] = TempoS[T] =
-                IdadeS[Id] = SucoS[S])
+        printf("%w | ", I),
+        %%%%print_map_from_L([Nome[I]], Nomes_Map), OR
+        printf("%w", get(Nomes_Map, Nome[I])),
+        printf(" | "),
+        printf("%w", get(Camiseta_Map, Camiseta[I])),
+        printf(" | "),
+        printf("%w", get(Suco_Map, Suco[I])),
+        printf(" | "),
+        printf("%w", get(Idade_Map, Idade[I])),
+        printf(" | "),
+        printf("%w", get(Tempos_Map, Tempo[I])),
+        printf(" | "),
+        printf("%w", get(Jogos_Map, Jogos[I])),
+        % OR print_map_from_L([Jogos[I]], Jogos_Map),
+        nl
     end.
-  
+   
+    %writeln(camiseta=Camiseta),
+    %writeln(map_C=Camiseta_Map),
+    %print_map_from_L(Camiseta, Camiseta_Map).
+
+
+%%%   
+list_to_map(List) = MAP =>
+  MAP = new_map(),
+   foreach(Key in 1..List.length)
+      put(MAP, Key, List[Key])
+   end.
+   %%% println(map=MAP).
+
+%%% The Keys comes from L
+print_map_from_L(L , Map) =>
+   %List from map = keys(Map)
+   foreach(Key in L)
+      printf(" %w ", get(Map, Key))
+   end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
