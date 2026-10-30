@@ -11,9 +11,13 @@ Apoio do Claude no predicado: quem()
 
 */
 import cp.
-main => go.
-go =>
-  N = 5,
+main ?=> modelo.
+main => printf("\n REVISE SEU modelo... regras etc\n").
+
+modelo =>
+
+  %%% MODELAGEM da ESTRUTURA DE DADOS 
+  N = 5, %% 5 amigos (nomes, camisetas, ....)
 
   Camiseta = new_list(N),
   Camiseta :: 1..N,
@@ -56,8 +60,10 @@ Suco = [Laranja, Limao, Maca, Maracuja, Uva],
 Suco_Map = list_to_map(["Laranja", "Limao", "Maca", "Maracuja", "Uva"]),
 printf("\n %w", Suco_Map),
 
+
 %%%%%%%%%%%%%%%%%% Inicio das Restrições %%%%%%%%%%%%%%%%%%%%
 
+%%% CODIGO para valer começa AQUI
   all_different(Camiseta),
   all_different(Nome),
   all_different(Jogos),
@@ -128,11 +134,12 @@ printf("\n %w", Suco_Map),
 %O menino que gosta de jogos de Esporte está bebendo suco de Uva.
 (Esporte #= Uva),
 
-%%% passar a lista para solver
+%%% passar ua lista para solver --- o SOLVER 
+%%%%
    Vars = Camiseta ++ Nome ++Suco ++ Idade ++ Tempo ++ Jogos,
-   solve(Vars),nl,
-
-%%% A saida do Solver
+   solve(Vars),
+   nl,
+%%% As saidas do Solver
    writeln(camiseta=Camiseta), 
    writeln(nome=Nome),
    writeln(idade=Idade),
@@ -140,9 +147,9 @@ printf("\n %w", Suco_Map),
    writeln(jogo=Jogos),
    writeln(suco=Suco),
 
-   %println(Vars),
+%println(Vars),
 %%% Tornando-sa legível com o uso do mapa definido lá no inicio   
-   printf("\nSolution:\n"),
+   printf("Soluçaõn:\n"),
    printf("\nPos | Nome | Camiseta | Suco | Idade | Tempo | Jogo"),
    printf("\n----------------------------------------------------\n"),
 
@@ -160,7 +167,8 @@ printf("\n %w", Suco_Map),
          printf(" | "),
          printf("%w", get(Jogos_Map, quem(Jogos, I))),
         nl
-    end.
+    end,
+    printf("----------------------------------------------------\n").
    
     %writeln(camiseta=Camiseta),
     %writeln(map_C=Camiseta_Map),
@@ -184,7 +192,6 @@ print_map_from_L(L , Map) =>
 % devolve o índice K do item que está na posição I
 quem(L, I) = K =>
     K = head([J : J in 1..L.length, L[J] == I]).
-
 %% A função quem(L, I) devolve o índice K em que o valor I aparece na lista L. Esse K é o número do item (1 = primeiro nome, 2 = segundo nome, etc.), e é com ele que você consulta o mapa para obter o texto.
 %%
 /*
