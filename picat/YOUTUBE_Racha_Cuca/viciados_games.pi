@@ -64,6 +64,7 @@ printf("\n %w", Suco_Map),
 %%%%%%%%%%%%%%%%%% Inicio das Restrições %%%%%%%%%%%%%%%%%%%%
 
 %%% CODIGO para valer começa AQUI
+%%% Restrições globais ... que são HARD-CONSTRAINTs
   all_different(Camiseta),
   all_different(Nome),
   all_different(Jogos),
@@ -71,6 +72,7 @@ printf("\n %w", Suco_Map),
   all_different(Tempo),
   all_different(Suco),
 
+%% SEM SEQUENCIA ....
 %%%O garoto de camiseta Amarela joga 25 horas por semana.
 (Amarela #= Horas25),  
 
