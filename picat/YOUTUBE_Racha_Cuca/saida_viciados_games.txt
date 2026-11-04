@@ -1,0 +1,23 @@
+
+ (map)[1 = Amarela,2 = Azul,3 = Branca,4 = Verde,5 = Vermelha]
+ (map)[1 = Benjamim,2 = Heitor,3 = Luan,4 = Miguel,5 = Pietro]
+ (map)[1 = Acao,2 = Aventura,3 = Esporte,4 = Estrategia,5 = RPG]
+ (map)[1 = 5 horas,2 = 10 horas,3 = 15 horas,4 = 20 horas,5 = 25 horas]
+ (map)[1 = 12 anos,2 = 13 anos,3 = 14 anos,4 = 15 anos,5 = 16 anos]
+ (map)[1 = Laranja,2 = Limao,3 = Maca,4 = Maracuja,5 = Uva]
+camiseta = [1,3,2,4,5]
+nome = [4,3,1,2,5]
+jogo = [1,2,3,4,5]
+tempo = [4,3,2,5,1]
+idade = [4,5,3,1,2]
+suco = [5,1,4,2,3]
+Solução:
+
+Pos | Nome | Camiseta | Suco | Idade | Tempo | Jogo
+----------------------------------------------------
+1 | Luan | Amarela | Limao | 15 anos | 25 horas | Acao
+2 | Miguel | Branca | Maracuja | 16 anos | 15 horas | Aventura
+3 | Heitor | Azul | Uva | 14 anos | 10 horas | Esporte
+4 | Benjamim | Verde | Maca | 12 anos | 5 horas | Estrategia
+5 | Pietro | Vermelha | Laranja | 13 anos | 20 horas | RPG
+----------------------------------------------------
