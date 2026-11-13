@@ -98,7 +98,7 @@ printf("\n %w", Tree_Map),
 %%% passar ua lista para solver --- o SOLVER 
 %%%%
     Vars = Color ++ Sport ++ Breakfast ++ Job ++ Flower ++ Vegetable ++ Tree,
-  solve(Vars),
+    solve(Vars),
 
    nl,
 %%% As saidas do Solver
