@@ -7,7 +7,7 @@ Cinco amigos estão lado a lado conversando sobre os seus jogos de video game fa
 
 Conceito da Modelagem: Hakan
 Implementação: CCS
-Apoio do Claude no predicado: quem()
+Apoio do Claude no predicado: quem() e saídas
 
 */
 import cp.
@@ -77,7 +77,7 @@ printf("\n %w", Suco_Map),
 (Amarela #= Horas25),  
 
 %Na quinta posição está o adolescente de 13 anos.
-( Idade13 #=5 ),
+( Idade13 #= 5 ),
 
 % Em uma das pontas está o menino que joga 20 horas por semana.
 (Horas20 #= 1 #\/ Horas20 #= 5),
@@ -86,7 +86,7 @@ printf("\n %w", Suco_Map),
 (Verde #< Vermelha),
 
 %O menino mais jovem está exatamente à direita do menino que gosta de jogos de Esporte.
-(Idade12 #= Esporte+1),
+(Idade12 #= Esporte + 1),
 
 %O jovem de 16 anos está em algum lugar entre o Luan e o jovem de 14 anos, nessa ordem.
 (Idade16 #> Luan #/\ Idade16 #< Idade14),

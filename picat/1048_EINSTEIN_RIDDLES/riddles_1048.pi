@@ -1,0 +1,180 @@
+/* 
+Problem: EINSTEIN RIDDLES #1048
+https://www.puzzleship.com/logic/einstein-riddles/p/2026-11-13#ultra-hard
+
+
+Modeling Concepts: Hakan
+Implementation: CCS
+Apoio do Claude no predicado: quem() e saídas
+
+*/
+import cp.
+main ?=> modelo.
+main => printf("\n REVISE SEU modelo... regras etc\n").
+
+modelo =>
+
+  %%% MODELAGEM da ESTRUTURA DE DADOS 
+  N = 5, %% 5 house (colors, , ....)
+
+  Color = new_list(N),
+  Color :: 1..N,
+  Color = [Black, Green, Red, White, Yellow],
+  Color_L = ["Black", "Green", "Red", "White", "Yellow"],
+  Color_Map = list_to_map(Color_L),
+  printf("\n %w", Color_Map), 
+
+  Sport = new_list(N),
+   Sport :: 1..N,
+   Sport = [Baseball, Golf, Hockey, Swimming, Tennis],
+   Sport_L = ["Baseball", "Golf", "Hockey", "Swimming", "Tennis"],
+   Sport_Map = list_to_map(Sport_L),
+   printf("\n %w", Sport_Map),
+
+% Breakfast
+Breakfast = new_list(N),
+Breakfast :: 1..N,
+Breakfast = [Cereal, Egg, Omelet, Pancake, Waffle],
+Breakfast_L = ["Cereal", "Egg", "Omelet", "Pancake", "Waffle"],
+Breakfast_Map = list_to_map(Breakfast_L),
+printf("\n %w", Breakfast_Map),
+
+%% Job
+Job = new_list(N),
+Job :: 1..N,
+Job = [Builder, Chef, Doctor, Farmer, Policeman],
+Job_L = ["Builder", "Chef", "Doctor", "Farmer", "Policeman"],
+Job_Map = list_to_map(Job_L),
+printf("\n %w", Job_Map),
+
+
+%% Flower
+Flower = new_list(N),
+Flower :: 1..N,
+Flower = [Bouquet, Hibiscus, Hyacinth, Lotus, Tulip],
+Flower_L = ["Bouquet", "Hibiscus", "Hyacinth", "Lotus", "Tulip"],
+Flower_Map = list_to_map(Flower_L),
+printf("\n %w", Flower_Map),
+
+
+
+%% Vegetable
+Vegetable = new_list(N),
+Vegetable :: 1..N,
+Vegetable = [Corn, Eggplant, Onion, Pepper, Tomato],
+Vegetable_L = ["Corn", "Eggplant", "Onion", "Pepper", "Tomato"],
+Vegetable_Map = list_to_map(Vegetable_L),
+printf("\n %w", Vegetable_Map),
+
+%% Tree
+Tree = new_list(N),
+Tree :: 1..N,
+Tree = [Bamboo, Maple, Oak, Palm, Spruce],
+Tree_L = ["Bamboo", "Maple", "Oak", "Palm", "Spruce"],
+Tree_Map = list_to_map(Tree_L),
+printf("\n %w", Tree_Map),
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%% Inicio das Restrições %%%%%%%%%%%%%%%%%%%%
+
+%%% CODIGO para valer começa AQUI
+%%% Restrições globais ... que são HARD-CONSTRAINTs
+  %%% ALL DIFFERENT: cada item ocupa uma casa distinta
+  all_different(Color),
+  all_different(Sport),
+  all_different(Breakfast),
+  all_different(Job),
+  all_different(Flower),
+  all_different(Vegetable),
+  all_different(Tree),
+
+
+%% SEM SEQUENCIA ....
+
+%%% passar ua lista para solver --- o SOLVER 
+%%%%
+    Vars = Color ++ Sport ++ Breakfast ++ Job ++ Flower ++ Vegetable ++ Tree,
+  solve(Vars),
+
+   nl,
+%%% As saidas do Solver
+%%% As saidas do Solver
+  writeln(color=Color),
+  writeln(sport=Sport),
+  writeln(breakfast=Breakfast),
+  writeln(job=Job),
+  writeln(flower=Flower),
+  writeln(vegetable=Vegetable),
+  writeln(tree=Tree),
+
+%println(Vars),
+%%% Tornando-sa legível com o uso do mapa definido lá no inicio   
+     printf("Solução:\n"),
+  printf("\nHouse | Color | Sport | Breakfast | Job | Flower | Vegetable | Tree"),
+  printf("\n----------------------------------------------------------------\n"),
+
+  foreach(I in 1..N)
+    printf("%w | ", I),
+    printf("%w", get(Color_Map, quem(Color, I))),
+    printf(" | "),
+    printf("%w", get(Sport_Map, quem(Sport, I))),
+    printf(" | "),
+    printf("%w", get(Breakfast_Map, quem(Breakfast, I))),
+    printf(" | "),
+    printf("%w", get(Job_Map, quem(Job, I))),
+    printf(" | "),
+    printf("%w", get(Flower_Map, quem(Flower, I))),
+    printf(" | "),
+    printf("%w", get(Vegetable_Map, quem(Vegetable, I))),
+    printf(" | "),
+    printf("%w", get(Tree_Map, quem(Tree, I))),
+    nl
+  end,
+  printf("----------------------------------------------------------------\n").
+    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+list_to_map(List) = MAP =>
+  MAP = new_map(),
+   foreach(Key in 1..List.length)
+      put(MAP, Key, List[Key])
+   end.
+   %%% println(map=MAP).
+
+%%% The Keys comes from L
+print_map_from_L(L , Map) =>
+   %List from map = keys(Map)
+   foreach(Key in L)
+      printf(" %w ", get(Map, Key))
+   end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Devolve o índice K do item que tem o conteudo de um Valor I 
+%% A função quem(L, I) devolve o índice K em que o valor I aparece na lista L. Esse K é o número do item (1 = primeiro nome, 2 = segundo nome, etc.), e é com ele que você consulta o mapa para obter o texto.
+%% deste indice K se busca no mapa o objeto
+quem(List, Value) = R =>
+   nth(Index, List, Value),
+   R = Index.
+
+%%
+/*
+Outras implementações
+%quem(L, I) = K =>
+%    K = head([J : J in 1..L.length, L[J] == I]).
+OU
+% quem(L, I, K): K é o índice em que o valor I aparece na lista L
+quem(L, I, K) =>
+    quem_aux(L, I, 1, K).
+
+% achou: o primeiro elemento é I
+quem_aux([X|_], I, Pos, K), X == I =>
+    K = Pos.
+% não achou: segue para o resto da lista, com a posição avançada
+quem_aux([_|Resto], I, Pos, K) =>
+    Pos1 = Pos + 1,
+    quem_aux(Resto, I, Pos1, K).
+*/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
