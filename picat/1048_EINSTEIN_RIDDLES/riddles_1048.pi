@@ -95,6 +95,62 @@ printf("\n %w", Tree_Map),
 
 %% SEM SEQUENCIA ....
 
+
+% 1. The house shaded by the Bamboo is directly to the left of the person who enjoys Waffle for breakfast.
+ (Bamboo #= Waffle+1),
+
+%2. The house with the Tulip is the house with the Spruce tree.
+(Tulip #= Spruce),
+
+%3. The man who enjoys Corn is immediately to the left of the Cereal fan.
+(Corn #= 1 + Cereal),
+
+% 4. The house with the Hyacinth is somewhere to the left of the person who loves Eggplant.
+(Hyacinth #< Eggplant),
+
+ %5. The person who plays Tennis is beside the Chef.
+ ((Tennis #= Chef+1);(Tennis #= Chef-1)),
+
+%6. The house with the Hibiscus is at one of the ends.
+ ((Hibiscus #= 1);(Hibiscus #= 5)),
+
+%7. The Black house is the house with the Bamboo tree.
+(Black #= Bamboo),
+
+%8. The person who plays Hockey is situated somewhere between the neighbor who loves Pancake for breakfast and the house shaded by the Palm, in that order.
+%((Hockey #< Pancake),(Hockey #> Palm)), OR directly
+ (Hockey #< Pancake #< Palm), %% in that order
+
+%9. The one who loves Pancake for breakfast is immediately to the left of the Farmer.
+(Pancake+1 #= Farmer),
+
+%10. The Policeman is the man who loves Eggplant.
+(Policeman #= Eggplant),
+
+%11. The Tennis player is directly to the left of the person who enjoys Waffle for breakfast.
+(Tennis #< Waffle),
+
+%12. The person who loves Omelet for breakfast lives adjacent to the house with the Palm tree.
+((Omelet + 1 #= Palm);(Omelet - 1 #= Palm)),
+
+/* 
+conferir Isso vale também para a dica 17, com Baseball, Eggplant e Onion.
+ 
+13. The neighbor who loves Tomato is somewhere to the left of the Swimming player.
+14. The person who loves Omelet for breakfast is the Policeman.
+15. The man who plays Baseball is immediately to the left of the White house.
+16. The Corn fan is immediately to the left of the Farmer.
+17. The person who loves Eggplant is situated somewhere between the one who plays Baseball and the one who enjoys Onion, in that order.
+18. The Doctor lives in the house with the Bouquet garden.
+19. The house shaded by the Oak is somewhere to the right of the one who enjoys Tomato.
+20. The man who plays Baseball lives in the Yellow house.
+21. The Green house is the house with the Oak tree.
+22. The Green house is the house with the Hyacinth garden.
+23. The one who plays Swimming lives in the house with the Spruce tree.
+24. The person who enjoys Corn is next to the person who plays Hockey.
+*/
+
+
 %%% passar ua lista para solver --- o SOLVER 
 %%%%
     Vars = Color ++ Sport ++ Breakfast ++ Job ++ Flower ++ Vegetable ++ Tree,
