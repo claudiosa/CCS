@@ -3,20 +3,21 @@ Problem: EINSTEIN RIDDLES #1048
 https://www.puzzleship.com/logic/einstein-riddles/p/2026-11-13#ultra-hard
 
 
-Modeling Concepts: Hakan
+Conceptual Modelling: by Hakan
 Implementation: CCS
-Apoio do Claude no predicado: quem() e saídas
 
+I applied the Claude to check the answers ...if OK or no
 */
 import cp.
-main ?=> modelo.
-main => printf("\n REVISE SEU modelo... regras etc\n").
+main ?=> model.
+main => printf("\n Please, revise your model... rules and code etc\n").
 
-modelo =>
+model =>
 
-  %%% MODELAGEM da ESTRUTURA DE DADOS 
+  %%% MODELLING AND DATA STRUTURES
   N = 5, %% 5 house (colors, , ....)
 
+%Color
   Color = new_list(N),
   Color :: 1..N,
   Color = [Black, Green, Red, White, Yellow],
@@ -24,7 +25,8 @@ modelo =>
   Color_Map = list_to_map(Color_L),
   printf("\n %w", Color_Map), 
 
-  Sport = new_list(N),
+%Sport
+   Sport = new_list(N),
    Sport :: 1..N,
    Sport = [Baseball, Golf, Hockey, Swimming, Tennis],
    Sport_L = ["Baseball", "Golf", "Hockey", "Swimming", "Tennis"],
@@ -32,56 +34,48 @@ modelo =>
    printf("\n %w", Sport_Map),
 
 % Breakfast
-Breakfast = new_list(N),
-Breakfast :: 1..N,
-Breakfast = [Cereal, Egg, Omelet, Pancake, Waffle],
-Breakfast_L = ["Cereal", "Egg", "Omelet", "Pancake", "Waffle"],
-Breakfast_Map = list_to_map(Breakfast_L),
-printf("\n %w", Breakfast_Map),
+   Breakfast = new_list(N),
+   Breakfast :: 1..N,
+   Breakfast = [Cereal, Egg, Omelet, Pancake, Waffle],
+   Breakfast_L = ["Cereal", "Egg", "Omelet", "Pancake", "Waffle"],
+   Breakfast_Map = list_to_map(Breakfast_L),
+   printf("\n %w", Breakfast_Map),
 
 %% Job
-Job = new_list(N),
-Job :: 1..N,
-Job = [Builder, Chef, Doctor, Farmer, Policeman],
-Job_L = ["Builder", "Chef", "Doctor", "Farmer", "Policeman"],
-Job_Map = list_to_map(Job_L),
-printf("\n %w", Job_Map),
-
+   Job = new_list(N),
+   Job :: 1..N,
+   Job = [Builder, Chef, Doctor, Farmer, Policeman],
+   Job_L = ["Builder", "Chef", "Doctor", "Farmer", "Policeman"],
+   Job_Map = list_to_map(Job_L),
+   printf("\n %w", Job_Map),
 
 %% Flower
-Flower = new_list(N),
-Flower :: 1..N,
-Flower = [Bouquet, Hibiscus, Hyacinth, Lotus, Tulip],
-Flower_L = ["Bouquet", "Hibiscus", "Hyacinth", "Lotus", "Tulip"],
-Flower_Map = list_to_map(Flower_L),
-printf("\n %w", Flower_Map),
-
-
+   Flower = new_list(N),
+   Flower :: 1..N,
+   Flower = [Bouquet, Hibiscus, Hyacinth, Lotus, Tulip],
+   Flower_L = ["Bouquet", "Hibiscus", "Hyacinth", "Lotus", "Tulip"],
+   Flower_Map = list_to_map(Flower_L),
+   printf("\n %w", Flower_Map),
 
 %% Vegetable
-Vegetable = new_list(N),
-Vegetable :: 1..N,
-Vegetable = [Corn, Eggplant, Onion, Pepper, Tomato],
-Vegetable_L = ["Corn", "Eggplant", "Onion", "Pepper", "Tomato"],
-Vegetable_Map = list_to_map(Vegetable_L),
-printf("\n %w", Vegetable_Map),
+   Vegetable = new_list(N),
+   Vegetable :: 1..N,
+   Vegetable = [Corn, Eggplant, Onion, Pepper, Tomato],
+   Vegetable_L = ["Corn", "Eggplant", "Onion", "Pepper", "Tomato"],
+   Vegetable_Map = list_to_map(Vegetable_L),
+   printf("\n %w", Vegetable_Map),
 
 %% Tree
-Tree = new_list(N),
-Tree :: 1..N,
-Tree = [Bamboo, Maple, Oak, Palm, Spruce],
-Tree_L = ["Bamboo", "Maple", "Oak", "Palm", "Spruce"],
-Tree_Map = list_to_map(Tree_L),
-printf("\n %w", Tree_Map),
+   Tree = new_list(N),
+   Tree :: 1..N,
+   Tree = [Bamboo, Maple, Oak, Palm, Spruce],
+   Tree_L = ["Bamboo", "Maple", "Oak", "Palm", "Spruce"],
+   Tree_Map = list_to_map(Tree_L),
+   printf("\n %w", Tree_Map),
 
 
+%%%%%%%%%%%%%%%%%% Constrainst start here %%%%%%%%%%%%%%%%%%%%
 
-
-
-
-%%%%%%%%%%%%%%%%%% Inicio das Restrições %%%%%%%%%%%%%%%%%%%%
-
-%%% CODIGO para valer começa AQUI
 %%% Restrições globais ... que são HARD-CONSTRAINTs
   %%% ALL DIFFERENT: cada item ocupa uma casa distinta
   all_different(Color),
@@ -93,8 +87,7 @@ printf("\n %w", Tree_Map),
   all_different(Tree),
 
 
-%% SEM SEQUENCIA ....
-
+%% coding the rules/hints
 
 % 1. The house shaded by the Bamboo is directly to the left of the person who enjoys Waffle for breakfast.
  (Bamboo+1 #= Waffle),
@@ -108,7 +101,7 @@ printf("\n %w", Tree_Map),
 % 4. The house with the Hyacinth is somewhere to the left of the person who loves Eggplant.
 (Hyacinth #< Eggplant),
 
- %5. The person who plays Tennis is beside the Chef.
+%5. The person who plays Tennis is beside the Chef.
  ((Tennis #= Chef+1);(Tennis #= Chef-1)),
 
 %6. The house with the Hibiscus is at one of the ends.
@@ -118,35 +111,35 @@ printf("\n %w", Tree_Map),
 (Black #= Bamboo),
 
 %8. The person who plays Hockey is situated somewhere between the neighbor who loves Pancake for breakfast and the house shaded by the Palm, in that order.
-%((Hockey #> Pancake),(Hockey #< Palm)), OR directly
- (Pancake #< Hockey #< Palm), %% in that order
+ ((Pancake #< Hockey) , (Hockey #< Palm)), %% in that order
 
 %9. The one who loves Pancake for breakfast is immediately to the left of the Farmer.
-(Pancake+1 #= Farmer),
+ (Pancake+1 #= Farmer),
 
 %10. The Policeman is the man who loves Eggplant.
-(Policeman #= Eggplant),
+ (Policeman #= Eggplant),
 
 %11. The Tennis player is directly to the left of the person who enjoys Waffle for breakfast.
-(Tennis #< Waffle),
+ (Tennis+1 #= Waffle),
 
 %12. The person who loves Omelet for breakfast lives adjacent to the house with the Palm tree.
-((Omelet + 1 #= Palm);(Omelet - 1 #= Palm)),
+ ((Omelet + 1 #= Palm);(Omelet - 1 #= Palm)),
 
 %13. The neighbor who loves Tomato is somewhere to the left of the Swimming player.
-(Tomato #< Swimming),
+ (Tomato #< Swimming),
 
 %14. The person who loves Omelet for breakfast is the Policeman.
-(Omelet #= Policeman),
+ (Omelet #= Policeman),
 
 %15. The man who plays Baseball is immediately to the left of the White house.
-(Baseball + 1 #= White),
+ (Baseball + 1 #= White),
 
 %16. The Corn fan is immediately to the left of the Farmer.
-(Corn + 1 #= Farmer),
+ (Corn + 1 #= Farmer),
 
 %17. The person who loves Eggplant is situated somewhere between the one who plays Baseball and the one who enjoys Onion, in that order.
-(Baseball #< Eggplant #< Onion),
+((Baseball #< Eggplant) , (Eggplant #< Onion)),
+%%%%(Baseball #< Eggplant #< Onion), NOT ALLOWED
 
 %18. The Doctor lives in the house with the Bouquet garden.
 (Doctor #= Bouquet),

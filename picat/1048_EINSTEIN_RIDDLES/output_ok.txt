@@ -1,0 +1,25 @@
+
+ (map)[1 = Black,2 = Green,3 = Red,4 = White,5 = Yellow]
+ (map)[1 = Baseball,2 = Golf,3 = Hockey,4 = Swimming,5 = Tennis]
+ (map)[1 = Cereal,2 = Egg,3 = Omelet,4 = Pancake,5 = Waffle]
+ (map)[1 = Builder,2 = Chef,3 = Doctor,4 = Farmer,5 = Policeman]
+ (map)[1 = Bouquet,2 = Hibiscus,3 = Hyacinth,4 = Lotus,5 = Tulip]
+ (map)[1 = Corn,2 = Eggplant,3 = Onion,4 = Pepper,5 = Tomato]
+ (map)[1 = Bamboo,2 = Maple,3 = Oak,4 = Palm,5 = Spruce]
+color = [4,3,5,2,1]
+sport = [1,5,3,2,4]
+breakfast = [3,1,4,2,5]
+job = [2,5,1,3,4]
+flower = [1,5,3,4,2]
+vegetable = [2,4,5,3,1]
+tree = [4,1,3,5,2]
+Solução:
+
+House | Color | Sport | Breakfast | Job | Flower | Vegetable | Tree
+----------------------------------------------------------------
+1 | Yellow | Baseball | Egg | Doctor | Bouquet | Tomato | Maple
+2 | White | Swimming | Pancake | Builder | Tulip | Corn | Spruce
+3 | Green | Hockey | Cereal | Farmer | Hyacinth | Pepper | Oak
+4 | Black | Tennis | Omelet | Policeman | Lotus | Eggplant | Bamboo
+5 | Red | Golf | Waffle | Chef | Hibiscus | Onion | Palm
+----------------------------------------------------------------
