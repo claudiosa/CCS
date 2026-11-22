@@ -38,7 +38,7 @@ main => printf("\n Please, revise your model").
 cover_vertex_MIN(N, Edges) = K =>
     X = new_list(N),
     X :: 0..1,
-    K_min :: 1..N,
+    K_min :: 0..N,
     foreach({I,J} in Edges)
         X[I] + X[J] #>= 1
     end,

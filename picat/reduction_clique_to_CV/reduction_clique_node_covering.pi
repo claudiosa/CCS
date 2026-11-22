@@ -1,0 +1,105 @@
+/*
+Entendi, e o raciocínio está correto. Resumindo:
+
+Problema de decisão: dado um grafo G = (V, E) com n vértices e um inteiro k, G tem uma clique de tamanho k?
+Redutor polinomial: constrói o grafo complemento Ḡ (mesmos vértices, com aresta exatamente onde G não tem) e define k’ = n − k.
+Equivalência: G tem clique de tamanho k ⇔ Ḡ tem cobertura por vértices de tamanho n − k. Isso vale porque, se C é clique em G, nenhuma aresta de Ḡ liga dois vértices de C. Logo V \ C toca todas as arestas de Ḡ.
+Conclusão: Clique ≤p CV. Como Clique é NP-completo e a redução é polinomial (construir Ḡ custa O(n²)), CV é NP-difícil. Como CV está em NP, é NP-completo.
+
+Um detalhe de ordem: na prova, o solver 
+de CV entra como uma “caixa-preta”. 
+A redução só transforma a instância 
+(G, k) em (Ḡ, n − k) e interpreta a resposta.
+ Para o exemplo em PICAT, dá para mostrar as duas
+ pontas: o redutor e um solver de CV 
+(por exemplo com o módulo cp ou sat). 
+A clique volta como o complemento da 
+cobertura encontrada, e uma verificação direta 
+em G confirma que ela é de fato uma clique.
+*/
+
+/*
+  Redução polinomial: CLIQUE <=p COBERTURA POR VÉRTICES (CV)
+
+  Entrada de Clique : grafo G = (V, E) com n vértices e um inteiro k
+  Saída da redução  : grafo complemento G' e k' = n - k
+
+  Teorema: G tem clique de tamanho k  <=>  G' tem CV de tamanho n - k
+
+  Ideia: se C é clique em G, nenhuma aresta de G' liga dois vértices de C.
+         Então toda aresta de G' tem pelo menos uma ponta em V \ C,
+         ou seja, V \ C é uma cobertura por vértices de G'.
+
+  Execução: picat clique_para_cv.pi
+*/
+import cp.
+
+% ---------------------------------------------------------------
+% Passo 0: o grafo G (vértices 1..N, arestas como {U,V})
+% ---------------------------------------------------------------
+grafo(5, [{1,2},{1,3},{2,3},{3,4},{3,5},{4,5}]).
+
+% ---------------------------------------------------------------
+% Passo 1: o REDUTOR (tempo O(n^2)) -> constrói G' e k' = n - k
+% ---------------------------------------------------------------
+complement_G(N, Arestas) =
+ [{I,J} : I in 1..N, J in I+1..N, not has_edge(I, J, Arestas)].
+
+has_edge(I, J, Arestas) =>
+    ( member({I,J}, Arestas) ; member({J,I}, Arestas) ).
+
+nodes(N, Arestas) = remove_dups([I : I in 1..N, J in 1..N,
+    ( member({I,J}, Arestas) ; member({J,I}, Arestas) )]).
+
+
+cover_vertex_MIN(N, Edges) = K =>
+    X = new_list(N),
+    X :: 0..1,
+    K_min :: 0..N,
+    foreach({I,J} in Edges)
+        X[I] + X[J] #>= 1
+    end,
+    sum(X) #= K_min,
+    solve($[min(K_min)], X),
+    %print(X),
+    K=K_min.
+
+all_cover_vertex(N, Edges, K_min) = Covers =>
+    X = new_list(N),
+    X :: 0..1,
+    foreach({I,J} in Edges) %%%% condition of covering
+        X[I] + X[J] #>= 1
+    end,
+    sum(X) #= K_min, %%% only with this line
+    Solutions = findall(X, solve(X)),
+    Covers = [[I : I in 1..N, Sol[I] == 1] : Sol in Solutions].
+
+% ---------------------------------------------------------------
+eh_clique(Clique, Arestas) =>
+    foreach(I in Clique, J in Clique, I < J)
+        has_edge(I, J, Arestas)
+    end.
+
+main =>
+    grafo(N, Arestas),
+    printf("G: n = %d, arestas = %w\n\n", N, Arestas),
+    G_Compl = complement_G(N,Arestas),
+    printf("\n The complement of G is: %w\n", G_Compl ),
+    printf("\n Nodes: %w ", nodes(N, G_Compl) ),
+    % Minimum Vertex Cover of Complementary Graph
+    K_VC = cover_vertex_MIN(N, G_Compl),
+    printf("\n K_VC is: %w " , K_VC),
+
+    % Recover Maximum Clique
+    K_Clique = N - K_VC,
+    printf("\n Maximum Clique Size: %w\n", K_Clique),
+    Covers = all_cover_vertex(N, G_Compl, K_VC),
+
+    printf("\n Maximum Cliques:\n"),
+
+    foreach(Cover in Covers)
+        Clique = [I : I in 1..N, not member(I, Cover)],
+        printf("  %w\n", Clique)
+    end.
+
+/* ############# */
