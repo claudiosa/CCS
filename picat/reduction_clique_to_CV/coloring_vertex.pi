@@ -1,0 +1,71 @@
+%% Coloring Vertex 
+
+import cp.
+
+% ---------------------------------------------------------------
+% Step : the graph G (vertices 1..N, edges as {U,V})
+% ---------------------------------------------------------------
+graph(5, [{1,2},{1,3},{2,3},{3,4},{3,5},{4,5}]).
+
+main ?=>
+    graph(N, Edges),
+    printf("G: n = %d, Edges = %w", N, Edges),
+    color_vertex(N, Edges,  K_min, Sols),
+    printf("\n Size Color Vertex (MIN): %w", K_min),
+    printf("\n All Sols of Coloring with MIN Colors: %w", Sols ),
+    printf("\n Number of Sols: %w", length(Sols) ).
+
+main => printf("\n Please, revise your model").
+
+% ---------------------------------------------------------------
+%  COLORING Vertex 
+%
+%  Goal: color every vertex of G so that adjacent vertices get
+%  different colors, using the SMALLEST possible number of colors
+%  (the chromatic number of G).
+%
+%  Model (CP):
+%    Colors[i] in 1..N  is the color of vertex i
+%    every edge {i,j} needs Colors[i] #!= Colors[j]
+%
+%  Method:
+%    1. findall enumerates every proper coloring (up to N colors)
+%    2. shortest_lists keeps only the colorings that use the
+%       fewest distinct colors
+%    3. N_Colors = number of distinct colors in any of them
+%
+%  Note: colorings that differ only by a permutation of the color
+%  labels are counted as different solutions. Symmetry breaking
+%  (colors numbered in order of first use) would remove them.
+% ---------------------------------------------------------------
+color_vertex(N, Edges, N_Colors, Min_Sol) =>
+    Colors = new_list(N),
+    Colors :: 1..(N-1),
+
+    Colors[1] #= 1, %%% BREAKING SYMETRY
+    foreach({I,J} in Edges)
+        Colors[I] #!= Colors[J] 
+    end,
+
+    Solutions = findall(Colors, solve(Colors)),
+    %print(Solutions),
+    Min_Sol = shortest_lists(Solutions),
+    
+    %printf("\n The Sols: %w", Min_Sol ),
+    N_Colors = length(remove_dups(first(Min_Sol))).
+    %printf("\n Num colors used: %w", N_Colors).
+
+%%%%%% Inspired by Claude
+shortest_lists([]) = [].
+shortest_lists(Lists) = Shortest =>
+    K = min([length(remove_dups(L)) : L in Lists]),
+    Shortest = [L : L in Lists, length(remove_dups(L)) == K].
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+all_Sol(Sol) = All_Sol =>
+    All_Sol :=[],
+    foreach(One in Sol)
+        N := length(One),
+        All_Sol := [[I : I in 1..N, One[I] == 1]] ++ All_Sol
+    end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
