@@ -20,9 +20,9 @@ main ?=>
     end,
 
     %%% The min is calculated at the END.
-    Cs_2 = all_cover_vertex_2(N, Edges),
-    printf("\n Number of Min Covers Vertex: %d\n Here them:\n", length(Cs_2)),
-    foreach(C in Cs_2)
+    CS_2 = all_cover_vertex_2(N, Edges),
+    printf("\n Number of Min Covers Vertex: %d\n Here them:\n", length(CS_2)),
+    foreach(C in CS_2)
         printf("  %w\n", C)
     end
     .
