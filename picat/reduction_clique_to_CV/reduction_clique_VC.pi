@@ -2,6 +2,9 @@
 import cp.
 
 /* ===============================================================
+    %% Coding by CCS
+    %% Comments and help guider: Claude and GPT AI
+
    CLIQUE -> VERTEX COVER
    Reduction using the Complementary Graph
 
@@ -24,51 +27,40 @@ import cp.
    Step 0: Original graph G
 
    N       = number of vertices (1..N)
-   Arestas = undirected edges represented by {U,V}
+   Edges_G = undirected edges represented by {U,V}
 
    Assumption: simple, undirected graph, without self-loops.
    --------------------------------------------------------------- */
-
 grafo(5, [{1,2},{1,3},{2,3},{3,4},{3,5},{4,5}]).
-
 
 /* ---------------------------------------------------------------
    Step 1: Reduction - construct the complementary graph G'
-
    An edge {I,J} belongs to G' iff it does not belong to G.
-
    The complementary graph has exactly the same vertices.
-
    Complexity with the current list representation:
        O(N^2 * M), where M is the number of original edges,
        assuming linear-time member/2.
-
    With constant-time adjacency lookup, construction is O(N^2).
    --------------------------------------------------------------- */
 
-complement_G(N, Arestas) =
+complement_G(N, Edges_G) =
     [{I,J} :
         I in 1..N,
         J in I+1..N,
-        not has_edge(I,J,Arestas)].
-
+        not has_edge(I,J,Edges_G)].
 
 /* ---------------------------------------------------------------
    Check whether an undirected edge {I,J} exists in the graph.
-
    Both orientations are checked because an undirected edge may
    have been stored as either {I,J} or {J,I}.
    --------------------------------------------------------------- */
-
-has_edge(I, J, Arestas) =>
-    ( member({I,J}, Arestas)
-    ; member({J,I}, Arestas)
+has_edge(I, J, Edges_G) =>
+    ( member({I,J}, Edges_G)
+    ; member({J,I}, Edges_G)
     ).
-
 
 /* ---------------------------------------------------------------
    Return the vertices incident to at least one edge.
-
    IMPORTANT:
    This is NOT necessarily the complete vertex set.
    Isolated vertices are not included.
@@ -76,29 +68,21 @@ has_edge(I, J, Arestas) =>
    This function is used only for displaying graph information.
    It is not needed by the reduction itself.
    --------------------------------------------------------------- */
-
-nodes(N, Arestas) =
+nodes(N, Edges_G) =
     remove_dups(
         [I : I in 1..N,
              J in 1..N,
-             ( member({I,J}, Arestas)
-             ; member({J,I}, Arestas) )]
+             ( member({I,J}, Edges_G)
+             ; member({J,I}, Edges_G) )]
     ).
-
 
 /* ---------------------------------------------------------------
    Step 2: VERTEX COVER - Minimum Cover (Optimization)
-
    X[I] = 1 iff vertex I belongs to the Vertex Cover.
-
    Every edge {I,J} must have at least one selected endpoint:
-
        X[I] + X[J] >= 1
-
    Objective:
-
        Minimize sum(X)
-
    K_min is the minimum number of vertices required to cover
    every edge in the graph.
 
@@ -106,10 +90,8 @@ nodes(N, Arestas) =
    --------------------------------------------------------------- */
 
 cover_vertex_MIN(N, Edges) = K =>
-
     X = new_list(N),
     X :: 0..1,
-
     K_min :: 0..N,
 
     foreach({I,J} in Edges)
@@ -117,22 +99,16 @@ cover_vertex_MIN(N, Edges) = K =>
     end,
 
     sum(X) #= K_min,
-
     solve($[min(K_min)], X),
-
     K = K_min.
-
 
 /* ---------------------------------------------------------------
    Step 3: Enumerate ALL minimum Vertex Covers.
 
    The parameter K_min is already known from the optimization
    performed in cover_vertex_MIN/2.
-
    The constraint:
-
        sum(X) #= K_min
-
    ensures that only minimum covers are enumerated.
 
    Each solution is converted from a binary vector into a list
@@ -140,36 +116,27 @@ cover_vertex_MIN(N, Edges) = K =>
    --------------------------------------------------------------- */
 
 all_cover_vertex(N, Edges, K_min) = Covers =>
-
     X = new_list(N),
     X :: 0..1,
-
     foreach({I,J} in Edges)
         X[I] + X[J] #>= 1
     end,
-
     sum(X) #= K_min,
-
     Solutions = findall(X, solve(X)),
-
     Covers =
         [[I : I in 1..N, Sol[I] == 1] : Sol in Solutions].
-
 
 /* ---------------------------------------------------------------
    Step 4: Recover a Clique from a Vertex Cover.
 
    If Cover is a Vertex Cover in G', its complement V - Cover
    is an Independent Set in G'.
-
    Since G' is the complement of G, this set is a Clique in G.
-
        Clique = V - Cover
    --------------------------------------------------------------- */
 
 clique_from_cover(N, Cover) =
     [I : I in 1..N, not member(I,Cover)].
-
 
 /* ---------------------------------------------------------------
    Optional validation: check whether a given set of vertices
@@ -178,10 +145,9 @@ clique_from_cover(N, Cover) =
    Every pair of distinct vertices must be adjacent.
    --------------------------------------------------------------- */
 
-eh_clique(Clique, Arestas) =>
-
+eh_clique(Clique, Edges_G) =>
     foreach(I in Clique, J in Clique, I < J)
-        has_edge(I, J, Arestas)
+        has_edge(I, J, Edges_G)
     end.
 
 
@@ -192,58 +158,51 @@ eh_clique(Clique, Arestas) =>
 main =>
 
     /* Step 0: Original graph */
-    grafo(N, Arestas),
+    grafo(N, Edges_G),
 
     printf("Original graph G:\n"),
-    printf("N = %d, Edges = %w\n", N, Arestas),
-
+    printf("N = %d, Edges = %w\n", N, Edges_G),
 
     /* Step 1: Build the complementary graph */
-    G_Compl = complement_G(N, Arestas),
-
+    G_Compl = complement_G(N, Edges_G),
     printf("\nComplementary graph G':\n"),
     printf("Edges = %w\n", G_Compl),
 
-    printf("\nVertices incident to edges: %w\n",
-           nodes(N, G_Compl)),
-
+    printf("\nVertices incident to edges: %w\n", nodes(N, G_Compl)),
 
     /* Step 2: Find the minimum Vertex Cover in G' */
     K_VC = cover_vertex_MIN(N, G_Compl),
 
     printf("\nMinimum Vertex Cover Size: %w\n", K_VC),
 
-
     /* Step 3: Recover the maximum Clique size in G */
     K_Clique = N - K_VC,
 
     printf("Maximum Clique Size: %w\n", K_Clique),
 
-
     /* Step 4: Enumerate all minimum Vertex Covers */
     Covers = all_cover_vertex(N, G_Compl, K_VC),
-
     printf("\nMinimum Vertex Covers:\n"),
 
     foreach(Cover in Covers)
-        printf("  %w\n", Cover)
+        printf("\n The cover:  %w", Cover),
+        printf("\n V - Smin is a K_max : %w - %w",nodes(N,Edges_G),Cover ),
+        printf("\n OR clique_from_cover(V, Cover): %w ", clique_from_cover(N, Cover))
+
     end,
 
-
     /* Step 5: Recover all maximum Cliques */
-    printf("\nMaximum Cliques:\n"),
-
+    printf("\n Checking these Maximum Cliques:\n"),
     foreach(Cover in Covers)
 
         Clique = clique_from_cover(N, Cover),
 
         /* Validate the recovered clique */
-        if eh_clique(Clique, Arestas) then
+        if eh_clique(Clique, Edges_G) then
             printf("  %w\n", Clique)
         else
             printf("  ERROR: Invalid clique %w\n", Clique)
         end
 
     end,
-
     printf("\nReduction completed successfully.\n").
