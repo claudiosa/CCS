@@ -1,0 +1,180 @@
+%% by CCS 
+%% this code was fixed by Claude
+%% due a findall of PICAT so it was divide in two clauses
+%%
+
+
+import cp.
+
+/* ===============================================================
+   CLIQUE -> VERTEX COVER
+   Enumerate ALL cliques of size 1..N.
+
+   Reduction using the complementary graph.
+
+   Mathematical properties:
+
+       S is a Clique in G
+       iff
+       V - S is a Vertex Cover in G'
+
+   Therefore:
+
+       Clique Size = N - Vertex Cover Size
+
+   We enumerate Vertex Covers of sizes 0..N-1.
+   Each Vertex Cover corresponds to exactly one clique
+   of size N..1 in the original graph.
+   =============================================================== */
+
+/* ---------------------------------------------------------------
+   Step 0: Original graph G
+   --------------------------------------------------------------- */
+grafo(5, [{1,2},{1,3},{2,3},{3,4},{3,5},{4,5}]).
+
+/* ---------------------------------------------------------------
+   Step 1: Construct the complementary graph G'
+   An edge belongs to G' iff it does not belong to G.
+   G and G' have exactly the same vertices.
+   --------------------------------------------------------------- */
+complement_G(N, Edges_G) =
+    [{I,J} :
+        I in 1..N,
+        J in I+1..N,
+        not has_edge(I,J,Edges_G)].
+
+/* Check whether an undirected edge exists. */
+has_edge(I, J, Edges_G) =>
+    ( member({I,J}, Edges_G)
+    ; member({J,I}, Edges_G)
+    ).
+
+/* Return vertices incident to at least one edge. */
+nodes(N, Edges_G) =
+    remove_dups(
+        [I : I in 1..N,
+             J in 1..N,
+             ( member({I,J}, Edges_G)
+             ; member({J,I}, Edges_G) )]
+    ).
+
+/* ---------------------------------------------------------------
+   Step 2: Enumerate ALL Vertex Covers of a specified size.
+
+   K_VC = desired number of selected vertices.
+   X[I] = 1 iff vertex I belongs to the Vertex Cover.
+   Every edge must have at least one selected endpoint:
+       X[I] + X[J] >= 1
+
+   The equality:
+       sum(X) = K_VC
+   guarantees that only covers of the requested size are found.
+
+   IMPORTANT:
+   This function does NOT minimize the Vertex Cover.
+   It enumerates all covers with exactly K_VC vertices.
+   --------------------------------------------------------------- */
+vc_model(N, Edges, K, X) =>
+    X = new_list(N),
+    X :: 0..1,
+    foreach({I,J} in Edges)
+        X[I] + X[J] #>= 1
+    end,
+    sum(X) #= K,
+    solve(X).
+
+all_cover_vertex(N, Edges, K) = Covers =>
+    Solutions = findall(X, vc_model(N, Edges, K, X)),
+    Covers = [[I : I in 1..N, Sol[I] == 1] : Sol in Solutions].
+
+/* ---------------------------------------------------------------
+   Step 3: Recover a Clique from a Vertex Cover.
+
+   Clique = V - Cover
+   The complement of a Vertex Cover is an Independent Set.
+   In the complementary graph, this Independent Set is a Clique
+   in the original graph G.
+   --------------------------------------------------------------- */
+clique_from_cover(N, Cover) =
+    [I : I in 1..N, not member(I,Cover)].
+
+/* ---------------------------------------------------------------
+   Step 4: Validate a Clique in the original graph.
+
+   Every pair of distinct vertices must be adjacent.
+   --------------------------------------------------------------- */
+eh_clique(Clique, Edges_G) =>
+
+    foreach(I in Clique, J in Clique, I < J)
+        has_edge(I,J,Edges_G)
+    end.
+
+
+/* ===============================================================
+   MAIN
+
+   Enumerate all Vertex Covers of sizes 0..N-1.
+
+   For each cover:
+       1. Recover the corresponding Clique.
+       2. Calculate its size.
+       3. Validate the Clique.
+       4. Print the solution.
+
+   K_VC = 0 corresponds to a clique of size N.
+   K_VC = N-1 corresponds to a clique of size 1.
+   =============================================================== */
+
+main =>
+
+    grafo(N, Edges_G),
+
+    printf("Original graph G:\n"),
+    printf("N = %d, Edges = %w\n", N, Edges_G),
+
+    /* Construct complementary graph */
+    G_Compl = complement_G(N, Edges_G),
+
+    printf("\nComplementary graph G':\n"),
+    printf("Edges = %w\n", G_Compl),
+
+    printf("\nVertices incident to edges: %w\n",
+           nodes(N, G_Compl)),
+
+    printf("\n====================================\n"),
+    printf(" ENUMERATION OF ALL CLIQUES\n"),
+    printf("====================================\n"),
+
+    /* Enumerate covers from 0 to N-1 vertices */
+    foreach(K_VC in 0..(N-1))
+         
+        /* Find all covers of exactly K_VC vertices */
+        Covers = all_cover_vertex(N, G_Compl, K_VC),
+        
+        /* Corresponding clique size */
+        K_Clique = N - K_VC,
+        printf("\n Covers: %w K_VC: %w K_Clique: %w", Covers, K_VC, K_Clique),
+
+        if Covers != [] then
+
+            printf("\n Clique size = %d\n", K_Clique),
+
+            foreach(Cover in Covers)
+
+                /* Recover the corresponding clique */
+                Clique = clique_from_cover(N, Cover),
+
+                /* Validate the recovered clique */
+                if eh_clique(Clique, Edges_G) then
+                    printf(" ck: %w\n", Clique)
+                else
+                    printf("  ERROR: Invalid clique %w\n", Clique)
+                end
+
+            end
+
+        end
+
+    end,
+
+    printf("\nEnumeration completed.\n").
